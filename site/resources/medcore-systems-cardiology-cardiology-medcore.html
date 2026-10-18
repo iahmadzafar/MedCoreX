@@ -534,27 +534,6 @@ html[data-mode="dark"] .sficon[class*="-navy"], html[data-mode="dark"] .sficon[c
 @media (max-width:1150px){ #nxStudy{ display:none } }
 @media (max-width:1040px){ #nxSideToggle{ display:none } }
 
-/* chart */
-.mx-chart{ margin:20px 0; }
-.mx-chart svg{ width:100%; height:auto; display:block }
-.mx-nd{ fill:var(--card); stroke:var(--rim2); stroke-width:1.2 }
-.mx-entry{ stroke:var(--a1) }
-.mx-dec{ stroke:var(--a1); stroke-width:1.5 }
-.mx-path{ stroke:var(--good) }
-.mx-rail{ stroke:var(--rim2); stroke-width:2.6 }
-.mx-rail-a{ stroke:var(--a1) }
-.mx-rail-m{ stroke:var(--good) }
-.mx-rail-t{ stroke:var(--no) }
-.mx-t1{ fill:var(--txt); font:600 12.5px/1.3 Inter,Segoe UI,sans-serif }
-.mx-t2{ fill:var(--muted); font:11px/1.35 JetBrains Mono,monospace }
-.mx-lab{ fill:var(--a1); font:700 10px/1 JetBrains Mono,monospace; letter-spacing:1.6px }
-.mx-lab-m{ fill:var(--good); font:700 10px/1 JetBrains Mono,monospace; letter-spacing:1.6px }
-.mx-lab-t{ fill:var(--no); font:700 10px/1 JetBrains Mono,monospace; letter-spacing:1.6px }
-.mx-edge{ stroke:var(--rim2); stroke-width:1.6; fill:none }
-.mx-dash{ stroke-dasharray:5 4 }
-.mx-eh{ fill:var(--muted) }
-.mx-chip{ fill:var(--card2); stroke:var(--rim); stroke-width:1 }
-.mx-ct{ fill:var(--txt2); font:10.5px/1.3 JetBrains Mono,monospace }
 </style>
 </head>
 <body><header class="nx-top">
@@ -595,46 +574,7 @@ html[data-mode="dark"] .sficon[class*="-navy"], html[data-mode="dark"] .sficon[c
   
   
   <h2>Acute Coronary Syndrome (ACS)</h2>
-<figure class="mx-chart"><svg viewBox="0 0 1040 648" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ACS first ten minutes flow">
-<defs><marker id="mxah" viewBox="0 0 10 10" refX="8.4" refY="5" markerWidth="6.4" markerHeight="6.4" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="mx-eh"/></marker></defs>
-<rect class="mx-nd mx-entry" x="20" y="30" width="150" height="54"/><rect class="mx-rail mx-rail-a" x="20" y="30" width="3" height="54"/>
-<text class="mx-t1" x="34" y="52">ED arrival</text>
-<text class="mx-lab" x="34" y="70">CHEST PAIN</text>
-<path class="mx-edge" d="M170 57 H208" marker-end="url(#mxah)"/>
-<rect class="mx-nd" x="212" y="30" width="256" height="54"/><rect class="mx-rail mx-rail-a" x="212" y="30" width="3" height="54"/>
-<text class="mx-t1" x="226" y="52">ASPIRIN 300 mg — chew</text>
-<text class="mx-t2" x="226" y="70">before the ECG · time = muscle</text>
-<path class="mx-edge" d="M468 57 H506" marker-end="url(#mxah)"/>
-<rect class="mx-nd mx-dec" x="510" y="30" width="204" height="54"/>
-<text class="mx-t1" x="524" y="52">ECG ≤ 10 min</text>
-<text class="mx-t2" x="524" y="70">ST↑ / new LBBB?</text>
-<text class="mx-lab" x="700" y="22">STEMI · YES</text>
-<path class="mx-edge" d="M714 57 H754" marker-end="url(#mxah)"/>
-<rect class="mx-nd mx-path" x="760" y="30" width="256" height="62"/><rect class="mx-rail mx-rail-m" x="760" y="30" width="3" height="62"/>
-<text class="mx-lab-m" x="774" y="50">STEMI PATHWAY</text>
-<text class="mx-t1" x="774" y="68">Primary PCI · door-to-balloon &lt; 90 min</text>
-<text class="mx-t2" x="774" y="84">best if ≤ 12 h from onset</text>
-<path class="mx-edge mx-dash" d="M888 92 V126" marker-end="url(#mxah)"/>
-<rect class="mx-nd" x="760" y="132" width="256" height="58"/><rect class="mx-rail" x="760" y="132" width="3" height="58"/>
-<text class="mx-t1" x="774" y="154">Thrombolysis — if PCI unavailable</text>
-<text class="mx-t2" x="774" y="171">needle &lt; 30 min · ideally &lt; 3 h</text>
-<rect class="mx-chip" x="760" y="206" width="256" height="30"/>
-<text class="mx-ct" x="774" y="225">never lytics when dissection suspected</text>
-<path class="mx-edge" d="M888 252 V286" marker-end="url(#mxah)"/>
-<rect class="mx-nd" x="760" y="292" width="256" height="58"/><rect class="mx-rail mx-rail-a" x="760" y="292" width="3" height="58"/>
-<text class="mx-t1" x="774" y="314">DAPT + anticoagulation</text>
-<text class="mx-t2" x="774" y="331">high-intensity statin · BB if no block</text>
-<rect class="mx-chip" x="760" y="366" width="256" height="30"/><rect class="mx-rail mx-rail-t" x="760" y="366" width="3" height="30"/>
-<text class="mx-ct" x="774" y="385">no nitrates: RV infarct / SBP &lt; 90</text>
-<text class="mx-lab-t" x="34" y="478">NO — NSTEMI / UA PATHWAY</text>
-<path class="mx-edge" d="M612 84 V500 H562" marker-end="url(#mxah)"/>
-<rect class="mx-nd" x="20" y="500" width="542" height="58"/><rect class="mx-rail mx-rail-t" x="20" y="500" width="3" height="58"/>
-<text class="mx-t1" x="34" y="522">Antiplatelet + anticoagulation — then strategy by risk</text>
-<text class="mx-t2" x="34" y="539">high risk → invasive ≤ 24 h · lower risk → 72 h</text>
-<rect class="mx-chip" x="20" y="590" width="996" height="30"/>
-<text class="mx-lab-t" x="34" y="609">TRAPS</text>
-<text class="mx-ct" x="112" y="609">NSAIDs ↔ ↑ mortality · cocaine MI → no β-blocker (benzos + nitrates + CCB) · dissection suspected → no lytics</text>
-</svg></figure>
+
 
 
   <div class="box core">
