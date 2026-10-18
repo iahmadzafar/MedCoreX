@@ -115,8 +115,13 @@ main{flex:1;display:flex;align-items:center;justify-content:center;padding:48px 
     if(j&&j.ok&&j.user){ location.replace(dest()); }
   }).catch(function(){});
   function dest(){
-    var p=new URLSearchParams(location.search).get('next')||'/library';
-    return p.indexOf('/')===0&&p.indexOf('//')!==0?p:'/library';
+    // browsers strip tab/newline anywhere in a URL, so '/\t/evil.com'
+    // normalises to '//evil.com' — strip them before the same-origin test
+    var p=(new URLSearchParams(location.search).get('next')||'/library').replace(/[\t\n\r\0]/g,'');
+    // same-origin only: must start with '/', and never a protocol-relative
+    // or backslash trick ('//evil.com' and '/\evil.com' both navigate off-origin)
+    if(p.indexOf('/')===0&&p.indexOf('//')!==0&&p.indexOf('\\')<0) return p;
+    return '/library';
   }
   f.addEventListener('submit',function(e){
     e.preventDefault();

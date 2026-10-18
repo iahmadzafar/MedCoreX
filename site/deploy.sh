@@ -19,12 +19,23 @@ export CLOUDFLARE_API_TOKEN
 
 # 1. First-run bootstrap: create the D1 database if we don't have its id yet.
 if grep -q "REPLACED_BY_BOOTSTRAP" wrangler.toml; then
-  echo "first run — creating D1 database ${DB}…"
-  OUT="$(npx --yes wrangler@latest d1 create "$DB")"
-  ID="$(printf '%s' "$OUT" | grep -io 'database_id = "[a-f0-9-]*"\|[a-f0-9]\{8\}-[a-f0-9]\{4\}-[a-f0-9]\{4\}-[a-f0-9]\{4\}-[a-f0-9]\{12\}' | grep -E '^[a-f0-9]{8}-' | head -1)"
-  if [ -z "$ID" ]; then echo "could not read database_id from wrangler output:"; echo "$OUT"; exit 1; fi
+  echo "first run — checking D1 database ${DB}…"
+  OUT="$(npx --yes wrangler@latest d1 create "$DB" 2>&1 || true)"
+  # Real wrangler output prints the uuid only in quoted form: database_id = "uuid"
+  ID="$(printf '%s' "$OUT" | sed -n 's/.*database_id *= *"\([a-f0-9][a-f0-9-]*\)".*/\1/p' | head -1)"
+  if [ -z "$ID" ]; then
+    echo "create failed (probably already exists) — resolving id from d1 list…"
+    ID="$(npx --yes wrangler@latest d1 list --json 2>/dev/null | python3 -c "
+import json,sys
+try:
+    rows=json.load(sys.stdin)
+    print(next((r['uuid'] for r in rows if r.get('name')=='${DB}'),''))
+except Exception:
+    print('')")"
+  fi
+  if [ -z "$ID" ]; then echo "could not resolve database_id for ${DB}. wrangler said:"; echo "$OUT"; exit 1; fi
   sed -i.bak-d1 "s|REPLACED_BY_BOOTSTRAP|${ID}|" wrangler.toml && rm -f wrangler.toml.bak-d1
-  echo "d1 database created: ${ID}"
+  echo "d1 database resolved: ${ID}"
 fi
 
 # 2. Schema (idempotent — CREATE IF NOT EXISTS).

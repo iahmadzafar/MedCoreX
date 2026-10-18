@@ -22,7 +22,8 @@ export async function onRequestGet({ request, env }) {
   const path = url.pathname;
 
   if (!ok) {
-    if (request.headers.get('Accept') === 'application/json' || url.searchParams.get('fmt') === 'json') {
+    const accept = request.headers.get('Accept') || '';
+    if (accept.indexOf('application/json') >= 0 || url.searchParams.get('fmt') === 'json') {
       return new Response(JSON.stringify({ ok: false, error: 'The file opens after signing in.' }), {
         status: 401,
         headers: { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store' }

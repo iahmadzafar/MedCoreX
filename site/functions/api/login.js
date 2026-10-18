@@ -15,6 +15,8 @@ export async function onRequestPost({ request, env }) {
   if (h !== u.pass_hash) return bad('Incorrect email or password.', 401);
 
   const token = await createSession(env, u.id);
+  // housekeeping: sweep dead sessions so the table doesn't grow forever
+  await env.medlibx_db.prepare('DELETE FROM sessions WHERE expires_at < ?').bind(Date.now()).run();
   return json({ ok: true, user: { id: u.id, email: u.email, username: u.username } }, 200, { 'Set-Cookie': setSessionCookie(token), ...cors() });
 }
 

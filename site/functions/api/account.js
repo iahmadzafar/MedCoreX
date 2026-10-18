@@ -1,4 +1,4 @@
-import { json, bad, options, cors, hashPassword, validUsername, getUser } from './_util.js';
+import { json, bad, options, cors, hashPassword, validUsername, getUser, readCookie } from './_util.js';
 
 export const onRequestOptions = () => options();
 
@@ -18,7 +18,12 @@ export async function onRequestPatch({ request, env }) {
     if (RESERVED.has(username)) return bad('That username is reserved. Pick another.', 409);
     const taken = await env.medlibx_db.prepare('SELECT id FROM users WHERE username=?').bind(username).first();
     if (taken && taken.id !== u.id) return bad('That username is already taken.', 409);
-    await env.medlibx_db.prepare('UPDATE users SET username=? WHERE id=?').bind(username, u.id).run();
+    try {
+      await env.medlibx_db.prepare('UPDATE users SET username=? WHERE id=?').bind(username, u.id).run();
+    } catch (e) {
+      // UNIQUE race — a concurrent signup claimed the name between check and write.
+      return bad('That username is already taken.', 409);
+    }
     return json({ ok: true, username }, 200, cors());
   }
 
@@ -32,6 +37,15 @@ export async function onRequestPatch({ request, env }) {
     const salt = crypto.randomUUID().replace(/-/g, '').slice(0, 16);
     const pass_hash = await hashPassword(next, salt);
     await env.medlibx_db.prepare('UPDATE users SET pass_hash=?, salt=? WHERE id=?').bind(pass_hash, salt, u.id).run();
+    // New lock: older sessions die. The device making the change keeps its seat.
+    const keep = readCookie(request);
+    try {
+      if (keep) {
+        await env.medlibx_db.prepare('DELETE FROM sessions WHERE user_id=? AND token != ?').bind(u.id, keep).run();
+      } else {
+        await env.medlibx_db.prepare('DELETE FROM sessions WHERE user_id=?').bind(u.id).run();
+      }
+    } catch {}
     return json({ ok: true }, 200, cors());
   }
 

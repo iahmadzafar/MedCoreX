@@ -64,8 +64,28 @@ export async function onRequestPost({ request, env }) {
   const id = newId();
   const salt = newToken().slice(0, 16);
   const pass_hash = await hashPassword(password, salt);
-  await env.medlibx_db.prepare('INSERT INTO users (id,email,username,pass_hash,salt,created_at) VALUES (?,?,?,?,?,?)')
-    .bind(id, email, username, pass_hash, salt, Date.now()).run();
+  try {
+    await env.medlibx_db.prepare('INSERT INTO users (id,email,username,pass_hash,salt,created_at) VALUES (?,?,?,?,?,?)')
+      .bind(id, email, username, pass_hash, salt, Date.now()).run();
+  } catch (e) {
+    // UNIQUE constraint fired → a concurrent signup claimed the seat first.
+    const msg = String(e && e.message || '');
+    if (/email/i.test(msg)) return bad('That email is already registered.', 409);
+    if (/username/i.test(msg)) {
+      // Re-assign from a fresh race and try once more.
+      username = await assignUsername(env, email);
+      if (!username) return bad('Could not assign a username. Try again.', 503);
+      try {
+        await env.medlibx_db.prepare('INSERT INTO users (id,email,username,pass_hash,salt,created_at) VALUES (?,?,?,?,?,?)')
+          .bind(id, email, username, pass_hash, salt, Date.now()).run();
+      } catch (e2) {
+        // Email dup raced: honest answer either way.
+        return bad('That email is already registered.', 409);
+      }
+    } else {
+      return bad('Could not create the account. Try again.', 503);
+    }
+  }
 
   const token = await createSession(env, id);
   return json({ ok: true, user: { id, email, username } }, 200, { 'Set-Cookie': setSessionCookie(token), ...cors() });
