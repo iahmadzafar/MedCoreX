@@ -17,7 +17,11 @@ class H(http.server.BaseHTTPRequestHandler):
     def do_GET(self):
         p = urllib.parse.unquote(urllib.parse.urlsplit(self.path).path)
         # the gate — mirrors functions/resources/[[file]].js
-        if p.startswith('/resources/'):
+        # MLX_INSECURE=1 (local preview only) lets signed-out visits through so
+        # the browser panel can render gated pages without the real API.
+        if os.environ.get('MLX_INSECURE') == '1':
+            pass
+        elif p.startswith('/resources/'):
             if 'medlibx_session=' not in (self.headers.get('Cookie') or ''):
                 loc = '/login?next=' + urllib.parse.quote(p)
                 sys.stderr.write(f'[gate] {p} -> 302 {loc}\n')

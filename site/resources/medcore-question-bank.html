@@ -927,6 +927,33 @@ html[data-banktheme="paper"][data-mode="light"]{ color-scheme:light;
   --lift2:0 1px 2px rgba(20,22,26,.05), 0 6px 16px -14px rgba(20,22,26,.3);
   --sbbg1:#FFFFFF; --sbbg2:#F6F6F1; --blur:0px; --sat:100%; }
 
+/* ── family: LIBRARY (MedLib X · Nexus Duo) ── */
+html[data-banktheme="library"][data-mode="dark"]{ color-scheme:dark;
+  --bg:#0C171A; --bg2:#101F23; --card:#122428; --card2:#172D31; --card3:#1C353B;
+  --rim:#1E3338; --rim2:#264248; --line:#1E3338; --line2:#2E5057;
+  --txt:#E9F1F2; --txt2:#C2D4D6; --muted:#7E979B; --muted2:#5A7276;
+  --a1:#F5A524; --a2:#FFC44D; --a3:#B87A19; --a1soft:rgba(245,165,36,.2); --a2soft:rgba(245,165,36,.14);
+  --grad:var(--a1); --grad3:var(--a1); --grad-soft:var(--a1soft);
+  --ok:#34E0A1; --okbg:rgba(52,224,161,.12); --okln:rgba(52,224,161,.4);
+  --no:#FF5470; --nobg:rgba(255,84,112,.12); --noln:rgba(255,84,112,.4);
+  --warn:#D8B44A; --warnbg:rgba(216,180,74,.1); --warnln:rgba(216,180,74,.35);
+  --edge:inset 0 1px 0 rgba(255,255,255,.04); --edge2:inset 0 1px 0 rgba(255,255,255,.03);
+  --lift:0 1px 2px rgba(0,0,0,.5), 0 10px 26px -18px rgba(0,0,0,.8);
+  --lift2:0 1px 2px rgba(0,0,0,.45), 0 6px 16px -12px rgba(0,0,0,.7);
+  --sbbg1:#101F23; --sbbg2:#0C171A; --blur:0px; --sat:100%; }
+html[data-banktheme="library"][data-mode="light"]{ color-scheme:light;
+  --bg:#FAF9F6; --bg2:#F4F2ED; --card:#FFFFFF; --card2:#FCF9F4; --card3:#F5EEE2;
+  --rim:#E9E2D2; --rim2:#DCCFB6; --line:#E9E2D2; --line2:#D7C8A9;
+  --txt:#17110A; --txt2:#4A4438; --muted:#7C6C52; --muted2:#9C8B6E;
+  --a1:#9A5B10; --a2:#B87A19; --a3:#7C4A0B; --a1soft:rgba(154,91,16,.12); --a2soft:rgba(154,91,16,.08);
+  --grad:var(--a1); --grad3:var(--a1); --grad-soft:var(--a1soft);
+  --ok:#1F7A55; --okbg:rgba(31,122,85,.1); --okln:rgba(31,122,85,.35);
+  --no:#B23A48; --nobg:rgba(178,58,72,.1); --noln:rgba(178,58,72,.35);
+  --warn:#8A6212; --warnbg:rgba(138,98,18,.1); --warnln:rgba(138,98,18,.32);
+  --edge:inset 0 1px 0 rgba(255,255,255,.9); --edge2:inset 0 1px 0 rgba(255,255,255,.75);
+  --lift:0 1px 2px rgba(20,22,26,.06), 0 10px 24px -20px rgba(20,22,26,.35);
+  --lift2:0 1px 2px rgba(20,22,26,.05), 0 6px 16px -14px rgba(20,22,26,.3);
+  --sbbg1:#FFFFFF; --sbbg2:#FBF8F2; --blur:0px; --sat:100%; }
 /* ── fully boxy: no rounded corners ── */
 body *{ border-radius:0 !important; }
 
@@ -1052,7 +1079,7 @@ html[data-mode="light"] body.wel .orb{ opacity:.3; }
         <button class="pill" id="btnBlocks" onclick="goWelcome()" title="Back to all blocks">&#9634; Blocks</button>
         <button class="pill on" id="btnPaper" onclick="setMode('paper')">Question Paper</button>
         <button class="pill" id="btnKey" onclick="setMode('key')">Answer Key</button>
-        <span class="mseg" id="themeSeg"><button type="button" data-t="ink">Ink</button><button type="button" data-t="ice">Ice</button><button type="button" data-t="copper">Copper</button><button type="button" data-t="paper">Paper</button></span><span class="mseg" id="zoomSeg"><button type="button" id="zoomOut" title="Smaller text (−)">A−</button><button type="button" id="zoomIn" title="Larger text (+)">A+</button></span><span class="fitbadge" id="fitBadge">fit…</span><div class="timer-box" id="timerBox">
+        <span class="mseg" id="themeSeg"><button type="button" data-t="library">Library</button><button type="button" data-t="ink">Ink</button><button type="button" data-t="ice">Ice</button><button type="button" data-t="copper">Copper</button><button type="button" data-t="paper">Paper</button></span><span class="mseg" id="zoomSeg"><button type="button" id="zoomOut" title="Smaller text (−)">A−</button><button type="button" id="zoomIn" title="Larger text (+)">A+</button></span><span class="fitbadge" id="fitBadge">fit…</span><div class="timer-box" id="timerBox">
           <span id="timerDisplay">00:00:00</span>
           <button class="timer-btn" id="timerBtn" onclick="toggleTimer()">&#9654;</button>
         </div>
@@ -1768,7 +1795,7 @@ if(logo) logo.onclick = goWelcome;
 /* ═══════════ MEDCORE_REDESIGN_RUNTIME — family picker + dark/light mode + auto-fit ═══════════ */
 (function(){
   var root = document.getElementById('rootHtml');
-  var FAMILIES = ['ink','ice','copper','paper'];
+  var FAMILIES = ['library','ink','ice','copper','paper'];
 
   var ZOOM = 1;
   try{ var _z = parseFloat(localStorage.getItem('medcore.bankzoom')); if(_z && _z > 0) ZOOM = Math.min(1.8, Math.max(0.7, _z)); }catch(e){}
@@ -1814,7 +1841,7 @@ if(logo) logo.onclick = goWelcome;
   })();
 
   function setFamily(f, save){
-    if(FAMILIES.indexOf(f) < 0) f = 'ink';
+    if(FAMILIES.indexOf(f) < 0) f = 'library';
     root.setAttribute('data-banktheme', f);
     if(save !== false){ try{ localStorage.setItem('medcore.banktheme', f); }catch(e){} }
     var seg = document.getElementById('themeSeg');
@@ -1837,9 +1864,9 @@ if(logo) logo.onclick = goWelcome;
     var b = e.target.closest('button[data-t]'); if(b) setFamily(b.dataset.t);
   });
 
-  var fam = 'ink', mode = 'dark';
+  var fam = 'library', mode = 'dark';
   try{
-    fam = localStorage.getItem('medcore.banktheme') || 'ink';
+    fam = localStorage.getItem('medcore.banktheme') || 'library';
     mode = localStorage.getItem('medcore.theme') === 'light' ? 'light' : 'dark';
   }catch(e){}
   setFamily(fam, false); setMode(mode, false);
