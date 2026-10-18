@@ -5,4 +5,4 @@ compatibility_date = "2025-01-01"
 [[d1_databases]]
 binding = "medlibx_db"
 database_name = "medlibx-db"
-database_id = "REPLACED_BY_BOOTSTRAP"
+database_id = "f830d37c-7098-4b80-968d-7352b12b3c66"

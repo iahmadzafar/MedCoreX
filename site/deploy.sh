@@ -11,11 +11,16 @@ PROJECT="medlibx"
 DB="medlibx-db"
 
 if [ -z "${CLOUDFLARE_API_TOKEN:-}" ]; then
-  echo "CLOUDFLARE_API_TOKEN is not set — export your Pages:Edit token first:"
-  echo "  CLOUDFLARE_API_TOKEN=xxxx ./deploy.sh"
-  exit 1
+  # No env token: OAuth login (`wrangler login`) is fine instead — it lives in
+  # ~/.wrangler and never passes through chat. Only fail if neither exists.
+  if ! npx --yes wrangler@latest whoami 2>/dev/null | grep -q "You are logged in"; then
+    echo "No CLOUDFLARE_API_TOKEN and wrangler is not logged in."
+    echo "Either: CLOUDFLARE_API_TOKEN=xxxx ./deploy.sh"
+    echo "Or:     npx wrangler login   (approve in your browser) then re-run."
+    exit 1
+  fi
+  echo "using wrangler OAuth login (no env token)"
 fi
-export CLOUDFLARE_API_TOKEN
 
 # 1. First-run bootstrap: create the D1 database if we don't have its id yet.
 if grep -q "REPLACED_BY_BOOTSTRAP" wrangler.toml; then
@@ -37,6 +42,10 @@ except Exception:
   sed -i.bak-d1 "s|REPLACED_BY_BOOTSTRAP|${ID}|" wrangler.toml && rm -f wrangler.toml.bak-d1
   echo "d1 database resolved: ${ID}"
 fi
+
+# 1b. Pages project must exist before first upload (no-op afterwards beyond a few ms).
+npx --yes wrangler@latest pages project list 2>/dev/null | grep -q "medlibx" || \
+  npx --yes wrangler@latest pages project create medlibx --production-branch=main
 
 # 2. Schema (idempotent — CREATE IF NOT EXISTS).
 npx --yes wrangler@latest d1 execute "$DB" --remote --file schema.sql
