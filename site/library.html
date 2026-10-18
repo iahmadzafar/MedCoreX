@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en" data-mode="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Library — MedLib X</title>
+<meta name="description" content="Seven groups, thirty-six files. Browse the shelf — every file opens once you are signed in.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%230C171A'/%3E%3Cpath d='M7 7l10 10M17 7L7 17' stroke='%23F5A524' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ground:#0C171A; --ground-2:#101F23; --void:#080F11;
+  --panel:#122428; --panel-2:#172D31;
+  --chalk:#E9F1F2; --chalk-2:#C2D4D6; --muted:#7E979B; --faint:#5A7276;
+  --amber:#F5A524; --mint:#34E0A1; --coral:#FF5470;
+  --line:#1E3338; --line-2:#264248; --line-3:#2E5057;
+  --serif:'Instrument Serif',Georgia,serif;
+  --body:'Newsreader',Georgia,serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+  --maxw:1020px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ground);color:var(--chalk);font-family:var(--body);font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+h1,h2,h3{font-weight:400;margin:0}
+:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+::selection{background:var(--amber);color:var(--void)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+.topbar{position:sticky;top:0;z-index:50;background:rgba(8,15,17,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.topbar-in{max-width:var(--maxw);margin:0 auto;padding:0 24px;height:60px;display:flex;align-items:center;gap:22px}
+.brand{display:flex;align-items:center;gap:9px;font-family:var(--serif);font-size:22px;line-height:1;text-decoration:none}
+.brand .glyph{width:18px;height:18px;color:var(--amber);flex:none}
+.brand .x{color:var(--amber)}
+.topnav{display:flex;gap:18px;margin-left:6px}
+.topnav a{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .15s}
+.topnav a:hover{color:var(--chalk)}
+.topnav a.here{color:var(--amber)}
+.auth{margin-left:auto;display:flex;align-items:center;gap:14px}
+.auth a{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--muted)}
+.auth a:hover{color:var(--chalk)}
+.who{font-family:var(--mono);font-size:12px;color:var(--faint);display:flex;align-items:center;gap:10px}
+.who b{color:var(--chalk-2);font-weight:500}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--mint);flex:none}
+
+main{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+.footer{border-top:1px solid var(--line);margin-top:72px;background:var(--void)}
+.foot-in{max-width:var(--maxw);margin:0 auto;padding:28px 24px 34px;display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap}
+.foot-brand{font-family:var(--serif);font-size:19px;display:inline-flex;gap:8px;align-items:center}
+.foot-brand .glyph{width:13px;height:13px;color:var(--amber)}
+.brand .x,.foot-brand .x{color:var(--amber)}
+.foot-tag{color:var(--faint);font-size:13.5px;margin:8px 0 0;max-width:360px;line-height:1.55}
+.foot-links{display:flex;gap:16px;flex-wrap:wrap;margin-left:auto;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.foot-links a{color:var(--muted);text-decoration:none}
+.foot-links a:hover{color:var(--chalk)}
+.foot-legal{width:100%;border-top:1px solid var(--line);margin-top:18px;padding-top:14px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--faint);font-family:var(--mono);font-size:11.5px;letter-spacing:.05em}
+
+/* ── page ───────────────────────────────────────────────── */
+.pagehead{padding:56px 0 8px}
+.pagehead h1{font-family:var(--serif);font-size:clamp(36px,6vw,58px);line-height:1.05}
+.pagehead .sub{color:var(--muted);max-width:660px;margin-top:6px}
+.gate-note{display:flex;align-items:center;gap:10px;margin:22px 0 0;padding:12px 16px;border:1px solid var(--line-2);border-radius:2px;background:var(--ground-2);font-family:var(--mono);font-size:12.5px;color:var(--muted);letter-spacing:.04em}
+.gate-note svg{width:15px;height:15px;color:var(--amber);flex:none}
+.gate-note a{color:var(--chalk);text-decoration:none;border-bottom:1px solid var(--line-3)}
+
+.shelfbar{position:sticky;top:60px;z-index:40;background:var(--ground);border-bottom:1px solid var(--line);padding:12px 0;margin-top:26px}
+.shelfbar-in{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+#q{flex:1 1 240px;min-width:200px;background:var(--ground-2);border:1px solid var(--line-2);color:var(--chalk);font-family:var(--mono);font-size:13px;padding:9px 12px;border-radius:2px}
+#q::placeholder{color:var(--faint)}
+#q:focus{border-color:var(--amber);outline:none}
+.count{font-family:var(--mono);font-size:12px;color:var(--faint);letter-spacing:.08em;margin-left:auto}
+.count b{color:var(--muted);font-variant-numeric:tabular-nums;font-weight:400}
+
+.grp{margin-top:44px}
+.grp-head{display:flex;align-items:baseline;gap:12px;border-bottom:1px solid var(--line);padding-bottom:8px}
+.grp-head h2{font-family:var(--serif);font-size:26px}
+.grp-head .gn{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--faint);text-transform:uppercase}
+.grp-head .gn i{color:var(--amber);font-style:normal}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
+.card{display:flex;flex-direction:column;gap:4px;border:1px solid var(--line);background:var(--ground-2);padding:16px;text-decoration:none;transition:border-color .15s}
+.card:hover{border-color:var(--amber)}
+.card h3{font-family:var(--serif);font-size:19.5px;line-height:1.25}
+.card p{margin:0;color:var(--muted);font-size:14px;line-height:1.45}
+.card .meta{margin-top:auto;padding-top:10px;display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;color:var(--faint);letter-spacing:.06em}
+.lock{width:11px;height:11px;color:var(--amber);flex:none}
+.empty{color:var(--faint);font-style:italic;margin-top:30px;display:none}
+
+@media (max-width:860px){.cards{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){
+  .cards{grid-template-columns:1fr}
+  .pagehead{padding:44px 0 4px}
+  .count{margin-left:0;width:100%;order:2}
+}
+</style>
+</head>
+<body>
+<header class="topbar"><div class="topbar-in">
+  <a class="brand" href="/"><svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 7l14 0M5 12l14 0M5 17l9 0"/></svg>MedLib&nbsp;<span class="x">X</span></a>
+  <nav class="topnav"><a class="here" href="/library">Library</a><a href="/about">About</a><a href="/faq">FAQ</a></nav>
+  <div class="auth" id="auth"><a href="/login">Sign in</a></div>
+</div></header>
+
+<main>
+  <section class="pagehead">
+    <h1>The shelf</h1>
+    <p class="sub">Seven groups, every file listable. Titles, sizes and what each one does are open reading.</p>
+    <div class="gate-note">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="4" y="10" width="16" height="10" rx="1.5"/><path d="M8 10V7a4 4 0 1 1 8 0v3"/></svg>
+      <span>Opening any file requires an account — <a href="/signup">create one</a> or <a href="/login">sign in</a>. You'll be brought straight back here.</span>
+    </div>
+  </section>
+
+  <div class="shelfbar">
+    <div class="shelfbar-in">
+      <input id="q" type="search" placeholder="Filter the shelf — title, topic, group…" aria-label="Filter resources" autocomplete="off">
+      <span class="count" id="count"></span>
+    </div>
+  </div>
+
+  <div id="shelf"></div>
+  <p class="empty" id="empty">Nothing on the shelf matches that. Try a shorter word, or the group name.</p>
+</main>
+
+<footer class="footer"><div class="foot-in">
+  <div>
+    <div class="foot-brand"><svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 7l14 0M5 12l14 0M5 17l9 0"/></svg>MedLib&nbsp;<span class="x">X</span></div>
+    <p class="foot-tag">A private study library — curated with discipline, guarded behind an account, and kept current and exact.</p>
+  </div>
+  <nav class="foot-links" aria-label="Footer">
+    <a href="/library">Library</a><a href="/about">About</a><a href="/faq">FAQ</a><a href="/signup">Create account</a><a href="/login">Sign in</a>
+  </nav>
+  <div class="foot-legal">
+    <span>© 2026 MedLib X. All rights reserved.</span>
+    <span>Files are licensed for the account holder's personal use.</span>
+  </div>
+</div></footer>
+
+<script>
+var Cats=["Core Books","Test Series & Mocks","Past Papers & Answer Keys","Exam Intelligence & Strategy","Quick Reference","Frameworks & Interactive","MedCORE Systems"];
+var Items=[
+{t:"MedCORE Study Book",d:"Every system, one volume",c:"Core Books",f:"medcore-production-master-html-medcore-master-book.html",k:9306.5},
+{t:"MCQ Architecture",d:"How the exam actually sets questions",c:"Core Books",f:"standalone-htmls-800-plus-mcq-architecture.html",k:525.9},
+{t:"Forge Cards",d:"100 high-yield cards",c:"Core Books",f:"standalone-htmls-forge-master.html",k:1181.4},
+{t:"Memory Master",d:"Recall-first core file",c:"Core Books",f:"medcore-memory-master-core.html",k:510},
+{t:"Logic-First Bank",d:"Clinical reasoning, high-yield only",c:"Core Books",f:"qbank-logic-first-high-yield-logic-first-high-yield-bank.html",k:46.3},
+{t:"MedCORE Question Bank",d:"Test series + main bank merged · six subject groups",c:"Test Series & Mocks",f:"medcore-question-bank.html",k:5301.1},
+{t:"Past Paper Hub",d:"All recalled past papers",c:"Past Papers & Answer Keys",f:"medcore-past-paper-hub.html",k:228.7},
+{t:"June 2025",d:"Verified key + distractor analysis",c:"Past Papers & Answer Keys",f:"standalone-htmls-june-2025-answer-key.html",k:107.9},
+{t:"June 2024",d:"Self-scoring",c:"Past Papers & Answer Keys",f:"standalone-htmls-june-2024-answer-key.html",k:105.2},
+{t:"December 2024",d:"Self-scoring",c:"Past Papers & Answer Keys",f:"standalone-htmls-dec-2024-answer-key.html",k:142.2},
+{t:"December 2025",d:"Corrected key",c:"Past Papers & Answer Keys",f:"standalone-htmls-dec-2025-answer-key.html",k:84.3},
+{t:"May 2026",d:"Topic breakdown",c:"Past Papers & Answer Keys",f:"standalone-htmls-may-2026-mcq-breakdown.html",k:95.4},
+{t:"Prediction Exam 2026",d:"Full sitting · 14 subjects",c:"Past Papers & Answer Keys",f:"medcore-prediction-exam.html",k:99.6},
+{t:"Prediction Exam · Key",d:"Same paper, full key",c:"Past Papers & Answer Keys",f:"medcore-prediction-exam-answer-key.html",k:99.6},
+{t:"2026 Prediction Intel",d:"What the paper will test",c:"Exam Intelligence & Strategy",f:"medcore-prediction-intelligence-report.html",k:48.2},
+{t:"Full Picture Report",d:"Whole-system map · one view of everything",c:"Exam Intelligence & Strategy",f:"medcore-system-full-picture-report.html",k:157.5},
+{t:"Pattern Analysis",d:"Four papers decoded · recurring patterns",c:"Exam Intelligence & Strategy",f:"medcore-pattern-analysis.html",k:15.8},
+{t:"High-Yield Topic Pool",d:"Where to spend your time",c:"Exam Intelligence & Strategy",f:"standalone-htmls-prediction-sheet-1-high-yield-topic-pool.html",k:73.1},
+{t:"60-Day Battle Plan",d:"Day-by-day route to exam day",c:"Exam Intelligence & Strategy",f:"standalone-htmls-60-day-battle-plan.html",k:53.6},
+{t:"Battle LMS",d:"Command centre · schedule, drills, tracking",c:"Exam Intelligence & Strategy",f:"planner-medcore-battle-lms.html",k:86.5},
+{t:"Cheat Card",d:"One-page recall sheet",c:"Quick Reference",f:"medcore-cheat-card.html",k:22},
+{t:"Magic Table",d:"Licensing thresholds · memorise once",c:"Quick Reference",f:"standalone-htmls-magic-table-medical-licensing.html",k:207.2},
+{t:"Medical Quick Ref",d:"Numerics and ranges",c:"Quick Reference",f:"standalone-htmls-medical-quick-reference-combined.html",k:2.9},
+{t:"Symptom Clusters",d:"Symptom to differential, grouped",c:"Quick Reference",f:"standalone-htmls-disease-symptom-clusters.html",k:62.1},
+{t:"Last Day Sheet",d:"Final night · highest-yield only",c:"Quick Reference",f:"side-projects-last-day-revision-sheet.html",k:62.8},
+{t:"Case Ladder",d:"Interactive clinical case practice",c:"Frameworks & Interactive",f:"standalone-htmls-case-ladder-interactive.html",k:119.1},
+{t:"Cardiology",d:"Complete system book",c:"MedCORE Systems",f:"medcore-systems-cardiology-cardiology-medcore.html",k:408.9},
+{t:"Neurology",d:"Complete system book",c:"MedCORE Systems",f:"medcore-systems-neurology-neurology-medcore.html",k:725.5},
+{t:"Respiratory",d:"Complete system book",c:"MedCORE Systems",f:"medcore-systems-respiratory-respiratory-medcore.html",k:710.1},
+{t:"Dermatology",d:"Complete system book",c:"MedCORE Systems",f:"medcore-systems-dermatology-dermatology-medcore.html",k:600.2},
+{t:"Urology",d:"Complete system book",c:"MedCORE Systems",f:"medcore-systems-urology-urology-medcore.html",k:687},
+{t:"Gynaecology",d:"Complete system book",c:"MedCORE Systems",f:"medcore-systems-gynecology-gynecology-medcore.html",k:682},
+{t:"Obstetrics",d:"Complete system book",c:"MedCORE Systems",f:"medcore-systems-obstetrics-obstetrics-medcore.html",k:468.3},
+{t:"Paediatrics",d:"Complete system book",c:"MedCORE Systems",f:"medcore-systems-pediatrics-pediatrics-medcore.html",k:432.8},
+{t:"ENT",d:"Complete system book",c:"MedCORE Systems",f:"medcore-systems-ent-ent-medcore.html",k:639},
+{t:"Ophthalmology",d:"Complete system book",c:"MedCORE Systems",f:"medcore-systems-ophthalmology-ophthalmology-medcore.html",k:641.2}
+];
+var shelf=document.getElementById('shelf'),q=document.getElementById('q'),count=document.getElementById('count'),empty=document.getElementById('empty');
+function href(it){return '/resources/'+encodeURIComponent(it.f.replace(/\.html$/i,''));}
+function esc(s){return String(s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+function fmtK(k){return k>=1000?(parseFloat((k/1000).toFixed(1))+' MB'):((Math.round(k))+' KB');}
+function render(filter){
+  var term=(filter||'').trim().toLowerCase();
+  var html='',shown=0;
+  Cats.forEach(function(cat){
+    var items=Items.filter(function(it){return it.c===cat;});
+    if(term) items=items.filter(function(it){return (it.t+' '+it.d+' '+cat).toLowerCase().indexOf(term)>=0;});
+    if(!items.length) return;
+    shown+=items.length;
+    html+='<section class="grp"><div class="grp-head"><h2>'+esc(cat)+'</h2>'
+      +'<span class="gn"><i>'+items.length+'</i> of '+Items.filter(function(x){return x.c===cat;}).length+'</span></div>';
+    html+='<div class="cards">';
+    items.forEach(function(it){
+      html+='<a class="card" href="'+href(it)+'">'
+        +'<h3>'+esc(it.t)+'</h3><p>'+esc(it.d)+'</p>'
+        +'<span class="meta"><svg class="lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><rect x="4" y="10" width="16" height="10" rx="1.5"/><path d="M8 10V7a4 4 0 1 1 8 0v3"/></svg>'
+        +esc(fmtK(it.k))+' · sign in to open</span></a>';
+    });
+    html+='</div></section>';
+  });
+  shelf.innerHTML=html;
+  empty.style.display=shown?'none':'block';
+  count.innerHTML='showing <b>'+shown+'</b> / 36';
+}
+q.addEventListener('input',function(){render(q.value);});
+render('');
+</script>
+
+<script>
+function esc2(s){return String(s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+fetch('/api/me').then(function(r){return r.json();}).then(function(j){
+  var a=document.getElementById('auth'); if(!a) return;
+  if(j&&j.ok&&j.user){
+    a.innerHTML='<span class="who"><span class="dot"></span><b>'+esc2(j.user.username)+'</b></span>'
+      +'<a href="/account">Account</a>'
+      +'<a href="#" id="out">Sign out</a>';
+    document.getElementById('out').addEventListener('click',function(e){
+      e.preventDefault(); fetch('/api/logout',{method:'POST'}).then(function(){location.href='/';});
+    });
+  }else{
+    a.innerHTML='<a href="/login">Sign in</a>';
+  }
+}).catch(function(){});
+</script>
+</body>
+</html>

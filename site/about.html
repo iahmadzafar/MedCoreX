@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en" data-mode="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About — MedLib X</title>
+<meta name="description" content="What MedLib X is, the standard it holds itself to, and how your account data is treated.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%230C171A'/%3E%3Cpath d='M7 7l10 10M17 7L7 17' stroke='%23F5A524' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ground:#0C171A; --ground-2:#101F23; --void:#080F11;
+  --panel:#122428; --panel-2:#172D31;
+  --chalk:#E9F1F2; --chalk-2:#C2D4D6; --muted:#7E979B; --faint:#5A7276;
+  --amber:#F5A524; --mint:#34E0A1; --coral:#FF5470;
+  --line:#1E3338; --line-2:#264248; --line-3:#2E5057;
+  --serif:'Instrument Serif',Georgia,serif;
+  --body:'Newsreader',Georgia,serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+  --maxw:1020px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ground);color:var(--chalk);font-family:var(--body);font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+h1,h2,h3{font-weight:400;margin:0}
+:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+::selection{background:var(--amber);color:var(--void)}
+
+.topbar{position:sticky;top:0;z-index:50;background:rgba(8,15,17,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.topbar-in{max-width:var(--maxw);margin:0 auto;padding:0 24px;height:60px;display:flex;align-items:center;gap:22px}
+.brand{display:flex;align-items:center;gap:9px;font-family:var(--serif);font-size:22px;line-height:1;text-decoration:none}
+.brand .glyph{width:18px;height:18px;color:var(--amber);flex:none}
+.brand .x{color:var(--amber)}
+.topnav{display:flex;gap:18px;margin-left:6px}
+.topnav a{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .15s}
+.topnav a:hover{color:var(--chalk)}
+.topnav a.here{color:var(--amber)}
+.auth{margin-left:auto;display:flex;align-items:center;gap:14px}
+.auth a{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--muted)}
+.auth a:hover{color:var(--chalk)}
+.who{font-family:var(--mono);font-size:12px;color:var(--faint);display:flex;align-items:center;gap:10px}
+.who b{color:var(--chalk-2);font-weight:500}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--mint);flex:none}
+
+main{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+.footer{border-top:1px solid var(--line);margin-top:72px;background:var(--void)}
+.foot-in{max-width:var(--maxw);margin:0 auto;padding:28px 24px 34px;display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap}
+.foot-brand{font-family:var(--serif);font-size:19px;display:inline-flex;gap:8px;align-items:center}
+.foot-brand .glyph{width:13px;height:13px;color:var(--amber)}
+.brand .x,.foot-brand .x{color:var(--amber)}
+.foot-tag{color:var(--faint);font-size:13.5px;margin:8px 0 0;max-width:360px;line-height:1.55}
+.foot-links{display:flex;gap:16px;flex-wrap:wrap;margin-left:auto;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.foot-links a{color:var(--muted);text-decoration:none}
+.foot-links a:hover{color:var(--chalk)}
+.foot-legal{width:100%;border-top:1px solid var(--line);margin-top:18px;padding-top:14px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--faint);font-family:var(--mono);font-size:11.5px;letter-spacing:.05em}
+
+/* ── page ───────────────────────────────────────────────── */
+.pagehead{padding:56px 0 8px}
+.pagehead h1{font-family:var(--serif);font-size:clamp(36px,6vw,58px);line-height:1.05}
+.pagehead .sub{color:var(--muted);max-width:660px;margin-top:6px}
+.prose{max-width:720px;margin-top:36px}
+.prose p{margin:0 0 1.1em;color:var(--chalk-2);font-size:16.5px}
+.prose p b{color:var(--chalk);font-weight:500}
+.prose h2{font-family:var(--serif);font-size:27px;margin:44px 0 10px}
+.prose h2::before{content:"";display:block;width:34px;height:2px;background:var(--amber);margin-bottom:14px}
+.prose .lede{font-size:20px;color:var(--chalk);line-height:1.55}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:28px 0 8px}
+.fact{border:1px solid var(--line);background:var(--ground-2);padding:16px}
+.fact .fv{font-family:var(--serif);font-size:28px}
+.fact .fv i{color:var(--amber);font-style:normal}
+.fact .fl{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin-top:4px}
+@media (max-width:560px){.facts{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<header class="topbar"><div class="topbar-in">
+  <a class="brand" href="/"><svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 7l14 0M5 12l14 0M5 17l9 0"/></svg>MedLib&nbsp;<span class="x">X</span></a>
+  <nav class="topnav"><a href="/library">Library</a><a class="here" href="/about">About</a><a href="/faq">FAQ</a></nav>
+  <div class="auth" id="auth"><a href="/login">Sign in</a></div>
+</div></header>
+
+<main>
+  <section class="pagehead">
+    <h1>About</h1>
+    <p class="sub">What this place is, why it's locked, and how it treats the person who signs in.</p>
+  </section>
+
+  <div class="facts">
+    <div class="fact"><div class="fv"><i>36</i> files</div><div class="fl">Seven groups</div></div>
+    <div class="fact"><div class="fv"><i>1</i> standard</div><div class="fl">Held without exception</div></div>
+    <div class="fact"><div class="fv"><i>0</i> ads</div><div class="fl">Nothing tracks you here</div></div>
+  </div>
+
+  <article class="prose">
+    <p class="lede">MedLib X is a private study library: one person's preparation, organised with intent and opened to a small set of readers. Every file on the shelf was built the same way — backward from the exam itself, forward into books, drills and papers.</p>
+
+    <h2>Why an account</h2>
+    <p>The shelf is open; the stack is not. Anyone can read what's inside, how it's organised, and the standard each file is held to. Opening a file takes an account. This keeps the library small on purpose — a place built carefully doesn't get handed to whoever wanders in. When you sign up, you're given a username of your own; that name is your seat at the reading desk.</p>
+
+    <h2>The standard</h2>
+    <p><b>The syllabus is the spine.</b> Scope comes from the official syllabus — never from memory, never from whichever textbook happened to be open. If it isn't on the syllabus, it doesn't earn screen time, however interesting it is.</p>
+    <p><b>MCQs are the bloodstream.</b> The exam is a hundred multiple-choice questions, so practice runs through everything on the shelf. Exposure is measured in questions attempted, not pages read.</p>
+    <p><b>The error log is sacred.</b> Every wrong answer earns a written record: the date, the source, your answer, the correct one, and the discriminator you missed. Reading explanations is not the work. Naming why you missed it is.</p>
+
+    <h2>What's in it</h2>
+    <p>Seven groups carrying thirty-six files: complete system books from cardiology to ophthalmology, a merged question bank across six subject groups, every recalled past-paper session with its verified key, the intelligence layer that says what the next paper will test, and quick-reference sheets built for the last night before.</p>
+
+    <h2>Your data</h2>
+    <p>An account here is small on purpose. It holds your email, your username, a salted password hash, and nothing else — no analytics, no third-party scripts, no tracking pixels, no advertising of any kind. There is no mailing list and no purchase gate. Your files are licensed for your own personal use: study from them, don't redistribute them.</p>
+
+    <h2>Copyright</h2>
+    <p>Everything under this roof — the files, the layout, the house standard itself — is © 2026 MedLib X. All rights reserved. If you'd like to share the shelf, share the door, not the books.</p>
+  </article>
+</main>
+
+<footer class="footer"><div class="foot-in">
+  <div>
+    <div class="foot-brand"><svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 7l14 0M5 12l14 0M5 17l9 0"/></svg>MedLib&nbsp;<span class="x">X</span></div>
+    <p class="foot-tag">A private study library — curated with discipline, guarded behind an account, and kept current and exact.</p>
+  </div>
+  <nav class="foot-links" aria-label="Footer">
+    <a href="/library">Library</a><a href="/about">About</a><a href="/faq">FAQ</a><a href="/signup">Create account</a><a href="/login">Sign in</a>
+  </nav>
+  <div class="foot-legal">
+    <span>© 2026 MedLib X. All rights reserved.</span>
+    <span>Files are licensed for the account holder's personal use.</span>
+  </div>
+</div></footer>
+
+<script>
+function esc(s){return String(s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+fetch('/api/me').then(function(r){return r.json();}).then(function(j){
+  var a=document.getElementById('auth'); if(!a) return;
+  if(j&&j.ok&&j.user){
+    a.innerHTML='<span class="who"><span class="dot"></span><b>'+esc(j.user.username)+'</b></span>'
+      +'<a href="/account">Account</a>'
+      +'<a href="#" id="out">Sign out</a>';
+    document.getElementById('out').addEventListener('click',function(e){
+      e.preventDefault(); fetch('/api/logout',{method:'POST'}).then(function(){location.href='/';});
+    });
+  }else{
+    a.innerHTML='<a href="/login">Sign in</a>';
+  }
+}).catch(function(){});
+</script>
+</body>
+</html>

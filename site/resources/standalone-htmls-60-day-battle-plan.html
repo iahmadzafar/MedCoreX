@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>60-Day Battle Plan — T-60 to Oct 11</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Archivo:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0E1A2B;
+    --navy-2: #16283F;
+    --ink: #101A28;
+    --paper: #F6F3EC;
+    --card: #FFFFFF;
+    --lime: #D4FF3F;
+    --coral: #FF5C4D;
+    --mint: #7CF7C4;
+    --gold: #FFC24B;
+    --sky: #6FD3FF;
+    --lav: #B79AFF;
+    --line: rgba(16,26,40,.12);
+    --shadow: 0 2px 6px rgba(14,26,43,.06), 0 14px 40px rgba(14,26,43,.10);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body {
+    font-family:'Archivo', -apple-system, sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  ::selection { background:var(--lime); color:var(--ink); }
+
+  .mono { font-family:'Space Mono', monospace; }
+
+  /* ───── STICKY COUNTDOWN BAR ───── */
+  .topbar {
+    position:sticky; top:0; z-index:50;
+    background:var(--navy);
+    color:#F6F3EC;
+    border-bottom:3px solid var(--lime);
+  }
+  .topbar-in {
+    max-width:100%; margin:0 auto; padding:10px 24px;
+    display:flex; align-items:center; gap:18px;
+  }
+  .topbar .brand { font-family:'Bricolage Grotesque'; font-weight:800; letter-spacing:.5px; font-size:0.9375rem; }
+  .topbar .brand b { color:var(--lime); }
+  .topbar .spacer { flex:1; }
+  .topbar .tlabel { font-family:'Space Mono'; font-size:0.6875rem; letter-spacing:2px; color:#9FB2CC; text-transform:uppercase; }
+  .topbar .tnum { font-family:'Space Mono'; font-size:1.25rem; font-weight:700; color:var(--lime); line-height:1; }
+  .topbar .tnum.pulse { animation:pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.55} }
+  .topbar .target { font-family:'Space Mono'; font-size:0.6875rem; color:#9FB2CC; }
+
+  /* ───── HERO ───── */
+  .hero {
+    background:var(--navy);
+    color:#F6F3EC;
+    position:relative;
+    overflow:hidden;
+    padding:70px 0 60px;
+  }
+  .hero::before {
+    content:""; position:absolute; inset:0;
+    background:
+      radial-gradient(700px 380px at 82% -20%, rgba(212,255,63,.16), transparent 60%),
+      radial-gradient(600px 320px at 6% 115%, rgba(255,92,77,.14), transparent 60%),
+      radial-gradient(500px 300px at 45% 50%, rgba(111,211,255,.06), transparent 60%);
+  }
+  .hero::after {
+    content:""; position:absolute; inset:0;
+    background-image:radial-gradient(rgba(246,243,236,.07) 1px, transparent 1px);
+    background-size:26px 26px;
+    mask-image:linear-gradient(180deg, transparent, black 40%, black 60%, transparent);
+    -webkit-mask-image:linear-gradient(180deg, transparent, black 40%, black 60%, transparent);
+  }
+  .hero-in {
+    max-width:100%; margin:0 auto; padding:0 24px;
+    position:relative; z-index:2;
+    display:grid;
+    grid-template-columns: 1fr auto;
+    gap:30px; align-items:center;
+  }
+  .hero .eyebrow {
+    font-family:'Space Mono'; font-size:0.75rem; letter-spacing:3px;
+    text-transform:uppercase; color:var(--lime); margin-bottom:18px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .hero .eyebrow::before { content:""; width:26px; height:2px; background:var(--lime); }
+  .hero h1 {
+    font-family:'Bricolage Grotesque'; font-weight:800;
+    font-size:4.125rem; line-height:.98; letter-spacing:-1.5px;
+    margin-bottom:20px;
+  }
+  .hero h1 em { font-style:italic; color:var(--lime); }
+  .hero .sub {
+    font-size:1.0625rem; color:#B9C6DB; max-width:50ch; line-height:1.6; margin-bottom:28px;
+  }
+  .hero .sub b { color:#F6F3EC; }
+  .hero .cta {
+    display:inline-flex; align-items:center; gap:10px;
+    background:var(--lime); color:var(--navy);
+    font-family:'Bricolage Grotesque'; font-weight:700; font-size:0.875rem;
+    padding:13px 22px; border-radius:10px; text-decoration:none;
+    box-shadow:0 0 0 4px rgba(212,255,63,.15);
+    transition:transform .15s, box-shadow .15s;
+  }
+  .hero .cta:hover { transform:translateY(-2px); box-shadow:0 0 0 6px rgba(212,255,63,.25); }
+  .hero .hero-stats { display:flex; flex-direction:column; gap:12px; min-width:230px; }
+  .hero .hstat {
+    background:rgba(246,243,236,.05);
+    border:1px solid rgba(246,243,236,.12);
+    border-radius:12px; padding:14px 18px;
+    backdrop-filter:blur(4px);
+  }
+  .hero .hstat .n { font-family:'Space Mono'; font-size:1.625rem; font-weight:700; line-height:1; }
+  .hero .hstat .n.lime { color:var(--lime); } .hero .hstat .n.coral { color:var(--coral); }
+  .hero .hstat .n.mint { color:var(--mint); } .hero .hstat .n.gold { color:var(--gold); }
+  .hero .hstat .l { font-size:0.6875rem; color:#9FB2CC; margin-top:5px; letter-spacing:.5px; text-transform:uppercase; }
+
+  /* ───── BATTLE MAP STRIP ───── */
+  .mapstrip {
+    background:var(--ink);
+    padding:18px 0;
+    border-bottom:1px solid rgba(246,243,236,.08);
+  }
+  .mapstrip-in { max-width:100%; margin:0 auto; padding:0 24px; }
+  .mapstrip .map-label {
+    font-family:'Space Mono'; font-size:0.625rem; letter-spacing:2px; text-transform:uppercase;
+    color:#8FA3BE; margin-bottom:10px; display:flex; justify-content:space-between;
+  }
+  .maprow { display:flex; gap:4px; height:26px; }
+  .maprow .seg { flex:1; border-radius:4px; transition:transform .2s; cursor:pointer; position:relative; }
+  .maprow .seg:hover { transform:scaleY(1.4); z-index:10; }
+  .maprow .seg[data-n="1"]{background:#6FD3FF} .maprow .seg[data-n="2"]{background:#7CF7C4}
+  .maprow .seg[data-n="3"]{background:#FF5C4D} .maprow .seg[data-n="4"]{background:#FFC24B}
+  .maprow .seg[data-n="5"]{background:#B79AFF} .maprow .seg[data-n="6"]{background:#6FD3FF}
+  .maprow .seg[data-n="7"]{background:#D4FF3F} .maprow .seg[data-n="8"]{background:#7CF7C4}
+  .maprow .seg[data-n="9"]{background:#FF5C4D} .maprow .seg[data-n="10"]{background:#FFC24B}
+  .maprow .seg.cur { outline:3px solid #F6F3EC; outline-offset:1px; }
+  .maplegend {
+    display:flex; flex-wrap:wrap; gap:6px 16px; margin-top:12px;
+    font-family:'Space Mono'; font-size:0.625rem; color:#8FA3BE;
+  }
+  .maplegend i { width:9px; height:9px; display:inline-block; margin-right:6px; border-radius:2px; vertical-align:middle; }
+  .maplegend .filled { color:#F6F3EC; }
+
+  /* ───── LAYOUT ───── */
+  .wrap { max-width:100%; margin:0 auto; padding:0 24px 40px; }
+
+  section { padding:54px 0 6px; }
+  .s-head { display:flex; align-items:baseline; gap:16px; margin-bottom:26px; }
+  .s-num { font-family:'Space Mono'; font-size:0.8125rem; font-weight:700; color:var(--coral); white-space:nowrap; }
+  .s-title { font-family:'Bricolage Grotesque'; font-size:2rem; font-weight:800; letter-spacing:-.5px; }
+  .s-rule { flex:1; height:2px; }
+  .s-rule.rlime { background:linear-gradient(90deg,var(--lime),transparent); }
+  .s-rule.rcoral { background:linear-gradient(90deg,var(--coral),transparent); }
+  .s-rule.rmint { background:linear-gradient(90deg,var(--mint),transparent); }
+  .s-rule.rsky { background:linear-gradient(90deg,var(--sky),transparent); }
+  .s-rule.rgold { background:linear-gradient(90deg,var(--gold),transparent); }
+  .s-rule.rlav { background:linear-gradient(90deg,var(--lav),transparent); }
+  .lead { font-size:1rem; color:#3E4A5C; max-width:64ch; margin-bottom:26px; line-height:1.65; }
+  .lead b { color:var(--ink); }
+
+  /* ───── THE STACK (WEIGHTAGE) ───── */
+  .stack { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:20px; }
+  .stackcard { border-radius:16px; padding:26px; color:#F6F3EC; position:relative; overflow:hidden; box-shadow:var(--shadow); }
+  .stackcard .big { font-family:'Space Mono'; font-size:2.75rem; font-weight:700; line-height:1; }
+  .stackcard .t { font-family:'Bricolage Grotesque'; font-weight:700; font-size:1.125rem; margin:8px 0 2px; }
+  .stackcard .sub { font-size:0.7813rem; opacity:.78; margin-bottom:16px; }
+  .stackcard.clin { background:linear-gradient(140deg,#FF5C4D,#FF8A5C); }
+  .stackcard.basic { background:linear-gradient(140deg,#16283F,#24405F); }
+  .chips { display:flex; flex-wrap:wrap; gap:6px; }
+  .chip { font-family:'Space Mono'; font-size:0.625rem; padding:5px 10px; border-radius:20px; background:rgba(246,243,236,.15); }
+  .chip b { font-weight:700; }
+  .chips.zebra { margin-top:14px; padding-top:14px; border-top:1px dashed rgba(246,243,236,.25); }
+  .live-note {
+    background:var(--ink); color:#B9C6DB; border-radius:14px; padding:18px 22px;
+    display:flex; align-items:center; gap:14px; font-size:0.8438rem; margin-top:14px;
+  }
+  .live-note .dot { width:10px; height:10px; border-radius:50%; background:var(--lime); flex-shrink:0; animation:pulse 1.6s infinite; }
+
+  /* ───── DAILY DOZEN ───── */
+  .daily-grid { display:grid; grid-template-columns:repeat(5,1fr) ; gap:12px; }
+  .daily-grid.g2 { grid-template-columns:repeat(3,1fr); }
+  .daycard { border-radius:14px; padding:18px; color:#F6F3EC; min-height:150px; box-shadow:var(--shadow); position:relative; overflow:hidden; transition:transform .18s, box-shadow .18s; }
+  .daycard:hover { transform:translateY(-4px) rotate(-1deg); box-shadow:0 18px 40px rgba(14,26,43,.22); }
+  .daycard .tag { font-family:'Space Mono'; font-size:0.625rem; letter-spacing:1.5px; text-transform:uppercase; opacity:.85; }
+  .daycard .time { font-family:'Space Mono'; font-size:1.25rem; font-weight:700; margin:10px 0 6px; }
+  .daycard .ttl { font-family:'Bricolage Grotesque'; font-weight:700; font-size:0.9375rem; margin-bottom:6px; }
+  .daycard .dsc { font-size:0.7813rem; opacity:.85; line-height:1.5; }
+  .daycard.d1{background:linear-gradient(140deg,#24405F,#0E1A2B)}
+  .daycard.d2{background:linear-gradient(140deg,#2B5C4A,#14382C)}
+  .daycard.d3{background:linear-gradient(140deg,#7A4A3C,#46261E)}
+  .daycard.d4{background:linear-gradient(140deg,#4A3A68,#2A2040)}
+  .daycard.d5{background:linear-gradient(140deg,#20304A,#101E30)}
+  .daycard.tag-l { outline:2px dashed rgba(212,255,63,.55); outline-offset:-6px; }
+
+  /* ───── BLOCKS ───── */
+  .block { border-radius:18px; background:var(--card); box-shadow:var(--shadow); margin-bottom:18px; overflow:hidden; border:1px solid var(--line); }
+  .block-top { padding:22px 26px; display:flex; align-items:center; gap:18px; flex-wrap:wrap; }
+  .block-num { font-family:'Space Mono'; font-weight:700; font-size:1.625rem; line-height:1; padding:10px 14px; border-radius:12px; color:#F6F3EC; }
+  .bn1{background:#6FD3FF} .bn2{background:#2E8C70} .bn3{background:#FF5C4D} .bn4{background:#D99B2E}
+  .bn5{background:#7A5FD0} .bn6{background:#2E8C8C} .bn7{background:#8FA32E} .bn8{background:#3E7C68}
+  .bn9{background:#D15848} .bn10{background:#C2851A}
+  .block-name { font-family:'Bricolage Grotesque'; font-weight:800; font-size:1.375rem; letter-spacing:-.3px; }
+  .block-dates { font-family:'Space Mono'; font-size:0.75rem; color:#7A8598; }
+  .block-dates b { color:var(--coral); }
+  .block-stats { margin-left:auto; display:flex; gap:8px; }
+  .block-stats .st { text-align:center; padding:5px 12px; border-radius:10px; background:#F2EFE6; }
+  .block-stats .st .n { font-family:'Space Mono'; font-weight:700; font-size:1.0625rem; color:var(--ink); }
+  .block-stats .st .l { font-size:0.5625rem; text-transform:uppercase; letter-spacing:1px; color:#8A93A5; }
+  .block-body { padding:0 26px 22px; }
+  .block-desc { font-size:0.875rem; color:#3E4A5C; line-height:1.65; margin-bottom:14px; }
+  .block-desc b { color:var(--ink); }
+  .anchor-row { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:14px; }
+  .anchor { font-family:'Space Mono'; font-size:0.6563rem; padding:5px 10px; border-radius:7px; background:#F2EFE6; color:#333D4E; }
+  .anchor.hot { background:var(--lime); color:var(--ink); font-weight:700; }
+  .block-foot { display:flex; gap:8px; flex-wrap:wrap; }
+  .bf { font-family:'Space Mono'; font-size:0.625rem; letter-spacing:1px; text-transform:uppercase; padding:5px 11px; border-radius:7px; border:1px solid var(--line); color:#646E80; }
+  .bf.high { border-color:var(--coral); color:var(--coral); font-weight:700; }
+
+  /* ───── TRAP HIT PARADE ───── */
+  .trap-row { display:grid; grid-template-columns:170px 1fr 60px; align-items:center; gap:16px; padding:12px 0; border-bottom:1px dashed var(--line); }
+  .trap-row:last-child { border:0; }
+  .trap-name { font-family:'Bricolage Grotesque'; font-weight:700; font-size:0.9375rem; }
+  .bar { height:20px; background:#ECE8DE; border-radius:6px; overflow:hidden; position:relative; }
+  .bar i { display:block; height:100%; border-radius:6px; animation:grow 1.1s cubic-bezier(.2,.8,.2,1) both; }
+  .bar .pctlab { position:absolute; right:8px; top:1px; font-family:'Space Mono'; font-size:0.6875rem; font-weight:700; color:rgba(22,40,63,.6); }
+  .trap-hit { font-family:'Space Mono'; font-weight:700; font-size:1.125rem; text-align:right; }
+  @keyframes grow { from{width:0} }
+  .b1 i{width:42%;background:var(--coral)} .b2 i{width:18%;background:#FF8A5C} .b3 i{width:12%;background:#FFB38A}
+  .b4 i{width:11%;background:var(--gold)} .b5 i{width:8%;background:#E7B85A} .b6 i{width:5%;background:#7AC0DE}
+  .b7 i{width:4%;background:#8FB8C8}
+
+  /* ───── DOCTRINE ───── */
+  .doc-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-bottom:20px; }
+  .doc-card { background:var(--ink); color:#F6F3EC; border-radius:16px; padding:22px; position:relative; overflow:hidden; }
+  .doc-card::before { content:""; position:absolute; top:-30px; right:-30px; width:80px; height:80px; border-radius:50%; background:rgba(212,255,63,.1); }
+  .doc-card .num { font-family:'Space Mono'; font-size:1.875rem; font-weight:700; color:var(--lime); margin-bottom:8px; }
+  .doc-card.coral .num { color:var(--coral); } .doc-card.mint .num { color:var(--mint); } .doc-card.gold .num { color:var(--gold); }
+  .doc-card .t { font-family:'Bricolage Grotesque'; font-weight:700; font-size:0.9375rem; margin-bottom:6px; }
+  .doc-card .d { font-size:0.7813rem; color:#B9C6DB; line-height:1.55; }
+
+  /* ───── NON NEGOTIABLES / STICKERS ───── */
+  .sticker-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; }
+  .sticker { background:var(--card); border-radius:16px; padding:20px 22px; border:2px solid var(--ink); box-shadow:4px 4px 0 var(--ink); transform:rotate(var(--rot,0deg)); transition:transform .15s; }
+  .sticker:hover { transform:rotate(0) translateY(-3px); }
+  .sticker .t { font-family:'Bricolage Grotesque'; font-weight:800; font-size:1rem; margin-bottom:8px; display:flex; align-items:center; gap:8px; }
+  .sticker .t .spark { width:22px; height:22px; border-radius:6px; display:grid; place-items:center; font-size:0.75rem; }
+  .sticker .d { font-size:0.8125rem; color:#3E4A5C; line-height:1.6; }
+  .st1 .spark{background:var(--lime)} .st2 .spark{background:var(--coral);color:#fff}
+  .st3 .spark{background:var(--mint)} .st4 .spark{background:var(--gold)}
+  .st5 .spark{background:var(--sky)} .st6 .spark{background:var(--lav)}
+
+  /* ───── MOCK CADENCE ───── */
+  .mock-track { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+  .mock-card { border-radius:16px; padding:24px; color:#F6F3EC; position:relative; overflow:hidden; box-shadow:var(--shadow); }
+  .mock-card::after { content:""; position:absolute; bottom:-18px; right:-10px; font-family:'Space Mono'; font-size:4.375rem; font-weight:700; opacity:.1; }
+  .mock-card.m1{background:linear-gradient(140deg,#1E3A5F,#12233A)} .mock-card.m1::after{content:"A"}
+  .mock-card.m2{background:linear-gradient(140deg,#26523F,#14382C)} .mock-card.m2::after{content:"B"}
+  .mock-card.m3{background:linear-gradient(140deg,#6E4134,#3D241C)} .mock-card.m3::after{content:"C"}
+  .mock-card .when { font-family:'Space Mono'; font-size:0.75rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--lime); margin-bottom:10px; }
+  .mock-card .ttl { font-family:'Bricolage Grotesque'; font-weight:800; font-size:1.25rem; margin-bottom:8px; }
+  .mock-card .d { font-size:0.8125rem; color:#CBD6E4; line-height:1.55; }
+
+  /* ───── COMMIT ───── */
+  .commit {
+    background:var(--navy); color:#F6F3EC; border-radius:22px; padding:40px;
+    margin-top:10px; position:relative; overflow:hidden;
+  }
+  .commit::before { content:""; position:absolute; top:-60px; right:-40px; width:220px; height:220px; border-radius:50%; background:radial-gradient(circle, rgba(212,255,63,.2), transparent 65%); }
+  .commit h3 { font-family:'Bricolage Grotesque'; font-weight:800; font-size:1.75rem; margin-bottom:22px; }
+  .commit h3 span { color:var(--lime); }
+  .commit ul { list-style:none; display:grid; grid-template-columns:1fr 1fr; gap:6px 30px; }
+  .commit li { padding:11px 0; border-bottom:1px solid rgba(246,243,236,.1); font-size:0.9063rem; line-height:1.55; position:relative; padding-left:34px; }
+  .commit li::before { content:"◆"; position:absolute; left:0; color:var(--lime); }
+  .commit .sig { text-align:right; margin-top:26px; font-family:'Space Mono'; font-size:0.8125rem; color:#9FB2CC; font-style:italic; }
+  .commit .sig b { color:var(--lime); }
+
+  /* ───── FOOT ───── */
+  .foot { margin:40px 0 20px; padding-top:22px; border-top:2px dashed var(--line); display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; font-family:'Space Mono'; font-size:0.6875rem; color:#8A93A5; text-transform:uppercase; letter-spacing:1px; }
+
+  /* ───── REVEAL ───── */
+  .reveal { opacity:0; transform:translateY(24px); transition:opacity .6s ease, transform .6s ease; }
+  .reveal.in { opacity:1; transform:none; }
+
+  /* ───── RESPONSIVE ───── */
+  @media (max-width:880px){
+    .hero-in { grid-template-columns:1fr; }
+    .hero h1 { font-size:3rem; }
+    .stack { grid-template-columns:1fr; }
+    .daily-grid { grid-template-columns:repeat(2,1fr); }
+    .daily-grid.g2 { grid-template-columns:repeat(2,1fr); }
+    .doc-grid { grid-template-columns:repeat(2,1fr); }
+    .mock-track { grid-template-columns:1fr; }
+    .commit ul { grid-template-columns:1fr; }
+    .sticker-grid { grid-template-columns:1fr; }
+    .trap-row { grid-template-columns:120px 1fr 50px; }
+  }
+  @media (max-width:560px){
+    .hero h1 { font-size:2.375rem; }
+    .daily-grid, .daily-grid.g2, .doc-grid { grid-template-columns:1fr; }
+    .block-stats { margin-left:0; width:100%; }
+    .s-title { font-size:1.625rem; }
+    .topbar .target { display:none; }
+  }
+
+  @media print {
+    body { background:#fff; font-size:0.6875rem; }
+    .topbar, .hero { background:var(--navy) !important; color:#fff; }
+    .block, .daycard, .doc-card, .mock-card, .sticker, .stackcard, .commit { box-shadow:none; page-break-inside:avoid; }
+    .reveal { opacity:1; transform:none; }
+    .hero h1 { font-size:2.5rem; }
+  }
+</style>
+
+<style id="polish">
+:focus-visible{outline:2px solid #6ea8fe;outline-offset:2px;border-radius:2px}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,[tabindex]:focus-visible{outline:2px solid #6ea8fe;outline-offset:2px}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<!-- STICKY BAR -->
+<div class="topbar">
+  <div class="topbar-in">
+    <div class="brand">MedCORE<b>.BattlePlan</b></div>
+    <div class="spacer"></div>
+    <div class="tlabel">T-Minus</div>
+    <div class="tnum pulse" id="cdn">60</div>
+    <div class="target">days to &nbsp;OCT 11 · 2026</div>
+  </div>
+</div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-in">
+    <div>
+      <div class="eyebrow">MedCORE Step-I · Single Attempt Program</div>
+      <h1>Sixty days to<br><em>own the exam.</em></h1>
+      <p class="sub">A battle plan reverse-engineered from <b>177 real May-2026 recall MCQs</b>, the official board weightage, and your own Core rotation system. Ten blocks. Six days each. One exam date. <b>No negative marking — 60% wins.</b></p>
+      <a class="cta" href="#blocks">Enter the blocks →</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat"><div class="n lime">200</div><div class="l">MCQs on exam day</div></div>
+      <div class="hstat"><div class="n coral">140 / 60</div><div class="l">Clinical / Basic split</div></div>
+      <div class="hstat"><div class="n mint">50 / day</div><div class="l">Minimum bloodstream</div></div>
+      <div class="hstat"><div class="n gold">3</div><div class="l">Full 200-Q mocks</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- BATTLE MAP -->
+<div class="mapstrip">
+  <div class="mapstrip-in">
+    <div class="map-label"><span>The 60-Day Battle Map</span><span class="mono">Block 01 → Block 10</span></div>
+    <div class="maprow" id="maprow">
+      <div class="seg" data-n="1" title="CVS + Respiratory"></div>
+      <div class="seg" data-n="2" title="GI + Hepatology + Nutrition"></div>
+      <div class="seg" data-n="3" title="Renal + Urology + Acid-Base"></div>
+      <div class="seg" data-n="4" title="Endocrine + DM + Endocrine Surgery"></div>
+      <div class="seg" data-n="5" title="Neuro + Psych + Eye + ENT"></div>
+      <div class="seg" data-n="6" title="Haematology + Oncology + Gen Path"></div>
+      <div class="seg" data-n="7" title="Surgery I — Acute Abdomen + Trauma + Shock"></div>
+      <div class="seg" data-n="8" title="Surgery II — Airway + Vascular + Colorectal + Ethics"></div>
+      <div class="seg" data-n="9" title="OBG I + Paeds I"></div>
+      <div class="seg" data-n="10" title="OBG II + Paeds II + CommMed + Biostats + Forensic + Mock"></div>
+    </div>
+    <div class="maplegend">
+      <span><i style="background:#6FD3FF"></i>CVS/Resp</span>
+      <span><i style="background:#7CF7C4"></i>GI</span>
+      <span><i style="background:#FF5C4D"></i>Renal</span>
+      <span><i style="background:#FFC24B"></i>Endo</span>
+      <span><i style="background:#B79AFF"></i>Neuro</span>
+      <span><i style="background:#6FD3FF"></i>Haem</span>
+      <span><i style="background:#D4FF3F"></i>Surg I</span>
+      <span><i style="background:#7CF7C4"></i>Surg II</span>
+      <span><i style="background:#FF5C4D"></i>OBG/Paeds I</span>
+      <span><i style="background:#FFC24B"></i>Mixed Finale</span>
+      <span class="filled"><i style="background:#D4FF3F"></i>Today → Block 01</span>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- THE STACK -->
+  <section id="stack">
+    <div class="s-head">
+      <span class="s-num">// ANGLE 01</span>
+      <h2 class="s-title">Know the Machine</h2>
+      <span class="s-rule rlime"></span>
+    </div>
+    <p class="lead">The exam is a <b>clinical reasoning test wearing a basic-sciences coat</b>. 140 vignettes tested through applied anatomy, physiology, pathology and pharmacology — then 60 pure applied-basic moments. This is the exact official weightage it allocates:</p>
+
+    <div class="stack reveal">
+      <div class="stackcard clin">
+        <div class="big">140</div>
+        <div class="t">Clinical Sciences</div>
+        <div class="sub">The vignette engine — diagnosis → next best step → complication</div>
+        <div class="chips">
+          <span class="chip"><b>52</b> Medicine &amp; Allied</span>
+          <span class="chip"><b>48</b> Surgery &amp; Allied</span>
+          <span class="chip"><b>19</b> OBG</span>
+          <span class="chip"><b>14</b> Paediatrics</span>
+          <span class="chip"><b>6</b> Ophthalmology</span>
+          <span class="chip"><b>1</b> ENT</span>
+        </div>
+        <div class="chips zebra"><span class="chip">Med + Surg = <b>100 of 200 → 50% of the whole exam</b></span></div>
+      </div>
+      <div class="stackcard basic">
+        <div class="big">60</div>
+        <div class="t">Applied Basic Sciences</div>
+        <div class="sub">Applied, not theory — clue-to-mechanism questions</div>
+        <div class="chips">
+          <span class="chip"><b>11</b> Pathology</span>
+          <span class="chip"><b>11</b> Anatomy</span>
+          <span class="chip"><b>10</b> Physiology</span>
+          <span class="chip"><b>9</b> Biochemistry</span>
+          <span class="chip"><b>7</b> Forensic + Tox</span>
+          <span class="chip"><b>6</b> Community Med</span>
+          <span class="chip"><b>6</b> Clinical Pharm</span>
+        </div>
+        <div class="chips zebra"><span class="chip">Pass mark: <b>60% = 120/200</b> · CBT · No negative marking</span></div>
+      </div>
+    </div>
+
+    <div class="live-note reveal">
+      <span class="dot"></span>
+      <span><b style="color:#F6F3EC">The failure profile (from your own 101/200 sitting):</b> it wasn't knowledge — you lost it on <b style="color:var(--lime)">90s/question execution</b>, ~5–8 bubble-slip errors, and ~10 time-out guesses. This 60-day plan drills timing as hard as content.</span>
+    </div>
+  </section>
+
+  <!-- DAILY DOZEN -->
+  <section id="daily">
+    <div class="s-head">
+      <span class="s-num">// ANGLE 02</span>
+      <h2 class="s-title">The Daily Doctrine</h2>
+      <span class="s-rule rcoral"></span>
+    </div>
+    <p class="lead">Same six moves, every single day. <b>50 MCQs minimum</b> — the bloodstream must flow, or nothing else matters.</p>
+
+    <div class="daily-grid reveal">
+      <div class="daycard d1">
+        <div class="tag">09:00</div>
+        <div class="ttl">25 MCQs · Untimed</div>
+        <div class="dsc">Accuracy first. Target 85%+. No clock — hunt the discriminator.</div>
+      </div>
+      <div class="daycard d2">
+        <div class="tag">10:30</div>
+        <div class="ttl">Full Answer Review</div>
+        <div class="dsc">Every question — right and wrong. Why did you miss what you missed?</div>
+      </div>
+      <div class="daycard d3 tag-l">
+        <div class="tag">11:15</div>
+        <div class="ttl">Error Log · 30s Each</div>
+        <div class="dsc">Discriminator + trap type + one-line correct rule. Non-negotiable.</div>
+      </div>
+      <div class="daycard d4">
+        <div class="tag">14:00</div>
+        <div class="ttl">25 MCQs · Timed</div>
+        <div class="dsc">90 sec/question hard cap. Real conditions. Clock runs.</div>
+      </div>
+      <div class="daycard d5">
+        <div class="tag">18:00</div>
+        <div class="ttl">10 Error-Pool Qs</div>
+        <div class="dsc">Retest yesterday's misses. Weak topics earn their way back in.</div>
+      </div>
+      <div class="daycard d2">
+        <div class="tag">19:00</div>
+        <div class="ttl">Log Scan · 10 min</div>
+        <div class="dsc">Re-read the last 3 entries. Future alerts become reflexes.</div>
+      </div>
+      <div class="daycard d4">
+        <div class="tag">DAY 6</div>
+        <div class="ttl">Block Mini-Mock</div>
+        <div class="dsc">50 Qs / 75 min — block exam conditions + full error sprint.</div>
+      </div>
+      <div class="daycard d3 tag-l">
+        <div class="tag">VERIFY</div>
+        <div class="ttl">Every 10 Questions</div>
+        <div class="dsc">Re-check the last 3 bubbles. Kills the bubble-slip errors.</div>
+      </div>
+      <div class="daycard d1">
+        <div class="tag">TILT</div>
+        <div class="ttl">No Overthinking</div>
+        <div class="dsc">Occam's razor. The obvious answer is usually the examiner's intended one.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOCKS -->
+  <section id="blocks">
+    <div class="s-head">
+      <span class="s-num">// ANGLE 03</span>
+      <h2 class="s-title">The 10 Blocks</h2>
+      <span class="s-rule rmint"></span>
+    </div>
+    <p class="lead">Six days per block. Days 1–5 = content + drill, Day 6 = mini-mock + error sprint. Topics marked <b style="background:var(--lime);padding:1px 6px;border-radius:4px">HOT</b> appeared in the actual May-2026 recall — nail these first. Dates shown: Aug 12 → Oct 10.</p>
+
+    <!-- B1 -->
+    <div class="block reveal">
+      <div class="block-top">
+        <div class="block-num bn1">01</div>
+        <div style="min-width:0">
+          <div class="block-name">CVS + Respiratory</div>
+          <div class="block-dates">Aug 12 – 17 · <b>Day 1–6</b></div>
+        </div>
+        <div class="block-stats">
+          <div class="st"><div class="n">~19</div><div class="l">MCQ slots</div></div>
+          <div class="st"><div class="n">50</div><div class="l">Qs/day</div></div>
+        </div>
+      </div>
+      <div class="block-body">
+        <div class="block-desc"><b>Anchors:</b> Stable vs unstable angina · NSTEMI vs STEMI · HF/DCM (EF, ACEi+β-blocker ladder) · Tamponade (Beck's) · Aortic dissection → CTA · AV blocks · Severe asthma (O₂ + SABA + steroids, no β-blocker) · COPD definition + spirometry · TB cavitation · Lung cancer (bronchoscopy+biopsy; squamous vs adeno) · Phys: MAP = CO×TPR, cardiac cycle, ABG/alkalosis.</div>
+        <div class="anchor-row">
+          <span class="anchor hot">▲ DCM + alcohol + EF30%</span>
+          <span class="anchor hot">▲ Beck's triad + pulsus paradoxus</span>
+          <span class="anchor hot">▲ dissection → CT angio</span>
+          <span class="anchor hot">▲ bronchoscopy + biopsy</span>
+          <span class="anchor hot">▲ PEFR 55% → steroids</span>
+          <span class="anchor">1° vs 2° AV block</span>
+          <span class="anchor">transudate vs exudate</span>
+          <span class="anchor">β-blocker fatigue</span>
+        </div>
+        <div class="block-foot">
+          <span class="bf high">MOCK DAY 6: B1 Mini-Mock</span>
+          <span class="bf">Source: Core notes + WB1</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- B2 -->
+    <div class="block reveal">
+      <div class="block-top">
+        <div class="block-num bn2">02</div>
+        <div style="min-width:0">
+          <div class="block-name">GI + Hepatology + Nutrition</div>
+          <div class="block-dates">Aug 18 – 23 · <b>Day 7–12</b></div>
+        </div>
+        <div class="block-stats">
+          <div class="st"><div class="n">~20</div><div class="l">MCQ slots</div></div>
+          <div class="st"><div class="n">50</div><div class="l">Qs/day</div></div>
+        </div>
+      </div>
+      <div class="block-body">
+        <div class="block-desc"><b>Anchors:</b> GERD/Barrett (endoscopy &gt;60; metaplasia ≠ dysplasia) · DU vs GU pattern · UGIB (varices → band ligation · endoscopy first) · Perforated PU → laparotomy reflex · Achalasia vs oesophageal Ca (liquids vs solids) · IBS Rome IV (no nocturnal) · Celiac (anti-tTG screen; biopsy gold) · CRC + apple-core · LGIB → diverticulosis · Biochem: NH₃→glutamine, B12/folate, pellagra, thiamine, vit A/D/K.</div>
+        <div class="anchor-row">
+          <span class="anchor hot">▲ anti-tTG screen</span>
+          <span class="anchor hot">▲ falling albumin = synthetic failure</span>
+          <span class="anchor hot">▲ varices → banding</span>
+          <span class="anchor hot">▲ achalasia bird-beak</span>
+          <span class="anchor hot">▲ LUQ apple-core</span>
+          <span class="anchor hot">▲ NH₃ → glutamine</span>
+          <span class="anchor">IBS vs IBD</span>
+          <span class="anchor">PPI 24h vs H2</span>
+        </div>
+        <div class="block-foot">
+          <span class="bf high">MOCK DAY 6: B2 Mini-Mock</span>
+          <span class="bf">Source: May batch 1 · WB2</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- B3 -->
+    <div class="block reveal">
+      <div class="block-top">
+        <div class="block-num bn3">03</div>
+        <div style="min-width:0">
+          <div class="block-name">Renal + Urology + Acid-Base</div>
+          <div class="block-dates">Aug 24 – 29 · <b>Day 13–18</b></div>
+        </div>
+        <div class="block-stats">
+          <div class="st"><div class="n">~21</div><div class="l">MCQ slots</div></div>
+          <div class="st"><div class="n">50</div><div class="l">Qs/day</div></div>
+        </div>
+      </div>
+      <div class="block-body">
+        <div class="block-desc"><b>Anchors — the single most confusion-dense block on the paper:</b> APSGN (cola urine + RBC casts + low C3, 2–3 wks post-strep) vs IgA (during URTI, normal C3) vs MCD (frothy, heavy protein) vs AIN (drug + eosinophilia + WBC casts) vs transplant (creatinine ↑ → biopsy first). Diabetic nephropathy → ACEi. Stones: Ca-oxalate (radiopaque) vs uric acid. Electrolytes + Chvostek. GFR physiology + RAAS.</div>
+        <div class="anchor-row">
+          <span class="anchor hot">▲▲ APSGN timing trap</span>
+          <span class="anchor hot">▲▲ IgA during URTI</span>
+          <span class="anchor hot">▲▲ transplant → biopsy</span>
+          <span class="anchor hot">▲ ACEi renoprotection</span>
+          <span class="anchor hot">▲ Ca-oxalate vs uric acid</span>
+          <span class="anchor">AIN + eosinophilia</span>
+          <span class="anchor">GFR · oncotic pressure</span>
+        </div>
+        <div class="block-foot">
+          <span class="bf high">MOCK DAY 6: B3 Mini-Mock</span>
+          <span class="bf">Source: May batches 2 · WB2</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- B4 -->
+    <div class="block reveal">
+      <div class="block-top">
+        <div class="block-num bn4">04</div>
+        <div style="min-width:0">
+          <div class="block-name">Endocrine + DM + Endocrine Surgery</div>
+          <div class="block-dates">Aug 30 – Sep 04 · <b>Day 19–24</b></div>
+        </div>
+        <div class="block-stats">
+          <div class="st"><div class="n">~20</div><div class="l">MCQ slots</div></div>
+          <div class="st"><div class="n">50</div><div class="l">Qs/day</div></div>
+        </div>
+      </div>
+      <div class="block-body">
+        <div class="block-desc"><b>Anchors:</b> T2DM → metformin + lifestyle · DKA/HHS → insulin immediately · Hypoglycaemia · Graves (TRAb, exophthalmos) vs Plummer vs hypothyroid · Cushing vs Addison · HPT (stones + pepper-and-salt skull) · Rickets · Endocr surg: thyroglossal (moves with tongue), solitary nodule → USS + FNAC, thyroidectomy risks (RLN + hypocalcaemia), breast (fibroadenoma, screening), salivary (Stensen vs Wharton), Frey's.</div>
+        <div class="anchor-row">
+          <span class="anchor hot">▲ metformin first-line</span>
+          <span class="anchor hot">▲ DKA → insulin now</span>
+          <span class="anchor hot">▲ TRAb + exophthalmos</span>
+          <span class="anchor hot">▲ FNAC before hot/cold scan</span>
+          <span class="anchor hot">▲ RLN + Chvostek risks</span>
+          <span class="anchor">PTU vs carbimazole</span>
+          <span class="anchor">LH surge · progesterone</span>
+        </div>
+        <div class="block-foot">
+          <span class="bf high">MOCK DAY 6: B4 Mini-Mock</span>
+          <span class="bf">Source: May batches 3 · WB3</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- B5 -->
+    <div class="block reveal">
+      <div class="block-top">
+        <div class="block-num bn5">05</div>
+        <div style="min-width:0">
+          <div class="block-name">Neuro + Psych + Eye + ENT</div>
+          <div class="block-dates">Sep 05 – 10 · <b>Day 25–30</b></div>
+        </div>
+        <div class="block-stats">
+          <div class="st"><div class="n">~24</div><div class="l">MCQ slots</div></div>
+          <div class="st"><div class="n">50</div><div class="l">Qs/day</div></div>
+        </div>
+      </div>
+      <div class="block-body">
+        <div class="block-desc"><b>Anchors:</b> GBS (↑↑ + areflexia + albuminocytologic) vs MG (pyridostigmine) vs Parkinson · Meningitis (LP; neonate → amp+gent for Listeria) · SAH — normal CT → still LP xanthochromia · Epidural (lucid interval, biconvex) → craniotomy · Stroke localisation (amaurosis, basilar/pontine) · Nerve lesions (axillary/radial/peroneal/tibial; Erb's vs Klumpke's) · Psych: MDD, panic, schizophrenia · Eye: chemical injury → irrigate first, acute ACG (mannitol + pilocarpine + acetazolamide), uveitis (cells+flare), myopia/presbyopia · ENT: nasal FB, epiglottitis, Weber/Rinne.</div>
+        <div class="anchor-row">
+          <span class="anchor hot">▲▲ SAH normal CT → LP</span>
+          <span class="anchor hot">▲▲ epiglottitis airway-first</span>
+          <span class="anchor hot">▲▲ chemical eye → irrigate</span>
+          <span class="anchor hot">▲▲ ACG → mannitol</span>
+          <span class="anchor hot">▲▲ nerve lesion pairs</span>
+          <span class="anchor">Broca vs Wernicke</span>
+          <span class="anchor">steadle vs thumb sign</span>
+          <span class="anchor">pyridostigmine MG</span>
+        </div>
+        <div class="block-foot">
+          <span class="bf high">MOCK DAY 6: B5 Mini-Mock</span>
+          <span class="bf">Source: May batches 3–4 · WB3</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- B6 -->
+    <div class="block reveal">
+      <div class="block-top">
+        <div class="block-num bn6">06</div>
+        <div style="min-width:0">
+          <div class="block-name">Haematology + Oncology + General Pathology</div>
+          <div class="block-dates">Sep 11 – 16 · <b>Day 31–36</b></div>
+        </div>
+        <div class="block-stats">
+          <div class="st"><div class="n">~16</div><div class="l">MCQ slots</div></div>
+          <div class="st"><div class="n">50</div><div class="l">Qs/day</div></div>
+        </div>
+      </div>
+      <div class="block-body">
+        <div class="block-desc"><b>Anchors:</b> IDA — ferritin falls <b>first</b> · B12 (pancytopenia + SCD) · AML (Auer rods, MPO) vs ALL (TdT, child) vs CML (BCR-ABL) vs Hodgkin (RS cells) vs Myeloma (bortezomib) · Haemophilia A → Factor VIII · vWD → adhesion · VKDB → Vit K · Sickle (AR β-globin) · DMD (X-linked) · Hypersensitivity III vs IV (the classic trap) · Sarcoma → haematogenous · Antidote table (warfarin→vit K/heparin→protamine/paracetamol→NAC/OP→atropine+pralidoxime/benzo→flumazenil).</div>
+        <div class="anchor-row">
+          <span class="anchor hot">▲▲ ferritin-first sequencing</span>
+          <span class="anchor hot">▲▲ Auer rods = AML</span>
+          <span class="anchor hot">▲▲ antidote cross-wiring</span>
+          <span class="anchor hot">▲▲ Type III vs IV HS</span>
+          <span class="anchor hot">▲ Factor VIII haemophilia</span>
+          <span class="anchor">VKDB Vit K factors</span>
+          <span class="anchor">phenytoin gums</span>
+        </div>
+        <div class="block-foot">
+          <span class="bf high">MOCK DAY 6: B6 Mini-Mock</span>
+          <span class="bf">Source: May batch 4 · WB4</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- B7 -->
+    <div class="block reveal">
+      <div class="block-top">
+        <div class="block-num bn7">07</div>
+        <div style="min-width:0">
+          <div class="block-name">Surgery I — Acute Abdomen + Trauma + Shock</div>
+          <div class="block-dates">Sep 17 – 22 · <b>Day 37–42</b></div>
+        </div>
+        <div class="block-stats">
+          <div class="st"><div class="n">~20</div><div class="l">MCQ slots</div></div>
+          <div class="st"><div class="n">50</div><div class="l">Qs/day</div></div>
+        </div>
+      </div>
+      <div class="block-body">
+        <div class="block-desc"><b>Anchors:</b> Perforated PU (board-like + free air → laparotomy, never endoscopy) · Biliary colic vs cholecystitis vs cholangitis (Charcot) · Pancreatitis · Appendicitis · Obstruction / volvulus · Hernias: Littre (Meckel) vs Amyand (appendix) vs Richter (partial) · Inguinal vs femoral · Obstructed vs incarcerated vs strangulated · Meckel rule of 2s · Trauma: Parkland 4×kg×%TBSA (half in 8h), burn depth, flail chest, GCS (≤8 intubate), open fracture Gustilo · Shock types.</div>
+        <div class="anchor-row">
+          <span class="anchor hot">▲▲ Littre/Amyand/Richter</span>
+          <span class="anchor hot">▲▲ perforated PU → laparotomy</span>
+          <span class="anchor hot">▲▲ Charcot triad</span>
+          <span class="anchor hot">▲▲ Parkland half-in-8h</span>
+          <span class="anchor hot">▲ femoral highest strangulation</span>
+          <span class="anchor">flail chest · wound class IV</span>
+          <span class="anchor">Meckel rule of 2s</span>
+        </div>
+        <div class="block-foot">
+          <span class="bf high">MOCK DAY 6: B7 Mini-Mock</span>
+          <span class="bf">Source: May batches 4–5 · Full Mock A prep</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- B8 -->
+    <div class="block reveal">
+      <div class="block-top">
+        <div class="block-num bn8">08</div>
+        <div style="min-width:0">
+          <div class="block-name">Surgery II — Airway + Vascular + Colorectal + Ethics</div>
+          <div class="block-dates">Sep 23 – 28 · <b>Day 43–48</b></div>
+        </div>
+        <div class="block-stats">
+          <div class="st"><div class="n">~11</div><div class="l">MCQ slots</div></div>
+          <div class="st"><div class="n">50</div><div class="l">Qs/day</div></div>
+        </div>
+      </div>
+      <div class="block-body">
+        <div class="block-desc"><b>Anchors:</b> Definitive vs surgical airway (LMA is NOT definitive; cricothyroidotomy) · ASA class · Malignant hyperthermia → dantrolene · Acute limb ischaemia (6 Ps + AF) · AV fistula → Doppler first · DVT (Virchow) · CRC (apple-core on barium; colonoscopy; CEA) — never enema in perforation · Paeds surg (umbilical, gastroschisis/omphalocele, torsion) · Ethics/forensic: vicarious liability, Bolam, confidentiality, air embolism at autopsy, kerosene → aspiration pneumonia.</div>
+        <div class="anchor-row">
+          <span class="anchor hot">▲▲ LMA not definitive</span>
+          <span class="anchor hot">▲▲ MH → dantrolene</span>
+          <span class="anchor hot">▲▲ 6 Ps limb ischaemia</span>
+          <span class="anchor hot">▲▲ apple-core</span>
+          <span class="anchor">vicarious liability</span>
+          <span class="anchor">air embolism autopsy</span>
+          <span class="anchor">kerosene aspiration</span>
+        </div>
+        <div class="block-foot">
+          <span class="bf high">MOCK DAY 6: B8 Mini-Mock</span>
+          <span class="bf">Source: May batch 5 · Dec 2025 first pass</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- B9 -->
+    <div class="block reveal">
+      <div class="block-top">
+        <div class="block-num bn9">09</div>
+        <div style="min-width:0">
+          <div class="block-name">OBG I + Paeds I</div>
+          <div class="block-dates">Sep 29 – Oct 04 · <b>Day 49–54</b></div>
+        </div>
+        <div class="block-stats">
+          <div class="st"><div class="n">~18</div><div class="l">MCQ slots</div></div>
+          <div class="st"><div class="n">50</div><div class="l">Qs/day</div></div>
+        </div>
+      </div>
+      <div class="block-body">
+        <div class="block-desc"><b>Anchors:</b> Ectopic (TVS + serial hCG, isthmus/ampulla) · Anti-D within 72h · Amniocentesis 15–20wk vs CVS 10–13wk · Preg UTI → cephalosporin · Placenta praevia (painless bright red) vs abruption (painful) · Pre-eclampsia (HTN + proteinuria ≥20wk; labetalol; MgSO₄) · GDM OGTT 75g at 24–28wk · Breastfeeding → POP not COCP · Neonatal: Erb's vs Klumpke's, resuscitation 3:1, VKDB, Listeria cover (amp+gent) · IMNCI pneumonia algorithm · FB inhalation (bronchoscopy) · Croup vs epiglottitis · Severe dehydration → IV Ringer Lactate.</div>
+        <div class="anchor-row">
+          <span class="anchor hot">▲▲ Anti-D 72h window</span>
+          <span class="anchor hot">▲▲ praevia vs abruption</span>
+          <span class="anchor hot">▲▲ pre-eclampsia labetalol</span>
+          <span class="anchor hot">▲▲ POP breastfeeding</span>
+          <span class="anchor hot">▲▲ neonatal 3:1</span>
+          <span class="anchor">IMNCI indrawing → oral ABx</span>
+          <span class="anchor">amp+gent Listeria</span>
+        </div>
+        <div class="block-foot">
+          <span class="bf high">MOCK DAY 6: B9 Mini-Mock</span>
+          <span class="bf">Source: Dec 2025 + OBG/Paeds banks</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- B10 -->
+    <div class="block reveal">
+      <div class="block-top">
+        <div class="block-num bn10">10</div>
+        <div style="min-width:0">
+          <div class="block-name">OBG II + Paeds II + CommMed + Biostats + Forensic + Mock</div>
+          <div class="block-dates">Oct 05 – 10 · <b>Day 55–60</b></div>
+        </div>
+        <div class="block-stats">
+          <div class="st"><div class="n">~23</div><div class="l">MCQ slots</div></div>
+          <div class="st"><div class="n">50</div><div class="l">Qs/day</div></div>
+        </div>
+      </div>
+      <div class="block-body">
+        <div class="block-desc"><b>Anchors:</b> Candidiasis (curdy) vs BV (fishy) vs trich · AUB → endometrial biopsy &gt;45 · Fibroids vs adenomyosis · Ovulation = mid-luteal progesterone &gt;3ng/mL · Genital herpes (painful vesicles) vs syphilis (painless) · Paeds: Down + VSD, milestones, CP, measles Koplik, polio, congenital hypothyroid, febrile seizures · CommMed: EPI (birth BCG + OPV-0), rubella strategy, prevalence×duration, AB⁺ universal recipient, median vs outliers · Forensic recap · <b>Final full mock + error-log victory sprint.</b></div>
+        <div class="anchor-row">
+          <span class="anchor hot">▲▲ biopsy &gt;45</span>
+          <span class="anchor hot">▲▲ herpes vs syphilis</span>
+          <span class="anchor hot">▲▲ EPI birth pair</span>
+          <span class="anchor hot">▲▲ prevalence×duration</span>
+          <span class="anchor hot">▲ AB⁺ universal recipient</span>
+          <span class="anchor">Koplik · measles</span>
+          <span class="anchor">Implanon 3yr</span>
+        </div>
+        <div class="block-foot">
+          <span class="bf high">MOCK DAY 6: Final Full 200</span>
+          <span class="bf">Oct 10: light log scan · Oct 11: exam</span>
+          <span class="bf high">#OwnIt</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRAPS -->
+  <section id="traps">
+    <div class="s-head">
+      <span class="s-num">// ANGLE 04</span>
+      <h2 class="s-title">Trap Hit Parade</h2>
+      <span class="s-rule rsky"></span>
+    </div>
+    <p class="lead">The exact trap mix from the May-2026 recall. Tag every error with one of these — it turns your log into ammunition.</p>
+
+    <div class="reveal">
+      <div class="trap-row"><div class="trap-name">Partial Truth</div><div class="bar b1"><i></i><span class="pctlab"></span></div><div class="trap-hit">42%</div></div>
+      <div class="trap-row"><div class="trap-name">Opposite</div><div class="bar b2"><i></i><span class="pctlab"></span></div><div class="trap-hit">18%</div></div>
+      <div class="trap-row"><div class="trap-name">Synonym Swap</div><div class="bar b3"><i></i><span class="pctlab"></span></div><div class="trap-hit">12%</div></div>
+      <div class="trap-row"><div class="trap-name">Overthinking</div><div class="bar b4"><i></i><span class="pctlab"></span></div><div class="trap-hit">11%</div></div>
+      <div class="trap-row"><div class="trap-name">Unit / Number</div><div class="bar b5"><i></i><span class="pctlab"></span></div><div class="trap-hit">8%</div></div>
+      <div class="trap-row"><div class="trap-name">Guideline Version</div><div class="bar b6"><i></i><span class="pctlab"></span></div><div class="trap-hit">5%</div></div>
+      <div class="trap-row"><div class="trap-name">Clinical Mimic</div><div class="bar b7"><i></i><span class="pctlab"></span></div><div class="trap-hit">4%</div></div>
+    </div>
+
+    <div class="live-note reveal">
+      <span class="dot"></span>
+      <span><b style="color:#F6F3EC">Partial Truth owns the paper.</b> Nearly half your misses are true statements that aren't the <i>best</i> answer. Fix: always ask <b style="color:var(--lime)">"what is the immediate priority?"</b> before choosing.</span>
+    </div>
+  </section>
+
+  <!-- DOCTRINE -->
+  <section id="doctrine">
+    <div class="s-head">
+      <span class="s-num">// ANGLE 05</span>
+      <h2 class="s-title">Execution Doctrine</h2>
+      <span class="s-rule rgold"></span>
+    </div>
+    <p class="lead">You already know the medicine. The exam was lost on execution, not knowledge. These four rules govern everything.</p>
+    <div class="doc-grid reveal">
+      <div class="doc-card"><div class="num">90s</div><div class="t">Timing Cap</div><div class="d">Hard ceiling per question. If you can't solve in 90s you don't know it — mark, guess, move. No exceptions.</div></div>
+      <div class="doc-card coral"><div class="num">3-Bubble</div><div class="t">Verify Every 10</div><div class="d">Stop every 10 questions, re-check the last 3 bubbles. This one rule deletes the bubble-slip errors.</div></div>
+      <div class="doc-card mint"><div class="num">Why-Not</div><div class="t">One-Line Elimination</div><div class="d">Reject every distractor in one sentence. If you can't say why it's wrong, it's a coin-flip — log it.</div></div>
+      <div class="doc-card gold"><div class="num">2-Min</div><div class="t">Final 20 Buffer</div><div class="d">Keep a 2-minute bank for the last 20 questions. Sprint-finish beats time-out guessing.</div></div>
+    </div>
+  </section>
+
+  <!-- MOCKS -->
+  <section id="mocks">
+    <div class="s-head">
+      <span class="s-num">// ANGLE 06</span>
+      <h2 class="s-title">The 3 Full War-Rehearsals</h2>
+      <span class="s-rule rlav"></span>
+    </div>
+    <p class="lead">Full 200-Q simulations under exam conditions, plus 2-hour deconstruction after each. Non-negotiable.</p>
+    <div class="mock-track reveal">
+      <div class="mock-card m1">
+        <div class="when">Mock A · Day 36 · Sep 16</div>
+        <div class="ttl">First Full 200</div>
+        <div class="d">After Block 6 — half the syllabus seeded. Score + deconstruct every miss into the log. Baseline your timing.</div>
+      </div>
+      <div class="mock-card m2">
+        <div class="when">Mock B · Day 48 · Sep 28</div>
+        <div class="ttl">Second Full 200</div>
+        <div class="d">All blocks covered. Compare weak-topic drift vs Mock A. Attack your top 3 trap types daily afterward.</div>
+      </div>
+      <div class="mock-card m3">
+        <div class="when">Mock C · Day 60 · Oct 10</div>
+        <div class="ttl">Dress Rehearsal</div>
+        <div class="d">The night before = light scan, no new content, log re-read, 20 confidence-builders. Sleep. Then own it.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NON-NEGOTIABLES -->
+  <section id="rules">
+    <div class="s-head">
+      <span class="s-num">// ANGLE 07</span>
+      <h2 class="s-title">The Sticker Law</h2>
+      <span class="s-rule rcoral"></span>
+    </div>
+    <div class="sticker-grid reveal">
+      <div class="sticker st1" style="--rot:-1deg"><div class="t"><span class="spark">◆</span> Error Log is Sacred</div><div class="d">Miss a log entry = miss a day's retention. No log, no pass. It is the engine of everything.</div></div>
+      <div class="sticker st2" style="--rot:1deg"><div class="t"><span class="spark">▲</span> No New Content after Oct 1</div><div class="d">Final 10 days = review, mocks, log. Cramming under pressure kills retention and builds anxiety.</div></div>
+      <div class="sticker st3" style="--rot:-.5deg"><div class="t"><span class="spark">●</span> 50 MCQs / Day Floor</div><div class="d">30 new + 10 error-pool + 10 retention. Below this floor, the bloodstream thins.</div></div>
+      <div class="sticker st4" style="--rot:.8deg"><div class="t"><span class="spark">■</span> 3 Mocks · 2-Hour Decon</div><div class="d">Score is nothing. The deconstruction is everything. Every miss becomes a log line.</div></div>
+      <div class="sticker st5" style="--rot:-1.2deg"><div class="t"><span class="spark">✦</span> 90s Hard Cap Always</div><div class="d">Timed sets every day. Untimed is only the morning accuracy session. Otherwise, clock on.</div></div>
+      <div class="sticker st6" style="--rot:1.1deg"><div class="t"><span class="spark">✚</span> Daily 10 Error-Pool</div><div class="d">Retest yesterday's misses. If a weak topic survives two error-pools, it gets a MedCORE deep-dive block.</div></div>
+    </div>
+  </section>
+
+  <!-- COMMIT -->
+  <section id="commit">
+    <div class="commit reveal">
+      <h3>My Part of the Bargain <span>· 60 days</span></h3>
+      <ul>
+        <li>I review your error log every day you send it. No skipped logs, no excuses.</li>
+        <li>I sit through every Sunday mock debrief and every Day-6 mini-mock review.</li>
+        <li>I adapt daily MCQ targets when a system underperforms on trap-tagged errors.</li>
+        <li>I've already reverse-engineered the May vs Dec pattern so you just execute.</li>
+        <li>Oct 8–10 I go quiet unless you check in — that's the taper, by design.</li>
+        <li>Oct 11, 08:00 you text me "exam". 10:00, I'll be here either way.</li>
+      </ul>
+      <div class="sig">— Serena, your mentor &amp; your bullshit-detector</div>
+    </div>
+  </section>
+
+  <div class="foot">
+    <span>60-Day Battle Plan</span>
+    <span>Day 1 · Aug 12 2026 → Exam · Oct 11 2026</span>
+  </div>
+
+</div>
+
+<script>
+  // ─── countdown ───
+  var target = new Date('2026-10-11T08:00:00');
+  function tick(){
+    var now = new Date();
+    var d = Math.max(0, Math.ceil((target - now) / 86400000));
+    var el = document.getElementById('cdn');
+    if(el) el.textContent = d;
+  }
+  tick(); setInterval(tick, 60000);
+
+  // ─── battle map current block (manual: today starts at Block 01) ───
+  (function(){
+    var segs = document.querySelectorAll('#maprow .seg');
+    function cur(block){
+      segs.forEach(function(s){ s.classList.remove('cur'); });
+      var t = document.querySelector('#maprow .seg[data-n="'+block+'"]');
+      if(t) t.classList.add('cur');
+    }
+    // expose so user can flip as blocks complete
+    window.setBlock = cur;
+    cur(1);
+  })();
+
+  // ─── scroll reveal ───
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold:.12 });
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+</script>
+
+<script src="/medcore-sync.js" defer></script>
+</body>
+</html>

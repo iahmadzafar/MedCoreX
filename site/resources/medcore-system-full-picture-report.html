@@ -1,0 +1,1151 @@
+<!DOCTYPE html><html lang='en'><head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width,initial-scale=1'>
+<title>System — Full Picture Report</title>
+<style>
+:root{
+  --navy:#1B2A4A; --navy2:#24365c; --gold:#B7791F; --gold2:#d99a2b; --blue:#4E6E9E;
+  --gray:#8A8F98; --zebra:#F3F6FA; --ink:#232a33; --muted:#5b6470; --paper:#fafaf8;
+  --paper2:#f1f3f6; --line:#dfe3e9; --good:#177245; --bad:#b3302c; --chipbg:#eef1f5;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:"IBM Plex Sans",system-ui,sans-serif;font-size:1rem;line-height:1.72}
+h1,h2,h3,h4{font-family:"Space Grotesk",sans-serif;letter-spacing:-0.01em;line-height:1.22}
+.container{max-width:100%;margin:0 auto;padding:0 28px}
+a{color:var(--blue);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* cover */
+.cover{background:linear-gradient(160deg,#13203a 0%,#1B2A4A 55%,#24365c 100%);color:#fff;
+  padding:72px 28px 58px;border-bottom:6px solid var(--gold)}
+.cover-inner{max-width:100%;margin:0 auto}
+.cover-label{display:inline-flex;align-items:center;gap:8px;font-size:0.75rem;letter-spacing:.18em;
+  text-transform:uppercase;color:#d9c9a3;border:1px solid rgba(217,201,163,.4);padding:5px 12px;border-radius:99px}
+.cover h1{font-size:clamp(30px,5vw,46px);margin:22px 0 10px;color:#fff}
+.cover-subtitle{font-size:1.0625rem;max-width:100%;color:#c9d2e2;margin:0 0 26px}
+.cover-meta{display:flex;flex-wrap:wrap;gap:26px;font-size:0.8125rem;color:#9fb0cc}
+.cover-meta b{color:#fff;font-weight:600}
+.cover-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:34px}
+.cover-stat{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:14px 16px}
+.cover-stat .v{font-family:"Space Grotesk";font-size:1.625rem;font-weight:700;color:#e8c986;display:block}
+.cover-stat .l{font-size:0.7188rem;color:#aebcd6;letter-spacing:.04em;text-transform:uppercase}
+
+/* toc */
+.toc{background:#fff;border:1px solid var(--line);border-radius:12px;padding:26px 30px;margin:38px 0}
+.toc h2{margin:0 0 14px;font-size:1.25rem}
+.toc ol{margin:0;padding-left:22px;columns:2;column-gap:42px}
+.toc li{margin:4px 0;font-size:0.9063rem;break-inside:avoid}
+.toc a{color:var(--ink)}
+.toc a:hover{color:var(--gold);text-decoration:none}
+.toc .n{color:var(--gold);font-weight:700;margin-right:6px}
+
+/* sections */
+section{padding:52px 0 8px}
+.sec-head{display:flex;align-items:baseline;gap:14px;border-bottom:3px solid var(--gold);padding-bottom:10px;margin-bottom:26px}
+.sec-num{font-family:"Space Grotesk";font-size:0.9375rem;font-weight:700;color:var(--gold);white-space:nowrap}
+.sec-head h2{font-size:1.625rem;margin:0}
+.sec-head .sub{margin-left:auto;font-size:0.7813rem;color:var(--muted);text-align:right}
+h3{font-size:1.1875rem;margin:34px 0 10px}
+h4{font-size:1rem;margin:24px 0 6px}
+p{margin:0 0 14px}
+.lead{font-size:1.0625rem;color:var(--muted)}
+.small{font-size:0.8125rem;color:var(--muted)}
+strong{color:var(--navy)}
+
+/* stats */
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:22px 0}
+.stat-card{background:#fff;border:1px solid var(--line);border-top:3px solid var(--gold);border-radius:10px;padding:18px 18px 14px}
+.stat-value{font-family:"Space Grotesk";font-size:1.875rem;font-weight:700;color:var(--navy);display:block;line-height:1.1}
+.stat-label{font-size:0.7813rem;color:var(--muted);letter-spacing:.03em;text-transform:uppercase;display:block;margin-top:4px}
+.stat-note{font-size:0.75rem;color:var(--gray);display:block;margin-top:4px}
+
+/* callouts */
+.callout{border-left:4px solid var(--gold);background:#fbf6ec;border-radius:0 10px 10px 0;padding:16px 20px;margin:22px 0}
+.callout-info{background:var(--zebra);border-left-color:var(--blue)}
+.callout-warning{background:#fdf0ee;border-left-color:var(--bad)}
+.callout-tip{background:#eef6f0;border-left-color:var(--good)}
+.callout-title{font-weight:700;font-size:0.8125rem;letter-spacing:.06em;text-transform:uppercase;display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.callout p{margin:0 0 6px;font-size:0.9063rem}
+.callout p:last-child{margin-bottom:0}
+
+/* tables */
+table{width:100%;border-collapse:collapse;margin:18px 0 26px;font-size:0.8438rem;background:#fff}
+th{font-family:"Space Grotesk";text-align:left;padding:10px 12px;background:var(--navy);color:#fff;font-size:0.75rem;letter-spacing:.05em;text-transform:uppercase;border:none}
+td{padding:9px 12px;border-bottom:1px solid var(--zebra);vertical-align:top;font-variant-numeric:tabular-nums}
+tbody tr:nth-child(even){background:var(--zebra)}
+.mono,.num{font-family:"JetBrains Mono",monospace;font-size:0.7813rem}
+.bar-wrap{min-width:110px;background:#e6eaf0;border-radius:4px;height:12px;overflow:hidden}
+.bar{height:12px;background:var(--blue);border-radius:4px}
+.bar.gold{background:var(--gold)}
+.delta-pos{color:var(--good);font-weight:600}
+.delta-neg{color:var(--bad);font-weight:600}
+.chip{display:inline-block;background:var(--chipbg);border:1px solid var(--line);border-radius:6px;padding:1px 8px;font-size:0.7188rem;color:var(--muted);white-space:nowrap}
+.chip.gold{background:#fbf3e3;border-color:#ecd9ae;color:#8a5a10;font-weight:600}
+.chip.navy{background:var(--zebra);border-color:var(--line);color:var(--navy);font-weight:600}
+
+/* subject band */
+.band td{background:#1B2A4A;color:#fff;font-family:"Space Grotesk";font-weight:700;font-size:0.8438rem;letter-spacing:.04em;border-bottom:none}
+.band td:first-child{border-top-left-radius:8px}
+.band td:last-child{border-top-right-radius:8px}
+
+/* question rows */
+.q-stem{font-weight:600;color:var(--navy)}
+.q-rule{color:var(--muted);font-size:0.7813rem}
+.ans-badge{display:inline-block;min-width:22px;text-align:center;background:var(--gold);color:#fff;font-weight:700;border-radius:5px;padding:1px 6px;font-family:"JetBrains Mono"}
+
+/* dissection */
+.dissect{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin:16px 0}
+.dissect .q{font-weight:700;color:var(--navy);margin-bottom:8px;font-size:0.9375rem}
+.dissect .opt{margin:2px 0;font-size:0.8438rem}
+.dissect .opt.correct{background:#eef6f0;border-radius:6px;padding:2px 8px;font-weight:600;color:var(--good)}
+.dissect .why{font-size:0.8438rem;color:var(--ink);margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+.dissect .wn{font-size:0.7813rem;color:var(--muted);margin-top:4px}
+
+/* correlation */
+.corr-topic{font-weight:600}
+.gap{background:#fdf0ee!important}
+.gap .corr-topic{color:var(--bad)}
+
+/* layout helpers */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:700px){.two{grid-template-columns:1fr}}
+hr.div{border:none;height:2px;background:linear-gradient(90deg,var(--gold),transparent);margin:44px 0}
+.note-line{font-size:0.8125rem;color:var(--muted);border-top:1px solid var(--line);padding-top:12px;margin-top:26px}
+
+footer{margin-top:60px;background:var(--navy);color:#aebcd6;padding:34px 28px;font-size:0.7813rem}
+.foot-inner{max-width:100%;margin:0 auto}
+footer b{color:#fff}
+
+/* icons */
+.ic{width:1em;height:1em;vertical-align:-0.13em;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;margin-right:6px}
+
+@media print{
+  body{font-size:11pt;background:#fff}
+  .cover{break-after:page;border-bottom:none}
+  .toc{break-after:page}
+  section{break-inside:auto;padding:16px 0}
+  table{font-size:9.5pt}
+  a{color:inherit;text-decoration:none}
+  .no-print{display:none}
+}
+
+/* ===== UI layer: theme, shell, reveal (edit overlay; study content untouched) ===== */
+.site-topbar{position:sticky;top:0;z-index:50;background:rgba(19,32,58,.96);color:#fff;
+  border-bottom:1px solid rgba(217,201,163,.25);backdrop-filter:blur(6px)}
+.topbar-inner{max-width:100%;margin:0 auto;padding:10px 28px;display:flex;align-items:center;gap:18px}
+.site-title{font-family:"Space Grotesk",system-ui,sans-serif;font-weight:700;font-size:0.9375rem;color:#fff;
+  white-space:nowrap;text-decoration:none;letter-spacing:.01em}
+.site-title:hover{text-decoration:none;color:#e8c986}
+.topnav{display:flex;gap:4px;margin-left:auto;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.topnav a{color:#c9d2e2;font-size:0.8125rem;padding:5px 10px;border-radius:6px;white-space:nowrap;text-decoration:none}
+.topnav a:hover{background:rgba(255,255,255,.09);color:#fff;text-decoration:none}
+.theme-btn{flex:none;margin-left:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);
+  color:#e8c986;width:34px;height:34px;border-radius:8px;cursor:pointer;display:inline-flex;
+  align-items:center;justify-content:center;padding:0}
+.theme-btn:hover{background:rgba(255,255,255,.16)}
+.theme-btn .sun{display:none}
+.theme-btn .moon{display:block}
+html[data-theme='dark'] .theme-btn .sun{display:block}
+html[data-theme='dark'] .theme-btn .moon{display:none}
+@media(max-width:720px){.topnav{display:none}}
+
+/* progressive reveal */
+section{scroll-margin-top:64px}
+.sec-head{cursor:pointer;user-select:none;-webkit-user-select:none}
+.sec-head:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+.sec-head .chev{flex:none;margin-left:10px;color:var(--gold);transition:transform .18s ease;display:inline-block}
+section.open .sec-head .chev{transform:rotate(90deg)}
+.sec-body{display:none}
+section.open .sec-body{display:block}
+.sec-hint{font-size:0.7188rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+
+/* readable column */
+@media(min-width:1000px){
+  .container,.cover-inner,.foot-inner,.topbar-inner{max-width:100%}
+}
+
+/* dark theme */
+html[data-theme='dark']{
+  --navy:#a9c4e8; --navy2:#2a3b5e; --gold:#d99a2b; --gold2:#e8c986; --blue:#7ea4d4;
+  --gray:#7a8494; --zebra:#1e2532; --ink:#e2e8f1; --muted:#9aa6b5; --paper:#141a24;
+  --paper2:#10151e; --line:#2c3444; --good:#54c18a; --bad:#e0706a; --chipbg:#20293a;
+}
+html[data-theme='dark'] .toc,html[data-theme='dark'] table,html[data-theme='dark'] .stat-card,
+html[data-theme='dark'] .dissect{background:var(--paper2)}
+html[data-theme='dark'] th{background:#2a3b5e;color:#e2e8f1}
+html[data-theme='dark'] .band td{background:#2a3b5e;color:#e2e8f1}
+html[data-theme='dark'] tbody tr:nth-child(even){background:#171d28}
+html[data-theme='dark'] .bar-wrap{background:#232c3c}
+html[data-theme='dark'] .callout{background:#29230f}
+html[data-theme='dark'] .callout-info{background:#1a2332}
+html[data-theme='dark'] .callout-warning{background:#2c1b1a}
+html[data-theme='dark'] .callout-tip{background:#15251b}
+html[data-theme='dark'] .chip.gold{background:#33290f;border-color:#5a4718;color:#e8c986}
+html[data-theme='dark'] .chip.navy{background:#1c2534;border-color:#2c3444;color:#a9c4e8}
+html[data-theme='dark'] .dissect .opt.correct{background:#17281d;color:#54c18a}
+html[data-theme='dark'] .gap{background:#2c1b1a!important}
+html[data-theme='dark'] footer{background:#0e1420}
+html[data-theme='dark'] .site-topbar{background:rgba(13,19,32,.96)}
+
+</style>
+<script>
+(function(){
+  var t;
+  try{t=localStorage.getItem('medcore.theme')||'dark'}catch(e){t='dark'}
+  document.documentElement.setAttribute('data-theme',t);
+})();
+</script>
+</head><body id='top'>
+<header class="site-topbar"><div class="topbar-inner">
+  <a class="site-title" href="#top">Full Picture Report</a>
+  <nav class="topnav" aria-label="Report sections">
+    <a href="#evidence">Evidence</a><a href="#weightage">Weightage</a><a href="#league">Recurrence</a>
+    <a href="#master">Master</a><a href="#bank">Bank</a><a href="#obsgyn">OB/GYN</a>
+    <a href="#backbone">Correlation</a><a href="#confidence">Confidence</a><a href="#risk">Risk</a>
+  </nav>
+  <button id="themeToggle" class="theme-btn" type="button" aria-label="Switch color theme" title="Switch color theme">
+    <svg class="moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13.5A8.5 8.5 0 0 1 10.5 4 8.5 8.5 0 1 0 20 13.5z"/></svg>
+    <svg class="sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.5M12 19v2.5M2.5 12H5M19 12h2.5M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M18.7 5.3l-1.8 1.8M7.1 16.9l-1.8 1.8"/></svg>
+  </button>
+</div></header>
+
+
+<header class="cover"><div class="cover-inner">
+  <span class="cover-label"><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="2.5"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg>Exam Intelligence · Prepared 18 Sep 2026</span>
+  <h1>exam System — The Full Picture</h1>
+  <p class="cover-subtitle">Every evidence layer in the prep system, rendered against the exam data: the recalled papers,
+  the prediction bank, the core master file, the recurrence league, and the OB/GYN backbone — with the hits shown as they are.</p>
+  <div class="cover-meta">
+    <span><b>Workspace</b><br>exam Prep</span>
+    <span><b>Evidence base</b><br>5 recalled sittings · 822 MCQs</span>
+    <span><b>Engine</b><br>Prediction bank · 200 MCQs</span>
+    <span><b>Recognition layer</b><br>Core master · 439 questions</span>
+    <span><b>Next sitting</b><br>Oct 11</span>
+  </div>
+  <div class="cover-stats">
+    <div class="cover-stat"><span class="v">822</span><span class="l">Recalled MCQs, 5 papers</span></div>
+    <div class="cover-stat"><span class="v">200</span><span class="l">Predicted MCQs, 14 subjects</span></div>
+    <div class="cover-stat"><span class="v">439</span><span class="l">Questions analyzed</span></div>
+    <div class="cover-stat"><span class="v">±0.5pp</span><span class="l">Typical weightage delta</span></div>
+    <div class="cover-stat"><span class="v">8.5%</span><span class="l">OB/GYN predicted share</span></div>
+  </div>
+</div></header>
+
+<div class="container"><nav class="toc"><h2>Contents</h2><ol>
+<li><span class="n">1</span><a href="#evidence">The Evidence Base — every source, counted</a></li>
+<li><span class="n">2</span><a href="#weightage">Subject Weightage — predicted vs recalled, all 14 subjects</a></li>
+<li><span class="n">3</span><a href="#league">Recurrence League — the top 25 repeating topics</a></li>
+<li><span class="n">4</span><a href="#master">Core Master Inventory — all 26 system sections with examples</a></li>
+<li><span class="n">5</span><a href="#bank">Prediction Bank — all 200 MCQs, full</a></li>
+<li><span class="n">6</span><a href="#obsgyn">OB/GYN Deep Dive — the 17 questions, dissected</a></li>
+<li><span class="n">7</span><a href="#backbone">Backbone Correlation Map — topics to predicted MCQs</a></li>
+<li><span class="n">8</span><a href="#confidence">Confidence Model — what we can and cannot claim</a></li>
+<li><span class="n">9</span><a href="#risk">Where the Risk Sits — and what to do next</a></li>
+</ol></nav></div>
+<section id='evidence'><div class="container"><div class="sec-head"><span class="sec-num">1</span><h2><svg class="ic" viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 12h6M10 16h6"/></svg>The Evidence Base — every source, counted</h2><span class="sub">What actually sits in the workspace</span></div>
+
+<p class="lead">Every number in this report traces to a file you already own. Nothing here is recalled from memory or
+invented to look good — the report is generated directly from the workspace data. This section counts the layers before
+showing the hits.</p>
+<div class="stats-grid">
+  <div class="stat-card"><span class="stat-value">5</span><span class="stat-label">Recalled sittings</span><span class="stat-note">June 2024 · Dec 2024 · June 2025 · Dec 2025 · May 2026</span></div>
+  <div class="stat-card"><span class="stat-value">822</span><span class="stat-label">Recalled MCQs</span><span class="stat-note">147 + 172 + 140 + 187 + 177</span></div>
+  <div class="stat-card"><span class="stat-value">200</span><span class="stat-label">Prediction bank</span><span class="stat-note">Prediction Master List · 14 subjects</span></div>
+  <div class="stat-card"><span class="stat-value">439</span><span class="stat-label">Core master questions</span><span class="stat-note">50 Exact + 200 Academy + 189 Recalled</span></div>
+  <div class="stat-card"><span class="stat-value">26</span><span class="stat-label">Core master systems</span><span class="stat-note">567 keyword → answer lines</span></div>
+  <div class="stat-card"><span class="stat-value">15</span><span class="stat-label">MedCORE books live</span><span class="stat-note">incl. Gynecology 85pp, Obstetrics 54pp</span></div>
+</div>
+
+
+<table>
+<thead><tr><th>Layer</th><th>File / location</th><th>What it holds</th><th>Role in the picture</th></tr></thead>
+<tbody>
+<tr><td><b>Recalled papers</b></td><td class="mono">Past Papers/</td><td>822 questions across 5 real sittings</td><td>Ground truth — what the exam actually asked</td></tr>
+<tr><td><b>Intelligence reports</b></td><td class="mono">Exam Intel/Intelligence Reports/</td><td>Per-sitting analysis, 822 MCQs synthesized</td><td>Where weightage and recurrence numbers come from</td></tr>
+<tr><td><b>Prediction bank</b></td><td class="mono">Exam Intel/Predictions/prediction_questions.json</td><td>200 MCQs, 14 subjects, answer + rule + distractor logic</td><td>The October-facing engine</td></tr>
+<tr><td><b>Prediction master list</b></td><td class="mono">Exam Intel/Predictions/exam Oct 2026 Prediction Master List.docx</td><td>200 rows: topic · question shape · answer · key fact · trap</td><td>Printable map of the prediction bank</td></tr>
+<tr><td><b>Core master</b></td><td class="mono">exam Essentials/nre_core_master.txt</td><td>439 questions analyzed → 567 keyword → answer lines in 26 systems</td><td>Cram-ready recognition layer</td></tr>
+<tr><td><b>Official syllabus</b></td><td class="mono">Syllabus/</td><td>exam Syllabus 2024 (DOCX + PDF)</td><td>Topic scope spine</td></tr>
+<tr><td><b>MedCORE books</b></td><td class="mono">MedCORE Systems/</td><td>15 system books, 50 MCQs each + kill tables + algorithms</td><td>Deep review layer per system</td></tr>
+</tbody></table>
+<div class="callout callout-info">
+<span class="callout-title">Method note</span>
+<p>Prediction questions are pattern-derived from the recalled papers (digested Q → A patterns), not leaked items.
+Per-item provenance does not exist; the confidence lies in topic families and discriminators, not verbatim stems.
+Official-syllabus content is used where recall evidence is thin — the report flags which rows are recall-backed vs floored.</p>
+</div>
+
+</div></section>
+<section id='weightage'><div class="container"><div class="sec-head"><span class="sec-num">2</span><h2><svg class="ic" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M21 14l-4-4-3 3"/></svg>Subject Weightage — predicted vs recalled, all 14 subjects</h2><span class="sub">From the Prediction Intelligence Report</span></div>
+
+<p class="lead">The architecture claim. The predicted distribution is calibrated against the actual recalled paper
+distribution (822 questions). A subject sitting inside ±0.5 percentage points of its recalled share is a subject whose
+allocation we can expect October to respect.</p>
+
+
+<table>
+<thead><tr><th>Subject</th><th>Predicted</th><th>Share</th><th>Bar (predicted share)</th><th>Recalled</th><th>Share</th><th>Δ (pp)</th><th>Read</th></tr></thead>
+<tbody>
+<tr><td><b>Medicine</b></td><td class="num">83</td><td class="num">41.5%</td><td><div class="bar-wrap"><div class="bar " style="width:83.0%"></div></div></td><td class="num">358</td><td class="num">43.6%</td><td class="num delta-neg">-2.1</td><td><span class="chip navy">deliberate floor</span></td></tr>
+<tr><td><b>Surgery</b></td><td class="num">23</td><td class="num">11.5%</td><td><div class="bar-wrap"><div class="bar " style="width:23.0%"></div></div></td><td class="num">96</td><td class="num">11.7%</td><td class="num delta-neg">-0.2</td><td><span class="chip ">locked</span></td></tr>
+<tr><td><b>Paediatrics</b></td><td class="num">20</td><td class="num">10.0%</td><td><div class="bar-wrap"><div class="bar " style="width:20.0%"></div></div></td><td class="num">81</td><td class="num">9.9%</td><td class="num delta-pos">+0.1</td><td><span class="chip ">locked</span></td></tr>
+<tr><td><b>Obstetrics &amp; Gynaecology</b></td><td class="num">17</td><td class="num">8.5%</td><td><div class="bar-wrap"><div class="bar " style="width:17.0%"></div></div></td><td class="num">69</td><td class="num">8.4%</td><td class="num delta-pos">+0.1</td><td><span class="chip ">locked</span></td></tr>
+<tr><td><b>Pharmacology</b></td><td class="num">14</td><td class="num">7.0%</td><td><div class="bar-wrap"><div class="bar " style="width:14.0%"></div></div></td><td class="num">58</td><td class="num">7.1%</td><td class="num delta-neg">-0.1</td><td><span class="chip ">locked</span></td></tr>
+<tr><td><b>Anatomy</b></td><td class="num">6</td><td class="num">3.0%</td><td><div class="bar-wrap"><div class="bar " style="width:6.0%"></div></div></td><td class="num">24</td><td class="num">2.9%</td><td class="num delta-pos">+0.1</td><td><span class="chip ">locked</span></td></tr>
+<tr><td><b>Community Medicine</b></td><td class="num">6</td><td class="num">3.0%</td><td><div class="bar-wrap"><div class="bar " style="width:6.0%"></div></div></td><td class="num">23</td><td class="num">2.8%</td><td class="num delta-pos">+0.2</td><td><span class="chip ">locked</span></td></tr>
+<tr><td><b>ENT</b></td><td class="num">6</td><td class="num">3.0%</td><td><div class="bar-wrap"><div class="bar " style="width:6.0%"></div></div></td><td class="num">21</td><td class="num">2.6%</td><td class="num delta-pos">+0.4</td><td><span class="chip gold">tight</span></td></tr>
+<tr><td><b>Ophthalmology</b></td><td class="num">6</td><td class="num">3.0%</td><td><div class="bar-wrap"><div class="bar " style="width:6.0%"></div></div></td><td class="num">13</td><td class="num">1.6%</td><td class="num delta-pos">+1.4</td><td><span class="chip navy">deliberate floor</span></td></tr>
+<tr><td><b>Forensic Medicine</b></td><td class="num">5</td><td class="num">2.5%</td><td><div class="bar-wrap"><div class="bar " style="width:5.0%"></div></div></td><td class="num">19</td><td class="num">2.3%</td><td class="num delta-pos">+0.2</td><td><span class="chip ">locked</span></td></tr>
+<tr><td><b>Physiology</b></td><td class="num">4</td><td class="num">2.0%</td><td><div class="bar-wrap"><div class="bar " style="width:4.0%"></div></div></td><td class="num">17</td><td class="num">2.1%</td><td class="num delta-neg">-0.1</td><td><span class="chip ">locked</span></td></tr>
+<tr><td><b>Biochemistry</b></td><td class="num">4</td><td class="num">2.0%</td><td><div class="bar-wrap"><div class="bar " style="width:4.0%"></div></div></td><td class="num">18</td><td class="num">2.2%</td><td class="num delta-neg">-0.2</td><td><span class="chip ">locked</span></td></tr>
+<tr><td><b>Pathology</b></td><td class="num">4</td><td class="num">2.0%</td><td><div class="bar-wrap"><div class="bar " style="width:4.0%"></div></div></td><td class="num">17</td><td class="num">2.1%</td><td class="num delta-neg">-0.1</td><td><span class="chip ">locked</span></td></tr>
+<tr><td><b>Psychiatry</b></td><td class="num">2</td><td class="num">1.0%</td><td><div class="bar-wrap"><div class="bar " style="width:2.0%"></div></div></td><td class="num">8</td><td class="num">1.0%</td><td class="num delta-pos">+0.0</td><td><span class="chip ">locked</span></td></tr>
+
+</tbody></table>
+<div class="callout">
+<span class="callout-title">What the deltas say</span>
+<p><b>Medicine</b> is the one deliberate deviation: −2.1pp because the bank floors small subjects instead of over-concentrating
+every spare mark in Medicine — the real paper will likely sit at or above 41.5%. <b>Ophthalmology</b> (+1.4pp) and <b>ENT</b>
+(+0.4pp) were raised to guarantee a usable bank — both recur in every sitting but with too few questions to trust their raw share.
+Everything else sits within ±0.2pp of the recalled pattern.</p>
+</div>
+
+</div></section>
+<section id='league'><div class="container"><div class="sec-head"><span class="sec-num">3</span><h2><svg class="ic" viewBox="0 0 24 24"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.7.6 1.1 1.4 1.2 2.2h4.8c.1-.8.5-1.6 1.2-2.2A6 6 0 0 0 12 3z"/></svg>Recurrence League — the top 25 repeating topics</h2><span class="sub">Top recurring topics, 5 recalled papers</span></div>
+
+<p class="lead">A topic seen in <b>all five</b> sittings is the closest thing the evidence offers to a guaranteed repeat.
+This league table is the highest-confidence content in the whole system — these 25 topics alone account for roughly
+<b>160+ recalled questions</b>.</p>
+<table>
+<thead><tr><th>#</th><th>Subject</th><th>Topic</th><th>Times recalled</th><th>Sittings</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td class="num">1</td><td>Medicine</td><td><b>Diabetes Mellitus</b></td><td class="num">18</td><td class="num">ALL 5</td><td><span class="chip gold">guaranteed repeat</span></td></tr>
+<tr><td class="num">2</td><td>Medicine</td><td><b>Seizures / Epilepsy</b></td><td class="num">11</td><td class="num">ALL 5</td><td><span class="chip gold">guaranteed repeat</span></td></tr>
+<tr><td class="num">3</td><td>Surgery</td><td><b>Hernias</b></td><td class="num">9</td><td class="num">ALL 5</td><td><span class="chip gold">guaranteed repeat</span></td></tr>
+<tr><td class="num">4</td><td>Medicine</td><td><b>Cirrhosis / Portal HTN</b></td><td class="num">9</td><td class="num">ALL 5</td><td><span class="chip gold">guaranteed repeat</span></td></tr>
+<tr><td class="num">5</td><td>Medicine</td><td><b>Coagulation / DIC</b></td><td class="num">8</td><td class="num">ALL 5</td><td><span class="chip gold">guaranteed repeat</span></td></tr>
+<tr><td class="num">6</td><td>Medicine</td><td><b>Anemia — Iron Deficiency</b></td><td class="num">8</td><td class="num">ALL 5</td><td><span class="chip gold">guaranteed repeat</span></td></tr>
+<tr><td class="num">7</td><td>Medicine</td><td><b>Thyroid Disorders</b></td><td class="num">8</td><td class="num">ALL 5</td><td><span class="chip gold">guaranteed repeat</span></td></tr>
+<tr><td class="num">8</td><td>Anatomy</td><td><b>Lower Limb</b></td><td class="num">8</td><td class="num">ALL 5</td><td><span class="chip gold">guaranteed repeat</span></td></tr>
+<tr><td class="num">9</td><td>Surgery</td><td><b>Burns</b></td><td class="num">8</td><td class="num">4/5</td><td><span class="chip navy">strong recurrer</span></td></tr>
+<tr><td class="num">10</td><td>Medicine</td><td><b>Tuberculosis</b></td><td class="num">8</td><td class="num">4/5</td><td><span class="chip navy">strong recurrer</span></td></tr>
+<tr><td class="num">11</td><td>Medicine</td><td><b>Hepatitis</b></td><td class="num">7</td><td class="num">ALL 5</td><td><span class="chip gold">guaranteed repeat</span></td></tr>
+<tr><td class="num">12</td><td>Anatomy</td><td><b>Upper Limb</b></td><td class="num">7</td><td class="num">4/5</td><td><span class="chip navy">strong recurrer</span></td></tr>
+<tr><td class="num">13</td><td>Pharmacology</td><td><b>Antibiotics / Antimicrobials</b></td><td class="num">7</td><td class="num">4/5</td><td><span class="chip navy">strong recurrer</span></td></tr>
+<tr><td class="num">14</td><td>Medicine</td><td><b>Anemia — B12/Folate</b></td><td class="num">7</td><td class="num">4/5</td><td><span class="chip navy">strong recurrer</span></td></tr>
+<tr><td class="num">15</td><td>Surgery</td><td><b>Fractures / Orthopedics</b></td><td class="num">7</td><td class="num">4/5</td><td><span class="chip navy">strong recurrer</span></td></tr>
+<tr><td class="num">16</td><td>Pharmacology</td><td><b>Cardiac Drugs / Digoxin</b></td><td class="num">7</td><td class="num">4/5</td><td><span class="chip navy">strong recurrer</span></td></tr>
+<tr><td class="num">17</td><td>Pharmacology</td><td><b>Drug Toxicity / Overdose</b></td><td class="num">7</td><td class="num">4/5</td><td><span class="chip navy">strong recurrer</span></td></tr>
+<tr><td class="num">18</td><td>Medicine</td><td><b>Acid Base</b></td><td class="num">7</td><td class="num">4/5</td><td><span class="chip navy">strong recurrer</span></td></tr>
+<tr><td class="num">19</td><td>Medicine</td><td><b>Electrolyte Disorders</b></td><td class="num">7</td><td class="num">2/5</td><td><span class="chip navy">strong recurrer</span></td></tr>
+<tr><td class="num">20</td><td>Medicine</td><td><b>Sepsis / Septic Shock</b></td><td class="num">7</td><td class="num">2/5</td><td><span class="chip navy">strong recurrer</span></td></tr>
+<tr><td class="num">21</td><td>Medicine</td><td><b>Glomerulonephritis</b></td><td class="num">6</td><td class="num">ALL 5</td><td><span class="chip gold">guaranteed repeat</span></td></tr>
+<tr><td class="num">22</td><td>Medicine</td><td><b>Adrenal Disorders</b></td><td class="num">6</td><td class="num">ALL 5</td><td><span class="chip gold">guaranteed repeat</span></td></tr>
+<tr><td class="num">23</td><td>Medicine</td><td><b>Meningitis / Encephalitis</b></td><td class="num">6</td><td class="num">4/5</td><td><span class="chip navy">strong recurrer</span></td></tr>
+<tr><td class="num">24</td><td>Pathology</td><td><b>Chromosomal / Genetic</b></td><td class="num">6</td><td class="num">4/5</td><td><span class="chip navy">strong recurrer</span></td></tr>
+<tr><td class="num">25</td><td>Paediatrics</td><td><b>Congenital Heart Disease</b></td><td class="num">5</td><td class="num">4/5</td><td><span class="chip navy">strong recurrer</span></td></tr>
+
+</tbody></table>
+<div class="callout callout-warning">
+<span class="callout-title">The honest caveat on OB/GYN</span>
+<p>No OB/GYN topic breaks into this top-25 league. Individual obstetrics and gynecology topics recur across sittings,
+but thinly — their 8.5% share is spread over many topics rather than concentrated in one repeat monster like
+Medicine's <b>Diabetes Mellitus (18 recalls, ALL 5)</b>. Confidence inside OB/GYN is in the topic <i>families</i>
+(pregnancy-hypertension, abortion classification, placenta previa, GDM), not in any single guaranteed topic.</p>
+</div>
+
+</div></section>
+<section id='master'><div class="container"><div class="sec-head"><span class="sec-num">4</span><h2><svg class="ic" viewBox="0 0 24 24"><path d="M9 6h11M9 12h11M9 18h11"/><circle cx="4.5" cy="6" r=".8"/><circle cx="4.5" cy="12" r=".8"/><circle cx="4.5" cy="18" r=".8"/></svg>Core Master Inventory — all 26 system sections with examples</h2><span class="sub">nre_core_master.txt · 439 questions → 567 lines</span></div>
+
+<p class="lead">The recognition layer: <span class="mono">KEYWORDS → ANSWER [confirming fact]</span>. The header states 439 questions analyzed (50 Exact + 200 Academy + 189 Recalled); those questions compress into 567 recognition lines across 26 systems, assembled from
+50 Exact + 200 Academy + 189 Recalled questions. Every section below shows its item count and two live examples from the file —
+the full 704-line master is the source of truth.</p>
+
+
+<table>
+<tbody>
+<tr class="band"><td colspan="3">01 · CARDIOLOGY <span style="float:right;font-weight:400;font-size:0.7188rem;opacity:.85">19 items</span></td></tr>
+<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Central crushing chest pain + ST elevation II,III,aVF → INFERIOR MI → Reperfusion therapy</div><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Central crushing chest pain + ST elevation V1-V4 → ANTERIOR MI (LAD occlusion) → Reperfusion</div></td>
+<td style="width:20%"><span class="chip">recognition format</span><br><span class="small">KEYWORDS → ANSWER [fact]</span></td>
+<td style="width:46%"><span class="small">Feed: Exact 50 + Academy 200 + Recalled 189. Cram-ready, no fluff — recognition only.</span></td></tr>
+</tbody></table>
+
+
+<table>
+<tbody>
+<tr class="band"><td colspan="3">02 · ENDOCRINOLOGY <span style="float:right;font-weight:400;font-size:0.7188rem;opacity:.85">19 items</span></td></tr>
+<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Weight gain + muscle weakness + purple striae + HTN + eosinopenia → CUSHING SYNDROME</div><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Hyperpigmentation + hyponatremia + hyperkalemia + weight loss → ADDISON DISEASE</div></td>
+<td style="width:20%"><span class="chip">recognition format</span><br><span class="small">KEYWORDS → ANSWER [fact]</span></td>
+<td style="width:46%"><span class="small">Feed: Exact 50 + Academy 200 + Recalled 189. Cram-ready, no fluff — recognition only.</span></td></tr>
+</tbody></table>
+
+
+<table>
+<tbody>
+<tr class="band"><td colspan="3">03 · INFECTIOUS DISEASE / SEPSIS <span style="float:right;font-weight:400;font-size:0.7188rem;opacity:.85">31 items</span></td></tr>
+<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Fever + tachycardia + hypotension + source → SEPSIS → Cultures → Abx within 1 hour → Fluids 30 mL/kg</div><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Hypotension + lactate &gt;2 despite fluids → SEPTIC SHOCK → Norepinephrine (NOT dopamine)</div></td>
+<td style="width:20%"><span class="chip">recognition format</span><br><span class="small">KEYWORDS → ANSWER [fact]</span></td>
+<td style="width:46%"><span class="small">Feed: Exact 50 + Academy 200 + Recalled 189. Cram-ready, no fluff — recognition only.</span></td></tr>
+</tbody></table>
+
+
+<table>
+<tbody>
+<tr class="band"><td colspan="3">04 · NEPHROLOGY / ELECTROLYTES <span style="float:right;font-weight:400;font-size:0.7188rem;opacity:.85">13 items</span></td></tr>
+<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Periorbital edema + cola-colored urine + sore throat 2 weeks ago → PSGN (post-streptococcal GN)</div><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Generalized edema + dark scanty urine + sore throat 2 weeks ago + BP 130/90 → PSGN</div></td>
+<td style="width:20%"><span class="chip">recognition format</span><br><span class="small">KEYWORDS → ANSWER [fact]</span></td>
+<td style="width:46%"><span class="small">Feed: Exact 50 + Academy 200 + Recalled 189. Cram-ready, no fluff — recognition only.</span></td></tr>
+</tbody></table>
+
+
+<table>
+<tbody>
+<tr class="band"><td colspan="3">05 · GASTROENTEROLOGY / HEPATOLOGY <span style="float:right;font-weight:400;font-size:0.7188rem;opacity:.85">33 items</span></td></tr>
+<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Severe epigastric pain radiating to back + vomiting + raised amylase/lipase → ACUTE PANCREATITIS</div><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Pancreatitis + steatorrhea → LIPASE deficiency is cause</div></td>
+<td style="width:20%"><span class="chip">recognition format</span><br><span class="small">KEYWORDS → ANSWER [fact]</span></td>
+<td style="width:46%"><span class="small">Feed: Exact 50 + Academy 200 + Recalled 189. Cram-ready, no fluff — recognition only.</span></td></tr>
+</tbody></table>
+
+
+<table>
+<tbody>
+<tr class="band"><td colspan="3">06 · HEMATOLOGY <span style="float:right;font-weight:400;font-size:0.7188rem;opacity:.85">17 items</span></td></tr>
+<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Pallor + bone pain + bruising + WBC 42k + 85% immature granulocytes + normal 3 months ago → ACUTE MYELOID LEUKEMIA (AML)</div><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Fever + anemia + abdominal pain + gum hyperplasia + blasts + Auer rods + MPO positive + WBC 42k → AML</div></td>
+<td style="width:20%"><span class="chip">recognition format</span><br><span class="small">KEYWORDS → ANSWER [fact]</span></td>
+<td style="width:46%"><span class="small">Feed: Exact 50 + Academy 200 + Recalled 189. Cram-ready, no fluff — recognition only.</span></td></tr>
+</tbody></table>
+
+
+<table>
+<tbody>
+<tr class="band"><td colspan="3">07 · NEUROLOGY <span style="float:right;font-weight:400;font-size:0.7188rem;opacity:.85">37 items</span></td></tr>
+<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Sudden weakness + aphasia within 2 hours + CT no hemorrhage → ISCHEMIC STROKE → IV thrombolysis</div><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Weakness + aphasia + 4 hours + CT normal → Ischemic stroke (IV thrombolysis if within window)</div></td>
+<td style="width:20%"><span class="chip">recognition format</span><br><span class="small">KEYWORDS → ANSWER [fact]</span></td>
+<td style="width:46%"><span class="small">Feed: Exact 50 + Academy 200 + Recalled 189. Cram-ready, no fluff — recognition only.</span></td></tr>
+</tbody></table>
+
+
+<table>
+<tbody>
+<tr class="band"><td colspan="3">08 · RHEUMATOLOGY <span style="float:right;font-weight:400;font-size:0.7188rem;opacity:.85">13 items</span></td></tr>
+<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Symmetrical joint pain + morning stiffness &gt;1 hour + swollen MCP → RHEUMATOID ARTHRITIS</div><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">RA + rheumatoid factor + anti-CCP → DMARDs (methotrexate first-line)</div></td>
+<td style="width:20%"><span class="chip">recognition format</span><br><span class="small">KEYWORDS → ANSWER [fact]</span></td>
+<td style="width:46%"><span class="small">Feed: Exact 50 + Academy 200 + Recalled 189. Cram-ready, no fluff — recognition only.</span></td></tr>
+</tbody></table>
+
+
+<table>
+<tbody>
+<tr class="band"><td colspan="3">09 · SURGERY — ACUTE ABDOMEN <span style="float:right;font-weight:400;font-size:0.7188rem;opacity:.85">18 items</span></td></tr>
+<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Periumbilical → RIF pain + fever + nausea + rebound at McBurney → APPENDICITIS → Appendectomy</div><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">RIF pain + McBurney tenderness + fever → Appendicitis → Appendectomy</div></td>
+<td style="width:20%"><span class="chip">recognition format</span><br><span class="small">KEYWORDS → ANSWER [fact]</span></td>
+<td style="width:46%"><span class="small">Feed: Exact 50 + Academy 200 + Recalled 189. Cram-ready, no fluff — recognition only.</span></td></tr>
+</tbody></table>
+
+
+<table>
+<tbody>
+<tr class="band"><td colspan="3">10 · SURGERY — TRAUMA / VASCULAR <span style="float:right;font-weight:400;font-size:0.7188rem;opacity:.85">19 items</span></td></tr>
+<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Gunshot abdomen + stable (pulse 100, BP 130/80) → FAST (first investigation)</div><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Bullet injury abdomen + stable → FAST</div></td>
+<td style="width:20%"><span class="chip">recognition format</span><br><span class="small">KEYWORDS → ANSWER [fact]</span></td>
+<td style="width:46%"><span class="small">Feed: Exact 50 + Academy 200 + Recalled 189. Cram-ready, no fluff — recognition only.</span></td></tr>
+</tbody></table>
+
+
+<table>
+<tbody>
+<tr class="band"><td colspan="3">11 · UROLOGY <span style="float:right;font-weight:400;font-size:0.7188rem;opacity:.85">16 items</span></td></tr>
+<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Testicular torsion + sudden severe pain + vomiting + high-riding testis + absent cremasteric → SURGERY (6-hour window)</div><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Testicular torsion → Absent cremasteric reflex + high-riding testis → Emergency exploration</div></td>
+<td style="width:20%"><span class="chip">recognition format</span><br><span class="small">KEYWORDS → ANSWER [fact]</span></td>
+<td style="width:46%"><span class="small">Feed: Exact 50 + Academy 200 + Recalled 189. Cram-ready, no fluff — recognition only.</span></td></tr>
+</tbody></table>
+
+
+<table>
+<tbody>
+<tr class="band"><td colspan="3">12 · BREAST / THYROID <span style="float:right;font-weight:400;font-size:0.7188rem;opacity:.85">22 items</span></td></tr>
+<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Painless mobile firm breast lump 2cm upper outer quadrant → FIBROADENOMA → Reassurance + follow-up</div><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Hard irregular breast lump + peau d'orange → BREAST CANCER → FNAC/core biopsy</div></td>
+<td style="width:20%"><span class="chip">recognition format</span><br><span class="small">KEYWORDS → ANSWER [fact]</span></td>
+<td style="width:46%"><span class="small">Feed: Exact 50 + Academy 200 + Recalled 189. Cram-ready, no fluff — recognition only.</span></td></tr>
+</tbody></table>
+
+
+<table>
+<tbody>
+<tr class="band"><td colspan="3">13 · OBSTETRICS <span style="float:right;font-weight:400;font-size:0.7188rem;opacity:.85">18 items</span></td></tr>
+<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">BP 160/110 + proteinuria + edema at 32 weeks → PREECLAMPSIA</div><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Preeclampsia + seizure at 38 weeks → MAGNESIUM SULFATE (treatment of choice)</div></td>
+<td style="width:20%"><span class="chip">recognition format</span><br><span class="small">KEYWORDS → ANSWER [fact]</span></td>
+<td style="width:46%"><span class="small">Feed: Exact 50 + Academy 200 + Recalled 189. Cram-ready, no fluff — recognition only.</span></td></tr>
+</tbody></table>
+
+
+<table>
+<tbody>
+<tr class="band"><td colspan="3">14 · GYNECOLOGY <span style="float:right;font-weight:400;font-size:0.7188rem;opacity:.85">13 items</span></td></tr>
+<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Primary amenorrhea + webbed neck + low hairline + streak ovaries + short stature → TURNER SYNDROME (45X0)</div><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Heavy prolonged menstrual bleeding since menarche + negative pregnancy test + normal coagulation → ANOVULATORY CYCLES</div></td>
+<td style="width:20%"><span class="chip">recognition format</span><br><span class="small">KEYWORDS → ANSWER [fact]</span></td>
+<td style="width:46%"><span class="small">Feed: Exact 50 + Academy 200 + Recalled 189. Cram-ready, no fluff — recognition only.</span></td></tr>
+</tbody></table>
+
+
+<table>
+<tbody>
+<tr class="band"><td colspan="3">15 · PEDIATRICS — NEONATOLOGY <span style="float:right;font-weight:400;font-size:0.7188rem;opacity:.85">18 items</span></td></tr>
+<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Premature 28 weeks + respiratory distress + ground-glass X-ray → RDS → SURFACTANT</div><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Preterm baby 1.2kg at 28 weeks + ground-glass → Surfactant</div></td>
+<td style="width:20%"><span class="chip">recognition format</span><br><span class="small">KEYWORDS → ANSWER [fact]</span></td>
+<td style="width:46%"><span class="small">Feed: Exact 50 + Academy 200 + Recalled 189. Cram-ready, no fluff — recognition only.</span></td></tr>
+</tbody></table>
+
+
+<table>
+<tbody>
+<tr class="band"><td colspan="3">16 · PEDIATRICS — GENERAL <span style="float:right;font-weight:400;font-size:0.7188rem;opacity:.85">44 items</span></td></tr>
+<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Fever + drooling + stridor + tripod position → EPIGLOTTITIS → Secure airway (DO NOT examine throat)</div><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Epiglottitis in unimmunized children → HAEMOPHILUS INFLUENZAE type b</div></td>
+<td style="width:20%"><span class="chip">recognition format</span><br><span class="small">KEYWORDS → ANSWER [fact]</span></td>
+<td style="width:46%"><span class="small">Feed: Exact 50 + Academy 200 + Recalled 189. Cram-ready, no fluff — recognition only.</span></td></tr>
+</tbody></table>
+
+
+<table>
+<tbody>
+<tr class="band"><td colspan="3">17 · OPHTHALMOLOGY <span style="float:right;font-weight:400;font-size:0.7188rem;opacity:.85">13 items</span></td></tr>
+<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Sudden painful vision loss + headache + halos + mid-dilated fixed pupil + ↑IOP → ACUTE ANGLE-CLOSURE GLAUCOMA</div><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Sudden severe eye pain + redness + halos + mid-dilated fixed pupil → Acute angle-closure glaucoma</div></td>
+<td style="width:20%"><span class="chip">recognition format</span><br><span class="small">KEYWORDS → ANSWER [fact]</span></td>
+<td style="width:46%"><span class="small">Feed: Exact 50 + Academy 200 + Recalled 189. Cram-ready, no fluff — recognition only.</span></td></tr>
+</tbody></table>
+
+
+<table>
+<tbody>
+<tr class="band"><td colspan="3">18 · ENT <span style="float:right;font-weight:400;font-size:0.7188rem;opacity:.85">16 items</span></td></tr>
+<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Fever + drooling + stridor + tripod position → EPIGLOTTITIS → Secure airway (NO throat exam)</div><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Barking cough + stridor + hoarseness + worse at night + steeple sign → CROUP</div></td>
+<td style="width:20%"><span class="chip">recognition format</span><br><span class="small">KEYWORDS → ANSWER [fact]</span></td>
+<td style="width:46%"><span class="small">Feed: Exact 50 + Academy 200 + Recalled 189. Cram-ready, no fluff — recognition only.</span></td></tr>
+</tbody></table>
+
+
+<table>
+<tbody>
+<tr class="band"><td colspan="3">19 · APPLIED PATHOLOGY <span style="float:right;font-weight:400;font-size:0.7188rem;opacity:.85">20 items</span></td></tr>
+<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Autoimmune hemolytic anemia + Coombs positive → TYPE II hypersensitivity (antibody-mediated)</div><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">SLE → TYPE III (immune complex-mediated)</div></td>
+<td style="width:20%"><span class="chip">recognition format</span><br><span class="small">KEYWORDS → ANSWER [fact]</span></td>
+<td style="width:46%"><span class="small">Feed: Exact 50 + Academy 200 + Recalled 189. Cram-ready, no fluff — recognition only.</span></td></tr>
+</tbody></table>
+
+
+<table>
+<tbody>
+<tr class="band"><td colspan="3">20 · APPLIED ANATOMY <span style="float:right;font-weight:400;font-size:0.7188rem;opacity:.85">19 items</span></td></tr>
+<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">C5-C6 injury → Waiter's tip + loss lateral forearm → Upper trunk brachial plexus</div><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Lower trunk injury (breech) → Hand weakness + clawing + Horner → Lower trunk brachial plexus</div></td>
+<td style="width:20%"><span class="chip">recognition format</span><br><span class="small">KEYWORDS → ANSWER [fact]</span></td>
+<td style="width:46%"><span class="small">Feed: Exact 50 + Academy 200 + Recalled 189. Cram-ready, no fluff — recognition only.</span></td></tr>
+</tbody></table>
+
+
+<table>
+<tbody>
+<tr class="band"><td colspan="3">21 · APPLIED PHYSIOLOGY <span style="float:right;font-weight:400;font-size:0.7188rem;opacity:.85">13 items</span></td></tr>
+<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Positive feedback → Opening of Na+ channels during action potential</div><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Pain inhibited by tactile stimulation → Beta-type A fibers (mechanoreceptors)</div></td>
+<td style="width:20%"><span class="chip">recognition format</span><br><span class="small">KEYWORDS → ANSWER [fact]</span></td>
+<td style="width:46%"><span class="small">Feed: Exact 50 + Academy 200 + Recalled 189. Cram-ready, no fluff — recognition only.</span></td></tr>
+</tbody></table>
+
+
+<table>
+<tbody>
+<tr class="band"><td colspan="3">22 · CLINICAL PHARMACOLOGY <span style="float:right;font-weight:400;font-size:0.7188rem;opacity:.85">34 items</span></td></tr>
+<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Warfarin overdose + bleeding → Vitamin K (antidote)</div><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Heparin monitoring → aPTT</div></td>
+<td style="width:20%"><span class="chip">recognition format</span><br><span class="small">KEYWORDS → ANSWER [fact]</span></td>
+<td style="width:46%"><span class="small">Feed: Exact 50 + Academy 200 + Recalled 189. Cram-ready, no fluff — recognition only.</span></td></tr>
+</tbody></table>
+
+
+<table>
+<tbody>
+<tr class="band"><td colspan="3">23 · APPLIED BIOCHEMISTRY <span style="float:right;font-weight:400;font-size:0.7188rem;opacity:.85">16 items</span></td></tr>
+<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Ketone body synthesis → HMG-CoA SYNTHASE (acetyl-CoA → HMG-CoA)</div><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Maple syrup urine disease → Valine, leucine, isoleucine (branched-chain amino acids)</div></td>
+<td style="width:20%"><span class="chip">recognition format</span><br><span class="small">KEYWORDS → ANSWER [fact]</span></td>
+<td style="width:46%"><span class="small">Feed: Exact 50 + Academy 200 + Recalled 189. Cram-ready, no fluff — recognition only.</span></td></tr>
+</tbody></table>
+
+
+<table>
+<tbody>
+<tr class="band"><td colspan="3">24 · COMMUNITY MEDICINE / EPIDEMIOLOGY <span style="float:right;font-weight:400;font-size:0.7188rem;opacity:.85">16 items</span></td></tr>
+<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Population growth 2% annually → Doubling time ~35 years (Rule of 70: 70/2 = 35)</div><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">EPI schedule: measles vaccine → AT 9 MONTHS</div></td>
+<td style="width:20%"><span class="chip">recognition format</span><br><span class="small">KEYWORDS → ANSWER [fact]</span></td>
+<td style="width:46%"><span class="small">Feed: Exact 50 + Academy 200 + Recalled 189. Cram-ready, no fluff — recognition only.</span></td></tr>
+</tbody></table>
+
+
+<table>
+<tbody>
+<tr class="band"><td colspan="3">25 · FORENSIC MEDICINE <span style="float:right;font-weight:400;font-size:0.7188rem;opacity:.85">20 items</span></td></tr>
+<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Cherry-red postmortem staining + closed room + smoke → CARBON MONOXIDE poisoning</div><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Body in water + white froth + overdistended lungs → DROWNING</div></td>
+<td style="width:20%"><span class="chip">recognition format</span><br><span class="small">KEYWORDS → ANSWER [fact]</span></td>
+<td style="width:46%"><span class="small">Feed: Exact 50 + Academy 200 + Recalled 189. Cram-ready, no fluff — recognition only.</span></td></tr>
+</tbody></table>
+
+
+<table>
+<tbody>
+<tr class="band"><td colspan="3">26 · MISCELLANEOUS HIGH-YIELD <span style="float:right;font-weight:400;font-size:0.7188rem;opacity:.85">50 items</span></td></tr>
+<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Most common cause CAP → STREP PNEUMONIAE</div><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Most common UTI organism → E. COLI</div></td>
+<td style="width:20%"><span class="chip">recognition format</span><br><span class="small">KEYWORDS → ANSWER [fact]</span></td>
+<td style="width:46%"><span class="small">Feed: Exact 50 + Academy 200 + Recalled 189. Cram-ready, no fluff — recognition only.</span></td></tr>
+</tbody></table>
+
+
+<div class="callout callout-tip">
+<span class="callout-title">How the master files feed the bank</span>
+<p>The core master tells you which keywords the recalled and academy questions actually hit; the prediction bank tells you which
+of those patterns October will repeat. When we build the Medicine / Surgery / Paediatrics correlation documents, the master is
+the cross-check index — a keyword that appears in both places is a double-confirmed hit.</p>
+</div>
+
+</div></section>
+<section id='bank'><div class="container"><div class="sec-head"><span class="sec-num">5</span><h2><svg class="ic" viewBox="0 0 24 24"><circle cx="15" cy="8" r="4"/><path d="M15 4V2M11 8H5"/><path d="M5 8v12M13.5 10.5 19 21"/></svg>Prediction Bank — all 200 MCQs, full</h2><span class="sub">Every question, no compression</span></div>
+
+<p class="lead">The complete prediction bank, grouped by subject, in order. Every stem in full, the correct answer letter,
+and the one-line rule that discriminates it. This is the raw material the October-facing exam is built from — nothing
+shortened, nothing summarized away.</p>
+
+<table><tbody><tr class="band"><td colspan="4">ANATOMY — 6 questions</td></tr></tbody></table>
+<table><thead><tr><th style="width:42px">#</th><th>Question</th><th style="width:44px">Ans</th><th>Rule</th></tr></thead><tbody>
+<tr><td class="num">1</td><td class="q-stem">During a thoracotomy, the surgeon counts the ribs by first palpating a surface landmark that lies at the level of the second costal cartilage. At which vertebral level does this landmark, the sternal angle (Angle of Louis), lie?</td><td><span class="ans-badge">D</span></td><td class="q-rule">Sternal angle = T4/T5 disc.</td></tr>
+<tr><td class="num">2</td><td class="q-stem">A radiology resident traces the main arterial trunk supplying the foregut on a CT angiogram of the abdomen. At which vertebral level does the celiac trunk arise from the abdominal aorta?</td><td><span class="ans-badge">D</span></td><td class="q-rule">Celiac trunk arises at T12 from aorta.</td></tr>
+<tr><td class="num">3</td><td class="q-stem">A 45-year-old man with a C4 spinal cord injury develops progressive respiratory failure and requires ventilatory support. The attending physician explains that his breathing difficulty is due to loss of motor supply to the diaphragm. Which nerve provides this motor innervation?</td><td><span class="ans-badge">B</span></td><td class="q-rule">Diaphragm motor innervation = phrenic nerve (C3-C5).</td></tr>
+<tr><td class="num">4</td><td class="q-stem">A 40-year-old man presents with a swelling in the right groin that appears on standing and disappears on lying down. During surgical repair of his inguinal hernia, the surgeon identifies the structures within the inguinal canal. Which of the following structures passes through the inguinal canal in males?</td><td><span class="ans-badge">D</span></td><td class="q-rule">Inguinal canal in males = spermatic cord.</td></tr>
+<tr><td class="num">5</td><td class="q-stem">During a laparoscopic cholecystectomy, the surgeon identifies the triangle of Calot before clipping any structures. Which of the following does NOT form a boundary of the triangle of Calot?</td><td><span class="ans-badge">D</span></td><td class="q-rule">Triangle of Calot: cystic duct + common hepatic duct + liver edge. Cystic artery is inside.</td></tr>
+<tr><td class="num">6</td><td class="q-stem">A 30-year-old woman requires a lumbar puncture for suspected meningitis. The physician explains that the procedure is safe below the level where the spinal cord ends. In adults, at which vertebral level does the conus medullaris typically end?</td><td><span class="ans-badge">C</span></td><td class="q-rule">Conus medullaris ends at L1/L2.</td></tr>
+</tbody></table>
+<table><tbody><tr class="band"><td colspan="4">PHYSIOLOGY — 4 questions</td></tr></tbody></table>
+<table><thead><tr><th style="width:42px">#</th><th>Question</th><th style="width:44px">Ans</th><th>Rule</th></tr></thead><tbody>
+<tr><td class="num">7</td><td class="q-stem">A physiology student is asked to identify the nephron segment responsible for reclaiming the largest fraction of the glomerular filtrate. In which segment of the nephron does the majority of filtered sodium and water reabsorption take place?</td><td><span class="ans-badge">D</span></td><td class="q-rule">PCT reabsorbs 65-70% of filtered Na+ and water.</td></tr>
+<tr><td class="num">8</td><td class="q-stem">A 55-year-old man with unilateral renal artery stenosis develops worsening hypertension. Reviewing the renin-angiotensin system, which of the following is the primary stimulus for aldosterone secretion?</td><td><span class="ans-badge">B</span></td><td class="q-rule">Angiotensin II is the primary stimulus for aldosterone.</td></tr>
+<tr><td class="num">9</td><td class="q-stem">During a physiology practical, a student measures the resting membrane potential of a neuron with intracellular microelectrodes. The resting membrane potential is primarily determined by the permeability of which ion?</td><td><span class="ans-badge">C</span></td><td class="q-rule">Resting membrane potential = K+ permeability (Nernst equation).</td></tr>
+<tr><td class="num">10</td><td class="q-stem">A 45-year-old man relaxes after a meal; his heart rate is 62/min, his pupils are constricted, and his gut is actively digesting. Which division of the autonomic nervous system is responsible for this 'rest and digest' state?</td><td><span class="ans-badge">C</span></td><td class="q-rule">Parasympathetic = rest and digest.</td></tr>
+</tbody></table>
+<table><tbody><tr class="band"><td colspan="4">BIOCHEMISTRY — 4 questions</td></tr></tbody></table>
+<table><thead><tr><th style="width:42px">#</th><th>Question</th><th style="width:44px">Ans</th><th>Rule</th></tr></thead><tbody>
+<tr><td class="num">11</td><td class="q-stem">A 44-year-old woman with short bowel syndrome has been on total parenteral nutrition for six weeks and develops a scaly dermatitis over her face and extremities along with poor wound healing. Which deficiency is the most likely cause of these findings?</td><td><span class="ans-badge">A</span></td><td class="q-rule">EFA deficiency in TPN = dermatitis, growth failure.</td></tr>
+<tr><td class="num">12</td><td class="q-stem">A 6-week-old infant is brought for poor feeding and developmental delay. He has fair skin, eczema, and a musty odor to his urine. Newborn screening shows markedly elevated phenylalanine. Deficiency of which enzyme is most likely responsible?</td><td><span class="ans-badge">A</span></td><td class="q-rule">PKU = phenylalanine hydroxylase deficiency.</td></tr>
+<tr><td class="num">13</td><td class="q-stem">A 3-month-old infant with Down syndrome is noted to have a murmur. Echocardiography shows an ostium primum atrial septal defect. Which congenital heart defect is the most common in Down syndrome?</td><td><span class="ans-badge">B</span></td><td class="q-rule">Down's syndrome + CHD = ASD (ostium primum).</td></tr>
+<tr><td class="num">14</td><td class="q-stem">A 2-year-old child in a resource-limited setting presents with pitting edema of both feet, an enlarged fatty liver, sparse discolored hair, and muscle wasting. Which of the following is NOT a feature of kwashiorkor?</td><td><span class="ans-badge">D</span></td><td class="q-rule">Kwashiorkor = edema + fatty liver + low albumin.</td></tr>
+</tbody></table>
+<table><tbody><tr class="band"><td colspan="4">PATHOLOGY — 4 questions</td></tr></tbody></table>
+<table><thead><tr><th style="width:42px">#</th><th>Question</th><th style="width:44px">Ans</th><th>Rule</th></tr></thead><tbody>
+<tr><td class="num">15</td><td class="q-stem">A 2-year-old boy presents with fever, irritability, and refusal to bear weight on the right leg. MRI of the tibia shows a metaphyseal abscess. Which organism is the most common cause of acute osteomyelitis at this age?</td><td><span class="ans-badge">D</span></td><td class="q-rule">Acute osteomyelitis in child = Staphylococcus aureus.</td></tr>
+<tr><td class="num">16</td><td class="q-stem">A 24-year-old woman starts a combined oral contraceptive pill for contraception. Her physician explains the primary mechanism by which the pill prevents pregnancy. Which mechanism of action is most accurate?</td><td><span class="ans-badge">A</span></td><td class="q-rule">COCP mechanism = inhibit ovulation via progestin.</td></tr>
+<tr><td class="num">17</td><td class="q-stem">A 43-year-old woman's routine cervical cytology is reported as showing dysplastic squamous cells. Colposcopy-directed biopsy confirms dysplastic changes confined to the cervical epithelium. What is the most likely diagnosis?</td><td><span class="ans-badge">A</span></td><td class="q-rule">Abnormal Pap + dysplastic cells = CIN.</td></tr>
+<tr><td class="num">18</td><td class="q-stem">A 27-year-old woman with fair skin presents with a pigmented lesion on her back that has recently increased in size, changed shape, and become darker. Dermoscopy shows asymmetry, irregular borders, and color variation. What is the most likely diagnosis?</td><td><span class="ans-badge">A</span></td><td class="q-rule">Changing mole = melanoma (ABCDE criteria).</td></tr>
+</tbody></table>
+<table><tbody><tr class="band"><td colspan="4">PHARMACOLOGY — 14 questions</td></tr></tbody></table>
+<table><thead><tr><th style="width:42px">#</th><th>Question</th><th style="width:44px">Ans</th><th>Rule</th></tr></thead><tbody>
+<tr><td class="num">19</td><td class="q-stem">A 40-year-old farmer is brought to the emergency department with profuse salivation, lacrimation, diarrhea, and pinpoint pupils after spraying insecticide in a closed field. He is diagnosed with organophosphate poisoning. Which drug should be administered to directly antagonize the muscarinic symptoms?</td><td><span class="ans-badge">A</span></td><td class="q-rule">Organophosphate + muscarinic symptoms = atropine.</td></tr>
+<tr><td class="num">20</td><td class="q-stem">A 35-year-old woman has a dry, hacking cough that has persisted for a week after a viral upper respiratory infection. She is prescribed dextromethorphan. Which best describes its primary therapeutic action?</td><td><span class="ans-badge">B</span></td><td class="q-rule">Dextromethorphan = antitussive, acts on cough center.</td></tr>
+<tr><td class="num">21</td><td class="q-stem">A 26-year-old woman with iron-deficiency anemia is prescribed ferrous sulfate. She is also prescribed an antibiotic for acne. Her pharmacist warns that taking them together reduces iron absorption. Ferrous sulfate exhibits pharmacological antagonism with which of the following?</td><td><span class="ans-badge">C</span></td><td class="q-rule">Ferrous sulfate + tetracyclines = absorption antagonism.</td></tr>
+<tr><td class="num">22</td><td class="q-stem">A 58-year-old man with gout and tophi is started on a drug that lowers serum uric acid by increasing its renal excretion. Which drug acts by this uricosuric mechanism?</td><td><span class="ans-badge">A</span></td><td class="q-rule">Uricosuric drug for gout = probenecid.</td></tr>
+<tr><td class="num">23</td><td class="q-stem">A 42-year-old woman undergoes total thyroidectomy for a large multinodular goiter. On the first postoperative day she develops hoarseness, a weak cough, and inspiratory stridor. What is the most likely complication?</td><td><span class="ans-badge">A</span></td><td class="q-rule">Thyroidectomy + hoarseness + dyspnea = recurrent laryngeal nerve injury.</td></tr>
+<tr><td class="num">24</td><td class="q-stem">A 3-year-old boy accidentally ingests kerosene oil that had been stored in a soft drink bottle. He is brought to the emergency department coughing but conscious and in no respiratory distress. Which of the following should NOT be administered?</td><td><span class="ans-badge">B</span></td><td class="q-rule">Kerosene ingestion: do NOT induce vomiting (syrup of ipecac).</td></tr>
+<tr><td class="num">25</td><td class="q-stem">A 5-year-old child accidentally ingests several of her grandmother's diazepam tablets. On arrival she is drowsy but rousable, with stable vital signs and no respiratory depression. Which is the most appropriate management?</td><td><span class="ans-badge">C</span></td><td class="q-rule">Benzodiazepine ingestion in child = charcoal + supportive care.</td></tr>
+<tr><td class="num">26</td><td class="q-stem">A 28-year-old woman develops sudden generalized urticaria, angioedema, wheezing, and hypotension within minutes of receiving an intravenous antibiotic. Which drug is the first-line treatment?</td><td><span class="ans-badge">A</span></td><td class="q-rule">Acute anaphylaxis = epinephrine (first-line).</td></tr>
+<tr><td class="num">27</td><td class="q-stem">A 19-year-old woman presents 8 hours after ingesting an overdose of paracetamol tablets in a suicide attempt. She is nauseated but hemodynamically stable; the plasma paracetamol level is in the toxic range on the Rumack-Matthew nomogram. Which drug is the specific antidote?</td><td><span class="ans-badge">A</span></td><td class="q-rule">N-acetylcysteine replenishes glutathione and prevents hepatic necrosis in paracetamol poisoning.</td></tr>
+<tr><td class="num">28</td><td class="q-stem">A 30-year-old man is found unconscious at home with pinpoint pupils and a respiratory rate of 6 breaths per minute; needle marks are visible on both forearms. Which drug should be administered immediately?</td><td><span class="ans-badge">B</span></td><td class="q-rule">Miosis + respiratory depression + depressed consciousness = opioid overdose; naloxone is the antagonist.</td></tr>
+<tr><td class="num">29</td><td class="q-stem">A 68-year-old man with atrial fibrillation is anticoagulated with warfarin. He asks how the drug works. Warfarin produces its anticoagulant effect through which mechanism?</td><td><span class="ans-badge">C</span></td><td class="q-rule">Warfarin blocks vitamin K epoxide reductase, reducing synthesis of factors II, VII, IX, and X.</td></tr>
+<tr><td class="num">30</td><td class="q-stem">A 55-year-old woman with a proximal deep vein thrombosis is started on an intravenous heparin infusion. Which laboratory test is used to monitor and adjust the heparin dose?</td><td><span class="ans-badge">A</span></td><td class="q-rule">Unfractionated heparin is monitored and dose-adjusted by aPTT.</td></tr>
+<tr><td class="num">31</td><td class="q-stem">A 60-year-old man with coronary artery disease takes low-dose aspirin daily for secondary prevention. His surgeon notes that the antiplatelet effect persists for 7-10 days after stopping the drug. Low-dose aspirin produces this long-lasting antiplatelet effect because it:</td><td><span class="ans-badge">D</span></td><td class="q-rule">Aspirin irreversibly acetylates COX-1, blocking thromboxane A2 for the platelet's lifetime (7–10 days).</td></tr>
+<tr><td class="num">32</td><td class="q-stem">A 26-year-old woman with chronic hypertension controlled on enalapril discovers that she is 8 weeks pregnant. Which is the most appropriate action regarding her antihypertensive?</td><td><span class="ans-badge">C</span></td><td class="q-rule">ACE inhibitors are teratogenic in pregnancy (fetal renal damage); methyldopa is the safest first-line option.</td></tr>
+</tbody></table>
+<table><tbody><tr class="band"><td colspan="4">COMMUNITY MEDICINE — 6 questions</td></tr></tbody></table>
+<table><thead><tr><th style="width:42px">#</th><th>Question</th><th style="width:44px">Ans</th><th>Rule</th></tr></thead><tbody>
+<tr><td class="num">33</td><td class="q-stem">Following a bus accident, a field triage area is set up. A conscious patient with a closed forearm fracture who is able to walk is assigned a color tag indicating that treatment can be safely delayed. Which triage color is used for patients who do not need immediate life-saving intervention?</td><td><span class="ans-badge">A</span></td><td class="q-rule">Triage yellow = delayed/minor injuries.</td></tr>
+<tr><td class="num">34</td><td class="q-stem">Public health officials note that the number of new cases of dengue in a district this season has risen well above the numbers usually expected for that region and time of year. This pattern is best described as:</td><td><span class="ans-badge">C</span></td><td class="q-rule">Increased incidence above expected = epidemic.</td></tr>
+<tr><td class="num">35</td><td class="q-stem">An epidemiologist investigates a cluster of diarrhea among guests who attended a single wedding dinner. When asked whether the cluster constitutes an outbreak, the minimum number of cases required is best described as:</td><td><span class="ans-badge">D</span></td><td class="q-rule">Outbreak definition depends on disease and context.</td></tr>
+<tr><td class="num">36</td><td class="q-stem">According to the national immunization program, a newborn receives which vaccines at birth?</td><td><span class="ans-badge">C</span></td><td class="q-rule">BCG + Hepatitis B at birth.</td></tr>
+<tr><td class="num">37</td><td class="q-stem">During an outbreak investigation at a primary school, the epidemiologist estimates the basic reproduction number (R0) to assess transmissibility. The approximate R0 of measles is:</td><td><span class="ans-badge">D</span></td><td class="q-rule">Measles R0 = 12-18 (highly infectious).</td></tr>
+<tr><td class="num">38</td><td class="q-stem">A new rapid diagnostic test for tuberculosis is applied to 100 patients in whom pulmonary tuberculosis has been confirmed by sputum culture; 85 of them test positive. What is the sensitivity of the new test?</td><td><span class="ans-badge">A</span></td><td class="q-rule">Sensitivity = true positives / all diseased = 85/100 = 85%.</td></tr>
+</tbody></table>
+<table><tbody><tr class="band"><td colspan="4">MEDICINE — 83 questions</td></tr></tbody></table>
+<table><thead><tr><th style="width:42px">#</th><th>Question</th><th style="width:44px">Ans</th><th>Rule</th></tr></thead><tbody>
+<tr><td class="num">39</td><td class="q-stem">A 55-year-old man presents with crushing substernal chest pain radiating to the left arm and associated sweating for the past 2 hours. His ECG shows ST-segment elevation in leads II, III, and aVF. Which is the most likely diagnosis?</td><td><span class="ans-badge">C</span></td><td class="q-rule">Crushing chest pain + radiating + ST elevation = inferior STEMI.</td></tr>
+<tr><td class="num">40</td><td class="q-stem">A 65-year-old woman with a history of hypertension presents with sudden-onset severe dyspnea at rest, coughing up pink frothy sputum. Auscultation reveals bilateral crackles. Which is the most likely diagnosis?</td><td><span class="ans-badge">D</span></td><td class="q-rule">Pink frothy sputum + crackles + dyspnea = acute LVF.</td></tr>
+<tr><td class="num">41</td><td class="q-stem">A 50-year-old man presents with palpitations and mild exertional dyspnea. His radial pulse is irregularly irregular, and the ECG shows absent P waves with variable R-R intervals. Which is the most likely diagnosis?</td><td><span class="ans-badge">B</span></td><td class="q-rule">Irregularly irregular + absent P waves = atrial fibrillation.</td></tr>
+<tr><td class="num">42</td><td class="q-stem">A 72-year-old woman presents after a syncopal episode while climbing stairs. Auscultation reveals a systolic ejection murmur at the right upper sternal border that radiates to the carotids. Which is the most likely diagnosis?</td><td><span class="ans-badge">B</span></td><td class="q-rule">Syncope on exertion + radiating to carotids = aortic stenosis.</td></tr>
+<tr><td class="num">43</td><td class="q-stem">A 60-year-old man with a previous myocardial infarction presents with progressive dyspnea on exertion and orthopnea. Echocardiography shows a left ventricular ejection fraction of 30%. Which is the most likely diagnosis?</td><td><span class="ans-badge">B</span></td><td class="q-rule">Progressive dyspnea + orthopnea + EF 30% = HFrEF.</td></tr>
+<tr><td class="num">44</td><td class="q-stem">A 35-year-old woman is found on routine examination to have a midsystolic click that moves earlier in systole with standing and the Valsalva maneuver. Which is the most likely diagnosis?</td><td><span class="ans-badge">B</span></td><td class="q-rule">Midsystolic click + posture change = mitral valve prolapse.</td></tr>
+<tr><td class="num">45</td><td class="q-stem">A 52-year-old man with a 30 pack-year smoking history and refractory hypertension undergoes renal angiography, which shows bilateral renal artery stenosis at the ostia. Which is the most likely cause of the stenosis?</td><td><span class="ans-badge">B</span></td><td class="q-rule">Age 50 + bilateral R stenosis = atherosclerotic.</td></tr>
+<tr><td class="num">46</td><td class="q-stem">A 23-year-old woman describes recurrent episodes of sudden-onset rapid, regular palpitations that terminate abruptly. An ECG captured during an episode shows a narrow-complex tachycardia at 180/min with no visible P waves. Which is the most likely diagnosis?</td><td><span class="ans-badge">B</span></td><td class="q-rule">Young woman + rapid regular narrow complex = AVNRT.</td></tr>
+<tr><td class="num">47</td><td class="q-stem">A 75-year-old man presents with exertional dyspnea. Auscultation reveals a pansystolic murmur that is loudest at the apex and radiates to the axilla. Which is the most likely diagnosis?</td><td><span class="ans-badge">A</span></td><td class="q-rule">Apical murmur radiating to axilla = mitral regurgitation.</td></tr>
+<tr><td class="num">48</td><td class="q-stem">A 40-year-old man presents with sharp retrosternal chest pain that is worse when lying flat and improves on sitting up and leaning forward. Which is the most likely diagnosis?</td><td><span class="ans-badge">C</span></td><td class="q-rule">Chest pain + improves sitting forward = pericarditis.</td></tr>
+<tr><td class="num">49</td><td class="q-stem">A 57-year-old woman with known atrial fibrillation presents with sudden-onset right-sided weakness and aphasia. CT of the head shows an acute infarct in the left middle cerebral artery territory. Which is the most likely mechanism of her stroke?</td><td><span class="ans-badge">C</span></td><td class="q-rule">AF + stroke = cardioembolic.</td></tr>
+<tr><td class="num">50</td><td class="q-stem">A 28-year-old man presents with exertional dyspnea and presyncope. Auscultation reveals a mid-systolic murmur that becomes louder with the Valsalva maneuver. Which is the most likely diagnosis?</td><td><span class="ans-badge">D</span></td><td class="q-rule">Click + louder with Valsalva = HCM.</td></tr>
+<tr><td class="num">51</td><td class="q-stem">A 52-year-old man with a history of gallstones presents with severe epigastric pain radiating to the back, worse after eating, and repeated vomiting. Serum amylase and lipase are markedly elevated. Which is the most likely diagnosis?</td><td><span class="ans-badge">D</span></td><td class="q-rule">Epigastric + back + elevated amylase/lipase = pancreatitis.</td></tr>
+<tr><td class="num">52</td><td class="q-stem">A 68-year-old woman presents with painless progressive jaundice, pale stools, dark urine, and 6 kg weight loss. CT of the abdomen shows a mass in the head of the pancreas. Which is the most likely diagnosis?</td><td><span class="ans-badge">C</span></td><td class="q-rule">Jaundice + pale stools + pancreatic head mass = pancreatic cancer.</td></tr>
+<tr><td class="num">53</td><td class="q-stem">A 42-year-old man presents with long-standing heartburn and intermittent dysphagia to solid food. Upper GI endoscopy shows concentric rings in the esophagus. Which is the most likely diagnosis?</td><td><span class="ans-badge">A</span></td><td class="q-rule">Esophageal rings + dysphagia = eosinophilic esophagitis.</td></tr>
+<tr><td class="num">54</td><td class="q-stem">A 30-year-old woman presents with migratory abdominal pain now localized to the right lower quadrant, associated with fever and rebound tenderness. CT confirms acute appendicitis. Which is the most appropriate management?</td><td><span class="ans-badge">D</span></td><td class="q-rule">Appendicitis confirmed = appendectomy.</td></tr>
+<tr><td class="num">55</td><td class="q-stem">A 68-year-old man presents two years after a Billroth II (gastrojejunostomy) with crampy epigastric pain, distension, and large-volume bilious vomiting that relieves his discomfort. Which is the most likely diagnosis?</td><td><span class="ans-badge">B</span></td><td class="q-rule">Bilious emesis after gastric bypass = efferent loop obstruction.</td></tr>
+<tr><td class="num">56</td><td class="q-stem">A 55-year-old woman presents with recurrent episodes of right upper quadrant pain that begin about an hour after fatty meals and last several hours. Ultrasound shows gallstones with a normal gallbladder wall. Which is the most likely diagnosis?</td><td><span class="ans-badge">B</span></td><td class="q-rule">RUQ pain after fatty meals + gallstones = biliary colic.</td></tr>
+<tr><td class="num">57</td><td class="q-stem">A 24-year-old tall man presents with sudden-onset sharp right-sided chest pain and dyspnea. Chest X-ray shows a large pneumothorax with the lung edge more than 2 cm from the chest wall. Which is the most appropriate management?</td><td><span class="ans-badge">D</span></td><td class="q-rule">Large pneumothorax = chest tube insertion.</td></tr>
+<tr><td class="num">58</td><td class="q-stem">A 60-year-old man with a 30 pack-year smoking history has had a productive cough most days for 3 months in each of the last 2 years, along with wheeze. Which is the most likely diagnosis?</td><td><span class="ans-badge">A</span></td><td class="q-rule">Cough + sputum + wheezing = chronic bronchitis.</td></tr>
+<tr><td class="num">59</td><td class="q-stem">A 43-year-old woman presents with a dry cough, fatigue, and tender red nodules over both shins. Chest X-ray shows bilateral hilar lymphadenopathy. Which is the most likely diagnosis?</td><td><span class="ans-badge">A</span></td><td class="q-rule">Bilateral hilar lymphadenopathy + erythema nodosum = sarcoidosis.</td></tr>
+<tr><td class="num">60</td><td class="q-stem">A 70-year-old man with a 40 pack-year smoking history presents with hemoptysis, weight loss, and a solitary pulmonary nodule on chest X-ray. Which is the most likely diagnosis?</td><td><span class="ans-badge">A</span></td><td class="q-rule">Hemoptysis + weight loss + solitary nodule = lung cancer.</td></tr>
+<tr><td class="num">61</td><td class="q-stem">A 35-year-old woman presents with progressive exertional dyspnea of 6 months' duration. Chest X-ray shows bilateral reticular opacities and spirometry is restrictive. Which is the most likely diagnosis?</td><td><span class="ans-badge">B</span></td><td class="q-rule">Progressive dyspnea + reticular opacities = ILD.</td></tr>
+<tr><td class="num">62</td><td class="q-stem">A 24-year-old woman presents with visible hematuria one day after an upper respiratory tract infection. Urinalysis shows proteinuria and she reports transient joint pains and a purpuric rash over the legs. Which is the most likely diagnosis?</td><td><span class="ans-badge">C</span></td><td class="q-rule">Hematuria + proteinuria + rash = IgA nephropathy.</td></tr>
+<tr><td class="num">63</td><td class="q-stem">A 55-year-old man with septic shock develops progressive oliguria despite adequate fluid resuscitation. Urine microscopy shows muddy brown granular casts and serum creatinine is rising. Which is the most likely diagnosis?</td><td><span class="ans-badge">C</span></td><td class="q-rule">Oliguria + muddy brown casts = ATN.</td></tr>
+<tr><td class="num">64</td><td class="q-stem">A 30-year-old woman presents with hemoptysis, hypertension, hematuria, and proteinuria. Serum anti-glomerular basement membrane antibodies are positive. Which is the most likely diagnosis?</td><td><span class="ans-badge">B</span></td><td class="q-rule">HTN + hematuria + proteinuria + anti-GBM = Goodpasture.</td></tr>
+<tr><td class="num">65</td><td class="q-stem">A 65-year-old man on long-term lithium for bipolar disorder presents with polyuria, polydipsia, and hypernatremia. His urine osmolality is low and remains low after desmopressin administration. Which is the most likely diagnosis?</td><td><span class="ans-badge">C</span></td><td class="q-rule">Polyuria + low urine osmolality + no response to DDAVP = nephrogenic DI.</td></tr>
+<tr><td class="num">66</td><td class="q-stem">A 42-year-old woman presents with painless gross hematuria and right flank pain. CT shows a 3 cm solid enhancing mass in the right kidney. Which is the most likely diagnosis?</td><td><span class="ans-badge">B</span></td><td class="q-rule">Flank pain + hematuria + renal mass = renal cell carcinoma.</td></tr>
+<tr><td class="num">67</td><td class="q-stem">A 32-year-old woman presents with weight loss, heat intolerance, palpitations, and a fine tremor. Her ECG shows atrial fibrillation and TSH is suppressed. Which is the most likely diagnosis?</td><td><span class="ans-badge">D</span></td><td class="q-rule">Weight loss + heat intolerance + AF + suppressed TSH = Graves disease.</td></tr>
+<tr><td class="num">68</td><td class="q-stem">A 55-year-old woman presents with fatigue, hyperpigmentation of the knuckles and buccal mucosa, hypotension, and hyponatremia. Early-morning cortisol is low and plasma ACTH is elevated. Which is the most likely diagnosis?</td><td><span class="ans-badge">A</span></td><td class="q-rule">Hyperpigmentation + hypotension + hyponatremia + elevated ACTH = Addison disease.</td></tr>
+<tr><td class="num">69</td><td class="q-stem">A 45-year-old woman presents with a solitary thyroid nodule. Fine-needle aspiration shows follicular cells, and the pathologist notes that malignancy cannot be distinguished from benignity on cytology alone. Which is the most likely diagnosis?</td><td><span class="ans-badge">C</span></td><td class="q-rule">Thyroid nodule + follicular cells = follicular neoplasm.</td></tr>
+<tr><td class="num">70</td><td class="q-stem">A 30-year-old woman presents with galactorrhea and secondary amenorrhea of 6 months. Serum prolactin is markedly elevated and MRI shows a pituitary microadenoma. Which is the most likely diagnosis?</td><td><span class="ans-badge">A</span></td><td class="q-rule">Galactorrhea + amenorrhea + elevated prolactin = prolactinoma.</td></tr>
+<tr><td class="num">71</td><td class="q-stem">A 23-year-old man presents with polyuria, polydipsia, and 5 kg weight loss over 3 weeks. Random blood glucose is 320 mg/dL and C-peptide is low. Which is the most likely diagnosis?</td><td><span class="ans-badge">A</span></td><td class="q-rule">Polyuria + polydipsia + low C-peptide = Type 1 DM.</td></tr>
+<tr><td class="num">72</td><td class="q-stem">A 28-year-old woman presents with episodic severe headache, palpitations, sweating, and blood pressure of 190/120 mmHg. Twenty-four-hour urinary vanillylmandelic acid is elevated. Which is the most likely diagnosis?</td><td><span class="ans-badge">B</span></td><td class="q-rule">Episodic HTN + headache + palpitations + elevated VMA = pheochromocytoma.</td></tr>
+<tr><td class="num">73</td><td class="q-stem">A 34-year-old woman presents with symmetric joint pain, a malar rash after sun exposure, and oral ulcers. ANA is positive at high titer. Which is the most likely diagnosis?</td><td><span class="ans-badge">B</span></td><td class="q-rule">Joint pain + malar rash + photosensitivity + positive ANA = SLE.</td></tr>
+<tr><td class="num">74</td><td class="q-stem">A 44-year-old woman presents with progressive difficulty swallowing, Raynaud phenomenon, and thickening and tightening of the skin over the fingers and face. Which is the most likely diagnosis?</td><td><span class="ans-badge">B</span></td><td class="q-rule">Dysphagia + Raynaud + sclerodactyly = scleroderma.</td></tr>
+<tr><td class="num">75</td><td class="q-stem">A 28-year-old man presents with chronic low back pain and morning stiffness of 6 months' duration that improves with exercise. X-ray shows sacroiliitis with squaring of the vertebrae and HLA-B27 is positive. Which is the most likely diagnosis?</td><td><span class="ans-badge">B</span></td><td class="q-rule">Back pain + stiffness + fusion + HLA-B27 = ankylosing spondylitis.</td></tr>
+<tr><td class="num">76</td><td class="q-stem">A 26-year-old woman presents with bilateral knee pain, warmth, and effusions. ANA is positive and serum uric acid is normal. Which is the most likely diagnosis?</td><td><span class="ans-badge">A</span></td><td class="q-rule">Young woman + bilateral knee + ANA+ = SLE.</td></tr>
+<tr><td class="num">77</td><td class="q-stem">A 32-year-old woman with heavy menstrual periods presents with fatigue and pallor. Hemoglobin is 9 g/dL with microcytic hypochromic indices and serum ferritin is low. Which is the most likely diagnosis?</td><td><span class="ans-badge">B</span></td><td class="q-rule">Microcytic hypochromic + low ferritin = iron deficiency anemia.</td></tr>
+<tr><td class="num">78</td><td class="q-stem">A 60-year-old man presents with fatigue, weight loss, night sweats, and a painless enlarged cervical lymph node. Excisional biopsy shows Reed-Sternberg cells. Which is the most likely diagnosis?</td><td><span class="ans-badge">D</span></td><td class="q-rule">Fatigue + weight loss + painless lymphadenopathy + RS cells = Hodgkin lymphoma.</td></tr>
+<tr><td class="num">79</td><td class="q-stem">A 24-year-old woman presents with menorrhagia and easy bruising. Bleeding time is prolonged while PT, PTT, and platelet count are normal. Which is the most likely diagnosis?</td><td><span class="ans-badge">D</span></td><td class="q-rule">Prolonged bleeding time + normal PT/PTT = von Willebrand disease.</td></tr>
+<tr><td class="num">80</td><td class="q-stem">A 52-year-old man presents with fatigue, pallor, and bruising. Hemoglobin is low with normocytic indices and a low reticulocyte count; white cell and platelet counts are also reduced. Which is the most likely diagnosis?</td><td><span class="ans-badge">C</span></td><td class="q-rule">Normocytic + reticulocytopenia = aplastic anemia.</td></tr>
+<tr><td class="num">81</td><td class="q-stem">A 38-year-old woman presents with a deep vein thrombosis and a history of three recurrent first-trimester miscarriages. Which is the most likely diagnosis?</td><td><span class="ans-badge">D</span></td><td class="q-rule">DVT + recurrent miscarriages = antiphospholipid syndrome.</td></tr>
+<tr><td class="num">82</td><td class="q-stem">A 32-year-old man presents with fatigue, intermittent jaundice, and splenomegaly. Peripheral smear shows spherocytes and the MCHC is elevated. Which is the most likely diagnosis?</td><td><span class="ans-badge">D</span></td><td class="q-rule">Fatigue + jaundice + splenomegaly + spherocytes = hereditary spherocytosis.</td></tr>
+<tr><td class="num">83</td><td class="q-stem">A 58-year-old man with hypertension and diabetes presents with sudden-onset right-sided weakness and slurred speech of 2 hours' duration. Non-contrast CT of the head shows no hemorrhage. Which is the most likely diagnosis?</td><td><span class="ans-badge">B</span></td><td class="q-rule">Sudden weakness + slurred speech + no hemorrhage = ischemic stroke.</td></tr>
+<tr><td class="num">84</td><td class="q-stem">A 25-year-old woman describes recurrent episodes of a zigzag visual disturbance lasting about 20 minutes, followed by a unilateral throbbing headache with nausea. Which is the most likely diagnosis?</td><td><span class="ans-badge">C</span></td><td class="q-rule">Visual disturbance + headache = migraine with aura.</td></tr>
+<tr><td class="num">85</td><td class="q-stem">A 64-year-old man presents with a resting tremor of the right hand, cogwheel rigidity, bradykinesia, and a shuffling gait. Which is the most likely diagnosis?</td><td><span class="ans-badge">D</span></td><td class="q-rule">Tremor + rigidity + bradykinesia = Parkinson disease.</td></tr>
+<tr><td class="num">86</td><td class="q-stem">A 28-year-old woman presents with a 2-week history of blurred vision in the right eye and intermittent numbness in both legs. MRI of the brain shows multiple periventricular white matter lesions. Which is the most likely diagnosis?</td><td><span class="ans-badge">B</span></td><td class="q-rule">Numbness + optic neuritis + white matter lesions = multiple sclerosis.</td></tr>
+<tr><td class="num">87</td><td class="q-stem">A 55-year-old man presents with progressive personality change, apathy, disinhibition, and difficulty with language over 2 years, while memory remains relatively preserved in the early stages. Which is the most likely diagnosis?</td><td><span class="ans-badge">A</span></td><td class="q-rule">Progressive dementia + aphasia + motor weakness = FTD or vascular dementia.</td></tr>
+<tr><td class="num">88</td><td class="q-stem">A 65-year-old man presents with persistent back pain, fatigue, and confusion. Labs show hypercalcemia, anemia, and an elevated total protein with an M spike on electrophoresis. Which is the most likely diagnosis?</td><td><span class="ans-badge">C</span></td><td class="q-rule">Back pain + fatigue + confusion + hypercalcemia = multiple myeloma.</td></tr>
+<tr><td class="num">89</td><td class="q-stem">A 55-year-old man with a known rheumatic valve lesion presents with 2 weeks of low-grade fever, night sweats, and fatigue. Examination reveals a new regurgitant murmur and splinter hemorrhages. Which is the most likely diagnosis?</td><td><span class="ans-badge">A</span></td><td class="q-rule">Rheumatic heart + prolonged fever = subacute endocarditis.</td></tr>
+<tr><td class="num">90</td><td class="q-stem">A 52-year-old woman presents with progressive exertional dyspnea. Her ECG shows atrial fibrillation, and auscultation reveals a mid-diastolic murmur with an opening snap. Which is the most likely cardiac cause?</td><td><span class="ans-badge">C</span></td><td class="q-rule">AF + progressive dyspnea = mitral stenosis.</td></tr>
+<tr><td class="num">91</td><td class="q-stem">A 35-year-old woman presents with weight gain, moon facies, proximal muscle weakness, easy bruising, and purple striae over the abdomen. Which is the most likely diagnosis?</td><td><span class="ans-badge">D</span></td><td class="q-rule">Moon face + purple striae + weight gain = Cushing syndrome.</td></tr>
+<tr><td class="num">92</td><td class="q-stem">A 60-year-old man presents with acute fever, productive cough with rusty sputum, and right-sided pleuritic chest pain. Chest X-ray shows lobar consolidation with air bronchograms. Which organism is the most likely cause?</td><td><span class="ans-badge">D</span></td><td class="q-rule">Rusty sputum + lobar consolidation = classic pneumococcal pneumonia.</td></tr>
+<tr><td class="num">93</td><td class="q-stem">A 35-year-old man presents with 3 weeks of low-grade evening fever, night sweats, weight loss, and productive cough. Chest X-ray shows cavitation in the right upper lobe. Which is the most likely diagnosis?</td><td><span class="ans-badge">A</span></td><td class="q-rule">Chronic constitutional symptoms + upper lobe cavitation = pulmonary tuberculosis.</td></tr>
+<tr><td class="num">94</td><td class="q-stem">A 40-year-old woman presents 5 days after pelvic surgery with sudden dyspnea and pleuritic chest pain. She is tachycardic at 115/min and SpO2 is 88% on room air; ECG shows sinus tachycardia. Which is the most likely diagnosis?</td><td><span class="ans-badge">A</span></td><td class="q-rule">Post-surgical immobility + sudden dyspnea + tachycardia + hypoxia = pulmonary embolism.</td></tr>
+<tr><td class="num">95</td><td class="q-stem">A 22-year-old man with type 1 diabetes presents with vomiting, abdominal pain, and deep sighing (Kussmaul) respiration. Blood glucose is 480 mg/dL, arterial pH is 7.18, and urine ketones are strongly positive. Which is the most likely diagnosis?</td><td><span class="ans-badge">C</span></td><td class="q-rule">Hyperglycemia + ketoacidosis + Kussmaul breathing in type 1 diabetes = DKA.</td></tr>
+<tr><td class="num">96</td><td class="q-stem">A 65-year-old man with small cell lung cancer presents with confusion. Serum sodium is 118 mmol/L; he is euvolemic with high urine osmolality and high urine sodium. Which is the most likely cause?</td><td><span class="ans-badge">A</span></td><td class="q-rule">Euvolemic hyponatremia with concentrated urine and high urine sodium in small cell lung cancer = SIADH.</td></tr>
+<tr><td class="num">97</td><td class="q-stem">A 55-year-old man with chronic kidney disease presents with muscle weakness and palpitations. ECG shows tall peaked T waves and a widened QRS, and serum potassium is 7.2 mmol/L. Which is the first step in management?</td><td><span class="ans-badge">C</span></td><td class="q-rule">Peaked T waves + widened QRS = cardiotoxic hyperkalemia; IV calcium stabilizes the myocardium first.</td></tr>
+<tr><td class="num">98</td><td class="q-stem">A 58-year-old woman with stage 4 chronic kidney disease (eGFR 22 mL/min) presents with fatigue. Hemoglobin is 9.2 g/dL with normocytic indices and normal ferritin. Which is the most likely cause of the anemia?</td><td><span class="ans-badge">A</span></td><td class="q-rule">Normocytic anemia with normal iron stores in advanced CKD = erythropoietin deficiency.</td></tr>
+<tr><td class="num">99</td><td class="q-stem">A 40-year-old woman presents with 8 weeks of morning stiffness lasting over an hour and symmetric swelling of the MCP and PIP joints of both hands. X-rays show periarticular osteopenia. Which is the most likely diagnosis?</td><td><span class="ans-badge">A</span></td><td class="q-rule">Symmetric small-joint polyarthritis with morning stiffness over 1 hour = rheumatoid arthritis.</td></tr>
+<tr><td class="num">100</td><td class="q-stem">A 50-year-old man is woken from sleep by excruciating pain and swelling of the first metatarsophalangeal joint. Joint aspiration shows needle-shaped, negatively birefringent crystals. Which is the most likely diagnosis?</td><td><span class="ans-badge">D</span></td><td class="q-rule">First MTP podagra + needle-shaped negatively birefringent crystals = gout (monosodium urate).</td></tr>
+<tr><td class="num">101</td><td class="q-stem">A 30-year-old man presents with jaundice and fatigue. Serology is positive for HBsAg, IgM anti-HBc, and HBeAg. Which serological pattern does this indicate?</td><td><span class="ans-badge">C</span></td><td class="q-rule">HBsAg + IgM anti-HBc + HBeAg = acute hepatitis B with active replication and high infectivity.</td></tr>
+<tr><td class="num">102</td><td class="q-stem">A 58-year-old man with cirrhosis and ascites presents with fever and abdominal pain. Diagnostic paracentesis shows an ascitic fluid neutrophil count of 400/mm3. Which is the most likely diagnosis?</td><td><span class="ans-badge">A</span></td><td class="q-rule">Ascitic PMN count ≥250/mm³ with fever in cirrhosis = spontaneous bacterial peritonitis.</td></tr>
+<tr><td class="num">103</td><td class="q-stem">A 50-year-old man with known cirrhosis presents with hematemesis. Endoscopy shows actively bleeding esophageal varices. In addition to IV fluids and antibiotics, which is the most appropriate immediate treatment?</td><td><span class="ans-badge">D</span></td><td class="q-rule">Active variceal bleeding = vasoconstrictor (terlipressin) plus endoscopic band ligation.</td></tr>
+<tr><td class="num">104</td><td class="q-stem">A 26-year-old woman with known asthma presents with wheeze and dyspnea. Peak expiratory flow is 55% of her personal best; she can speak in full sentences and SpO2 is 95%. Which is the most appropriate initial management?</td><td><span class="ans-badge">C</span></td><td class="q-rule">Moderate acute asthma (PEF 50–75%) with ability to speak = inhaled short-acting beta-agonist first.</td></tr>
+<tr><td class="num">105</td><td class="q-stem">A 30-year-old man presents with fever, severe headache, and neck stiffness. CSF is turbid with neutrophil predominance, glucose 30 mg/dL (blood glucose 110), and protein 150 mg/dL. Which is the most likely diagnosis?</td><td><span class="ans-badge">A</span></td><td class="q-rule">Turbid CSF with neutrophils, low glucose, and high protein = acute bacterial meningitis.</td></tr>
+<tr><td class="num">106</td><td class="q-stem">A 30-year-old man presents with progressive symmetric ascending weakness and absent reflexes 2 weeks after a diarrheal illness. CSF shows protein 120 mg/dL with a normal cell count. Which is the most likely diagnosis?</td><td><span class="ans-badge">C</span></td><td class="q-rule">Ascending flaccid paralysis after infection with albuminocytologic dissociation = Guillain-Barré syndrome.</td></tr>
+<tr><td class="num">107</td><td class="q-stem">A 7-year-old child has multiple daily episodes of brief staring with unresponsiveness lasting a few seconds; EEG shows 3 Hz generalized spike-and-wave discharges. Which is the first-line treatment?</td><td><span class="ans-badge">D</span></td><td class="q-rule">Childhood absence epilepsy with 3 Hz spike-and-wave = ethosuximide first-line.</td></tr>
+<tr><td class="num">108</td><td class="q-stem">A 22-year-old man presents with 10 days of step-ladder fever, relative bradycardia, abdominal discomfort, and rose-colored spots on the trunk. Blood culture grows Gram-negative rods. Which is the most likely diagnosis?</td><td><span class="ans-badge">B</span></td><td class="q-rule">Step-ladder fever + relative bradycardia + rose spots + Salmonella on blood culture = typhoid fever.</td></tr>
+<tr><td class="num">109</td><td class="q-stem">A 30-year-old man returning from rural Sindh presents with paroxysms of high fever with rigors and drenching sweats. Peripheral smear shows ring forms inside red blood cells. Which is the most likely diagnosis?</td><td><span class="ans-badge">A</span></td><td class="q-rule">Fever paroxysms + ring forms (trophozoites) inside RBCs on smear = malaria.</td></tr>
+<tr><td class="num">110</td><td class="q-stem">A 28-year-old woman presents on day 4 of high fever with severe retro-orbital headache and myalgias. Platelets are 60,000/mm3 with a rising hematocrit; she has now developed abdominal pain and persistent vomiting. Which is the most likely diagnosis?</td><td><span class="ans-badge">D</span></td><td class="q-rule">Retro-orbital headache + thrombocytopenia + hemoconcentration + abdominal pain and vomiting = dengue with warning signs (plasma leakage risk).</td></tr>
+<tr><td class="num">111</td><td class="q-stem">A 40-year-old woman presents with weight gain, cold intolerance, constipation, and menorrhagia. TSH is 25 mIU/L with a low free T4. Which is the most likely diagnosis?</td><td><span class="ans-badge">C</span></td><td class="q-rule">High TSH with low free T4 = primary hypothyroidism (thyroid gland failure).</td></tr>
+<tr><td class="num">112</td><td class="q-stem">A 6-year-old child presents with petechiae and gum bleeding 2 weeks after a viral illness. Platelet count is 18,000/mm3 with normal hemoglobin and white cell count; the smear shows large platelets. Which is the most likely diagnosis?</td><td><span class="ans-badge">A</span></td><td class="q-rule">Isolated thrombocytopenia after a viral illness in a well child with normal hemoglobin and WBC = immune thrombocytopenia.</td></tr>
+<tr><td class="num">113</td><td class="q-stem">A 45-year-old man presents with fatigue, left upper abdominal fullness, and weight loss. WBC count is 180,000/mm3 with myeloid cells at all stages of maturation and platelets of 600,000/mm3. Which is the most likely diagnosis?</td><td><span class="ans-badge">C</span></td><td class="q-rule">Massive leukocytosis with the full myeloid spectrum and thrombocytosis = CML (confirm with BCR-ABL).</td></tr>
+<tr><td class="num">114</td><td class="q-stem">A 48-year-old obese man is newly diagnosed with type 2 diabetes (HbA1c 7.8%). His renal function is normal. Which is the first-line drug therapy?</td><td><span class="ans-badge">B</span></td><td class="q-rule">Metformin is first-line in type 2 diabetes — weight-neutral with low hypoglycemia risk.</td></tr>
+<tr><td class="num">115</td><td class="q-stem">A 55-year-old woman with a 10-year history of type 2 diabetes has BP 140/90 mmHg and microalbuminuria confirmed on two occasions. Which drug class slows progression of diabetic nephropathy beyond its blood-pressure effect?</td><td><span class="ans-badge">D</span></td><td class="q-rule">ACE inhibitors reduce intraglomerular pressure and proteinuria — renoprotective in diabetic nephropathy.</td></tr>
+<tr><td class="num">116</td><td class="q-stem">A 65-year-old woman presents with right knee pain worsened by activity and relieved by rest, morning stiffness of 15 minutes, and crepitus. X-ray shows asymmetric joint space narrowing with osteophytes. Which is the most likely diagnosis?</td><td><span class="ans-badge">A</span></td><td class="q-rule">Weight-bearing joint pain with brief stiffness, crepitus, and osteophytes = primary osteoarthritis.</td></tr>
+<tr><td class="num">117</td><td class="q-stem">A 70-year-old woman presents with 6 weeks of bilateral shoulder and pelvic-girdle stiffness that is worse in the morning, along with malaise. ESR is 85 mm/hr and muscle power is normal. Which is the most likely diagnosis?</td><td><span class="ans-badge">C</span></td><td class="q-rule">Age over 50 + bilateral girdle stiffness without true weakness + high ESR = polymyalgia rheumatica.</td></tr>
+<tr><td class="num">118</td><td class="q-stem">A 55-year-old vegetarian man presents with fatigue and numbness in both feet. Hemoglobin is 8.9 g/dL, MCV is 112 fL, and the smear shows hypersegmented neutrophils. Which is the most likely diagnosis?</td><td><span class="ans-badge">D</span></td><td class="q-rule">Macrocytic anemia with hypersegmented neutrophils and neurological signs in a vegetarian = vitamin B12 deficiency.</td></tr>
+<tr><td class="num">119</td><td class="q-stem">A 24-year-old man being evaluated for mild anemia has hemoglobin 11 g/dL, MCV 62 fL, an elevated RBC count of 6.2 million/mm3, normal ferritin, and target cells on the smear. Which is the most likely diagnosis?</td><td><span class="ans-badge">B</span></td><td class="q-rule">Microcytosis with a HIGH red cell count, normal ferritin, and target cells = beta-thalassemia trait (Mentzer index under 13).</td></tr>
+<tr><td class="num">120</td><td class="q-stem">A 45-year-old man with pulmonary tuberculosis presents with dyspnea and hypotension. BP is 85/60 with a 15 mmHg drop on inspiration, JVP is raised, and heart sounds are muffled. Which is the most likely diagnosis?</td><td><span class="ans-badge">A</span></td><td class="q-rule">Beck triad — hypotension, raised JVP, muffled heart sounds — with pulsus paradoxus = cardiac tamponade.</td></tr>
+<tr><td class="num">121</td><td class="q-stem">A 40-year-old man presents with a 3-year history of increasing shoe and ring size, coarse facial features, and profuse sweating. Visual field testing shows bitemporal hemianopia. Which is the most likely diagnosis?</td><td><span class="ans-badge">C</span></td><td class="q-rule">Acral growth + coarse features + bitemporal hemianopia from a pituitary mass = acromegaly (GH excess, raised IGF-1).</td></tr>
+</tbody></table>
+<table><tbody><tr class="band"><td colspan="4">SURGERY — 23 questions</td></tr></tbody></table>
+<table><thead><tr><th style="width:42px">#</th><th>Question</th><th style="width:44px">Ans</th><th>Rule</th></tr></thead><tbody>
+<tr><td class="num">122</td><td class="q-stem">A 55-year-old man presents with recurrent right upper quadrant pain after meals. Ultrasound shows gallstones. Which is the most appropriate management?</td><td><span class="ans-badge">B</span></td><td class="q-rule">Symptomatic gallstones = cholecystectomy.</td></tr>
+<tr><td class="num">123</td><td class="q-stem">A 30-year-old woman is diagnosed with acute appendicitis on CT. Which is the most appropriate management?</td><td><span class="ans-badge">D</span></td><td class="q-rule">Acute appendicitis = appendectomy.</td></tr>
+<tr><td class="num">124</td><td class="q-stem">A 65-year-old man is found on ultrasound to have an asymptomatic abdominal aortic aneurysm measuring 6 cm in maximum diameter. Which is the most appropriate management?</td><td><span class="ans-badge">B</span></td><td class="q-rule">AAA &gt;5.5 cm = elective repair.</td></tr>
+<tr><td class="num">125</td><td class="q-stem">A 40-year-old man presents with a reducible bulge in the right groin that appears on standing and disappears on lying down. Which is the most likely diagnosis?</td><td><span class="ans-badge">D</span></td><td class="q-rule">Reducible inguinal bulge in male = indirect inguinal hernia.</td></tr>
+<tr><td class="num">126</td><td class="q-stem">An 18-year-old man presents with sudden severe left testicular pain and nausea. Ultrasound shows absent blood flow to the left testis. Which is the most appropriate management?</td><td><span class="ans-badge">A</span></td><td class="q-rule">Testicular torsion = emergency orchiopexy.</td></tr>
+<tr><td class="num">127</td><td class="q-stem">A 55-year-old man with acute left lower quadrant pain and fever undergoes CT, which shows sigmoid diverticulitis complicated by a 4 cm pericolic abscess. Which is the most appropriate management?</td><td><span class="ans-badge">D</span></td><td class="q-rule">Diverticulitis + abscess = percutaneous drainage.</td></tr>
+<tr><td class="num">128</td><td class="q-stem">A 70-year-old man presents with symptomatic internal hemorrhoids that bleed with defecation and prolapse but reduce spontaneously. Which is the most appropriate management?</td><td><span class="ans-badge">A</span></td><td class="q-rule">Symptomatic hemorrhoids = rubber band ligation.</td></tr>
+<tr><td class="num">129</td><td class="q-stem">A 45-year-old woman presents with sudden severe lower abdominal pain, vaginal bleeding, and signs of shock; laparoscopy confirms a ruptured ectopic pregnancy. Which is the most appropriate management?</td><td><span class="ans-badge">B</span></td><td class="q-rule">Ruptured ectopic = emergency salpingectomy.</td></tr>
+<tr><td class="num">130</td><td class="q-stem">A 35-year-old man presents with acute severe epigastric pain and vomiting; serum lipase is markedly elevated. He is hemodynamically stable. Which is the most appropriate initial management?</td><td><span class="ans-badge">D</span></td><td class="q-rule">Acute pancreatitis = NPO + IV fluids.</td></tr>
+<tr><td class="num">131</td><td class="q-stem">A 50-year-old woman has a breast mass; core biopsy confirms invasive ductal carcinoma. Which is the most appropriate management?</td><td><span class="ans-badge">D</span></td><td class="q-rule">Invasive ductal carcinoma = mastectomy with staging.</td></tr>
+<tr><td class="num">132</td><td class="q-stem">A 62-year-old woman presents with spontaneous bloody discharge from a single duct of the right nipple; no mass is palpable. Which is the most likely diagnosis?</td><td><span class="ans-badge">A</span></td><td class="q-rule">Bloody nipple discharge = intraductal papilloma or cancer.</td></tr>
+<tr><td class="num">133</td><td class="q-stem">A 55-year-old woman presents with a rapidly enlarging, firm, erythematous breast with skin thickening and a peau d'orange appearance but no discrete mass. Which is the most likely diagnosis?</td><td><span class="ans-badge">C</span></td><td class="q-rule">Peau d'orange = inflammatory breast cancer.</td></tr>
+<tr><td class="num">134</td><td class="q-stem">A 45-year-old woman undergoes lumpectomy for ductal carcinoma in situ with clear margins. What is the next step in management?</td><td><span class="ans-badge">A</span></td><td class="q-rule">DCIS after lumpectomy = radiation therapy.</td></tr>
+<tr><td class="num">135</td><td class="q-stem">A 65-year-old man presents with urinary frequency, urgency, nocturia, and a weak stream. Digital rectal examination shows a symmetrically enlarged, smooth prostate. Which is the most likely diagnosis?</td><td><span class="ans-badge">B</span></td><td class="q-rule">Frequency + urgency + nocturia in older male = BPH.</td></tr>
+<tr><td class="num">136</td><td class="q-stem">A 38-year-old man presents with a painless, firm mass in the left testis that does not transilluminate. Which is the most likely diagnosis?</td><td><span class="ans-badge">C</span></td><td class="q-rule">Testicular mass = testicular cancer.</td></tr>
+<tr><td class="num">137</td><td class="q-stem">A 55-year-old man with a 40 pack-year smoking history presents with painless hematuria. Cystoscopy shows a papillary bladder tumor. Which is the most likely diagnosis?</td><td><span class="ans-badge">C</span></td><td class="q-rule">Hematuria + bladder tumor = bladder cancer.</td></tr>
+<tr><td class="num">138</td><td class="q-stem">A 58-year-old man with diabetes and a long smoking history presents with calf pain on walking two blocks, relieved by rest; peripheral pulses are weak. Which is the most likely diagnosis?</td><td><span class="ans-badge">C</span></td><td class="q-rule">Claudication = peripheral arterial disease.</td></tr>
+<tr><td class="num">139</td><td class="q-stem">A 70-year-old woman presents with a non-healing ulcer just above the medial malleolus, surrounded by brown pigmentation and varicose veins. Which is the most likely diagnosis?</td><td><span class="ans-badge">B</span></td><td class="q-rule">Medial malleolus + non-healing = venous ulcer.</td></tr>
+<tr><td class="num">140</td><td class="q-stem">A 48-year-old man who is obese and recently underwent knee surgery presents with a painful, swollen, warm left leg. Which is the most likely diagnosis?</td><td><span class="ans-badge">B</span></td><td class="q-rule">Painful + swollen + warm leg = DVT.</td></tr>
+<tr><td class="num">141</td><td class="q-stem">A 75-year-old woman falls at home and presents with right hip pain, a shortened and externally rotated leg, and inability to bear weight. Which is the most appropriate management?</td><td><span class="ans-badge">A</span></td><td class="q-rule">Hip fracture = surgical fixation.</td></tr>
+<tr><td class="num">142</td><td class="q-stem">A 24-year-old man falls onto his shoulder and presents with pain over the mid-clavicle; X-ray shows a minimally displaced midshaft clavicle fracture. Which is the most appropriate management?</td><td><span class="ans-badge">A</span></td><td class="q-rule">Clavicle fracture = sling immobilization (most cases).</td></tr>
+<tr><td class="num">143</td><td class="q-stem">A 24-year-old footballer sustains a twisting knee injury and feels a 'pop'; MRI confirms a complete anterior cruciate ligament tear. Which is the most appropriate management?</td><td><span class="ans-badge">B</span></td><td class="q-rule">Complete ACL tear in active patient = reconstruction.</td></tr>
+<tr><td class="num">144</td><td class="q-stem">A 25-year-old man is brought in after a road traffic accident with an open fracture of the tibia and a contaminated wound. Which is the most appropriate management?</td><td><span class="ans-badge">B</span></td><td class="q-rule">Open fracture = emergency debridement + fixation.</td></tr>
+</tbody></table>
+<table><tbody><tr class="band"><td colspan="4">PAEDIATRICS — 20 questions</td></tr></tbody></table>
+<table><thead><tr><th style="width:42px">#</th><th>Question</th><th style="width:44px">Ans</th><th>Rule</th></tr></thead><tbody>
+<tr><td class="num">145</td><td class="q-stem">A 2-year-old child presents with high fever, irritability, and a bulging anterior fontanelle. Which is the most likely diagnosis?</td><td><span class="ans-badge">C</span></td><td class="q-rule">Fever + irritability + bulging fontanelle = meningitis.</td></tr>
+<tr><td class="num">146</td><td class="q-stem">A 3-day-old term neonate develops jaundice; total bilirubin is 15 mg/dL and rising. The infant is otherwise well, feeding and passing stools normally. Which is the most appropriate management?</td><td><span class="ans-badge">B</span></td><td class="q-rule">Neonatal jaundice + 15 mg/dL = phototherapy.</td></tr>
+<tr><td class="num">147</td><td class="q-stem">A 1-day-old neonate presents with respiratory distress and a scaphoid abdomen; bowel sounds are audible over the left chest. Which is the most likely diagnosis?</td><td><span class="ans-badge">D</span></td><td class="q-rule">Respiratory distress + scaphoid abdomen = congenital diaphragmatic hernia.</td></tr>
+<tr><td class="num">148</td><td class="q-stem">A 28-week premature infant develops progressive respiratory distress with grunting, retractions, and cyanosis within hours of birth; chest X-ray shows ground-glass opacities. Which is the most likely diagnosis?</td><td><span class="ans-badge">D</span></td><td class="q-rule">28-week preemie + RDS = hyaline membrane disease.</td></tr>
+<tr><td class="num">149</td><td class="q-stem">A 5-year-old child presents with a barking cough and inspiratory stridor that worsen at night, preceded by two days of coryza. Which is the most likely diagnosis?</td><td><span class="ans-badge">C</span></td><td class="q-rule">Bark-like cough + stridor + nighttime = croup.</td></tr>
+<tr><td class="num">150</td><td class="q-stem">A 6-month-old infant is found to have a harsh pansystolic murmur at the left lower sternal border and poor weight gain. Which is the most likely diagnosis?</td><td><span class="ans-badge">D</span></td><td class="q-rule">Harsh systolic murmur in infant = VSD (most common CHD).</td></tr>
+<tr><td class="num">151</td><td class="q-stem">A 4-year-old child presents with hematuria, oliguria, and periorbital edema two weeks after a streptococcal throat infection. Which is the most likely diagnosis?</td><td><span class="ans-badge">B</span></td><td class="q-rule">Hematuria + oliguria + post-strep = PSGN.</td></tr>
+<tr><td class="num">152</td><td class="q-stem">A 2-year-old child presents with failure to thrive, chronic diarrhea, and abdominal distension. Which is the most likely diagnosis?</td><td><span class="ans-badge">D</span></td><td class="q-rule">Failure to thrive + diarrhea + distension = celiac disease.</td></tr>
+<tr><td class="num">153</td><td class="q-stem">A 3-year-old child presents with a limp and mild hip pain after a recent viral infection; he is afebrile and otherwise well. Which is the most likely diagnosis?</td><td><span class="ans-badge">A</span></td><td class="q-rule">Limp + hip pain in young child = transient synovitis.</td></tr>
+<tr><td class="num">154</td><td class="q-stem">A 10-year-old child presents with fever for 6 days, bilateral conjunctival injection, a strawberry tongue, and a polymorphous rash. Which is the most likely diagnosis?</td><td><span class="ans-badge">B</span></td><td class="q-rule">Fever + rash + conjunctivitis = Kawasaki disease.</td></tr>
+<tr><td class="num">155</td><td class="q-stem">An 8-year-old child presents with secondary bedwetting and daytime urinary frequency along with dysuria. Which is the most likely diagnosis?</td><td><span class="ans-badge">B</span></td><td class="q-rule">Bedwetting + frequency = UTI (must rule out first).</td></tr>
+<tr><td class="num">156</td><td class="q-stem">A 5-year-old child presents with a palpable abdominal mass and hematuria. Which is the most likely diagnosis?</td><td><span class="ans-badge">C</span></td><td class="q-rule">Abdominal mass + hematuria in child = Wilms tumor.</td></tr>
+<tr><td class="num">157</td><td class="q-stem">A 12-year-old boy presents with knee pain and swelling; X-ray shows a lytic lesion with a sunburst periosteal reaction in the distal femur. Which is the most likely diagnosis?</td><td><span class="ans-badge">B</span></td><td class="q-rule">Knee pain + lytic lesion in adolescent = osteosarcoma.</td></tr>
+<tr><td class="num">158</td><td class="q-stem">A 4-year-old child presents with a purpuric rash over the buttocks and lower legs, abdominal pain, and swollen ankles. Which is the most likely diagnosis?</td><td><span class="ans-badge">D</span></td><td class="q-rule">Purpuric rash on buttocks/legs in child = HSP.</td></tr>
+<tr><td class="num">159</td><td class="q-stem">A 5-month-old infant presents in winter with 3 days of coryza followed by cough, tachypnea, subcostal recession, and poor feeding; examination shows widespread fine crackles and wheeze. Which is the most likely diagnosis?</td><td><span class="ans-badge">A</span></td><td class="q-rule">Infant with coryza progressing to tachypnea, recession, and diffuse crackles in winter = bronchiolitis (RSV).</td></tr>
+<tr><td class="num">160</td><td class="q-stem">A 4-week-old first-born male presents with non-bilious projectile vomiting after every feed; examination shows a firm olive-sized mass in the right upper quadrant. Electrolytes show hypochloremic, hypokalemic metabolic alkalosis. Which is the most likely diagnosis?</td><td><span class="ans-badge">C</span></td><td class="q-rule">Projectile non-bilious vomiting + olive mass + hypochloremic hypokalemic metabolic alkalosis = pyloric stenosis.</td></tr>
+<tr><td class="num">161</td><td class="q-stem">An 8-month-old previously healthy infant presents with paroxysms of screaming and drawing up the legs alternating with quiet periods, and now passes a stool mixed with red jelly-like mucus. Which is the most likely diagnosis?</td><td><span class="ans-badge">B</span></td><td class="q-rule">Colicky episodic pain with red currant jelly stool in an infant = intussusception.</td></tr>
+<tr><td class="num">162</td><td class="q-stem">An 18-month-old child presents after a single generalized tonic-clonic seizure lasting 3 minutes at home during a febrile illness (39C). He is now alert, playing, and neurologically normal. Which is the most likely diagnosis?</td><td><span class="ans-badge">D</span></td><td class="q-rule">Generalized seizure under 5 years with rapid fever, lasting under 15 minutes, no focal features, full recovery = simple febrile seizure.</td></tr>
+<tr><td class="num">163</td><td class="q-stem">A 3-year-old is diagnosed with Kawasaki disease on day 6 of fever with conjunctival injection, strawberry tongue, and a rash. Which treatment most reduces the risk of coronary artery aneurysms?</td><td><span class="ans-badge">A</span></td><td class="q-rule">IVIG within 10 days plus high-dose aspirin reduces coronary aneurysm risk in Kawasaki disease.</td></tr>
+<tr><td class="num">164</td><td class="q-stem">A 4-year-old boy presents with periorbital and generalized edema. Urinalysis shows 4+ proteinuria without hematuria; serum albumin is 1.8 g/dL with elevated cholesterol. Which is the most likely diagnosis?</td><td><span class="ans-badge">C</span></td><td class="q-rule">Edema + heavy proteinuria + hypoalbuminemia + hyperlipidemia without hematuria in a young child = nephrotic syndrome, usually minimal change disease.</td></tr>
+</tbody></table>
+<table><tbody><tr class="band"><td colspan="4">OBSTETRICS &amp; GYNAECOLOGY — 17 questions</td></tr></tbody></table>
+<table><thead><tr><th style="width:42px">#</th><th>Question</th><th style="width:44px">Ans</th><th>Rule</th></tr></thead><tbody>
+<tr><td class="num">165</td><td class="q-stem">A 30-year-old G1P0 woman at 12 weeks gestation presents for her first prenatal visit. Which is the most appropriate next step?</td><td><span class="ans-badge">C</span></td><td class="q-rule">First prenatal visit at 12 weeks = confirm gestational age with ultrasound.</td></tr>
+<tr><td class="num">166</td><td class="q-stem">A 28-year-old primigravida at 28 weeks gestation presents with headache, blood pressure 150/100 mmHg, proteinuria, and edema. Which is the most likely diagnosis?</td><td><span class="ans-badge">D</span></td><td class="q-rule">HTN + proteinuria + edema = preeclampsia.</td></tr>
+<tr><td class="num">167</td><td class="q-stem">A 35-year-old woman at 38 weeks gestation presents with regular contractions and a cervical dilatation of 4 cm. Which is the most appropriate management?</td><td><span class="ans-badge">D</span></td><td class="q-rule">Active labor at 38 weeks = allow to progress.</td></tr>
+<tr><td class="num">168</td><td class="q-stem">A 25-year-old woman at 6 weeks gestation with a positive pregnancy test presents with mild vaginal spotting; ultrasound shows a viable intrauterine pregnancy and the cervical os is closed. Which is the most likely diagnosis?</td><td><span class="ans-badge">D</span></td><td class="q-rule">Positive test + intrauterine + spotting = threatened abortion.</td></tr>
+<tr><td class="num">169</td><td class="q-stem">A 30-year-old woman at 32 weeks gestation presents with regular contractions and cervical change. Membranes are intact. Which is the most appropriate management?</td><td><span class="ans-badge">A</span></td><td class="q-rule">Preterm labor at 32 weeks = betamethasone + tocolysis + magnesium.</td></tr>
+<tr><td class="num">170</td><td class="q-stem">A 28-year-old woman at 10 weeks gestation presents with severe nausea and vomiting resulting in a 4 kg weight loss and ketonuria. Which is the most likely diagnosis?</td><td><span class="ans-badge">A</span></td><td class="q-rule">Severe nausea + vomiting + weight loss = hyperemesis gravidarum.</td></tr>
+<tr><td class="num">171</td><td class="q-stem">A 35-year-old woman at 40 weeks gestation in labor has a fetal heart rate of 170 bpm with good variability and no decelerations. Which is the most appropriate next step?</td><td><span class="ans-badge">C</span></td><td class="q-rule">FHR 170 = tachycardia, continue monitoring first.</td></tr>
+<tr><td class="num">172</td><td class="q-stem">A 45-year-old woman presents with heavy, prolonged, and irregular menstrual bleeding for 6 months. Which is the most appropriate initial evaluation?</td><td><span class="ans-badge">C</span></td><td class="q-rule">Abnormal uterine bleeding in perimenopause = endometrial biopsy.</td></tr>
+<tr><td class="num">173</td><td class="q-stem">A 32-year-old woman presents with dysmenorrhea and heavy menstrual bleeding; ultrasound shows a 5 cm intramural fibroid. She wishes to preserve fertility. Which is the most appropriate management?</td><td><span class="ans-badge">B</span></td><td class="q-rule">Dysmenorrhea + heavy bleeding + fibroid = medical management first.</td></tr>
+<tr><td class="num">174</td><td class="q-stem">A 35-year-old woman presents with a dominant ovarian cyst on ultrasound that persists on repeat imaging and causes pelvic discomfort. Which is the most appropriate management?</td><td><span class="ans-badge">D</span></td><td class="q-rule">Dominant ovarian cyst = laparoscopic cystectomy (if symptomatic/complex).</td></tr>
+<tr><td class="num">175</td><td class="q-stem">A 52-year-old woman presents with vaginal bleeding two years after menopause. Which is the most likely diagnosis?</td><td><span class="ans-badge">C</span></td><td class="q-rule">Postmenopausal bleeding = endometrial cancer until proven otherwise.</td></tr>
+<tr><td class="num">176</td><td class="q-stem">A 25-year-old woman presents with irregular menses, hirsutism, and acne. Which is the most likely diagnosis?</td><td><span class="ans-badge">D</span></td><td class="q-rule">Irregular menses + hirsutism = PCOS.</td></tr>
+<tr><td class="num">177</td><td class="q-stem">A 42-year-old woman presents with a sensation of a bulge per vagina and a third-degree uterine prolapse that is symptomatic. She desires definitive treatment. Which is the most appropriate management?</td><td><span class="ans-badge">D</span></td><td class="q-rule">Symptomatic prolapse = surgical repair (if patient desires).</td></tr>
+<tr><td class="num">178</td><td class="q-stem">A 28-year-old woman presents with acute lower abdominal pain, fever, and purulent vaginal discharge; bimanual examination shows cervical motion tenderness. Which is the most likely diagnosis?</td><td><span class="ans-badge">B</span></td><td class="q-rule">Pelvic pain + cervical motion tenderness + fever = PID.</td></tr>
+<tr><td class="num">179</td><td class="q-stem">A 28-year-old woman with 6 weeks of amenorrhea presents with right iliac fossa pain and vaginal spotting. Beta-hCG is 2500 IU/L and transvaginal ultrasound shows an empty uterus with no adnexal mass. Which is the most likely diagnosis?</td><td><span class="ans-badge">D</span></td><td class="q-rule">Positive β-hCG above the discriminatory zone with an empty uterus = ectopic pregnancy until proven otherwise.</td></tr>
+<tr><td class="num">180</td><td class="q-stem">A 32-year-old woman at 30 weeks gestation presents with painless bright-red vaginal bleeding; ultrasound shows the placenta covering the internal os. Which is the most appropriate next step?</td><td><span class="ans-badge">B</span></td><td class="q-rule">Painless bleeding with placenta over the internal os = placenta previa; digital examination can trigger catastrophic hemorrhage.</td></tr>
+<tr><td class="num">181</td><td class="q-stem">A 28-year-old woman at 26 weeks gestation with no risk factors for diabetes. Which is the most appropriate screening test for gestational diabetes?</td><td><span class="ans-badge">C</span></td><td class="q-rule">Universal screening for gestational diabetes is the OGTT at 24–28 weeks, when placental anti-insulin hormones peak.</td></tr>
+</tbody></table>
+<table><tbody><tr class="band"><td colspan="4">PSYCHIATRY — 2 questions</td></tr></tbody></table>
+<table><thead><tr><th style="width:42px">#</th><th>Question</th><th style="width:44px">Ans</th><th>Rule</th></tr></thead><tbody>
+<tr><td class="num">182</td><td class="q-stem">A 25-year-old woman presents with persistent low mood, loss of interest in previously enjoyed activities, poor sleep, and poor concentration for 6 weeks. Which is the most likely diagnosis?</td><td><span class="ans-badge">B</span></td><td class="q-rule">Persistent sadness + anhedonia + sleep disturbance = MDD.</td></tr>
+<tr><td class="num">183</td><td class="q-stem">A 30-year-old man presents with auditory hallucinations, paranoid delusions, and disorganized speech of 3 months' duration, along with declining function at work. Which is the most likely diagnosis?</td><td><span class="ans-badge">B</span></td><td class="q-rule">Auditory hallucinations + paranoia for 3 months = schizophrenia.</td></tr>
+</tbody></table>
+<table><tbody><tr class="band"><td colspan="4">ENT — 6 questions</td></tr></tbody></table>
+<table><thead><tr><th style="width:42px">#</th><th>Question</th><th style="width:44px">Ans</th><th>Rule</th></tr></thead><tbody>
+<tr><td class="num">184</td><td class="q-stem">A 7-year-old boy presents with 2 weeks of repetitive sneezing, clear nasal discharge, and conjunctival folds (Dennie-Morgan lines) during the pollen season. Which is the most likely diagnosis?</td><td><span class="ans-badge">B</span></td><td class="q-rule">Child + sneezing + clear discharge + folds = allergic rhinitis.</td></tr>
+<tr><td class="num">185</td><td class="q-stem">A 28-year-old woman with asthma presents with progressive bilateral nasal obstruction and anosmia. Endoscopy shows pale, grape-like masses in the nasal cavities. Which is the most likely diagnosis?</td><td><span class="ans-badge">C</span></td><td class="q-rule">Nasal obstruction + anosmia = nasal polyps.</td></tr>
+<tr><td class="num">186</td><td class="q-stem">A 45-year-old woman presents with unilateral purulent nasal discharge, facial pressure, and fever for 10 days that worsened after an initial viral illness. Which is the most likely diagnosis?</td><td><span class="ans-badge">D</span></td><td class="q-rule">Unilateral purulent discharge = bacterial sinusitis.</td></tr>
+<tr><td class="num">187</td><td class="q-stem">A 30-year-old schoolteacher presents with hoarseness of 4 weeks' duration that worsens by the end of the day and with heavy voice use. Laryngoscopy shows bilateral symmetrical swellings at the junction of the anterior and middle thirds of the vocal cords. Which is the most likely diagnosis?</td><td><span class="ans-badge">D</span></td><td class="q-rule">Persistent dysphonia in a voice user with bilateral vocal cord swellings at the junction of the anterior and middle thirds = vocal cord nodules.</td></tr>
+<tr><td class="num">188</td><td class="q-stem">A 5-year-old child presents with hearing difficulty and recurrent ear infections. Otoscopy shows a retracted tympanic membrane with a fluid level behind it. Which is the most likely diagnosis?</td><td><span class="ans-badge">A</span></td><td class="q-rule">Hearing loss + recurrent ear infections = otitis media with effusion.</td></tr>
+<tr><td class="num">189</td><td class="q-stem">A 45-year-old woman presents with recurrent episodes of severe vertigo lasting hours, accompanied by unilateral tinnitus, aural fullness, and fluctuating hearing loss. Which is the most likely diagnosis?</td><td><span class="ans-badge">C</span></td><td class="q-rule">Recurrent vertigo lasting hours with fluctuating sensorineural hearing loss, tinnitus, and fullness = Meniere disease (endolymphatic hydrops).</td></tr>
+</tbody></table>
+<table><tbody><tr class="band"><td colspan="4">OPHTHALMOLOGY — 6 questions</td></tr></tbody></table>
+<table><thead><tr><th style="width:42px">#</th><th>Question</th><th style="width:44px">Ans</th><th>Rule</th></tr></thead><tbody>
+<tr><td class="num">190</td><td class="q-stem">During an eye examination, a 24-year-old woman with painful vision loss in the left eye is found to have a relative afferent pupillary defect on the swinging flashlight test. Which is the most likely diagnosis?</td><td><span class="ans-badge">B</span></td><td class="q-rule">RAPD = optic neuritis.</td></tr>
+<tr><td class="num">191</td><td class="q-stem">A 34-year-old woman presents with fluctuating ptosis and diplopia that worsen at the end of the day and improve after rest. Which is the most likely diagnosis?</td><td><span class="ans-badge">D</span></td><td class="q-rule">Ptosis + diplopia + worse at day = myasthenia gravis.</td></tr>
+<tr><td class="num">192</td><td class="q-stem">A 46-year-old man presents with sudden, painless loss of vision in the right eye. Fundoscopy shows a cherry-red spot at the macula. Which is the most likely diagnosis?</td><td><span class="ans-badge">D</span></td><td class="q-rule">Sudden vision loss + cherry red spot = CRAO.</td></tr>
+<tr><td class="num">193</td><td class="q-stem">A 55-year-old man presents with gradual, painless loss of peripheral vision in both eyes. Intraocular pressure is elevated and the optic discs show increased cupping. Which is the most likely diagnosis?</td><td><span class="ans-badge">C</span></td><td class="q-rule">Gradual vision loss + elevated IOP = glaucoma.</td></tr>
+<tr><td class="num">194</td><td class="q-stem">A 28-year-old woman presents with blurred vision in the left eye that is worse with eye movement and associated with retro-orbital pain. Which is the most likely diagnosis?</td><td><span class="ans-badge">A</span></td><td class="q-rule">Blurred vision + painful eye movement = optic neuritis.</td></tr>
+<tr><td class="num">195</td><td class="q-stem">A 60-year-old woman presents with sudden floaters and flashes of light in the left eye. Fundoscopy shows an annular Weiss ring. Which is the most likely diagnosis?</td><td><span class="ans-badge">B</span></td><td class="q-rule">Floaters + flashes = posterior vitreous detachment.</td></tr>
+</tbody></table>
+<table><tbody><tr class="band"><td colspan="4">FORENSIC MEDICINE — 5 questions</td></tr></tbody></table>
+<table><thead><tr><th style="width:42px">#</th><th>Question</th><th style="width:44px">Ans</th><th>Rule</th></tr></thead><tbody>
+<tr><td class="num">196</td><td class="q-stem">In a forensic identification case, the examiner classifies the fingerprints of an unknown deceased person. Which is the most prevalent fingerprint pattern in the general population?</td><td><span class="ans-badge">A</span></td><td class="q-rule">Most common fingerprint pattern = loops.</td></tr>
+<tr><td class="num">197</td><td class="q-stem">A 70-year-old man's body is brought to the mortuary several days after death. The forensic examiner notes the sequence of putrefaction of the internal organs. Which organ undergoes putrefaction LAST?</td><td><span class="ans-badge">B</span></td><td class="q-rule">Putrefaction order: liver first, prostate last (dense tissue).</td></tr>
+<tr><td class="num">198</td><td class="q-stem">A 30-year-old woman presents within 12 hours of a sexual assault. What is the most appropriate forensic evidence collection?</td><td><span class="ans-badge">C</span></td><td class="q-rule">Sexual assault = full forensic kit within 72 hours.</td></tr>
+<tr><td class="num">199</td><td class="q-stem">A 30-year-old man is brought to the emergency department with intentional self-inflicted knife wounds to the forearm. Besides treating the wounds, what is the forensic priority?</td><td><span class="ans-badge">C</span></td><td class="q-rule">Self-harm = preserve scene, document injuries, assess intent.</td></tr>
+<tr><td class="num">200</td><td class="q-stem">A victim of a fatal assault, conscious and aware that death is near, makes a statement naming his assailant and dies shortly afterward. What is the legal status of this statement?</td><td><span class="ans-badge">A</span></td><td class="q-rule">A statement by a person who believes death is imminent, relating to the cause of death, is a dying declaration and admissible as evidence.</td></tr>
+</tbody></table>
+
+<div class="callout callout-info">
+<span class="callout-title">Star ratings</span>
+<p>In the master list DOCX, 22 items carry ★★★★★ (topic depth confirmed across recalled papers) and 36 carry ★★★★☆;
+the remaining 142 are ★★★ (pattern-derived, not independently re-confirmed). The stars are honest — the legend in the
+DOCX states their basis. This report keeps every item visible; the stars live in the master list.</p>
+</div>
+
+</div></section>
+<section id='obsgyn'><div class="container"><div class="sec-head"><span class="sec-num">6</span><h2><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="2.5"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg>OB/GYN Deep Dive — the 17 questions, dissected</h2><span class="sub">Options · answer · distractor logic</span></div>
+
+<p class="lead">The 17 OB/GYN items the bank predicts, rendered the way a drill sheet should be: full options, correct answer,
+the rule that makes it correct, and why every distractor fails. These map 1:1 to the backbone correlation in Section 7.</p>
+
+<div class="dissect">
+  <div class="q">Q165 — A 30-year-old G1P0 woman at 12 weeks gestation presents for her first prenatal visit. Which is the most appropriate next step?</div>
+  <div class="opt ">A. Order a quad screen</div><div class="opt ">B. Schedule an amniocentesis</div><div class="opt correct">C. Confirm gestational age with ultrasound</div><div class="opt ">D. Start iron supplementation</div>
+  <div class="why"><span class="chip gold">Answer C</span> &nbsp; First prenatal visit at 12 weeks = confirm gestational age with ultrasound.</div>
+  <div class="wn">Why the others fail: A: Quad screen: 15-20 weeks.  |  B: Amnio: indicated later.  |  D: Iron: later.</div>
+</div>
+<div class="dissect">
+  <div class="q">Q166 — A 28-year-old primigravida at 28 weeks gestation presents with headache, blood pressure 150/100 mmHg, proteinuria, and edema. Which is the most likely diagnosis?</div>
+  <div class="opt ">A. Gestational hypertension</div><div class="opt ">B. Eclampsia</div><div class="opt ">C. Chronic hypertension</div><div class="opt correct">D. Preeclampsia</div>
+  <div class="why"><span class="chip gold">Answer D</span> &nbsp; HTN + proteinuria + edema = preeclampsia.</div>
+  <div class="wn">Why the others fail: A: Gestational HTN: no proteinuria.  |  B: Eclampsia: seizures.  |  C: Chronic: before pregnancy.</div>
+</div>
+<div class="dissect">
+  <div class="q">Q167 — A 35-year-old woman at 38 weeks gestation presents with regular contractions and a cervical dilatation of 4 cm. Which is the most appropriate management?</div>
+  <div class="opt ">A. Induce labor</div><div class="opt ">B. Administer tocolytics</div><div class="opt ">C. Immediate cesarean section</div><div class="opt correct">D. Continue observation and allow labor to progress</div>
+  <div class="why"><span class="chip gold">Answer D</span> &nbsp; Active labor at 38 weeks = allow to progress.</div>
+  <div class="wn">Why the others fail: A: Induction: already in labor.  |  B: Tocolytics: not at 38 weeks.  |  C: C-section: not indicated.</div>
+</div>
+<div class="dissect">
+  <div class="q">Q168 — A 25-year-old woman at 6 weeks gestation with a positive pregnancy test presents with mild vaginal spotting; ultrasound shows a viable intrauterine pregnancy and the cervical os is closed. Which is the most likely diagnosis?</div>
+  <div class="opt ">A. Ectopic pregnancy</div><div class="opt ">B. Incomplete abortion</div><div class="opt ">C. Molar pregnancy</div><div class="opt correct">D. Threatened abortion</div>
+  <div class="why"><span class="chip gold">Answer D</span> &nbsp; Positive test + intrauterine + spotting = threatened abortion.</div>
+  <div class="wn">Why the others fail: A: Ectopic: different location.  |  B: Incomplete: tissue passed.  |  C: Molar: different.</div>
+</div>
+<div class="dissect">
+  <div class="q">Q169 — A 30-year-old woman at 32 weeks gestation presents with regular contractions and cervical change. Membranes are intact. Which is the most appropriate management?</div>
+  <div class="opt correct">A. Betamethasone + tocolysis + magnesium sulfate</div><div class="opt ">B. Observation only</div><div class="opt ">C. Immediate delivery</div><div class="opt ">D. Bed rest</div>
+  <div class="why"><span class="chip gold">Answer A</span> &nbsp; Preterm labor at 32 weeks = betamethasone + tocolysis + magnesium.</div>
+  <div class="wn">Why the others fail: B: Observation: preterm labor.  |  C: Delivery: too early.  |  D: Bed rest: not enough.</div>
+</div>
+<div class="dissect">
+  <div class="q">Q170 — A 28-year-old woman at 10 weeks gestation presents with severe nausea and vomiting resulting in a 4 kg weight loss and ketonuria. Which is the most likely diagnosis?</div>
+  <div class="opt correct">A. Hyperemesis gravidarum</div><div class="opt ">B. GERD</div><div class="opt ">C. Gastritis</div><div class="opt ">D. Morning sickness</div>
+  <div class="why"><span class="chip gold">Answer A</span> &nbsp; Severe nausea + vomiting + weight loss = hyperemesis gravidarum.</div>
+  <div class="wn">Why the others fail: B: GERD: different.  |  C: Gastritis: different.  |  D: Morning sickness: milder.</div>
+</div>
+<div class="dissect">
+  <div class="q">Q171 — A 35-year-old woman at 40 weeks gestation in labor has a fetal heart rate of 170 bpm with good variability and no decelerations. Which is the most appropriate next step?</div>
+  <div class="opt ">A. Immediate cesarean section</div><div class="opt ">B. Administer tocolytics</div><div class="opt correct">C. Continue fetal monitoring</div><div class="opt ">D. Amniotomy</div>
+  <div class="why"><span class="chip gold">Answer C</span> &nbsp; FHR 170 = tachycardia, continue monitoring first.</div>
+  <div class="wn">Why the others fail: A: C-section: not unless concerning pattern.  |  B: Tocolysis: not for FHR.  |  D: Amniotomy: different.</div>
+</div>
+<div class="dissect">
+  <div class="q">Q172 — A 45-year-old woman presents with heavy, prolonged, and irregular menstrual bleeding for 6 months. Which is the most appropriate initial evaluation?</div>
+  <div class="opt ">A. Hysteroscopy</div><div class="opt ">B. Pelvic ultrasound</div><div class="opt correct">C. Endometrial biopsy</div><div class="opt ">D. Pap smear</div>
+  <div class="why"><span class="chip gold">Answer C</span> &nbsp; Abnormal uterine bleeding in perimenopause = endometrial biopsy.</div>
+  <div class="wn">Why the others fail: A: Hysteroscopy: different.  |  B: US: adjunctive.  |  D: Pap: for cancer screening.</div>
+</div>
+<div class="dissect">
+  <div class="q">Q173 — A 32-year-old woman presents with dysmenorrhea and heavy menstrual bleeding; ultrasound shows a 5 cm intramural fibroid. She wishes to preserve fertility. Which is the most appropriate management?</div>
+  <div class="opt ">A. Observation</div><div class="opt correct">B. Medical management with NSAIDs and hormonal therapy</div><div class="opt ">C. Myomectomy</div><div class="opt ">D. Hysterectomy</div>
+  <div class="why"><span class="chip gold">Answer B</span> &nbsp; Dysmenorrhea + heavy bleeding + fibroid = medical management first.</div>
+  <div class="wn">Why the others fail: A: Observation: symptoms present.  |  C: Myomectomy: if fertility desired.  |  D: Hysterectomy: if refractory.</div>
+</div>
+<div class="dissect">
+  <div class="q">Q174 — A 35-year-old woman presents with a dominant ovarian cyst on ultrasound that persists on repeat imaging and causes pelvic discomfort. Which is the most appropriate management?</div>
+  <div class="opt ">A. Chemotherapy</div><div class="opt ">B. Observation</div><div class="opt ">C. Radiation</div><div class="opt correct">D. Laparoscopic cystectomy</div>
+  <div class="why"><span class="chip gold">Answer D</span> &nbsp; Dominant ovarian cyst = laparoscopic cystectomy (if symptomatic/complex).</div>
+  <div class="wn">Why the others fail: A: Chemo: if malignant.  |  B: Observation: if simple and asymptomatic.  |  C: Radiation: wrong.</div>
+</div>
+<div class="dissect">
+  <div class="q">Q175 — A 52-year-old woman presents with vaginal bleeding two years after menopause. Which is the most likely diagnosis?</div>
+  <div class="opt ">A. Fibroid degeneration</div><div class="opt ">B. Cervical cancer</div><div class="opt correct">C. Endometrial cancer</div><div class="opt ">D. Vaginal atrophy</div>
+  <div class="why"><span class="chip gold">Answer C</span> &nbsp; Postmenopausal bleeding = endometrial cancer until proven otherwise.</div>
+  <div class="wn">Why the others fail: A: Fibroid: different.  |  B: Cervical: different.  |  D: Atrophy: possible but cancer first.</div>
+</div>
+<div class="dissect">
+  <div class="q">Q176 — A 25-year-old woman presents with irregular menses, hirsutism, and acne. Which is the most likely diagnosis?</div>
+  <div class="opt ">A. Thyroid disorder</div><div class="opt ">B. Endometriosis</div><div class="opt ">C. Premature ovarian failure</div><div class="opt correct">D. Polycystic ovary syndrome</div>
+  <div class="why"><span class="chip gold">Answer D</span> &nbsp; Irregular menses + hirsutism = PCOS.</div>
+  <div class="wn">Why the others fail: A: Thyroid: different.  |  B: Endo: different.  |  C: POF: different.</div>
+</div>
+<div class="dissect">
+  <div class="q">Q177 — A 42-year-old woman presents with a sensation of a bulge per vagina and a third-degree uterine prolapse that is symptomatic. She desires definitive treatment. Which is the most appropriate management?</div>
+  <div class="opt ">A. Pessary</div><div class="opt ">B. Pelvic floor exercises</div><div class="opt ">C. Observation</div><div class="opt correct">D. Surgical repair</div>
+  <div class="why"><span class="chip gold">Answer D</span> &nbsp; Symptomatic prolapse = surgical repair (if patient desires).</div>
+  <div class="wn">Why the others fail: A: Pessary: if not surgical candidate.  |  B: PF exercises: mild.  |  C: Observation: if mild.</div>
+</div>
+<div class="dissect">
+  <div class="q">Q178 — A 28-year-old woman presents with acute lower abdominal pain, fever, and purulent vaginal discharge; bimanual examination shows cervical motion tenderness. Which is the most likely diagnosis?</div>
+  <div class="opt ">A. Ectopic pregnancy</div><div class="opt correct">B. Pelvic inflammatory disease</div><div class="opt ">C. Ovarian torsion</div><div class="opt ">D. Appendicitis</div>
+  <div class="why"><span class="chip gold">Answer B</span> &nbsp; Pelvic pain + cervical motion tenderness + fever = PID.</div>
+  <div class="wn">Why the others fail: A: Ectopic: different.  |  C: Torsion: different.  |  D: Appendicitis: different.</div>
+</div>
+<div class="dissect">
+  <div class="q">Q179 — A 28-year-old woman with 6 weeks of amenorrhea presents with right iliac fossa pain and vaginal spotting. Beta-hCG is 2500 IU/L and transvaginal ultrasound shows an empty uterus with no adnexal mass. Which is the most likely diagnosis?</div>
+  <div class="opt ">A. Threatened abortion</div><div class="opt ">B. Hydatidiform mole</div><div class="opt ">C. Ovarian torsion</div><div class="opt correct">D. Ectopic pregnancy</div>
+  <div class="why"><span class="chip gold">Answer D</span> &nbsp; Positive β-hCG above the discriminatory zone with an empty uterus = ectopic pregnancy until proven otherwise.</div>
+  <div class="wn">Why the others fail: A: Threatened abortion: an intrauterine sac should be visible at this hCG level.  |  B: Mole: vesicular uterine contents with very high hCG.  |  C: Ovarian torsion: no pregnancy, acute severe pain with an adnexal mass.</div>
+</div>
+<div class="dissect">
+  <div class="q">Q180 — A 32-year-old woman at 30 weeks gestation presents with painless bright-red vaginal bleeding; ultrasound shows the placenta covering the internal os. Which is the most appropriate next step?</div>
+  <div class="opt ">A. Perform immediate digital vaginal examination to assess cervical dilatation</div><div class="opt correct">B. Admit, avoid digital vaginal examination, plan cesarean delivery if bleeding persists</div><div class="opt ">C. Immediate induction of labor</div><div class="opt ">D. Speculum examination followed by artificial rupture of membranes</div>
+  <div class="why"><span class="chip gold">Answer B</span> &nbsp; Painless bleeding with placenta over the internal os = placenta previa; digital examination can trigger catastrophic hemorrhage.</div>
+  <div class="wn">Why the others fail: A: Digital examination: contraindicated in previa.  |  C: Induction: impossible and dangerous with the placenta covering the os.  |  D: ARM: contraindicated in previa.</div>
+</div>
+<div class="dissect">
+  <div class="q">Q181 — A 28-year-old woman at 26 weeks gestation with no risk factors for diabetes. Which is the most appropriate screening test for gestational diabetes?</div>
+  <div class="opt ">A. Random blood glucose</div><div class="opt ">B. Fasting glucose at every antenatal visit</div><div class="opt correct">C. Oral glucose tolerance test at 24–28 weeks</div><div class="opt ">D. HbA1c at booking only</div>
+  <div class="why"><span class="chip gold">Answer C</span> &nbsp; Universal screening for gestational diabetes is the OGTT at 24–28 weeks, when placental anti-insulin hormones peak.</div>
+  <div class="wn">Why the others fail: A: Random glucose: insensitive.  |  B: Serial fasting glucose: not the standard screening method.  |  D: HbA1c at booking: reflects pre-gestational glycemia, misses GDM.</div>
+</div>
+</div></section>
+<section id='backbone'><div class="container"><div class="sec-head"><span class="sec-num">7</span><h2><svg class="ic" viewBox="0 0 24 24"><path d="M3 12h17M15 6l6 6-6 6"/></svg>Backbone Correlation Map — topics to predicted MCQs</h2><span class="sub">OB/GYN backbone list → bank → discriminator</span></div>
+
+<p class="lead">The 15-topic backbone list you wrote (corrected), mapped against the predicted MCQs. Each row shows which
+predicted questions the topic carries and the single discriminator that separates a hit from a miss. Two rows at the bottom
+are the gaps the mapping exposed — predicted questions that sat outside the original backbone.</p>
+
+
+<table>
+<thead><tr><th>Backbone topic</th><th>Predicted MCQs</th><th>Key discriminator / evidence</th><th>Type of hit</th></tr></thead>
+<tbody>
+<tr class="band"><td colspan="4">GYNECOLOGY</td></tr>
+<tr class=""><td class="corr-topic">1. Menstrual cycle in detail, safe vs unsafe days</td><td class="num">Q12</td><td>Hirsutism + irregular menses = PCOS</td><td><span class="chip gold">exact family</span></td></tr>
+<tr class=""><td class="corr-topic">2. Primary and secondary amenorrhea</td><td class="num">Q15</td><td>Amenorrhea + pain + spotting = ectopic first</td><td><span class="chip navy">adjacent</span></td></tr>
+<tr class=""><td class="corr-topic">3. Dysmenorrhea (primary vs secondary), endometriosis vs adenomyosis</td><td class="num">Q9</td><td>Dysmenorrhea + fibroid = medical first</td><td><span class="chip navy">adjacent</span></td></tr>
+<tr class=""><td class="corr-topic">4. Contraceptive methods (hormonal, IUCD, barrier, permanent, emergency pill)</td><td class="num">—</td><td>No direct bank MCQs; background high-yield</td><td><span class="chip navy">pattern</span></td></tr>
+<tr class=""><td class="corr-topic">5. Congenital adrenal hyperplasia (with tables), infertility</td><td class="num">—</td><td>No direct bank MCQs; tables only</td><td><span class="chip navy">pattern</span></td></tr>
+<tr class=""><td class="corr-topic">6. Vaginitis with types, urinary incontinence with types</td><td class="num">Q14</td><td>Pain + fever + cervical motion tenderness = PID</td><td><span class="chip gold">exact family</span></td></tr>
+<tr class=""><td class="corr-topic">7. Toxic shock syndrome, pelvic organ prolapse</td><td class="num">Q13</td><td>Symptomatic 3rd-degree prolapse = surgical repair</td><td><span class="chip gold">exact</span></td></tr>
+<tr class=""><td class="corr-topic">8. Fibroid types, endometrial carcinoma, ovarian cancer</td><td class="num">Q8, Q9, Q10, Q11</td><td>PMB = cancer until proven otherwise; AUB = biopsy; cyst = cystectomy</td><td><span class="chip gold">exact cluster</span></td></tr>
+<tr class="band"><td colspan="4">OBSTETRICS</td></tr>
+<tr class=""><td class="corr-topic">1. GPA vs GTPAL, labor with stages, EDD, fetal period</td><td class="num">Q1, Q3, Q5, Q7</td><td>12-wk booking = US dates; active labor = progress; preterm = triple therapy</td><td><span class="chip gold">exact cluster</span></td></tr>
+<tr class=""><td class="corr-topic">2. Chronic/gestational HTN, preeclampsia, eclampsia, HELLP, ectopic</td><td class="num">Q2, Q15</td><td>HTN + proteinuria = preeclampsia; empty uterus above zone = ectopic</td><td><span class="chip gold">exact</span></td></tr>
+<tr class=""><td class="corr-topic">3. GDM, placental abnormalities, abruptio placentae, placenta previa</td><td class="num">Q16, Q17</td><td>Previa = painless bleeding, never digital exam; GDM = OGTT 24–28 wk</td><td><span class="chip gold">exact</span></td></tr>
+<tr class=""><td class="corr-topic">4. Abortion and its types, postpartum hemorrhage</td><td class="num">Q4</td><td>Viable IUP + spotting + closed os = threatened</td><td><span class="chip gold">exact</span></td></tr>
+<tr class=""><td class="corr-topic">5. Sheehan syndrome, breastfeeding, bottle feeding, mastitis</td><td class="num">—</td><td>No direct bank MCQs; Sheehan links to topic 4</td><td><span class="chip navy">pattern</span></td></tr>
+<tr class=""><td class="corr-topic">6. Molar pregnancy (complete vs incomplete), malpresentation, Rh incompatibility</td><td class="num">—</td><td>No direct bank MCQs; mole appears as distractor</td><td><span class="chip navy">pattern</span></td></tr>
+<tr class=""><td class="corr-topic">7. Shoulder dystocia, C-section in detail, amniotic fluid (oligo/polyhydramnios)</td><td class="num">—</td><td>No direct bank MCQs; C-section is surgery-adjacent</td><td><span class="chip navy">pattern</span></td></tr>
+<tr class="band"><td colspan="4">FLAGGED GAPS</td></tr>
+<tr class="gap"><td class="corr-topic">Hyperemesis gravidarum</td><td class="num">Q6</td><td>Severe vomiting + weight loss + ketonuria = hyperemesis</td><td><span class="chip navy">predicted, not on backbone</span></td></tr>
+<tr class="gap"><td class="corr-topic">Preterm labor management detail</td><td class="num">Q5</td><td>Betamethasone + tocolysis + MgSO₄ triple</td><td><span class="chip navy">predicted, not on backbone</span></td></tr>
+
+</tbody></table>
+<div class="callout callout-warning">
+<span class="callout-title">The mapping caught real holes</span>
+<p>Hyperemesis gravidarum and explicit preterm-labor management were <b>predicted but missing from the backbone</b>.
+Both are added in the correlation DOCX, and should be promoted into the backbone list itself before October.</p>
+</div>
+
+</div></section>
+<section id='confidence'><div class="container"><div class="sec-head"><span class="sec-num">8</span><h2><svg class="ic" viewBox="0 0 24 24"><path d="M12 3 2 20h20z"/><path d="M12 10v5M12 18v.2"/></svg>Confidence Model — what we can and cannot claim</h2><span class="sub">Three claims, three honest numbers</span></div>
+
+<table>
+<thead><tr><th>Claim</th><th>Confidence</th><th>Basis</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr><td><b>The architecture — subject weightage</b></td><td class="num" style="color:var(--good);font-weight:700">~90%+</td><td>All 14 subjects sit within ±2.1pp of recalled reality, most within ±0.5pp. The distribution held across 5 different sittings; the exam does not reshuffle its weightage.</td><td style="color:var(--good)"><svg class="ic" viewBox="0 0 24 24"><path d="M4 12.5 9 17.5 20 6.5"/></svg>supported</td></tr>
+<tr><td><b>Topic families inside OB/GYN</b></td><td class="num" style="color:var(--good);font-weight:700">~75–85%</td><td>The classic discriminators (preeclampsia spectrum, abortion classification, previa, GDM, ectopic, fibroids, PMB, prolapse, PID, PCOS) recur across sittings in some form.</td><td style="color:var(--good)"><svg class="ic" viewBox="0 0 24 24"><path d="M4 12.5 9 17.5 20 6.5"/></svg>supported</td></tr>
+<tr><td><b>Verbatim exact questions</b></td><td class="num" style="color:var(--bad);font-weight:700"><10%</td><td>Pattern-derived, not leaked. No per-item provenance exists. Anyone selling verbatim certainty is lying to you.</td><td style="color:var(--bad)"><svg class="ic" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg>do not expect</td></tr>
+
+</tbody></table>
+<div class="callout">
+<span class="callout-title">The floor that makes it safe</span>
+<p>Every topic in the backbone and bank is core syllabus content. Even on the worst prediction miss, studying
+preeclampsia-vs-eclampsia or previa-vs-abruptio is never wasted work. The system's value is a floor, not a gamble.</p>
+</div>
+
+</div></section>
+<section id='risk'><div class="container"><div class="sec-head"><span class="sec-num">9</span><h2><svg class="ic" viewBox="0 0 24 24"><path d="M12 3 2 20h20z"/><path d="M12 10v5M12 18v.2"/></svg>Where the Risk Sits — and what to do next</h2><span class="sub">The honest gap in the system</span></div>
+
+<p class="lead">The OB/GYN layer is the <i>most calibrated</i> part of the system — 8.5% of the paper, secured with a
+correlation map, a backbone, and 17 dissected MCQs. The risk is not here. The risk is where the mass of value sits.</p>
+<div class="two">
+<div>
+<h3>Where October is really won</h3>
+<p><b>Medicine: 41.5%</b> of the paper — 13 of the 25 guaranteed-repeat topics belong to it (Diabetes 18 recalls ALL-5,
+Seizures 11 ALL-5, Cirrhosis 9 ALL-5, Coagulation/DIC 8 ALL-5, Anemia 8 ALL-5, Thyroid 8 ALL-5, Tuberculosis 8, Hepatitis 7,
+Acid Base 7, Electrolytes 7, Sepsis 7, Glomerulonephritis 6 ALL-5, Adrenal 6 ALL-5, Meningitis 6).</p>
+<p>Then <b>Surgery 11.5%</b> (Hernias 9 ALL-5, Burns 8, Fractures 7) and <b>Paediatrics 10%</b> (CHD 5 in 4/5 sittings).</p>
+</div>
+<div>
+<h3>What the next build should be</h3>
+<p>The OB/GYN treatment — backbone list → correlation map → full MCQ bank → printable DOCX — applied to the big three.
+Medicine first: it is the single highest-yield artifact the system could own. Then Surgery, then Paediatrics.</p>
+<p>The core master file is the cross-check index for those builds: a keyword that appears in both the master and the
+prediction bank is double-confirmed.</p>
+</div>
+</div>
+<table>
+<thead><tr><th>Tier</th><th>Subjects</th><th>Why</th></tr></thead>
+<tbody>
+<tr><td><span class="chip gold">Tier 1 — build now</span></td><td>Medicine (83) · Surgery (23) · Paediatrics (20)</td><td>73.5% of the predicted bank; 12 of the top-25 recurring topics</td></tr>
+<tr><td><span class="chip navy">Tier 2 — quick wins</span></td><td>Pharmacology (14) · ENT · Ophthalmology · Forensic · Community Medicine · Anatomy</td><td>Small numbers but recur in every sitting; cheap to build</td></tr>
+<tr><td><span class="chip">Tier 3 — bundle</span></td><td>Physiology · Biochemistry · Pathology · Psychiatry</td><td>4-or-fewer items each — one combined volume beats nine thin documents</td></tr>
+</tbody></table>
+
+</div></section>
+
+<footer><div class="foot-inner">
+  <b>exam System — The Full Picture</b> · generated 18 Sep 2026 · from live workspace data<br>
+  Sources: Past Papers/ (822 recalled MCQs) · Exam Intel/Predictions/prediction_questions.json (200) ·
+  exam Essentials/nre_core_master.txt (439) · Standalone HTMLs/exam 2026 Prediction Intelligence Report.html · MedCORE Systems/<br>
+  Every figure in this report is read directly from those files. Subject deltas and recurrence data come from the prediction
+  intelligence report; the syllabus remains the topic-scope spine where recall evidence is thin.
+</div></footer>
+
+
+<script>
+(function(){
+  'use strict';
+
+  /* theme toggle */
+  var KEY='medcore.theme', btn=document.getElementById('themeToggle');
+  function setTheme(t,save){
+    document.documentElement.setAttribute('data-theme',t);
+    if(save){try{localStorage.setItem(KEY,t)}catch(e){}}
+  }
+  if(!document.documentElement.getAttribute('data-theme')){setTheme('dark',false)}
+  if(btn){btn.addEventListener('click',function(){
+    var cur=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';
+    setTheme(cur,true);
+  });}
+
+  /* progressive reveal: wrap post-head content, collapse by default */
+  var sections=[].slice.call(document.querySelectorAll('body > section'));
+  sections.forEach(function(sec){
+    var head=sec.querySelector('.sec-head');
+    var container=sec.querySelector(':scope > .container')||sec.firstElementChild;
+    if(!head||!container) return;
+    var body=document.createElement('div');
+    body.className='sec-body';
+    var kids=[].slice.call(container.childNodes);
+    var started=false;
+    kids.forEach(function(k){
+      if(k===head){started=true;return}
+      if(started){body.appendChild(k)}
+    });
+    container.appendChild(body);
+    var chev=document.createElementNS('http://www.w3.org/2000/svg','svg');
+    chev.setAttribute('class','chev');chev.setAttribute('viewBox','0 0 24 24');
+    chev.setAttribute('width','16');chev.setAttribute('height','16');
+    chev.setAttribute('fill','none');chev.setAttribute('stroke','currentColor');
+    chev.setAttribute('stroke-width','2.2');chev.setAttribute('stroke-linecap','round');
+    chev.setAttribute('stroke-linejoin','round');chev.setAttribute('aria-hidden','true');
+    var pp=document.createElementNS('http://www.w3.org/2000/svg','path');
+    pp.setAttribute('d','M9 6l6 6-6 6');chev.appendChild(pp);
+    var sub=head.querySelector('.sub');
+    head.insertBefore(chev,sub||null);
+    head.setAttribute('tabindex','0');
+    head.setAttribute('role','button');
+    head.setAttribute('aria-expanded','false');
+    function toggle(){sec.classList.toggle('open');
+      head.setAttribute('aria-expanded',sec.classList.contains('open')?'true':'false');}
+    head.addEventListener('click',toggle);
+    head.addEventListener('keydown',function(e){
+      if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle()}});
+  });
+
+  /* open a section via toc/nav links and hash navigation */
+  function openSec(id){
+    var sec=document.getElementById(id);
+    if(sec&&sec.classList.contains('open')===false){
+      sec.classList.add('open');
+      var h=sec.querySelector('.sec-head');
+      if(h)h.setAttribute('aria-expanded','true');
+    }
+    return sec;
+  }
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a[href^="#"]');
+    if(!a)return;
+    var id=a.getAttribute('href').slice(1);
+    if(id&&document.getElementById(id)){openSec(id)}
+  });
+  if(location.hash){openSec(location.hash.slice(1))}
+
+  /* print: reveal everything, restore after */
+  var wasOpen=[];
+  window.addEventListener('beforeprint',function(){
+    wasOpen=[].slice.call(document.querySelectorAll('body > section')).map(function(s){return s.classList.contains('open')});
+    [].slice.call(document.querySelectorAll('body > section')).forEach(function(s){s.classList.add('open')});
+  });
+  window.addEventListener('afterprint',function(){
+    [].slice.call(document.querySelectorAll('body > section')).forEach(function(s,i){
+      if(!wasOpen[i])s.classList.remove('open')});
+  });
+})();
+</script>
+
+<script src="/medcore-sync.js" defer></script>
+</body></html>

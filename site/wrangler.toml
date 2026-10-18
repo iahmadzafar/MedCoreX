@@ -1,0 +1,8 @@
+name = "medlibx"
+pages_build_output_dir = "."
+compatibility_date = "2025-01-01"
+
+[[d1_databases]]
+binding = "medlibx_db"
+database_name = "medlibx-db"
+database_id = "REPLACED_BY_BOOTSTRAP"

@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MedCORE Battle LMS — Candidate Command Center</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Archivo:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0E1A2B;
+    --navy-2: #16283F;
+    --ink: #101A28;
+    --paper: #F6F3EC;
+    --card: #FFFFFF;
+    --lime: #D4FF3F;
+    --coral: #FF5C4D;
+    --mint: #7CF7C4;
+    --gold: #FFC24B;
+    --sky: #6FD3FF;
+    --lav: #B79AFF;
+    --line: rgba(16,26,40,.12);
+    --shadow: 0 2px 6px rgba(14,26,43,.06), 0 14px 40px rgba(14,26,43,.10);
+    --ok: #1F9D5F;
+    --bad: #E04A3A;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body {
+    font-family:'Archivo', -apple-system, sans-serif;
+    background: var(--paper); color: var(--ink); line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection { background:var(--lime); color:var(--ink); }
+  .mono { font-family:'Space Mono', monospace; }
+  button { font-family:inherit; cursor:pointer; }
+
+  /* ───── TOP BAR ───── */
+  .topbar { position:sticky; top:0; z-index:80; background:var(--navy); color:#F6F3EC; border-bottom:3px solid var(--lime); }
+  .topbar-in { max-width:100%; margin:0 auto; padding:10px 22px; display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
+  .brand { font-family:'Bricolage Grotesque'; font-weight:800; font-size:1rem; letter-spacing:.5px; display:flex; align-items:center; gap:9px; }
+  .brand .crest { width:26px; height:26px; border-radius:8px; background:var(--lime); color:var(--navy); display:grid; place-items:center; font-size:0.8125rem; }
+  .brand b { color:var(--lime); }
+  .brand small { display:block; font-family:'Space Mono'; font-size:0.5625rem; letter-spacing:2px; color:#9FB2CC; font-weight:400; }
+  .tb-spacer { flex:1; }
+  .tb-meta { font-family:'Space Mono'; font-size:0.625rem; color:#9FB2CC; letter-spacing:1px; }
+  .tb-meta b { color:#F6F3EC; }
+  .tb-cdn { font-family:'Space Mono'; font-size:0.6875rem; color:#9FB2CC; }
+  .tb-cdn span { font-size:1.25rem; font-weight:700; color:var(--lime); }
+  .avatar { width:34px; height:34px; border-radius:50%; background:linear-gradient(140deg,#FF5C4D,#FF8A5C); color:#fff; display:grid; place-items:center; font-family:'Bricolage Grotesque'; font-weight:800; font-size:0.875rem; }
+
+  /* ───── LAYOUT ───── */
+  .wrap { max-width:100%; margin:0 auto; padding:26px 22px 60px; }
+  .view { display:none; }
+  .view.active { display:block; animation:fadeUp .45s cubic-bezier(.2,.8,.2,1) both; }
+  @keyframes fadeUp { from { opacity:0; transform:translateY(14px);} to { opacity:1; transform:none;} }
+
+  .s-head { display:flex; align-items:baseline; gap:14px; margin:8px 0 18px; }
+  .s-num { font-family:'Space Mono'; font-size:0.75rem; font-weight:700; color:var(--coral); }
+  .s-title { font-family:'Bricolage Grotesque'; font-size:1.75rem; font-weight:800; letter-spacing:-.5px; }
+  .s-rule { flex:1; height:2px; background:linear-gradient(90deg,var(--coral),transparent); }
+  .s-rule.sky { background:linear-gradient(90deg,var(--sky),transparent); }
+  .s-rule.lime { background:linear-gradient(90deg,var(--lime),transparent); }
+  .s-rule.mint { background:linear-gradient(90deg,var(--mint),transparent); }
+  .s-rule.gold { background:linear-gradient(90deg,var(--gold),transparent); }
+
+  /* ───── DASHBOARD ───── */
+  .hero {
+    background:var(--navy); color:#F6F3EC; border-radius:22px; padding:30px 32px; margin-bottom:22px;
+    position:relative; overflow:hidden; box-shadow:var(--shadow);
+  }
+  .hero::before { content:""; position:absolute; inset:0;
+    background: radial-gradient(520px 260px at 85% -10%, rgba(212,255,63,.18), transparent 60%),
+                radial-gradient(420px 240px at 5% 120%, rgba(255,92,77,.16), transparent 60%),
+                radial-gradient(340px 200px at 45% 45%, rgba(111,211,255,.07), transparent 60%);
+  }
+  .hero .eyebrow { font-family:'Space Mono'; font-size:0.6875rem; letter-spacing:3px; text-transform:uppercase; color:var(--lime); margin-bottom:10px; display:flex; gap:8px; align-items:center; }
+  .hero .eyebrow::before { content:""; width:24px; height:2px; background:var(--lime); }
+  .hero h1 { font-family:'Bricolage Grotesque'; font-weight:800; font-size:2.125rem; letter-spacing:-1px; line-height:1.05; margin-bottom:8px; }
+  .hero h1 em { color:var(--lime); font-style:normal; }
+  .hero .sub { color:#B9C6DB; font-size:0.875rem; max-width:58ch; }
+  .hero .sub b { color:#F6F3EC; }
+  .hero-grid { display:flex; gap:14px; margin-top:22px; flex-wrap:wrap; }
+  .hstat { background:rgba(246,243,236,.06); border:1px solid rgba(246,243,236,.12); border-radius:12px; padding:12px 16px; min-width:118px; }
+  .hstat .n { font-family:'Space Mono'; font-size:1.375rem; font-weight:700; line-height:1; }
+  .hstat .l { font-size:0.625rem; color:#9FB2CC; margin-top:5px; text-transform:uppercase; letter-spacing:.6px; }
+  .hstat.lime .n{color:var(--lime)} .hstat.coral .n{color:var(--coral)} .hstat.mint .n{color:var(--mint)} .hstat.gold .n{color:var(--gold)} .hstat.sky .n{color:var(--sky)}
+
+  .grid2 { display:grid; grid-template-columns:1.5fr 1fr; gap:18px; }
+  @media (max-width:920px){ .grid2{ grid-template-columns:1fr; } }
+
+  .card { background:var(--card); border:1px solid var(--line); border-radius:18px; box-shadow:var(--shadow); padding:22px 24px; margin-bottom:18px; }
+  .card h3 { font-family:'Bricolage Grotesque'; font-size:1.0625rem; font-weight:800; margin-bottom:4px; display:flex; align-items:center; gap:9px; }
+  .card h3 .k { width:22px; height:22px; border-radius:6px; display:grid; place-items:center; font-size:0.75rem; color:#fff; }
+  .card .sub2 { font-size:0.75rem; color:#7A8598; margin-bottom:14px; }
+
+  .maprow { display:flex; gap:4px; height:22px; margin-bottom:14px; }
+  .maprow .seg { flex:1; border-radius:4px; position:relative; cursor:default; }
+  .maprow .seg[data-n="1"]{background:#6FD3FF}.maprow .seg[data-n="2"]{background:#7CF7C4}
+  .maprow .seg[data-n="3"]{background:#FF5C4D}.maprow .seg[data-n="4"]{background:#FFC24B}
+  .maprow .seg[data-n="5"]{background:#B79AFF}.maprow .seg[data-n="6"]{background:#6FD3FF}
+  .maprow .seg[data-n="7"]{background:#D4FF3F}.maprow .seg[data-n="8"]{background:#7CF7C4}
+  .maprow .seg[data-n="9"]{background:#FF5C4D}.maprow .seg[data-n="10"]{background:#FFC24B}
+  .maprow .seg.cur { outline:3px solid var(--ink); outline-offset:1px; transform:scaleY(1.35); }
+  .maplabel { display:flex; justify-content:space-between; font-family:'Space Mono'; font-size:0.625rem; color:#8A93A5; letter-spacing:1px; margin-bottom:8px; }
+
+  .today-box { background:var(--navy); border-radius:14px; padding:16px 18px; color:#F6F3EC; display:flex; gap:16px; align-items:center; flex-wrap:wrap; }
+  .today-box .big { font-family:'Bricolage Grotesque'; font-size:1.25rem; font-weight:800; }
+  .today-box .big span { color:var(--lime); }
+  .today-box .d { font-size:0.7813rem; color:#B9C6DB; }
+  .today-box .chip { font-family:'Space Mono'; font-size:0.625rem; background:rgba(212,255,63,.12); border:1px solid rgba(212,255,63,.4); color:var(--lime); padding:5px 10px; border-radius:20px; }
+
+  /* ───── SESSION LAUNCHERS ───── */
+  .launch-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; }
+  @media (max-width:640px){ .launch-grid{ grid-template-columns:1fr; } }
+  .launch { border-radius:16px; padding:18px 20px; color:#F6F3EC; position:relative; overflow:hidden; box-shadow:var(--shadow); transition:transform .16s, box-shadow .16s; text-align:left; border:0; }
+  .launch:hover { transform:translateY(-3px); box-shadow:0 16px 36px rgba(14,26,43,.22); }
+  .launch .lt { font-family:'Bricolage Grotesque'; font-weight:800; font-size:1.0625rem; display:flex; align-items:center; gap:8px; }
+  .launch .ld { font-size:0.75rem; opacity:.85; margin-top:4px; line-height:1.5; }
+  .launch .lq { font-family:'Space Mono'; font-size:0.6875rem; opacity:.7; margin-top:8px; display:inline-block; padding:3px 9px; border-radius:12px; background:rgba(246,243,236,.14); }
+  .launch .arr { position:absolute; right:14px; top:50%; transform:translateY(-50%); font-size:1.25rem; opacity:.5; }
+  .launch.acc { background:linear-gradient(140deg,#24405F,#0E1A2B); }
+  .launch.tim { background:linear-gradient(140deg,#FF5C4D,#B93B2F); }
+  .launch.mock { background:linear-gradient(140deg,#2B5C4A,#14382C); }
+  .launch.pool { background:linear-gradient(140deg,#7A4A3C,#46261E); }
+  .launch.rev { background:linear-gradient(140deg,#4A3A68,#2A2040); }
+
+  /* ───── STAT STRIP ───── */
+  .stat-strip { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:18px; }
+  @media (max-width:760px){ .stat-strip{ grid-template-columns:repeat(2,1fr);} }
+  .stat { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:14px 16px; box-shadow:var(--shadow); }
+  .stat .n { font-family:'Space Mono'; font-size:1.5rem; font-weight:700; line-height:1; }
+  .stat .l { font-size:0.625rem; color:#8A93A5; text-transform:uppercase; letter-spacing:.6px; margin-top:6px; }
+  .stat.coral .n{color:var(--coral)} .stat.mint .n{color:#2E8C70} .stat.gold .n{color:#C2851A} .stat.sky .n{color:#2E8C8C}
+
+  /* ───── SESSION ENV ───── */
+  .envbar { position:sticky; top:56px; z-index:70; background:var(--ink); color:#F6F3EC; padding:0; border-radius:0 0 14px 14px; box-shadow:var(--shadow); }
+  .envbar-in { max-width:100%; margin:0 auto; padding:10px 22px; display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
+  .envbar .mode { font-family:'Space Mono'; font-size:0.625rem; letter-spacing:2px; text-transform:uppercase; color:var(--lime); }
+  .envbar .prog { flex:1; min-width:120px; }
+  .envbar .pbar { height:6px; background:rgba(246,243,236,.14); border-radius:6px; overflow:hidden; margin-top:4px; }
+  .envbar .pbar i { display:block; height:100%; background:var(--lime); width:0; transition:width .3s; }
+  .envbar .pcount { font-family:'Space Mono'; font-size:0.6875rem; color:#B9C6DB; }
+  .qclock { font-family:'Space Mono'; text-align:center; }
+  .qclock .t { font-size:1.375rem; font-weight:700; line-height:1; }
+  .qclock .l { font-size:0.5625rem; color:#9FB2CC; letter-spacing:1px; text-transform:uppercase; }
+  .qclock.warn .t { color:var(--coral); }
+  .sclock { font-family:'Space Mono'; font-size:0.75rem; color:#B9C6DB; padding:6px 12px; border:1px solid rgba(246,243,236,.18); border-radius:10px; }
+  .envbar .btnq { background:transparent; border:1px solid rgba(246,243,236,.25); color:#F6F3EC; padding:7px 12px; border-radius:9px; font-size:0.6875rem; font-family:'Space Mono'; }
+  .envbar .btnq:hover { background:rgba(246,243,236,.1); }
+  .envbar .btnq.danger { color:var(--coral); border-color:rgba(255,92,77,.5); }
+
+  .q-wrap { max-width:100%; margin:0 auto; padding:26px 22px 60px; }
+  .q-layout { display:grid; grid-template-columns:1fr 190px; gap:20px; align-items:start; }
+  @media (max-width:860px){ .q-layout{ grid-template-columns:1fr; } }
+
+  .qcard { background:var(--card); border:1px solid var(--line); border-radius:20px; box-shadow:var(--shadow); padding:26px 28px; }
+  .qmeta { display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:14px; }
+  .qmeta .tag { font-family:'Space Mono'; font-size:0.625rem; padding:4px 10px; border-radius:20px; background:var(--navy); color:var(--lime); }
+  .qmeta .tag.sys { background:#F2EFE6; color:#333D4E; }
+  .qmeta .tag.src { background:transparent; border:1px solid var(--line); color:#7A8598; }
+  .qmeta .flag { margin-left:auto; }
+  .qstem { font-family:'Bricolage Grotesque'; font-size:1.0625rem; font-weight:600; line-height:1.55; margin-bottom:22px; }
+
+  .opts { display:flex; flex-direction:column; gap:10px; }
+  .opt { display:flex; align-items:flex-start; gap:12px; border:2px solid var(--line); border-radius:14px; padding:13px 16px; background:#FDFCF9; cursor:pointer; transition:border-color .15s, background .15s, transform .12s; text-align:left; width:100%; font-size:0.9063rem; color:var(--ink); }
+  .opt:hover { border-color:#9FB2CC; transform:translateX(3px); }
+  .opt .let { width:30px; height:30px; flex-shrink:0; border-radius:9px; display:grid; place-items:center; font-family:'Space Mono'; font-weight:700; font-size:0.8125rem; background:#F2EFE6; color:#333D4E; }
+  .opt.selected { border-color:var(--navy); background:#F0F4FF; }
+  .opt.selected .let { background:var(--navy); color:var(--lime); }
+  .opt.correct { border-color:var(--ok); background:rgba(31,157,95,.07); }
+  .opt.correct .let { background:var(--ok); color:#fff; }
+  .opt.wrong { border-color:var(--bad); background:rgba(224,74,58,.07); }
+  .opt.wrong .let { background:var(--bad); color:#fff; }
+  .opt.dimmed { opacity:.5; }
+
+  .q-actions { display:flex; gap:10px; margin-top:22px; flex-wrap:wrap; }
+  .btn { border:0; border-radius:12px; padding:12px 20px; font-family:'Bricolage Grotesque'; font-weight:700; font-size:0.875rem; transition:transform .14s, box-shadow .14s, opacity .2s; }
+  .btn:hover { transform:translateY(-2px); }
+  .btn:disabled { opacity:.4; cursor:not-allowed; transform:none; }
+  .btn.primary { background:var(--lime); color:var(--navy); box-shadow:0 0 0 3px rgba(212,255,63,.2); }
+  .btn.ghost { background:transparent; border:1px solid var(--line); color:var(--ink); }
+  .btn.ghost:hover { background:#F2EFE6; }
+
+  /* feedback panel */
+  .fb { margin-top:18px; border-radius:16px; padding:20px 22px; border:1px solid var(--line); animation:fadeUp .35s both; }
+  .fb.good { background:linear-gradient(140deg,#EAFBF2,#F6F3EC); border-color:rgba(31,157,95,.4); }
+  .fb.bad { background:linear-gradient(140deg,#FDF0EE,#F6F3EC); border-color:rgba(224,74,58,.4); }
+  .fb .fb-top { display:flex; align-items:center; gap:10px; margin-bottom:10px; }
+  .fb .fb-badge { font-family:'Bricolage Grotesque'; font-weight:800; font-size:0.9375rem; padding:5px 13px; border-radius:20px; color:#fff; }
+  .fb.good .fb-badge { background:var(--ok); }
+  .fb.bad .fb-badge { background:var(--bad); }
+  .fb .fb-time { font-family:'Space Mono'; font-size:0.6875rem; color:#7A8598; }
+  .fb h4 { font-family:'Bricolage Grotesque'; font-size:0.875rem; margin:12px 0 4px; display:flex; align-items:center; gap:7px; }
+  .fb .disc { background:var(--navy); color:var(--lime); border-radius:10px; padding:9px 13px; font-size:0.8125rem; font-weight:600; }
+  .fb p { font-size:0.8438rem; color:#3E4A5C; line-height:1.6; }
+  .fb .trap-pick { display:flex; flex-wrap:wrap; gap:6px; margin-top:10px; }
+  .fb .trap-pick .tp { font-family:'Space Mono'; font-size:0.625rem; padding:5px 10px; border-radius:16px; border:1px solid var(--line); background:#fff; color:#4A5568; }
+  .fb .trap-pick .tp.sel { background:var(--coral); color:#fff; border-color:var(--coral); }
+  .fb .logline { font-family:'Space Mono'; font-size:0.6875rem; margin-top:12px; padding:8px 12px; background:rgba(16,26,40,.05); border-radius:8px; color:#4A5568; }
+
+  /* palette */
+  .palette { background:var(--card); border:1px solid var(--line); border-radius:18px; box-shadow:var(--shadow); padding:16px; position:sticky; top:130px; }
+  .palette h4 { font-family:'Bricolage Grotesque'; font-size:0.875rem; font-weight:800; margin-bottom:10px; display:flex; justify-content:space-between; align-items:center; }
+  .palette h4 .lg { font-size:0.5625rem; font-family:'Space Mono'; color:#8A93A5; }
+  .palgrid { display:grid; grid-template-columns:repeat(5,1fr); gap:6px; }
+  .pal { aspect-ratio:1; border-radius:8px; border:1px solid var(--line); background:#F6F3EC; font-family:'Space Mono'; font-size:0.75rem; font-weight:700; color:#4A5568; display:grid; place-items:center; transition:transform .12s; }
+  .pal:hover { transform:scale(1.1); }
+  .pal.cur { background:var(--navy); color:var(--lime); }
+  .pal.good { background:var(--mint); color:#14382C; border-color:#2E8C70; }
+  .pal.bad { background:var(--coral); color:#fff; border-color:var(--bad); }
+  .pal.answered { background:var(--sky); color:#0E1A2B; border-color:#2E8C8C; }
+  .pal.flag { box-shadow:inset 0 0 0 3px var(--gold); }
+  .pal.timedout { background:var(--gold); color:#5C4300; }
+
+  /* ───── RESULTS ───── */
+  .result-hero { background:var(--navy); color:#F6F3EC; border-radius:22px; padding:32px; text-align:center; position:relative; overflow:hidden; box-shadow:var(--shadow); margin-bottom:20px; }
+  .result-hero::before { content:""; position:absolute; inset:0;
+    background: radial-gradient(480px 260px at 50% -20%, rgba(212,255,63,.16), transparent 60%), radial-gradient(380px 220px at 15% 115%, rgba(255,92,77,.14), transparent 60%); }
+  .result-hero .rlabel { font-family:'Space Mono'; font-size:0.6875rem; letter-spacing:3px; text-transform:uppercase; color:#9FB2CC; }
+  .result-hero .rscore { font-family:'Bricolage Grotesque'; font-size:4.625rem; font-weight:800; line-height:1; margin:6px 0 2px; letter-spacing:-2px; }
+  .result-hero .rscore em { font-style:normal; color:var(--lime); }
+  .result-hero .rsub { font-family:'Space Mono'; font-size:0.75rem; color:#B9C6DB; }
+  .result-hero .rverdict { display:inline-block; margin-top:14px; font-family:'Bricolage Grotesque'; font-weight:800; font-size:0.8125rem; padding:8px 18px; border-radius:30px; }
+  .rverdict.pass { background:var(--lime); color:var(--navy); }
+  .rverdict.fail { background:var(--coral); color:#fff; }
+  .rverdict.line { background:rgba(246,243,236,.12); color:#F6F3EC; border:1px dashed rgba(246,243,236,.4); }
+
+  .r-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+  @media (max-width:860px){ .r-grid{ grid-template-columns:1fr; } }
+  .rtable { width:100%; border-collapse:collapse; font-size:0.8125rem; }
+  .rtable th { text-align:left; font-family:'Space Mono'; font-size:0.625rem; text-transform:uppercase; letter-spacing:1px; color:#8A93A5; padding:6px 8px; border-bottom:2px solid var(--line); }
+  .rtable td { padding:8px; border-bottom:1px dashed var(--line); }
+  .rtable td:first-child { font-weight:600; }
+  .pill { font-family:'Space Mono'; font-size:0.6875rem; font-weight:700; padding:3px 10px; border-radius:14px; }
+  .pill.ok { background:rgba(31,157,95,.12); color:#14663D; }
+  .pill.no { background:rgba(224,74,58,.1); color:var(--bad); }
+
+  .bar-row { display:grid; grid-template-columns:150px 1fr 56px; align-items:center; gap:12px; padding:9px 0; border-bottom:1px dashed var(--line); font-size:0.8125rem; }
+  .bar-row:last-child { border:0; }
+  .bar-row .bn { font-family:'Bricolage Grotesque'; font-weight:700; font-size:0.8438rem; }
+  .track { height:16px; background:#ECE8DE; border-radius:6px; overflow:hidden; }
+  .track i { display:block; height:100%; border-radius:6px; background:var(--coral); width:0; transition:width 1s cubic-bezier(.2,.8,.2,1); }
+  .track .pv { font-family:'Space Mono'; font-size:0.6875rem; font-weight:700; text-align:right; }
+
+  .miss-card { border:1px solid var(--line); border-radius:14px; padding:14px 16px; margin-bottom:10px; background:var(--card); }
+  .miss-card .m-top { display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin-bottom:6px; }
+  .miss-card .m-stem { font-size:0.8438rem; font-weight:600; line-height:1.5; }
+  .miss-card .m-alert { font-family:'Space Mono'; font-size:0.6875rem; background:rgba(255,92,77,.08); border-left:3px solid var(--coral); padding:7px 10px; border-radius:0 8px 8px 0; margin-top:8px; color:#7A3A32; }
+
+  /* ───── ERROR LOG ───── */
+  .filter-row { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:16px; align-items:center; }
+  .fchip { font-family:'Space Mono'; font-size:0.6875rem; padding:7px 13px; border-radius:20px; border:1px solid var(--line); background:#fff; color:#4A5568; }
+  .fchip.on { background:var(--navy); color:var(--lime); border-color:var(--navy); }
+  .elog-row { border:1px solid var(--line); border-left:4px solid var(--coral); border-radius:12px; padding:12px 16px; margin-bottom:10px; background:var(--card); }
+  .elog-row .el-head { display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin-bottom:6px; }
+  .elog-row .el-q { font-weight:700; font-size:0.875rem; }
+  .elog-row .el-meta { font-size:0.75rem; color:#7A8598; margin:4px 0; }
+  .elog-row .el-rule { font-family:'Space Mono'; font-size:0.7188rem; background:rgba(16,26,40,.05); padding:8px 11px; border-radius:8px; }
+  .elog-row .el-rule b { color:var(--coral); }
+  .tag-trap { font-family:'Space Mono'; font-size:0.625rem; padding:3px 9px; border-radius:14px; background:#F2EFE6; color:#4A5568; }
+
+  .empty { text-align:center; padding:40px 20px; color:#8A93A5; font-size:0.875rem; }
+  .empty .big { font-size:2.125rem; margin-bottom:8px; }
+
+  .export-row { display:flex; gap:10px; flex-wrap:wrap; }
+
+  /* ───── REVIEW ───── */
+  .rev-item { border:1px solid var(--line); border-radius:16px; padding:20px 22px; margin-bottom:14px; background:var(--card); box-shadow:var(--shadow); }
+  .rev-item .r-ans { font-family:'Space Mono'; font-size:0.75rem; margin-top:10px; }
+  .rev-item .r-ans b { color:var(--ok); }
+  .rev-item .r-ex { font-size:0.8438rem; color:#3E4A5C; margin-top:8px; line-height:1.6; }
+  .rev-item .r-al { font-family:'Space Mono'; font-size:0.7188rem; margin-top:8px; color:#7A3A32; background:rgba(255,92,77,.07); border-left:3px solid var(--coral); padding:7px 10px; }
+
+  .footer { text-align:center; font-family:'Space Mono'; font-size:0.625rem; color:#8A93A5; letter-spacing:1px; text-transform:uppercase; padding:20px 0; border-top:2px dashed var(--line); margin-top:20px; }
+
+  /* toast */
+  .toast { position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(80px); background:var(--navy); color:#F6F3EC; padding:12px 22px; border-radius:14px; box-shadow:var(--shadow); font-size:0.8125rem; z-index:120; transition:transform .3s cubic-bezier(.2,.8,.2,1); border-left:4px solid var(--lime); max-width:90vw; }
+  .toast.show { transform:translateX(-50%) translateY(0); }
+
+  .modal-ov { position:fixed; inset:0; background:rgba(14,26,43,.5); z-index:100; display:none; align-items:center; justify-content:center; padding:20px; }
+  .modal-ov.show { display:flex; }
+  .modal { background:var(--paper); border-radius:20px; padding:28px 30px; max-width:480px; width:100%; box-shadow:var(--shadow); }
+  .modal h3 { font-family:'Bricolage Grotesque'; font-size:1.25rem; font-weight:800; margin-bottom:8px; }
+  .modal p { font-size:0.875rem; color:#3E4A5C; margin-bottom:18px; }
+  .modal .m-actions { display:flex; gap:10px; justify-content:flex-end; }
+
+  @media print {
+    body { background:#fff; }
+    .topbar,.envbar,.footer,.no-print { display:none !important; }
+    .card,.qcard,.rev-item,.elog-row { box-shadow:none; page-break-inside:avoid; }
+  }
+</style>
+
+<style id="polish">
+:focus-visible{outline:2px solid #6ea8fe;outline-offset:2px;border-radius:2px}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,[tabindex]:focus-visible{outline:2px solid #6ea8fe;outline-offset:2px}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-in">
+    <div class="brand"><span class="crest">◆</span>
+      <div>MedCORE<b>.BattleLMS</b><small>MedCORE STEP-I · CANDIDATE COMMAND CENTER</small></div>
+    </div>
+    <div class="tb-spacer"></div>
+    <div class="tb-meta">Theory pass · <b>60%</b> · No neg marking · CBT · 200 Q</div>
+    <div class="tb-cdn"><span id="cdn">60</span> days → <b>OCT 11</b></div>
+    <div class="avatar">A</div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- ══════════ DASHBOARD ══════════ -->
+  <div class="view active" id="view-dash">
+    <div class="hero">
+      <div class="eyebrow">Battle Plan · Live</div>
+      <h1>Block 01 in the arena — <em>CVS + Respiratory.</em></h1>
+      <div class="sub">Six days in this block, <b>50 MCQs/day floor</b>, every miss feeding the error log. Today is <b id="dash-day">Day 2 · Wed Aug 13</b>. The machine is running — your job is to execute.</div>
+      <div class="hero-grid">
+        <div class="hstat lime"><div class="n" id="st-total">0</div><div class="l">MCQs completed</div></div>
+        <div class="hstat mint"><div class="n" id="st-acc">—</div><div class="l">Accuracy</div></div>
+        <div class="hstat coral"><div class="n" id="st-err">0</div><div class="l">Errors logged</div></div>
+        <div class="hstat gold"><div class="n" id="st-streak">0</div><div class="l">Block sessions</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><span class="k" style="background:#6FD3FF">1</span> The 60-Day Battle Map</h3>
+      <div class="sub2">Ten blocks. Six days each. Current position marked.</div>
+      <div class="maplabel"><span>The March</span><span>Block 01 → Block 10</span></div>
+      <div class="maprow" id="maprow">
+        <div class="seg" data-n="1" title="CVS + Respiratory"></div>
+        <div class="seg" data-n="2" title="GI + Hepatology + Nutrition"></div>
+        <div class="seg" data-n="3" title="Renal + Urology + Acid-Base"></div>
+        <div class="seg" data-n="4" title="Endocrine + DM + Endocrine Surgery"></div>
+        <div class="seg" data-n="5" title="Neuro + Psych + Eye + ENT"></div>
+        <div class="seg" data-n="6" title="Haematology + Oncology + Gen Path"></div>
+        <div class="seg" data-n="7" title="Surgery I — Acute Abdomen + Trauma + Shock"></div>
+        <div class="seg" data-n="8" title="Surgery II — Airway + Vascular + Colorectal + Ethics"></div>
+        <div class="seg" data-n="9" title="OBG I + Paeds I"></div>
+        <div class="seg" data-n="10" title="OBG II + Paeds II + CommMed + Biostats + Forensic"></div>
+      </div>
+      <div class="today-box">
+        <div class="big">Today → <span>Block 01 · Day 2</span></div>
+        <div class="d">CVS + Respiratory · 50 MCQs floor · error log · 90s cap on timed sets.</div>
+        <span class="chip" style="margin-left:auto">Syllabus spine → MCQs bloodstream → error log sacred</span>
+      </div>
+    </div>
+
+    <div class="grid2">
+      <div class="card">
+        <h3><span class="k" style="background:var(--lime);color:var(--navy)">▶</span> Launch a Session</h3>
+        <div class="sub2">27 CVS/Resp questions loaded from the Core WorkBooks (real bank, full deconstruction).</div>
+        <div class="launch-grid">
+          <button class="launch acc" data-mode="accuracy">
+            <span class="lt">◎ Accuracy Drill</span>
+            <span class="ld">Untimed. Hunt the discriminator. Target 85%+. Full feedback after every answer.</span>
+            <span class="lq" id="q-acc">All 27 · instant feedback</span>
+            <span class="arr">→</span>
+          </button>
+          <button class="launch tim" data-mode="timed">
+            <span class="lt">◔ Timed Sprint</span>
+            <span class="ld">90 seconds per question, hard cap. Real conditions. Time-out counts as a miss.</span>
+            <span class="lq" id="q-tim">All 27 · 90s cap</span>
+            <span class="arr">→</span>
+          </button>
+          <button class="launch mock" data-mode="mock">
+            <span class="lt">▣ Block Mini-Mock</span>
+            <span class="ld">Exam conditions. Answer all, no feedback until the end, then full deconstruction.</span>
+            <span class="lq" id="q-mock">All 27 · exam style</span>
+            <span class="arr">→</span>
+          </button>
+          <button class="launch pool" data-mode="pool">
+            <span class="lt">↻ Error-Pool Retest</span>
+            <span class="ld">Retest your live misses. If a weak topic survives two pools, it earns a deep-dive.</span>
+            <span class="lq" id="q-pool">0 questions ready</span>
+            <span class="arr">→</span>
+          </button>
+        </div>
+        <div class="launch-grid" style="margin-top:12px">
+          <button class="launch rev" id="btn-review">
+            <span class="lt">◈ Review Bank</span>
+            <span class="ld">Browse all questions with answers, discriminators, traps and alerts. No timer.</span>
+            <span class="lq">All 27 · answers shown</span>
+            <span class="arr">→</span>
+          </button>
+          <button class="launch rev" id="btn-errorlog">
+            <span class="lt">✚ Error Log</span>
+            <span class="ld">The sacred engine. Every miss, tagged and retrievable. Exportable.</span>
+            <span class="lq" id="q-errlog">0 entries</span>
+            <span class="arr">→</span>
+          </button>
+        </div>
+      </div>
+
+      <div>
+        <div class="card">
+          <h3><span class="k" style="background:var(--gold)">⚑</span> Session History</h3>
+          <div class="sub2">Recent runs — accuracy, timing, and errors fed to the log.</div>
+          <div id="hist-list"><div class="empty">No sessions yet. Launch your first drill.</div></div>
+        </div>
+        <div class="card">
+          <h3><span class="k" style="background:var(--coral)">⚠</span> Top Trap Threats</h3>
+          <div class="sub2">From your logged misses. Partial Truth owns the paper.</div>
+          <div id="dash-traps"><div class="empty" style="padding:16px">No trap data yet — log some errors first.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════ SESSION ══════════ -->
+  <div class="view" id="view-session">
+    <div class="envbar">
+      <div class="envbar-in">
+        <div class="mode" id="env-mode">Accuracy Drill</div>
+        <div class="prog">
+          <div class="pcount"><span id="env-count">1</span> / <span id="env-total">27</span></div>
+          <div class="pbar"><i id="env-pbar"></i></div>
+        </div>
+        <div class="qclock" id="qclock"><div class="t" id="env-clock">90</div><div class="l">SEC</div></div>
+        <div class="sclock" id="env-sclock">00:00</div>
+        <button class="btnq" id="btn-palette">☰ Grid</button>
+        <button class="btnq danger" id="btn-quit">✕ Quit</button>
+      </div>
+    </div>
+    <div class="q-wrap">
+      <div class="q-layout">
+        <div>
+          <div class="qcard">
+            <div class="qmeta">
+              <span class="tag sys" id="q-system">Cardiology</span>
+              <span class="tag" id="q-topic">Acute coronary syndrome</span>
+              <span class="tag src" id="q-source">WB1 Q1</span>
+              <span class="tag src" id="q-hot">▲ recall-anchored</span>
+              <button class="btnq flag" id="btn-flag" style="margin-left:auto">⚑ Flag</button>
+            </div>
+            <div class="qstem" id="q-stem"></div>
+            <div class="opts" id="q-opts"></div>
+            <div class="q-actions">
+              <button class="btn primary" id="btn-confirm">Confirm Answer</button>
+              <button class="btn ghost" id="btn-next" style="display:none">Next Question →</button>
+            </div>
+            <div id="fb-zone"></div>
+          </div>
+        </div>
+        <div>
+          <div class="palette no-print">
+            <h4>Navigator <span class="lg" id="pal-legend">● = answered</span></h4>
+            <div class="palgrid" id="palgrid"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════ RESULTS ══════════ -->
+  <div class="view" id="view-results"></div>
+
+  <!-- ══════════ ERROR LOG ══════════ -->
+  <div class="view" id="view-errors">
+    <div class="s-head"><span class="s-num">// SACRED ENGINE</span><h2 class="s-title">Error Log</h2><span class="s-rule sky"></span></div>
+    <div class="stat-strip">
+      <div class="stat coral"><div class="n" id="el-total">0</div><div class="l">Total entries</div></div>
+      <div class="stat mint"><div class="n" id="el-systems">0</div><div class="l">Systems touched</div></div>
+      <div class="stat gold"><div class="n" id="el-toptrap">—</div><div class="l">Top trap type</div></div>
+      <div class="stat sky"><div class="n" id="el-pool">0</div><div class="l">Error-pool ready</div></div>
+    </div>
+    <div class="card">
+      <div class="filter-row" id="el-filters"></div>
+      <div class="filter-row" id="el-trapfilters"></div>
+      <div class="export-row" style="margin-bottom:14px">
+        <button class="btn primary" id="btn-export-md">Export · Markdown</button>
+        <button class="btn ghost" id="btn-export-json">Export · JSON</button>
+        <button class="btn ghost" id="btn-runpool">↻ Run Error-Pool Now</button>
+        <button class="btn ghost" id="btn-clear-errors" style="color:var(--bad)">Clear Log</button>
+      </div>
+      <div id="el-list"><div class="empty">The log is empty. Every miss becomes ammunition — go make some.</div></div>
+    </div>
+  </div>
+
+  <!-- ══════════ REVIEW ══════════ -->
+  <div class="view" id="view-review">
+    <div class="s-head"><span class="s-num">// BANK</span><h2 class="s-title">Question Review</h2><span class="s-rule mint"></span></div>
+    <div class="card" id="rev-list"></div>
+  </div>
+
+  <div class="footer">MedCORE Battle LMS · Block 01 Bank · Error log is sacred · #OwnIt</div>
+</div>
+
+<!-- QUIT MODAL -->
+<div class="modal-ov" id="quit-modal">
+  <div class="modal">
+    <h3>Quit session?</h3>
+    <p>Progress on this session will be discarded — unanswered and unfinished questions will not feed the error log. The 50-MCQ floor carries forward either way.</p>
+    <div class="m-actions">
+      <button class="btn ghost" id="btn-cancel-quit">Keep Going</button>
+      <button class="btn primary" id="btn-confirm-quit">Quit</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ══════════════════════════════════════════════════════════════
+   MedCORE BATTLE LMS — single-file candidate command center
+   Bank: 27 CVS/Resp MCQs from Core WorkBooks (real, deconstructed)
+   ══════════════════════════════════════════════════════════════ */
+
+const BANK = [{"id": 1, "source": "WB1 Q1", "system": "Cardiology", "topic": "Acute coronary syndrome", "note": "Inferior STEMI + RV involvement → PCI", "stem": "A 58-year-old man with diabetes and hypertension presents to the emergency department with crushing chest pain radiating to the left arm for the past 45 minutes. He is diaphoretic and nauseated. ECG shows 2 mm ST-segment elevation in leads II, III, and aVF. His blood pressure is 90/60 mmHg and heart rate is 52 bpm. Which of the following is the most appropriate immediate management?", "options": {"A": "Thrombolytic therapy with streptokinase", "B": "Primary percutaneous coronary intervention", "C": "IV verapamil for rate control", "D": "Urgent coronary artery bypass grafting"}, "answer": "B", "explanation": "This is an inferior STEMI with haemodynamic compromise (hypotension + bradycardia — suggesting right ventricular involvement). Primary PCI is the reperfusion strategy of choice when available within 120 minutes of first medical contact. Thrombolysis (A) is second-line if PCI is not timely. Verapamil (C) is contraindicated in cardiogenic shock/hypotension. CABG (D) is not an acute reperfusion strategy.", "trap": "Confusing inferior MI bradycardia (vagal) with a primary arrhythmia needing rate-control drug.", "alert": "Inferior STEMI + hypotension + bradycardia = think RV infarct. Check right-sided ECG (V4R). Fluids first, not nitrates."}, {"id": 2, "source": "WB1 Q2", "system": "Respiratory", "topic": "Acute severe asthma", "note": "PEFR <33% → ABG; normal PaCO2 ominous", "stem": "A 22-year-old university student presents with a 3-day history of worsening breathlessness, wheeze, and cough. She uses salbutamol inhaler frequently but it provides only temporary relief. On examination, she can only speak in short phrases, has audible wheeze, and a peak expiratory flow rate (PEFR) of 180 L/min (personal best 480 L/min). Her respiratory rate is 28/min and SpO₂ is 91% on room air. Which single investigation is most useful for assessing severity and guiding further management?", "options": {"A": "Chest X-ray", "B": "Arterial blood gas analysis", "C": "Serum IgE levels", "D": "Methacholine challenge test"}, "answer": "B", "explanation": "This is a life-threatening asthma attack (PEFR <33% predicted, inability to speak in full sentences, SpO₂ <92%). ABG is the key investigation: a normal or rising PaCO₂ in the context of respiratory distress is a danger sign indicating respiratory fatigue and imminent failure. CXR (A) may rule out pneumothorax but is not the primary severity guide. IgE (C) and methacholine challenge (D) are diagnostic, not acute management tools.", "trap": "Reaching for CXR to 'rule out complications' instead of ABG to assess ventilatory failure.", "alert": "In acute asthma, a NORMAL PaCO₂ is ominous — it means the patient is tiring and can no longer hyperventilate."}, {"id": 3, "source": "WB1 Q23", "system": "Cardiology", "topic": "Valvular disease", "note": "Mitral stenosis: opening snap + mid-diastolic rumble", "stem": "A 40-year-old man undergoes echocardiography for a heart murmur. The cardiologist notes a loud S1, an opening snap, and a low-pitched mid-diastolic rumble best heard at the apex with the bell of the stethoscope. Which valve is affected and what is the most likely aetiology?", "options": {"A": "Aortic stenosis — calcific degeneration", "B": "Mitral stenosis — rheumatic heart disease", "C": "Mitral regurgitation — ischaemic heart disease", "D": "Tricuspid stenosis — carcinoid syndrome"}, "answer": "B", "explanation": "Mid-diastolic rumble at the apex with opening snap = mitral stenosis. Loud S1 (slamming shut of the stenotic valve in sinus rhythm) is characteristic. Rheumatic heart disease is the most common cause globally. Aortic stenosis (A) is a systolic ejection murmur at the base. MR (C) is a pansystolic murmur at the apex radiating to the axilla.", "trap": "Confusing the mid-diastolic rumble of MS with the diastolic murmur of aortic regurgitation (high-pitched, early diastolic, left sternal border).", "alert": "Mid-diastolic rumble at apex + opening snap + loud S1 = mitral stenosis. Think rheumatic heart disease."}, {"id": 4, "source": "WB1 Q29", "system": "Cardiology", "topic": "Arrhythmia", "note": "Stable AF → rate control first", "stem": "A 72-year-old man with hypertension presents with palpitations and dyspnoea on exertion for 2 days. ECG shows atrial fibrillation with a ventricular rate of 140 bpm. He is haemodynamically stable. What is the most appropriate initial management?", "options": {"A": "IV amiodarone and electrical cardioversion", "B": "IV beta-blocker or rate-slowing calcium channel blocker", "C": "Oral digoxin and warfarin", "D": "Direct current cardioversion immediately"}, "answer": "B", "explanation": "In haemodynamically stable AF with rapid ventricular rate, the first step is rate control using IV beta-blockers (e.g., metoprolol) or non-dihydropyridine CCBs (e.g., diltiazem). Rhythm control (A, D) is for haemodynamic instability. Digoxin (C) is third-line in chronic AF, not first-line for acute rate control.", "trap": "Jumping to cardioversion because 'AF needs rhythm control' — rate control is first in stable patients.", "alert": "Stable AF with rapid rate = rate control first (beta-blocker/CCB). Unstable AF = cardioversion."}, {"id": 5, "source": "WB1 Q48", "system": "Respiratory", "topic": "Applied physiology", "note": "COPD hypoxaemia = V/Q mismatch", "stem": "A 60-year-old man with severe COPD has an arterial blood gas showing PaO₂ of 55 mmHg and PaCO₂ of 65 mmHg. What is the primary mechanism of hypoxaemia in this patient?", "options": {"A": "Hypoventilation", "B": "Diffusion impairment", "C": "V/Q mismatch", "D": "Right-to-left shunt"}, "answer": "C", "explanation": "V/Q mismatch is the primary mechanism of hypoxaemia in COPD. Emphysema destroys alveolar-capillary units creating areas of high V/Q (dead space) and low V/Q (shunt-like effect). Hypoventilation (A) is a contributing factor (hypercapnia) but not the primary cause of hypoxaemia. Diffusion impairment (B) is more characteristic of ILD. Shunt (D) does not correct with 100% oxygen.", "trap": "Attributing hypoxaemia in COPD to hypoventilation because CO₂ is high — V/Q mismatch is the dominant mechanism.", "alert": "COPD hypoxaemia = V/Q mismatch (responds to O₂). Shunt = does NOT respond to 100% O₂. Diffusion = ILD."}, {"id": 6, "source": "WB1 Q25", "system": "Respiratory", "topic": "Pneumonia", "note": "CAP → amoxicillin + macrolide", "stem": "A 65-year-old diabetic woman is admitted with a community-acquired pneumonia. She has a productive cough with purulent sputum, fever of 39°C, and right lower lobe consolidation on CXR. She has no allergies. What is the most appropriate empirical antibiotic regimen?", "options": {"A": "IV meropenem", "B": "Oral amoxicillin + macrolide (clarithromycin)", "C": "IV vancomycin + piperacillin-tazobactam", "D": "Oral ciprofloxacin monotherapy"}, "answer": "B", "explanation": "Community-acquired pneumonia in a patient without risk factors for resistant organisms: amoxicillin (covers typical organisms including S. pneumoniae) + macrolide (covers atypicals such as Mycoplasma, Legionella). Meropenem (A) is overly broad for CAP. Vancomycin + pip-taz (C) is for hospital-acquired/ventilator-associated pneumonia or suspected MRSA. Ciprofloxacin (D) has poor activity against S. pneumoniae.", "trap": "Over-treating CAP with carbapenems or vancomycin — these are reserved for HAP/VAP or resistant organisms.", "alert": "CAP without comorbidity = amoxicillin. With comorbidity = amoxicillin + macrolide. Don't escalate empirically without indication."}, {"id": 7, "source": "WB2 Q1", "system": "Respiratory", "topic": "Interstitial lung disease", "note": "IPF: bibasal crackles + clubbing, no smoking", "stem": "A 65-year-old man presents with progressive dyspnoea and a dry cough for 18 months. He has no smoking history. Fine bibasal late-inspiratory crackles are heard. PFTs show restriction with reduced DLCO. HRCT shows honeycombing and traction bronchiectasis in lower zones. What is the most likely diagnosis?", "options": {"A": "Sarcoidosis", "B": "Idiopathic pulmonary fibrosis", "C": "Hypersensitivity pneumonitis", "D": "Bronchiectasis"}, "answer": "B", "explanation": "IPF: chronic progressive fibrosing interstitial pneumonia of unknown cause. Features: insidious onset >6 months, dry cough, Velcro crackles, restrictive PFTs with low DLCO, HRCT honeycombing with basal predominance. Sarcoidosis (A) has upper lobe predominance and hilar lymphadenopathy. Hypersensitivity pneumonitis (C) has an identifiable antigen trigger.", "trap": "Calling this sarcoidosis because it is 'interstitial' — basal honeycombing and no hilar LAD rule it out.", "alert": "IPF = Velcro crackles + restriction + honeycombing on HRCT. Antifibrotics (pirfenidone/nintedanib)."}, {"id": 8, "source": "WB2 Q2", "system": "Respiratory", "topic": "Pleural disease", "note": "Exudative effusion: Light criteria", "stem": "A 55-year-old smoker presents with dyspnoea and dullness at the right base. Thoracentesis yields exudative fluid (protein 45 g/L, LDH 380), pH 7.28, glucose 1.2 mmol/L. Cytology shows atypical cells. What is the most likely aetiology?", "options": {"A": "Parapneumonic effusion", "B": "Malignant pleural effusion", "C": "Tuberculous pleurisy", "D": "Pulmonary embolism"}, "answer": "B", "explanation": "Exudate with low pH (<7.30), low glucose (<2.2), and positive cytology = malignant effusion. In a heavy smoker, lung cancer is the most likely primary. Parapneumonic (A) would have infection features. TB pleurisy (C) has high ADA. PE (D) usually has a small effusion.", "trap": "Assuming low pH = empyema — malignant effusions also have low pH and low glucose.", "alert": "Exudate + low pH + low glucose + atypical cells = malignant. Think lung cancer in smokers."}, {"id": 9, "source": "WB2 Q7", "system": "Cardiology", "topic": "Prevention", "note": "CV risk >20% → statin", "stem": "A 50-year-old man with diabetes and hypertension has TC 7.2, LDL 4.8, HDL 0.9, TG 3.2 mmol/L. His 10-year CV risk is >20%. What is first-line pharmacological therapy?", "options": {"A": "Atorvastatin", "B": "Fenofibrate", "C": "Ezetimibe", "D": "Omega-3 fatty acids"}, "answer": "A", "explanation": "Statins are first-line for lipid lowering in primary and secondary CVD prevention. High-risk patients (DM+HTN+high LDL) should receive a moderate-to-high intensity statin. Fibrates (B) are for severe hypertriglyceridaemia. Ezetimibe (C) is second-line.", "trap": "Choosing fenofibrate because TGs are elevated — statins reduce CV mortality and are first-line.", "alert": "High LDL + high CV risk = statin. Fibrate only if TG >5.6 or pancreatitis risk."}, {"id": 10, "source": "WB2 Q41", "system": "Cardiology", "topic": "Applied pharmacology", "note": "Furosemide: thick ascending limb", "stem": "A patient takes furosemide for heart failure. Where does it act?", "options": {"A": "Proximal convoluted tubule — blocks Na-K-2Cl", "B": "Thick ascending limb — blocks Na-K-2Cl", "C": "Distal convoluted tubule — blocks Na-Cl", "D": "Collecting duct — blocks ENaC"}, "answer": "B", "explanation": "Loop diuretics (furosemide) act on the thick ascending limb by blocking NKCC2. Option A = acetazolamide (PCT). Option C = thiazides (DCT). Option D = amiloride (collecting duct).", "trap": "Confusing loop site with thiazide site — loop = TAL (NKCC2), thiazide = DCT (NCC).", "alert": "Loop diuretics = thick ascending limb, block NKCC2. Thiazides = DCT, block NCC."}, {"id": 11, "source": "WB2 Q43", "system": "Respiratory", "topic": "Applied physiology", "note": "O2-induced hypoventilation in CO2 retainers", "stem": "A COPD patient with chronic CO2 retention (PaCO2 60 mmHg) is given high-flow oxygen (10 L/min). He becomes drowsy and hypoventilates. What is the mechanism?", "options": {"A": "Oxygen toxicity causing CNS depression", "B": "Loss of hypoxic drive due to correction of hypoxaemia", "C": "CO2 narcosis from improved oxygenation", "D": "Haldane effect reducing oxygen unloading"}, "answer": "B", "explanation": "In chronic CO2 retainers, central chemoreceptor response to CO2 is blunted. They rely on hypoxic drive (peripheral chemoreceptors). High-flow O2 corrects hypoxaemia → removes hypoxic drive → hypoventilation → rising CO2 → narcosis.", "trap": "Attributing to CO2 narcosis from oxygen — mechanism is loss of hypoxic drive FIRST leading to hypoventilation.", "alert": "COPD + CO2 retention: controlled O2 (target SpO2 88-92%). High-flow O2 blunts hypoxic drive."}, {"id": 12, "source": "WB2 Q44", "system": "Respiratory", "topic": "Asthma management", "note": "Stepwise: add ICS when reliever used >3×/wk", "stem": "A 45-year-old asthmatic uses salbutamol >3 times/week and wakes with symptoms 2 nights/week. What does this indicate and what is the next step?", "options": {"A": "Well-controlled — no change", "B": "Partly controlled — add regular inhaled corticosteroid", "C": "Uncontrolled — start oral prednisolone", "D": "Refractory — refer for biologic therapy"}, "answer": "B", "explanation": "SABA >2 uses/week + night symptoms >1/week = partly controlled. Step-up: add regular ICS. Oral steroids (C) are for exacerbations. Biologics (D) for severe refractory asthma.", "trap": "Continuing SABA-only with frequent rescue use — this indicates poor control needing preventer.", "alert": "Asthma: >2 SABA uses/week = add ICS."}, {"id": 13, "source": "WB3 Q1", "system": "Cardiology", "topic": "Valvular disease", "note": "Aortic stenosis: syncope + exertional angina", "stem": "A 72-year-old man presents with exertional chest pain, syncope while mowing the lawn, and progressive dyspnoea over 6 months. On exam, carotid upstroke is delayed and diminished, and a harsh mid-systolic ejection murmur is loudest at the right upper sternal border radiating to the carotids. LVEF is 55%. What is the definitive management?", "options": {"A": "Start beta-blocker and titrate", "B": "Aortic valve replacement surgery", "C": "Percutaneous balloon valvuloplasty", "D": "Start spironolactone"}, "answer": "B", "explanation": "This patient has severe symptomatic aortic stenosis (triad: angina, syncope, dyspnoea). Once symptoms develop, prognosis is poor (avg survival 2-3 years). Definitive treatment is valve replacement. Balloon valvuloplasty (C) is a bridge for unstable patients, not definitive. Beta-blockers (A) are contraindicated in severe AS.", "trap": "Choosing balloon valvuloplasty as definitive — it has high restenosis rate.", "alert": "Symptomatic severe AS = valve replacement. Never delay once symptoms appear."}, {"id": 14, "source": "WB3 Q2", "system": "Cardiology", "topic": "Infective endocarditis", "note": "Staph endocarditis in IVDU", "stem": "A 45-year-old IV drug user presents with fever of 3 weeks, weight loss, and a new regurgitant murmur. Blood cultures grow Staphylococcus aureus. Transthoracic echo shows a 1.8 cm vegetation on the tricuspid valve. He develops recurrent septic pulmonary emboli despite 1 week of nafcillin. What is the next best step?", "options": {"A": "Add gentamicin", "B": "Switch to vancomycin", "C": "Add rifampin", "D": "Surgical valve intervention"}, "answer": "D", "explanation": "Surgery in IE is indicated for: persistent bacteremia despite appropriate antibiotics, recurrent emboli, large (>10 mm) mobile vegetations, heart failure, or perivalvular extension. This patient has persistent/recurrent emboli on therapy with a large vegetation on right-sided S. aureus IE. Surgical debridement and valve repair is indicated.", "trap": "Adding gentamicin for synergy — gentamicin is not indicated for S. aureus IE.", "alert": "IE surgical indications: persistent bacteremia, recurrent emboli, large vegetation, HF, abscess."}, {"id": 15, "source": "WB3 Q3", "system": "Cardiology", "topic": "Pericardial disease", "note": "Pericarditis: postural chest pain", "stem": "A 32-year-old man presents with sudden-onset sharp retrosternal chest pain that worsens on lying flat and improves when sitting forward. He had an upper respiratory infection 2 weeks ago. ECG shows diffuse PR depression and concave ST elevation in leads I, II, aVF, V2-V6. What is the most likely diagnosis?", "options": {"A": "Acute myocardial infarction", "B": "Acute pericarditis", "C": "Pulmonary embolism", "D": "Costochondritis"}, "answer": "B", "explanation": "Classic pericarditis: pleuritic chest pain, relieved by sitting forward, diffuse ST elevation with PR depression (pathognomonic), often post-viral. AMI (A) shows regional ST elevation with reciprocal changes, not PR depression. PE (C) would have respiratory symptoms and right heart strain. Costochondritis (D) has localized tenderness.", "trap": "ST elevation in pericarditis vs MI — diffuse vs regional, PR depression is the key clue.", "alert": "Diffuse ST elevation + PR depression = pericarditis until proven otherwise."}, {"id": 16, "source": "WB3 Q4", "system": "Respiratory", "topic": "COPD", "note": "COPD exacerbation: AECOPD management", "stem": "A 66-year-old man with 40-pack-year smoking history and known COPD presents with increased dyspnoea, purulent sputum, and fever for 3 days. On exam: RR 28/min, SpO2 87% on room air, chest has prolonged expiration and wheezes. ABG: pH 7.32, PaCO2 58 mmHg, PaO2 55 mmHg. What is the most appropriate initial management?", "options": {"A": "Non-invasive ventilation + bronchodilators + corticosteroids", "B": "Intubation and mechanical ventilation", "C": "High-flow oxygen alone at 10 L/min", "D": "Oral theophylline and chest physiotherapy"}, "answer": "A", "explanation": "This is an acute exacerbation of COPD with acute hypercapnic respiratory failure (pH <7.35, PaCO2 >45). First-line management: bronchodilators (SABA/SAMA), systemic corticosteroids, antibiotics for purulent sputum, and NIV (BiPAP) to correct hypercapnia. Intubation is reserved for NIV failure or contraindications.", "trap": "Jumping to intubation — NIV (BiPAP) is first-line for COPD exacerbation with hypercapnia.", "alert": "COPD exacerbation + hypercapnia = NIV first. Avoid high-flow O2 — blunts hypoxic drive."}, {"id": 17, "source": "WB3 Q5", "system": "Respiratory", "topic": "Venous thromboembolism", "note": "PE: Wells score + management", "stem": "A 55-year-old woman who underwent total hip replacement 10 days ago presents with sudden-onset pleuritic chest pain, dyspnoea, and haemoptysis. HR 112 bpm, BP 100/70, RR 26/min, SpO2 89%. CXR is normal. ECG shows sinus tachycardia. Well's score is 7. What is the most appropriate next investigation?", "options": {"A": "CT pulmonary angiography", "B": "D-dimer assay", "C": "V/Q scan", "D": "Echocardiogram"}, "answer": "A", "explanation": "High pre-test probability (Well's >6) + normal CXR = go directly to CTPA, the gold standard for diagnosing PE. D-dimer is useful only in low/intermediate probability to rule out. V/Q scan is an alternative if CTPA contraindicated (renal failure, contrast allergy). Echo may show right heart strain but is not diagnostic.", "trap": "Ordering D-dimer in high-probability scenario — it should NOT be done; go straight to CTPA.", "alert": "High Well's score or PERC positive = skip D-dimer, go to CTPA for definitive diagnosis."}, {"id": 18, "source": "WB3 Q42", "system": "Cardiology", "topic": "Applied physiology", "note": "Coronary blood flow = diastole", "stem": "A 50-year-old man with aortic stenosis undergoes cardiac catheterisation. During which phase of the cardiac cycle is coronary blood flow to the left ventricle maximal?", "options": {"A": "Atrial systole", "B": "Ventricular systole (isovolumetric contraction)", "C": "Ventricular diastole", "D": "Ventricular systole (ejection phase)"}, "answer": "C", "explanation": "Left ventricular coronary blood flow occurs primarily during diastole because myocardial contraction during systole compresses the coronary vessels. In diastole, aortic pressure remains high and coronary resistance is low, maximising flow. Tachycardia reduces diastolic filling time, which can cause ischaemia. Right ventricle has some systolic flow due to lower wall tension.", "trap": "Assuming coronary flow peaks during systole (when aortic pressure is highest) — compression of coronaries during systole prevents this.", "alert": "LV coronary perfusion is diastolic. Tachycardia → decreased diastolic time → subendocardial ischaemia risk."}, {"id": 19, "source": "WB3 Q44", "system": "Respiratory", "topic": "Applied physiology", "note": "Hb-O2 curve: right shift", "stem": "A 58-year-old man with COPD has chronic respiratory acidosis (pH 7.33, PaCO2 55 mmHg). His haemoglobin-oxygen dissociation curve is shifted. Which direction does the curve shift in this patient, and what is the physiological consequence?", "options": {"A": "Left shift — increased oxygen affinity, decreased unloading at tissues", "B": "Right shift — decreased oxygen affinity, increased unloading at tissues", "C": "Left shift — decreased oxygen affinity, increased unloading at tissues", "D": "Right shift — increased oxygen affinity, decreased unloading at tissues"}, "answer": "B", "explanation": "Chronic respiratory acidosis (hypercapnia) shifts the O2-haemoglobin curve to the RIGHT (Bohr effect: increased H+, CO2, temperature, and 2,3-BPG all shift right). This decreases haemoglobin's oxygen affinity, allowing more O2 to unload to tissues, which is compensatory in hypoxic states. Left shift increases affinity (holds O2 tighter — bad for tissues).", "trap": "Mixing up left vs right shift effects: right shift = O2 unloads more easily (good in hypoxaemia), left shift = holds O2 tighter (bad).", "alert": "Bohr effect: H+ (acidosis), CO2, 2,3-BPG, temperature all shift curve RIGHT → more O2 delivery to tissues."}, {"id": 20, "source": "WB3 Q45", "system": "Cardiology", "topic": "Applied pharmacology", "note": "Furosemide in acute HF", "stem": "A 65-year-old man with decompensated heart failure presents with severe peripheral oedema, pulmonary oedema, and oliguria. IV furosemide 40 mg is given. Despite doubling the dose to 80 mg, urine output remains poor. What is the mechanism of action of furosemide, and what is the most appropriate next step?", "options": {"A": "Thiazide diuretic — switch to IV hydrochlorothiazide", "B": "Loop diuretic — add metolazone sequentially", "C": "Potassium-sparing diuretic — add spironolactone now", "D": "Carbonic anhydrase inhibitor — give IV acetazolamide"}, "answer": "B", "explanation": "Furosemide is a loop diuretic (inhibits Na-K-2Cl cotransporter in thick ascending limb). In diuretic resistance, adding a thiazide (metolazone) blocks sequential nephron segments, producing synergistic effect — 'sequential nephron blockade'. Spironolactone (C) is weak and slow. Acetazolamide (D) is for metabolic alkalosis, not oedema.", "trap": "Switching to a different class entirely — sequential nephron blockade adds a thiazide to a loop diuretic, doesn't replace it.", "alert": "Diuretic resistance in HF: sequential nephron blockade = loop diuretic + thiazide/metolazone. Monitor K+ closely."}, {"id": 21, "source": "WB4 Q1", "system": "Cardiology", "topic": "Rheumatic heart disease", "note": "Rheumatic fever: Jones criteria", "stem": "A 12-year-old girl presents with fever, polyarthritis migrating from knees to ankles, erythema marginatum on the trunk, and a new pansystolic murmur heard best at the apex radiating to the axilla. She had a sore throat 3 weeks ago. Which valvular lesion is most likely present in this acute phase?", "options": {"A": "Mitral stenosis", "B": "Mitral regurgitation", "C": "Aortic stenosis", "D": "Aortic regurgitation"}, "answer": "B", "explanation": "Acute rheumatic fever causes mitral regurgitation due to valvulitis — the valve leaflets become inflamed and fail to coapt, producing a pansystolic murmur. Mitral stenosis is a chronic sequel of repeated episodes, not an acute-phase lesion.", "trap": "Students remember mitral valve as the most commonly affected in rheumatic heart disease but confuse acute MR with chronic MS.", "alert": "Acute RF → acute MR. Chronic RHD → MS. Never conflate the timeline."}, {"id": 22, "source": "WB4 Q2", "system": "Cardiology", "topic": "Pericardial disease", "note": "Pericarditis: viral vs MI", "stem": "A 30-year-old man presents with sharp retrosternal chest pain that worsens on lying supine and improves when he leans forward. He has a low-grade fever. ECG shows diffuse PR-segment depression and concave ST-segment elevation in multiple leads. What is the most likely diagnosis?", "options": {"A": "Acute myocardial infarction", "B": "Acute pericarditis", "C": "Pulmonary embolism", "D": "Aortic dissection"}, "answer": "B", "explanation": "The positional nature of pain (worse supine, better leaning forward) is classic for pericarditis. Diffuse ST elevation with PR depression is characteristic — unlike MI, which has regional ST elevation and evolves over time.", "trap": "ST elevation in pericarditis is diffuse and concave; in MI it's regional and convex. PR depression is specific to pericarditis.", "alert": "Positional chest pain + diffuse ST elevation + PR depression = pericarditis until proven otherwise."}, {"id": 23, "source": "WB4 Q3", "system": "Respiratory", "topic": "Bronchiectasis", "note": "Bronchiectasis: copious purulent sputum", "stem": "A 55-year-old woman with a history of childhood measles pneumonia presents with copious purulent sputum production, recurrent chest infections, and clubbing. Chest X-ray shows tram-track opacities in the lower lobes. What is the most appropriate initial management?", "options": {"A": "Oral corticosteroids", "B": "Nebulised bronchodilators", "C": "Postural drainage and physiotherapy", "D": "Lung volume reduction surgery"}, "answer": "C", "explanation": "Bronchiectasis is permanent dilation of bronchi with impaired mucociliary clearance. Postural drainage and chest physiotherapy are first-line to clear secretions. Antibiotics are used for acute exacerbations, but the cornerstone of chronic management is airway clearance.", "trap": "Nebulised bronchodilators are used in COPD/asthma, not as primary management of bronchiectasis.", "alert": "Tram-track opacities + clubbing + copious sputum = bronchiectasis. Airway clearance first, not drugs."}, {"id": 24, "source": "WB4 Q4", "system": "Respiratory", "topic": "Venous thromboembolism", "note": "Post-op PE: diagnosis + treatment", "stem": "A 65-year-old woman on the ward 5 days post-hip replacement surgery develops sudden onset dyspnoea and pleuritic chest pain. HR 110, BP 100/70, RR 28, O2 sat 89% on room air. ECG shows sinus tachycardia with S1Q3T3 pattern. What is the next BEST diagnostic step?", "options": {"A": "CT pulmonary angiogram", "B": "Ventilation-perfusion scan", "C": "D-dimer assay", "D": "Echocardiography"}, "answer": "C", "explanation": "In suspected PE, first calculate Wells score. If intermediate-high probability, perform a D-dimer. In this case with tachycardia and hypoxemia post-surgery, D-dimer is the appropriate initial test. If positive, proceed to CTPA.", "trap": "CTPA is the definitive test but not the next step; D-dimer is the screening gatekeeper.", "alert": "PE workup: Wells score → D-dimer → CTPA. Don't skip the gatekeeper."}, {"id": 25, "source": "WB4 Q31", "system": "Respiratory", "topic": "Paediatric pneumonia", "note": "Child pneumonia: indrawing + RR", "stem": "A 2-year-old presents with cough, fever 39°C, and rapid breathing. RR 55/min, chest indrawing present. Oxygen saturation 92%. CXR shows a dense lobar consolidation in the right upper lobe. What is the most likely causative organism?", "options": {"A": "Respiratory syncytial virus", "B": "Streptococcus pneumoniae", "C": "Haemophilus influenzae type b", "D": "Mycoplasma pneumoniae"}, "answer": "B", "explanation": "S. pneumoniae is the most common bacterial cause of pneumonia in children > 3 months of age. Lobar consolidation with high fever and chest indrawing suggests bacterial, not viral, aetiology.", "trap": "RSV causes bronchiolitis in infants < 1 year, not lobar pneumonia in a 2-year-old.", "alert": "Lobar consolidation + high fever + indrawing = bacterial pneumonia (S. pneumoniae). Viral = diffuse interstitial."}, {"id": 26, "source": "WB4 Q36", "system": "Respiratory", "topic": "Applied pathology", "note": "TB granuloma: epithelioid + Langhans", "stem": "A biopsy from a patient with suspected tuberculosis of the lung shows a structure composed of epithelioid cells, Langhans giant cells, and central caseous necrosis. What is this histologic pattern called?", "options": {"A": "Granulation tissue", "B": "Granuloma with central necrosis", "C": "Abscess", "D": "Fibrinoid necrosis"}, "answer": "B", "explanation": "A granuloma with central caseous necrosis is the hallmark of tuberculosis. Epithelioid cells (activated macrophages) aggregate, fuse into Langhans giant cells, and surround central caseous (cheese-like) necrotic material.", "trap": "Granulation tissue is neovascularised connective tissue in wound healing, not granulomatous inflammation.", "alert": "Caseating granuloma = TB until proven otherwise. Non-caseating granuloma = sarcoidosis."}, {"id": 27, "source": "WB4 Q41", "system": "Respiratory", "topic": "Applied anatomy", "note": "Anterior mediastinal mass: thymoma", "stem": "A 45-year-old woman presents with cough, dyspnoea, and superior vena cava syndrome. CT reveals a large mass in the anterior mediastinum. Which of the following is the most common primary tumour in this compartment?", "options": {"A": "Neurogenic tumour", "B": "Thymoma", "C": "Germ cell tumour", "D": "Lymphoma"}, "answer": "B", "explanation": "The anterior mediastinum contains the thymus, and thymoma is the most common primary tumour in this compartment. It is associated with myasthenia gravis. Neurogenic tumours are the most common in the posterior mediastinum.", "trap": "Neurogenic tumours are most common in posterior mediastinum. Anterior = thymoma.", "alert": "Anterior mediastinal mass → thymoma (assoc. myasthenia gravis). Posterior → neurogenic. Middle → lymphadenopathy/germ cell."}];
+
+const TRAPS = ['Partial Truth','Opposite','Synonym Swap','Overthinking','Unit / Number','Guideline Version','Clinical Mimic'];
+const LS = { errors:'nrelms_errors_v1', sessions:'nrelms_sessions_v1' };
+const $ = id => document.getElementById(id);
+
+function load(k, d){ try { return JSON.parse(localStorage.getItem(k)) ?? d; } catch(e){ return d; } }
+function save(k, v){ localStorage.setItem(k, JSON.stringify(v)); }
+const errors = load(LS.errors, []);
+const sessions = load(LS.sessions, []);
+
+/* ── countdown ── */
+const target = new Date('2026-10-11T08:00:00');
+function tickCdn(){
+  const d = Math.max(0, Math.ceil((target - new Date()) / 86400000));
+  const el = $('cdn'); if(el) el.textContent = d;
+}
+tickCdn(); setInterval(tickCdn, 60000);
+
+/* ── trap bar colors (May-2026 mix) ── */
+const TRAP_COLOR = { 'Partial Truth':'var(--coral)', 'Opposite':'#FF8A5C', 'Synonym Swap':'#FFB38A', 'Overthinking':'var(--gold)', 'Unit / Number':'#E7B85A', 'Guideline Version':'#7AC0DE', 'Clinical Mimic':'#8FB8C8' };
+
+/* ══════════════ VIEW ROUTER ══════════════ */
+const views = ['dash','session','results','errors','review'];
+function show(v){
+  views.forEach(x => { const el = $('view-'+x); if(el) el.classList.toggle('active', x===v); });
+  window.scrollTo({top:0, behavior:'smooth'});
+  if(v==='dash') renderDash();
+  if(v==='errors') renderErrors();
+  if(v==='review') renderReview();
+}
+
+/* ══════════════ DASHBOARD ══════════════ */
+function fmtPct(n){ return Math.round(n*100)+'%'; }
+function renderDash(){
+  const total = sessions.reduce((a,s)=>a+s.total,0);
+  const corr  = sessions.reduce((a,s)=>a+s.correct,0);
+  $('st-total').textContent = total;
+  $('st-acc').textContent = total ? fmtPct(corr/total) : '—';
+  $('st-err').textContent = errors.length;
+  $('st-streak').textContent = sessions.length;
+  $('q-errlog').textContent = errors.length + ' entries';
+  const poolN = new Set(errors.map(e=>e.qid)).size;
+  $('q-pool').textContent = poolN ? poolN + ' question'+(poolN>1?'s':'')+' ready' : '0 questions ready';
+  const today = new Date();
+  const d2 = new Date('2026-08-13');
+  const dayNum = Math.min(60, Math.max(1, Math.round((today - new Date('2026-08-12T00:00:00'))/86400000)+1));
+  const dayStr = 'Day ' + dayNum + ' · ' + today.toLocaleDateString('en-GB',{weekday:'short', day:'numeric', month:'short'});
+  $('dash-day').textContent = dayStr;
+  /* block map: block1 active until Aug 18 */
+  const curBlock = 1;
+  document.querySelectorAll('#maprow .seg').forEach(s => s.classList.toggle('cur', +s.dataset.n===curBlock));
+  /* history */
+  const hl = $('hist-list');
+  if(!sessions.length){ hl.innerHTML = '<div class="empty">No sessions yet. Launch your first drill.</div>'; }
+  else {
+    hl.innerHTML = sessions.slice().reverse().slice(0,6).map(s=>{
+      const p = Math.round(s.correct/s.total*100);
+      const ok = p>=85;
+      return '<div style="display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px dashed var(--line);font-size:0.8125rem">'+
+        '<div><b>'+s.mode+'</b> · '+s.total+' Q · '+new Date(s.ts).toLocaleString('en-GB',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'})+'</div>'+
+        '<span class="pill '+(ok?'ok':'no')+'">'+p+'%</span></div>';
+    }).join('');
+  }
+  /* top traps from errors */
+  const tt = $('dash-traps');
+  const counts = {};
+  errors.forEach(e => { counts[e.trap] = (counts[e.trap]||0)+1; });
+  const top = Object.entries(counts).sort((a,b)=>b[1]-a[1]).slice(0,4);
+  if(!top.length){ tt.innerHTML = '<div class="empty" style="padding:16px">No trap data yet — log some errors first.</div>'; }
+  else {
+    const mx = top[0][1];
+    tt.innerHTML = top.map(([t,n],i)=>'<div class="bar-row"><div class="bn">'+t+'</div><div class="track"><i style="width:'+Math.max(8,n/mx*100)+'%;background:'+(TRAP_COLOR[t]||'var(--coral)')+'"></i></div><div class="pv">'+n+'</div></div>').join('');
+  }
+}
+
+/* ══════════════ SESSION ENGINE ══════════════ */
+const S = { mode:null, list:[], i:0, answers:{}, flags:{}, times:{}, traps:{}, locked:false, sessionStart:0, qTimer:null, sTimer:null };
+
+const MODE_LABEL = { accuracy:'Accuracy Drill', timed:'Timed Sprint · 90s cap', mock:'Block Mini-Mock · exam conditions', pool:'Error-Pool Retest' };
+
+function startSession(mode, list){
+  S.mode = mode; S.list = list; S.i = 0; S.answers = {}; S.flags = {}; S.times = {}; S.traps = {}; S.locked = false;
+  S.sessionStart = Date.now();
+  $('env-mode').textContent = MODE_LABEL[mode];
+  $('env-total').textContent = list.length;
+  $('btn-confirm').style.display = 'inline-block';
+  $('btn-next').style.display = 'none';
+  $('fb-zone').innerHTML = '';
+  $('btn-confirm').disabled = true;
+  buildPalette();
+  show('session');
+  renderQ();
+  startSTimer();
+  if(mode==='timed' || mode==='mock') startQClock();
+}
+
+function startSTimer(){
+  clearInterval(S.sTimer);
+  S.sTimer = setInterval(()=>{
+    const s = Math.floor((Date.now()-S.sessionStart)/1000);
+    const m = String(Math.floor(s/60)).padStart(2,'0'), ss = String(s%60).padStart(2,'0');
+    $('env-sclock').textContent = m+':'+ss;
+  },1000);
+}
+
+function startQClock(){
+  clearInterval(S.qTimer);
+  let left = 90;
+  const el = $('qclock');
+  el.classList.remove('warn');
+  $('env-clock').textContent = left;
+  S.qTimer = setInterval(()=>{
+    left--;
+    $('env-clock').textContent = left;
+    if(left<=15) el.classList.add('warn');
+    if(left<=0){
+      clearInterval(S.qTimer);
+      handleTimeout();
+    }
+  },1000);
+}
+
+function handleTimeout(){
+  if(S.locked) return;
+  const q = S.list[S.i];
+  S.times[q.id] = 90;
+  S.answers[q.id] = null;
+  S.traps[q.id] = 'Partial Truth';
+  if(S.mode==='mock'){
+    nextQ(); return;
+  }
+  lockQ(q, null);
+}
+
+function buildPalette(){
+  const g = $('palgrid'); g.innerHTML = '';
+  S.list.forEach((q,idx)=>{
+    const b = document.createElement('button');
+    b.className = 'pal'; b.textContent = idx+1; b.dataset.idx = idx;
+    b.onclick = ()=>{ if(!S.locked && S.mode!=='mock'){} gotoQ(idx); };
+    g.appendChild(b);
+  });
+}
+function paintPalette(){
+  S.list.forEach((q,idx)=>{
+    const b = document.querySelector('#palgrid .pal[data-idx="'+idx+'"]');
+    if(!b) return;
+    b.className = 'pal';
+    if(idx===S.i) b.classList.add('cur');
+    const a = S.answers[q.id];
+    if(a!==undefined){
+      if(S.mode==='mock'){
+        b.classList.add(a===null ? 'timedout' : 'answered');
+        b.classList.remove('cur');
+        if(S.flags[q.id]) b.classList.add('flag');
+        return;
+      }
+      const correct = a===q.answer;
+      if(a===null) b.classList.add('timedout');
+      else if(correct) b.classList.add('good');
+      else b.classList.add('bad');
+    }
+    if(S.flags[q.id]) b.classList.add('flag');
+  });
+}
+function gotoQ(idx){
+  if(S.locked && S.mode!=='mock') return;
+  S.i = idx; renderQ();
+}
+
+function renderQ(){
+  const q = S.list[S.i];
+  const isTimed = S.mode==='timed' || S.mode==='mock';
+  const isMock = S.mode==='mock';
+  $('q-system').textContent = q.system;
+  $('q-topic').textContent = q.topic;
+  $('q-source').textContent = q.source;
+  $('q-hot').textContent = '▲ '+q.note;
+  $('q-stem').textContent = q.stem;
+  $('env-count').textContent = S.i+1;
+  $('env-pbar').style.width = ((S.i)/(S.list.length)*100)+'%';
+  $('btn-flag').textContent = S.flags[q.id] ? '⚑ Flagged' : '⚑ Flag';
+  $('fb-zone').innerHTML = '';
+  $('qclock').style.display = isTimed ? '' : 'none';
+  $('btn-confirm').disabled = true;
+  const has = S.answers[q.id] !== undefined;
+  if(isMock){
+    $('btn-confirm').style.display = 'none';
+    $('btn-next').style.display = has ? 'inline-block' : 'none';
+    if(S.i === S.list.length-1){ $('btn-next').textContent = 'Finish & Review →'; }
+    else { $('btn-next').textContent = 'Next Question →'; }
+  } else {
+    $('btn-confirm').style.display = 'inline-block';
+    $('btn-next').style.display = 'none';
+  }
+  renderOpts(q);
+  paintPalette();
+  if(isTimed){ if(!has) startQClock(); else { clearInterval(S.qTimer); if(S.times[q.id]!==undefined) $('env-clock').textContent = Math.max(0, 90 - S.times[q.id]); } }
+}
+
+function renderOpts(q){
+  const wrap = $('q-opts'); wrap.innerHTML = '';
+  const letters = ['A','B','C','D'];
+  letters.forEach(L=>{
+    if(!q.options[L]) return;
+    const b = document.createElement('button');
+    b.className = 'opt'; b.dataset.let = L;
+    b.innerHTML = '<span class="let">'+L+'</span><span>'+q.options[L]+'</span>';
+    if(S.mode==='mock' && S.answers[q.id]===L) b.classList.add('selected');
+    b.onclick = ()=>{
+      if(S.locked && S.mode!=='mock') return;
+      selectOpt(q, L);
+    };
+    wrap.appendChild(b);
+  });
+}
+
+function selectOpt(q, L){
+  S.answers[q.id] = L;
+  const sel = S.mode==='mock';
+  document.querySelectorAll('#q-opts .opt').forEach(o=>{
+    o.classList.toggle('selected', o.dataset.let===L);
+  });
+  if(S.mode==='mock'){
+    if(S.times[q.id]===undefined) S.times[q.id] = 90 - (S.qTimer? parseInt($('env-clock').textContent) : 90);
+    S.locked = true;
+    $('btn-next').style.display = 'inline-block';
+    $('btn-confirm').style.display = 'none';
+    clearInterval(S.qTimer);
+    paintPalette();
+    if(S.i === S.list.length-1){ $('btn-next').textContent = 'Finish & Review →'; }
+    else { $('btn-next').textContent = 'Next Question →'; }
+    return;
+  }
+  $('btn-confirm').disabled = false;
+}
+
+function confirmAnswer(){
+  const q = S.list[S.i];
+  const L = S.answers[q.id];
+  if(!L) return;
+  if(S.times[q.id]===undefined) S.times[q.id] = 90 - (S.qTimer? parseInt($('env-clock').textContent):90);
+  lockQ(q, L);
+}
+
+function lockQ(q, L){
+  S.locked = true;
+  clearInterval(S.qTimer);
+  const correct = L === q.answer;
+  if(!correct){ S.traps[q.id] = 'Partial Truth'; }
+  renderOptsLocked(q, L);
+  renderFeedback(q, L, correct);
+  $('btn-confirm').style.display = 'none';
+  $('btn-next').style.display = 'inline-block';
+  if(S.i === S.list.length-1){ $('btn-next').textContent = 'Finish Session →'; }
+  else { $('btn-next').textContent = 'Next Question →'; }
+  paintPalette();
+}
+
+function renderOptsLocked(q, L){
+  document.querySelectorAll('#q-opts .opt').forEach(o=>{
+    o.classList.remove('selected');
+    o.classList.add('dimmed');
+    if(o.dataset.let===q.answer){ o.classList.add('correct'); o.classList.remove('dimmed'); }
+    if(o.dataset.let===L && L!==q.answer){ o.classList.add('wrong'); o.classList.remove('dimmed'); }
+  });
+}
+
+function renderFeedback(q, L, correct){
+  const fb = $('fb-zone');
+  const cls = correct ? 'good' : 'bad';
+  const badge = correct ? '✓ CORRECT' : (L===null ? '⏱ TIMED OUT' : '✕ WRONG');
+  const secs = S.times[q.id]!==undefined ? S.times[q.id] : 0;
+  let trapUI = '';
+  if(!correct){
+    trapUI = '<h4>◈ Trap type (auto-logged, adjust if you disagree)</h4><div class="trap-pick">'+
+      TRAPS.map(t=>'<button class="tp'+(t===(S.traps[q.id]||'Partial Truth')?' sel':'')+'" data-t="'+t+'">'+t+'</button>').join('')+
+      '</div>';
+  }
+  fb.innerHTML =
+    '<div class="fb '+cls+'">'+
+      '<div class="fb-top"><span class="fb-badge">'+badge+'</span><span class="fb-time">'+secs+'s · '+q.system+' · '+q.topic+'</span></div>'+
+      (correct ? '<p><b>Discriminator locked:</b> '+q.note+'</p>' : '')+
+      '<h4>🔑 Discriminator</h4><div class="disc">'+q.note+'</div>'+
+      '<h4>📖 Why</h4><p>'+q.explanation+'</p>'+
+      '<h4>⚠ Exam Trap</h4><p>'+q.trap+'</p>'+
+      '<h4>🔔 Future Alert</h4><p style="font-family:Space Mono;font-size:0.7813rem;color:#7A3A32">'+q.alert+'</p>'+
+      trapUI+
+      '<div class="logline">'+(correct?'Auto-saved to session. Error log untouched.':'Logged to error log: '+q.source+' — '+q.topic+(L!==null?' — you chose '+L:' — timed out')+' → correct '+q.answer+' · trap: '+(S.traps[q.id]||'Partial Truth'))+'</div>'+
+    '</div>';
+  fb.querySelectorAll('.trap-pick .tp').forEach(b=>{
+    b.onclick = ()=>{ S.traps[q.id] = b.dataset.t; fb.querySelectorAll('.trap-pick .tp').forEach(x=>x.classList.toggle('sel', x===b)); };
+  });
+}
+
+function nextQ(){
+  S.locked = false;
+  if(S.i < S.list.length-1){
+    S.i++;
+    renderQ();
+  } else {
+    finishSession();
+  }
+}
+
+function finishSession(){
+  clearInterval(S.qTimer); clearInterval(S.sTimer);
+  const total = S.list.length;
+  let correct = 0;
+  const perSystem = {};
+  const misses = [];
+  const trapCount = {};
+  S.list.forEach(q=>{
+    const a = S.answers[q.id];
+    const ok = a===q.answer;
+    if(ok) correct++;
+    const sys = perSystem[q.system] || {t:0,c:0};
+    sys.t++; if(ok) sys.c++;
+    perSystem[q.system] = sys;
+    if(!ok){
+      misses.push(q);
+      const t = S.traps[q.id] || 'Partial Truth';
+      trapCount[t] = (trapCount[t]||0)+1;
+      const entry = {
+        date: new Date().toISOString().slice(0,10),
+        ts: Date.now(), qid:q.id, source:q.source, system:q.system, topic:q.topic,
+        stem:q.stem, my: a===null? 'TIMED OUT' : a, correct: q.answer,
+        discriminator:q.note, trap:t, rule:q.alert, alert:q.alert
+      };
+      errors.unshift(entry);
+    }
+  });
+  save(LS.errors, errors);
+  const rec = { mode:S.mode, total, correct, ts:Date.now(), secs:Math.round((Date.now()-S.sessionStart)/1000) };
+  sessions.push(rec); save(LS.sessions, sessions);
+  renderResults(rec, perSystem, misses, trapCount);
+  show('results');
+}
+
+/* ══════════════ RESULTS ══════════════ */
+function renderResults(rec, perSystem, misses, trapCount){
+  const pct = Math.round(rec.correct/rec.total*100);
+  const verdict = pct>=60 ? (pct>=85 ? 'pass':'line') : 'fail';
+  const vtext = verdict==='pass' ? '✓ ABOVE ACCURACY TARGET — 85%+' : verdict==='line' ? '✕ BELOW 85% — PASS-LINE, WEAK PATTERN' : '✕ BELOW PASS LINE — 60%';
+  const m = String(Math.floor(rec.secs/60)).padStart(2,'0'), s = String(rec.secs%60).padStart(2,'0');
+  const sysRows = Object.entries(perSystem).sort((a,b)=> (a[1].t-a[1].c)/a[1].t - (b[1].t-b[1].c)/b[1].t)
+    .map(([sys,d])=>{ const p=Math.round(d.c/d.t*100); return '<tr><td>'+sys+'</td><td>'+d.c+' / '+d.t+'</td><td><span class="pill '+(p>=85?'ok':(p>=60?'':'no'))+'">'+p+'%</span></td></tr>'; }).join('');
+  const trapMax = Math.max(1,...Object.values(trapCount));
+  const trapRows = Object.entries(trapCount).sort((a,b)=>b[1]-a[1])
+    .map(([t,n])=>'<div class="bar-row"><div class="bn">'+t+'</div><div class="track"><i style="width:'+(n/trapMax*100)+'%;background:'+(TRAP_COLOR[t]||'var(--coral)')+'"></i></div><div class="pv">'+n+'</div></div>').join('');
+  const missRows = misses.map(q=>{
+    const a = S.answers[q.id];
+    return '<div class="miss-card"><div class="m-top">'+
+      '<span class="pill no">'+(a===null?'TIMED OUT':'YOU: '+a)+'</span><span class="pill no" style="background:rgba(31,157,95,.12);color:#14663D">ANS: '+q.answer+'</span>'+
+      '<span class="tag-trap">'+(S.traps[q.id]||'Partial Truth')+'</span><span class="tag-trap" style="font-weight:700;color:#7A8598">'+q.system+' · '+q.topic+'</span></div>'+
+      '<div class="m-stem">'+q.stem+'</div><div class="m-alert">🔔 '+q.alert+'</div></div>';
+  }).join('');
+  const rv = document.getElementById('view-results');
+  rv.innerHTML =
+  '<div class="s-head no-print"><span class="s-num">// REPORT</span><h2 class="s-title">Session Report</h2><span class="s-rule lime"></span><button class="btn ghost" id="btn-back-dash" style="margin-left:auto">← Dashboard</button></div>'+
+  '<div class="result-hero">'+
+    '<div class="rlabel">'+MODE_LABEL[rec.mode]+' · '+rec.total+' Questions · '+m+':'+s+'</div>'+
+    '<div class="rscore"><em>'+pct+'%</em></div>'+
+    '<div class="rsub">'+rec.correct+' correct · '+(rec.total-rec.correct)+' missed · '+(rec.total)+' total</div>'+
+    '<div class="rverdict '+verdict+'">'+vtext+'</div>'+
+  '</div>'+
+  '<div class="r-grid">'+
+    '<div class="card"><h3>By System</h3><div class="sub2">Weakest first.</div><table class="rtable"><thead><tr><th>System</th><th>Score</th><th>%</th></tr></thead><tbody>'+sysRows+'</tbody></table></div>'+
+    '<div class="card"><h3>Trap Hit Parade</h3><div class="sub2">Every miss tagged. Partial Truth dominates.</div>'+(trapRows||'<div class="empty">No misses — perfect run.</div>')+'</div>'+
+  '</div>'+
+  '<div class="card"><h3>Deconstruction — Your Misses</h3><div class="sub2">Every one is now in the error log. Re-read these future alerts before tomorrow.</div>'+(missRows||'<div class="empty" style="padding:20px">Zero misses. Flawless execution — verify the last 3 bubbles anyway.</div>')+'</div>';
+  const bd = $('btn-back-dash'); if(bd) bd.onclick = ()=>show('dash');
+}
+
+/* ══════════════ ERROR LOG ══════════════ */
+let elFilter = 'ALL', elTrapFilter = 'ALL';
+function renderErrors(){
+  $('el-total').textContent = errors.length;
+  const sysSet = new Set(errors.map(e=>e.system));
+  $('el-systems').textContent = sysSet.size;
+  const tc = {}; errors.forEach(e=>tc[e.trap]=(tc[e.trap]||0)+1);
+  const top = Object.entries(tc).sort((a,b)=>b[1]-a[1])[0];
+  $('el-toptrap').textContent = top? top[0].split(' ')[0] : '—';
+  $('el-pool').textContent = new Set(errors.map(e=>e.qid)).size;
+  /* filters */
+  const sysChips = ['ALL', ...sysSet].map(x=>'<button class="fchip '+(elFilter===x?'on':'')+'" data-f="'+x+'">'+x+'</button>').join('');
+  $('el-filters').innerHTML = '<span class="tag-trap" style="align-self:center">SYSTEM</span> '+sysChips;
+  document.querySelectorAll('#el-filters .fchip').forEach(b=>b.onclick=()=>{ elFilter=b.dataset.f; renderErrors(); });
+  const trapChips = ['ALL', ...Object.keys(tc)].map(x=>'<button class="fchip '+(elTrapFilter===x?'on':'')+'" data-f="'+x+'">'+x+'</button>').join('');
+  $('el-trapfilters').innerHTML = '<span class="tag-trap" style="align-self:center">TRAP</span> '+trapChips;
+  document.querySelectorAll('#el-trapfilters .fchip').forEach(b=>b.onclick=()=>{ elTrapFilter=b.dataset.f; renderErrors(); });
+  let list = errors;
+  if(elFilter!=='ALL') list = list.filter(e=>e.system===elFilter);
+  if(elTrapFilter!=='ALL') list = list.filter(e=>e.trap===elTrapFilter);
+  const l = $('el-list');
+  if(!list.length){ l.innerHTML = '<div class="empty">No entries match. The log is empty or filtered.</div>'; return; }
+  l.innerHTML = list.map(e=>{
+    const optsLet = e.my;
+    return '<div class="elog-row">'+
+      '<div class="el-head"><span class="tag-trap" style="background:var(--coral);color:#fff">'+e.trap+'</span><span class="tag-trap">'+e.system+'</span><span class="tag-trap">'+e.topic+'</span><span class="tag-trap" style="font-weight:700">'+e.source+'</span><span class="tag-trap">'+e.date+'</span></div>'+
+      '<div class="el-q">'+e.stem+'</div>'+
+      '<div class="el-meta">You: <b>'+(e.my==='TIMED OUT'?'⏱ '+e.my:e.my)+'</b> → Correct: <b style="color:var(--ok)">'+e.correct+'</b> · Discriminator: '+e.discriminator+'</div>'+
+      '<div class="el-rule">🔔 <b>FUTURE ALERT</b> · '+e.rule+'</div>'+
+      '</div>';
+  }).join('');
+}
+function exportErrorsMD(){
+  if(!errors.length){ toast('Nothing to export — log is empty.'); return; }
+  const lines = ['# Error Log — Export · '+new Date().toISOString().slice(0,10),'', '| # | Date | Source | System | Topic | Trap |', '|---|---|---|---|---|---|'];
+  errors.forEach((e,i)=>{ lines.push('| '+(i+1)+' | '+e.date+' | '+e.source+' | '+e.system+' | '+e.topic+' | '+e.trap+' |'); });
+  lines.push('');
+  errors.forEach(e=>{
+    const short = e.stem.length>96 ? e.stem.slice(0,96)+'…' : e.stem;
+    lines.push('### Q — '+short, '', '- Date: '+e.date+' · Source: '+e.source, '- Subject: '+e.system+' · Topic: '+e.topic, '- My answer: '+(e.my==='TIMED OUT'?'(timed out)':e.my)+' · Correct: '+e.correct, '- Discriminator missed: '+e.discriminator, '- Trap type: '+e.trap, '- Correct rule: '+e.rule, '- Future alert: '+e.alert, '');
+  });
+  download('MedCORE_Error_Log_'+new Date().toISOString().slice(0,10)+'.md', lines.join('\n'));
+  toast('Error log exported as Markdown — drop it straight into your system.');
+}
+function download(name, text){
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([text], {type:'text/plain'}));
+  a.download = name; a.click();
+  setTimeout(()=>URL.revokeObjectURL(a.href), 3000);
+}
+
+/* ══════════════ REVIEW ══════════════ */
+function renderReview(){
+  const l = $('rev-list');
+  l.innerHTML = BANK.map((q,idx)=>{
+    const letters=['A','B','C','D'];
+    const optRows = letters.map(L=>q.options[L]? '<div style="padding:5px 0;font-size:0.8438rem"><b style="font-family:Space Mono">'+L+'.</b> '+(L===q.answer?'<b style="color:var(--ok)">'+q.options[L]+' ✓</b>':q.options[L])+'</div>':'').join('');
+    return '<div class="rev-item"><div class="qmeta"><span class="tag sys">'+q.system+'</span><span class="tag">'+q.topic+'</span><span class="tag src">'+q.source+'</span></div>'+
+      '<div class="qstem" style="font-size:0.9375rem">'+(idx+1)+'. '+q.stem+'</div>'+optRows+
+      '<div class="r-ex"><b>Why:</b> '+q.explanation+'</div>'+
+      '<div class="r-al">🔔 '+q.alert+'</div></div>';
+  }).join('');
+}
+
+/* ══════════════ EVENTS ══════════════ */
+document.querySelectorAll('.launch[data-mode]').forEach(b=>{
+  b.onclick = ()=>{
+    const mode = b.dataset.mode;
+    let list;
+    if(mode==='pool'){
+      const qids = [...new Set(errors.map(e=>e.qid))];
+      list = BANK.filter(q=>qids.includes(q.id));
+      if(!list.length){ toast('Error-pool empty — run a drill and miss something first.'); return; }
+    } else {
+      list = [...BANK];
+    }
+    startSession(mode, list);
+  };
+});
+$('btn-review').onclick = ()=>show('review');
+$('btn-errorlog').onclick = ()=>show('errors');
+$('btn-confirm').onclick = confirmAnswer;
+$('btn-next').onclick = nextQ;
+$('btn-flag').onclick = ()=>{
+  const q = S.list[S.i];
+  if(S.flags[q.id]) delete S.flags[q.id];
+  else S.flags[q.id] = true;
+  $('btn-flag').textContent = S.flags[q.id] ? '⚑ Flagged' : '⚑ Flag';
+  paintPalette();
+};
+$('btn-quit').onclick = ()=>$('quit-modal').classList.add('show');
+$('btn-cancel-quit').onclick = ()=>$('quit-modal').classList.remove('show');
+$('btn-confirm-quit').onclick = ()=>{
+  $('quit-modal').classList.remove('show');
+  clearInterval(S.qTimer); clearInterval(S.sTimer);
+  show('dash');
+};
+$('btn-export-md').onclick = exportErrorsMD;
+$('btn-export-json').onclick = ()=>{ if(errors.length) download('MedCORE_Error_Log_'+new Date().toISOString().slice(0,10)+'.json', JSON.stringify(errors,null,2)); else toast('Nothing to export.'); };
+$('btn-runpool').onclick = ()=>{
+  const qids = [...new Set(errors.map(e=>e.qid))];
+  const list = BANK.filter(q=>qids.includes(q.id));
+  if(!list.length){ toast('Error-pool empty.'); return; }
+  startSession('pool', list);
+};
+$('btn-clear-errors').onclick = ()=>{
+  if(errors.length && confirm('Clear the entire error log? This is the sacred engine — export first if unsure.')){ errors.length=0; save(LS.errors, errors); renderErrors(); }
+};
+$('btn-palette').onclick = ()=>{
+  const el = document.querySelector('.palette');
+  el.style.display = el.style.display==='none' ? '' : 'none';
+};
+
+let toastT;
+function toast(msg){
+  const t = $('toast'); t.textContent = msg; t.classList.add('show');
+  clearTimeout(toastT); toastT = setTimeout(()=>t.classList.remove('show'), 3200);
+}
+
+/* boot */
+renderDash();
+</script>
+
+<script src="/medcore-sync.js" defer></script>
+</body>
+</html>
