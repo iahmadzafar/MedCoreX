@@ -27,7 +27,7 @@ if grep -q "REPLACED_BY_BOOTSTRAP" wrangler.toml; then
   echo "first run — checking D1 database ${DB}…"
   OUT="$(npx --yes wrangler@latest d1 create "$DB" 2>&1 || true)"
   # Real wrangler output prints the uuid only in quoted form: database_id = "uuid"
-  ID="$(printf '%s' "$OUT" | sed -n 's/.*database_id *= *"\([a-f0-9][a-f0-9-]*\)".*/\1/p' | head -1)"
+  ID="$(printf '%s' "$OUT" | sed -n 's/.*database_id"\{0,1\} *[:=] *"\([a-f0-9][a-f0-9-]*\)".*/\1/p' | head -1)"
   if [ -z "$ID" ]; then
     echo "create failed (probably already exists) — resolving id from d1 list…"
     ID="$(npx --yes wrangler@latest d1 list --json 2>/dev/null | python3 -c "
@@ -55,7 +55,7 @@ STAGE="$(mktemp -d)"
 trap 'rm -rf "$STAGE"' EXIT
 rsync -a --delete \
   --exclude '.git' --exclude '.github' --exclude '.wrangler' \
-  --exclude '*.bak-*' --exclude '.DS_Store' \
+  --exclude '*.bak-*' --exclude '.DS_Store' --exclude 'worker-configuration.d.ts' \
   --exclude 'deploy.sh' --exclude 'schema.sql' --exclude 'README.md' --exclude 'SERVE.md' \
   "$HERE/" "$STAGE/"
 

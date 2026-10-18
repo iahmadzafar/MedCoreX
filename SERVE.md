@@ -1,12 +1,14 @@
 # MedLib X — how to serve it
 
-## Deploy (his shell, one line)
+## Deploy
 
-    CLOUDFLARE_API_TOKEN=<Pages:Edit token> ./deploy.sh
+**LIVE since Oct 18 2026 — https://medlibx.pages.dev** (v1.2, database `f830d37c…`).
 
-- First run creates the D1 database `medlibx-db`, writes its id into `wrangler.toml`, applies `schema.sql`, then deploys.
-- Project name: `medlibx` → lands at `medlibx.pages.dev` (or the custom hostname attached in the Cloudflare dashboard — never touches the MedCORE Hub project).
-- Later runs skip creation and just deploy. Schema is idempotent.
+Two paths, both clean (no secret through chat):
+- OAuth (preferred): `npx wrangler login` once — approval in the browser, secret lives in `~/.wrangler` — then just `./deploy.sh`.
+- Token: `CLOUDFLARE_API_TOKEN=<token> ./deploy.sh`.
+
+`deploy.sh` is idempotent at every stage: creates the D1 database + applies schema on first run, creates the Pages project if missing, then stages and uploads. Redeploys after edits are the same one command; schema reapplies harmlessly.
 
 ## Local check (no Cloudflare at all)
 

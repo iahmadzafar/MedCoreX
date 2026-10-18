@@ -1043,6 +1043,70 @@ html[data-mode="light"] body.wel .orb{ opacity:.3; }
 .vsplit:hover::before,.vsplit:hover::after{ background:var(--a1); }
 @media (max-width:1080px){ .vsplit{ display:none } #content .qcol{ width:100% } }
 </style>
+
+<style id="mx-chrome">
+/* ════════ MedLib X chrome pass — flat surfaces, uniform controls, no hue washes ════════ */
+#rootHtml .ct-head{ background:var(--bg2); border-bottom:1px solid var(--line) }
+#rootHtml .ct-head::after{ display:none }
+html.light #rootHtml .ct-head, #rootHtml.light .ct-head{ background:var(--bg2) }
+
+#rootHtml .icon-btn{
+  width:32px; height:32px; border-radius:var(--pill); padding:0; display:grid; place-items:center;
+  background:var(--card2); border:1px solid var(--rim2); color:var(--muted);
+  font-size:0.7813rem; transition:background .15s,color .15s,border-color .15s,transform 0s}
+#rootHtml .icon-btn:hover{ background:var(--a1); color:#0B0C0E; border-color:var(--a1); transform:none }
+#rootHtml.light .icon-btn:hover{ color:#fff }
+
+#rootHtml .pill{
+  height:32px; padding:0 12px; margin:0; display:inline-flex; align-items:center; gap:6px;
+  border-radius:var(--pill); border:1px solid var(--rim2); background:var(--card2); color:var(--txt2);
+  font-family:var(--mono); font-size:0.6875rem; font-weight:600; letter-spacing:.4px;
+  transition:background .15s,color .15s,border-color .15s,transform 0s}
+#rootHtml .pill:hover{ background:var(--a1); color:#0B0C0E; border-color:var(--a1); transform:none }
+#rootHtml.light .pill:hover{ color:#fff }
+#rootHtml .pill.on{ background:var(--a1); color:#0B0C0E; border-color:var(--a1); box-shadow:none }
+#rootHtml.light .pill.on{ color:#fff }
+
+#rootHtml .mseg{ height:32px; box-sizing:border-box; border-radius:var(--pill); background:var(--card2) }
+#rootHtml .mseg button{
+  height:30px; padding:0 11px; margin:0; border:0 !important; border-left:1px solid var(--line2) !important;
+  display:inline-flex; align-items:center; color:var(--muted);
+  font-family:var(--sans); font-weight:600; font-size:0.6875rem; letter-spacing:.4px; line-height:1;
+  transition:background .15s,color .15s}
+#rootHtml .mseg button:first-child{ border-left:0 !important }
+#rootHtml .mseg button:hover{ color:var(--txt); background:var(--card3) }
+#rootHtml .mseg button.on{ background:var(--a1); color:#0B0C0E }
+#rootHtml.light .mseg button.on{ color:#fff }
+
+#rootHtml .timer-box{
+  height:32px; padding:0 12px; box-sizing:border-box; display:inline-flex; align-items:center; gap:9px;
+  border-radius:var(--pill); background:var(--card2); font-size:0.6875rem}
+#rootHtml .timer-box.running{ background:var(--card2) }
+#rootHtml .timer-btn{ height:auto; padding:0; border:0; background:transparent; color:var(--muted); font-size:0.6563rem }
+#rootHtml .timer-btn:hover{ color:var(--a1); background:transparent }
+
+/* welcome screen: no orb washes, solid ground */
+#rootHtml .orb{ display:none !important }
+#rootHtml body.wel, body.wel{ background:var(--bg) }
+html[data-mode="dark"] body.wel{ background:var(--bg) }
+html[data-mode="light"] body.wel{ background:var(--bg) }
+
+/* hero: flat type, quiet badge */
+.hero-badge{ background:transparent !important; border:1px solid var(--line2) !important;
+  box-shadow:none !important; color:var(--a1) !important }
+html.light .hero-badge{ color:var(--a1) !important }
+.hero h1{ background:none; -webkit-background-clip:border-box; -webkit-text-fill-color:var(--txt); color:var(--txt) }
+html.light .hero h1{ color:var(--txt) }
+
+/* welcome cards: neutral surface, amber index, no per-subject tint */
+.wc{ background:var(--card) !important; border:1px solid var(--rim) !important; color:var(--a1) }
+.wc:hover{ background:var(--card2) !important; border-color:var(--a1) !important; color:var(--a1) }
+.wc-num{ color:var(--a1) !important }
+.wc-num::before{ background:var(--a1) !important }
+.wc-go{ color:var(--muted) !important }
+.wc-name{ color:var(--txt2) }
+.wc:hover .wc-name{ color:var(--txt) }
+</style>
 </head>
 <body class="wel">
 <div class="orb a"></div><div class="orb b"></div><div class="orb c"></div>
@@ -1079,7 +1143,7 @@ html[data-mode="light"] body.wel .orb{ opacity:.3; }
         <button class="pill" id="btnBlocks" onclick="goWelcome()" title="Back to all blocks">&#9634; Blocks</button>
         <button class="pill on" id="btnPaper" onclick="setMode('paper')">Question Paper</button>
         <button class="pill" id="btnKey" onclick="setMode('key')">Answer Key</button>
-        <span class="mseg" id="themeSeg"><button type="button" data-t="library">Library</button><button type="button" data-t="ink">Ink</button><button type="button" data-t="ice">Ice</button><button type="button" data-t="copper">Copper</button><button type="button" data-t="paper">Paper</button></span><span class="mseg" id="zoomSeg"><button type="button" id="zoomOut" title="Smaller text (−)">A−</button><button type="button" id="zoomIn" title="Larger text (+)">A+</button></span><span class="fitbadge" id="fitBadge">fit…</span><div class="timer-box" id="timerBox">
+        <span class="mseg" id="themeSeg"><button type="button" data-t="library">Library</button><button type="button" data-t="ink">Ink</button><button type="button" data-t="ice">Ice</button><button type="button" data-t="copper">Copper</button><button type="button" data-t="paper">Paper</button></span><span class="mseg" id="zoomSeg"><button type="button" id="zoomOut" title="Smaller text (−)">A−</button><button type="button" id="zoomIn" title="Larger text (+)">A+</button></span><div class="timer-box" id="timerBox">
           <span id="timerDisplay">00:00:00</span>
           <button class="timer-btn" id="timerBtn" onclick="toggleTimer()">&#9654;</button>
         </div>
@@ -1800,8 +1864,8 @@ if(logo) logo.onclick = goWelcome;
   var ZOOM = 1;
   try{ var _z = parseFloat(localStorage.getItem('medcore.bankzoom')); if(_z && _z > 0) ZOOM = Math.min(1.8, Math.max(0.7, _z)); }catch(e){}
   function applyZoom(){
-    var host = document.getElementById('content');
-    if(host) host.style.setProperty('--zoom', ZOOM);
+    var m = document.getElementById('main');
+    if(m) m.style.zoom = ZOOM;
     autoFit();
   }
   function setZoom(z, save){
@@ -1811,19 +1875,8 @@ if(logo) logo.onclick = goWelcome;
   }
   window.setBankZoom = setZoom;
   function autoFit(){
-    var host = document.getElementById('content'), col = document.getElementById('qcol');
-    var badge = document.getElementById('fitBadge');
-    if(!host || !col || !col.clientHeight){ if(badge) badge.textContent = 'fit —'; return; }
-    host.style.setProperty('--zoom', ZOOM);
-    var lo = 0.62, hi = 1.10, best = lo, i, mid;
-    for(i = 0; i < 11; i++){
-      mid = (lo + hi) / 2; host.style.setProperty('--fit', mid * ZOOM); void col.offsetHeight;
-      var fb = document.getElementById('fbBody');
-      var over = (col.scrollHeight > col.clientHeight + 1) || (fb && fb.scrollHeight > fb.clientHeight + 1);
-      if(over){ hi = mid; } else { best = mid; lo = mid; }
-    }
-    host.style.setProperty('--fit', Math.min(2.2, best * ZOOM));
-    if(badge) badge.textContent = 'fit ' + Math.round(best * 100) + '%' + (ZOOM !== 1 ? ' · text ' + Math.round(ZOOM * 100) + '%' : '');
+    var host = document.getElementById('content');
+    if(host) host.style.setProperty('--fit', 1);
   }
   window.autoFit = autoFit;
 
