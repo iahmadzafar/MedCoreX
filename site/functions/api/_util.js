@@ -41,7 +41,7 @@ export function validUsername(u) {
 }
 
 const COOKIE = 'medlibx_session';
-const MAX_AGE = 30 * 24 * 3600; // 30 days
+const MAX_AGE = 90 * 24 * 3600; // 90 days — long enough that "come back later" never surprises
 
 export function setSessionCookie(token) {
   return `${COOKIE}=${token}; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=${MAX_AGE}`;
@@ -69,4 +69,19 @@ export async function createSession(env, userId) {
   await env.medlibx_db.prepare('INSERT INTO sessions (token,user_id,created_at,expires_at) VALUES (?,?,?,?)')
     .bind(token, userId, now, exp).run();
   return token;
+}
+
+// ── keyhole: the librarian's hand on the ledger ──
+// A single secret (Pages env MX_KEYHOLE, mirrored to the local keychain)
+// unlocks admin reads/writes. Nothing here is reachable without it.
+export function keyholeOk(request, env) {
+  let provided = request.headers.get('x-keyhole') || '';
+  if (!provided) {
+    try { provided = new URL(request.url).searchParams.get('k') || ''; } catch {}
+  }
+  const key = env.MX_KEYHOLE || '';
+  if (!key || !provided || provided.length !== key.length) return false;
+  let d = 0;
+  for (let i = 0; i < key.length; i++) d |= key.charCodeAt(i) ^ provided.charCodeAt(i);
+  return d === 0;
 }

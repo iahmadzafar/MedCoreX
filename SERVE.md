@@ -33,3 +33,18 @@ right here.
 - No official board names anywhere in any file or copy.
 - No emojis — inline SVG glyphs only.
 - `medcorehub.pages.dev` and its deploy were not read, modified, or touched.
+- Cleanup only ever removes rows I created (exact names); never bulk deletes the ledger.
+
+## Keyhole (the librarian's window) — LIVE
+
+Ledger admin: https://medlibx.pages.dev/admin/keyhole — list every account (name, email, since, live device sessions), reset a password by hand (new one shown once in the response, all device sessions killed), or cancel a seat by name (two confirmations, unrecoverable).
+
+The key: Pages secret `MX_KEYHOLE`, mirrored into the Mac keychain. Retrieve in Terminal:
+
+    security find-generic-password -a medlibx -s keyhole -w
+
+Paste into the keyhole page once — the browser remembers it (localStorage `medlibx.keyhole`). The key is never pasted into chat, never written to any file, and nothing is reachable without it.
+
+## Sessions · practical "come back later"
+
+90-day session cookies (`medlibx_session`, HttpOnly/Secure/SameSite=Lax), sessions + users live in D1 `medlibx-db`. Sign in once, come back weeks later on the same browser — still signed. Private/incognito windows discard cookies by design; the site cannot remember those. Always use the plain medlibx.pages.dev host; per-deploy snapshot subdomains don't share cookies.
