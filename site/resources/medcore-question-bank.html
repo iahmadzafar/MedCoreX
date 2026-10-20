@@ -516,36 +516,39 @@ html.light .q-opt:hover{background:hsl(var(--oh) 78% 62% / .16);border-color:hsl
 .fb-hint-t{font-size:0.8438rem;font-weight:600}
 .fb-hint-s{font-size:0.7188rem;color:var(--muted2);margin-top:2px}
 .fb-head{
-  padding:16px 22px;border-bottom:1px solid var(--rim2);flex-shrink:0;
+  padding:18px 24px;border-bottom:1px solid var(--rim2);flex-shrink:0;
   display:flex;align-items:center;gap:12px}
 .verdict{
-  display:flex;align-items:center;gap:11px;font-size:0.875rem;font-weight:600;position:relative;
-  padding:11px 15px;border-radius:var(--rmd);width:100%}
-.verdict::after{
-  content:'';position:absolute;inset:0;border-radius:var(--rmd);pointer-events:none;
-  box-shadow:inset 0 1px 0 hsl(0 0% 100% / .16)}
-.v-right{background:var(--okbg);color:var(--ok);border:1px solid var(--okln)}
-.v-wrong{background:var(--nobg);color:var(--no);border:1px solid var(--noln)}
-.v-skip{background:var(--warnbg);color:var(--warn);border:1px solid var(--warnln)}
-.v-icon{font-size:1rem;flex-shrink:0}
-.v-text small{font-size:0.7188rem;font-weight:400;opacity:.85;display:block;margin-top:3px}
+  display:flex;align-items:center;gap:12px;font-size:0.875rem;font-weight:400;position:relative;
+  padding:13px 18px;border-radius:var(--rmd);width:100%;
+  box-shadow:var(--lift2)}
+.v-right{background:var(--okbg);color:var(--ok);border:1px solid var(--okln);
+  box-shadow:var(--lift2), inset 0 1px 0 hsl(0 0% 100% / .05)}
+.v-wrong{background:var(--nobg);color:var(--no);border:1px solid var(--noln);
+  box-shadow:var(--lift2), inset 0 1px 0 hsl(0 0% 100% / .05)}
+.v-skip{background:var(--warnbg);color:var(--warn);border:1px solid var(--warnln);
+  box-shadow:var(--lift2), inset 0 1px 0 hsl(0 0% 100% / .05)}
+.v-icon{font-size:1rem;flex-shrink:0;opacity:.9}
+.v-text{font-family:var(--serif);font-size:1.0938rem;font-weight:400;letter-spacing:.1px;line-height:1.3}
+.v-text small{font-family:var(--sans);font-size:0.7188rem;font-weight:400;opacity:.82;display:block;margin-top:5px;
+  letter-spacing:.2px}
 .fb-tabs{
-  display:flex;gap:7px;padding:11px 22px;overflow-x:auto;flex-shrink:0;
+  display:flex;gap:8px;padding:12px 24px;overflow-x:auto;flex-shrink:0;
   border-bottom:1px solid var(--rim2);scrollbar-width:none}
 .fb-tabs::-webkit-scrollbar{display:none}
 .fb-tab{
-  padding:7px 14px;border-radius:var(--pill);white-space:nowrap;
-  border:1px solid var(--rim2);background:hsl(var(--h) 40% 55% / .08);
-  color:var(--muted);font-family:var(--mono);font-size:0.6563rem;font-weight:600;letter-spacing:.3px;
-  cursor:pointer;display:flex;align-items:center;gap:7px;
-  transition:background .24s,color .24s,border-color .24s,transform .24s}
-.fb-tab:hover{background:hsl(var(--h) 80% 66% / .16);color:var(--txt);transform:translateY(-1px)}
-.fb-tab.on{background:var(--grad);color:#0d0818;border-color:transparent;box-shadow:var(--edge2)}
+  padding:7px 13px;white-space:nowrap;
+  border:1px solid var(--rim2);background:transparent;
+  color:var(--muted);font-family:var(--mono);font-size:0.6563rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:.09em;
+  cursor:pointer;display:flex;align-items:center;gap:8px;
+  transition:background .15s,color .15s,border-color .15s}
+.fb-tab:hover{border-color:color-mix(in srgb, var(--a1) 45%, var(--rim2));color:var(--txt)}
+.fb-tab.on{background:var(--a1);color:#0B0C0E;border-color:transparent}
 .fb-tab .n{
-  font-size:0.5625rem;padding:1px 5px;border-radius:6px;
-  background:hsl(var(--h) 60% 60% / .2);transition:background .24s}
-.fb-tab.on .n{background:hsl(0 0% 100% / .28)}
-.fb-body{flex:1;overflow-y:auto;padding:18px 22px 26px;min-height:0}
+  font-size:0.5625rem;padding:1px 5px;
+  background:color-mix(in srgb, var(--txt) 10%, transparent);transition:background .15s}
+.fb-body{flex:1;overflow-y:auto;padding:20px 24px 30px;min-height:0}
 .fb-body::-webkit-scrollbar{width:9px}
 .fb-body::-webkit-scrollbar-track{background:transparent}
 .fb-body::-webkit-scrollbar-thumb{
@@ -553,17 +556,17 @@ html.light .q-opt:hover{background:hsl(var(--oh) 78% 62% / .16);border-color:hsl
   border:2px solid transparent;background-clip:padding-box}
 .fb-body::-webkit-scrollbar-thumb:hover{background:hsl(var(--h) 46% 70% / .44);background-clip:padding-box}
 .fld{
-  position:relative;padding:15px 17px;border-radius:var(--rmd);margin-bottom:11px;
-  background:hsl(var(--h) 50% 55% / .09);border:1px solid var(--rim2);
-  transition:background .24s,border-color .24s,transform .24s}
-.fld:hover{background:hsl(var(--h) 60% 55% / .14);border-color:var(--rim);transform:translateX(2px)}
+  position:relative;padding:16px 18px;border-radius:var(--rmd);margin-bottom:12px;
+  background:var(--card);border:1px solid var(--rim2);
+  transition:border-color .15s,background .15s}
+.fld:hover{border-color:color-mix(in srgb, var(--a1) 40%, var(--rim2))}
 .fld::before{
-  content:'';position:absolute;left:0;top:12px;bottom:12px;width:4px;border-radius:0 4px 4px 0;
-  background:var(--fc);opacity:1;box-shadow:0 0 12px -1px var(--fc)}
+  content:'';position:absolute;left:0;top:14px;bottom:14px;width:3px;
+  background:var(--fc)}
 .k-label{
-  font-family:var(--mono);font-size:0.5938rem;font-weight:700;letter-spacing:1px;
-  text-transform:uppercase;color:var(--fc);margin-bottom:7px;
-  display:flex;align-items:center;gap:6px}
+  font-family:var(--mono);font-size:0.5938rem;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--fc);margin-bottom:8px;
+  display:flex;align-items:center;gap:7px}
 .k-val{font-size:0.8625rem;line-height:1.62;color:var(--txt2)}
 .fld.c-con{--fc:hsl(232 92% 78%)}
 .fld.c-ct{--fc:hsl(272 90% 80%)}
@@ -580,13 +583,13 @@ html.light .fld.c-t{--fc:hsl(348 72% 48%)}
 html.light .fld.c-f{--fc:hsl(30 78% 38%)}
 html.light .fld.c-r{--fc:hsl(184 70% 34%)}
 .kkill{
-  border-radius:var(--rmd);overflow:hidden;background:hsl(var(--h) 40% 55% / .05);
+  border-radius:var(--rmd);overflow:hidden;background:var(--card);
   border:1px solid var(--rim2)}
 .kkill-h{
-  padding:11px 15px;font-family:var(--mono);font-size:0.6563rem;font-weight:700;letter-spacing:.7px;
+  padding:11px 16px;font-family:var(--mono);font-size:0.6563rem;font-weight:600;letter-spacing:.09em;
   text-transform:uppercase;color:var(--no);
-  background:hsl(354 70% 40% / .12);border-bottom:1px solid var(--rim2)}
-html.light .kkill-h{color:hsl(354 70% 46%);background:hsl(354 80% 95% / .8)}
+  background:var(--card2);border-bottom:1px solid var(--rim2)}
+html.light .kkill-h{color:hsl(354 70% 46%);background:var(--card2)}
 .kkill table{width:100%;border-collapse:collapse}
 .kkill td{padding:11px 15px;font-size:0.8rem;line-height:1.55;color:var(--txt2);vertical-align:top;
            border-bottom:1px solid var(--rim2)}
@@ -957,15 +960,10 @@ html[data-banktheme="library"][data-mode="light"]{ color-scheme:light;
 /* ── fully boxy: no rounded corners ── */
 body *{ border-radius:0 !important; }
 
-/* ── field labels → coloured chips ── */
-.fld .k-label{ display:inline-flex; align-items:center; gap:7px; width:auto; margin-bottom:calc(7px * var(--fit));
-  padding:calc(4px * var(--fit)) calc(11px * var(--fit)) calc(4px * var(--fit)) calc(9px * var(--fit));
-  font-size:calc(0.75rem * var(--fit)); font-weight:700; letter-spacing:.05em;
-  color:var(--fc); border:1px solid color-mix(in srgb, var(--fc) 42%, transparent);
-  background:color-mix(in srgb, var(--fc) 14%, transparent); }
+/* ── field labels → quiet mono micro-labels (unboxed, square mark only) ── */
+.fld .k-label{ font-size:calc(0.75rem * var(--fit)); letter-spacing:.12em; }
 .fld .k-label::before{ content:""; width:6px; height:6px; background:var(--fc); flex:none;
-  box-shadow:0 0 0 2px color-mix(in srgb, var(--fc) 22%, transparent); }
-html[data-mode="light"] .fld .k-label{ background:color-mix(in srgb, var(--fc) 9%, transparent); }
+  opacity:.85; }
 
 /* ── typography: nothing thin, nothing below ~12px, scaled by auto-fit ── */
 #content .q-stem{ font-size:calc(1.22rem * var(--fit)); line-height:1.42; font-weight:500; }
@@ -978,11 +976,8 @@ html[data-mode="light"] .fld .k-label{ background:color-mix(in srgb, var(--fc) 9
 #content .ct-sub{ font-size:calc(0.82rem * var(--fit)); }
 
 /* ── legibility: accent-backed elements get readable text in both modes ── */
-.fb-tab{ color:var(--txt2) !important; background:color-mix(in srgb, var(--a1) 10%, transparent);
-  border-color:color-mix(in srgb, var(--a1) 30%, transparent); }
-.fb-tab.on{ background:var(--a1) !important; color:#0B0C0E !important; border-color:transparent !important; }
 html[data-mode="light"] .fb-tab.on{ color:#fff !important; }
-.fb-tab .n{ background:color-mix(in srgb, var(--txt) 14%, transparent); color:inherit; }
+.fb-tab.on .n{ background:hsl(0 0% 0% / .14); color:#0B0C0E; }
 html[data-mode="light"] .sb-logo,
 html[data-mode="light"] .sb-test.active .num,
 html[data-mode="light"] .sb-act:hover,
