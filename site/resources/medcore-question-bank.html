@@ -748,6 +748,10 @@ html.light .toast{background:hsl(var(--h) 50% 98% / .9)}
   /* keyboard hints are desktop furniture */
   .hint,.kbd{display:none}
   .next-wrap .hint{display:none}
+  .kbar{display:none}
+  .toast{max-width:calc(100vw - 32px)}
+  /* long IDs and DNA strings can't blow out the column on a phone */
+  .k-val,.kkill td,.v-text small{overflow-wrap:anywhere}
   /* results card */
   .res{padding:20px 14px}
   .res-card{padding:28px 22px}
