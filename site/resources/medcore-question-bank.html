@@ -723,6 +723,35 @@ html.light .toast{background:hsl(var(--h) 50% 98% / .9)}
   .fb-tabs{padding-left:18px;padding-right:18px}
   .pbar{padding:9px 18px}
 }
+@media (max-width:640px){
+  :root{--r:18px;--rl:22px;--rsm:12px}
+  /* topbar + context head */
+  .ct-head{padding:10px 14px}
+  .ct-title{font-size:0.8125rem}
+  .ct-sub{display:none}
+  .icon-btn{width:30px;height:30px}
+  #rootHtml .pill{height:30px;padding:0 10px}
+  #rootHtml .icon-btn{width:30px;height:30px}
+  /* question card */
+  .qcol{padding:14px 14px 20px}
+  /* feedback panel */
+  .fb-head{padding:14px 16px}
+  .verdict{padding:11px 14px;gap:10px}
+  .v-text{font-size:0.9688rem}
+  .fb-tabs{gap:6px;padding:10px 16px}
+  .fb-tab{padding:6px 10px;font-size:0.5938rem}
+  .fb-body{padding:16px 16px 24px}
+  .fld{padding:14px 15px}
+  /* kill table on narrow: letters ride the text, rows stack-friendly */
+  .kkill .opt-col{width:26px}
+  .kkill td{padding:9px 12px}
+  /* keyboard hints are desktop furniture */
+  .hint,.kbd{display:none}
+  .next-wrap .hint{display:none}
+  /* results card */
+  .res{padding:20px 14px}
+  .res-card{padding:28px 22px}
+}
 @media (prefers-reduced-motion:reduce){
   .pbar-fill::after{animation:none}
   .cf{animation:none}

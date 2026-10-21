@@ -107,6 +107,18 @@ main::before{ content:""; position:absolute; inset:-40px -60px auto; height:200p
   background:radial-gradient(600px 200px at 50% 0%, rgba(46,80,87,.14), transparent 70%); z-index:0 }
 main>*{ position:relative; z-index:1 }
 </style>
+<style>
+/* shared mobile tightening (house pass) */
+@media (max-width:640px){
+  .topbar-in{padding-left:16px;padding-right:16px;height:56px}
+  main,.pagehead,.foot-in{padding-left:16px;padding-right:16px}
+  .foot-in{flex-wrap:wrap;gap:16px 24px;padding-top:20px}
+  .card{padding:22px 18px}
+  .faq{margin-top:28px}
+  .faq summary{padding:13px 15px}
+  .faq details .a{padding:12px 15px}
+}
+</style>
 </head>
 <body>
 <header class="topbar"><div class="topbar-in">
