@@ -575,6 +575,22 @@ html[data-mode="dark"] .sficon[class*="-navy"], html[data-mode="dark"] .sficon[c
 }
 @page{ size:auto; margin:14mm; }
 @media print{ .nx-top,.nx-side,.nx-booknav,.nx-toast{ display:none !important; } .nx-shell{ padding-top:0; } }
+
+@media (max-width:640px){
+  /* phone pass — the whole book reads like it owns the thumb */
+  .nx-hero{ padding:30px 14px 24px; }
+  .nx-section{ padding:26px 15px 4px; }
+  .nx-section p, .nx-section li{ font-size:16px; line-height:1.7; }
+  .nx-section h3{ font-size:16.5px; }
+  table{ font-size:14.5px; }
+  tbody td, thead th{ padding:10px 11px; }
+  .mcq{ padding:15px 15px; }
+  .mcq-stem{ font-size:16px; }
+  .mcq-options li{ font-size:15.5px; line-height:1.55; padding:9px 10px 9px 24px; }
+  .buzzword{ padding:10px 12px; }
+  .nx-booknav{ margin:34px 15px 30px; }
+  .nx-top{ padding-left:10px; padding-right:10px; }
+}
 </style><script>try{var __f=localStorage.getItem("medcore.banktheme")||"ink",__t=localStorage.getItem("medcore.theme")||"dark";document.documentElement.setAttribute("data-banktheme",__f);document.documentElement.setAttribute("data-mode",__t);}catch(e){}</script></head>
 <body><header class="nx-top">
     <button class="nx-navbtn" id="nxNavbtn" aria-label="Menu">☰</button>

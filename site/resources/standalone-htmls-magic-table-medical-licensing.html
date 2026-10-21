@@ -1538,6 +1538,13 @@ tbody tr:hover td{background:var(--accent-tint)}
     doc.write('<!DOCTYPE html><html><head><meta charset="utf-8"><title>' + title + '</title><style>' + printStyles + '</style></head><body>' +
       '<div class="brand">Magic Table — Medical Licensing · Section</div>' + clone.outerHTML + '
 <script src="/medcore-sync.js" defer></script>
+
+<style>/* phone guards (shared) */
+@media (max-width:640px){
+  img,video{max-width:100%;height:auto}
+  pre{overflow-x:auto;-webkit-overflow-scrolling:touch}
+}
+</style>
 </body></html>');
     doc.close();
     iframe.contentWindow.focus();
