@@ -13,5 +13,10 @@ CREATE TABLE IF NOT EXISTS sessions (
   created_at  INTEGER,
   expires_at  INTEGER
 );
+CREATE TABLE IF NOT EXISTS auth_fails (
+  key         TEXT PRIMARY KEY,
+  fails       INTEGER,
+  last        INTEGER
+);
 CREATE INDEX IF NOT EXISTS idx_sessions_user ON sessions(user_id);
 CREATE INDEX IF NOT EXISTS idx_users_username ON users(username);

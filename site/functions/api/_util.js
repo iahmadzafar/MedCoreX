@@ -11,10 +11,8 @@ export function json(data, status = 200, headers = {}) {
 export function bad(msg, status = 400) { return json({ error: msg }, status); }
 export function cors(extra = {}) {
   return {
-    'access-control-allow-origin': '*',
     'access-control-allow-headers': 'content-type',
     'access-control-allow-methods': 'GET,POST,PATCH,OPTIONS',
-    'access-control-allow-credentials': 'true',
     ...extra
   };
 }
@@ -73,12 +71,9 @@ export async function createSession(env, userId) {
 
 // ── keyhole: the librarian's hand on the ledger ──
 // A single secret (Pages env MX_KEYHOLE, mirrored to the local keychain)
-// unlocks admin reads/writes. Nothing here is reachable without it.
+// unlocks admin reads/writes. Header transport only — never the URL.
 export function keyholeOk(request, env) {
-  let provided = request.headers.get('x-keyhole') || '';
-  if (!provided) {
-    try { provided = new URL(request.url).searchParams.get('k') || ''; } catch {}
-  }
+  const provided = request.headers.get('x-keyhole') || '';
   const key = env.MX_KEYHOLE || '';
   if (!key || !provided || provided.length !== key.length) return false;
   let d = 0;

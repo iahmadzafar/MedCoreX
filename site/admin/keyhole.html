@@ -189,5 +189,20 @@ document.getElementById('ledger').addEventListener('click', async function(e){
 
 if(KEY){ render(); } else { unlockUI(''); }
 </script>
+
+<footer style="border-top:1px solid var(--line);background:var(--void);margin-top:40px">
+  <div style="max-width:1120px;margin:0 auto;padding:22px 24px 28px;display:flex;gap:18px;align-items:flex-start;flex-wrap:wrap">
+    <div style="font-family:var(--serif);font-size:19px;display:inline-flex;gap:8px;align-items:center">MedLib&nbsp;<span style="color:var(--amber)">X</span></div>
+    <nav style="display:flex;gap:16px;flex-wrap:wrap;margin-left:auto;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase">
+      <a href="/library" style="color:var(--muted);text-decoration:none">Library</a>
+      <a href="/about" style="color:var(--muted);text-decoration:none">About</a>
+      <a href="/faq" style="color:var(--muted);text-decoration:none">FAQ</a>
+    </nav>
+    <div style="width:100%;border-top:1px solid var(--line);margin-top:14px;padding-top:12px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;color:var(--faint);font-family:var(--mono);font-size:11.5px;letter-spacing:.05em">
+      <span>© 2026 MedLib X. All rights reserved.</span>
+      <span>Files are licensed for the account holder's personal use.</span>
+    </div>
+  </div>
+</footer>
 </body>
 </html>
