@@ -1,34 +1,74 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1"><title>Pattern Analysis — 4 Papers</title><style>body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; max-width: 100%; margin: 2em auto; padding: clamp(1em,5vw,4em); line-height: 1.7; color: #1a1a1a; background: #fff; }
-h1 { text-align: center; color: #1a1a1a; font-size: 1.5rem; }
-.meta { text-align: center; color: #777; font-size: 0.8125rem; margin-bottom: 2em; }
-h2 { color: #c0392b; border-bottom: 2px solid #c0392b; padding-bottom: 4px; margin-top: 2em; font-size: 0.9375rem; }
-.subject-header { background: #c0392b; color: white; padding: 0.5em 1em; margin-top: 2.5em; border-radius: 4px; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.5px; }
-.q-card { margin: 1.5em 0; padding: 1em 1.2em; border: 1px solid #e0e0e0; border-left: 4px solid #c0392b; border-radius: 6px; }
-.q-num { font-weight: 700; color: #c0392b; font-family: 'Courier New', monospace; margin-bottom: 0.4em; }
-.q-stem { font-size: 0.875rem; margin-bottom: 0.6em; }
-.opt { margin: 0.35em 0; padding: 0.25em 0.6em; border-radius: 3px; font-size: 0.8125rem; }
-.opt-letter { font-family: 'Courier New', monospace; font-weight: 700; color: #555; }
-.opt.correct { background: #e8f5e9; border-left: 3px solid #2e7d32; font-weight: 600; }
-.opt.correct .opt-letter { color: #2e7d32; }
-.badge { font-size: 0.6875rem; font-weight: 700; padding: 1px 6px; border-radius: 8px; margin-left: 6px; }
-.badge.ok { background: #2e7d32; color: white; }
-.why { margin-top: 0.6em; padding: 0.5em 0.7em; background: #f5f5f5; border-radius: 3px; font-size: 0.8125rem; }
-.why .label { font-weight: 700; }
-.why-not { margin-top: 0.3em; padding: 0.35em 0.7em; background: #fce4ec; border-radius: 3px; font-size: 0.75rem; color: #7f1d1d; }
-.variants { margin-top: 0.5em; padding: 0.4em 0.7em; background: #e3f2fd; border-radius: 3px; font-size: 0.75rem; color: #0d47a1; }
-.variants .label { font-weight: 700; }
-.variants div { margin: 0.2em 0; }
-.note { background: #fff8e1; border: 1px solid #f0e0a0; border-radius: 6px; padding: 0.8em 1em; margin: 1.5em 0; font-size: 0.8125rem; }
-table { width: 100%; border-collapse: collapse; margin: 1em 0; }
-th { background: #c0392b; color: white; padding: 0.5em; text-align: left; font-size: 0.75rem; }
-td { padding: 0.4em 0.5em; border-bottom: 1px solid #eee; font-size: 0.8125rem; }
-.bar-row { display: flex; align-items: center; margin: 3px 0; }
-.bar-label { width: 160px; font-size: 0.75rem; color: #555; }
-.bar-track { flex: 1; height: 18px; background: #f0f0f0; border-radius: 3px; margin: 0 8px; overflow: hidden; }
-.bar-fill { height: 100%; background: #c0392b; border-radius: 3px; }
-.bar-val { width: 60px; font-size: 0.6875rem; color: #777; font-family: 'Courier New', monospace; }
-</style>
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>Pattern Analysis — 4 Papers</title><style>
+/* ── MedLib X house skin (Nexus Duo) ── */
+:root{
+  --bg:#0C171A; --panel:#122428; --panel2:#172D31; --ground-2:#101F23;
+  --line:#1E3338; --line2:#264248;
+  --fg:#E9F1F2; --tx:#E9F1F2; --tx2:#C2D4D6; --muted:#7E979B; --faint:#5A7276;
+  --amber:#F5A524; --mint:#34E0A1; --coral:#FF5470;
+  --serif:'Instrument Serif',Georgia,serif; --body:'Newsreader',Georgia,serif; --mono:'IBM Plex Mono',ui-monospace,monospace;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--body); max-width:100%; margin:0 auto; line-height:1.7;
+  color:var(--fg); background:var(--bg);
+  padding:clamp(1.4em,4vw,3.2em);
+  -webkit-font-smoothing:antialiased;
+}
+/* light twin */
+@media (prefers-color-scheme: light){
+  body{background:#FAF9F4; color:#17110A}
+  body h2{color:#17110A} body h3{color:#9A5B10} body table{background:#FFFFFF}
+  th{background:#EFE8D8}
+}
+h1{
+  text-align:left; color:var(--fg);
+  font-family:var(--serif); font-weight:400;
+  font-size:clamp(2.1rem,5vw,3rem); line-height:1.08; margin:0 0 .3em;
+}
+h2{
+  font-family:var(--serif); font-weight:400;
+  font-size:clamp(1.5rem,3.4vw,2rem); line-height:1.15;
+  margin:2.2em 0 .5em; color:var(--amber);
+  border-top:1px solid var(--line); padding-top:.7em;
+}
+h3{ color:var(--muted); font-size:.78rem; letter-spacing:.16em; text-transform:uppercase; font-family:var(--mono); font-weight:500; margin:1.8em 0 .5em }
+p,li{ color:var(--tx2) }
+a{ color:var(--amber) }
+strong{ color:var(--fg) }
+code,kbd{ font-family:var(--mono); font-size:.9em; background:var(--panel2); border:1px solid var(--line); padding:1px 6px; border-radius:2px; color:var(--tx2) }
+table{ border-collapse:collapse; width:100%; background:var(--panel); font-size:.9rem }
+th,td{ border:1px solid var(--line); padding:9px 12px; text-align:left; }
+th{ font-family:var(--mono); font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; color:var(--amber); background:var(--ground-2) }
+tr:hover td{ background:var(--panel2) }
+blockquote + h2, pre + h2, table + h2{ margin-top:2.2em }
+pre{ background:var(--panel); border:1px solid var(--line); border-radius:2px; padding:14px 16px; overflow-x:auto }
+.footer{
+  border-top:1px solid var(--line); background:var(--ground-2);
+  
+
+<footer class="footer">
+  <div style="max-width:1010px;margin:0 auto;padding:26px 24px 30px">
+    <div style="display:flex;gap:18px;align-items:flex-start;flex-wrap:wrap">
+      <div>
+        <div style="font-family:var(--serif);font-size:19px;display:inline-flex;gap:8px;align-items:center">MedLib <span style="color:var(--amber)">X</span></div>
+        <p style="color:var(--muted);font-size:13.5px;margin:8px 0 0;max-width:360px;line-height:1.55">A private study library — curated with discipline, guarded behind an account, and kept current and exact.</p>
+      </div>
+      <nav style="display:flex;gap:16px;flex-wrap:wrap;margin-left:auto;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding-top:2px">
+        <a href="/library" style="color:var(--muted);text-decoration:none">Library</a>
+        <a href="/about" style="color:var(--muted);text-decoration:none">About</a>
+        <a href="/faq" style="color:var(--muted);text-decoration:none">FAQ</a>
+      </nav>
+      <div style="width:100%;border-top:1px solid var(--line);margin-top:18px;padding-top:14px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;color:var(--faint);font-family:var(--mono);font-size:11.5px;letter-spacing:.05em">
+        <span>© 2026 MedLib X. All rights reserved.</span>
+        <span>Files are licensed for the account holder's personal use.</span>
+      </div>
+    </div>
+  </div>
+</footer>
+</style></style>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"><style id="polish">html{font-size:clamp(15px,12.9px + .52vw,17px);-webkit-text-size-adjust:100%}
 
 :focus-visible{outline:2px solid #0e7c7b;outline-offset:2px;border-radius:2px}
