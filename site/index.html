@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MedLib X — a private study library</title>
-<meta name="description" content="Seven groups, thirty-six files. A curated standard of preparation — books, drills, papers and intelligence — guarded behind an account.">
+<meta name="description" content="Seven shelves, thirty-six files, one standard. A curated library of books, drills, recalled papers and exam intelligence — browsing is free, opening a file takes an account.">
 <meta name="robots" content="noindex, nofollow">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%230C171A'/%3E%3Cpath d='M7 7l10 10M17 7L7 17' stroke='%23F5A524' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,169 +14,141 @@
 :root{
   --ground:#0C171A; --ground-2:#101F23; --void:#080F11;
   --panel:#122428; --panel-2:#172D31;
-  --chalk:#E9F1F2; --chalk-2:#C2D4D6; --muted:#7E979B; --faint:#5A7276;
-  --amber:#F5A524; --mint:#34E0A1; --coral:#FF5470;
+  --chalk:#E9F1F2; --chalk-2:#C2D4D6; --muted:#9BB0B4; --faint:#7B9498;
+  --amber:#F5A524; --mint:#34E0A1; --coral:#FF5470; --violet:#A98BFF; --cyan:#4FD6E0;
   --line:#1E3338; --line-2:#264248; --line-3:#2E5057;
   --serif:'Instrument Serif',Georgia,serif;
   --body:'Newsreader',Georgia,serif;
   --mono:'IBM Plex Mono',ui-monospace,monospace;
-  --maxw:1020px;
+  --maxw:1160px;
+  --float:inset 0 1px 0 rgba(255,255,255,.05), 0 1px 2px rgba(0,0,0,.55), 0 14px 34px -16px rgba(0,0,0,.7);
 }
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--ground);color:var(--chalk);font-family:var(--body);font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--ground);color:var(--chalk);font-family:var(--body);font-size:19px;line-height:1.7;-webkit-font-smoothing:antialiased}
 a{color:inherit}
 h1,h2,h3{font-weight:400;margin:0}
 :focus-visible{outline:2px solid var(--amber);outline-offset:3px}
 ::selection{background:var(--amber);color:var(--void)}
-.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
-/* ── topbar ─────────────────────────────────────────────── */
-.topbar{position:sticky;top:0;z-index:50;background:rgba(8,15,17,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.topbar-in{max-width:var(--maxw);margin:0 auto;padding:0 24px;height:60px;display:flex;align-items:center;gap:22px}
-.brand{display:flex;align-items:center;gap:9px;font-family:var(--serif);font-size:22px;line-height:1;text-decoration:none}
-.brand .glyph{width:18px;height:18px;color:var(--amber);flex:none}
+/* ── nav ─────────────────────────────────────────────────── */
+.topbar{position:sticky;top:0;z-index:50;background:rgba(8,15,17,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
+  box-shadow:0 8px 24px -18px rgba(0,0,0,.8)}
+.topbar-in{max-width:var(--maxw);margin:0 auto;padding:0 24px;height:64px;display:flex;align-items:center;gap:24px}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-size:24px;line-height:1;text-decoration:none}
+.brand .glyph{width:19px;height:19px;color:var(--amber);flex:none}
 .brand .x{color:var(--amber)}
-.topnav{display:flex;gap:18px;margin-left:6px}
-.topnav a{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .15s}
+.topnav{display:flex;gap:22px;margin-left:6px}
+.topnav a{font-family:var(--mono);font-size:13.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .15s}
 .topnav a:hover{color:var(--chalk)}
-.topnav a.here{color:var(--amber)}
-.auth{margin-left:auto;display:flex;align-items:center;gap:14px}
-.auth a{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--muted)}
+.auth{margin-left:auto;display:flex;align-items:center;gap:16px}
+.auth a{font-family:var(--mono);font-size:13.5px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--muted)}
 .auth a:hover{color:var(--chalk)}
-.who{font-family:var(--mono);font-size:12px;color:var(--faint);display:flex;align-items:center;gap:10px}
+.who{font-family:var(--mono);font-size:13.5px;color:var(--faint);display:flex;align-items:center;gap:10px}
 .who b{color:var(--chalk-2);font-weight:500}
-.dot{width:6px;height:6px;border-radius:50%;background:var(--mint);flex:none}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--mint);flex:none}
 
-main{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+main{max-width:var(--maxw);margin:0 auto;padding:0 24px;position:relative}
+main::before{content:"";position:absolute;inset:-40px -60px auto;height:240px;pointer-events:none;
+  background:radial-gradient(640px 220px at 50% 0%, rgba(46,80,87,.16), transparent 70%);z-index:0}
+main>*{position:relative;z-index:1}
 
-/* ── footer ─────────────────────────────────────────────── */
-.footer{border-top:1px solid var(--line);margin-top:72px;background:var(--void)}
-.foot-in{max-width:var(--maxw);margin:0 auto;padding:28px 24px 34px;display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap}
-.foot-brand{font-family:var(--serif);font-size:19px;display:inline-flex;gap:8px;align-items:center}
-.foot-brand .glyph{width:13px;height:13px;color:var(--amber)}
-.brand .x,.foot-brand .x{color:var(--amber)}
-.foot-tag{color:var(--faint);font-size:13.5px;margin:8px 0 0;max-width:360px;line-height:1.55}
-.foot-links{display:flex;gap:16px;flex-wrap:wrap;margin-left:auto;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
-.foot-links a{color:var(--muted);text-decoration:none}
-.foot-links a:hover{color:var(--chalk)}
-.foot-legal{width:100%;border-top:1px solid var(--line);margin-top:18px;padding-top:14px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--faint);font-family:var(--mono);font-size:11.5px;letter-spacing:.05em}
-
-.btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border:1px solid var(--line-2);color:var(--chalk);padding:11px 18px;border-radius:2px;cursor:pointer;background:transparent;transition:border-color .15s,background .15s}
+/* ── buttons ─────────────────────────────────────────────── */
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:15px;letter-spacing:.08em;text-transform:uppercase;
+  text-decoration:none;border:1px solid var(--line-2);color:var(--chalk);padding:15px 26px;cursor:pointer;background:transparent;
+  box-shadow:var(--float);transition:border-color .15s,background .15s,box-shadow .15s}
 .btn:hover{border-color:var(--amber)}
 .btn-amber{background:var(--amber);border-color:var(--amber);color:var(--void)}
 .btn-amber:hover{background:#ffc44d}
+.btn-ghost{box-shadow:none;border-color:var(--line)}
+.btn-ghost:hover{box-shadow:var(--float)}
 
-/* ── page ───────────────────────────────────────────────── */
-
-.hero{padding:88px 0 24px}
-.hero-in{display:flex;align-items:flex-start;gap:40px}
-.hero-in .hero-copy{flex:1 1 560px;min-width:0}
-.hero-viz{flex:0 0 330px;margin-top:18px;position:relative}
-.hv{display:block;text-decoration:none;border:1px solid var(--line);background:var(--ground-2);padding:16px 18px 15px;border-radius:2px;position:relative;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.05),0 1px 2px rgba(0,0,0,.55),0 14px 34px -16px rgba(0,0,0,.7);
-  transition:transform .18s ease,border-color .18s ease}
-.hv:hover{border-color:var(--amber);transform:translateY(-3px)}
-.hv .dot{position:absolute;top:0;left:0;width:3px;height:100%;background:var(--amber)}
-.hv-1{margin-bottom:14px}
-.hv-2{margin-left:34px;margin-bottom:14px}
-.hv-3{margin-left:12px}
-.hv h3{font-family:var(--serif);font-size:22px;line-height:1.2;margin-bottom:2px}
-.hv p{margin:0;color:var(--muted);font-size:14px;line-height:1.5}
-.hv .meta{margin-top:9px;display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:11px;color:var(--faint);letter-spacing:.06em}
-.hv .meta svg{width:11px;height:11px;color:var(--amber);flex:none}
-.hv-note{margin-top:16px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);text-align:center}
-@media (max-width:1060px){.hero-viz{flex:0 0 280px}}
-@media (max-width:900px){
-  .hero-in{flex-direction:column}
-  .hero-viz{display:none}
-}
-.kicker{font-family:var(--mono);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--faint)}
-.kicker b{color:var(--amber);font-weight:400}
-.hero h1{font-family:var(--serif);font-size:clamp(44px,7.4vw,76px);line-height:1.04;margin:.22em 0 .18em;letter-spacing:-.01em}
+/* ── hero ────────────────────────────────────────────────── */
+.hero{padding:96px 0 40px;max-width:940px}
+.eyebrow{font-family:var(--mono);font-size:14px;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);display:flex;align-items:center;gap:12px}
+.eyebrow::after{content:"";height:1px;flex:1;background:linear-gradient(90deg,var(--line-3),transparent)}
+.hero h1{font-family:var(--serif);font-size:clamp(52px,8.6vw,96px);line-height:1.02;letter-spacing:-.012em;margin:.24em 0 .22em}
 .hero h1 em{font-style:italic;color:var(--amber)}
-.hero .lede{font-size:19px;color:var(--chalk-2);max-width:620px}
-.hero .ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
-.hero-note{font-family:var(--mono);font-size:12px;color:var(--faint);margin-top:14px;letter-spacing:.06em}
+.lede{font-size:clamp(19px,2.4vw,23px);line-height:1.65;color:var(--chalk-2);max-width:760px}
+.hero .ctas{display:flex;gap:16px;flex-wrap:wrap;margin-top:38px}
+.hero .note{font-family:var(--mono);font-size:14px;color:var(--faint);margin-top:18px;letter-spacing:.04em}
 
-.strip{display:flex;gap:8px;flex-wrap:wrap;margin:52px 0 0;padding:18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.strip span{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:6px 12px;border:1px solid var(--line-2);border-radius:2px}
-.strip span i{color:var(--amber);font-style:normal}
+/* ── section heads ───────────────────────────────────────── */
+.sec{padding:64px 0 0}
+.sec .kicker{font-family:var(--mono);font-size:13.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--faint);margin-bottom:8px}
+.sec h2{font-family:var(--serif);font-size:clamp(34px,5vw,50px);line-height:1.08}
+.sec .sub{font-size:19px;color:var(--chalk-2);max-width:640px;margin-top:10px}
 
-.section{padding:56px 0 8px}
-.section>h2{font-family:var(--serif);font-size:34px;margin-bottom:6px}
-.section>.sub{color:var(--muted);max-width:640px}
-.groups{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:28px}
-.gcard{border:1px solid var(--line);background:var(--ground-2);padding:18px;transition:border-color .15s}
-.gcard:hover{border-color:var(--line-3)}
-.gcard .gnum{font-family:var(--mono);font-size:11px;color:var(--faint);letter-spacing:.18em}
-.gcard h3{font-family:var(--serif);font-size:21px;margin:8px 0 6px}
-.gcard p{margin:0;color:var(--muted);font-size:14.5px;line-height:1.5}
-.gcard .gn{float:right;font-family:var(--mono);font-size:12px;color:var(--muted)}
-.gcard .gn i{color:var(--amber);font-style:normal}
+/* ── playful tiles ───────────────────────────────────────── */
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:34px}
+.tile{position:relative;display:block;text-decoration:none;border:1px solid var(--line);background:var(--ground-2);
+  padding:26px 22px 20px;min-height:170px;overflow:hidden;box-shadow:var(--float);
+  transition:transform .16s ease,border-color .16s ease,box-shadow .16s ease}
+.tile:hover{transform:translateY(-4px);border-color:var(--hue,var(--amber));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.06), 0 2px 4px rgba(0,0,0,.6), 0 22px 46px -18px rgba(0,0,0,.85)}
+.tile .rail{position:absolute;left:0;top:0;width:4px;height:100%;background:var(--hue,var(--amber));opacity:.85}
+.tile .ghost{position:absolute;right:-6px;bottom:-26px;font-family:var(--serif);font-size:110px;line-height:1;
+  color:var(--hue,var(--amber));opacity:.1;pointer-events:none;transition:opacity .18s}
+.tile:hover .ghost{opacity:.2}
+.tile .glyph{width:34px;height:34px;border:1.5px solid var(--hue,var(--amber));display:grid;place-items:center;color:var(--hue,var(--amber));margin-bottom:16px}
+.tile .glyph svg{width:17px;height:17px}
+.tile h3{font-family:var(--serif);font-size:27px;line-height:1.12;margin-bottom:6px}
+.tile p{margin:0;color:var(--muted);font-size:16.5px;line-height:1.5}
+.tile .foot{display:flex;justify-content:space-between;align-items:center;margin-top:16px;font-family:var(--mono);
+  font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+.tile .foot .go{color:var(--hue,var(--amber));transition:transform .16s}
+.tile:hover .foot .go{transform:translateX(5px)}
+.tile.big{grid-column:span 2}
+.tile.big h3{font-size:34px}
 
-.rules{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:28px}
-.rule{border-top:2px solid var(--amber);padding:18px 4px 0}
-.rule .rn{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--faint)}
-.rule h3{font-family:var(--serif);font-size:22px;margin:10px 0 8px}
-.rule p{margin:0;color:var(--muted);font-size:15px}
+/* ── rules band ──────────────────────────────────────────── */
+.rules{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:34px}
+.rule{border-top:2px solid var(--amber);background:var(--ground-2);box-shadow:var(--float);padding:24px 22px 24px}
+.rule .num{font-family:var(--mono);font-size:46px;line-height:1;color:var(--amber);letter-spacing:-.02em}
+.rule h3{font-family:var(--serif);font-size:28px;margin:14px 0 8px;line-height:1.15}
+.rule p{margin:0;color:var(--muted);font-size:17px;line-height:1.65}
 
-.quote{margin:64px auto 0;max-width:760px;text-align:center;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:40px 10px}
-.quote p{font-family:var(--serif);font-size:30px;line-height:1.3;margin:0}
-.quote p i{font-style:normal;color:var(--amber)}
-.quote .qs{font-family:var(--mono);font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--faint);margin-top:16px}
+/* ── access band ─────────────────────────────────────────── */
+.access{display:grid;grid-template-columns:1.15fr .85fr;gap:18px;margin-top:70px;border:1px solid var(--line-2);
+  background:var(--panel);box-shadow:var(--float);padding:44px 42px}
+.access h2{font-family:var(--serif);font-size:clamp(30px,4vw,44px);line-height:1.1}
+.access h2 em{font-style:italic;color:var(--amber)}
+.access .body{color:var(--chalk-2);font-size:19px;margin-top:14px;max-width:520px}
+.steps{list-style:none;margin:6px 0 0;padding:0}
+.steps li{display:flex;gap:16px;align-items:flex-start;padding:16px 0;border-bottom:1px solid var(--line);font-size:18px;color:var(--chalk-2)}
+.steps li:last-child{border-bottom:0}
+.steps .tick{flex:none;width:26px;height:26px;border:1.5px solid var(--mint);color:var(--mint);display:grid;place-items:center;margin-top:3px}
+.steps .tick svg{width:13px;height:13px}
+.steps b{color:var(--chalk);font-weight:500}
+.access .ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
 
-.band{margin:64px 0 0;border:1px solid var(--line-2);background:var(--panel);padding:36px 30px;display:flex;align-items:center;gap:26px;flex-wrap:wrap}
-.band h2{font-family:var(--serif);font-size:28px;flex:1 1 320px;margin:0}
-.band .ctas{display:flex;gap:12px}
+/* ── footer ──────────────────────────────────────────────── */
+.footer{border-top:1px solid var(--line);margin-top:90px;background:var(--void);position:relative}
+.footer::before{content:"";position:absolute;left:0;right:0;top:-1px;height:1px;background:linear-gradient(90deg,transparent,var(--line-3),transparent)}
+.foot-in{max-width:var(--maxw);margin:0 auto;padding:34px 24px 40px;display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap}
+.foot-brand{font-family:var(--serif);font-size:21px;display:inline-flex;gap:9px;align-items:center}
+.foot-brand .glyph{width:14px;height:14px;color:var(--amber)}
+.foot-brand .x{color:var(--amber)}
+.foot-tag{color:var(--faint);font-size:16px;margin:10px 0 0;max-width:400px;line-height:1.6}
+.foot-links{display:flex;gap:18px;flex-wrap:wrap;margin-left:auto;font-family:var(--mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;padding-top:4px}
+.foot-links a{color:var(--muted);text-decoration:none}
+.foot-links a:hover{color:var(--chalk)}
+.foot-legal{width:100%;border-top:1px solid var(--line);margin-top:22px;padding-top:16px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--faint);font-family:var(--mono);font-size:12.5px;letter-spacing:.05em}
 
-@media (max-width:760px){
-  .topnav{gap:12px}
-  .hero{padding:66px 0 12px}
-  .groups,.rules{grid-template-columns:1fr 1fr}
-  .band{padding:26px 20px}
+@media (max-width:980px){
+  .tiles{grid-template-columns:repeat(2,1fr)}
+  .tile.big{grid-column:span 2}
+  .access{grid-template-columns:1fr;padding:34px 26px}
+  .rules{grid-template-columns:1fr}
+}
+@media (max-width:620px){
+  .topnav{gap:14px}
+  .topnav a{font-size:12px}
+  .hero{padding:66px 0 30px}
+  .tiles{grid-template-columns:1fr}
+  .tile.big{grid-column:span 1}
+  .btn{width:100%;justify-content:center}
   .foot-links{margin-left:0}
-}
-@media (max-width:520px){
-  .topnav span.hidesm{display:none}
-  .groups,.rules{grid-template-columns:1fr}
-  .quote p{font-size:24px}
-}
-</style>
-
-<style id="mx-surface">
-/* ── soft material · "more present" (house rules 1.4) ──
-   every quiet surface floats: contact + ambient on cards, panels, facts, buttons */
-.gcard,.card,.fact,.panel,.btn{
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.05),
-             0 1px 2px rgba(0,0,0,.55),
-             0 14px 30px -18px rgba(0,0,0,.65) !important;
-}
-.btn:hover,.gcard:hover,.card:hover,.fact:hover{
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.06),
-             0 1px 2px rgba(0,0,0,.55),
-             0 18px 44px -16px rgba(0,0,0,.8) !important;
-}
-/* the footer sits on a raised seam, not a dead line */
-.footer{ position:relative }
-.footer::before{ content:""; position:absolute; left:0; right:0; top:-1px; height:1px;
-  background:linear-gradient(90deg,transparent,var(--line-3),transparent) }
-/* ground breathes: a faint ambient pool under the main column */
-main{ position:relative }
-main::before{ content:""; position:absolute; inset:-40px -60px auto; height:200px; pointer-events:none;
-  background:radial-gradient(600px 200px at 50% 0%, rgba(46,80,87,.14), transparent 70%); z-index:0 }
-main>*{ position:relative; z-index:1 }
-</style>
-<style>
-/* shared mobile tightening (house pass) */
-@media (max-width:640px){
-  .topbar-in{padding-left:16px;padding-right:16px;height:56px}
-  main,.pagehead,.foot-in{padding-left:16px;padding-right:16px}
-  .foot-in{flex-wrap:wrap;gap:16px 24px;padding-top:20px}
-  .card{padding:22px 18px}
-  .faq{margin-top:28px}
-  .faq summary{padding:13px 15px}
-  .faq details .a{padding:12px 15px}
 }
 </style>
 </head>
@@ -188,75 +160,124 @@ main>*{ position:relative; z-index:1 }
 </div></header>
 
 <main>
-  <section class="hero"><div class="hero-in"><div class="hero-copy">
-    <p class="kicker"><b>MedLib X</b> · private study library · <span class="hidesm">seven groups · thirty-six files</span></p>
+  <section class="hero">
+    <p class="eyebrow">Private study library · seven shelves · thirty-six files</p>
     <h1>The shelf is open.<br>The <em>stack</em> is earned.</h1>
-    <p class="lede">A curated standard of preparation — books, drills, recalled papers and exam intelligence — assembled with discipline and kept to an uncompromising standard. Browsing is free; opening a file takes an account.</p>
+    <p class="lede">Books, drills, recalled papers and exam intelligence — assembled with discipline, kept current and exact. Read the shelf for free; open a file with an account.</p>
     <div class="ctas">
       <a class="btn btn-amber" href="/signup">Create your account</a>
       <a class="btn" href="/library">Browse the shelf</a>
     </div>
-    <p class="hero-note">Account comes with your username, assigned the moment you sign up.</p>
-</div>
-<div class="hero-viz" aria-hidden="true">
-  <a class="hv hv-1" href="/library"><span class="dot"></span>
-    <h3>MedCORE Study Book</h3><p>Every system, one volume — the weight-bearing shelf.</p>
-    <span class="meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><rect x="4" y="10" width="16" height="10" rx="1.5"/><path d="M8 10V7a4 4 0 1 1 8 0v3"/></svg>9.3 MB · sign in to open</span>
-  </a>
-  <a class="hv hv-2" href="/library"><span class="dot"></span>
-    <h3>Question Bank</h3><p>Six subject groups, timed — the self-testing bloodstream.</p>
-    <span class="meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><rect x="4" y="10" width="16" height="10" rx="1.5"/><path d="M8 10V7a4 4 0 1 1 8 0v3"/></svg>5.3 MB · sign in to open</span>
-  </a>
-  <a class="hv hv-3" href="/library"><span class="dot"></span>
-    <h3>Recalled Past Papers</h3><p>Five sessions, checked question by question, keys verified.</p>
-    <span class="meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><rect x="4" y="10" width="16" height="10" rx="1.5"/><path d="M8 10V7a4 4 0 1 1 8 0v3"/></svg>8 files · sign in to open</span>
-  </a>
-  <div class="hv-note">36 files · your seat waits</div>
-</div></div></section>
+    <p class="note">Your username is assigned the moment you sign up — change it any time.</p>
+  </section>
 
-  <div class="strip" aria-label="Library at a glance">
-    <span><i>36</i> files</span>
-    <span><i>7</i> groups</span>
-    <span>one standard</span>
-    <span>everything behind login</span>
-  </div>
+  <section class="sec">
+    <p class="kicker">What's inside</p>
+    <h2>Seven shelves, one roof</h2>
+    <p class="sub">The books and systems carry the weight; the drills and papers are where the marks come from. Every file opens after sign-in.</p>
 
-  <section class="section">
-    <h2>What's inside</h2>
-    <p class="sub">Seven groups. The books and systems carry the weight; the drills and papers are where the marks come from.</p>
-    <div class="groups">
-      <div class="gcard"><span class="gnum">01 · <i>5</i> files</span><h3>Core Books</h3><p>Volume-first: every system in one place, and the architecture of how the paper actually sets questions.</p></div>
-      <div class="gcard"><span class="gnum">02 · <i>1</i> file</span><h3>Test Series &amp; Mocks</h3><p>The merged bank — timed sets across six subject groups, the way a sitting actually feels.</p></div>
-      <div class="gcard"><span class="gnum">03 · <i>8</i> files</span><h3>Past Papers &amp; Answer Keys</h3><p>Recalled sessions checked question by question, with verified keys and distractor analysis.</p></div>
-      <div class="gcard"><span class="gnum">04 · <i>6</i> files</span><h3>Exam Intelligence &amp; Strategy</h3><p>What the paper will test, decoded from recurring patterns — and a day-by-day route to exam day.</p></div>
-      <div class="gcard"><span class="gnum">05 · <i>5</i> files</span><h3>Quick Reference</h3><p>Thresholds, ranges, clusters. Memorise once, recall anywhere — including the last night before.</p></div>
-      <div class="gcard"><span class="gnum">06 · <i>1</i> file</span><h3>Frameworks &amp; Interactive</h3><p>Case practice that behaves like a clinic, not a textbook.</p></div>
-      <div class="gcard"><span class="gnum">07 · <i>10</i> files</span><h3>MedCORE Systems</h3><p>Ten complete system books, built to the same shape each time — cardiology to ophthalmology.</p></div>
-      <div class="gcard" style="border-style:dashed"><span class="gnum">· GATE ·</span><h3>The gate</h3><p>Titles and counts are open. Every file itself opens only after you sign in.</p></div>
+    <div class="tiles">
+      <a class="tile big" href="/library" style="--hue:var(--amber)">
+        <span class="rail"></span>
+        <span class="ghost">01</span>
+        <span class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 5.5V20.5"/></svg></span>
+        <h3>Core Books</h3>
+        <p>Every system in one volume — and how the exam actually sets its questions.</p>
+        <span class="foot"><span>5 files</span><span class="go">Open →</span></span>
+      </a>
+
+      <a class="tile" href="/library" style="--hue:var(--cyan)">
+        <span class="rail"></span>
+        <span class="ghost">02</span>
+        <span class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 2h6"/></svg></span>
+        <h3>Test Series</h3>
+        <p>Six subject groups, merged — timed the way a sitting feels.</p>
+        <span class="foot"><span>1 file</span><span class="go">Open →</span></span>
+      </a>
+
+      <a class="tile" href="/library" style="--hue:var(--coral)">
+        <span class="rail"></span>
+        <span class="ghost">03</span>
+        <span class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M10 12h5M10 16h5"/></svg></span>
+        <h3>Past Papers</h3>
+        <p>Recalled sessions, checked question by question, keys verified.</p>
+        <span class="foot"><span>8 files</span><span class="go">Open →</span></span>
+      </a>
+
+      <a class="tile" href="/library" style="--hue:var(--violet)">
+        <span class="rail"></span>
+        <span class="ghost">04</span>
+        <span class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/></svg></span>
+        <h3>Intelligence</h3>
+        <p>What the next paper will test, decoded from recurring patterns.</p>
+        <span class="foot"><span>6 files</span><span class="go">Open →</span></span>
+      </a>
+
+      <a class="tile" href="/library" style="--hue:var(--mint)">
+        <span class="rail"></span>
+        <span class="ghost">05</span>
+        <span class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span>
+        <h3>Quick Reference</h3>
+        <p>Thresholds, ranges, clusters — memorise once, recall anywhere.</p>
+        <span class="foot"><span>5 files</span><span class="go">Open →</span></span>
+      </a>
+
+      <a class="tile" href="/library" style="--hue:var(--amber)">
+        <span class="rail"></span>
+        <span class="ghost">06</span>
+        <span class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 6h6v6H4zM14 12h6v6h-6zM7 12v4h7"/></svg></span>
+        <h3>Frameworks</h3>
+        <p>Case practice that behaves like a clinic, not a textbook.</p>
+        <span class="foot"><span>1 file</span><span class="go">Open →</span></span>
+      </a>
+
+      <a class="tile big" href="/library" style="--hue:var(--cyan)">
+        <span class="rail"></span>
+        <span class="ghost">07</span>
+        <span class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13h4l2-4 3 8 2.5-6 1.5 2h5"/></svg></span>
+        <h3>MedCORE Systems</h3>
+        <p>Ten complete system books, built to the same shape each time — cardiology to ophthalmology.</p>
+        <span class="foot"><span>10 files</span><span class="go">Open →</span></span>
+      </a>
     </div>
   </section>
 
-  <section class="section">
-    <h2>How it's held to standard</h2>
-    <p class="sub">Three rules, applied without exception.</p>
+  <section class="sec">
+    <p class="kicker">The standard</p>
+    <h2>Three rules, no exceptions</h2>
     <div class="rules">
-      <div class="rule"><p class="rn">RULE 01</p><h3>The syllabus is the spine</h3><p>Scope comes from the official syllabus, never from memory or from whichever textbook happened to be open. If it isn't on it, it doesn't earn screen time.</p></div>
-      <div class="rule"><p class="rn">RULE 02</p><h3>MCQs are the bloodstream</h3><p>The exam is a hundred multiple-choice questions, so practice runs through everything. Exposure is measured in questions attempted, not pages read.</p></div>
-      <div class="rule"><p class="rn">RULE 03</p><h3>The error log is sacred</h3><p>Every wrong answer gets a written record: date, source, your answer, the correct one — and the discriminator you missed. Naming why you missed it is the work.</p></div>
+      <div class="rule">
+        <div class="num">01</div>
+        <h3>The syllabus is the spine</h3>
+        <p>Scope comes from the official syllabus — never from memory, never from whichever book happened to be open.</p>
+      </div>
+      <div class="rule">
+        <div class="num">02</div>
+        <h3>MCQs are the bloodstream</h3>
+        <p>Practice runs through everything. Exposure is measured in questions attempted, not pages read.</p>
+      </div>
+      <div class="rule">
+        <div class="num">03</div>
+        <h3>The error log is sacred</h3>
+        <p>Every wrong answer gets a written record — the discriminator you missed, named in your own words.</p>
+      </div>
     </div>
   </section>
 
-  <figure class="quote">
-    <blockquote><p>Syllabus is the spine,<br>MCQs are the bloodstream,<br><i>the error log is sacred.</i></p></blockquote>
-    <figcaption class="qs">— the house standard</figcaption>
-  </figure>
-
-  <section class="band">
-    <h2>Open a file tonight. It takes one minute to belong to the shelf.</h2>
-    <div class="ctas">
-      <a class="btn btn-amber" href="/signup">Create account</a>
-      <a class="btn" href="/login">Sign in</a>
+  <section class="access">
+    <div>
+      <h2>Browsing is free.<br>Opening takes <em>a seat.</em></h2>
+      <p class="body">The shelf is open to anyone who looks. The stack — books, papers, drills — belongs to account holders. One minute, no cost, no verification loops.</p>
+      <div class="ctas">
+        <a class="btn btn-amber" href="/signup">Create your account</a>
+        <a class="btn" href="/login">Sign in</a>
+      </div>
     </div>
+    <ol class="steps">
+      <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5.5 5.5L20 6.5"/></svg></span><span><b>Sign up</b> with your email and a password — one minute.</span></li>
+      <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5.5 5.5L20 6.5"/></svg></span><span>Your <b>username</b> is assigned instantly — yours to change later.</span></li>
+      <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5.5 5.5L20 6.5"/></svg></span><span><b>Every file opens</b> — and your seat remembers you for weeks.</span></li>
+    </ol>
   </section>
 </main>
 
