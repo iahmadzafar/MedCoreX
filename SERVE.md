@@ -20,6 +20,11 @@ that's Cloudflare Functions territory — so sign-in flows need a deployed build
 but every page, the footer, catalog behaviour and the gate redirect can be verified
 right here.
 
+
+## AUTH REMOVED (Oct 22 2026) — restore path preserved
+
+His call: "remove the sign in and account module for now." Deleted: the gate function, the whole API suite, login/signup/account pages, auth-slot scripts, nav/footer links, FAQ/About account copy — the library is fully open. **NOT touched:** the D1 database (users/sessions/auth_fails all intact, including the owner's seat), the MX_KEYHOLE secret, the schema file. Restore auth with `git revert 470e27e` (or checkout tag `auth-era-on` before this removal) and redeploy — gate and pages come back as they were. Edge cache may serve stale /login for up to 7 days after removal; /_redirects sends them onward.
+
 ## What's where
 
 - `functions/resources/[[file]].js` — the gate. Sessions in D1, bounce to `/login?next=…`
