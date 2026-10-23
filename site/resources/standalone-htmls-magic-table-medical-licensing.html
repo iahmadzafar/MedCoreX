@@ -1536,16 +1536,7 @@ tbody tr:hover td{background:var(--accent-tint)}
     const doc = iframe.contentDocument;
     doc.open();
     doc.write('<!DOCTYPE html><html><head><meta charset="utf-8"><title>' + title + '</title><style>' + printStyles + '</style></head><body>' +
-      '<div class="brand">Magic Table — Medical Licensing · Section</div>' + clone.outerHTML + '
-
-<style>/* phone guards (shared) */
-@media (max-width:640px){
-  img,video{max-width:100%;height:auto}
-  pre{overflow-x:auto;-webkit-overflow-scrolling:touch}
-  body{overflow-x:hidden;padding-left:14px;padding-right:14px}
-}
-</style>
-</body></html>');
+      '<div class="brand">Magic Table — Medical Licensing · Section</div>' + clone.outerHTML + '\n\n<style>/* phone guards (shared) */\n@media (max-width:640px){\n  img,video{max-width:100%;height:auto}\n  pre{overflow-x:auto;-webkit-overflow-scrolling:touch}\n  body{overflow-x:hidden;padding-left:14px;padding-right:14px}\n}\n</style>\n</body></html>');
     doc.close();
     iframe.contentWindow.focus();
     iframe.contentWindow.print();
