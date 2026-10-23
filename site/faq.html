@@ -116,7 +116,6 @@ main>*{ position:relative; z-index:1 }
 <header class="topbar"><div class="topbar-in">
   <a class="brand" href="/"><svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 7l14 0M5 12l14 0M5 17l9 0"/></svg>MedLib&nbsp;<span class="x">X</span></a>
   <nav class="topnav"><a href="/library">Library</a><a href="/about">About</a><a class="here" href="/faq">FAQ</a></nav>
-  <div class="auth" id="auth"><a href="/login">Sign in</a></div>
 </div></header>
 
 <main>
@@ -127,35 +126,23 @@ main>*{ position:relative; z-index:1 }
 
   <div class="faq">
     <details open><summary><span class="tick"></span>What is MedLib X?</summary>
-      <div class="ans"><p>A private study library — 36 files across seven groups: complete system books, a merged question bank, recalled past-paper sessions with verified keys, exam intelligence, and quick-reference sheets. Reading the shelf is open to anyone with a browser; opening files takes an account.</p></div>
+      <div class="ans"><p>A private study library — 36 files across seven groups: complete system books, a merged question bank, recalled past-paper sessions with verified keys, exam intelligence, and quick-reference sheets. Everything is open — walk in and read.</p></div>
     </details>
 
-    <details><summary><span class="tick"></span>Why do I need an account to read a file?</summary>
-      <div class="ans"><p>The library is built carefully and deliberately small. An account is the reading desk: it keeps the place quiet, and it means every reader chose to be here. There's no cost, no trial, no paywall — just a door.</p></div>
+    <details><summary><span class="tick"></span>What's actually in it?</summary>
+      <div class="ans"><p>Seven shelves: core books, the merged test series, past papers with keys, the intelligence layer that says what the next paper will test, quick references, interactive case practice, and ten complete system books from cardiology to ophthalmology.</p></div>
     </details>
 
-    <details><summary><span class="tick"></span>How does signing up work?</summary>
-      <div class="ans"><p>Email and a password — one minute, no email verification loops. When the account is created, MedLib X assigns you a username derived from your email, made unique at reserve. You can change it later from your account page.</p></div>
-    </details>
-
-    <details><summary><span class="tick"></span>What does my username mean?</summary>
-      <div class="ans"><p>It's your seat at the desk. It shows when you're signed in, next to your account. If the exact name you'd want is busy, a numbered one is assigned instead — and you're welcome to change it from the account page, as long as it's free.</p></div>
-    </details>
-
-    <details><summary><span class="tick"></span>I forgot my password.</summary>
-      <div class="ans"><p>The shelves are small and the desk is human: write to the librarian and a reset is arranged by hand. Ask for it from the account you signed up with, so ownership is clear.</p></div>
-    </details>
-
-    <details><summary><span class="tick"></span>Can I change my password or email?</summary>
-      <div class="ans"><p>Passwords change any time from your <a href="/account">account page</a> — it asks for your current password first, the way a locked room should. Email changes also go through the librarian, since the email is how your seat is identified.</p></div>
+    <details><summary><span class="tick"></span>Do I need an account?</summary>
+      <div class="ans"><p>No. Accounts were part of an earlier plan; for now every file on the shelf is open to anyone who walks in.</p></div>
     </details>
 
     <details><summary><span class="tick"></span>Does MedLib X track me or show ads?</summary>
-      <div class="ans"><p>No. The account holds your email, your username and a salted password hash — nothing else. No analytics, no third-party scripts, no advertising. Read the longer version on the <a href="/about">About page</a>.</p></div>
+      <div class="ans"><p>No. There are no accounts, no analytics, no third-party scripts and no advertising anywhere in the house. Read the longer version on the <a href="/about">About page</a>.</p></div>
     </details>
 
-    <details><summary><span class="tick"></span>Can I share files or sign in on another device?</summary>
-      <div class="ans"><p>Sign in wherever you like — the shelf travels. Files are licensed for the account holder's personal use, so pass the door link on, not the books: send someone <a href="/signup">the front desk</a> instead.</p></div>
+    <details><summary><span class="tick"></span>Can I share the files or use them elsewhere?</summary>
+      <div class="ans"><p>The files are licensed for your own personal study — read them anywhere you like, pass the link rather than the files themselves. This house stays open for anyone you send here.</p></div>
     </details>
 
     <details><summary><span class="tick"></span>How current is the material?</summary>
@@ -166,7 +153,7 @@ main>*{ position:relative; z-index:1 }
       <div class="ans"><p>Tell the librarian — bugs get fixed before furniture gets replaced. Say which file, which group, and what you saw; the shelf is maintained with patience on purpose.</p></div>
     </details>
   </div>
-</main>
+</main></main>
 
 <footer class="footer"><div class="foot-in">
   <div>
@@ -174,7 +161,7 @@ main>*{ position:relative; z-index:1 }
     <p class="foot-tag">A private study library — curated with discipline, guarded behind an account, and kept current and exact.</p>
   </div>
   <nav class="foot-links" aria-label="Footer">
-    <a href="/library">Library</a><a href="/about">About</a><a href="/faq">FAQ</a><a href="/signup">Create account</a><a href="/login">Sign in</a>
+    <a href="/library">Library</a><a href="/about">About</a><a href="/faq">FAQ</a>
   </nav>
   <div class="foot-legal">
     <span>© 2026 MedLib X. All rights reserved.</span>
@@ -182,21 +169,6 @@ main>*{ position:relative; z-index:1 }
   </div>
 </div></footer>
 
-<script>
-function esc(s){return String(s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
-fetch('/api/me').then(function(r){return r.json();}).then(function(j){
-  var a=document.getElementById('auth'); if(!a) return;
-  if(j&&j.ok&&j.user){
-    a.innerHTML='<span class="who"><span class="dot"></span><b>'+esc(j.user.username)+'</b></span>'
-      +'<a href="/account">Account</a>'
-      +'<a href="#" id="out">Sign out</a>';
-    document.getElementById('out').addEventListener('click',function(e){
-      e.preventDefault(); fetch('/api/logout',{method:'POST'}).then(function(){location.href='/';});
-    });
-  }else{
-    a.innerHTML='<a href="/login">Sign in</a>';
-  }
-}).catch(function(){});
-</script>
+
 </body>
 </html>

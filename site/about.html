@@ -117,7 +117,6 @@ main>*{ position:relative; z-index:1 }
 <header class="topbar"><div class="topbar-in">
   <a class="brand" href="/"><svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 7l14 0M5 12l14 0M5 17l9 0"/></svg>MedLib&nbsp;<span class="x">X</span></a>
   <nav class="topnav"><a href="/library">Library</a><a class="here" href="/about">About</a><a href="/faq">FAQ</a></nav>
-  <div class="auth" id="auth"><a href="/login">Sign in</a></div>
 </div></header>
 
 <main>
@@ -135,8 +134,8 @@ main>*{ position:relative; z-index:1 }
   <article class="prose">
     <p class="lede">MedLib X is a private study library: one person's preparation, organised with intent and opened to a small set of readers. Every file on the shelf was built the same way — backward from the exam itself, forward into books, drills and papers.</p>
 
-    <h2>Why an account</h2>
-    <p>The shelf is open; the stack is not. Anyone can read what's inside, how it's organised, and the standard each file is held to. Opening a file takes an account. This keeps the library small on purpose — a place built carefully doesn't get handed to whoever wanders in. When you sign up, you're given a username of your own; that name is your seat at the reading desk.</p>
+    <h2>The door</h2>
+    <p>The shelf is open to anyone who looks. The library was built carefully and deliberately, and for now it stays simply that — open. Walk in, read everything, nothing stands between you and the stack.</p>
 
     <h2>The standard</h2>
     <p><b>The syllabus is the spine.</b> Scope comes from the official syllabus — never from memory, never from whichever textbook happened to be open. If it isn't on the syllabus, it doesn't earn screen time, however interesting it is.</p>
@@ -147,7 +146,7 @@ main>*{ position:relative; z-index:1 }
     <p>Seven groups carrying thirty-six files: complete system books from cardiology to ophthalmology, a merged question bank across six subject groups, every recalled past-paper session with its verified key, the intelligence layer that says what the next paper will test, and quick-reference sheets built for the last night before.</p>
 
     <h2>Your data</h2>
-    <p>An account here is small on purpose. It holds your email, your username, a salted password hash, and nothing else — no analytics, no third-party scripts, no tracking pixels, no advertising of any kind. There is no mailing list and no purchase gate. Your files are licensed for your own personal use: study from them, don't redistribute them.</p>
+    <p>There are no accounts to hold your data: no sign-up, no stored profiles, no analytics, no third-party scripts, no advertising of any kind. You come, you read, you leave — the house remembers nothing about you.</p>
 
     <h2>Copyright</h2>
     <p>Everything under this roof — the files, the layout, the house standard itself — is © 2026 MedLib X. All rights reserved. If you'd like to share the shelf, share the door, not the books.</p>
@@ -160,7 +159,7 @@ main>*{ position:relative; z-index:1 }
     <p class="foot-tag">A private study library — curated with discipline, guarded behind an account, and kept current and exact.</p>
   </div>
   <nav class="foot-links" aria-label="Footer">
-    <a href="/library">Library</a><a href="/about">About</a><a href="/faq">FAQ</a><a href="/signup">Create account</a><a href="/login">Sign in</a>
+    <a href="/library">Library</a><a href="/about">About</a><a href="/faq">FAQ</a>
   </nav>
   <div class="foot-legal">
     <span>© 2026 MedLib X. All rights reserved.</span>
@@ -168,21 +167,6 @@ main>*{ position:relative; z-index:1 }
   </div>
 </div></footer>
 
-<script>
-function esc(s){return String(s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
-fetch('/api/me').then(function(r){return r.json();}).then(function(j){
-  var a=document.getElementById('auth'); if(!a) return;
-  if(j&&j.ok&&j.user){
-    a.innerHTML='<span class="who"><span class="dot"></span><b>'+esc(j.user.username)+'</b></span>'
-      +'<a href="/account">Account</a>'
-      +'<a href="#" id="out">Sign out</a>';
-    document.getElementById('out').addEventListener('click',function(e){
-      e.preventDefault(); fetch('/api/logout',{method:'POST'}).then(function(){location.href='/';});
-    });
-  }else{
-    a.innerHTML='<a href="/login">Sign in</a>';
-  }
-}).catch(function(){});
-</script>
+
 </body>
 </html>
