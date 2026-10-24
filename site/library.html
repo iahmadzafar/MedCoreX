@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Library — MedLib X</title>
-<meta name="description" content="Seven groups, thirty-six files. Browse the shelf — every file opens once you are signed in.">
+<meta name="description" content="Seven groups, thirty-seven files. Browse the shelf — every file is open — walk in and read.">
 <meta name="robots" content="noindex, nofollow">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%230C171A'/%3E%3Cpath d='M7 7l10 10M17 7L7 17' stroke='%23F5A524' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -200,7 +200,7 @@ var Items=[
 {t:"Medical Quick Ref",d:"Numerics and ranges",c:"Quick Reference",f:"standalone-htmls-medical-quick-reference-combined.html",k:2.9},
 {t:"Symptom Clusters",d:"Symptom to differential, grouped",c:"Quick Reference",f:"standalone-htmls-disease-symptom-clusters.html",k:62.1},
 {t:"Last Day Sheet",d:"Final night · highest-yield only",c:"Quick Reference",f:"side-projects-last-day-revision-sheet.html",k:62.8},
-{t:"Case Ladder",d:"Interactive clinical case practice",c:"Frameworks & Interactive",f:"standalone-htmls-case-ladder-interactive.html",k:119.1},
+{t:"Repeat Offenders",d:"The NRE recall vault — questions that keep coming back",c:"Quick Reference",f:"nre-recall-sheets-repeat-offenders.html",k:53.6},{t:"Case Ladder",d:"Interactive clinical case practice",c:"Frameworks & Interactive",f:"standalone-htmls-case-ladder-interactive.html",k:119.1},
 {t:"Cardiology",d:"Complete system book",c:"MedCORE Systems",f:"medcore-systems-cardiology-cardiology-medcore.html",k:408.9},
 {t:"Neurology",d:"Complete system book",c:"MedCORE Systems",f:"medcore-systems-neurology-neurology-medcore.html",k:725.5},
 {t:"Respiratory",d:"Complete system book",c:"MedCORE Systems",f:"medcore-systems-respiratory-respiratory-medcore.html",k:710.1},
@@ -236,7 +236,7 @@ function render(filter){
   });
   shelf.innerHTML=html;
   empty.style.display=shown?'none':'block';
-  count.innerHTML='showing <b>'+shown+'</b> / 36';
+  count.innerHTML='showing <b>'+shown+'</b> / 37';
 }
 q.addEventListener('input',function(){render(q.value);});
 render('');
