@@ -2,7 +2,7 @@
 
 ## Deploy
 
-**LIVE since Oct 18 2026 — https://medlibx.pages.dev** (v1.2, database `f830d37c…`).
+**LIVE — https://medcorex.pages.dev** (renamed from medlibx.pages.dev, Oct 25 2026) (v1.2, database `f830d37c…`).
 
 Two paths, both clean (no secret through chat):
 - OAuth (preferred): `npx wrangler login` once — approval in the browser, secret lives in `~/.wrangler` — then just `./deploy.sh`.
@@ -42,7 +42,7 @@ His call: "remove the sign in and account module for now." Deleted: the gate fun
 
 ## Keyhole (the librarian's window) — LIVE
 
-Ledger admin: https://medlibx.pages.dev/admin/keyhole — list every account (name, email, since, live device sessions), reset a password by hand (new one shown once in the response, all device sessions killed), or cancel a seat by name (two confirmations, unrecoverable).
+Ledger admin: https://medcorex.pages.dev/admin/keyhole — list every account (name, email, since, live device sessions), reset a password by hand (new one shown once in the response, all device sessions killed), or cancel a seat by name (two confirmations, unrecoverable).
 
 The key: Pages secret `MX_KEYHOLE`, mirrored into the Mac keychain. Retrieve in Terminal:
 
@@ -52,4 +52,4 @@ Paste into the keyhole page once — the browser remembers it (localStorage `med
 
 ## Sessions · practical "come back later"
 
-90-day session cookies (`medlibx_session`, HttpOnly/Secure/SameSite=Lax), sessions + users live in D1 `medlibx-db`. Sign in once, come back weeks later on the same browser — still signed. Private/incognito windows discard cookies by design; the site cannot remember those. Always use the plain medlibx.pages.dev host; per-deploy snapshot subdomains don't share cookies.
+90-day session cookies (`medlibx_session`, HttpOnly/Secure/SameSite=Lax), sessions + users live in D1 `medlibx-db`. Sign in once, come back weeks later on the same browser — still signed. Private/incognito windows discard cookies by design; the site cannot remember those. Always use the plain medcorex.pages.dev host; per-deploy snapshot subdomains don't share cookies.

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Bootstrap + deploy MedLib X (project: medlibx) — completely separate from MedCORE Hub.
+# Bootstrap + deploy MedCoreX (project: medcorex) — the MedLib X lineage, renamed.
 # Requires a Pages:Edit (and D1:Edit) API token: CLOUDFLARE_API_TOKEN=... ./deploy.sh
 # First run creates the D1 database and applies schema; later runs just deploy.
 set -euo pipefail
@@ -7,7 +7,7 @@ set -euo pipefail
 HERE="$(cd "$(dirname "$0")" && pwd)"
 cd "$HERE"
 
-PROJECT="medlibx"
+PROJECT="medcorex"
 DB="medlibx-db"
 
 if [ -z "${CLOUDFLARE_API_TOKEN:-}" ]; then
@@ -44,8 +44,8 @@ except Exception:
 fi
 
 # 1b. Pages project must exist before first upload (no-op afterwards beyond a few ms).
-npx --yes wrangler@latest pages project list 2>/dev/null | grep -q "medlibx" || \
-  npx --yes wrangler@latest pages project create medlibx --production-branch=main
+npx --yes wrangler@latest pages project list 2>/dev/null | grep -qw "medcorex" || \
+  npx --yes wrangler@latest pages project create medcorex --production-branch=main --force
 
 # 2. Schema (idempotent — CREATE IF NOT EXISTS).
 npx --yes wrangler@latest d1 execute "$DB" --remote --file schema.sql
