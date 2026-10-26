@@ -6,14 +6,31 @@
 <title>Disease Symptom Clusters</title>
 <style>
   :root{
-    --bg:#f5f6f9; --card:#ffffff; --ink:#1a1f2e; --line:#d8dce6; --line2:#edf0f5;
-    --muted:#5c637a; --faint:#828a9d; --accent:#0e4f6e; --accent-soft:#eaf3f8;
+    --bg:#f5f6f9; --card:#ffffff; --ink:#1a1f2e; --line:#1F2430; --line2:#edf0f5;
+    --muted:#000000; --faint:#000000; --accent:#0e4f6e; --accent-soft:#eaf3f8;
     --head:#12354d; --head-ink:#fff; --head-sub:#b9cdd9; --hover:#fbfcfe;
     --maxw:1150px;
   }
+html[data-mode="light"]{
+  --bg:#f5f6f9;
+  --card:#000000;
+  --ink:#1a1f2e;
+  --line:#e3e6ea;
+  --line2:#edf0f5;
+  --muted:#000000;
+  --faint:#000000;
+  --accent:#0e4f6e;
+  --accent-soft:#eaf3f8;
+  --head:#12354d;
+  --head-ink:#fff;
+  --head-sub:#b9cdd9;
+  --hover:#fbfcfe;
+  --maxw:1150px;
+}
+
   html.dark{
     --bg:#0f1420; --card:#171e2e; --ink:#dce3ef; --line:#2a3348; --line2:#232c40;
-    --muted:#8b95ad; --faint:#6b7590; --accent:#7cc4e8; --accent-soft:#1c2a3e;
+    --muted:#FFFFFF; --faint:#FFFFFF; --accent:#7cc4e8; --accent-soft:#1c2a3e;
     --head:#0b101b; --head-ink:#e8eef6; --head-sub:#7d90a8; --hover:#1d2536;
   }
   *{box-sizing:border-box;margin:0;padding:0}
@@ -31,13 +48,13 @@
   body.mobile-viewport .tbtn[data-tool=mobile], body:not(.mobile-viewport) .tbtn[data-tool=desktop]{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
   nav{position:sticky;top:0;z-index:5;background:var(--card);border-bottom:1px solid var(--line);box-shadow:0 1px 4px rgba(10,15,30,.08)}
   .nav-inner{max-width:var(--maxw);margin:0 auto;padding:7px 14px;display:flex;flex-wrap:wrap;gap:3px}
-  nav a{font:0.7188rem -apple-system,sans-serif;color:var(--muted);text-decoration:none;padding:4px 9px;border-radius:11px;white-space:nowrap}
+  nav a{font:0.7188rem -apple-system,sans-serif;color:var(--muted);text-decoration:none;padding:4px 9px;border-radius:14px;white-space:nowrap}
   nav a:hover{background:var(--accent-soft);color:var(--accent)}
   nav a.active{background:var(--accent);color:#fff}
   html.dark nav a.active{color:#0f1420}
   main{max-width:var(--maxw);margin:0 auto;padding:20px 22px 30px}
-  .system{background:var(--card);border:1px solid var(--line);border-radius:10px;margin-bottom:18px;overflow:hidden}
-  .sys-head{display:flex;align-items:center;gap:11px;width:100%;background:var(--accent-soft);border:none;color:var(--accent);font:600 0.9063rem -apple-system,sans-serif;padding:12px 18px;cursor:pointer;text-align:left;letter-spacing:.3px}
+  .system{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:18px;overflow:hidden}
+  .sys-head{display:flex;align-items:center;gap:11px;width:100%;background:var(--accent-soft);border:none;color:var(--accent);font:600 0.9063rem -apple-system,sans-serif;padding:12px 18px;cursor:pointer;text-align:left;letter-spacing:.3px;border-radius:14px}
   .sys-head:hover{filter:brightness(.97)}
   html.dark .sys-head:hover{filter:brightness(1.2)}
   .sys-head .count{color:var(--muted);font-weight:400;font-size:0.7188rem}
@@ -64,11 +81,11 @@
     .system{border:none;border-top:2px solid var(--ink);border-radius:0;margin-bottom:8px;page-break-inside:avoid}
   }
 </style>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Archivo:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Geist+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 <style id="hub-theme-bridge">
 :root{
---bg:#F6F3EC;--card:#FFFFFF;--ink:#101A28;--line:#DDD6C6;--line2:#EAE5D9;
---muted:#5A6376;--faint:#848C9C;--accent:#0E1A2B;--accent-soft:#E7EDF3;
+--bg:#F6F3EC;--card:#FFFFFF;--ink:#101A28;--line:#1F2430;--line2:#EAE5D9;
+--muted:#000000;--faint:#000000;--accent:#0E1A2B;--accent-soft:#E7EDF3;
 --head:#0E1A2B;--head-ink:#F6F3EC;--head-sub:#9FB2CC;--hover:#F8F6F0;
 --trap:#C43A2C;
 --t1c:#B0341E;--t1bg:#FBEAE4;--t1ln:#E8B9AA;
@@ -79,7 +96,7 @@
 }
 html.dark{
 --bg:#0B1422;--card:#16283F;--ink:#F6F3EC;--line:rgba(246,243,236,.16);--line2:#232C40;
---muted:#8FA3BE;--faint:#6D7789;--acc:#D4FF3F;--acc-soft:#1E2A14;
+--muted:#FFFFFF;--faint:#FFFFFF;--acc:#D4FF3F;--acc-soft:#1E2A14;
 --head:#0E1A2B;--head-ink:#F6F3EC;--head-sub:#9FB2CC;--hover:#1B2430;
 --trap:#FF8A7A;
 --t1c:#FF9080;--t1bg:#2E1A14;--t1ln:#6B3A2B;
@@ -88,11 +105,19 @@ html.dark{
 --t4c:#9CC6E6;--t4bg:#14222E;--t4ln:#35566F;
 --t5c:#C2BEB4;--t5bg:#21242A;--t5ln:#4A4F58;
 }
-body{font-family:'Archivo',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif!important}
-.mark h1,.sys-head,h1,h2{font-family:'Bricolage Grotesque','Archivo',sans-serif!important}
+body{font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif!important}
+.mark h1,.sys-head,h1,h2{font-family:'Bricolage Grotesque','Plus Jakarta Sans',sans-serif!important}
 .mark h1{font-weight:800}
 </style>
 
+<style id="mlx-2026">
+button{transition:transform .15s cubic-bezier(.34,1.56,.64,1),box-shadow .15s,background .2s,border-color .2s,color .2s}
+button:hover{transform:translateY(-2px)}
+button:active{transform:translateY(0) scale(.96)}
+summary{cursor:pointer}
+@media print{button{transition:none!important;transform:none!important}}
+@media(prefers-reduced-motion:reduce){button{transition:none!important;transform:none!important}}
+</style>
 </head>
 <body>
 <header class="top">
@@ -519,5 +544,36 @@ body{font-family:'Archivo',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-seri
   body{overflow-x:hidden;padding-left:14px;padding-right:14px}
 }
 </style>
+
+<style id="mlx-live">
+h1{font-weight:800}h2{font-weight:700}h3,h4{font-weight:700}
+@keyframes mlxFade{from{opacity:0}to{opacity:1}}
+body{animation:mlxFade .4s ease both}
+.mlx-toggle{position:fixed;right:16px;bottom:16px;z-index:99;font:600 12px/1 'Geist Mono',ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;padding:11px 15px;border-radius:999px;cursor:pointer;background:var(--panel,#14171E);color:var(--chalk,#FFFFFF);border:1px solid var(--line,#2A3140);box-shadow:0 10px 30px -12px rgba(0,0,0,.55);transition:transform .15s,border-color .2s}
+.mlx-toggle:hover{border-color:var(--cyan,#4DA3FF)}
+.mlx-toggle:active{transform:scale(.94)}
+@media print{.mlx-toggle{display:none!important}body{animation:none!important}}
+@media(prefers-reduced-motion:reduce){body,.mlx-toggle{animation:none!important;transition:none!important}}
+</style>
+<script>
+(function(){
+ try{
+  var s=localStorage.getItem('mlx-theme');
+  var m=s||(window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');
+  document.documentElement.setAttribute('data-mode',m);
+ }catch(e){}
+ var b=document.createElement('button');
+ b.className='mlx-toggle';b.type='button';
+ function lbl(){b.textContent=document.documentElement.getAttribute('data-mode')==='light'?'dark':'light';}
+ b.addEventListener('click',function(){
+  var n=document.documentElement.getAttribute('data-mode')==='light'?'dark':'light';
+  document.documentElement.setAttribute('data-mode',n);
+  try{localStorage.setItem('mlx-theme',n);}catch(e){}
+  lbl();
+ });
+ document.body.appendChild(b);lbl();
+})();
+</script>
+
 </body>
 </html>

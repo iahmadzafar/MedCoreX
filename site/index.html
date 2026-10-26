@@ -4,136 +4,161 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MedLib X — a private study library</title>
-<meta name="description" content="Seven shelves, thirty-seven files, one standard. A curated library of books, drills, recalled papers and exam intelligence — browsing is free, opening a file takes an account.">
+<meta name="description" content="Seven shelves, one standard. A curated library of books, drills, recalled papers and exam intelligence — browsing is free, opening a file takes an account.">
 <meta name="robots" content="noindex, nofollow">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%230C171A'/%3E%3Cpath d='M7 7l10 10M17 7L7 17' stroke='%23F5A524' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%230B0D12'/%3E%3Cpath d='M7 7l10 10M17 7L7 17' stroke='%23FFC53D' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ground:#0C171A; --ground-2:#101F23; --void:#080F11;
-  --panel:#122428; --panel-2:#172D31;
-  --chalk:#E9F1F2; --chalk-2:#C2D4D6; --muted:#9BB0B4; --faint:#7B9498;
-  --amber:#F5A524; --mint:#34E0A1; --coral:#FF5470; --violet:#A98BFF; --cyan:#4FD6E0;
-  --line:#1E3338; --line-2:#264248; --line-3:#2E5057;
-  --serif:'Instrument Serif',Georgia,serif;
-  --body:'Newsreader',Georgia,serif;
-  --mono:'IBM Plex Mono',ui-monospace,monospace;
+  --ground:#0B0D12; --ground-2:#14171E; --void:#08090D;
+  --panel:#14171E; --panel-2:#1A1E28;
+  --chalk:#FFFFFF; --chalk-2:#FFFFFF; --muted:#FFFFFF; --faint:#FFFFFF;
+  --amber:#FFC53D; --mint:#34D399; --coral:#FF6EA9; --violet:#8B7CFF; --cyan:#4DA3FF;
+  --line:#1F2430; --line-2:#2A3140; --line-3:#39424F;
+  --serif:'Bricolage Grotesque',system-ui,sans-serif;
+  --body:'Plus Jakarta Sans',system-ui,sans-serif;
+  --mono:'Geist Mono',ui-monospace,monospace;
+  --grad:linear-gradient(100deg,var(--mint),var(--cyan));
   --maxw:1160px;
   --float:inset 0 1px 0 rgba(255,255,255,.05), 0 1px 2px rgba(0,0,0,.55), 0 14px 34px -16px rgba(0,0,0,.7);
 }
+html[data-mode="light"]{
+  --ground:#FFFFFF; --ground-2:#F4F5F7; --void:#ECEEF1;
+  --panel:#F4F5F7; --panel-2:#ECEEF1;
+  --chalk:#000000; --chalk-2:#000000; --muted:#000000; --faint:#000000;
+  --amber:#C98A00; --mint:#0E9F68; --coral:#DB2777; --violet:#6D5AE6; --cyan:#1D6FD1;
+  --line:#E3E6EA; --line-2:#D5DAE1; --line-3:#C3CAD4;
+  --float:inset 0 1px 0 rgba(0,0,0,.04), 0 1px 2px rgba(0,0,0,.06), 0 14px 34px -18px rgba(0,0,0,.25);
+}
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--ground);color:var(--chalk);font-family:var(--body);font-size:19px;line-height:1.7;-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--ground);color:var(--chalk);font-family:var(--body);font-size:18px;line-height:1.7;-webkit-font-smoothing:antialiased;transition:background-color .45s ease,color .45s ease}
 a{color:inherit}
-h1,h2,h3{font-weight:400;margin:0}
-:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+h1,h2,h3{font-family:var(--serif);font-weight:700;letter-spacing:-.015em;margin:0}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
 ::selection{background:var(--amber);color:var(--void)}
 
+/* ── drifting orbs · calm color, quiet motion ─────────────── */
+.orb{position:fixed;border-radius:50%;filter:blur(64px);opacity:.5;pointer-events:none;z-index:0;transition:opacity .45s}
+html[data-mode="light"] .orb{opacity:.32}
+.orb-a{width:340px;height:340px;background:radial-gradient(circle,var(--violet),transparent 70%);top:-110px;right:-90px;animation:drift 12s ease-in-out infinite alternate}
+.orb-b{width:300px;height:300px;background:radial-gradient(circle,var(--mint),transparent 70%);top:44vh;left:-120px;animation:drift 15s ease-in-out infinite alternate-reverse}
+.orb-c{width:260px;height:260px;background:radial-gradient(circle,var(--coral),transparent 70%);bottom:-90px;right:8vw;animation:drift 17s ease-in-out infinite alternate}
+@keyframes drift{from{transform:translate(0,0) scale(1)}to{transform:translate(32px,22px) scale(1.14)}}
+
 /* ── nav ─────────────────────────────────────────────────── */
-.topbar{position:sticky;top:0;z-index:50;background:rgba(8,15,17,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
+.topbar{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--ground) 82%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);
   box-shadow:0 8px 24px -18px rgba(0,0,0,.8)}
 .topbar-in{max-width:var(--maxw);margin:0 auto;padding:0 24px;height:64px;display:flex;align-items:center;gap:24px}
-.brand{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-size:24px;line-height:1;text-decoration:none}
-.brand .glyph{width:19px;height:19px;color:var(--amber);flex:none}
-.brand .x{color:var(--amber)}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-weight:800;font-size:23px;line-height:1;text-decoration:none;letter-spacing:-.02em}
+.brand .glyph{width:17px;height:17px;border-radius:5px;background:var(--grad);animation:wob 4.5s ease-in-out infinite;flex:none}
+@keyframes wob{0%,100%{transform:rotate(-7deg)}50%{transform:rotate(9deg) scale(1.14)}}
+.brand .x{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
 .topnav{display:flex;gap:22px;margin-left:6px}
-.topnav a{font-family:var(--mono);font-size:13.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .15s}
-.topnav a:hover{color:var(--chalk)}
-.auth{margin-left:auto;display:flex;align-items:center;gap:16px}
-.auth a{font-family:var(--mono);font-size:13.5px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--muted)}
-.auth a:hover{color:var(--chalk)}
-.who{font-family:var(--mono);font-size:13.5px;color:var(--faint);display:flex;align-items:center;gap:10px}
-.who b{color:var(--chalk-2);font-weight:500}
-.dot{width:7px;height:7px;border-radius:50%;background:var(--mint);flex:none}
+.topnav a{font-family:var(--mono);font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .18s,transform .18s}
+.topnav a:hover{color:var(--chalk);transform:translateY(-1px)}
 
-main{max-width:var(--maxw);margin:0 auto;padding:0 24px;position:relative}
-main::before{content:"";position:absolute;inset:-40px -60px auto;height:240px;pointer-events:none;
-  background:radial-gradient(640px 220px at 50% 0%, rgba(46,80,87,.16), transparent 70%);z-index:0}
-main>*{position:relative;z-index:1}
+main{max-width:var(--maxw);margin:0 auto;padding:0 24px;position:relative;z-index:1}
 
 /* ── buttons ─────────────────────────────────────────────── */
-.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:15px;letter-spacing:.08em;text-transform:uppercase;
-  text-decoration:none;border:1px solid var(--line-2);color:var(--chalk);padding:15px 26px;cursor:pointer;background:transparent;
-  box-shadow:var(--float);transition:border-color .15s,background .15s,box-shadow .15s}
-.btn:hover{border-color:var(--amber)}
-.btn-amber{background:var(--amber);border-color:var(--amber);color:var(--void)}
-.btn-amber:hover{background:#ffc44d}
-.btn-ghost{box-shadow:none;border-color:var(--line)}
-.btn-ghost:hover{box-shadow:var(--float)}
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:14px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  text-decoration:none;border:1px solid transparent;color:var(--chalk);padding:15px 26px;cursor:pointer;border-radius:14px;
+  transition:transform .18s cubic-bezier(.34,1.56,.64,1),box-shadow .18s,border-color .18s,background .18s}
+.btn:hover{transform:translateY(-3px)}
+.btn:active{transform:translateY(0) scale(.96)}
+.btn-amber{background:var(--grad);color:#000;font-weight:700;box-shadow:0 12px 30px -12px rgba(77,160,255,.55)}
+html[data-mode="light"] .btn-amber{color:#FFFFFF;box-shadow:0 12px 28px -14px rgba(29,111,209,.5)}
+.btn-ghost{border-color:var(--line-2);background:color-mix(in srgb,var(--panel) 60%,transparent)}
+.btn-ghost:hover{border-color:var(--violet);box-shadow:0 10px 26px -14px var(--violet)}
 
 /* ── hero ────────────────────────────────────────────────── */
-.hero{padding:96px 0 40px;max-width:940px}
-.eyebrow{font-family:var(--mono);font-size:14px;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);display:flex;align-items:center;gap:12px}
+.hero{padding:92px 0 44px;max-width:940px}
+.eyebrow{font-family:var(--mono);font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--coral);display:flex;align-items:center;gap:12px}
 .eyebrow::after{content:"";height:1px;flex:1;background:linear-gradient(90deg,var(--line-3),transparent)}
-.hero h1{font-family:var(--serif);font-size:clamp(52px,8.6vw,96px);line-height:1.02;letter-spacing:-.012em;margin:.24em 0 .22em}
-.hero h1 em{font-style:italic;color:var(--amber)}
-.lede{font-size:clamp(19px,2.4vw,23px);line-height:1.65;color:var(--chalk-2);max-width:760px}
-.hero .ctas{display:flex;gap:16px;flex-wrap:wrap;margin-top:38px}
-.hero .note{font-family:var(--mono);font-size:14px;color:var(--faint);margin-top:18px;letter-spacing:.04em}
+.hero h1{font-size:clamp(46px,7.6vw,86px);font-weight:800;line-height:1.02;letter-spacing:-.028em;margin:.22em 0 .2em}
+.hero h1 .pop{background:var(--grad);background-size:240% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:slide 6s linear infinite}
+@keyframes slide{from{background-position:0% 0}to{background-position:240% 0}}
+.lede{font-size:clamp(18px,2.3vw,22px);line-height:1.65;color:var(--muted);max-width:740px}
+.hero .ctas{display:flex;gap:16px;flex-wrap:wrap;margin-top:36px}
+.hero .note{font-family:var(--mono);font-size:13px;color:var(--faint);margin-top:18px;letter-spacing:.05em}
 
 /* ── section heads ───────────────────────────────────────── */
 .sec{padding:64px 0 0}
-.sec .kicker{font-family:var(--mono);font-size:13.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--faint);margin-bottom:8px}
-.sec h2{font-family:var(--serif);font-size:clamp(34px,5vw,50px);line-height:1.08}
-.sec .sub{font-size:19px;color:var(--chalk-2);max-width:640px;margin-top:10px}
+.sec .kicker{font-family:var(--mono);font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--faint);margin-bottom:8px}
+.sec h2{font-size:clamp(32px,4.6vw,48px);font-weight:800;letter-spacing:-.022em;line-height:1.06}
+.sec .sub{font-size:18px;color:var(--muted);max-width:640px;margin-top:10px}
 
-/* ── playful tiles ───────────────────────────────────────── */
+/* ── shelf tiles · color lives in the glyph + ghost, not rails ── */
 .tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:34px}
-.tile{position:relative;display:block;text-decoration:none;border:1px solid var(--line);background:var(--ground-2);
-  padding:26px 22px 20px;min-height:170px;overflow:hidden;box-shadow:var(--float);
-  transition:transform .16s ease,border-color .16s ease,box-shadow .16s ease}
-.tile:hover{transform:translateY(-4px);border-color:var(--hue,var(--amber));
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.06), 0 2px 4px rgba(0,0,0,.6), 0 22px 46px -18px rgba(0,0,0,.85)}
-.tile .rail{position:absolute;left:0;top:0;width:4px;height:100%;background:var(--hue,var(--amber));opacity:.85}
-.tile .ghost{position:absolute;right:-6px;bottom:-26px;font-family:var(--serif);font-size:110px;line-height:1;
-  color:var(--hue,var(--amber));opacity:.1;pointer-events:none;transition:opacity .18s}
-.tile:hover .ghost{opacity:.2}
-.tile .glyph{width:34px;height:34px;border:1.5px solid var(--hue,var(--amber));display:grid;place-items:center;color:var(--hue,var(--amber));margin-bottom:16px}
+.tile{position:relative;display:block;text-decoration:none;border:1px solid var(--line);background:color-mix(in srgb,var(--hue,var(--amber)) 6%,var(--ground-2));
+  padding:26px 22px 20px;min-height:170px;overflow:hidden;border-radius:18px;box-shadow:var(--float);
+  transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease,background .3s ease}
+.tile:hover{transform:translateY(-6px);border-color:var(--hue,var(--amber));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.06), 0 2px 4px rgba(0,0,0,.5), 0 24px 48px -18px color-mix(in srgb,var(--hue,var(--amber)) 45%,rgba(0,0,0,.6))}
+.tile .ghost{position:absolute;right:-6px;bottom:-26px;font-family:var(--serif);font-weight:800;font-size:110px;line-height:1;
+  color:var(--hue,var(--amber));opacity:.12;pointer-events:none;transition:opacity .2s,transform .3s}
+.tile:hover .ghost{opacity:.26;transform:translateY(-6px) rotate(-4deg)}
+.tile .glyph{width:36px;height:36px;border:1.5px solid var(--hue,var(--amber));border-radius:11px;display:grid;place-items:center;color:var(--hue,var(--amber));margin-bottom:16px;transition:transform .25s cubic-bezier(.34,1.56,.64,1),background .25s}
+.tile:hover .glyph{transform:rotate(-8deg) scale(1.08);background:color-mix(in srgb,var(--hue,var(--amber)) 16%,transparent)}
 .tile .glyph svg{width:17px;height:17px}
-.tile h3{font-family:var(--serif);font-size:27px;line-height:1.12;margin-bottom:6px}
-.tile p{margin:0;color:var(--muted);font-size:16.5px;line-height:1.5}
-.tile .foot{display:flex;justify-content:space-between;align-items:center;margin-top:16px;font-family:var(--mono);
+.tile h3{font-family:var(--serif);font-weight:700;font-size:26px;line-height:1.12;margin-bottom:6px;letter-spacing:-.015em}
+.tile p{margin:0;color:var(--muted);font-size:16px;line-height:1.5}
+.tile .foot{display:flex;justify-content:flex-end;align-items:center;margin-top:16px;font-family:var(--mono);
   font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
-.tile .foot .go{color:var(--hue,var(--amber));transition:transform .16s}
-.tile:hover .foot .go{transform:translateX(5px)}
+.tile .foot .go{color:var(--hue,var(--amber));transition:transform .18s}
+.tile:hover .foot .go{transform:translateX(6px)}
 .tile.big{grid-column:span 2}
-.tile.big h3{font-size:34px}
+.tile.big h3{font-size:33px}
 
-/* ── rules band ──────────────────────────────────────────── */
+/* ── rules band · tinted card + colored numeral, no top rails ── */
 .rules{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:34px}
-.rule{border-top:2px solid var(--amber);background:var(--ground-2);box-shadow:var(--float);padding:24px 22px 24px}
-.rule .num{font-family:var(--mono);font-size:46px;line-height:1;color:var(--amber);letter-spacing:-.02em}
-.rule h3{font-family:var(--serif);font-size:28px;margin:14px 0 8px;line-height:1.15}
-.rule p{margin:0;color:var(--muted);font-size:17px;line-height:1.65}
+.rule{background:var(--ground-2);border:1px solid var(--line);border-radius:18px;box-shadow:var(--float);padding:26px 24px 26px;transition:transform .2s,border-color .2s}
+.rule:hover{transform:translateY(-4px);border-color:var(--line-3)}
+.rule .num{font-family:var(--mono);font-weight:700;font-size:15px;letter-spacing:.18em;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.rule h3{font-size:27px;margin:14px 0 8px;line-height:1.15}
+.rule p{margin:0;color:var(--muted);font-size:16.5px;line-height:1.65}
 
 /* ── access band ─────────────────────────────────────────── */
 .access{display:grid;grid-template-columns:1.15fr .85fr;gap:18px;margin-top:70px;border:1px solid var(--line-2);
-  background:var(--panel);box-shadow:var(--float);padding:44px 42px}
-.access h2{font-family:var(--serif);font-size:clamp(30px,4vw,44px);line-height:1.1}
-.access h2 em{font-style:italic;color:var(--amber)}
-.access .body{color:var(--chalk-2);font-size:19px;margin-top:14px;max-width:520px}
+  background:linear-gradient(140deg,var(--panel),color-mix(in srgb,var(--violet) 10%,var(--panel)));
+  box-shadow:var(--float);padding:46px 44px;border-radius:22px;transition:background .45s ease}
+.access h2{font-size:clamp(30px,4vw,44px);font-weight:800;letter-spacing:-.02em;line-height:1.08}
+.access h2 .pop{background:var(--grad);background-size:240% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:slide 6s linear infinite}
+.access .body{color:var(--muted);font-size:18px;margin-top:14px;max-width:520px}
 .steps{list-style:none;margin:6px 0 0;padding:0}
-.steps li{display:flex;gap:16px;align-items:flex-start;padding:16px 0;border-bottom:1px solid var(--line);font-size:18px;color:var(--chalk-2)}
+.steps li{display:flex;gap:16px;align-items:flex-start;padding:16px 0;border-bottom:1px solid var(--line);font-size:17px;color:var(--muted)}
 .steps li:last-child{border-bottom:0}
-.steps .tick{flex:none;width:26px;height:26px;border:1.5px solid var(--mint);color:var(--mint);display:grid;place-items:center;margin-top:3px}
+.steps .tick{flex:none;width:26px;height:26px;border:1.5px solid var(--mint);color:var(--mint);border-radius:9px;display:grid;place-items:center;margin-top:3px}
 .steps .tick svg{width:13px;height:13px}
-.steps b{color:var(--chalk);font-weight:500}
+.steps b{color:var(--chalk);font-weight:600}
 .access .ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
 
 /* ── footer ──────────────────────────────────────────────── */
 .footer{border-top:1px solid var(--line);margin-top:90px;background:var(--void);position:relative}
-.footer::before{content:"";position:absolute;left:0;right:0;top:-1px;height:1px;background:linear-gradient(90deg,transparent,var(--line-3),transparent)}
+.footer::before{content:"";position:absolute;left:0;right:0;top:-1px;height:1px;background:linear-gradient(90deg,transparent,var(--violet),var(--mint),transparent)}
 .foot-in{max-width:var(--maxw);margin:0 auto;padding:34px 24px 40px;display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap}
-.foot-brand{font-family:var(--serif);font-size:21px;display:inline-flex;gap:9px;align-items:center}
-.foot-brand .glyph{width:14px;height:14px;color:var(--amber)}
-.foot-brand .x{color:var(--amber)}
-.foot-tag{color:var(--faint);font-size:16px;margin:10px 0 0;max-width:400px;line-height:1.6}
-.foot-links{display:flex;gap:18px;flex-wrap:wrap;margin-left:auto;font-family:var(--mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;padding-top:4px}
-.foot-links a{color:var(--muted);text-decoration:none}
+.foot-brand{font-family:var(--serif);font-weight:800;font-size:20px;display:inline-flex;gap:9px;align-items:center;letter-spacing:-.02em}
+.foot-brand .glyph{width:14px;height:14px;border-radius:4px;background:var(--grad);display:inline-block}
+.foot-brand .x{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.foot-tag{color:var(--faint);font-size:15.5px;margin:10px 0 0;max-width:400px;line-height:1.6}
+.foot-links{display:flex;gap:18px;flex-wrap:wrap;margin-left:auto;font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;padding-top:4px}
+.foot-links a{color:var(--muted);text-decoration:none;transition:color .18s}
 .foot-links a:hover{color:var(--chalk)}
-.foot-legal{width:100%;border-top:1px solid var(--line);margin-top:22px;padding-top:16px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--faint);font-family:var(--mono);font-size:12.5px;letter-spacing:.05em}
+.foot-legal{width:100%;border-top:1px solid var(--line);margin-top:22px;padding-top:16px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--faint);font-family:var(--mono);font-size:12px;letter-spacing:.05em}
+.foot-dots{display:flex;gap:6px;align-items:center}
+.foot-dots i{width:9px;height:9px;border-radius:50%;display:block;animation:bounce 1.5s ease-in-out infinite}
+.foot-dots i:nth-child(1){background:var(--mint)}
+.foot-dots i:nth-child(2){background:var(--cyan);animation-delay:.16s}
+.foot-dots i:nth-child(3){background:var(--amber);animation-delay:.32s}
+.foot-dots i:nth-child(4){background:var(--coral);animation-delay:.48s}
+@keyframes bounce{0%,100%{transform:translateY(0)}40%{transform:translateY(-6px)}}
+
+/* ── entrance ────────────────────────────────────────────── */
+.rise{animation:rise .65s cubic-bezier(.16,1,.3,1) both}
+.d1{animation-delay:.04s}.d2{animation-delay:.12s}.d3{animation-delay:.2s}.d4{animation-delay:.3s}.d5{animation-delay:.4s}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 
 @media (max-width:980px){
   .tiles{grid-template-columns:repeat(2,1fr)}
@@ -144,126 +169,124 @@ main>*{position:relative;z-index:1}
 @media (max-width:620px){
   .topnav{gap:14px}
   .topnav a{font-size:12px}
-  .hero{padding:66px 0 30px}
+  .hero{padding:64px 0 30px}
   .tiles{grid-template-columns:1fr}
   .tile.big{grid-column:span 1}
   .btn{width:100%;justify-content:center}
   .foot-links{margin-left:0}
 }
+@media print{body,.rise{animation:none!important}.orb,.mlx-toggle{display:none!important}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
+<div class="orb orb-a"></div><div class="orb orb-b"></div><div class="orb orb-c"></div>
 <header class="topbar"><div class="topbar-in">
-  <a class="brand" href="/"><svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 7l14 0M5 12l14 0M5 17l9 0"/></svg>MedLib&nbsp;<span class="x">X</span></a>
+  <a class="brand" href="/"><span class="glyph"></span>MedLib&nbsp;<span class="x">X</span></a>
   <nav class="topnav"><a href="/library">Library</a><a href="/about">About</a><a href="/faq">FAQ</a></nav>
 </div></header>
 
 <main>
   <section class="hero">
-    <p class="eyebrow">Private study library · seven shelves · thirty-seven files</p>
-    <h1>The shelf is open.<br>The <em>stack</em> is earned.</h1>
-    <p class="lede">Books, drills, recalled papers and exam intelligence — assembled with discipline, kept current and exact. Thirty-six files, one roof, the door open.</p>
-    <div class="ctas">
+    <p class="eyebrow rise d1">Private study library · seven shelves</p>
+    <h1 class="rise d2">The shelf is open.<br>The <span class="pop">stack</span> is earned.</h1>
+    <p class="lede rise d3">Books, drills, recalled papers and exam intelligence — assembled with discipline, kept current and exact. One roof, the door open.</p>
+    <div class="ctas rise d4">
       <a class="btn btn-amber" href="/library">Open the shelf</a>
+      <a class="btn btn-ghost" href="/about">How it works</a>
     </div>
+    <p class="note rise d5">Fresh on the shelf — the repeat offenders vault is open.</p>
   </section>
 
-  <section class="sec">
+  <section class="sec rise d4">
     <p class="kicker">What's inside</p>
     <h2>Seven shelves, one roof</h2>
     <p class="sub">The books and systems carry the weight; the drills and papers are where the marks come from. Every file is open — just walk in.</p>
 
     <div class="tiles">
       <a class="tile big" href="/library" style="--hue:var(--amber)">
-        <span class="rail"></span>
         <span class="ghost">01</span>
         <span class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 5.5V20.5"/></svg></span>
         <h3>Core Books</h3>
         <p>Every system in one volume — and how the exam actually sets its questions.</p>
-        <span class="foot"><span>6 files</span><span class="go">Open →</span></span>
+        <span class="foot"><span class="go">Open →</span></span>
       </a>
 
       <a class="tile" href="/library" style="--hue:var(--cyan)">
-        <span class="rail"></span>
         <span class="ghost">02</span>
         <span class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 2h6"/></svg></span>
         <h3>Test Series</h3>
         <p>Six subject groups, merged — timed the way a sitting feels.</p>
-        <span class="foot"><span>1 file</span><span class="go">Open →</span></span>
+        <span class="foot"><span class="go">Open →</span></span>
       </a>
 
       <a class="tile" href="/library" style="--hue:var(--coral)">
-        <span class="rail"></span>
         <span class="ghost">03</span>
         <span class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M10 12h5M10 16h5"/></svg></span>
         <h3>Past Papers</h3>
         <p>Recalled sessions, checked question by question, keys verified.</p>
-        <span class="foot"><span>8 files</span><span class="go">Open →</span></span>
+        <span class="foot"><span class="go">Open →</span></span>
       </a>
 
       <a class="tile" href="/library" style="--hue:var(--violet)">
-        <span class="rail"></span>
         <span class="ghost">04</span>
         <span class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/></svg></span>
         <h3>Intelligence</h3>
         <p>What the next paper will test, decoded from recurring patterns.</p>
-        <span class="foot"><span>6 files</span><span class="go">Open →</span></span>
+        <span class="foot"><span class="go">Open →</span></span>
       </a>
 
       <a class="tile" href="/library" style="--hue:var(--mint)">
-        <span class="rail"></span>
         <span class="ghost">05</span>
         <span class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span>
         <h3>Quick Reference</h3>
         <p>Thresholds, ranges, clusters — memorise once, recall anywhere.</p>
-        <span class="foot"><span>6 files</span><span class="go">Open →</span></span>
+        <span class="foot"><span class="go">Open →</span></span>
       </a>
 
       <a class="tile" href="/library" style="--hue:var(--amber)">
-        <span class="rail"></span>
         <span class="ghost">06</span>
         <span class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 6h6v6H4zM14 12h6v6h-6zM7 12v4h7"/></svg></span>
         <h3>Frameworks</h3>
         <p>Case practice that behaves like a clinic, not a textbook.</p>
-        <span class="foot"><span>1 file</span><span class="go">Open →</span></span>
+        <span class="foot"><span class="go">Open →</span></span>
       </a>
 
       <a class="tile big" href="/library" style="--hue:var(--cyan)">
-        <span class="rail"></span>
         <span class="ghost">07</span>
         <span class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13h4l2-4 3 8 2.5-6 1.5 2h5"/></svg></span>
         <h3>MedCORE Systems</h3>
         <p>Ten complete system books, built to the same shape each time — cardiology to ophthalmology.</p>
-        <span class="foot"><span>10 files</span><span class="go">Open →</span></span>
+        <span class="foot"><span class="go">Open →</span></span>
       </a>
     </div>
   </section>
 
-  <section class="sec">
+  <section class="sec rise d5">
     <p class="kicker">The standard</p>
     <h2>Three rules, no exceptions</h2>
     <div class="rules">
       <div class="rule">
-        <div class="num">01</div>
+        <div class="num">RULE 01</div>
         <h3>The syllabus is the spine</h3>
         <p>Scope comes from the official syllabus — never from memory, never from whichever book happened to be open.</p>
       </div>
       <div class="rule">
-        <div class="num">02</div>
+        <div class="num">RULE 02</div>
         <h3>MCQs are the bloodstream</h3>
         <p>Practice runs through everything. Exposure is measured in questions attempted, not pages read.</p>
       </div>
       <div class="rule">
-        <div class="num">03</div>
+        <div class="num">RULE 03</div>
         <h3>The error log is sacred</h3>
         <p>Every wrong answer gets a written record — the discriminator you missed, named in your own words.</p>
       </div>
     </div>
   </section>
 
-  <section class="access" style="grid-template-columns:1fr;text-align:center">
+  <section class="access rise" style="grid-template-columns:1fr;text-align:center">
     <div>
-      <h2 style="max-width:none">Thirty-six files. <em>The door is open.</em></h2>
+      <h2 style="max-width:none">The door is <span class="pop">open.</span></h2>
       <p class="body" style="max-width:640px;margin:14px auto 0">Nothing stands between you and the shelf now — pick a shelf and start reading.</p>
       <div class="ctas" style="justify-content:center;margin-top:26px">
         <a class="btn btn-amber" href="/library">Open the library</a>
@@ -274,18 +297,46 @@ main>*{position:relative;z-index:1}
 
 <footer class="footer"><div class="foot-in">
   <div>
-    <div class="foot-brand"><svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 7l14 0M5 12l14 0M5 17l9 0"/></svg>MedLib&nbsp;<span class="x">X</span></div>
+    <div class="foot-brand"><span class="glyph"></span>MedLib&nbsp;<span class="x">X</span></div>
     <p class="foot-tag">A private study library — curated with discipline, and kept current and exact.</p>
   </div>
   <nav class="foot-links" aria-label="Footer">
     <a href="/library">Library</a><a href="/about">About</a><a href="/faq">FAQ</a>
   </nav>
   <div class="foot-legal">
-    <span>© 2026 MedLib X. All rights reserved.</span>
-    <span>Files are licensed for the account holder's personal use.</span>
+    <span>© 2026 MedLib X. All rights reserved. · Files are licensed for the account holder's personal use.</span>
+    <span class="foot-dots"><i></i><i></i><i></i><i></i></span>
   </div>
 </div></footer>
 
-
+<style id="mlx-live">
+h1{font-weight:800}h2{font-weight:700}h3,h4{font-weight:700}
+@keyframes mlxFade{from{opacity:0}to{opacity:1}}
+body{animation:mlxFade .4s ease both}
+.mlx-toggle{position:fixed;right:16px;bottom:16px;z-index:99;font:600 12px/1 'Geist Mono',ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;padding:11px 15px;border-radius:999px;cursor:pointer;background:var(--panel,#14171E);color:var(--chalk,#FFFFFF);border:1px solid var(--line,#2A3140);box-shadow:0 10px 30px -12px rgba(0,0,0,.55);transition:transform .15s,border-color .2s}
+.mlx-toggle:hover{border-color:var(--cyan,#4DA3FF)}
+.mlx-toggle:active{transform:scale(.94)}
+@media print{.mlx-toggle{display:none!important}body{animation:none!important}}
+@media(prefers-reduced-motion:reduce){body,.mlx-toggle{animation:none!important;transition:none!important}}
+</style>
+<script>
+(function(){
+ try{
+  var s=localStorage.getItem('mlx-theme');
+  var m=s||(window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');
+  document.documentElement.setAttribute('data-mode',m);
+ }catch(e){}
+ var b=document.createElement('button');
+ b.className='mlx-toggle';b.type='button';
+ function lbl(){b.textContent=document.documentElement.getAttribute('data-mode')==='light'?'dark':'light';}
+ b.addEventListener('click',function(){
+  var n=document.documentElement.getAttribute('data-mode')==='light'?'dark':'light';
+  document.documentElement.setAttribute('data-mode',n);
+  try{localStorage.setItem('mlx-theme',n);}catch(e){}
+  lbl();
+ });
+ document.body.appendChild(b);lbl();
+})();
+</script>
 </body>
 </html>

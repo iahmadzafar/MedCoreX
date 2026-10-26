@@ -4,14 +4,32 @@
 <style>
 :root{
   --navy:#1B2A4A; --navy2:#24365c; --gold:#B7791F; --gold2:#d99a2b; --blue:#4E6E9E;
-  --gray:#8A8F98; --zebra:#F3F6FA; --ink:#232a33; --muted:#5b6470; --paper:#fafaf8;
-  --paper2:#f1f3f6; --line:#dfe3e9; --good:#177245; --bad:#b3302c; --chipbg:#eef1f5;
+  --gray:#000000; --zebra:#F3F6FA; --ink:#232a33; --muted:#000000; --paper:#fafaf8;
+  --paper2:#f1f3f6; --line:#1F2430; --good:#177245; --bad:#b3302c; --chipbg:#eef1f5;
 }
+html[data-mode="light"]{
+  --navy:#1B2A4A;
+  --navy2:#24365c;
+  --gold:#B7791F;
+  --gold2:#d99a2b;
+  --blue:#4E6E9E;
+  --gray:#000000;
+  --zebra:#F3F6FA;
+  --ink:#232a33;
+  --muted:#000000;
+  --paper:#fafaf8;
+  --paper2:#f1f3f6;
+  --line:#e3e6ea;
+  --good:#177245;
+  --bad:#b3302c;
+  --chipbg:#eef1f5;
+}
+
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--paper);color:var(--ink);
-  font-family:"IBM Plex Sans",system-ui,sans-serif;font-size:1rem;line-height:1.72}
-h1,h2,h3,h4{font-family:"Space Grotesk",sans-serif;letter-spacing:-0.01em;line-height:1.22}
+  font-family:"Plus Jakarta Sans",system-ui,sans-serif;font-size:1rem;line-height:1.72}
+h1,h2,h3,h4{font-family:"Bricolage Grotesque",sans-serif;letter-spacing:-0.01em;line-height:1.22}
 .container{max-width:100%;margin:0 auto;padding:0 28px}
 a{color:var(--blue);text-decoration:none}
 a:hover{text-decoration:underline}
@@ -27,8 +45,8 @@ a:hover{text-decoration:underline}
 .cover-meta{display:flex;flex-wrap:wrap;gap:26px;font-size:0.8125rem;color:#9fb0cc}
 .cover-meta b{color:#fff;font-weight:600}
 .cover-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:34px}
-.cover-stat{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:14px 16px}
-.cover-stat .v{font-family:"Space Grotesk";font-size:1.625rem;font-weight:700;color:#e8c986;display:block}
+.cover-stat{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:14px 16px}
+.cover-stat .v{font-family:"Bricolage Grotesque";font-size:1.625rem;font-weight:700;color:#e8c986;display:block}
 .cover-stat .l{font-size:0.7188rem;color:#aebcd6;letter-spacing:.04em;text-transform:uppercase}
 
 /* toc */
@@ -43,7 +61,7 @@ a:hover{text-decoration:underline}
 /* sections */
 section{padding:52px 0 8px}
 .sec-head{display:flex;align-items:baseline;gap:14px;border-bottom:3px solid var(--gold);padding-bottom:10px;margin-bottom:26px}
-.sec-num{font-family:"Space Grotesk";font-size:0.9375rem;font-weight:700;color:var(--gold);white-space:nowrap}
+.sec-num{font-family:"Bricolage Grotesque";font-size:0.9375rem;font-weight:700;color:var(--gold);white-space:nowrap}
 .sec-head h2{font-size:1.625rem;margin:0}
 .sec-head .sub{margin-left:auto;font-size:0.7813rem;color:var(--muted);text-align:right}
 h3{font-size:1.1875rem;margin:34px 0 10px}
@@ -55,8 +73,8 @@ strong{color:var(--navy)}
 
 /* stats */
 .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:22px 0}
-.stat-card{background:#fff;border:1px solid var(--line);border-top:3px solid var(--gold);border-radius:10px;padding:18px 18px 14px}
-.stat-value{font-family:"Space Grotesk";font-size:1.875rem;font-weight:700;color:var(--navy);display:block;line-height:1.1}
+.stat-card{background:#fff;border:1px solid var(--line);border-top:3px solid var(--gold);border-radius:14px;padding:18px 18px 14px}
+.stat-value{font-family:"Bricolage Grotesque";font-size:1.875rem;font-weight:700;color:var(--navy);display:block;line-height:1.1}
 .stat-label{font-size:0.7813rem;color:var(--muted);letter-spacing:.03em;text-transform:uppercase;display:block;margin-top:4px}
 .stat-note{font-size:0.75rem;color:var(--gray);display:block;margin-top:4px}
 
@@ -71,34 +89,34 @@ strong{color:var(--navy)}
 
 /* tables */
 table{width:100%;border-collapse:collapse;margin:18px 0 26px;font-size:0.8438rem;background:#fff}
-th{font-family:"Space Grotesk";text-align:left;padding:10px 12px;background:var(--navy);color:#fff;font-size:0.75rem;letter-spacing:.05em;text-transform:uppercase;border:none}
+th{font-family:"Bricolage Grotesque";text-align:left;padding:10px 12px;background:var(--navy);color:#fff;font-size:0.75rem;letter-spacing:.05em;text-transform:uppercase;border:none;border-radius:14px}
 td{padding:9px 12px;border-bottom:1px solid var(--zebra);vertical-align:top;font-variant-numeric:tabular-nums}
 tbody tr:nth-child(even){background:var(--zebra)}
-.mono,.num{font-family:"JetBrains Mono",monospace;font-size:0.7813rem}
-.bar-wrap{min-width:110px;background:#e6eaf0;border-radius:4px;height:12px;overflow:hidden}
-.bar{height:12px;background:var(--blue);border-radius:4px}
+.mono,.num{font-family:"Geist Mono",monospace;font-size:0.7813rem}
+.bar-wrap{min-width:110px;background:#e6eaf0;border-radius:12px;height:12px;overflow:hidden}
+.bar{height:12px;background:var(--blue);border-radius:12px}
 .bar.gold{background:var(--gold)}
 .delta-pos{color:var(--good);font-weight:600}
 .delta-neg{color:var(--bad);font-weight:600}
-.chip{display:inline-block;background:var(--chipbg);border:1px solid var(--line);border-radius:6px;padding:1px 8px;font-size:0.7188rem;color:var(--muted);white-space:nowrap}
+.chip{display:inline-block;background:var(--chipbg);border:1px solid var(--line);border-radius:12px;padding:1px 8px;font-size:0.7188rem;color:var(--muted);white-space:nowrap}
 .chip.gold{background:#fbf3e3;border-color:#ecd9ae;color:#8a5a10;font-weight:600}
 .chip.navy{background:var(--zebra);border-color:var(--line);color:var(--navy);font-weight:600}
 
 /* subject band */
-.band td{background:#1B2A4A;color:#fff;font-family:"Space Grotesk";font-weight:700;font-size:0.8438rem;letter-spacing:.04em;border-bottom:none}
+.band td{background:#1B2A4A;color:#fff;font-family:"Bricolage Grotesque";font-weight:700;font-size:0.8438rem;letter-spacing:.04em;border-bottom:none}
 .band td:first-child{border-top-left-radius:8px}
 .band td:last-child{border-top-right-radius:8px}
 
 /* question rows */
 .q-stem{font-weight:600;color:var(--navy)}
 .q-rule{color:var(--muted);font-size:0.7813rem}
-.ans-badge{display:inline-block;min-width:22px;text-align:center;background:var(--gold);color:#fff;font-weight:700;border-radius:5px;padding:1px 6px;font-family:"JetBrains Mono"}
+.ans-badge{display:inline-block;min-width:22px;text-align:center;background:var(--gold);color:#fff;font-weight:700;border-radius:12px;padding:1px 6px;font-family:"Geist Mono"}
 
 /* dissection */
 .dissect{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin:16px 0}
 .dissect .q{font-weight:700;color:var(--navy);margin-bottom:8px;font-size:0.9375rem}
 .dissect .opt{margin:2px 0;font-size:0.8438rem}
-.dissect .opt.correct{background:#eef6f0;border-radius:6px;padding:2px 8px;font-weight:600;color:var(--good)}
+.dissect .opt.correct{background:#eef6f0;border-radius:12px;padding:2px 8px;font-weight:600;color:var(--good)}
 .dissect .why{font-size:0.8438rem;color:var(--ink);margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
 .dissect .wn{font-size:0.7813rem;color:var(--muted);margin-top:4px}
 
@@ -110,7 +128,7 @@ tbody tr:nth-child(even){background:var(--zebra)}
 /* layout helpers */
 .two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 @media(max-width:700px){.two{grid-template-columns:1fr}}
-hr.div{border:none;height:2px;background:linear-gradient(90deg,var(--gold),transparent);margin:44px 0}
+hr.div{border:none;height:2px;background:linear-gradient(90deg,var(--gold),transparent);margin:44px 0;border-radius:14px}
 .note-line{font-size:0.8125rem;color:var(--muted);border-top:1px solid var(--line);padding-top:12px;margin-top:26px}
 
 footer{margin-top:60px;background:var(--navy);color:#aebcd6;padding:34px 28px;font-size:0.7813rem}
@@ -134,14 +152,14 @@ footer b{color:#fff}
 .site-topbar{position:sticky;top:0;z-index:50;background:rgba(19,32,58,.96);color:#fff;
   border-bottom:1px solid rgba(217,201,163,.25);backdrop-filter:blur(6px)}
 .topbar-inner{max-width:100%;margin:0 auto;padding:10px 28px;display:flex;align-items:center;gap:18px}
-.site-title{font-family:"Space Grotesk",system-ui,sans-serif;font-weight:700;font-size:0.9375rem;color:#fff;
+.site-title{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:700;font-size:0.9375rem;color:#fff;
   white-space:nowrap;text-decoration:none;letter-spacing:.01em}
 .site-title:hover{text-decoration:none;color:#e8c986}
 .topnav{display:flex;gap:4px;margin-left:auto;overflow-x:auto;-webkit-overflow-scrolling:touch}
-.topnav a{color:#c9d2e2;font-size:0.8125rem;padding:5px 10px;border-radius:6px;white-space:nowrap;text-decoration:none}
+.topnav a{color:#c9d2e2;font-size:0.8125rem;padding:5px 10px;border-radius:12px;white-space:nowrap;text-decoration:none}
 .topnav a:hover{background:rgba(255,255,255,.09);color:#fff;text-decoration:none}
 .theme-btn{flex:none;margin-left:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);
-  color:#e8c986;width:34px;height:34px;border-radius:8px;cursor:pointer;display:inline-flex;
+  color:#e8c986;width:34px;height:34px;border-radius:14px;cursor:pointer;display:inline-flex;
   align-items:center;justify-content:center;padding:0}
 .theme-btn:hover{background:rgba(255,255,255,.16)}
 .theme-btn .sun{display:none}
@@ -168,7 +186,7 @@ section.open .sec-body{display:block}
 /* dark theme */
 html[data-theme='dark']{
   --navy:#a9c4e8; --navy2:#2a3b5e; --gold:#d99a2b; --gold2:#e8c986; --blue:#7ea4d4;
-  --gray:#7a8494; --zebra:#1e2532; --ink:#e2e8f1; --muted:#9aa6b5; --paper:#141a24;
+  --gray:#FFFFFF; --zebra:#1e2532; --ink:#e2e8f1; --muted:#FFFFFF; --paper:#141a24;
   --paper2:#10151e; --line:#2c3444; --good:#54c18a; --bad:#e0706a; --chipbg:#20293a;
 }
 html[data-theme='dark'] .toc,html[data-theme='dark'] table,html[data-theme='dark'] .stat-card,
@@ -196,6 +214,15 @@ html[data-theme='dark'] .site-topbar{background:rgba(13,19,32,.96)}
   document.documentElement.setAttribute('data-theme',t);
 })();
 </script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Geist+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style id="mlx-2026">
+button{transition:transform .15s cubic-bezier(.34,1.56,.64,1),box-shadow .15s,background .2s,border-color .2s,color .2s}
+button:hover{transform:translateY(-2px)}
+button:active{transform:translateY(0) scale(.96)}
+summary{cursor:pointer}
+@media print{button{transition:none!important;transform:none!important}}
+@media(prefers-reduced-motion:reduce){button{transition:none!important;transform:none!important}}
+</style>
 </head><body id='top'>
 <header class="site-topbar"><div class="topbar-inner">
   <a class="site-title" href="#top">Full Picture Report</a>
@@ -366,7 +393,7 @@ the full 704-line master is the source of truth.</p>
 <table>
 <tbody>
 <tr class="band"><td colspan="3">01 · CARDIOLOGY <span style="float:right;font-weight:400;font-size:0.7188rem;opacity:.85">19 items</span></td></tr>
-<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Central crushing chest pain + ST elevation II,III,aVF → INFERIOR MI → Reperfusion therapy</div><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Central crushing chest pain + ST elevation V1-V4 → ANTERIOR MI (LAD occlusion) → Reperfusion</div></td>
+<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#39424f;margin:1px 0">Central crushing chest pain + ST elevation II,III,aVF → INFERIOR MI → Reperfusion therapy</div><div class="mono" style="font-size:0.7813rem;color:#39424f;margin:1px 0">Central crushing chest pain + ST elevation V1-V4 → ANTERIOR MI (LAD occlusion) → Reperfusion</div></td>
 <td style="width:20%"><span class="chip">recognition format</span><br><span class="small">KEYWORDS → ANSWER [fact]</span></td>
 <td style="width:46%"><span class="small">Feed: Exact 50 + Academy 200 + Recalled 189. Cram-ready, no fluff — recognition only.</span></td></tr>
 </tbody></table>
@@ -375,7 +402,7 @@ the full 704-line master is the source of truth.</p>
 <table>
 <tbody>
 <tr class="band"><td colspan="3">02 · ENDOCRINOLOGY <span style="float:right;font-weight:400;font-size:0.7188rem;opacity:.85">19 items</span></td></tr>
-<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Weight gain + muscle weakness + purple striae + HTN + eosinopenia → CUSHING SYNDROME</div><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Hyperpigmentation + hyponatremia + hyperkalemia + weight loss → ADDISON DISEASE</div></td>
+<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#39424f;margin:1px 0">Weight gain + muscle weakness + purple striae + HTN + eosinopenia → CUSHING SYNDROME</div><div class="mono" style="font-size:0.7813rem;color:#39424f;margin:1px 0">Hyperpigmentation + hyponatremia + hyperkalemia + weight loss → ADDISON DISEASE</div></td>
 <td style="width:20%"><span class="chip">recognition format</span><br><span class="small">KEYWORDS → ANSWER [fact]</span></td>
 <td style="width:46%"><span class="small">Feed: Exact 50 + Academy 200 + Recalled 189. Cram-ready, no fluff — recognition only.</span></td></tr>
 </tbody></table>
@@ -384,7 +411,7 @@ the full 704-line master is the source of truth.</p>
 <table>
 <tbody>
 <tr class="band"><td colspan="3">03 · INFECTIOUS DISEASE / SEPSIS <span style="float:right;font-weight:400;font-size:0.7188rem;opacity:.85">31 items</span></td></tr>
-<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Fever + tachycardia + hypotension + source → SEPSIS → Cultures → Abx within 1 hour → Fluids 30 mL/kg</div><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Hypotension + lactate &gt;2 despite fluids → SEPTIC SHOCK → Norepinephrine (NOT dopamine)</div></td>
+<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#39424f;margin:1px 0">Fever + tachycardia + hypotension + source → SEPSIS → Cultures → Abx within 1 hour → Fluids 30 mL/kg</div><div class="mono" style="font-size:0.7813rem;color:#39424f;margin:1px 0">Hypotension + lactate &gt;2 despite fluids → SEPTIC SHOCK → Norepinephrine (NOT dopamine)</div></td>
 <td style="width:20%"><span class="chip">recognition format</span><br><span class="small">KEYWORDS → ANSWER [fact]</span></td>
 <td style="width:46%"><span class="small">Feed: Exact 50 + Academy 200 + Recalled 189. Cram-ready, no fluff — recognition only.</span></td></tr>
 </tbody></table>
@@ -393,7 +420,7 @@ the full 704-line master is the source of truth.</p>
 <table>
 <tbody>
 <tr class="band"><td colspan="3">04 · NEPHROLOGY / ELECTROLYTES <span style="float:right;font-weight:400;font-size:0.7188rem;opacity:.85">13 items</span></td></tr>
-<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Periorbital edema + cola-colored urine + sore throat 2 weeks ago → PSGN (post-streptococcal GN)</div><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Generalized edema + dark scanty urine + sore throat 2 weeks ago + BP 130/90 → PSGN</div></td>
+<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#39424f;margin:1px 0">Periorbital edema + cola-colored urine + sore throat 2 weeks ago → PSGN (post-streptococcal GN)</div><div class="mono" style="font-size:0.7813rem;color:#39424f;margin:1px 0">Generalized edema + dark scanty urine + sore throat 2 weeks ago + BP 130/90 → PSGN</div></td>
 <td style="width:20%"><span class="chip">recognition format</span><br><span class="small">KEYWORDS → ANSWER [fact]</span></td>
 <td style="width:46%"><span class="small">Feed: Exact 50 + Academy 200 + Recalled 189. Cram-ready, no fluff — recognition only.</span></td></tr>
 </tbody></table>
@@ -402,7 +429,7 @@ the full 704-line master is the source of truth.</p>
 <table>
 <tbody>
 <tr class="band"><td colspan="3">05 · GASTROENTEROLOGY / HEPATOLOGY <span style="float:right;font-weight:400;font-size:0.7188rem;opacity:.85">33 items</span></td></tr>
-<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Severe epigastric pain radiating to back + vomiting + raised amylase/lipase → ACUTE PANCREATITIS</div><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Pancreatitis + steatorrhea → LIPASE deficiency is cause</div></td>
+<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#39424f;margin:1px 0">Severe epigastric pain radiating to back + vomiting + raised amylase/lipase → ACUTE PANCREATITIS</div><div class="mono" style="font-size:0.7813rem;color:#39424f;margin:1px 0">Pancreatitis + steatorrhea → LIPASE deficiency is cause</div></td>
 <td style="width:20%"><span class="chip">recognition format</span><br><span class="small">KEYWORDS → ANSWER [fact]</span></td>
 <td style="width:46%"><span class="small">Feed: Exact 50 + Academy 200 + Recalled 189. Cram-ready, no fluff — recognition only.</span></td></tr>
 </tbody></table>
@@ -411,7 +438,7 @@ the full 704-line master is the source of truth.</p>
 <table>
 <tbody>
 <tr class="band"><td colspan="3">06 · HEMATOLOGY <span style="float:right;font-weight:400;font-size:0.7188rem;opacity:.85">17 items</span></td></tr>
-<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Pallor + bone pain + bruising + WBC 42k + 85% immature granulocytes + normal 3 months ago → ACUTE MYELOID LEUKEMIA (AML)</div><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Fever + anemia + abdominal pain + gum hyperplasia + blasts + Auer rods + MPO positive + WBC 42k → AML</div></td>
+<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#39424f;margin:1px 0">Pallor + bone pain + bruising + WBC 42k + 85% immature granulocytes + normal 3 months ago → ACUTE MYELOID LEUKEMIA (AML)</div><div class="mono" style="font-size:0.7813rem;color:#39424f;margin:1px 0">Fever + anemia + abdominal pain + gum hyperplasia + blasts + Auer rods + MPO positive + WBC 42k → AML</div></td>
 <td style="width:20%"><span class="chip">recognition format</span><br><span class="small">KEYWORDS → ANSWER [fact]</span></td>
 <td style="width:46%"><span class="small">Feed: Exact 50 + Academy 200 + Recalled 189. Cram-ready, no fluff — recognition only.</span></td></tr>
 </tbody></table>
@@ -420,7 +447,7 @@ the full 704-line master is the source of truth.</p>
 <table>
 <tbody>
 <tr class="band"><td colspan="3">07 · NEUROLOGY <span style="float:right;font-weight:400;font-size:0.7188rem;opacity:.85">37 items</span></td></tr>
-<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Sudden weakness + aphasia within 2 hours + CT no hemorrhage → ISCHEMIC STROKE → IV thrombolysis</div><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Weakness + aphasia + 4 hours + CT normal → Ischemic stroke (IV thrombolysis if within window)</div></td>
+<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#39424f;margin:1px 0">Sudden weakness + aphasia within 2 hours + CT no hemorrhage → ISCHEMIC STROKE → IV thrombolysis</div><div class="mono" style="font-size:0.7813rem;color:#39424f;margin:1px 0">Weakness + aphasia + 4 hours + CT normal → Ischemic stroke (IV thrombolysis if within window)</div></td>
 <td style="width:20%"><span class="chip">recognition format</span><br><span class="small">KEYWORDS → ANSWER [fact]</span></td>
 <td style="width:46%"><span class="small">Feed: Exact 50 + Academy 200 + Recalled 189. Cram-ready, no fluff — recognition only.</span></td></tr>
 </tbody></table>
@@ -429,7 +456,7 @@ the full 704-line master is the source of truth.</p>
 <table>
 <tbody>
 <tr class="band"><td colspan="3">08 · RHEUMATOLOGY <span style="float:right;font-weight:400;font-size:0.7188rem;opacity:.85">13 items</span></td></tr>
-<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Symmetrical joint pain + morning stiffness &gt;1 hour + swollen MCP → RHEUMATOID ARTHRITIS</div><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">RA + rheumatoid factor + anti-CCP → DMARDs (methotrexate first-line)</div></td>
+<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#39424f;margin:1px 0">Symmetrical joint pain + morning stiffness &gt;1 hour + swollen MCP → RHEUMATOID ARTHRITIS</div><div class="mono" style="font-size:0.7813rem;color:#39424f;margin:1px 0">RA + rheumatoid factor + anti-CCP → DMARDs (methotrexate first-line)</div></td>
 <td style="width:20%"><span class="chip">recognition format</span><br><span class="small">KEYWORDS → ANSWER [fact]</span></td>
 <td style="width:46%"><span class="small">Feed: Exact 50 + Academy 200 + Recalled 189. Cram-ready, no fluff — recognition only.</span></td></tr>
 </tbody></table>
@@ -438,7 +465,7 @@ the full 704-line master is the source of truth.</p>
 <table>
 <tbody>
 <tr class="band"><td colspan="3">09 · SURGERY — ACUTE ABDOMEN <span style="float:right;font-weight:400;font-size:0.7188rem;opacity:.85">18 items</span></td></tr>
-<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Periumbilical → RIF pain + fever + nausea + rebound at McBurney → APPENDICITIS → Appendectomy</div><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">RIF pain + McBurney tenderness + fever → Appendicitis → Appendectomy</div></td>
+<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#39424f;margin:1px 0">Periumbilical → RIF pain + fever + nausea + rebound at McBurney → APPENDICITIS → Appendectomy</div><div class="mono" style="font-size:0.7813rem;color:#39424f;margin:1px 0">RIF pain + McBurney tenderness + fever → Appendicitis → Appendectomy</div></td>
 <td style="width:20%"><span class="chip">recognition format</span><br><span class="small">KEYWORDS → ANSWER [fact]</span></td>
 <td style="width:46%"><span class="small">Feed: Exact 50 + Academy 200 + Recalled 189. Cram-ready, no fluff — recognition only.</span></td></tr>
 </tbody></table>
@@ -447,7 +474,7 @@ the full 704-line master is the source of truth.</p>
 <table>
 <tbody>
 <tr class="band"><td colspan="3">10 · SURGERY — TRAUMA / VASCULAR <span style="float:right;font-weight:400;font-size:0.7188rem;opacity:.85">19 items</span></td></tr>
-<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Gunshot abdomen + stable (pulse 100, BP 130/80) → FAST (first investigation)</div><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Bullet injury abdomen + stable → FAST</div></td>
+<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#39424f;margin:1px 0">Gunshot abdomen + stable (pulse 100, BP 130/80) → FAST (first investigation)</div><div class="mono" style="font-size:0.7813rem;color:#39424f;margin:1px 0">Bullet injury abdomen + stable → FAST</div></td>
 <td style="width:20%"><span class="chip">recognition format</span><br><span class="small">KEYWORDS → ANSWER [fact]</span></td>
 <td style="width:46%"><span class="small">Feed: Exact 50 + Academy 200 + Recalled 189. Cram-ready, no fluff — recognition only.</span></td></tr>
 </tbody></table>
@@ -456,7 +483,7 @@ the full 704-line master is the source of truth.</p>
 <table>
 <tbody>
 <tr class="band"><td colspan="3">11 · UROLOGY <span style="float:right;font-weight:400;font-size:0.7188rem;opacity:.85">16 items</span></td></tr>
-<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Testicular torsion + sudden severe pain + vomiting + high-riding testis + absent cremasteric → SURGERY (6-hour window)</div><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Testicular torsion → Absent cremasteric reflex + high-riding testis → Emergency exploration</div></td>
+<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#39424f;margin:1px 0">Testicular torsion + sudden severe pain + vomiting + high-riding testis + absent cremasteric → SURGERY (6-hour window)</div><div class="mono" style="font-size:0.7813rem;color:#39424f;margin:1px 0">Testicular torsion → Absent cremasteric reflex + high-riding testis → Emergency exploration</div></td>
 <td style="width:20%"><span class="chip">recognition format</span><br><span class="small">KEYWORDS → ANSWER [fact]</span></td>
 <td style="width:46%"><span class="small">Feed: Exact 50 + Academy 200 + Recalled 189. Cram-ready, no fluff — recognition only.</span></td></tr>
 </tbody></table>
@@ -465,7 +492,7 @@ the full 704-line master is the source of truth.</p>
 <table>
 <tbody>
 <tr class="band"><td colspan="3">12 · BREAST / THYROID <span style="float:right;font-weight:400;font-size:0.7188rem;opacity:.85">22 items</span></td></tr>
-<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Painless mobile firm breast lump 2cm upper outer quadrant → FIBROADENOMA → Reassurance + follow-up</div><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Hard irregular breast lump + peau d'orange → BREAST CANCER → FNAC/core biopsy</div></td>
+<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#39424f;margin:1px 0">Painless mobile firm breast lump 2cm upper outer quadrant → FIBROADENOMA → Reassurance + follow-up</div><div class="mono" style="font-size:0.7813rem;color:#39424f;margin:1px 0">Hard irregular breast lump + peau d'orange → BREAST CANCER → FNAC/core biopsy</div></td>
 <td style="width:20%"><span class="chip">recognition format</span><br><span class="small">KEYWORDS → ANSWER [fact]</span></td>
 <td style="width:46%"><span class="small">Feed: Exact 50 + Academy 200 + Recalled 189. Cram-ready, no fluff — recognition only.</span></td></tr>
 </tbody></table>
@@ -474,7 +501,7 @@ the full 704-line master is the source of truth.</p>
 <table>
 <tbody>
 <tr class="band"><td colspan="3">13 · OBSTETRICS <span style="float:right;font-weight:400;font-size:0.7188rem;opacity:.85">18 items</span></td></tr>
-<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">BP 160/110 + proteinuria + edema at 32 weeks → PREECLAMPSIA</div><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Preeclampsia + seizure at 38 weeks → MAGNESIUM SULFATE (treatment of choice)</div></td>
+<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#39424f;margin:1px 0">BP 160/110 + proteinuria + edema at 32 weeks → PREECLAMPSIA</div><div class="mono" style="font-size:0.7813rem;color:#39424f;margin:1px 0">Preeclampsia + seizure at 38 weeks → MAGNESIUM SULFATE (treatment of choice)</div></td>
 <td style="width:20%"><span class="chip">recognition format</span><br><span class="small">KEYWORDS → ANSWER [fact]</span></td>
 <td style="width:46%"><span class="small">Feed: Exact 50 + Academy 200 + Recalled 189. Cram-ready, no fluff — recognition only.</span></td></tr>
 </tbody></table>
@@ -483,7 +510,7 @@ the full 704-line master is the source of truth.</p>
 <table>
 <tbody>
 <tr class="band"><td colspan="3">14 · GYNECOLOGY <span style="float:right;font-weight:400;font-size:0.7188rem;opacity:.85">13 items</span></td></tr>
-<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Primary amenorrhea + webbed neck + low hairline + streak ovaries + short stature → TURNER SYNDROME (45X0)</div><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Heavy prolonged menstrual bleeding since menarche + negative pregnancy test + normal coagulation → ANOVULATORY CYCLES</div></td>
+<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#39424f;margin:1px 0">Primary amenorrhea + webbed neck + low hairline + streak ovaries + short stature → TURNER SYNDROME (45X0)</div><div class="mono" style="font-size:0.7813rem;color:#39424f;margin:1px 0">Heavy prolonged menstrual bleeding since menarche + negative pregnancy test + normal coagulation → ANOVULATORY CYCLES</div></td>
 <td style="width:20%"><span class="chip">recognition format</span><br><span class="small">KEYWORDS → ANSWER [fact]</span></td>
 <td style="width:46%"><span class="small">Feed: Exact 50 + Academy 200 + Recalled 189. Cram-ready, no fluff — recognition only.</span></td></tr>
 </tbody></table>
@@ -492,7 +519,7 @@ the full 704-line master is the source of truth.</p>
 <table>
 <tbody>
 <tr class="band"><td colspan="3">15 · PEDIATRICS — NEONATOLOGY <span style="float:right;font-weight:400;font-size:0.7188rem;opacity:.85">18 items</span></td></tr>
-<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Premature 28 weeks + respiratory distress + ground-glass X-ray → RDS → SURFACTANT</div><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Preterm baby 1.2kg at 28 weeks + ground-glass → Surfactant</div></td>
+<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#39424f;margin:1px 0">Premature 28 weeks + respiratory distress + ground-glass X-ray → RDS → SURFACTANT</div><div class="mono" style="font-size:0.7813rem;color:#39424f;margin:1px 0">Preterm baby 1.2kg at 28 weeks + ground-glass → Surfactant</div></td>
 <td style="width:20%"><span class="chip">recognition format</span><br><span class="small">KEYWORDS → ANSWER [fact]</span></td>
 <td style="width:46%"><span class="small">Feed: Exact 50 + Academy 200 + Recalled 189. Cram-ready, no fluff — recognition only.</span></td></tr>
 </tbody></table>
@@ -501,7 +528,7 @@ the full 704-line master is the source of truth.</p>
 <table>
 <tbody>
 <tr class="band"><td colspan="3">16 · PEDIATRICS — GENERAL <span style="float:right;font-weight:400;font-size:0.7188rem;opacity:.85">44 items</span></td></tr>
-<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Fever + drooling + stridor + tripod position → EPIGLOTTITIS → Secure airway (DO NOT examine throat)</div><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Epiglottitis in unimmunized children → HAEMOPHILUS INFLUENZAE type b</div></td>
+<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#39424f;margin:1px 0">Fever + drooling + stridor + tripod position → EPIGLOTTITIS → Secure airway (DO NOT examine throat)</div><div class="mono" style="font-size:0.7813rem;color:#39424f;margin:1px 0">Epiglottitis in unimmunized children → HAEMOPHILUS INFLUENZAE type b</div></td>
 <td style="width:20%"><span class="chip">recognition format</span><br><span class="small">KEYWORDS → ANSWER [fact]</span></td>
 <td style="width:46%"><span class="small">Feed: Exact 50 + Academy 200 + Recalled 189. Cram-ready, no fluff — recognition only.</span></td></tr>
 </tbody></table>
@@ -510,7 +537,7 @@ the full 704-line master is the source of truth.</p>
 <table>
 <tbody>
 <tr class="band"><td colspan="3">17 · OPHTHALMOLOGY <span style="float:right;font-weight:400;font-size:0.7188rem;opacity:.85">13 items</span></td></tr>
-<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Sudden painful vision loss + headache + halos + mid-dilated fixed pupil + ↑IOP → ACUTE ANGLE-CLOSURE GLAUCOMA</div><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Sudden severe eye pain + redness + halos + mid-dilated fixed pupil → Acute angle-closure glaucoma</div></td>
+<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#39424f;margin:1px 0">Sudden painful vision loss + headache + halos + mid-dilated fixed pupil + ↑IOP → ACUTE ANGLE-CLOSURE GLAUCOMA</div><div class="mono" style="font-size:0.7813rem;color:#39424f;margin:1px 0">Sudden severe eye pain + redness + halos + mid-dilated fixed pupil → Acute angle-closure glaucoma</div></td>
 <td style="width:20%"><span class="chip">recognition format</span><br><span class="small">KEYWORDS → ANSWER [fact]</span></td>
 <td style="width:46%"><span class="small">Feed: Exact 50 + Academy 200 + Recalled 189. Cram-ready, no fluff — recognition only.</span></td></tr>
 </tbody></table>
@@ -519,7 +546,7 @@ the full 704-line master is the source of truth.</p>
 <table>
 <tbody>
 <tr class="band"><td colspan="3">18 · ENT <span style="float:right;font-weight:400;font-size:0.7188rem;opacity:.85">16 items</span></td></tr>
-<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Fever + drooling + stridor + tripod position → EPIGLOTTITIS → Secure airway (NO throat exam)</div><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Barking cough + stridor + hoarseness + worse at night + steeple sign → CROUP</div></td>
+<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#39424f;margin:1px 0">Fever + drooling + stridor + tripod position → EPIGLOTTITIS → Secure airway (NO throat exam)</div><div class="mono" style="font-size:0.7813rem;color:#39424f;margin:1px 0">Barking cough + stridor + hoarseness + worse at night + steeple sign → CROUP</div></td>
 <td style="width:20%"><span class="chip">recognition format</span><br><span class="small">KEYWORDS → ANSWER [fact]</span></td>
 <td style="width:46%"><span class="small">Feed: Exact 50 + Academy 200 + Recalled 189. Cram-ready, no fluff — recognition only.</span></td></tr>
 </tbody></table>
@@ -528,7 +555,7 @@ the full 704-line master is the source of truth.</p>
 <table>
 <tbody>
 <tr class="band"><td colspan="3">19 · APPLIED PATHOLOGY <span style="float:right;font-weight:400;font-size:0.7188rem;opacity:.85">20 items</span></td></tr>
-<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Autoimmune hemolytic anemia + Coombs positive → TYPE II hypersensitivity (antibody-mediated)</div><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">SLE → TYPE III (immune complex-mediated)</div></td>
+<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#39424f;margin:1px 0">Autoimmune hemolytic anemia + Coombs positive → TYPE II hypersensitivity (antibody-mediated)</div><div class="mono" style="font-size:0.7813rem;color:#39424f;margin:1px 0">SLE → TYPE III (immune complex-mediated)</div></td>
 <td style="width:20%"><span class="chip">recognition format</span><br><span class="small">KEYWORDS → ANSWER [fact]</span></td>
 <td style="width:46%"><span class="small">Feed: Exact 50 + Academy 200 + Recalled 189. Cram-ready, no fluff — recognition only.</span></td></tr>
 </tbody></table>
@@ -537,7 +564,7 @@ the full 704-line master is the source of truth.</p>
 <table>
 <tbody>
 <tr class="band"><td colspan="3">20 · APPLIED ANATOMY <span style="float:right;font-weight:400;font-size:0.7188rem;opacity:.85">19 items</span></td></tr>
-<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">C5-C6 injury → Waiter's tip + loss lateral forearm → Upper trunk brachial plexus</div><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Lower trunk injury (breech) → Hand weakness + clawing + Horner → Lower trunk brachial plexus</div></td>
+<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#39424f;margin:1px 0">C5-C6 injury → Waiter's tip + loss lateral forearm → Upper trunk brachial plexus</div><div class="mono" style="font-size:0.7813rem;color:#39424f;margin:1px 0">Lower trunk injury (breech) → Hand weakness + clawing + Horner → Lower trunk brachial plexus</div></td>
 <td style="width:20%"><span class="chip">recognition format</span><br><span class="small">KEYWORDS → ANSWER [fact]</span></td>
 <td style="width:46%"><span class="small">Feed: Exact 50 + Academy 200 + Recalled 189. Cram-ready, no fluff — recognition only.</span></td></tr>
 </tbody></table>
@@ -546,7 +573,7 @@ the full 704-line master is the source of truth.</p>
 <table>
 <tbody>
 <tr class="band"><td colspan="3">21 · APPLIED PHYSIOLOGY <span style="float:right;font-weight:400;font-size:0.7188rem;opacity:.85">13 items</span></td></tr>
-<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Positive feedback → Opening of Na+ channels during action potential</div><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Pain inhibited by tactile stimulation → Beta-type A fibers (mechanoreceptors)</div></td>
+<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#39424f;margin:1px 0">Positive feedback → Opening of Na+ channels during action potential</div><div class="mono" style="font-size:0.7813rem;color:#39424f;margin:1px 0">Pain inhibited by tactile stimulation → Beta-type A fibers (mechanoreceptors)</div></td>
 <td style="width:20%"><span class="chip">recognition format</span><br><span class="small">KEYWORDS → ANSWER [fact]</span></td>
 <td style="width:46%"><span class="small">Feed: Exact 50 + Academy 200 + Recalled 189. Cram-ready, no fluff — recognition only.</span></td></tr>
 </tbody></table>
@@ -555,7 +582,7 @@ the full 704-line master is the source of truth.</p>
 <table>
 <tbody>
 <tr class="band"><td colspan="3">22 · CLINICAL PHARMACOLOGY <span style="float:right;font-weight:400;font-size:0.7188rem;opacity:.85">34 items</span></td></tr>
-<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Warfarin overdose + bleeding → Vitamin K (antidote)</div><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Heparin monitoring → aPTT</div></td>
+<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#39424f;margin:1px 0">Warfarin overdose + bleeding → Vitamin K (antidote)</div><div class="mono" style="font-size:0.7813rem;color:#39424f;margin:1px 0">Heparin monitoring → aPTT</div></td>
 <td style="width:20%"><span class="chip">recognition format</span><br><span class="small">KEYWORDS → ANSWER [fact]</span></td>
 <td style="width:46%"><span class="small">Feed: Exact 50 + Academy 200 + Recalled 189. Cram-ready, no fluff — recognition only.</span></td></tr>
 </tbody></table>
@@ -564,7 +591,7 @@ the full 704-line master is the source of truth.</p>
 <table>
 <tbody>
 <tr class="band"><td colspan="3">23 · APPLIED BIOCHEMISTRY <span style="float:right;font-weight:400;font-size:0.7188rem;opacity:.85">16 items</span></td></tr>
-<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Ketone body synthesis → HMG-CoA SYNTHASE (acetyl-CoA → HMG-CoA)</div><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Maple syrup urine disease → Valine, leucine, isoleucine (branched-chain amino acids)</div></td>
+<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#39424f;margin:1px 0">Ketone body synthesis → HMG-CoA SYNTHASE (acetyl-CoA → HMG-CoA)</div><div class="mono" style="font-size:0.7813rem;color:#39424f;margin:1px 0">Maple syrup urine disease → Valine, leucine, isoleucine (branched-chain amino acids)</div></td>
 <td style="width:20%"><span class="chip">recognition format</span><br><span class="small">KEYWORDS → ANSWER [fact]</span></td>
 <td style="width:46%"><span class="small">Feed: Exact 50 + Academy 200 + Recalled 189. Cram-ready, no fluff — recognition only.</span></td></tr>
 </tbody></table>
@@ -573,7 +600,7 @@ the full 704-line master is the source of truth.</p>
 <table>
 <tbody>
 <tr class="band"><td colspan="3">24 · COMMUNITY MEDICINE / EPIDEMIOLOGY <span style="float:right;font-weight:400;font-size:0.7188rem;opacity:.85">16 items</span></td></tr>
-<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Population growth 2% annually → Doubling time ~35 years (Rule of 70: 70/2 = 35)</div><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">EPI schedule: measles vaccine → AT 9 MONTHS</div></td>
+<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#39424f;margin:1px 0">Population growth 2% annually → Doubling time ~35 years (Rule of 70: 70/2 = 35)</div><div class="mono" style="font-size:0.7813rem;color:#39424f;margin:1px 0">EPI schedule: measles vaccine → AT 9 MONTHS</div></td>
 <td style="width:20%"><span class="chip">recognition format</span><br><span class="small">KEYWORDS → ANSWER [fact]</span></td>
 <td style="width:46%"><span class="small">Feed: Exact 50 + Academy 200 + Recalled 189. Cram-ready, no fluff — recognition only.</span></td></tr>
 </tbody></table>
@@ -582,7 +609,7 @@ the full 704-line master is the source of truth.</p>
 <table>
 <tbody>
 <tr class="band"><td colspan="3">25 · FORENSIC MEDICINE <span style="float:right;font-weight:400;font-size:0.7188rem;opacity:.85">20 items</span></td></tr>
-<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Cherry-red postmortem staining + closed room + smoke → CARBON MONOXIDE poisoning</div><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Body in water + white froth + overdistended lungs → DROWNING</div></td>
+<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#39424f;margin:1px 0">Cherry-red postmortem staining + closed room + smoke → CARBON MONOXIDE poisoning</div><div class="mono" style="font-size:0.7813rem;color:#39424f;margin:1px 0">Body in water + white froth + overdistended lungs → DROWNING</div></td>
 <td style="width:20%"><span class="chip">recognition format</span><br><span class="small">KEYWORDS → ANSWER [fact]</span></td>
 <td style="width:46%"><span class="small">Feed: Exact 50 + Academy 200 + Recalled 189. Cram-ready, no fluff — recognition only.</span></td></tr>
 </tbody></table>
@@ -591,7 +618,7 @@ the full 704-line master is the source of truth.</p>
 <table>
 <tbody>
 <tr class="band"><td colspan="3">26 · MISCELLANEOUS HIGH-YIELD <span style="float:right;font-weight:400;font-size:0.7188rem;opacity:.85">50 items</span></td></tr>
-<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Most common cause CAP → STREP PNEUMONIAE</div><div class="mono" style="font-size:0.7813rem;color:#3a4450;margin:1px 0">Most common UTI organism → E. COLI</div></td>
+<tr><td style="width:34%"><div class="mono" style="font-size:0.7813rem;color:#39424f;margin:1px 0">Most common cause CAP → STREP PNEUMONIAE</div><div class="mono" style="font-size:0.7813rem;color:#39424f;margin:1px 0">Most common UTI organism → E. COLI</div></td>
 <td style="width:20%"><span class="chip">recognition format</span><br><span class="small">KEYWORDS → ANSWER [fact]</span></td>
 <td style="width:46%"><span class="small">Feed: Exact 50 + Academy 200 + Recalled 189. Cram-ready, no fluff — recognition only.</span></td></tr>
 </tbody></table>
@@ -1154,4 +1181,35 @@ prediction bank is double-confirmed.</p>
   body{overflow-x:hidden;padding-left:14px;padding-right:14px}
 }
 </style>
+
+<style id="mlx-live">
+h1{font-weight:800}h2{font-weight:700}h3,h4{font-weight:700}
+@keyframes mlxFade{from{opacity:0}to{opacity:1}}
+body{animation:mlxFade .4s ease both}
+.mlx-toggle{position:fixed;right:16px;bottom:16px;z-index:99;font:600 12px/1 'Geist Mono',ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;padding:11px 15px;border-radius:999px;cursor:pointer;background:var(--panel,#14171E);color:var(--chalk,#FFFFFF);border:1px solid var(--line,#2A3140);box-shadow:0 10px 30px -12px rgba(0,0,0,.55);transition:transform .15s,border-color .2s}
+.mlx-toggle:hover{border-color:var(--cyan,#4DA3FF)}
+.mlx-toggle:active{transform:scale(.94)}
+@media print{.mlx-toggle{display:none!important}body{animation:none!important}}
+@media(prefers-reduced-motion:reduce){body,.mlx-toggle{animation:none!important;transition:none!important}}
+</style>
+<script>
+(function(){
+ try{
+  var s=localStorage.getItem('mlx-theme');
+  var m=s||(window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');
+  document.documentElement.setAttribute('data-mode',m);
+ }catch(e){}
+ var b=document.createElement('button');
+ b.className='mlx-toggle';b.type='button';
+ function lbl(){b.textContent=document.documentElement.getAttribute('data-mode')==='light'?'dark':'light';}
+ b.addEventListener('click',function(){
+  var n=document.documentElement.getAttribute('data-mode')==='light'?'dark':'light';
+  document.documentElement.setAttribute('data-mode',n);
+  try{localStorage.setItem('mlx-theme',n);}catch(e){}
+  lbl();
+ });
+ document.body.appendChild(b);lbl();
+})();
+</script>
+
 </body></html>

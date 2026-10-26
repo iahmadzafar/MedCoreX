@@ -7,14 +7,18 @@
 
 ## 1 · Foundations
 
-### 1.1 — Type voice
-- **Headlines: serif.** Instrument Serif on the public pages; DM Serif Display inside the books (each shelf keeps its own serif — both italic-capable). Titles never bold — the serif carries the weight.
-- **Body: sans.** Newsreader stays as the reading voice on public pages; books keep Inter / DM Sans for content. Line-height **1.7** for body, **1.25** for UI labels.
-- **Labels, indexes, meta: mono** (IBM Plex Mono / JetBrains Mono, 10–11px, small-caps or letterspaced caps). An index number or a meta line is always mono — that's how you recognize it at a glance.
+### 1.1 — Type voice (revised 25 Oct 2026)
+- **Three families, fleet-wide, one Google Fonts request per file:**
+  - **Display / headlines:** Bricolage Grotesque — 800 for hero and h1, 700 for sections, tight tracking (−0.02em). Serif display is retired.
+  - **Body:** Plus Jakarta Sans — the reading voice everywhere. Line-height **1.7** for body, **1.25** for UI labels.
+  - **Labels, indexes, meta: mono** — Geist Mono, replacing IBM Plex Mono / Space Mono / JetBrains Mono. 10–11px, small-caps or letterspaced caps.
+- Weight ladder: 800 display / 700 headings & buttons / 600 labels / 400 body.
 - No board names anywhere. No emojis anywhere — glyphs are inline SVG only.
 
-### 1.2 — Color
-- The ground is the library's dark teal family (`#0C171A → #122428 → #172D31`) or its warm-paper light twin. Everything else rides on **one accent — amber `#F5A524`** (dark) / dark amber `#9A5B10` (light).
+### 1.2 — Color (revised 25 Oct 2026)
+- **Text is stark:** pure `#FFFFFF` on dark, pure `#000000` on light — owner ruling, overrides the old no-pure clause. Secondary text rides at 64% / 58% opacity of the same.
+- The ground is the dark navy family (`#0B0D12 → #14171E → #1A1E28`) with a pure-white light twin (`#FFFFFF → #F4F5F7`). Soft drifting orbs are the ambient color layer.
+- **Accents are colorful, spent semantically:** primary gradient mint `#34D399` → sky `#4DA3FF`; supporting sunshine `#FFC53D`, pink `#FF6EA9`, violet `#8B7CFF`, tangerine `#FF8A3D`. Light mode deepens them for contrast (mint `#0E9F68`, sky `#1D6FD1`, sun `#C98A00`, pink `#DB2777`, violet `#6D5AE6`).
 - **Semantic color is spent, not applied:** mint = correct / recognition path; coral = wrong / trap / never-do; warn = caution. Anything else is neutral.
 - Category chips (concept / task / trap / rule…) keep their hues — they carry meaning in the breakdowns. Proportion rule: a colored element is *small* (a label, a rail, a chip) sitting on a *quiet* surface. Full-width solid slabs are banned. A hero is ground, never the accent.
 
@@ -28,7 +32,7 @@
 - Shadow tokens: base contact `0 1px 2px`, ambient `0 14px 34px -16px` (dark) / `0 14px 34px -20px rgba(23,17,10,.20)` (light). Every card, box, panel and button carries both — no exceptions.
 - Hover deepens the ambient layer slightly (no translate jumps). On-state keeps full depth with flat amber fill.
 - Surfaces stack three deep max: ground → panel → leaf. Each step slightly lighter/softer; hairline borders (`#1E3338` family) mark the seams.
-- Corner radius: the house is sharp (2px max on public pages; books are boxy). Soft material comes from shadows and layering, **not** rounding.
+- Corner radius: the house is soft (revised Oct 2026) — cards 16–22px, controls 12–14px, chips/pills 999px. The old 2px-sharp rule is retired.
 - Dark and light are equals: every surface, rail, shadow and chip has a light-mode twin from the same token. Nothing exists in dark only.
 
 ### 1.5 — Detail · rich
