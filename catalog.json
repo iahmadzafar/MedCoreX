@@ -1,7 +1,7 @@
 {
  "cats": [
   "Core Books",
-  "Test Series & Mocks",
+  "Mocks & Drills",
   "Past Papers & Answer Keys",
   "Exam Intelligence & Strategy",
   "Quick Reference",
@@ -257,7 +257,7 @@
   {
    "t": "MedCORE Question Bank",
    "d": "Test series + main bank + full past papers · 6,999 MCQs across ten tests",
-   "c": "Test Series & Mocks",
+   "c": "Mocks & Drills",
    "f": "medcore-question-bank.html",
    "k": 5301.1
   }

@@ -1,303 +1,235 @@
 <!doctype html>
-<html lang="en" data-mode="dark">
+<html lang="en">
 <head>
 <meta charset="utf-8">
+<meta name="color-scheme" content="light dark">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MedLib X — a private study library</title>
-<meta name="description" content="Seven shelves, one standard. A curated library of books, drills, recalled papers and exam intelligence — browsing is free, opening a file takes an account.">
+<meta name="description" content="Seven shelves, one standard. A curated library of books, drills, recalled papers and exam intelligence.">
 <meta name="robots" content="noindex, nofollow">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%230B0D12'/%3E%3Cpath d='M7 7l10 10M17 7L7 17' stroke='%23FFC53D' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
+/* ═══ Studyverse design system — ported to MedLib X ═══ */
 :root{
-  --ground:#0B0D12; --ground-2:#14171E; --void:#08090D;
-  --panel:#14171E; --panel-2:#1A1E28;
-  --chalk:#FFFFFF; --chalk-2:#FFFFFF; --muted:#FFFFFF; --faint:#FFFFFF;
-  --amber:#FFC53D; --mint:#34D399; --coral:#FF6EA9; --violet:#8B7CFF; --cyan:#4DA3FF;
-  --line:#1F2430; --line-2:#2A3140; --line-3:#39424F;
-  --serif:'Bricolage Grotesque',system-ui,sans-serif;
-  --body:'Plus Jakarta Sans',system-ui,sans-serif;
-  --mono:'Geist Mono',ui-monospace,monospace;
-  --grad:linear-gradient(100deg,var(--mint),var(--cyan));
-  --maxw:1160px;
-  --float:inset 0 1px 0 rgba(255,255,255,.05), 0 1px 2px rgba(0,0,0,.55), 0 14px 34px -16px rgba(0,0,0,.7);
+  --bg:#fff4e0; --surface:#fffdf8; --ink:#1d1433;
+  --c1:#ff6b9a; --c2:#ffd34d; --c3:#4cc9d8; --c4:#9b7bff;
+  --radius:18px; --bw:3px;
+  --shadow:6px 6px 0 var(--ink);
+  --shadow-hover:10px 10px 0 var(--ink);
+  --title-shadow:3px 3px 0 var(--c2);
+  --font-display:Futura,"Century Gothic","Trebuchet MS",sans-serif;
+  --font-body:"Avenir Next","Segoe UI",sans-serif;
+  --dw:800; --case:uppercase; --track:.01em;
+  --tilt:-1deg;
+  --ease:cubic-bezier(.34,1.56,.64,1);
+  --muted:color-mix(in srgb,var(--ink) 68%,transparent);
+  --line:color-mix(in srgb,var(--ink) 14%,transparent);
+  --pill:min(var(--radius),999px);
 }
-html[data-mode="light"]{
-  --ground:#FFFFFF; --ground-2:#F4F5F7; --void:#ECEEF1;
-  --panel:#F4F5F7; --panel-2:#ECEEF1;
-  --chalk:#000000; --chalk-2:#000000; --muted:#000000; --faint:#000000;
-  --amber:#C98A00; --mint:#0E9F68; --coral:#DB2777; --violet:#6D5AE6; --cyan:#1D6FD1;
-  --line:#E3E6EA; --line-2:#D5DAE1; --line-3:#C3CAD4;
-  --float:inset 0 1px 0 rgba(0,0,0,.04), 0 1px 2px rgba(0,0,0,.06), 0 14px 34px -18px rgba(0,0,0,.25);
-}
-*,*::before,*::after{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--ground);color:var(--chalk);font-family:var(--body);font-size:18px;line-height:1.7;-webkit-font-smoothing:antialiased;transition:background-color .45s ease,color .45s ease}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);color:var(--ink);background-color:var(--bg);line-height:1.55;min-height:100vh;overflow-x:hidden;transition:background-color .8s ease,color .8s ease}
+html[data-pattern=dots] body{background-image:radial-gradient(color-mix(in srgb,var(--ink) 14%,transparent) 1.4px,transparent 1.6px);background-size:22px 22px}
+html[data-pattern=grid] body{background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:34px 34px}
+html[data-pattern=stripes] body{background-image:repeating-linear-gradient(-45deg,color-mix(in srgb,var(--c2) 20%,transparent) 0 14px,transparent 14px 30px)}
+html[data-pattern=checks] body{background-image:conic-gradient(color-mix(in srgb,var(--c1) 11%,transparent) 25%,transparent 0 50%,color-mix(in srgb,var(--c3) 11%,transparent) 0 75%,transparent 0);background-size:56px 56px}
+html[data-pattern=waves] body{background-image:radial-gradient(circle at 50% 0,transparent 13px,color-mix(in srgb,var(--c4) 20%,transparent) 14px 16px,transparent 17px);background-size:36px 18px}
 a{color:inherit}
-h1,h2,h3{font-family:var(--serif);font-weight:700;letter-spacing:-.015em;margin:0}
-:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
-::selection{background:var(--amber);color:var(--void)}
+button,input,select,textarea{font:inherit;color:inherit}
+::selection{background:var(--c2)}
+kbd{font-family:var(--font-display);border:2px solid var(--ink);border-radius:6px;padding:0 .4em;background:var(--surface);font-size:.85em}
+h1,h2,h3,.display{font-family:var(--font-display);font-weight:var(--dw);text-transform:var(--case);letter-spacing:var(--track);line-height:1}
+h2{font-size:clamp(2rem,5vw,3.4rem);text-shadow:var(--title-shadow)}
+h3{font-size:1.25rem}
+.eyebrow{font-family:var(--font-display);text-transform:uppercase;letter-spacing:.14em;font-size:.78rem;font-weight:700}
+.muted{color:var(--muted)}
+.hl{background:linear-gradient(transparent 58%,var(--c2) 58%);padding:0 .1em}
 
-/* ── drifting orbs · calm color, quiet motion ─────────────── */
-.orb{position:fixed;border-radius:50%;filter:blur(64px);opacity:.5;pointer-events:none;z-index:0;transition:opacity .45s}
-html[data-mode="light"] .orb{opacity:.32}
-.orb-a{width:340px;height:340px;background:radial-gradient(circle,var(--violet),transparent 70%);top:-110px;right:-90px;animation:drift 12s ease-in-out infinite alternate}
-.orb-b{width:300px;height:300px;background:radial-gradient(circle,var(--mint),transparent 70%);top:44vh;left:-120px;animation:drift 15s ease-in-out infinite alternate-reverse}
-.orb-c{width:260px;height:260px;background:radial-gradient(circle,var(--coral),transparent 70%);bottom:-90px;right:8vw;animation:drift 17s ease-in-out infinite alternate}
-@keyframes drift{from{transform:translate(0,0) scale(1)}to{transform:translate(32px,22px) scale(1.14)}}
+.blobs{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.blob{position:absolute;width:42vmax;height:42vmax;filter:blur(50px);opacity:.42;border-radius:42% 58% 63% 37%/45% 41% 59% 55%;animation:morph 18s ease-in-out infinite alternate,drift 26s ease-in-out infinite alternate;transition:background .8s}
+.blob:nth-child(1){background:var(--c1);top:-12vmax;left:-10vmax}
+.blob:nth-child(2){background:var(--c3);bottom:-16vmax;right:-12vmax;animation-delay:-6s,-9s}
+.blob:nth-child(3){background:var(--c2);top:35%;left:45%;width:28vmax;height:28vmax;animation-delay:-11s,-3s}
+@keyframes morph{50%{border-radius:61% 39% 36% 64%/57% 63% 37% 43%}100%{border-radius:35% 65% 50% 50%/30% 50% 50% 70%}}
+@keyframes drift{50%{transform:translate(8vw,6vh) rotate(60deg) scale(1.1)}100%{transform:translate(-5vw,10vh) rotate(140deg) scale(.95)}}
 
-/* ── nav ─────────────────────────────────────────────────── */
-.topbar{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--ground) 82%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);
-  box-shadow:0 8px 24px -18px rgba(0,0,0,.8)}
-.topbar-in{max-width:var(--maxw);margin:0 auto;padding:0 24px;height:64px;display:flex;align-items:center;gap:24px}
-.brand{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-weight:800;font-size:23px;line-height:1;text-decoration:none;letter-spacing:-.02em}
-.brand .glyph{width:17px;height:17px;border-radius:5px;background:var(--grad);animation:wob 4.5s ease-in-out infinite;flex:none}
-@keyframes wob{0%,100%{transform:rotate(-7deg)}50%{transform:rotate(9deg) scale(1.14)}}
-.brand .x{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-.topnav{display:flex;gap:22px;margin-left:6px}
-.topnav a{font-family:var(--mono);font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .18s,transform .18s}
-.topnav a:hover{color:var(--chalk);transform:translateY(-1px)}
+.wrap{width:min(1180px,100% - 40px);margin-inline:auto}
+.card{background:var(--surface);border:var(--bw) solid var(--ink);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px;position:relative;transition:transform .35s var(--ease),box-shadow .35s var(--ease),background .8s}
+.card.hov:hover{transform:translate(-3px,-3px) rotate(var(--tilt));box-shadow:var(--shadow-hover)}
+.btn{display:inline-flex;align-items:center;gap:.5em;cursor:pointer;text-decoration:none;font-family:var(--font-display);font-weight:var(--dw);text-transform:var(--case);letter-spacing:.03em;background:var(--c1);color:var(--ink);border:var(--bw) solid var(--ink);border-radius:var(--pill);padding:.75em 1.3em;box-shadow:4px 4px 0 var(--ink);font-size:.95rem;transition:transform .25s var(--ease),box-shadow .25s var(--ease),background .8s}
+.btn:hover{transform:translate(-2px,-2px) rotate(-2deg);box-shadow:7px 7px 0 var(--ink)}
+.btn:active{transform:translate(3px,3px);box-shadow:0 0 0 var(--ink)}
+.btn.alt{background:var(--c3)}
+.btn.ghost{background:var(--surface)}
+.chip{cursor:pointer;border:2px solid var(--ink);border-radius:999px;background:var(--surface);padding:.35em .9em;font-weight:700;font-size:.85rem;transition:transform .2s var(--ease),background .3s;font-family:var(--font-display);text-transform:uppercase;letter-spacing:.04em}
+.chip:hover{transform:translateY(-2px) rotate(-2deg)}
+.chip[aria-pressed=true]{background:var(--c2);box-shadow:3px 3px 0 var(--ink)}
+.field{border:var(--bw) solid var(--ink);border-radius:var(--pill);background:var(--surface);padding:.7em 1.1em;outline:none;min-width:0;transition:box-shadow .2s}
+.field:focus{box-shadow:4px 4px 0 var(--c1)}
+.row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.tag{display:inline-block;font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;padding:.2em .7em;border:2px solid var(--ink);border-radius:999px;background:var(--accent,var(--c2))}
 
-main{max-width:var(--maxw);margin:0 auto;padding:0 24px;position:relative;z-index:1}
+.rv{animation:rise .7s var(--ease) both;animation-delay:calc(var(--i,0) * 70ms)}
+@keyframes rise{from{opacity:0;transform:translateY(28px) scale(.97)}}
 
-/* ── buttons ─────────────────────────────────────────────── */
-.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:14px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
-  text-decoration:none;border:1px solid transparent;color:var(--chalk);padding:15px 26px;cursor:pointer;border-radius:14px;
-  transition:transform .18s cubic-bezier(.34,1.56,.64,1),box-shadow .18s,border-color .18s,background .18s}
-.btn:hover{transform:translateY(-3px)}
-.btn:active{transform:translateY(0) scale(.96)}
-.btn-amber{background:var(--grad);color:#000;font-weight:700;box-shadow:0 12px 30px -12px rgba(77,160,255,.55)}
-html[data-mode="light"] .btn-amber{color:#FFFFFF;box-shadow:0 12px 28px -14px rgba(29,111,209,.5)}
-.btn-ghost{border-color:var(--line-2);background:color-mix(in srgb,var(--panel) 60%,transparent)}
-.btn-ghost:hover{border-color:var(--violet);box-shadow:0 10px 26px -14px var(--violet)}
+.nav{position:sticky;top:0;z-index:50;padding:12px 0;backdrop-filter:blur(10px);background:color-mix(in srgb,var(--bg) 75%,transparent);border-bottom:var(--bw) solid var(--ink);transition:background .8s}
+.nav .wrap{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--font-display);font-weight:var(--dw);font-size:1.35rem;text-transform:var(--case)}
+.logo-mark{width:38px;height:38px;background:var(--c1);border:var(--bw) solid var(--ink);border-radius:42% 58% 63% 37%/45% 41% 59% 55%;animation:morph 6s ease-in-out infinite alternate;display:grid;place-items:center;font-size:1rem}
+.links{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto}
+.links a{text-decoration:none;font-weight:700;padding:.45em 1em;border-radius:var(--pill);border:2px solid transparent;transition:all .25s var(--ease)}
+.links a:hover{border-color:var(--ink);transform:rotate(-3deg)}
+.links a[aria-current=page]{background:var(--ink);color:var(--bg)}
+.engine{display:flex;align-items:center;gap:8px;border:2px solid var(--ink);border-radius:999px;padding:4px 4px 4px 12px;background:var(--surface)}
+.swatches{display:flex}
+.swatches i{width:16px;height:16px;border-radius:50%;border:2px solid var(--ink);margin-left:-5px;transition:background .8s}
+.swatches i:first-child{margin-left:0}
+.theme-name{font-weight:800;font-size:.82rem;white-space:nowrap}
+.icon-btn{width:34px;height:34px;border-radius:50%;border:2px solid var(--ink);background:var(--c2);cursor:pointer;display:grid;place-items:center;font-size:1rem;transition:transform .4s var(--ease)}
+.icon-btn:hover{transform:rotate(180deg) scale(1.1)}
+.icon-btn[aria-pressed=true]{background:var(--c4)}
 
-/* ── hero ────────────────────────────────────────────────── */
-.hero{padding:92px 0 44px;max-width:940px}
-.eyebrow{font-family:var(--mono);font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--coral);display:flex;align-items:center;gap:12px}
-.eyebrow::after{content:"";height:1px;flex:1;background:linear-gradient(90deg,var(--line-3),transparent)}
-.hero h1{font-size:clamp(46px,7.6vw,86px);font-weight:800;line-height:1.02;letter-spacing:-.028em;margin:.22em 0 .2em}
-.hero h1 .pop{background:var(--grad);background-size:240% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:slide 6s linear infinite}
-@keyframes slide{from{background-position:0% 0}to{background-position:240% 0}}
-.lede{font-size:clamp(18px,2.3vw,22px);line-height:1.65;color:var(--muted);max-width:740px}
-.hero .ctas{display:flex;gap:16px;flex-wrap:wrap;margin-top:36px}
-.hero .note{font-family:var(--mono);font-size:13px;color:var(--faint);margin-top:18px;letter-spacing:.05em}
+.hero{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:30px;align-items:center;padding:46px 0 26px}
+.mega{font-size:clamp(2.6rem,7.5vw,6rem);line-height:.94;margin:14px 0 20px}
+.mega .w2{color:var(--c1);-webkit-text-stroke:2px var(--ink)}
+.mega .w4{color:var(--c3);-webkit-text-stroke:2px var(--ink)}
+.mega span{display:inline-block;transition:transform .4s var(--ease)}
+.mega span:hover{transform:rotate(-6deg) scale(1.06)}
+.lede{font-size:1.15rem;max-width:46ch;margin-bottom:24px}
+.hero-art{position:relative;height:320px}
+.sticker{position:absolute;right:6%;top:4%;width:160px;aspect-ratio:1;background:var(--c2);border:var(--bw) dashed var(--ink);border-radius:50%;display:grid;place-items:center;text-align:center;font-family:var(--font-display);font-weight:var(--dw);font-size:1.3rem;line-height:1;animation:spin 16s linear infinite;box-shadow:var(--shadow);z-index:2}
+.shape{position:absolute;border:var(--bw) solid var(--ink);transition:background .8s}
+.s1{width:120px;height:120px;background:var(--c1);left:6%;top:18%;border-radius:calc(var(--radius) * .8);animation:spin 22s linear infinite reverse}
+.s2{width:100px;height:100px;background:var(--c3);border-radius:50%;left:36%;bottom:4%;animation:bounce 3.2s var(--ease) infinite}
+.s3{width:140px;height:120px;background:var(--c4);right:2%;bottom:8%;border:none;clip-path:polygon(50% 0,100% 100%,0 100%);animation:float 5s ease-in-out infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes bounce{50%{transform:translateY(-34px) scale(1.05,.95)}}
+@keyframes float{50%{transform:translateY(-18px) rotate(12deg)}}
 
-/* ── section heads ───────────────────────────────────────── */
-.sec{padding:64px 0 0}
-.sec .kicker{font-family:var(--mono);font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--faint);margin-bottom:8px}
-.sec h2{font-size:clamp(32px,4.6vw,48px);font-weight:800;letter-spacing:-.022em;line-height:1.06}
-.sec .sub{font-size:18px;color:var(--muted);max-width:640px;margin-top:10px}
+.marquee{overflow:hidden;border-block:var(--bw) solid var(--ink);background:var(--ink);color:var(--bg);padding:12px 0;margin:10px 0 34px;transform:rotate(-1.2deg)}
+.track{display:flex;width:max-content;animation:scroll 40s linear infinite;font-family:var(--font-display);font-weight:var(--dw);text-transform:var(--case);font-size:1.1rem}
+.track span{padding:0 22px;white-space:nowrap}
+.track span::after{content:"✦";margin-left:44px;color:var(--c2)}
+.marquee:hover .track{animation-play-state:paused}
+@keyframes scroll{to{transform:translateX(-50%)}}
 
-/* ── shelf tiles · color lives in the glyph + ghost, not rails ── */
-.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:34px}
-.tile{position:relative;display:block;text-decoration:none;border:1px solid var(--line);background:color-mix(in srgb,var(--hue,var(--amber)) 6%,var(--ground-2));
-  padding:26px 22px 20px;min-height:170px;overflow:hidden;border-radius:18px;box-shadow:var(--float);
-  transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease,background .3s ease}
-.tile:hover{transform:translateY(-6px);border-color:var(--hue,var(--amber));
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.06), 0 2px 4px rgba(0,0,0,.5), 0 24px 48px -18px color-mix(in srgb,var(--hue,var(--amber)) 45%,rgba(0,0,0,.6))}
-.tile .ghost{position:absolute;right:-6px;bottom:-26px;font-family:var(--serif);font-weight:800;font-size:110px;line-height:1;
-  color:var(--hue,var(--amber));opacity:.12;pointer-events:none;transition:opacity .2s,transform .3s}
-.tile:hover .ghost{opacity:.26;transform:translateY(-6px) rotate(-4deg)}
-.tile .glyph{width:36px;height:36px;border:1.5px solid var(--hue,var(--amber));border-radius:11px;display:grid;place-items:center;color:var(--hue,var(--amber));margin-bottom:16px;transition:transform .25s cubic-bezier(.34,1.56,.64,1),background .25s}
-.tile:hover .glyph{transform:rotate(-8deg) scale(1.08);background:color-mix(in srgb,var(--hue,var(--amber)) 16%,transparent)}
-.tile .glyph svg{width:17px;height:17px}
-.tile h3{font-family:var(--serif);font-weight:700;font-size:26px;line-height:1.12;margin-bottom:6px;letter-spacing:-.015em}
-.tile p{margin:0;color:var(--muted);font-size:16px;line-height:1.5}
-.tile .foot{display:flex;justify-content:flex-end;align-items:center;margin-top:16px;font-family:var(--mono);
-  font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
-.tile .foot .go{color:var(--hue,var(--amber));transition:transform .18s}
-.tile:hover .foot .go{transform:translateX(6px)}
-.tile.big{grid-column:span 2}
-.tile.big h3{font-size:33px}
+.section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin:34px 0 22px}
+.section-head p{max-width:46ch}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.panels{margin-top:4px}
+.panel{display:none}
+.panel.active{display:block}
+.grp-note{font-family:var(--font-display);text-transform:uppercase;letter-spacing:.1em;font-size:.8rem;font-weight:700;color:var(--muted);margin-bottom:14px}
+.faqitem{border:var(--bw) solid var(--ink);border-radius:var(--radius);background:var(--surface);box-shadow:var(--shadow);margin-bottom:14px;transition:transform .3s var(--ease),box-shadow .3s var(--ease),background .8s}
+.faqitem:hover{transform:translate(-3px,-3px);box-shadow:var(--shadow-hover)}
+.faqitem summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;padding:16px 18px}
+.faqitem summary::-webkit-details-marker{display:none}
+.faqitem .rt{flex:1;min-width:0}
+.faqitem .t{font-family:var(--font-display);font-weight:var(--dw);text-transform:var(--case);font-size:1.05rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.faqitem .d{color:var(--muted);font-size:.9rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.faqitem .kb{font-weight:800;font-size:.8rem;color:var(--muted)}
+.faqitem .chev{width:26px;height:26px;border:2px solid var(--ink);border-radius:50%;display:grid;place-items:center;background:var(--c3);transition:transform .25s var(--ease)}
+.faqitem[open] .chev{transform:rotate(90deg)}
+.faqitem .body{display:flex;gap:12px;align-items:center;padding:0 18px 16px;flex-wrap:wrap}
+.nores{font-weight:700;color:var(--muted);padding:20px;display:none}
+.toolbar{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:18px}
+.toolbar .field{flex:1 1 260px}
+.resume{display:none;align-items:center;gap:8px;text-decoration:none;font-weight:800;border:2px solid var(--ink);border-radius:999px;padding:.55em 1em;background:var(--c4);transition:transform .2s var(--ease)}
+.resume.on{display:inline-flex}
+.resume:hover{transform:translateY(-2px) rotate(-2deg)}
 
-/* ── rules band · tinted card + colored numeral, no top rails ── */
-.rules{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:34px}
-.rule{background:var(--ground-2);border:1px solid var(--line);border-radius:18px;box-shadow:var(--float);padding:26px 24px 26px;transition:transform .2s,border-color .2s}
-.rule:hover{transform:translateY(-4px);border-color:var(--line-3)}
-.rule .num{font-family:var(--mono);font-weight:700;font-size:15px;letter-spacing:.18em;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-.rule h3{font-size:27px;margin:14px 0 8px;line-height:1.15}
-.rule p{margin:0;color:var(--muted);font-size:16.5px;line-height:1.65}
+.rules{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
+.rule .num{font-family:var(--font-display);font-weight:var(--dw);font-size:.9rem;letter-spacing:.14em;background:var(--c2);border:2px solid var(--ink);border-radius:999px;display:inline-block;padding:.2em .8em;margin-bottom:12px}
+.rule h3{font-size:1.35rem;margin-bottom:8px}
+.rule p{color:var(--muted);font-size:.98rem}
+.quote{margin:44px auto 0;max-width:760px;text-align:center;border:var(--bw) solid var(--ink);border-radius:var(--radius);box-shadow:var(--shadow);padding:34px 24px;background:var(--surface)}
+.quote p{font-family:var(--font-display);font-weight:var(--dw);text-transform:var(--case);font-size:clamp(1.2rem,3vw,1.9rem);line-height:1.25;margin:0}
+.quote .qs{font-size:.85rem;font-weight:700;color:var(--muted);margin-top:14px}
 
-/* ── access band ─────────────────────────────────────────── */
-.access{display:grid;grid-template-columns:1.15fr .85fr;gap:18px;margin-top:70px;border:1px solid var(--line-2);
-  background:linear-gradient(140deg,var(--panel),color-mix(in srgb,var(--violet) 10%,var(--panel)));
-  box-shadow:var(--float);padding:46px 44px;border-radius:22px;transition:background .45s ease}
-.access h2{font-size:clamp(30px,4vw,44px);font-weight:800;letter-spacing:-.02em;line-height:1.08}
-.access h2 .pop{background:var(--grad);background-size:240% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:slide 6s linear infinite}
-.access .body{color:var(--muted);font-size:18px;margin-top:14px;max-width:520px}
-.steps{list-style:none;margin:6px 0 0;padding:0}
-.steps li{display:flex;gap:16px;align-items:flex-start;padding:16px 0;border-bottom:1px solid var(--line);font-size:17px;color:var(--muted)}
-.steps li:last-child{border-bottom:0}
-.steps .tick{flex:none;width:26px;height:26px;border:1.5px solid var(--mint);color:var(--mint);border-radius:9px;display:grid;place-items:center;margin-top:3px}
-.steps .tick svg{width:13px;height:13px}
-.steps b{color:var(--chalk);font-weight:600}
-.access .ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+.foot{border-top:var(--bw) solid var(--ink);background:var(--surface);transition:background .8s;margin-top:56px}
+.foot-in{display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap;padding:26px 0 34px}
+.foot-tag{color:var(--muted);font-size:.95rem;margin-top:8px;max-width:420px}
+.foot-links{display:flex;gap:14px;flex-wrap:wrap;margin-left:auto;font-weight:700;font-size:.9rem}
+.foot-links a{text-decoration:none}
+.foot-links a:hover{text-decoration:underline}
+.foot-legal{width:100%;border-top:2px solid var(--line);margin-top:16px;padding-top:14px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:.85rem}
 
-/* ── footer ──────────────────────────────────────────────── */
-.footer{border-top:1px solid var(--line);margin-top:90px;background:var(--void);position:relative}
-.footer::before{content:"";position:absolute;left:0;right:0;top:-1px;height:1px;background:linear-gradient(90deg,transparent,var(--violet),var(--mint),transparent)}
-.foot-in{max-width:var(--maxw);margin:0 auto;padding:34px 24px 40px;display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap}
-.foot-brand{font-family:var(--serif);font-weight:800;font-size:20px;display:inline-flex;gap:9px;align-items:center;letter-spacing:-.02em}
-.foot-brand .glyph{width:14px;height:14px;border-radius:4px;background:var(--grad);display:inline-block}
-.foot-brand .x{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-.foot-tag{color:var(--faint);font-size:15.5px;margin:10px 0 0;max-width:400px;line-height:1.6}
-.foot-links{display:flex;gap:18px;flex-wrap:wrap;margin-left:auto;font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;padding-top:4px}
-.foot-links a{color:var(--muted);text-decoration:none;transition:color .18s}
-.foot-links a:hover{color:var(--chalk)}
-.foot-legal{width:100%;border-top:1px solid var(--line);margin-top:22px;padding-top:16px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--faint);font-family:var(--mono);font-size:12px;letter-spacing:.05em}
-.foot-dots{display:flex;gap:6px;align-items:center}
-.foot-dots i{width:9px;height:9px;border-radius:50%;display:block;animation:bounce 1.5s ease-in-out infinite}
-.foot-dots i:nth-child(1){background:var(--mint)}
-.foot-dots i:nth-child(2){background:var(--cyan);animation-delay:.16s}
-.foot-dots i:nth-child(3){background:var(--amber);animation-delay:.32s}
-.foot-dots i:nth-child(4){background:var(--coral);animation-delay:.48s}
-@keyframes bounce{0%,100%{transform:translateY(0)}40%{transform:translateY(-6px)}}
+.toast{position:fixed;left:50%;bottom:70px;transform:translate(-50%,140%);background:var(--ink);color:var(--bg);padding:12px 22px;border-radius:999px;font-weight:800;z-index:99;transition:transform .5s var(--ease);box-shadow:4px 4px 0 var(--c1)}
+.toast.show{transform:translate(-50%,0)}
+.confetti{position:fixed;width:10px;height:14px;z-index:98;pointer-events:none;border:1.5px solid var(--ink)}
 
-/* ── entrance ────────────────────────────────────────────── */
-.rise{animation:rise .65s cubic-bezier(.16,1,.3,1) both}
-.d1{animation-delay:.04s}.d2{animation-delay:.12s}.d3{animation-delay:.2s}.d4{animation-delay:.3s}.d5{animation-delay:.4s}
-@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
-
-@media (max-width:980px){
-  .tiles{grid-template-columns:repeat(2,1fr)}
-  .tile.big{grid-column:span 2}
-  .access{grid-template-columns:1fr;padding:34px 26px}
-  .rules{grid-template-columns:1fr}
-}
-@media (max-width:620px){
-  .topnav{gap:14px}
-  .topnav a{font-size:12px}
-  .hero{padding:64px 0 30px}
-  .tiles{grid-template-columns:1fr}
-  .tile.big{grid-column:span 1}
-  .btn{width:100%;justify-content:center}
-  .foot-links{margin-left:0}
-}
-@media print{body,.rise{animation:none!important}.orb,.mlx-toggle{display:none!important}}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media (max-width:900px){.hero{grid-template-columns:minmax(0,1fr)}.hero-art{height:230px}.rules{grid-template-columns:1fr}.links{order:3;width:100%}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+@media print{.nav,.blobs,.toast,.btn,.icon-btn,.marquee,.hero-art{display:none!important}.card,.faqitem,.quote{box-shadow:none;break-inside:avoid}.rv{animation:none!important}}
 </style>
 </head>
 <body>
-<div class="orb orb-a"></div><div class="orb orb-b"></div><div class="orb orb-c"></div>
-<header class="topbar"><div class="topbar-in">
-  <a class="brand" href="/"><span class="glyph"></span>MedLib&nbsp;<span class="x">X</span></a>
-  <nav class="topnav"><a href="/library">Library</a><a href="/about">About</a><a href="/faq">FAQ</a></nav>
-</div></header>
 
-<main>
+<div class="blobs" aria-hidden="true"><div class="blob"></div><div class="blob"></div><div class="blob"></div></div>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="/"><span class="logo-mark">📚</span>MedLib&nbsp;X</a>
+    <nav class="links" aria-label="Main">
+      <a href="/" aria-current="page">Home</a>
+      <a href="/library">Library</a>
+      <a href="/about">About</a>
+      <a href="/faq">FAQ</a>
+    </nav>
+    <div class="engine" title="Theme engine">
+      <div class="swatches"><i style="background:var(--c1)"></i><i style="background:var(--c2)"></i><i style="background:var(--c3)"></i><i style="background:var(--c4)"></i></div>
+      <span class="theme-name" id="themeName">Theme</span>
+      <button class="icon-btn" id="modeBtn" aria-pressed="false" title="Dark / light">🌙</button>
+      <button class="icon-btn" id="lockBtn" aria-pressed="false" title="Keep this theme on next visit">🔓</button>
+      <button class="icon-btn" id="remixBtn" title="Remix theme (T)">🎲</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
   <section class="hero">
-    <p class="eyebrow rise d1">Private study library · seven shelves</p>
-    <h1 class="rise d2">The shelf is open.<br>The <span class="pop">stack</span> is earned.</h1>
-    <p class="lede rise d3">Books, drills, recalled papers and exam intelligence — assembled with discipline, kept current and exact. One roof, the door open.</p>
-    <div class="ctas rise d4">
-      <a class="btn btn-amber" href="/library">Open the shelf</a>
-      <a class="btn btn-ghost" href="/about">How it works</a>
+    <div class="rv">
+      <p class="eyebrow">Private study library · seven shelves</p>
+      <h1 class="mega"><span>The shelf</span><br>is <span class="w2">open.</span><br>The <span class="w4">stack</span> is earned.</h1>
+      <p class="lede">Books, drills, recalled papers and exam intelligence — <span class="hl">curated with discipline</span>, kept current and exact. Pick a shelf, open a file, read.</p>
+      <div class="row"><a class="btn" href="/library">Open the library →</a><a class="btn alt" href="#standard">The standard</a></div>
     </div>
-    <p class="note rise d5">Fresh on the shelf — the repeat offenders vault is open.</p>
-  </section>
-
-  <section class="sec rise d4">
-    <p class="kicker">What's inside</p>
-    <h2>Seven shelves, one roof</h2>
-    <p class="sub">The books and systems carry the weight; the drills and papers are where the marks come from. Every file is open — just walk in.</p>
-
-    <div class="tiles">
-      <a class="tile big" href="/library" style="--hue:var(--amber)">
-        <span class="ghost">01</span>
-        <span class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 5.5V20.5"/></svg></span>
-        <h3>Core Books</h3>
-        <p>Every system in one volume — and how the exam actually sets its questions.</p>
-        <span class="foot"><span class="go">Open →</span></span>
-      </a>
-
-      <a class="tile" href="/library" style="--hue:var(--cyan)">
-        <span class="ghost">02</span>
-        <span class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 2h6"/></svg></span>
-        <h3>Test Series</h3>
-        <p>Six subject groups, merged — timed the way a sitting feels.</p>
-        <span class="foot"><span class="go">Open →</span></span>
-      </a>
-
-      <a class="tile" href="/library" style="--hue:var(--coral)">
-        <span class="ghost">03</span>
-        <span class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M10 12h5M10 16h5"/></svg></span>
-        <h3>Past Papers</h3>
-        <p>Recalled sessions, checked question by question, keys verified.</p>
-        <span class="foot"><span class="go">Open →</span></span>
-      </a>
-
-      <a class="tile" href="/library" style="--hue:var(--violet)">
-        <span class="ghost">04</span>
-        <span class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/></svg></span>
-        <h3>Intelligence</h3>
-        <p>What the next paper will test, decoded from recurring patterns.</p>
-        <span class="foot"><span class="go">Open →</span></span>
-      </a>
-
-      <a class="tile" href="/library" style="--hue:var(--mint)">
-        <span class="ghost">05</span>
-        <span class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span>
-        <h3>Quick Reference</h3>
-        <p>Thresholds, ranges, clusters — memorise once, recall anywhere.</p>
-        <span class="foot"><span class="go">Open →</span></span>
-      </a>
-
-      <a class="tile" href="/library" style="--hue:var(--amber)">
-        <span class="ghost">06</span>
-        <span class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 6h6v6H4zM14 12h6v6h-6zM7 12v4h7"/></svg></span>
-        <h3>Frameworks</h3>
-        <p>Case practice that behaves like a clinic, not a textbook.</p>
-        <span class="foot"><span class="go">Open →</span></span>
-      </a>
-
-      <a class="tile big" href="/library" style="--hue:var(--cyan)">
-        <span class="ghost">07</span>
-        <span class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13h4l2-4 3 8 2.5-6 1.5 2h5"/></svg></span>
-        <h3>MedCORE Systems</h3>
-        <p>Ten complete system books, built to the same shape each time — cardiology to ophthalmology.</p>
-        <span class="foot"><span class="go">Open →</span></span>
-      </a>
+    <div class="hero-art rv" aria-hidden="true">
+      <div class="sticker">READ<br>✦ GROW ✦</div>
+      <div class="shape s1"></div><div class="shape s2"></div><div class="shape s3"></div>
     </div>
   </section>
 
-  <section class="sec rise d5">
-    <p class="kicker">The standard</p>
-    <h2>Three rules, no exceptions</h2>
-    <div class="rules">
-      <div class="rule">
-        <div class="num">RULE 01</div>
-        <h3>The syllabus is the spine</h3>
-        <p>Scope comes from the official syllabus — never from memory, never from whichever book happened to be open.</p>
-      </div>
-      <div class="rule">
-        <div class="num">RULE 02</div>
-        <h3>MCQs are the bloodstream</h3>
-        <p>Practice runs through everything. Exposure is measured in questions attempted, not pages read.</p>
-      </div>
-      <div class="rule">
-        <div class="num">RULE 03</div>
-        <h3>The error log is sacred</h3>
-        <p>Every wrong answer gets a written record — the discriminator you missed, named in your own words.</p>
-      </div>
-    </div>
-  </section>
+  <div class="marquee rv"><div class="track" id="tips"></div></div>
 
-  <section class="access rise" style="grid-template-columns:1fr;text-align:center">
-    <div>
-      <h2 style="max-width:none">The door is <span class="pop">open.</span></h2>
-      <p class="body" style="max-width:640px;margin:14px auto 0">Nothing stands between you and the shelf now — pick a shelf and start reading.</p>
-      <div class="ctas" style="justify-content:center;margin-top:26px">
-        <a class="btn btn-amber" href="/library">Open the library</a>
-      </div>
-    </div>
+  <section class="section-head rv">
+    <div><p class="eyebrow">The catalogue</p><h2>Seven shelves, tabbed</h2></div>
+    <p class="muted">Everything is one shelf-set away — or use the full portal view in the library.</p>
   </section>
+  <div class="toolbar rv">
+    <a class="resume" id="resume" href=""><span>▶</span><b id="resumeT"></b></a>
+    <input class="field" id="q" type="search" placeholder="Filter the shelf — title, topic…" aria-label="Filter this shelf" autocomplete="off">
+  </div>
+  <div class="tabs rv" id="tablist" role="tablist" aria-label="Shelves"></div>
+  <div class="panels rv" id="panels"></div>
+
+  <section class="section-head rv" id="standard" style="margin-top:52px">
+    <div><p class="eyebrow">The standard</p><h2>Three rules, no exceptions</h2></div>
+  </section>
+  <div class="rules">
+    <div class="card hov rule rv" style="--i:0"><div class="num">Rule 01</div><h3>The syllabus is the spine</h3><p>Scope comes from the official syllabus — never from memory, never from whichever book happened to be open.</p></div>
+    <div class="card hov rule rv" style="--i:1"><div class="num">Rule 02</div><h3>MCQs are the bloodstream</h3><p>Practice runs through everything. Exposure is measured in questions attempted, not pages read.</p></div>
+    <div class="card hov rule rv" style="--i:2"><div class="num">Rule 03</div><h3>The error log is sacred</h3><p>Every wrong answer gets a written record — the discriminator you missed, named in your own words.</p></div>
+  </div>
+
+  <figure class="quote rv">
+    <blockquote><p>Syllabus is the spine,<br>MCQs are the bloodstream,<br>the error log is sacred.</p></blockquote>
+    <figcaption class="qs">— the house standard</figcaption>
+  </figure>
 </main>
 
-<footer class="footer"><div class="foot-in">
+<footer class="foot"><div class="wrap foot-in">
   <div>
-    <div class="foot-brand"><span class="glyph"></span>MedLib&nbsp;<span class="x">X</span></div>
+    <div class="logo" style="font-size:1.2rem"><span class="logo-mark" style="width:30px;height:30px;font-size:.8rem">📚</span>MedLib&nbsp;X</div>
     <p class="foot-tag">A private study library — curated with discipline, and kept current and exact.</p>
   </div>
   <nav class="foot-links" aria-label="Footer">
@@ -305,38 +237,226 @@ html[data-mode="light"] .btn-amber{color:#FFFFFF;box-shadow:0 12px 28px -14px rg
   </nav>
   <div class="foot-legal">
     <span>© 2026 MedLib X. All rights reserved. · Files are licensed for the account holder's personal use.</span>
-    <span class="foot-dots"><i></i><i></i><i></i><i></i></span>
+    <span>🎒 read · learn · repeat</span>
   </div>
 </div></footer>
 
-<style id="mlx-live">
-h1{font-weight:800}h2{font-weight:700}h3,h4{font-weight:700}
-@keyframes mlxFade{from{opacity:0}to{opacity:1}}
-body{animation:mlxFade .4s ease both}
-.mlx-toggle{position:fixed;right:16px;bottom:16px;z-index:99;font:600 12px/1 'Geist Mono',ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;padding:11px 15px;border-radius:999px;cursor:pointer;background:var(--panel,#14171E);color:var(--chalk,#FFFFFF);border:1px solid var(--line,#2A3140);box-shadow:0 10px 30px -12px rgba(0,0,0,.55);transition:transform .15s,border-color .2s}
-.mlx-toggle:hover{border-color:var(--cyan,#4DA3FF)}
-.mlx-toggle:active{transform:scale(.94)}
-@media print{.mlx-toggle{display:none!important}body{animation:none!important}}
-@media(prefers-reduced-motion:reduce){body,.mlx-toggle{animation:none!important;transition:none!important}}
-</style>
+<div class="toast" id="toast" role="status"></div>
+
 <script>
-(function(){
- try{
-  var s=localStorage.getItem('mlx-theme');
-  var m=s||(window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');
-  document.documentElement.setAttribute('data-mode',m);
- }catch(e){}
- var b=document.createElement('button');
- b.className='mlx-toggle';b.type='button';
- function lbl(){b.textContent=document.documentElement.getAttribute('data-mode')==='light'?'dark':'light';}
- b.addEventListener('click',function(){
-  var n=document.documentElement.getAttribute('data-mode')==='light'?'dark':'light';
-  document.documentElement.setAttribute('data-mode',n);
-  try{localStorage.setItem('mlx-theme',n);}catch(e){}
-  lbl();
- });
- document.body.appendChild(b);lbl();
-})();
+/* ═══ THEME ENGINE (Studyverse) ═══ */
+const rand=(a,b)=>Math.random()*(b-a)+a;
+const pick=a=>a[Math.floor(Math.random()*a.length)];
+const hsl=(h,s,l)=>`hsl(${Math.round((h%360+360)%360)} ${Math.round(s)}% ${Math.round(l)}%)`;
+const SCHEMES={Triadic:[0,120,240,60],Complementary:[0,180,30,210],Split:[0,150,210,45],Analogous:[0,32,64,-32],Tetradic:[0,90,180,270],Candy:[0,300,60,200]};
+const DISPLAY=[
+ {f:'Futura,"Century Gothic","Trebuchet MS",sans-serif',w:800,c:'uppercase',t:'.01em'},
+ {f:'Rockwell,"Roboto Slab",Georgia,serif',w:800,c:'none',t:'-.01em'},
+ {f:'"American Typewriter","Courier New",monospace',w:700,c:'none',t:'-.02em'},
+ {f:'"Marker Felt","Comic Sans MS",cursive',w:700,c:'none',t:'0'},
+ {f:'"Chalkboard SE","Comic Sans MS",cursive',w:700,c:'none',t:'0'},
+ {f:'Didot,"Bodoni 72","Times New Roman",serif',w:700,c:'none',t:'-.02em'},
+ {f:'Copperplate,"Copperplate Gothic Light",serif',w:700,c:'uppercase',t:'.04em'},
+ {f:'Impact,"Arial Black",sans-serif',w:400,c:'uppercase',t:'.02em'},
+ {f:'"Avenir Next Condensed","Arial Narrow",sans-serif',w:800,c:'uppercase',t:'.01em'},
+ {f:'"Cooper Black","Bookman Old Style",Georgia,serif',w:900,c:'none',t:'-.01em'}];
+const BODY=['"Avenir Next","Segoe UI",sans-serif','"Gill Sans","Gill Sans MT",sans-serif','Optima,Candara,sans-serif','Georgia,"Times New Roman",serif','Menlo,Consolas,monospace','Baskerville,"Hoefler Text",Georgia,serif','"Trebuchet MS",Verdana,sans-serif'];
+const SHADOWS=[
+ ['6px 6px 0 var(--ink)','10px 10px 0 var(--ink)'],
+ ['6px 6px 0 var(--c4)','10px 10px 0 var(--c1)'],
+ ['4px 4px 0 var(--c2),8px 8px 0 var(--ink)','6px 6px 0 var(--c2),12px 8px 0 var(--ink)'],
+ ['0 14px 30px -12px color-mix(in srgb,var(--c4) 70%,transparent)','0 22px 40px -12px color-mix(in srgb,var(--c1) 70%,transparent)'],
+ ['-6px 6px 0 var(--c3)','-10px 10px 0 var(--ink)']];
+const ADJ=['Electric','Bubblegum','Cosmic','Retro','Sour','Velvet','Jazzy','Turbo','Lemon','Neon','Groovy','Fizzy','Disco','Cherry','Tropical','Glitter','Mango','Pixel'];
+const NOUN=['Notebook','Riot','Library','Sundae','Lab','Arcade','Atlas','Mixtape','Garden','Comet','Parade','Studio','Lagoon','Cassette','Carnival','Orbit'];
+function makeTheme(){
+  const h=rand(0,360), name=Object.keys(SCHEMES), scheme=pick(name), offs=SCHEMES[scheme], s=rand(74,96);
+  const d=pick(DISPLAY), sh=pick(SHADOWS);
+  return {name:`${pick(ADJ)} ${pick(NOUN)}`, scheme, vars:{
+    '--c1':hsl(h+offs[0],s,rand(60,68)),'--c2':hsl(h+offs[1],s,rand(62,72)),
+    '--c3':hsl(h+offs[2],s,rand(60,70)),'--c4':hsl(h+offs[3],s*.9,rand(64,74)),
+    '--bg':hsl(h+offs[1]*.25,rand(70,95),rand(93,96)),
+    '--surface':hsl(h,100,rand(98.5,99.5)),
+    '--ink':hsl(h+200,rand(35,60),rand(9,15)),
+    '--font-display':d.f,'--dw':d.w,'--case':d.c,'--track':d.t,
+    '--font-body':pick(BODY),
+    '--radius':pick(['0px','8px','16px','26px','34px']),
+    '--bw':pick(['2px','3px','4px']),
+    '--shadow':sh[0],'--shadow-hover':sh[1],
+    '--title-shadow':pick(['3px 3px 0 var(--c2)','4px 4px 0 var(--c3)','none','-3px 3px 0 var(--c1)']),
+    '--tilt':pick(['0deg','-1deg','1.2deg','-2deg'])},
+    pattern:pick(['dots','grid','stripes','checks','waves','plain'])};
+}
+let current;
+function hue(v){const m=String(v).match(/hsl\(\s*([\d.]+)/);return m?+m[1]:0}
+function paint(){
+  const r=document.documentElement;
+  Object.entries(current.vars).forEach(([k,v])=>r.style.setProperty(k,v));
+  r.dataset.pattern=current.pattern;
+  if(r.dataset.theme==='dark'){
+    r.style.setProperty('--bg', hsl(hue(current.vars['--bg']),26,8));
+    r.style.setProperty('--surface', hsl(hue(current.vars['--surface']),22,12));
+    r.style.setProperty('--ink','#FFFFFF');
+    r.style.setProperty('--muted','rgba(255,255,255,.74)');
+  } else {
+    /* engine has no --muted value: clear the dark inline so :root light value applies */
+    r.style.removeProperty('--muted');
+  }
+  const tn=document.getElementById('themeName'); if(tn) tn.textContent=current.name;
+}
+function applyTheme(t){ current=t; paint(); }
+const MKEY='mx-mode';
+function initMode(){
+  let m=null; try{m=localStorage.getItem(MKEY)}catch(e){}
+  if(m!=='dark'&&m!=='light') m=(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';
+  const rr=document.documentElement; rr.dataset.theme=m; paint(); syncMode();
+}
+function syncMode(){
+  const b=document.getElementById('modeBtn'); if(!b) return;
+  const d=document.documentElement.dataset.theme==='dark';
+  b.setAttribute('aria-pressed',d); b.textContent=d?'☀️':'🌙';
+}
+document.addEventListener('click',e=>{
+  if(e.target.id==='modeBtn'){
+    const n=document.documentElement.dataset.theme==='dark'?'light':'dark';
+    document.documentElement.dataset.theme=n;
+    try{localStorage.setItem(MKEY,n)}catch(err){}
+    syncMode(); paint(); toast(n==='dark'?'Dark mode 🌙':'Light mode ☀️');
+  }
+});
+let LOCK=null; try{LOCK=JSON.parse(localStorage.getItem('mx-lock')||'null')}catch(e){}
+function saveLock(){try{localStorage.setItem('mx-lock',JSON.stringify(LOCK))}catch(e){}}
+const syncLock=()=>{const b=document.getElementById('lockBtn');if(!b)return;b.setAttribute('aria-pressed',!!LOCK);b.textContent=LOCK?'🔒':'🔓'};
+syncLock();
+function remix(){applyTheme(makeTheme()); if(LOCK){LOCK=current;saveLock()} toast(`New theme: ${current.name} · ${current.scheme}`); burst(innerWidth-60,40)}
+document.addEventListener('click',e=>{
+  if(e.target.id==='remixBtn') remix();
+  if(e.target.id==='lockBtn'){ LOCK=LOCK?null:current; saveLock(); syncLock(); toast(LOCK?'Theme locked for next visit':'A new theme every visit'); }
+});
+addEventListener('keydown',e=>{
+  if(/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName))return;
+  if(e.key==='t'||e.key==='T') remix();
+});
+applyTheme(LOCK||makeTheme());
+initMode();
+
+let tt;
+function toast(msg){const t=document.getElementById('toast');if(!t)return;t.textContent=msg;t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),2200)}
+function burst(x,y){
+  for(let i=0;i<34;i++){
+    const c=document.createElement('span');c.className='confetti';
+    c.style.cssText=`left:${x}px;top:${y}px;background:var(--c${1+i%4});border-radius:${i%3?'2px':'50%'}`;
+    document.body.appendChild(c);
+    const a=rand(0,Math.PI*2),dist=rand(80,220);
+    c.animate([{transform:'translate(0,0) rotate(0)',opacity:1},{transform:`translate(${Math.cos(a)*dist}px,${Math.sin(a)*dist+120}px) rotate(${rand(-540,540)}deg)`,opacity:0}],{duration:rand(800,1300),easing:'cubic-bezier(.2,.7,.3,1)'}).onfinish=()=>c.remove();
+  }
+}
+
+/* ═══ HOME: ticker + catalogue tabs ═══ */
+const TIPS=['Teach it to learn it','25 minutes on, 5 minutes off','Sleep is a study tool','Test yourself before you feel ready','Spaced repetition beats cramming','Mix up your topics','Hydrate, then concentrate','Explain why, not just what','Small daily wins add up'];
+document.getElementById('tips').innerHTML=[...TIPS,...TIPS].map(t=>`<span>${t}</span>`).join('');
+
+const CATS=["Core Books","Mocks & Drills","Past Papers & Answer Keys","Exam Intelligence & Strategy","Quick Reference","Frameworks & Interactive","MedCORE Systems"];
+const HUES={'Core Books':'var(--c1)','Mocks & Drills':'var(--c3)','Past Papers & Answer Keys':'var(--c2)','Exam Intelligence & Strategy':'var(--c4)','Quick Reference':'var(--c1)','Frameworks & Interactive':'var(--c3)','MedCORE Systems':'var(--c2)'};
+const Items=[
+
+{t:"MedCORE Study Book",d:"Every system, one volume",c:"Core Books",f:"medcore-production-master-html-medcore-master-book.html",k:9306.5},
+{t:"MCQ Architecture",d:"How the exam actually sets questions",c:"Core Books",f:"standalone-htmls-800-plus-mcq-architecture.html",k:525.9},
+{t:"Forge Cards",d:"100 high-yield cards",c:"Core Books",f:"standalone-htmls-forge-master.html",k:1181.4},
+{t:"Memory Master",d:"Recall-first core file",c:"Core Books",f:"medcore-memory-master-core.html",k:510},
+{t:"Logic-First Bank",d:"Clinical reasoning, high-yield only",c:"Core Books",f:"qbank-logic-first-high-yield-logic-first-high-yield-bank.html",k:46.3},
+{t:"MedCORE Question Bank",d:"Test series + main bank merged · six subject groups",c:"Mocks & Drills",f:"medcore-question-bank.html",k:5301.1},
+{t:"Past Paper Hub",d:"All recalled past papers",c:"Past Papers & Answer Keys",f:"medcore-past-paper-hub.html",k:228.7},
+{t:"June 2025",d:"Verified key + distractor analysis",c:"Past Papers & Answer Keys",f:"standalone-htmls-june-2025-answer-key.html",k:107.9},
+{t:"June 2024",d:"Self-scoring",c:"Past Papers & Answer Keys",f:"standalone-htmls-june-2024-answer-key.html",k:105.2},
+{t:"December 2024",d:"Self-scoring",c:"Past Papers & Answer Keys",f:"standalone-htmls-dec-2024-answer-key.html",k:142.2},
+{t:"December 2025",d:"Corrected key",c:"Past Papers & Answer Keys",f:"standalone-htmls-dec-2025-answer-key.html",k:84.3},
+{t:"May 2026",d:"Topic breakdown",c:"Past Papers & Answer Keys",f:"standalone-htmls-may-2026-mcq-breakdown.html",k:95.4},
+{t:"Prediction Exam 2026",d:"Full sitting · 14 subjects",c:"Past Papers & Answer Keys",f:"medcore-prediction-exam.html",k:99.6},
+{t:"Prediction Exam · Key",d:"Same paper, full key",c:"Past Papers & Answer Keys",f:"medcore-prediction-exam-answer-key.html",k:99.6},
+{t:"2026 Prediction Intel",d:"What the paper will test",c:"Exam Intelligence & Strategy",f:"medcore-prediction-intelligence-report.html",k:48.2},
+{t:"Full Picture Report",d:"Whole-system map · one view of everything",c:"Exam Intelligence & Strategy",f:"medcore-system-full-picture-report.html",k:157.5},
+{t:"Pattern Analysis",d:"Four papers decoded · recurring patterns",c:"Exam Intelligence & Strategy",f:"medcore-pattern-analysis.html",k:15.8},
+{t:"High-Yield Topic Pool",d:"Where to spend your time",c:"Exam Intelligence & Strategy",f:"standalone-htmls-prediction-sheet-1-high-yield-topic-pool.html",k:73.1},
+{t:"60-Day Battle Plan",d:"Day-by-day route to exam day",c:"Exam Intelligence & Strategy",f:"standalone-htmls-60-day-battle-plan.html",k:53.6},
+{t:"Battle LMS",d:"Command centre · schedule, drills, tracking",c:"Exam Intelligence & Strategy",f:"planner-medcore-battle-lms.html",k:86.5},
+{t:"Cheat Card",d:"One-page recall sheet",c:"Quick Reference",f:"medcore-cheat-card.html",k:22},
+{t:"Magic Table",d:"Licensing thresholds · memorise once",c:"Quick Reference",f:"standalone-htmls-magic-table-medical-licensing.html",k:207.2},
+{t:"Medical Quick Ref",d:"Numerics and ranges",c:"Quick Reference",f:"standalone-htmls-medical-quick-reference-combined.html",k:2.9},
+{t:"Symptom Clusters",d:"Symptom to differential, grouped",c:"Quick Reference",f:"standalone-htmls-disease-symptom-clusters.html",k:62.1},
+{t:"Last Day Sheet",d:"Final night · highest-yield only",c:"Quick Reference",f:"side-projects-last-day-revision-sheet.html",k:62.8},
+{t:"Repeat Offenders",d:"The NRE recall vault — questions that keep coming back",c:"Quick Reference",f:"nre-recall-sheets-repeat-offenders.html",k:53.6},{t:"Case Ladder",d:"Interactive clinical case practice",c:"Frameworks & Interactive",f:"standalone-htmls-case-ladder-interactive.html",k:119.1},
+{t:"Cardiology",d:"Complete system book",c:"MedCORE Systems",f:"medcore-systems-cardiology-cardiology-medcore.html",k:408.9},
+{t:"Neurology",d:"Complete system book",c:"MedCORE Systems",f:"medcore-systems-neurology-neurology-medcore.html",k:725.5},
+{t:"Respiratory",d:"Complete system book",c:"MedCORE Systems",f:"medcore-systems-respiratory-respiratory-medcore.html",k:710.1},
+{t:"Dermatology",d:"Complete system book",c:"MedCORE Systems",f:"medcore-systems-dermatology-dermatology-medcore.html",k:600.2},
+{t:"Urology",d:"Complete system book",c:"MedCORE Systems",f:"medcore-systems-urology-urology-medcore.html",k:687},
+{t:"Gynaecology",d:"Complete system book",c:"MedCORE Systems",f:"medcore-systems-gynecology-gynecology-medcore.html",k:682},
+{t:"Obstetrics",d:"Complete system book",c:"MedCORE Systems",f:"medcore-systems-obstetrics-obstetrics-medcore.html",k:468.3},
+{t:"Paediatrics",d:"Complete system book",c:"MedCORE Systems",f:"medcore-systems-pediatrics-pediatrics-medcore.html",k:432.8},
+{t:"ENT",d:"Complete system book",c:"MedCORE Systems",f:"medcore-systems-ent-ent-medcore.html",k:639},
+{t:"Ophthalmology",d:"Complete system book",c:"MedCORE Systems",f:"medcore-systems-ophthalmology-ophthalmology-medcore.html",k:641.2}
+
+];
+function esc(s){return String(s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];})}
+function href(it){return '/resources/'+encodeURIComponent(it.f.replace(/\.html$/i,''))}
+function kb(k){return k>=1000?(k/1000).toFixed(1)+' MB':Math.round(k)+' KB'}
+const tablist=document.getElementById('tablist'), panels=document.getElementById('panels');
+let tabs=[],panelsByCat={};
+CATS.forEach((cat,ci)=>{
+  const hue=HUES[cat];
+  const items=Items.filter(it=>it.c===cat);
+  const b=document.createElement('button');
+  b.type='button';b.className='chip';b.setAttribute('role','tab');
+  b.setAttribute('aria-selected',ci===0?'true':'false');
+  b.textContent=cat;
+  b.addEventListener('click',()=>select(ci));
+  tablist.appendChild(b);tabs.push(b);
+  const p=document.createElement('section');
+  p.className='panel';p.setAttribute('role','tabpanel');
+  p.style.setProperty('--hue',hue);
+  if(ci!==0)p.hidden=true;
+  p.innerHTML='<p class="grp-note">'+esc(cat)+'</p>';
+  items.forEach((it,i)=>{
+    const d=document.createElement('details');
+    d.className='faqitem';d.style.setProperty('--hue',hue);
+    d.innerHTML='<summary><span class="rt"><span class="t">'+esc(it.t)+'</span><span class="d">'+esc(it.d||'')+'</span></span>'+
+      '<span class="kb">'+kb(it.k)+'</span><span class="chev"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></span></summary>'+
+      '<div class="body"><span style="flex:1;color:var(--muted);font-size:.93rem">'+esc(it.d||'')+'</span><a class="btn alt" style="font-size:.8rem;padding:.5em 1em" href="'+href(it)+'">Open ↗</a></div>';
+    p.appendChild(d);
+  });
+  panels.appendChild(p);panelsByCat[cat]=p;
+});
+let cur=0,SK='mx-shelf';
+function select(ci,save){
+  cur=ci;
+  tabs.forEach((b,bi)=>b.setAttribute('aria-selected',bi===ci?'true':'false'));
+  CATS.forEach((cat,ci2)=>panelsByCat[cat].hidden=ci2!==ci);
+  if(save!==false){try{localStorage.setItem(SK,CATS[ci])}catch(e){}}
+}
+try{const s=localStorage.getItem(SK);const i=CATS.indexOf(s);if(i>=0)select(i,false)}catch(e){}
+tablist.addEventListener('keydown',e=>{
+  let d=0;
+  if(e.key==='ArrowRight')d=1;else if(e.key==='ArrowLeft')d=-1;else return;
+  e.preventDefault();
+  const n=(cur+d+tabs.length)%tabs.length;tabs[n].focus();select(n);
+});
+const q=document.getElementById('q');
+q.addEventListener('input',()=>{
+  const term=q.value.trim().toLowerCase();let shown=0;
+  panels.querySelectorAll('.faqitem').forEach(d=>{
+    const hit=!term||(d.textContent||'').toLowerCase().indexOf(term)>=0;
+    d.style.display=hit?'':'none';if(hit)shown++;
+  });
+  let emp=panels.querySelector('.nores');
+  if(!shown){if(!emp){emp=document.createElement('p');emp.className='nores';emp.textContent='Nothing matches. Try a shorter word.';emp.style.display='block';panels.appendChild(emp);}}
+  else if(emp)emp.remove();
+});
+const a=document.getElementById('resume'),t=document.getElementById('resumeT');
+try{
+  const L=JSON.parse(localStorage.getItem('mx-last')||'[]');
+  if(L.length&&t){a.href='/resources/'+encodeURIComponent(L[0].f);t.textContent='Continue — '+L[0].t;a.classList.add('on');}
+}catch(e){}
 </script>
 </body>
 </html>
