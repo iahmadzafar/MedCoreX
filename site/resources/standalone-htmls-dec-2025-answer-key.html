@@ -170,6 +170,15 @@ summary{cursor:pointer}
 @media print{button{transition:none!important;transform:none!important}}
 @media(prefers-reduced-motion:reduce){button{transition:none!important;transform:none!important}}
 </style>
+<style id="mlx-eq">
+/* mlx-equal: the length of an option must not tell you which one is right */
+.opts .opt{position:relative}
+.opts .opt .ot{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;padding-right:22px}
+.opts .opt.done .ot,.opts .opt.open .ot{display:block;overflow:visible;-webkit-line-clamp:none;padding-right:0}
+.opts .opt.open .exp{display:none}
+.mlx-eq .exp{position:absolute;right:8px;bottom:6px;width:22px;height:19px;border-radius:6px;background:var(--panel2,#1A1E28);border:1px solid var(--line2,#2A3140);color:var(--chalk,#FFFFFF);font:700 12px/1 var(--mono,ui-monospace,monospace);display:grid;place-items:center;cursor:pointer;user-select:none;z-index:2}
+@media print{.opts .opt .ot{display:block!important;overflow:visible!important;-webkit-line-clamp:none!important}}
+</style>
 </head></head>
 <body>
 <header class="topbar">
@@ -319,6 +328,20 @@ function render(){
     b.onclick = function(){ choose(k); };
     box.appendChild(b);
   });
+  function mlxEq(){
+  var rows=[].slice.call(document.querySelectorAll('.opts .opt')).filter(function(r){return !r.classList.contains('done');});
+  rows.forEach(function(r){
+    var s=r.querySelector('.ot'); if(!s) return;
+    if(s.scrollHeight>s.clientHeight+2 && !r.querySelector('.exp')){
+      var e=document.createElement('span'); e.className='exp'; e.textContent='+';
+      e.addEventListener('click',function(ev){ev.stopPropagation(); r.classList.add('open');});
+      r.appendChild(e);
+    }
+  });
+  var h=0; rows.forEach(function(r){h=Math.max(h,r.offsetHeight);});
+  if(h) rows.forEach(function(r){r.style.minHeight=h+'px';});
+}
+  if(ans[i] === null){ mlxEq(); if(document.fonts&&!mlxEq._f){mlxEq._f=1;document.fonts.ready.then(function(){mlxEq();});} }
   if(ans[i] !== null) paint(ans[i]);
   else{
     $("verdict").hidden = true; $("verdict").className = "verdict";
