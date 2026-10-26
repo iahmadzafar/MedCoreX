@@ -220,6 +220,16 @@ summary{cursor:pointer}
 @media print{button{transition:none!important;transform:none!important}}
 @media(prefers-reduced-motion:reduce){button{transition:none!important;transform:none!important}}
 </style>
+<style id="mlx-eq">
+/* mlx-equal: the length of an option must not tell you which one is right */
+.option{position:relative}
+.segment:not(:has(.explain.show)) .option .ot{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;padding-right:22px}
+.segment:has(.explain.show) .option .ot,.option.open .ot{display:block;overflow:visible;-webkit-line-clamp:none;padding-right:0}
+.segment:has(.explain.show) .exp,.option.open .exp{display:none}
+@media print{.option .ot{display:block!important;overflow:visible!important;-webkit-line-clamp:none!important}}
+
+.mlx-eq .exp{position:absolute;right:8px;bottom:6px;width:22px;height:19px;border-radius:6px;background:var(--panel2,#1A1E28);border:1px solid var(--line2,#2A3140);color:var(--chalk,#FFFFFF);font:700 12px/1 var(--mono,ui-monospace,monospace);display:grid;place-items:center;cursor:pointer;user-select:none;z-index:2}
+</style>
 </head>
 <body>
 <div class="app">
@@ -311,10 +321,27 @@ function renderTopic(topic, idx) {
 }
 function renderSegment(s, ti, si) {
   const id = segmentId(ti, si);
-  const opts = s.options.map(o => `<div class="option"><span class="letter">${escapeHtml(o[0])}</span><span>${escapeHtml(o[1])}</span></div>`).join('');
+  const opts = s.options.map(o => `<div class="option"><span class="letter">${escapeHtml(o[0])}</span><span class="ot">${escapeHtml(o[1])}</span></div>`).join('');
   const done = completed.has(id) ? 'Done' : 'Mark done';
   return `<article class="segment" data-segment="${id}"><div class="segment-head"><h3>Segment ${si+1}: ${escapeHtml(s.title)}</h3><span class="tag">${escapeHtml(s.tag || 'untagged')}</span></div><div class="segment-body"><p class="stem">${escapeHtml(s.stem)}</p><div class="options">${opts}</div><div class="reveal-row"><button class="reveal-btn" data-action="answer">Show answer</button><button class="reveal-btn alt" data-action="all">Show all reasoning</button><button class="reveal-btn alt" data-action="done">${done}</button></div><div class="explain"><div class="explain-card answer"><b>Answer</b><p>${escapeHtml(s.answer)}</p></div><div class="explain-card"><b>Discriminator</b><p>${escapeHtml(s.discriminator)}</p></div><div class="explain-card trap"><b>Trap</b><p>${escapeHtml(s.trap)}</p></div><div class="explain-card alert"><b>Future Alert</b><p>${escapeHtml(s.future_alert)}</p></div></div></div></article>`;
 }
+function mlxEqCase(){
+  document.querySelectorAll('.segment').forEach(function(seg){
+    var revealed=seg.querySelector('.explain.show');
+    seg.querySelectorAll('.option').forEach(function(o){
+      var s=o.querySelector('.ot'); if(!s) return;
+      if(!revealed && s.scrollHeight>s.clientHeight+2 && !o.querySelector('.exp')){
+        var e=document.createElement('span'); e.className='exp'; e.textContent='+';
+        e.addEventListener('click',function(ev){ev.stopPropagation(); o.classList.add('open');});
+        o.appendChild(e);
+      }
+    });
+    var rows=[].slice.call(seg.querySelectorAll('.option:not(.open)'));
+    var h=0; rows.forEach(function(r){h=Math.max(h,r.offsetHeight);});
+    if(h && !revealed) rows.forEach(function(r){r.style.minHeight=h+'px';});
+  });
+}
+if(document.fonts&&!mlxEqCase._f){mlxEqCase._f=1;document.fonts.ready.then(function(){mlxEqCase();});}
 function wireContent() {
   document.querySelectorAll('.segment-head').forEach(head => head.onclick = () => head.parentElement.classList.toggle('open'));
   document.querySelectorAll('[data-action]').forEach(btn => btn.onclick = e => {
@@ -329,6 +356,7 @@ function wireContent() {
       saveProgress();
     }
   });
+  mlxEqCase();
 }
 function render() {
   if (!matchesTopic(data.topics[activeIndex])) {

@@ -1129,6 +1129,15 @@ html.light .hero h1{ color:var(--txt) }
 @media print{.qcard,.pill{animation:none!important;transition:none!important;transform:none!important}}
 @media(prefers-reduced-motion:reduce){.qcard,.pill,.q-opts>*{animation:none!important;transition:none!important;transform:none!important}}
 </style>
+<style id="mlx-eq">
+/* mlx-equal: the length of an option must not tell you which one is right */
+#qCard .q-opt .q-txt{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;padding-right:22px}
+#qCard .q-opt.locked .q-txt,#qCard .q-opt.open .q-txt{display:block;overflow:visible;-webkit-line-clamp:none;padding-right:0}
+#qCard .q-opt.open .exp{display:none}
+@media print{#qCard .q-opt .q-txt{display:block!important;overflow:visible!important;-webkit-line-clamp:none!important}}
+
+.mlx-eq .exp{position:absolute;right:8px;bottom:6px;width:22px;height:19px;border-radius:6px;background:var(--panel2,#1A1E28);border:1px solid var(--line2,#2A3140);color:var(--chalk,#FFFFFF);font:700 12px/1 var(--mono,ui-monospace,monospace);display:grid;place-items:center;cursor:pointer;user-select:none;z-index:2}
+</style>
 </head>
 <body class="wel">
 <div class="orb a"></div><div class="orb b"></div><div class="orb c"></div>
@@ -1383,7 +1392,7 @@ function showQ(d){
       else if(l === st.pick) cls += ' reveal-wrong';
     }
     oh += `<div class="${cls}" data-l="${l}" onclick="${st ? '' : `answer('${l}')`}">
-      <span class="letter">${l})</span><span>${esc(txt)}</span>
+      <span class="letter">${l})</span><span class="q-txt">${esc(txt)}</span>
       ${st ? '' : `<span class="kmin">${i + 1}</span>`}
     </div>`;
   });
@@ -1397,6 +1406,20 @@ function showQ(d){
       ${chips.length ? `<div class="q-chips">${chips.join('')}</div>` : ''}
       <div class="q-opts">${oh}</div>
     </div>`;
+  function mlxEq(){
+  var rows=[].slice.call(document.querySelectorAll('#qCard .q-opt')).filter(function(r){return !r.classList.contains('locked');});
+  rows.forEach(function(r){
+    var s=r.querySelector('.q-txt'); if(!s) return;
+    if(s.scrollHeight>s.clientHeight+2 && !r.querySelector('.exp')){
+      var e=document.createElement('span'); e.className='exp'; e.textContent='+';
+      e.addEventListener('click',function(ev){ev.stopPropagation(); r.classList.add('open');});
+      r.appendChild(e);
+    }
+  });
+  var h=0; rows.forEach(function(r){h=Math.max(h,r.offsetHeight);});
+  if(h) rows.forEach(function(r){r.style.minHeight=h+'px';});
+}
+  mlxEq(); if(document.fonts&&!mlxEq._f){mlxEq._f=1;document.fonts.ready.then(function(){mlxEq();});}
   $('pFoot') && ($('pFoot').innerHTML = `<div style="height:20px"></div>`);
 
   /* feedback panel */
@@ -1701,7 +1724,7 @@ function showKey(d){
   let oh = '';
   for(const [l, txt] of q.o){
     const cls = l === cl ? 'is-correct' : 'is-wrong';
-    oh += `<div class="k-opt ${cls}"><span class="letter" style="background:hsl(var(--oh,210) 82% 60% / .18);color:hsl(var(--oh,210) 85% 72%)">${l})</span><span>${esc(txt)}</span></div>`;
+    oh += `<div class="k-opt ${cls}"><span class="letter" style="background:hsl(var(--oh,210) 82% 60% / .18);color:hsl(var(--oh,210) 85% 72%)">${l})</span><span class="q-txt">${esc(txt)}</span></div>`;
   }
   const chips = q.ct ? `<div class="q-chips" style="margin:0 0 12px 47px"><span class="q-chip ct">${esc(q.ct)}</span></div>` : '';
   $('pCard').innerHTML = `
