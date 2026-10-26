@@ -1138,8 +1138,58 @@ html.light .hero h1{ color:var(--txt) }
 
 .mlx-eq .exp{position:absolute;right:8px;bottom:6px;width:22px;height:19px;border-radius:6px;background:var(--panel2,#1A1E28);border:1px solid var(--line2,#2A3140);color:var(--chalk,#FFFFFF);font:700 12px/1 var(--mono,ui-monospace,monospace);display:grid;place-items:center;cursor:pointer;user-select:none;z-index:2}
 </style>
+
+<style id="sv-2026">
+/* ═══ Studyverse overlay for M06 · additive chrome only — quiz engine untouched ═══ */
+.sv-blobs{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.sv-blob{position:absolute;width:46vmax;height:46vmax;filter:blur(60px);opacity:.30;border-radius:42% 58% 63% 37%/45% 41% 59% 55%;animation:sv-morph 18s ease-in-out infinite alternate,sv-drift 26s ease-in-out infinite alternate;transition:background .8s}
+.sv-blob:nth-child(1){background:var(--c1,#ff6b9a);top:-14vmax;left:-12vmax}
+.sv-blob:nth-child(2){background:var(--c3,#4cc9d8);bottom:-18vmax;right:-14vmax;animation-delay:-6s,-9s}
+.sv-blob:nth-child(3){background:var(--c4,#9b7bff);top:38%;left:48%;width:30vmax;height:30vmax;animation-delay:-11s,-3s}
+@keyframes sv-morph{50%{border-radius:61% 39% 36% 64%/57% 63% 37% 43%}100%{border-radius:35% 65% 50% 50%/30% 50% 50% 70%}}
+@keyframes sv-drift{50%{transform:translate(8vw,6vh) rotate(60deg) scale(1.1)}100%{transform:translate(-5vw,10vh) rotate(140deg) scale(.95)}}
+body{background-image:radial-gradient(currentColor 1.3px,transparent 1.5px);background-size:24px 24px;background-blend-mode:overlay}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(currentColor 1.3px,transparent 1.5px);background-size:24px 24px;opacity:.05}
+
+/* pill furniture → hard sticker shadows + press physics */
+button.pill,.pill{box-shadow:3px 3px 0 currentColor;transition:transform .2s cubic-bezier(.34,1.56,.64,1),box-shadow .2s,background .3s,border-color .3s}
+button.pill:hover,.pill:hover{transform:translate(-2px,-2px)}
+button.pill:active,.pill:active{transform:translate(2px,2px);box-shadow:0 0 0 currentColor}
+button.pill[aria-pressed="true"],.pill.on{box-shadow:3px 3px 0 currentColor}
+
+/* quiz card + feedback → offset sticker shadow */
+.qcard{box-shadow:6px 6px 0 color-mix(in srgb,currentColor 32%,transparent);border-width:2px}
+#fbHead,.fb-panel{box-shadow:4px 4px 0 color-mix(in srgb,currentColor 30%,transparent)}
+
+/* option rows: sticker hover (transform only — equalizer heights untouched) */
+.q-opt{transition:transform .15s ease,border-color .15s ease,box-shadow .15s}
+.q-opt:hover{transform:translateX(4px);box-shadow:3px 3px 0 color-mix(in srgb,currentColor 22%,transparent)}
+
+/* Studyverse engine chip — floats top-right, ghost geometry, mode-safe (currentColor) */
+.sv-chip{position:fixed;top:12px;right:12px;z-index:90;display:flex;align-items:center;gap:8px;
+  border:2px solid currentColor;border-radius:999px;padding:4px 6px 4px 10px;background:transparent;backdrop-filter:blur(6px)}
+.sv-sw{display:flex}
+.sv-sw i{width:15px;height:15px;border-radius:50%;border:2px solid currentColor;margin-left:-5px;transition:background .8s}
+.sv-sw i:first-child{margin-left:0}
+.sv-name{font-weight:800;font-size:.74rem;white-space:nowrap;max-width:12ch;overflow:hidden;text-overflow:ellipsis}
+.sv-btn{width:30px;height:30px;border-radius:50%;border:2px solid currentColor;background:transparent;cursor:pointer;display:grid;place-items:center;font-size:.95rem;transition:transform .35s cubic-bezier(.34,1.56,.64,1)}
+.sv-btn:hover{transform:rotate(180deg) scale(1.12)}
+.sv-btn[aria-pressed="true"]{background:var(--c2,#ffd34d);color:#1d1433}
+
+/* the pre-existing mode toggle, restyled Studyverse */
+.mlx-toggle{border-width:2px!important;box-shadow:3px 3px 0 currentColor!important;border-radius:999px!important;background:transparent!important;font-family:inherit;font-weight:800;letter-spacing:.06em}
+
+/* sv toast (separate corner from the bank's own toast) */
+.sv-toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,160%);padding:10px 20px;border:2px solid currentColor;border-radius:999px;font-weight:800;z-index:99;transition:transform .45s cubic-bezier(.34,1.56,.64,1);background:transparent;backdrop-filter:blur(6px)}
+.sv-toast.show{transform:translate(-50%,0)}
+.sv-conf{position:fixed;width:10px;height:14px;z-index:98;pointer-events:none;border:1.5px solid currentColor}
+@media (prefers-reduced-motion:reduce){.sv-blob,.sv-chip,.q-opt{animation:none!important;transition:none!important}}
+@media print{.sv-blobs,.sv-chip,.sv-toast,.mlx-toggle{display:none!important}}
+</style>
+
 </head>
 <body class="wel">
+<div class="sv-blobs" aria-hidden="true"><div class="sv-blob"></div><div class="sv-blob"></div><div class="sv-blob"></div></div>
 <div class="orb a"></div><div class="orb b"></div><div class="orb c"></div>
 
 
@@ -2051,6 +2101,173 @@ body{animation:mlxFade .4s ease both}
   lbl();
  });
  document.body.appendChild(b);lbl();
+})();
+</script>
+
+
+<script id="sv-engine">
+/* Studyverse engine for M06 — namespaced writes only: never touches the bank's
+   --r/--pill family, fonts, --line or --muted. Quiz engine + data untouched. */
+(function(){
+  var rand=function(a,b){return Math.random()*(b-a)+a};
+  var pick=function(a){return a[Math.floor(Math.random()*a.length)]};
+  var hsl=function(h,s,l){return 'hsl('+Math.round(((h%360+360)%360))+' '+Math.round(s)+'% '+Math.round(l)+'%)'};
+  var SCHEMES={Triadic:[0,120,240,60],Complementary:[0,180,30,210],Split:[0,150,210,45],Analogous:[0,32,64,-32],Tetradic:[0,90,180,270],Candy:[0,300,60,200]};
+  var ADJ=['Electric','Bubblegum','Cosmic','Retro','Sour','Velvet','Jazzy','Turbo','Lemon','Neon','Groovy','Fizzy','Disco','Cherry','Tropical','Glitter','Mango','Pixel'];
+  var NOUN=['Notebook','Riot','Library','Sundae','Lab','Arcade','Atlas','Mixtape','Garden','Comet','Parade','Studio','Lagoon','Cassette','Carnival','Orbit'];
+  var K='sv-theme-lock', MK='sv-mode';
+  function makeTheme(){
+    var h=rand(0,360), scheme=pick(Object.keys(SCHEMES)), offs=SCHEMES[scheme], s=rand(74,96);
+    return {name:pick(ADJ)+' '+pick(NOUN), scheme:scheme, vars:{
+      '--c1':hsl(h+offs[0],s,rand(60,68)),
+      '--c2':hsl(h+offs[1],s,rand(62,72)),
+      '--c3':hsl(h+offs[2],s,rand(60,70)),
+      '--c4':hsl(h+offs[3],s*.9,rand(64,74)),
+      '--bg':hsl(h+offs[1]*.25,rand(70,95),rand(93,96)),
+      '--surface':hsl(h,100,rand(98.5,99.5)),
+      '--ink':hsl(h+200,rand(35,60),rand(9,15)),
+      '--radius':pick(['0px','8px','16px','26px','34px']),
+      '--bw':pick(['2px','3px','4px']),
+      '--shadow':'6px 6px 0 var(--ink)','--shadow-hover':'10px 10px 0 var(--ink)',
+      '--tilt':pick(['0deg','-1deg','1.2deg','-2deg'])}};
+  }
+  var current=null;
+  function hueOf(v){ var m=String(v).match(/hsl\(\s*(-?[\d.]+)/); return m?Number(m[1]):0; }
+  function paint(){
+    var r=document.documentElement;
+    var V=current.vars;
+    ['--radius','--bw','--shadow','--shadow-hover','--tilt','--c1','--c2','--c3','--c4'].forEach(function(k){ r.style.setProperty(k,V[k]); });
+    /* the bank's hue system (subject gradients + tints) follows the engine */
+    r.style.setProperty('--h', String(Math.round(hueOf(V['--c1']))));
+    r.style.setProperty('--h2', String(Math.round(hueOf(V['--c2']))));
+    /* the four family palettes become engine-driven — mode-aware surfaces */
+    var dark = r.classList.contains('dark') || r.getAttribute('data-mode')==='dark';
+    var bg, card;
+    if(!dark){
+      bg=V['--bg']; card=V['--surface'];
+      r.style.setProperty('--ink', V['--ink']);
+      r.style.setProperty('--card2','color-mix(in srgb, '+V['--surface']+' 95%, '+V['--ink']+')');
+    }else{
+      bg=hsl(hueOf(V['--bg']),26,8); card=hsl(hueOf(V['--surface']),22,12);
+      r.style.setProperty('--ink','#FFFFFF');
+      r.style.setProperty('--card2','color-mix(in srgb, '+card+' 90%, #ffffff 10%)');
+    }
+    r.style.setProperty('--bg', bg);
+    r.style.setProperty('--card', card);
+    r.style.setProperty('--a1', V['--c1']);
+    r.style.setProperty('--tint','color-mix(in srgb, '+V['--c1']+' 10%, transparent)');
+    /* functional semantics kept: --good --warn --no --no2 = correct/wrong cues */
+    var n=document.getElementById('svName'); if(n) n.textContent=current.name;
+    var sw=document.querySelectorAll('.sv-sw i');
+    if(sw.length===4){ ['--c1','--c2','--c3','--c4'].forEach(function(k,i){ sw[i].style.background='var('+k+')'; }); }
+  }
+  function applyTheme(t){ current=t; paint(); }
+
+  /* mode: drives BOTH the bank's html.dark class and data-mode attr (one truth) */
+  function readMode(){
+    try{ var s=localStorage.getItem(MK); if(s==='light'||s==='dark') return s; }catch(e){}
+    return document.documentElement.classList.contains('dark')?'dark':'light';
+  }
+  function setMode(m){
+    var r=document.documentElement;
+    r.classList.toggle('dark', m==='dark');
+    r.setAttribute('data-mode', m);
+    try{ localStorage.setItem(MK,m); }catch(e){}
+    syncMode();
+    if(current) paint();
+  }
+  function syncMode(){
+    var b=document.getElementById('svMode'); if(!b) return;
+    var d=document.documentElement.classList.contains('dark');
+    b.setAttribute('aria-pressed', d?'true':'false');
+    b.textContent = d?'☀️':'🌙';
+  }
+
+  /* toast + confetti (own corner; bank keeps its own toast) */
+  var tt;
+  function svToast(msg){
+    var el=document.getElementById('svToast'); if(!el) return;
+    el.textContent=msg; el.classList.add('show');
+    clearTimeout(tt); tt=setTimeout(function(){ el.classList.remove('show'); },2000);
+  }
+  function svBurst(x,y,n){
+    n=n||24;
+    for(var i=0;i<n;i++){
+      var c=document.createElement('span'); c.className='sv-conf';
+      c.style.cssText='left:'+x+'px;top:'+y+'px;background:var(--c'+(1+i%4)+');border-radius:'+(i%3?'2px':'50%');
+      document.body.appendChild(c);
+      var a=rand(0,Math.PI*2), dist=rand(70,190);
+      c.animate([{transform:'translate(0,0) rotate(0)',opacity:1},
+        {transform:'translate('+Math.cos(a)*dist+'px,'+(Math.sin(a)*dist+110)+'px) rotate('+rand(-540,540)+'deg)',opacity:0}],
+        {duration:rand(700,1200),easing:'cubic-bezier(.2,.7,.3,1)'}).onfinish=function(){ c.remove(); };
+    }
+  }
+
+  /* chrome: engine chip + hooks */
+  function buildChip(){
+    if(document.getElementById('svChip')||!document.body) return;
+    var d=document.createElement('div');
+    d.className='sv-chip'; d.id='svChip'; d.title='Theme engine';
+    d.innerHTML='<div class="sv-sw"><i></i><i></i><i></i><i></i></div>'+
+      '<span class="sv-name" id="svName">Theme</span>'+
+      '<button class="sv-btn" id="svMode" title="Dark / light">🌙</button>'+
+      '<button class="sv-btn" id="svLock" aria-pressed="false" title="Keep this theme">🔓</button>'+
+      '<button class="sv-btn" id="svMix" title="Remix theme (T)">🎲</button>';
+    document.body.appendChild(d);
+    d.querySelector('#svMix').addEventListener('click', remix);
+    d.querySelector('#svLock').addEventListener('click', lock);
+    d.querySelector('#svMode').addEventListener('click', function(){
+      setMode(readMode()==='dark'?'light':'dark');
+      svToast(readMode()==='dark'?'Dark mode 🌙':'Light mode ☀️');
+    });
+    syncMode();
+  }
+  var LOCK=null;
+  try{ LOCK=JSON.parse(localStorage.getItem(K)||'null'); }catch(e){}
+  function saveLock(){ try{ localStorage.setItem(K,JSON.stringify(LOCK)); }catch(e){} }
+  function syncLock(){ var b=document.getElementById('svLock'); if(!b) return; b.setAttribute('aria-pressed',LOCK?'true':'false'); b.textContent=LOCK?'🔒':'🔓'; }
+  function remix(){
+    applyTheme(makeTheme());
+    if(LOCK){ LOCK=current; saveLock(); }
+    syncLock();
+    svToast('New theme: '+current.name+' · '+current.scheme);
+    svBurst(window.innerWidth-70, 56, 30);
+  }
+  function lock(){
+    LOCK=LOCK?null:current; saveLock();
+    var b=document.getElementById('svLock');
+    if(b){ b.setAttribute('aria-pressed',LOCK?'true':'false'); b.textContent=LOCK?'🔒':'🔓'; }
+    svToast(LOCK?'Theme locked for next visit':'A new theme every visit');
+  }
+  applyTheme(LOCK||makeTheme());
+  if(document.readyState==='loading'){ document.addEventListener('DOMContentLoaded',function(){buildChip();syncLock();}); }
+  else { buildChip(); syncLock(); }
+
+  addEventListener('keydown',function(e){
+    if(/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)) return;
+    if(e.key==='t'||e.key==='T') remix();
+  });
+
+  /* milestones: confetti when an answer is revealed, small burst */
+  try{
+    var seen=new WeakSet();
+    new MutationObserver(function(muts){
+      muts.forEach(function(m){
+        Array.prototype.forEach.call(m.addedNodes,function(n){
+          if(n.nodeType!==1) return;
+          if(n.classList&&n.classList.contains('q-opt')&&n.classList.contains('reveal-correct')&&!seen.has(n)){
+            seen.add(n);
+            var r=n.getBoundingClientRect();
+            if(r.width) svBurst(r.left+r.width/2, r.top+r.height/2, 16);
+          }
+        });
+        if(m.target.nodeType===1&&m.target.id==='fbHead'&&m.target.textContent.length>60){
+          var r2=m.target.getBoundingClientRect();
+          if(r2.width) svBurst(r2.left+40, r2.top+20, 20);
+        }
+      });
+    }).observe(document.body,{childList:true,subtree:true});
+  }catch(e){}
 })();
 </script>
 
