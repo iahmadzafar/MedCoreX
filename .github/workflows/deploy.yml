@@ -5,6 +5,11 @@ on:
     branches: [main]
   workflow_dispatch:
 
+# every commit triggers a run — cancel superseded ones, latest always wins
+concurrency:
+  group: deploy-main
+  cancel-in-progress: true
+
 jobs:
   deploy:
     runs-on: ubuntu-latest

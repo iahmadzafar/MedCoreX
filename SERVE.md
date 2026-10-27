@@ -4,8 +4,12 @@
 
 **LIVE — https://medcorex.pages.dev** (renamed from medlibx.pages.dev, Oct 25 2026) (v1.2, database `f830d37c…`).
 
-Two paths, both clean (no secret through chat):
-- OAuth (preferred): `npx wrangler login` once — approval in the browser, secret lives in `~/.wrangler` — then just `./deploy.sh`.
+**Automatic (default):** commit → local post-commit hook pushes `main` → GitHub Actions
+(`.github/workflows/deploy.yml`) → Cloudflare Pages production. Local == GitHub == live
+without anyone typing a deploy command. Push failures log to `~/.git-medcorex-push.log`.
+
+Manual paths (still work):
+- OAuth: `npx wrangler login` once — approval in the browser, secret lives in `~/.wrangler` — then `./deploy.sh`.
 - Token: `CLOUDFLARE_API_TOKEN=<token> ./deploy.sh`.
 
 `deploy.sh` is idempotent at every stage: creates the D1 database + applies schema on first run, creates the Pages project if missing, then stages and uploads. Redeploys after edits are the same one command; schema reapplies harmlessly.
