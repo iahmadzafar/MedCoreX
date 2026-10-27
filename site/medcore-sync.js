@@ -175,6 +175,7 @@
     document.body.appendChild(t); setTimeout(function () { t.remove(); }, 2600);
   }
 
-  function start() { buildUI(); renderBtn(); checkAuth(); }
+  function start() { /* floating button + modal retired 27 Oct 2026 — nav chip (auth-nav.js) owns identity;
+                         sign-in lives at /login; this file keeps auth check + progress sync only */ checkAuth(); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();
 })();
