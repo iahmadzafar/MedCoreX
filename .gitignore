@@ -3,3 +3,4 @@
 
 # design reference — lives on disk, kept out of git (owner deletion a05bba5)
 studyverse.html
+.google-oauth.env
