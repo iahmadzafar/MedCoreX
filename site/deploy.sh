@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Bootstrap + deploy MedCoreX (project: medcorex) — the MedLib X lineage, renamed.
+# Bootstrap + deploy MedCoreX (project: medcorex) — the MedCoreX lineage, renamed.
 # Requires a Pages:Edit (and D1:Edit) API token: CLOUDFLARE_API_TOKEN=... ./deploy.sh
 # First run creates the D1 database and applies schema; later runs just deploy.
 set -euo pipefail

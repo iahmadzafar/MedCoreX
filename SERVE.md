@@ -1,4 +1,4 @@
-# MedLib X — how to serve it
+# MedCoreX — how to serve it
 
 ## Deploy
 
@@ -37,7 +37,7 @@ His call: "remove the sign in and account module for now." Deleted: the gate fun
 
 - No official board names anywhere in any file or copy.
 - No emojis — inline SVG glyphs only.
-- `medcorehub.pages.dev` and its deploy were not read, modified, or touched.
+- The legacy NRE hub is retired and archived (`NRE-Legacy`); MedCoreX (MCX) is the only live site.
 - Cleanup only ever removes rows I created (exact names); never bulk deletes the ledger.
 
 ## Keyhole (the librarian's window) — LIVE

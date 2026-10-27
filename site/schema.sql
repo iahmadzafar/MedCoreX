@@ -1,4 +1,4 @@
--- MedLib X — D1 schema. Fresh database, separate from every other project.
+-- MedCoreX — D1 schema. Fresh database, separate from every other project.
 CREATE TABLE IF NOT EXISTS users (
   id          TEXT PRIMARY KEY,
   email       TEXT NOT NULL UNIQUE,

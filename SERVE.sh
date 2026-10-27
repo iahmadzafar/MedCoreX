@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Local check harness for MedLib X — page + catalog behaviour with the
+# Local check harness for MedCoreX — page + catalog behaviour with the
 # /resources gate behaving exactly like production (302 to /login without a
 # session cookie). API endpoints are Cloudflare-Functions only, so auth flows
 # need a deployed build; everything else verifies right here.
@@ -57,6 +57,6 @@ class H(http.server.BaseHTTPRequestHandler):
     def log_message(self, fmt, *args):
         sys.stderr.write('[http] ' + (fmt % args) + '\n')
 
-print(f'MedLib X local check — http://127.0.0.1:{PORT}', file=sys.stderr)
+print(f'MedCoreX local check — http://127.0.0.1:{PORT}', file=sys.stderr)
 http.server.ThreadingHTTPServer(('127.0.0.1', PORT), H).serve_forever()
 PYEOF

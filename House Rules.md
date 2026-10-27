@@ -1,4 +1,4 @@
-# MedLib X — House Rules
+# MedCoreX — House Rules
 
 > The polish language of the house. Nothing in any file moves until you've read this and corrected it.
 > Where a rule disagrees with something already built, the rule wins once you've approved it.
@@ -40,7 +40,7 @@
 - Micro-labels everywhere: mono small-caps index numbers on sections (`01`, `1.1`), tick rules before box titles, hairline dividers that mean a boundary.
 - Small SVG glyphs at 13–15px where an icon aids scanning, matched to the token palette.
 - Every state is designed: hover (border or fill shifts to accent — no jumping translate), focus (amber outline, offset), active/select (flat amber fill, dark text), running (warn tone).
-- Footers: every page carries the house footer — brand line, nav, `© 2026 MedLib X. All rights reserved.` + personal-use license note. Print hides the chassis, keeps the content.
+- Footers: every page carries the house footer — brand line, nav, `© 2026 MedCoreX. All rights reserved.` + personal-use license note. Print hides the chassis, keeps the content.
 
 ---
 
@@ -68,6 +68,6 @@
 ---
 
 ## 4 · Standing agreements (unchanged)
-- Existing site and deploy pipeline untouched by this queue; MedLib X on its own host.
+- Existing site and deploy pipeline untouched by this queue; MedCoreX on its own host.
 - Forgot-password stays "by the librarian" unless you say otherwise. Charts are yours — I don't draw.
 - I ask when a rule is unclear; you correct; nothing ships uncorrected.
