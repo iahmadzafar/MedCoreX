@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>MedCORE Question Bank</title>
 <meta name="description" content="MedCORE Question Bank: practice mode with instant right or wrong and the full seven-layer breakdown.">
+<link rel="stylesheet" href="/assets/studyverse.css">
 <link rel="stylesheet" href="style.css">
+<script src="/assets/studyverse.js"></script>
 </head>
 <body>
-
-<div class="blobs" aria-hidden="true"><div class="blob"></div><div class="blob"></div><div class="blob"></div></div>
 
 <header class="nav">
   <div class="wrap">
@@ -19,12 +19,7 @@
       <a href="#/" id="navPractice" hidden>Practice</a>
       <a href="https://medcorex.pages.dev/library">Library</a>
     </nav>
-    <div class="theme-chip" title="Current theme">
-      <div class="swatches"><i style="background:var(--c1)"></i><i style="background:var(--c2)"></i><i style="background:var(--c3)"></i><i style="background:var(--c4)"></i></div>
-      <span class="theme-name" id="themeName">Theme</span>
-      <button class="icon-btn" id="lockBtn" aria-pressed="false" title="Keep this theme on next visit">🔓</button>
-      <button class="icon-btn" id="remixBtn" title="Remix theme (T)">🎲</button>
-    </div>
+    <div class="engine" data-sv-engine title="Current theme"></div>
   </div>
 </header>
 
@@ -147,8 +142,6 @@
     <div>Close <kbd>Esc</kbd></div>
   </div>
 </dialog>
-
-<div class="toast" id="toast" role="status"></div>
 
 <script src="data.js"></script>
 <script src="app.js"></script>

@@ -25,6 +25,7 @@ html[data-theme=dark]{--on-accent:#ffffff}
   --muted:color-mix(in srgb,var(--ink) 68%,transparent);
   --line:color-mix(in srgb,var(--ink) 14%,transparent);
   --pill:min(var(--radius),999px);
+  --ok:#2fbf71; --bad:#f2385a;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}

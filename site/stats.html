@@ -155,7 +155,9 @@
 <script>
 (function(){
   var esc=function(s){return String(s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});};
-  function readLocal(){var P={};try{P=JSON.parse(localStorage.getItem('medcore_qb')||'{}')||{};}catch(e){}return P;}
+  function readLocal(){var P=null;try{P=JSON.parse(localStorage.getItem('medcore.qb')||'null');}catch(e){}
+    if(!P){try{P=JSON.parse(localStorage.getItem('medcore_qb')||'null');}catch(e){}}
+    return P||{};}
   function mergeSub(a,b){if(!a)return b;if(!b)return a;return Object.keys(a.ans||{}).length>=Object.keys(b.ans||{}).length?a:b;}
   function grade(st,id){ // truth from STATKEYS
     var keys=STATKEYS[id]||[],g=0,r=0,conf={sure:[0,0],guess:[0,0],blind:[0,0],none:[0,0]};

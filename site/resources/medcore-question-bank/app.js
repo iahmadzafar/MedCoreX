@@ -1,98 +1,25 @@
 /* =========================================================
-   MedCORE Question Bank · app
+   MedCORE Question Bank · app  (kit edition — engine lives in /assets/studyverse.js)
    ========================================================= */
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
-const rand=(a,b)=>Math.random()*(b-a)+a;
-const pick=a=>a[Math.floor(Math.random()*a.length)];
-const hsl=(h,s,l)=>`hsl(${Math.round((h%360+360)%360)} ${Math.round(s)}% ${Math.round(l)}%)`;
 const L=['A','B','C','D','E'];
 const reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-const SCHEMES={Triadic:[0,120,240,60],Complementary:[0,180,30,210],Split:[0,150,210,45],Analogous:[0,32,64,-32],Tetradic:[0,90,180,270],Candy:[0,300,60,200]};
-const DISPLAY=[
-  {f:'Futura,"Century Gothic","Trebuchet MS",sans-serif',w:800,c:'uppercase',t:'.01em'},
-  {f:'Rockwell,"Roboto Slab",Georgia,serif',w:800,c:'none',t:'-.01em'},
-  {f:'"American Typewriter","Courier New",monospace',w:700,c:'none',t:'-.02em'},
-  {f:'"Marker Felt","Comic Sans MS",cursive',w:700,c:'none',t:'0'},
-  {f:'"Chalkboard SE","Comic Sans MS",cursive',w:700,c:'none',t:'0'},
-  {f:'Didot,"Bodoni 72","Times New Roman",serif',w:700,c:'none',t:'-.02em'},
-  {f:'Copperplate,"Copperplate Gothic Light",serif',w:700,c:'uppercase',t:'.04em'},
-  {f:'Impact,"Arial Black",sans-serif',w:400,c:'uppercase',t:'.02em'},
-  {f:'"Avenir Next Condensed","Arial Narrow",sans-serif',w:800,c:'uppercase',t:'.01em'},
-  {f:'"Cooper Black","Bookman Old Style",Georgia,serif',w:900,c:'none',t:'-.01em'}
-];
-const BODY=[
-  '"Avenir Next","Segoe UI",sans-serif','"Gill Sans","Gill Sans MT",sans-serif',
-  'Optima,Candara,sans-serif','Georgia,"Times New Roman",serif',
-  'Menlo,Consolas,monospace','Baskerville,"Hoefler Text",Georgia,serif','"Trebuchet MS",Verdana,sans-serif'
-];
-const SHADOWS=[
-  ['6px 6px 0 var(--ink)','10px 10px 0 var(--ink)'],
-  ['6px 6px 0 var(--c4)','10px 10px 0 var(--c1)'],
-  ['4px 4px 0 var(--c2),8px 8px 0 var(--ink)','6px 6px 0 var(--c2),12px 8px 0 var(--ink)'],
-  ['0 14px 30px -12px color-mix(in srgb,var(--c4) 70%,transparent)','0 22px 40px -12px color-mix(in srgb,var(--c1) 70%,transparent)'],
-  ['-6px 6px 0 var(--c3)','-10px 10px 0 var(--ink)']
-];
-const ADJ=['Electric','Bubblegum','Cosmic','Retro','Sour','Velvet','Jazzy','Turbo','Lemon','Neon','Groovy','Fizzy','Disco','Cherry','Tropical','Glitter','Mango','Pixel'];
-const NOUN=['Ward','Clinic','Pulse','Lab','Atlas','Rounds','Scrubs','Stethoscope','Vitals','Theatre','Locker','Cortex','Synapse','Orbit'];
-
-function makeTheme(){
-  const h=rand(0,360),scheme=pick(Object.keys(SCHEMES)),o=SCHEMES[scheme],s=rand(74,96);
-  const d=pick(DISPLAY),sh=pick(SHADOWS);
-  return {name:`${pick(ADJ)} ${pick(NOUN)}`,scheme,pattern:pick(['dots','grid','stripes','checks','waves','plain']),vars:{
-    '--c1':hsl(h+o[0],s,rand(60,68)),'--c2':hsl(h+o[1],s,rand(62,72)),
-    '--c3':hsl(h+o[2],s,rand(60,70)),'--c4':hsl(h+o[3],s*.9,rand(64,74)),
-    '--bg':hsl(h+o[1]*.25,rand(70,95),rand(93,96)),'--surface':hsl(h,100,rand(98.5,99.5)),'--ink':hsl(h+200,rand(35,60),rand(9,15)),
-    '--font-display':d.f,'--dw':d.w,'--case':d.c,'--track':d.t,
-    '--font-body':pick(BODY),
-    '--radius':pick(['0px','8px','16px','26px','34px']),
-    '--bw':pick(['2px','3px','4px']),
-    '--shadow':sh[0],'--shadow-hover':sh[1],
-    '--title-shadow':pick(['3px 3px 0 var(--c2)','4px 4px 0 var(--c3)','none','-3px 3px 0 var(--c1)']),
-    '--tilt':pick(['0deg','-1deg','1.2deg','-2deg'])}};
-}
-let current;
-function applyTheme(t){
-  const r=document.documentElement;
-  Object.entries(t.vars).forEach(([k,v])=>r.style.setProperty(k,v));
-  r.dataset.pattern=t.pattern;
-  document.getElementById('themeName').textContent=t.name;
-  current=t;
-}
-
-/* ---------- saved progress ---------- */
-let P={lock:null,fs:1,best:0,subj:{}};
-try{P=Object.assign(P,JSON.parse(localStorage.getItem('medcore_qb')||'{}'))}catch(e){}
-const save=()=>{try{localStorage.setItem('medcore_qb',JSON.stringify(P))}catch(e){}};
+/* ---------- saved progress · medcore_qb → medcore.qb one-time migration ---------- */
+let P={fs:1,best:0,subj:{}};
+try{
+  let raw=localStorage.getItem('medcore.qb');
+  if(raw==null){
+    raw=localStorage.getItem('medcore_qb');
+    if(raw!=null){ try{localStorage.setItem('medcore.qb',raw)}catch(e){} }
+  }
+  if(raw) P=Object.assign(P,JSON.parse(raw));
+}catch(e){}
+try{localStorage.removeItem('medcore_qb')}catch(e){}
+const save=()=>{try{localStorage.setItem('medcore.qb',JSON.stringify(P))}catch(e){}};
 const stOf=id=>P.subj[id]||(P.subj[id]={ans:{},flags:[],conf:{},cur:0,time:0});
-
-applyTheme(P.lock||makeTheme());
-const syncLock=()=>{$('#lockBtn').setAttribute('aria-pressed',!!P.lock);$('#lockBtn').textContent=P.lock?'🔒':'🔓'};
-syncLock();
-function remix(){applyTheme(makeTheme());if(P.lock){P.lock=current;save()}toast(`New theme: ${current.name} · ${current.scheme}`);burst(innerWidth-60,40)}
-$('#remixBtn').onclick=remix;
-$('#lockBtn').onclick=()=>{P.lock=P.lock?null:current;save();syncLock();toast(P.lock?'Theme locked for next visit':'A new theme every visit')};
 document.documentElement.style.setProperty('--qs',P.fs);
 
-/* ---------- feedback ---------- */
-let tt;
-function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),2300)}
-function burst(x,y,n=34){
-  if(reduce)return;
-  for(let i=0;i<n;i++){
-    const c=document.createElement('span');c.className='confetti';
-    c.style.cssText=`left:${x}px;top:${y}px;background:var(--c${1+i%4});border-radius:${i%3?'2px':'50%'}`;
-    document.body.appendChild(c);
-    const a=rand(0,Math.PI*2),d=rand(80,220);
-    c.animate([{transform:'translate(0,0) rotate(0)',opacity:1},{transform:`translate(${Math.cos(a)*d}px,${Math.sin(a)*d+120}px) rotate(${rand(-540,540)}deg)`,opacity:0}],{duration:rand(800,1300),easing:'cubic-bezier(.2,.7,.3,1)'}).onfinish=()=>c.remove();
-  }
-}
-function countUp(el,to,suffix=''){
-  if(reduce){el.textContent=to+suffix;return}
-  const t0=performance.now(),f=t=>{const p=Math.min(1,(t-t0)/900);el.textContent=Math.round(to*(1-Math.pow(1-p,3)))+suffix;if(p<1)requestAnimationFrame(f)};
-  requestAnimationFrame(f);
-}
-const stagger=root=>root.querySelectorAll('.rv').forEach((el,i)=>el.style.setProperty('--i',Math.min(i,10)));
 const tally=(S,st)=>{let g=0,r=0;Object.entries(st.ans).forEach(([i,a])=>{const q=S.questions[i];if(!q)return;a===q.answer?g++:r++});return {g,r,n:S.questions.length}};
 
 /* =========================================================
@@ -117,7 +44,7 @@ function showHome(){
   $('#navHome').setAttribute('aria-current','page');
   let g=0,r=0,time=0;
   SUBJECTS.forEach(s=>{const t=tally(s,stOf(s.id));g+=t.g;r+=t.r;time+=stOf(s.id).time});
-  countUp($('#stAnswered'),g+r);countUp($('#stAcc'),g+r?Math.round(g/(g+r)*100):0,'%');countUp($('#stBest'),P.best);countUp($('#stTime'),Math.round(time/60));
+  SV.countUp($('#stAnswered'),g+r);SV.countUp($('#stAcc'),g+r?Math.round(g/(g+r)*100):0,'%');SV.countUp($('#stBest'),P.best);SV.countUp($('#stTime'),Math.round(time/60));
   $('#subjGrid').innerHTML=SUBJECTS.map((s,i)=>{const t=tally(s,stOf(s.id));const done=t.g+t.r;
     return `<button class="card hov subj rv" data-go="${s.id}" style="--accent:var(--c${i%4+1})">
       <div class="top"><span class="no">${String(i+1).padStart(2,'0')}</span><span class="emoji" aria-hidden="true">${s.emoji}</span></div>
@@ -125,7 +52,7 @@ function showHome(){
       <div class="prog" aria-label="${done} of ${t.n} answered"><i class="g" style="width:${t.g/t.n*100}%"></i><i class="r" style="width:${t.r/t.n*100}%"></i></div>
       <div class="foot"><span>${done} / ${t.n} answered${done?` · ${Math.round(t.g/done*100)}%`:''}</span><span class="go">${done?'Resume':'Start'} →</span></div>
     </button>`}).join('');
-  stagger($('#home'));
+  SV.stagger($('#home'));
 }
 $('#subjGrid').onclick=e=>{const b=e.target.closest('[data-go]');if(b)location.hash='#/s/'+b.dataset.go;};
 
@@ -197,7 +124,7 @@ function lockIn(conf){
   st.conf=st.conf||{};
   st.conf[i]=conf;
   const ok=j===q.answer;
-  if(ok){streak++;if(streak>P.best)P.best=streak;const el=$(`#qcard [data-a="${j}"]`);if(el){const b=el.getBoundingClientRect();burst(b.left+40,b.top+b.height/2)}if(streak%5===0)toast(`🔥 ${streak} in a row!`)}
+  if(ok){streak++;if(streak>P.best)P.best=streak;const el=$(`#qcard [data-a="${j}"]`);if(el){const b=el.getBoundingClientRect();SV.burst(b.left+40,b.top+b.height/2)}if(streak%5===0)SV.toast(`🔥 ${streak} in a row!`)}
   else streak=0;
   if(!clock&&!P.noAuto)startClock();
   sel=null;
@@ -206,13 +133,13 @@ function lockIn(conf){
 function go(d){
   const n=st.cur+d;
   if(n<0)return;
-  if(n>=S.questions.length){const t=tally(S,st);toast(`End of ${S.name}: ${t.g} right, ${t.r} wrong, ${t.n-t.g-t.r} left`);burst(innerWidth/2,innerHeight/3,60);return}
+  if(n>=S.questions.length){const t=tally(S,st);SV.toast(`End of ${S.name}: ${t.g} right, ${t.r} wrong, ${t.n-t.g-t.r} left`);SV.burst(innerWidth/2,innerHeight/3,60);return}
   st.cur=n;sel=null;save();renderQ();
   if(innerWidth<1000)$('#qcard').scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});
 }
 $('#prevBtn').onclick=()=>go(-1);
 $('#nextBtn').onclick=()=>go(1);
-function toggleFlag(){const i=st.cur;st.flags=st.flags.includes(i)?st.flags.filter(x=>x!==i):[...st.flags,i];save();renderQ();toast(st.flags.includes(i)?'Flagged for review':'Flag removed');renderRail()}
+function toggleFlag(){const i=st.cur;st.flags=st.flags.includes(i)?st.flags.filter(x=>x!==i):[...st.flags,i];save();renderQ();SV.toast(st.flags.includes(i)?'Flagged for review':'Flag removed');renderRail()}
 
 /* ---------- rail: jump, progress, review ---------- */
 function renderRail(){
@@ -261,7 +188,7 @@ function renderRail(){
 }
 $('#jumpForm').addEventListener('submit',e=>{e.preventDefault();jumpTo(parseInt($('#jumpInput').value,10)-1)});
 $('#firstUnanswered').onclick=()=>{const i=S.questions.findIndex((q,i)=>st.ans[i]===undefined);jumpTo(i<0?0:i)};
-$('#firstFlagged').onclick=()=>{if(!st.flags.length){toast('No flagged questions yet');return}const next=st.flags.find(i=>i>st.cur);jumpTo(next!==undefined?next:st.flags.slice().sort((a,b)=>a-b)[0])};
+$('#firstFlagged').onclick=()=>{if(!st.flags.length){SV.toast('No flagged questions yet');return}const next=st.flags.find(i=>i>st.cur);jumpTo(next!==undefined?next:st.flags.slice().sort((a,b)=>a-b)[0])};
 function jumpTo(i){
   if(!Number.isFinite(i))return;
   i=Math.max(0,Math.min(S.questions.length-1,i));
@@ -301,7 +228,7 @@ qsearch.addEventListener('keydown',e=>{
 const bdDlg=$('#bdDlg');
 function openBd(){
   const q=S.questions[st.cur],a=st.ans[st.cur];
-  if(a===undefined){toast('Answer the question first');return}
+  if(a===undefined){SV.toast('Answer the question first');return}
   $('#bdTitle').textContent=`Question ${st.cur+1} · full breakdown`;
   $('#bdBody').innerHTML=`<p class="stem">${q.q}</p><div class="verdict ${a===q.answer?'good':'bad'}" style="margin:0 0 18px"><span class="vtxt">Answer ${L[q.answer]}: ${q.options[q.answer]}${a!==q.answer?` · you chose ${L[a]}`:''}</span></div>${breakdown(q)}`;
   $('#bdPrev').disabled=st.cur===0;
@@ -324,9 +251,9 @@ $('#clockBtn').onclick=()=>{if(clock){stopClock();P.noAuto=true;save()}else{P.no
 let armed=0;
 function restart(){
   if(!S)return;
-  if(Date.now()-armed>3000){armed=Date.now();toast(`Restart ${S.name}? Press again within 3 seconds to clear answers, flags and time`);return}
+  if(Date.now()-armed>3000){armed=Date.now();SV.toast(`Restart ${S.name}? Press again within 3 seconds to clear answers, flags and time`);return}
   armed=0;
-  stopClock();P.subj[S.id]={ans:{},flags:[],conf:{},cur:0,time:0};st=P.subj[S.id];streak=0;sel=null;save();drawClock();toast('Fresh start');renderQ();renderRail();renderScore();
+  stopClock();P.subj[S.id]={ans:{},flags:[],conf:{},cur:0,time:0};st=P.subj[S.id];streak=0;sel=null;save();drawClock();SV.toast('Fresh start');renderQ();renderRail();renderScore();
 }
 $('#restartBtn').onclick=restart;
 
@@ -335,7 +262,6 @@ addEventListener('keydown',e=>{
   if(e.metaKey||e.ctrlKey||e.altKey||/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName))return;
   const k=e.key,open=$('dialog[open]');
   if(k==='?'){e.preventDefault();open&&open.close();$('#keysDlg').showModal();return}
-  if(k==='t'||k==='T'){remix();return}
   if(open){if(open===bdDlg){if(k==='ArrowRight')$('#bdNext').click();if(k==='ArrowLeft')$('#bdPrev').click()}return}
   if(!S)return;
   if(k==='/'){e.preventDefault();qsearch.focus();qsearch.select();return}
