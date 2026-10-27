@@ -27,7 +27,7 @@
 
 ### M01 · MedCORE Study Book
 
-- **File:** `site/resources/medcore-production-master-html-medcore-master-book.html` — 9.3 MB, 1,449 lines — live at `/resources/medcore-production-master-html-medcore-master-book`
+- **File:** `site/resources/medcore-production-master-html-medcore-master-book.html`, 1,449 lines — live at `/resources/medcore-production-master-html-medcore-master-book`
 - **What it is:** Every system, one volume.
 - **Inside:** 16 top-level headings; first ones: “Complete Study Book”, “Medicine”, “Surgery”. Data: pure markup + CSS content (no embedded data bank).
 - **Interface:** live search/filter, 640 collapsible <details> blocks, timer/interval logic, sticky headers/bars, keyboard shortcuts, persists state in localStorage, canvas/chart graphics, print stylesheet, 1029 inline SVGs.
@@ -36,7 +36,7 @@
 
 ### M02 · MCQ Architecture
 
-- **File:** `site/resources/standalone-htmls-800-plus-mcq-architecture.html` — 526 KB, 1,368 lines — live at `/resources/standalone-htmls-800-plus-mcq-architecture`
+- **File:** `site/resources/standalone-htmls-800-plus-mcq-architecture.html`, 1,368 lines — live at `/resources/standalone-htmls-800-plus-mcq-architecture`
 - **What it is:** How the exam actually sets questions.
 - **Inside:** 7 top-level headings; first ones: “MCQ Architecture”, “01. Evidence”, “02. Anatomy”. Data: pure markup + CSS content (no embedded data bank).
 - **Interface:** 852 collapsible <details> blocks, sticky headers/bars, persists state in localStorage, print stylesheet, 1 inline SVGs.
@@ -46,7 +46,7 @@
 
 ### M03 · Forge Cards
 
-- **File:** `site/resources/standalone-htmls-forge-master.html` — 1.2 MB, 25,066 lines — live at `/resources/standalone-htmls-forge-master`
+- **File:** `site/resources/standalone-htmls-forge-master.html`, 25,066 lines — live at `/resources/standalone-htmls-forge-master`
 - **What it is:** 100 high-yield cards.
 - **Inside:** 100 top-level headings; first ones: “ACS: STEMI & NSTEMI”, “Acute Kidney Injury (AKI)”, “Diabetic Ketoacidosis (DKA)”. Data: pure markup + CSS content (no embedded data bank).
 - **Interface:** live search/filter, timer/interval logic, sticky headers/bars, keyboard shortcuts, persists state in localStorage, canvas/chart graphics, print stylesheet, 8 inline SVGs.
@@ -55,7 +55,7 @@
 
 ### M04 · Memory Master
 
-- **File:** `site/resources/medcore-memory-master-core.html` — 510 KB, 4,298 lines — live at `/resources/medcore-memory-master-core`
+- **File:** `site/resources/medcore-memory-master-core.html`, 4,298 lines — live at `/resources/medcore-memory-master-core`
 - **What it is:** Recall-first core file.
 - **Inside:** 2 top-level headings; first ones: “exam Memory Master — Core”, “THE SYSTEMS”. Data: pure markup + CSS content (no embedded data bank).
 - **Interface:** persists state in localStorage, print stylesheet, 2 inline SVGs.
@@ -64,7 +64,7 @@
 
 ### M05 · Logic-First Bank
 
-- **File:** `site/resources/qbank-logic-first-high-yield-logic-first-high-yield-bank.html` — 46 KB, 859 lines — live at `/resources/qbank-logic-first-high-yield-logic-first-high-yield-bank`
+- **File:** `site/resources/qbank-logic-first-high-yield-logic-first-high-yield-bank.html`, 859 lines — live at `/resources/qbank-logic-first-high-yield-logic-first-high-yield-bank`
 - **What it is:** Clinical reasoning, high-yield only.
 - **Inside:** 2 top-level headings; first ones: “Logic-First High-Yield Bank”, “Round complete”. Data: 1 JSON.parse() loads (localStorage/inline).
 - **Interface:** live search/filter, timer/interval logic, persists state in localStorage, print stylesheet, 2 inline SVGs.
@@ -77,7 +77,7 @@
 
 ### M06 · MedCORE Question Bank
 
-- **File:** `site/resources/medcore-question-bank.html` — 5.3 MB, 2,059 lines — live at `/resources/medcore-question-bank`
+- **File:** `site/resources/medcore-question-bank.html`, 2,059 lines — live at `/resources/medcore-question-bank`
 - **What it is:** Test series + main bank merged · six subject groups.
 - **Inside:** 2 top-level headings; first ones: “MedCORE Question Bank”, “Choose a subject”. Data: 3 JSON.parse() loads (localStorage/inline).
 - **Interface:** answer-hiding quiz engine (reveal on click), timer/interval logic, keyboard shortcuts, persists state in localStorage, canvas/chart graphics, print stylesheet, 5 inline SVGs.
@@ -91,7 +91,7 @@
 
 ### M07 · Past Paper Hub
 
-- **File:** `site/resources/medcore-past-paper-hub.html` — 229 KB, 527 lines — live at `/resources/medcore-past-paper-hub`
+- **File:** `site/resources/medcore-past-paper-hub.html`, 527 lines — live at `/resources/medcore-past-paper-hub`
 - **What it is:** All recalled past papers.
 - **Inside:** 7 top-level headings; first ones: “Past PaperIntelligence Hub”, “The raw material”, “Subject patterns”. Data: pure markup + CSS content (no embedded data bank).
 - **Interface:** 2 collapsible <details> blocks, sticky headers/bars, persists state in localStorage, print stylesheet, 3 inline SVGs.
@@ -101,7 +101,7 @@
 
 ### M08 · June 2025
 
-- **File:** `site/resources/standalone-htmls-june-2025-answer-key.html` — 108 KB, 523 lines — live at `/resources/standalone-htmls-june-2025-answer-key`
+- **File:** `site/resources/standalone-htmls-june-2025-answer-key.html`, 523 lines — live at `/resources/standalone-htmls-june-2025-answer-key`
 - **What it is:** Verified key + distractor analysis.
 - **Inside:** 0 top-level headings; first ones: flat document. Data: embedded `var DATA` bank · ~140 question entries.
 - **Interface:** answer-hiding quiz engine (reveal on click), sticky headers/bars, keyboard shortcuts, persists state in localStorage, print stylesheet, 3 inline SVGs.
@@ -110,7 +110,7 @@
 
 ### M09 · June 2024
 
-- **File:** `site/resources/standalone-htmls-june-2024-answer-key.html` — 105 KB, 526 lines — live at `/resources/standalone-htmls-june-2024-answer-key`
+- **File:** `site/resources/standalone-htmls-june-2024-answer-key.html`, 526 lines — live at `/resources/standalone-htmls-june-2024-answer-key`
 - **What it is:** Self-scoring.
 - **Inside:** 0 top-level headings; first ones: flat document. Data: embedded `var DATA` bank · ~147 question entries.
 - **Interface:** answer-hiding quiz engine (reveal on click), sticky headers/bars, keyboard shortcuts, persists state in localStorage, print stylesheet, 3 inline SVGs.
@@ -119,7 +119,7 @@
 
 ### M10 · December 2024
 
-- **File:** `site/resources/standalone-htmls-dec-2024-answer-key.html` — 142 KB, 526 lines — live at `/resources/standalone-htmls-dec-2024-answer-key`
+- **File:** `site/resources/standalone-htmls-dec-2024-answer-key.html`, 526 lines — live at `/resources/standalone-htmls-dec-2024-answer-key`
 - **What it is:** Self-scoring.
 - **Inside:** 0 top-level headings; first ones: flat document. Data: embedded `var DATA` bank · ~171 question entries.
 - **Interface:** answer-hiding quiz engine (reveal on click), sticky headers/bars, keyboard shortcuts, persists state in localStorage, print stylesheet, 3 inline SVGs.
@@ -128,7 +128,7 @@
 
 ### M11 · December 2025
 
-- **File:** `site/resources/standalone-htmls-dec-2025-answer-key.html` — 84 KB, 526 lines — live at `/resources/standalone-htmls-dec-2025-answer-key`
+- **File:** `site/resources/standalone-htmls-dec-2025-answer-key.html`, 526 lines — live at `/resources/standalone-htmls-dec-2025-answer-key`
 - **What it is:** Corrected key.
 - **Inside:** 0 top-level headings; first ones: flat document. Data: embedded `var DATA` bank · ~187 question entries.
 - **Interface:** answer-hiding quiz engine (reveal on click), sticky headers/bars, keyboard shortcuts, persists state in localStorage, print stylesheet, 3 inline SVGs.
@@ -137,7 +137,7 @@
 
 ### M12 · May 2026
 
-- **File:** `site/resources/standalone-htmls-may-2026-mcq-breakdown.html` — 95 KB, 523 lines — live at `/resources/standalone-htmls-may-2026-mcq-breakdown`
+- **File:** `site/resources/standalone-htmls-may-2026-mcq-breakdown.html`, 523 lines — live at `/resources/standalone-htmls-may-2026-mcq-breakdown`
 - **What it is:** Topic breakdown.
 - **Inside:** 0 top-level headings; first ones: flat document. Data: embedded `var DATA` bank · ~177 question entries.
 - **Interface:** answer-hiding quiz engine (reveal on click), sticky headers/bars, keyboard shortcuts, persists state in localStorage, print stylesheet, 3 inline SVGs.
@@ -146,7 +146,7 @@
 
 ### M13 · Prediction Exam 2026
 
-- **File:** `site/resources/medcore-prediction-exam.html` — 100 KB, 524 lines — live at `/resources/medcore-prediction-exam`
+- **File:** `site/resources/medcore-prediction-exam.html`, 524 lines — live at `/resources/medcore-prediction-exam`
 - **What it is:** Full sitting · 14 subjects.
 - **Inside:** 0 top-level headings; first ones: flat document. Data: embedded `var DATA` bank · ~200 question entries.
 - **Interface:** answer-hiding quiz engine (reveal on click), sticky headers/bars, keyboard shortcuts, persists state in localStorage, print stylesheet, 3 inline SVGs.
@@ -156,7 +156,7 @@
 
 ### M14 · Prediction Exam · Key
 
-- **File:** `site/resources/medcore-prediction-exam-answer-key.html` — 100 KB, 501 lines — live at `/resources/medcore-prediction-exam-answer-key`
+- **File:** `site/resources/medcore-prediction-exam-answer-key.html`, 501 lines — live at `/resources/medcore-prediction-exam-answer-key`
 - **What it is:** Same paper, full key.
 - **Inside:** 0 top-level headings; first ones: flat document. Data: embedded `var DATA` bank · ~200 question entries.
 - **Interface:** answer-hiding quiz engine (reveal on click), sticky headers/bars, keyboard shortcuts, persists state in localStorage, print stylesheet, 0 inline SVGs.
@@ -170,7 +170,7 @@
 
 ### M15 · 2026 Prediction Intel
 
-- **File:** `site/resources/medcore-prediction-intelligence-report.html` — 48 KB, 195 lines — live at `/resources/medcore-prediction-intelligence-report`
+- **File:** `site/resources/medcore-prediction-intelligence-report.html`, 195 lines — live at `/resources/medcore-prediction-intelligence-report`
 - **What it is:** What the paper will test.
 - **Inside:** 8 top-level headings; first ones: “INTELLIGENCE REPORT”, “Executive Summary”, “Section 1 — Predicted Weightage vs Recalled Pattern”. Data: pure markup + CSS content (no embedded data bank).
 - **Interface:** 7 collapsible <details> blocks, sticky headers/bars, persists state in localStorage, print stylesheet, 1 inline SVGs.
@@ -179,7 +179,7 @@
 
 ### M16 · Full Picture Report
 
-- **File:** `site/resources/medcore-system-full-picture-report.html` — 158 KB, 1,215 lines — live at `/resources/medcore-system-full-picture-report`
+- **File:** `site/resources/medcore-system-full-picture-report.html`, 1,215 lines — live at `/resources/medcore-system-full-picture-report`
 - **What it is:** Whole-system map · one view of everything.
 - **Inside:** 11 top-level headings; first ones: “exam System — The Full Picture”, “Contents”, “The Evidence Base — every source, counted”. Data: pure markup + CSS content (no embedded data bank).
 - **Interface:** sticky headers/bars, keyboard shortcuts, persists state in localStorage, print stylesheet, 15 inline SVGs.
@@ -188,7 +188,7 @@
 
 ### M17 · Pattern Analysis
 
-- **File:** `site/resources/medcore-pattern-analysis.html` — 16 KB, 232 lines — live at `/resources/medcore-pattern-analysis`
+- **File:** `site/resources/medcore-pattern-analysis.html`, 232 lines — live at `/resources/medcore-pattern-analysis`
 - **What it is:** Four papers decoded · recurring patterns.
 - **Inside:** 4 top-level headings; first ones: “Pattern Analysis — 4 Papers”, “Subject Distribution per Paper”, “Cross-Paper Comparison (MCQs per Subject)”. Data: pure markup + CSS content (no embedded data bank).
 - **Interface:** persists state in localStorage, print stylesheet, 0 inline SVGs.
@@ -199,7 +199,7 @@
 
 ### M18 · High-Yield Topic Pool
 
-- **File:** `site/resources/standalone-htmls-prediction-sheet-1-high-yield-topic-pool.html` — 73 KB, 821 lines — live at `/resources/standalone-htmls-prediction-sheet-1-high-yield-topic-pool`
+- **File:** `site/resources/standalone-htmls-prediction-sheet-1-high-yield-topic-pool.html`, 821 lines — live at `/resources/standalone-htmls-prediction-sheet-1-high-yield-topic-pool`
 - **What it is:** Where to spend your time.
 - **Inside:** 1 top-level headings; first ones: “Prediction Sheet 1 &mdash; High-Yield Topic Pool”. Data: 2 JSON.parse() loads (localStorage/inline).
 - **Interface:** live search/filter, sticky headers/bars, persists state in localStorage, canvas/chart graphics, print stylesheet, 19 inline SVGs.
@@ -208,7 +208,7 @@
 
 ### M19 · 60-Day Battle Plan
 
-- **File:** `site/resources/standalone-htmls-60-day-battle-plan.html` — 54 KB, 1,026 lines — live at `/resources/standalone-htmls-60-day-battle-plan`
+- **File:** `site/resources/standalone-htmls-60-day-battle-plan.html`, 1,026 lines — live at `/resources/standalone-htmls-60-day-battle-plan`
 - **What it is:** Day-by-day route to exam day.
 - **Inside:** 8 top-level headings; first ones: “Sixty days toown the exam.”, “Know the Machine”, “The Daily Doctrine”. Data: pure markup + CSS content (no embedded data bank).
 - **Interface:** timer/interval logic, sticky headers/bars, persists state in localStorage, print stylesheet, 0 inline SVGs.
@@ -217,7 +217,7 @@
 
 ### M20 · Battle LMS
 
-- **File:** `site/resources/planner-medcore-battle-lms.html` — 86 KB, 1,080 lines — live at `/resources/planner-medcore-battle-lms`
+- **File:** `site/resources/planner-medcore-battle-lms.html`, 1,080 lines — live at `/resources/planner-medcore-battle-lms`
 - **What it is:** Command centre · schedule, drills, tracking.
 - **Inside:** 4 top-level headings; first ones: “Block 01 in the arena — CVS + Respiratory.”, “Error Log”, “Question Review”. Data: 1 JSON.parse() loads (localStorage/inline).
 - **Interface:** timer/interval logic, sticky headers/bars, persists state in localStorage, print stylesheet, 0 inline SVGs.
@@ -230,7 +230,7 @@
 
 ### M21 · Cheat Card
 
-- **File:** `site/resources/medcore-cheat-card.html` — 22 KB, 265 lines — live at `/resources/medcore-cheat-card`
+- **File:** `site/resources/medcore-cheat-card.html`, 265 lines — live at `/resources/medcore-cheat-card`
 - **What it is:** One-page recall sheet.
 - **Inside:** 1 top-level headings; first ones: “Cheat Card”. Data: pure markup + CSS content (no embedded data bank).
 - **Interface:** persists state in localStorage, print stylesheet, 0 inline SVGs.
@@ -239,7 +239,7 @@
 
 ### M22 · Magic Table
 
-- **File:** `site/resources/standalone-htmls-magic-table-medical-licensing.html` — 207 KB, 1,691 lines — live at `/resources/standalone-htmls-magic-table-medical-licensing`
+- **File:** `site/resources/standalone-htmls-magic-table-medical-licensing.html`, 1,691 lines — live at `/resources/standalone-htmls-magic-table-medical-licensing`
 - **What it is:** Licensing thresholds · memorise once.
 - **Inside:** 40 top-level headings; first ones: “Magic Table”, “Endocrine — Diabetes Mellitus”, “Thyroid &amp; Parathyroid”. Data: pure markup + CSS content (no embedded data bank).
 - **Interface:** live search/filter, sticky headers/bars, keyboard shortcuts, persists state in localStorage, print stylesheet, 210 inline SVGs.
@@ -248,7 +248,7 @@
 
 ### M23 · Medical Quick Ref
 
-- **File:** `site/resources/standalone-htmls-medical-quick-reference-combined.html` — 3 KB, 116 lines — live at `/resources/standalone-htmls-medical-quick-reference-combined`
+- **File:** `site/resources/standalone-htmls-medical-quick-reference-combined.html`, 116 lines — live at `/resources/standalone-htmls-medical-quick-reference-combined`
 - **What it is:** Numerics and ranges.
 - **Inside:** 0 top-level headings; first ones: flat document. Data: pure markup + CSS content (no embedded data bank).
 - **Interface:** persists state in localStorage, print stylesheet, 0 inline SVGs.
@@ -258,7 +258,7 @@
 
 ### M24 · Symptom Clusters
 
-- **File:** `site/resources/standalone-htmls-disease-symptom-clusters.html` — 62 KB, 580 lines — live at `/resources/standalone-htmls-disease-symptom-clusters`
+- **File:** `site/resources/standalone-htmls-disease-symptom-clusters.html`, 580 lines — live at `/resources/standalone-htmls-disease-symptom-clusters`
 - **What it is:** Symptom to differential, grouped.
 - **Inside:** 1 top-level headings; first ones: “Disease Symptom Clusters”. Data: 2 JSON.parse() loads (localStorage/inline).
 - **Interface:** sticky headers/bars, persists state in localStorage, canvas/chart graphics, print stylesheet, 16 inline SVGs.
@@ -267,7 +267,7 @@
 
 ### M25 · Last Day Sheet
 
-- **File:** `site/resources/side-projects-last-day-revision-sheet.html` — 63 KB, 751 lines — live at `/resources/side-projects-last-day-revision-sheet`
+- **File:** `site/resources/side-projects-last-day-revision-sheet.html`, 751 lines — live at `/resources/side-projects-last-day-revision-sheet`
 - **What it is:** Final night · highest-yield only.
 - **Inside:** 17 top-level headings; first ones: “LAST DAY REVISION SHEET”, “EXAM-DAY STRATEGY”, “CONTENTS”. Data: pure markup + CSS content (no embedded data bank).
 - **Interface:** persists state in localStorage, canvas/chart graphics, print stylesheet, 0 inline SVGs.
@@ -277,7 +277,7 @@
 
 ### M26 · Repeat Offenders
 
-- **File:** `site/resources/nre-recall-sheets-repeat-offenders.html` — 54 KB, 874 lines — live at `/resources/nre-recall-sheets-repeat-offenders`
+- **File:** `site/resources/nre-recall-sheets-repeat-offenders.html`, 874 lines — live at `/resources/nre-recall-sheets-repeat-offenders`
 - **What it is:** The NRE recall vault — questions that keep coming back.
 - **Inside:** 7 top-level headings; first ones: “The questions that never leave the exam hall.”, “Few repeated questions — all the time”, “Surgery — best initial & gold standard tests”. Data: pure markup + CSS content (no embedded data bank).
 - **Interface:** live search/filter, 3D flip-card interaction, sticky headers/bars, keyboard shortcuts, persists state in localStorage, print stylesheet, 0 inline SVGs.
@@ -291,7 +291,7 @@
 
 ### M27 · Case Ladder
 
-- **File:** `site/resources/standalone-htmls-case-ladder-interactive.html` — 119 KB, 432 lines — live at `/resources/standalone-htmls-case-ladder-interactive`
+- **File:** `site/resources/standalone-htmls-case-ladder-interactive.html`, 432 lines — live at `/resources/standalone-htmls-case-ladder-interactive`
 - **What it is:** Interactive clinical case practice.
 - **Inside:** 2 top-level headings; first ones: “Clinical Case-Ladder MCQ Add-On”, “Topic ${idx+1}: ${escapeHtml(topic.title)}”. Data: 2 JSON.parse() loads (localStorage/inline).
 - **Interface:** live search/filter, sticky headers/bars, persists state in localStorage, print stylesheet, 0 inline SVGs.
@@ -304,7 +304,7 @@
 
 ### M28 · Cardiology
 
-- **File:** `site/resources/medcore-systems-cardiology-cardiology-medcore.html` — 409 KB, 3,160 lines — live at `/resources/medcore-systems-cardiology-cardiology-medcore`
+- **File:** `site/resources/medcore-systems-cardiology-cardiology-medcore.html`, 3,160 lines — live at `/resources/medcore-systems-cardiology-cardiology-medcore`
 - **What it is:** Complete system book.
 - **Inside:** 16 top-level headings; first ones: “Cardiology”, “Acute Coronary Syndrome (ACS)”, “Pericarditis”. Data: 2 JSON.parse() loads (localStorage/inline).
 - **Interface:** live search/filter, timer/interval logic, sticky headers/bars, keyboard shortcuts, persists state in localStorage, canvas/chart graphics, print stylesheet, 4 inline SVGs.
@@ -314,7 +314,7 @@
 
 ### M29 · Neurology
 
-- **File:** `site/resources/medcore-systems-neurology-neurology-medcore.html` — 726 KB, 4,603 lines — live at `/resources/medcore-systems-neurology-neurology-medcore`
+- **File:** `site/resources/medcore-systems-neurology-neurology-medcore.html`, 4,603 lines — live at `/resources/medcore-systems-neurology-neurology-medcore`
 - **What it is:** Complete system book.
 - **Inside:** 13 top-level headings; first ones: “Neurology”, “Neurological Examination Basics”, “Stroke &amp; Cerebrovascular Disease”. Data: 2 JSON.parse() loads (localStorage/inline).
 - **Interface:** live search/filter, timer/interval logic, sticky headers/bars, keyboard shortcuts, persists state in localStorage, canvas/chart graphics, print stylesheet, 4 inline SVGs.
@@ -323,7 +323,7 @@
 
 ### M30 · Respiratory
 
-- **File:** `site/resources/medcore-systems-respiratory-respiratory-medcore.html` — 710 KB, 4,085 lines — live at `/resources/medcore-systems-respiratory-respiratory-medcore`
+- **File:** `site/resources/medcore-systems-respiratory-respiratory-medcore.html`, 4,085 lines — live at `/resources/medcore-systems-respiratory-respiratory-medcore`
 - **What it is:** Complete system book.
 - **Inside:** 15 top-level headings; first ones: “Respiratory”, “Asthma — Diagnosis, Severity, Acute Exacerbation, and Step T”, “COPD — Diagnosis, Exacerbation, Oxygen/NIV, and LTOT”. Data: 2 JSON.parse() loads (localStorage/inline).
 - **Interface:** live search/filter, timer/interval logic, sticky headers/bars, keyboard shortcuts, persists state in localStorage, canvas/chart graphics, print stylesheet, 4 inline SVGs.
@@ -332,7 +332,7 @@
 
 ### M31 · Dermatology
 
-- **File:** `site/resources/medcore-systems-dermatology-dermatology-medcore.html` — 600 KB, 2,898 lines — live at `/resources/medcore-systems-dermatology-dermatology-medcore`
+- **File:** `site/resources/medcore-systems-dermatology-dermatology-medcore.html`, 2,898 lines — live at `/resources/medcore-systems-dermatology-dermatology-medcore`
 - **What it is:** Complete system book.
 - **Inside:** 15 top-level headings; first ones: “Dermatology”, “SKIN ANATOMY &amp; TERMINOLOGY”, “ECZEMATOUS DERMATOSES”. Data: 2 JSON.parse() loads (localStorage/inline).
 - **Interface:** live search/filter, timer/interval logic, sticky headers/bars, keyboard shortcuts, persists state in localStorage, canvas/chart graphics, print stylesheet, 4 inline SVGs.
@@ -341,7 +341,7 @@
 
 ### M32 · Urology
 
-- **File:** `site/resources/medcore-systems-urology-urology-medcore.html` — 687 KB, 4,559 lines — live at `/resources/medcore-systems-urology-urology-medcore`
+- **File:** `site/resources/medcore-systems-urology-urology-medcore.html`, 4,559 lines — live at `/resources/medcore-systems-urology-urology-medcore`
 - **What it is:** Complete system book.
 - **Inside:** 15 top-level headings; first ones: “Urology”, “Testicular Torsion vs Epididymitis”, “Acute Urinary Retention and Catheter Logic”. Data: 2 JSON.parse() loads (localStorage/inline).
 - **Interface:** live search/filter, timer/interval logic, sticky headers/bars, keyboard shortcuts, persists state in localStorage, canvas/chart graphics, print stylesheet, 4 inline SVGs.
@@ -350,7 +350,7 @@
 
 ### M33 · Gynaecology
 
-- **File:** `site/resources/medcore-systems-gynecology-gynecology-medcore.html` — 682 KB, 3,950 lines — live at `/resources/medcore-systems-gynecology-gynecology-medcore`
+- **File:** `site/resources/medcore-systems-gynecology-gynecology-medcore.html`, 3,950 lines — live at `/resources/medcore-systems-gynecology-gynecology-medcore`
 - **What it is:** Complete system book.
 - **Inside:** 26 top-level headings; first ones: “Gynecology”, “Gynecology — Comprehensive Review”, “Abnormal Uterine Bleeding”. Data: 2 JSON.parse() loads (localStorage/inline).
 - **Interface:** live search/filter, timer/interval logic, sticky headers/bars, keyboard shortcuts, persists state in localStorage, canvas/chart graphics, print stylesheet, 4 inline SVGs.
@@ -359,7 +359,7 @@
 
 ### M34 · Obstetrics
 
-- **File:** `site/resources/medcore-systems-obstetrics-obstetrics-medcore.html` — 468 KB, 4,477 lines — live at `/resources/medcore-systems-obstetrics-obstetrics-medcore`
+- **File:** `site/resources/medcore-systems-obstetrics-obstetrics-medcore.html`, 4,477 lines — live at `/resources/medcore-systems-obstetrics-obstetrics-medcore`
 - **What it is:** Complete system book.
 - **Inside:** 7 top-level headings; first ones: “Obstetrics”, “Basics of Pregnancy”, “Prenatal Screening &amp; Diagnostics”. Data: 2 JSON.parse() loads (localStorage/inline).
 - **Interface:** live search/filter, timer/interval logic, sticky headers/bars, keyboard shortcuts, persists state in localStorage, canvas/chart graphics, print stylesheet, 4 inline SVGs.
@@ -368,7 +368,7 @@
 
 ### M35 · Paediatrics
 
-- **File:** `site/resources/medcore-systems-pediatrics-pediatrics-medcore.html` — 433 KB, 3,905 lines — live at `/resources/medcore-systems-pediatrics-pediatrics-medcore`
+- **File:** `site/resources/medcore-systems-pediatrics-pediatrics-medcore.html`, 3,905 lines — live at `/resources/medcore-systems-pediatrics-pediatrics-medcore`
 - **What it is:** Complete system book.
 - **Inside:** 15 top-level headings; first ones: “Pediatrics”, “Neonatology”, “Growth &amp; Development”. Data: 2 JSON.parse() loads (localStorage/inline).
 - **Interface:** live search/filter, timer/interval logic, sticky headers/bars, keyboard shortcuts, persists state in localStorage, canvas/chart graphics, print stylesheet, 4 inline SVGs.
@@ -377,7 +377,7 @@
 
 ### M36 · ENT
 
-- **File:** `site/resources/medcore-systems-ent-ent-medcore.html` — 639 KB, 2,932 lines — live at `/resources/medcore-systems-ent-ent-medcore`
+- **File:** `site/resources/medcore-systems-ent-ent-medcore.html`, 2,932 lines — live at `/resources/medcore-systems-ent-ent-medcore`
 - **What it is:** Complete system book.
 - **Inside:** 10 top-level headings; first ones: “Ear, Nose &amp; Throat”, “ACUTE EPIGLOTTITIS”, “FOREIGN BODY AIRWAY OBSTRUCTION”. Data: 2 JSON.parse() loads (localStorage/inline).
 - **Interface:** live search/filter, timer/interval logic, sticky headers/bars, keyboard shortcuts, persists state in localStorage, canvas/chart graphics, print stylesheet, 4 inline SVGs.
@@ -386,7 +386,7 @@
 
 ### M37 · Ophthalmology
 
-- **File:** `site/resources/medcore-systems-ophthalmology-ophthalmology-medcore.html` — 641 KB, 3,067 lines — live at `/resources/medcore-systems-ophthalmology-ophthalmology-medcore`
+- **File:** `site/resources/medcore-systems-ophthalmology-ophthalmology-medcore.html`, 3,067 lines — live at `/resources/medcore-systems-ophthalmology-ophthalmology-medcore`
 - **What it is:** Complete system book.
 - **Inside:** 14 top-level headings; first ones: “Ophthalmology”, “Acute Angle-Closure Glaucoma”, “Anterior Uveitis”. Data: 2 JSON.parse() loads (localStorage/inline).
 - **Interface:** live search/filter, timer/interval logic, sticky headers/bars, keyboard shortcuts, persists state in localStorage, canvas/chart graphics, print stylesheet, 4 inline SVGs.
