@@ -1,6 +1,9 @@
 # PLAN — One System (2026) · the whole hub as one coherent design
 
 > Status: PROPOSED — nothing moves until you approve or amend.
+> **Amended 27 Oct 2026:** Phase 1 (Token Contract) is superseded by
+> `PLAN — Design Kit.md` — the kit IS the token contract, shipped and live.
+> The remaining phases ride on top of the kit as the 42-file rollout.
 > Written after the mode-logic audit of all 42 files + research (modern-web-guidance:
 > color-scheme/light-dark()/forced data-theme machinery; NN/g tabs & progressive
 > disclosure rules; contrast math instead of eyeballing).
