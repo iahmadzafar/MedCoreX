@@ -232,4 +232,36 @@ The 10 system books and the standalone papers keep their own identity for now. I
 owner wants them on the kit, convert one file per commit, using the same steps as Phase 3.
 
 ## Phase 0 results
-(fill in)
+(fill in — **filled 27 Oct 2026, branch `kit` created, hook amended first:**
+post-commit now pushes *any* branch with `-u` (deploys stay main-only via the
+workflow's push filter), so kit work is backed up and visible to the owner's
+assistant without ever going live.)
+
+**Engine copies — 11 files carry `function makeTheme` + `SCHEMES=` (the full inline engine):**
+- Shells (5): `site/index.html`, `site/library.html`, `site/about.html`, `site/faq.html`, `site/404.html`
+- Auth pages (4): `site/login.html`, `site/signup.html`, `site/account.html`, `site/admin/keyhole.html`
+- Stats (1): `site/stats.html`
+- Question Bank (1): `site/resources/medcore-question-bank/app.js` (separate copy, drifted nouns, no dark mode)
+
+**`.blob{` styles:** the same 10 HTML files + `medcore-question-bank/style.css`.
+**Engine chip markup (`class="engine"`):** the same 10 HTML files.
+(The bank uses `class="theme-chip"` instead — Phase 3 converts it to `data-sv-engine`.)
+**Phase 2 page list amended: 10 pages** (the5 + auth4 above + `site/stats.html`).
+
+**localStorage survey (chassis scope):**
+| Key | Where | Fate |
+|---|---|---|
+| `medcore_qb` | bank `app.js` (write), `stats.html` (read) | **Phase 3 → `medcore.qb`** + one-time migration + update `stats.html` reader + `stats-keys.js` untouched |
+| `mx-lock` | all 10 HTML pages | stays — kit owns it (Phase 1b) |
+| `mx-mode` | engine source (dark/light) | stays — kit owns it |
+| `mx-stars` | `library.html` (write), `stats.html` (read) | stays (favourites, not progress) |
+| `mx-last` | `index.html` (write), `stats.html` (read) | stays (resume link) |
+| `medlibx.keyhole` | `keyhole.html` | **NEVER renamed** — keychain/browser credential pairing (AGENTS.md exception) |
+| `medcore_book` | does not exist yet | Phase 4 introduces `medcore.book` with the four-file Study Book |
+
+**Out of kit scope (resources — Phase 7 territory):** `mlx-theme` (29 files),
+`medcore.theme/banktheme/font/sysnav/syswidth/sysscale/sysnavhidden` (books + forge + logic bank),
+`nre-mode` (prediction/answer keys), `caseLadderCompleted`, `dsc-*`, `ps1-*`, `mqa4`.
+
+**Pre-Phase-0 side fix (main, deployed):** floating sign-in button + modal retired from
+`medcore-sync.js` (`start()` → `checkAuth()` only); nav chip owns identity now.
