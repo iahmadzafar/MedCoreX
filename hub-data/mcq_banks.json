@@ -1,0 +1,230 @@
+{
+  "included": {
+    "JUN24": {
+      "name": "NRE June 2024 (recalled paper)",
+      "kind": "recalled",
+      "tier": "INF"
+    },
+    "DEC24": {
+      "name": "NRE December 2024 (recalled paper)",
+      "kind": "recalled",
+      "tier": "INF"
+    },
+    "DEC25": {
+      "name": "NRE December 2025 (recalled paper)",
+      "kind": "recalled",
+      "tier": "REC"
+    },
+    "MAY26": {
+      "name": "NRE May 2026 (recalled paper)",
+      "kind": "recalled",
+      "tier": "KEY"
+    },
+    "JUN25": {
+      "name": "NRE June 2025 (recalled paper)",
+      "kind": "recalled",
+      "tier": "KEY"
+    },
+    "PRED26": {
+      "name": "NRE Prediction Exam 2026 (authored prediction)",
+      "kind": "authored",
+      "tier": "AUTH"
+    },
+    "DRILL-DIABETES": {
+      "name": "Daily drill — Diabetes",
+      "kind": "authored",
+      "tier": "AUTH"
+    },
+    "DRILL-ELECTROLYTES": {
+      "name": "Daily drill — Electrolytes",
+      "kind": "authored",
+      "tier": "AUTH"
+    },
+    "DRILL-ENDOCRINE": {
+      "name": "Daily drill — Endocrine",
+      "kind": "authored",
+      "tier": "AUTH"
+    },
+    "DRILL-ENDOCRINESURGERY": {
+      "name": "Daily drill — EndocrineSurgery",
+      "kind": "authored",
+      "tier": "AUTH"
+    },
+    "DRILL-ENT": {
+      "name": "Daily drill — ENT",
+      "kind": "authored",
+      "tier": "AUTH"
+    },
+    "DRILL-GI": {
+      "name": "Daily drill — GI",
+      "kind": "authored",
+      "tier": "AUTH"
+    },
+    "DRILL-HAEMATOLOGY": {
+      "name": "Daily drill — Haematology",
+      "kind": "authored",
+      "tier": "AUTH"
+    },
+    "DRILL-HEPATOLOGY": {
+      "name": "Daily drill — Hepatology",
+      "kind": "authored",
+      "tier": "AUTH"
+    },
+    "DRILL-NEURO": {
+      "name": "Daily drill — Neuro",
+      "kind": "authored",
+      "tier": "AUTH"
+    },
+    "DRILL-NUTRITION": {
+      "name": "Daily drill — Nutrition",
+      "kind": "authored",
+      "tier": "AUTH"
+    },
+    "DRILL-ONCOLOGY": {
+      "name": "Daily drill — Oncology",
+      "kind": "authored",
+      "tier": "AUTH"
+    },
+    "DRILL-OPHTHALMOLOGY": {
+      "name": "Daily drill — Ophthalmology",
+      "kind": "authored",
+      "tier": "AUTH"
+    },
+    "DRILL-PSYCH": {
+      "name": "Daily drill — Psych",
+      "kind": "authored",
+      "tier": "AUTH"
+    },
+    "DRILL-RENAL": {
+      "name": "Daily drill — Renal",
+      "kind": "authored",
+      "tier": "AUTH"
+    },
+    "DRILL-UROLOGY": {
+      "name": "Daily drill — Urology",
+      "kind": "authored",
+      "tier": "AUTH"
+    },
+    "MOCKBNK": {
+      "name": "Mock Bank Master",
+      "kind": "authored",
+      "tier": "AUTH"
+    },
+    "MCORE": {
+      "name": "MedCORE complete study book",
+      "kind": "authored",
+      "tier": "AUTH"
+    },
+    "MCORE-CARDIOLO": {
+      "name": "MedCORE — Cardiology",
+      "kind": "authored",
+      "tier": "AUTH"
+    },
+    "MCORE-DERMATOL": {
+      "name": "MedCORE — Dermatology",
+      "kind": "authored",
+      "tier": "AUTH"
+    },
+    "MCORE-ENT": {
+      "name": "MedCORE — Ent",
+      "kind": "authored",
+      "tier": "AUTH"
+    },
+    "MCORE-GYNECOLO": {
+      "name": "MedCORE — Gynecology",
+      "kind": "authored",
+      "tier": "AUTH"
+    },
+    "MCORE-NEUROLOG": {
+      "name": "MedCORE — Neurology",
+      "kind": "authored",
+      "tier": "AUTH"
+    },
+    "MCORE-OBSTETRI": {
+      "name": "MedCORE — Obstetrics",
+      "kind": "authored",
+      "tier": "AUTH"
+    },
+    "MCORE-OPHTHALM": {
+      "name": "MedCORE — Ophthalmology",
+      "kind": "authored",
+      "tier": "AUTH"
+    },
+    "MCORE-PEDIATRI": {
+      "name": "MedCORE — Pediatrics",
+      "kind": "authored",
+      "tier": "AUTH"
+    },
+    "MCORE-RESPIRAT": {
+      "name": "MedCORE — Respiratory",
+      "kind": "authored",
+      "tier": "AUTH"
+    },
+    "MCORE-UROLOGY": {
+      "name": "MedCORE — Urology",
+      "kind": "authored",
+      "tier": "AUTH"
+    },
+    "DRM-ENT": {
+      "name": "Derm & ENT combined drill",
+      "kind": "authored",
+      "tier": "AUTH"
+    },
+    "MOCK200": {
+      "name": "NRE-I full mock 200",
+      "kind": "authored",
+      "tier": "AUTH"
+    },
+    "TS1": {
+      "name": "Test series — Internal-Medicine-I",
+      "kind": "authored",
+      "tier": "AUTH"
+    },
+    "TS2": {
+      "name": "Test series — Internal-Medicine-II",
+      "kind": "authored",
+      "tier": "AUTH"
+    },
+    "TS3": {
+      "name": "Test series — Obstetrics-&-Gynaecology",
+      "kind": "authored",
+      "tier": "AUTH"
+    },
+    "TS4": {
+      "name": "Test series — Applied-Anatomy-&-Surgery",
+      "kind": "authored",
+      "tier": "AUTH"
+    },
+    "TS5": {
+      "name": "Test series — Paediatrics",
+      "kind": "authored",
+      "tier": "AUTH"
+    },
+    "TS6": {
+      "name": "Test series — Biochemistry-&-Microbiology",
+      "kind": "authored",
+      "tier": "AUTH"
+    },
+    "TS7": {
+      "name": "Test series — ENT,-Ophthalmology-&-Psychiatry",
+      "kind": "authored",
+      "tier": "AUTH"
+    },
+    "TS8": {
+      "name": "Test series — Dermatology,-Community-Medicine-&-Forensic",
+      "kind": "authored",
+      "tier": "AUTH"
+    },
+    "TS9": {
+      "name": "Test series — Grand-All-Subject",
+      "kind": "authored",
+      "tier": "AUTH"
+    }
+  },
+  "excluded": {
+    "FCPS1": {
+      "rows": 600,
+      "reason": "see EXCLUDE_BANKS in harvest_mcqs.py"
+    }
+  }
+}

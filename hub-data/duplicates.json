@@ -1,0 +1,5540 @@
+[
+  {
+    "n": 3,
+    "subjects": [
+      "ENT",
+      "Endocrine"
+    ],
+    "stem": "A 45-year-old man presents with apparently new type 2 diabetes and seems to require insulin within 1 year despite initial oral therapy. He is not obes",
+    "members": [
+      "DRILL-DIABETES/0003",
+      "MOCKBNK/0128",
+      "TS9/0054"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "ENT",
+      "Grand-All-Subject",
+      "Medicine"
+    ],
+    "stem": "A 40-year-old diabetic woman has recurrent early satiety, nausea, vomiting of undigested food, and bloating, with glycaemic instability. Gastroscopy i",
+    "members": [
+      "DRILL-DIABETES/0007",
+      "MOCKBNK/0132",
+      "TS9/0008"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "Endocrine"
+    ],
+    "stem": "A 48-year-old overweight man has a fasting glucose of 110 mg/dL and a 2-hour post-glucose value of 150 mg/dL on OGTT. HbA1c is 5.9%. What is the corre",
+    "members": [
+      "DRILL-DIABETES/0013",
+      "MOCKBNK/0138",
+      "TS9/0003"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "ENT",
+      "Endocrine"
+    ],
+    "stem": "A 58-year-old type 2 diabetic has persistent fasting hyperglycaemia on maximal oral therapy. Which insulin regimen is most appropriate to start?",
+    "members": [
+      "DRILL-DIABETES/0022",
+      "MOCKBNK/0147",
+      "TS9/0004"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "ENT",
+      "Grand-All-Subject",
+      "Medicine"
+    ],
+    "stem": "A patient on furosemide with vomiting and metabolic alkalosis has serum potassium of 2.8 mmol/L. Which combination of mechanisms explains the hypokale",
+    "members": [
+      "DRILL-ELECTROLYTES/0007",
+      "MOCKBNK/0157",
+      "TS9/0001"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "ENT",
+      "Grand-All-Subject",
+      "Medicine"
+    ],
+    "stem": "A 78-year-old woman on digoxin presents with nausea, bradycardia, and a potassium of 6.4 mmol/L. Which is the most appropriate acute management?",
+    "members": [
+      "DRILL-ELECTROLYTES/0025",
+      "MOCKBNK/0175",
+      "TS9/0007"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "Endocrine",
+      "Surgery"
+    ],
+    "stem": "A 70-year-old woman with a long-standing multinodular goitre develops palpitations, weight loss, and atrial fibrillation. There is no exophthalmos. Wh",
+    "members": [
+      "DRILL-ENDOCRINE/0005",
+      "MOCKBNK/0180",
+      "TS1/0020"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "Endocrine",
+      "Grand-All-Subject",
+      "Medicine"
+    ],
+    "stem": "A 9-year-old boy has slowed growth, bitemporal hemianopia, and a calcified suprasellar mass on CT. What is the most likely diagnosis?",
+    "members": [
+      "DRILL-ENDOCRINE/0013",
+      "MOCKBNK/0188",
+      "TS9/0006"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "Internal-Medicine-I",
+      "Medicine",
+      "Surgery"
+    ],
+    "stem": "A 30-year-old woman on an antipsychotic for schizophrenia develops galactorrhoea and amenorrhoea. Prolactin is markedly elevated. What should be consi",
+    "members": [
+      "DRILL-ENDOCRINE/0014",
+      "MOCKBNK/0189",
+      "TS1/0021"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "Surgery"
+    ],
+    "stem": "A patient with clinical Cushing syndrome and a normal pituitary MRI is being evaluated before transsphenoidal surgery. Which test helps confirm the so",
+    "members": [
+      "DRILL-ENDOCRINESURGERY/0017",
+      "MOCKBNK/0442",
+      "TS9/0055"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "Endocrine",
+      "Surgery"
+    ],
+    "stem": "A patient with Graves disease is prepared for thyroidectomy. In the days before surgery, Lugol's iodine solution is administered. What is its purpose?",
+    "members": [
+      "DRILL-ENDOCRINESURGERY/0019",
+      "MOCKBNK/0444",
+      "TS9/0013"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "ENT",
+      "Grand-All-Subject",
+      "Surgery"
+    ],
+    "stem": "During total parathyroidectomy for tertiary hyperparathyroidism, the surgeon implants parathyroid tissue into the forearm muscle. What is the purpose?",
+    "members": [
+      "DRILL-ENDOCRINESURGERY/0022",
+      "MOCKBNK/0447",
+      "TS9/0011"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "Endocrine",
+      "Surgery"
+    ],
+    "stem": "A 70-year-old with a large non-toxic multinodular goitre has progressive dysphagia and tracheal deviation but is euthyroid. What is the most appropria",
+    "members": [
+      "DRILL-ENDOCRINESURGERY/0024",
+      "MOCKBNK/0449",
+      "TS4/0014"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "ENT",
+      "ENT,-Ophthalmology-&-Psychiatry",
+      "Pathology"
+    ],
+    "stem": "A 60-year-old male smoker presents with two painless swellings, one in each parotid region, present for 1 year. They are soft and cystic on examinatio",
+    "members": [
+      "DRILL-ENT/0024",
+      "MOCKBNK/0649",
+      "TS7/0001"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "ENT",
+      "Internal-Medicine-I",
+      "Medicine"
+    ],
+    "stem": "A 55-year-old man with alcohol-related cirrhosis presents with haematemesis. Upper GI endoscopy reveals tortuous dilated veins in the distal oesophagu",
+    "members": [
+      "DRILL-GI/0003",
+      "MOCKBNK/0328",
+      "TS1/0042"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "ENT",
+      "Gastroenterology"
+    ],
+    "stem": "A 70-year-old woman presents with right upper quadrant pain, fever with rigors, and jaundice. What is the most appropriate initial management?",
+    "members": [
+      "DRILL-GI/0009",
+      "MOCKBNK/0334",
+      "TS1/0045"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "ENT",
+      "Internal-Medicine-I",
+      "Medicine"
+    ],
+    "stem": "A 9-month-old boy has episodes of sudden crying, drawing up his legs, and passage of red 'currant jelly' stool. A sausage-shaped mass is palpable in t",
+    "members": [
+      "DRILL-GI/0014",
+      "MOCKBNK/0339",
+      "TS1/0046"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "ENT",
+      "Internal-Medicine-I",
+      "Medicine"
+    ],
+    "stem": "A 78-year-old nursing-home resident presents with gross abdominal distension, constipation, and vomiting. Abdominal X-ray shows a massively dilated lo",
+    "members": [
+      "DRILL-GI/0019",
+      "MOCKBNK/0344",
+      "TS1/0044"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "Internal-Medicine-I",
+      "Medicine",
+      "Surgery"
+    ],
+    "stem": "A 30-year-old woman reports severe tearing pain during defecation with a few drops of bright red blood on the toilet paper. She is otherwise well. Wha",
+    "members": [
+      "DRILL-GI/0020",
+      "MOCKBNK/0345",
+      "TS1/0043"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "ENT",
+      "Internal-Medicine-I",
+      "Medicine"
+    ],
+    "stem": "A 45-year-old man presents with painless bright red bleeding per rectum and a lump that prolapses on defecation but reduces spontaneously. What is the",
+    "members": [
+      "DRILL-GI/0021",
+      "MOCKBNK/0346",
+      "TS1/0041"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "ENT",
+      "Internal-Medicine-I",
+      "Medicine"
+    ],
+    "stem": "A patient with thrombotic thrombocytopenic purpura (TTP) has microangiopathic haemolytic anaemia, thrombocytopenia and neurological features. What is ",
+    "members": [
+      "DRILL-HAEMATOLOGY/0003",
+      "MOCKBNK/0203",
+      "TS1/0024"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "ENT",
+      "Gastroenterology"
+    ],
+    "stem": "A 26-year-old with transfusion-dependent beta-thalassaemia major develops leg oedema and exertional dyspnoea despite regular transfusions. Which is th",
+    "members": [
+      "DRILL-HAEMATOLOGY/0004",
+      "MOCKBNK/0204",
+      "TS1/0040"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "Haematology"
+    ],
+    "stem": "A 60-year-old with a urinary tract infection develops fever (40 C), cold peripheries, tachycardia and confusion. WBC is 2100/mm3 and PT/INR is prolong",
+    "members": [
+      "DRILL-HAEMATOLOGY/0005",
+      "MOCKBNK/0205",
+      "TS1/0023"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "Haematology"
+    ],
+    "stem": "A 14-year-old girl has Hb 9 g/dL, MCV 70 fL, serum ferritin 8 ng/mL and TIBC 450 ug/dL. What is the most likely diagnosis?",
+    "members": [
+      "DRILL-HAEMATOLOGY/0007",
+      "MOCKBNK/0207",
+      "TS1/0026"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "Haematology",
+      "Internal-Medicine-I",
+      "Medicine"
+    ],
+    "stem": "A 61-year-old woman has low-grade fever, anaemia, abdominal pain, gum hyperplasia, and circulating blasts with Auer rods; myeloperoxidase (MPO) is pos",
+    "members": [
+      "DRILL-HAEMATOLOGY/0008",
+      "MOCKBNK/0208",
+      "TS1/0037"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "ENT",
+      "Haematology"
+    ],
+    "stem": "A 45-year-old woman receiving chemo-radiotherapy for breast cancer presents with fatigue. FBC shows Hb 10 g/dL with low serum iron but normal/high fer",
+    "members": [
+      "DRILL-HAEMATOLOGY/0009",
+      "MOCKBNK/0209",
+      "TS1/0032"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "ENT",
+      "Haematology"
+    ],
+    "stem": "A patient on warfarin (INR 9) presents with a nosebleed. In addition to withholding the warfarin, which is the most appropriate immediate treatment?",
+    "members": [
+      "DRILL-HAEMATOLOGY/0010",
+      "MOCKBNK/0210",
+      "TS1/0034"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "ENT",
+      "Haematology"
+    ],
+    "stem": "A 60-year-old vegetarian has progressive fatigue, glossitis and peripheral paraesthesia with an unsteady gait. FBC shows macrocytosis (MCV 115 fL) and",
+    "members": [
+      "DRILL-HAEMATOLOGY/0011",
+      "MOCKBNK/0211",
+      "TS1/0035"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "Haematology",
+      "Internal-Medicine-I",
+      "Medicine"
+    ],
+    "stem": "A 55-year-old has fatigue, weight loss, massive splenomegaly and a very high WBC with a left shift, basophilia and thrombocytosis. Peripheral blood cy",
+    "members": [
+      "DRILL-HAEMATOLOGY/0012",
+      "MOCKBNK/0212",
+      "TS1/0039"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "ENT",
+      "Medicine",
+      "Pharmacology"
+    ],
+    "stem": "A 12-year-old with sickle cell disease has severe pain in the hands and back, fever 38 C and no localizing chest/abdominal signs. What is the most app",
+    "members": [
+      "DRILL-HAEMATOLOGY/0014",
+      "MOCKBNK/0214",
+      "TS1/0033"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "Haematology"
+    ],
+    "stem": "A young adult has pancytopenia (anaemia, leucopenia, thrombocytopenia) with a hypocellular bone marrow on trephine biopsy and no evidence of infiltrat",
+    "members": [
+      "DRILL-HAEMATOLOGY/0015",
+      "MOCKBNK/0215",
+      "TS1/0036"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "Gastroenterology",
+      "Internal-Medicine-I",
+      "Medicine"
+    ],
+    "stem": "A boy develops acute jaundice and dark urine a day after taking an antimalarial and eating fava beans, with a normal blood film except for bite cells ",
+    "members": [
+      "DRILL-HAEMATOLOGY/0016",
+      "MOCKBNK/0216",
+      "TS1/0029"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "ENT",
+      "Internal-Medicine-I",
+      "Medicine"
+    ],
+    "stem": "A boy has recurrent bleeding into his knees/elbows and easy bruising since early childhood, and his maternal uncle has a similar bleeding disorder. Wh",
+    "members": [
+      "DRILL-HAEMATOLOGY/0017",
+      "MOCKBNK/0217",
+      "TS1/0038"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "ENT",
+      "Haematology"
+    ],
+    "stem": "A 30-year-old previously well person develops petechiae and bruising and has an isolated severe thrombocytopenia (platelets 15,000) with an otherwise ",
+    "members": [
+      "DRILL-HAEMATOLOGY/0018",
+      "MOCKBNK/0218",
+      "TS1/0025"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "Haematology"
+    ],
+    "stem": "A 60-year-old has headache, pruritus after a hot shower, ruddy complexion and an elevated haemoglobin (Hct 60%) with normal oxygen saturation. Which i",
+    "members": [
+      "DRILL-HAEMATOLOGY/0019",
+      "MOCKBNK/0219",
+      "TS1/0031"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "ENT",
+      "Haematology"
+    ],
+    "stem": "A 70-year-old incidentally has a markedly raised lymphocyte count (WBC 95,000) with a mature lymphocytosis and smudge cells on the film, mild lymphade",
+    "members": [
+      "DRILL-HAEMATOLOGY/0020",
+      "MOCKBNK/0220",
+      "TS1/0028"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "ENT",
+      "Haematology"
+    ],
+    "stem": "A woman with placental abruption develops generalized oozing from venepuncture sites. Laboratories show prolonged PT and aPTT, low fibrinogen, thrombo",
+    "members": [
+      "DRILL-HAEMATOLOGY/0021",
+      "MOCKBNK/0221",
+      "TS1/0022"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "ENT",
+      "Haematology"
+    ],
+    "stem": "A patient with malabsorption and prolonged antibiotic use develops a bleeding tendency. Coagulation tests show a prolonged prothrombin time (PT) with ",
+    "members": [
+      "DRILL-HAEMATOLOGY/0023",
+      "MOCKBNK/0223",
+      "TS1/0030"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "ENT",
+      "Haematology"
+    ],
+    "stem": "On a peripheral blood film, which single finding best supports a megaloblastic (B12/folate) anaemia?",
+    "members": [
+      "DRILL-HAEMATOLOGY/0024",
+      "MOCKBNK/0224",
+      "TS1/0027"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "ENT",
+      "Grand-All-Subject",
+      "Medicine"
+    ],
+    "stem": "A 35-year-old non-smoker presents with emphysema predominantly in the lung bases and mild transaminitis. Liver biopsy shows PAS-positive, diastase-res",
+    "members": [
+      "DRILL-HEPATOLOGY/0016",
+      "MOCKBNK/0241",
+      "TS9/0002"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "Neurology",
+      "Pathology"
+    ],
+    "stem": "A 60-year-old hypertensive diabetic man wakes with isolated right hemiparesis involving face, arm and leg equally. There are NO cortical signs (no aph",
+    "members": [
+      "DRILL-NEURO/0004",
+      "MOCKBNK/0254",
+      "TS2/0026"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "ENT",
+      "ENT,-Ophthalmology-&-Psychiatry",
+      "Ophthalmology"
+    ],
+    "stem": "A 30-year-old presents after an alkali splash to the eye with conjunctival blanching and corneal haze. The single most urgent immediate step is:",
+    "members": [
+      "DRILL-OPHTHALMOLOGY/0003",
+      "MOCKBNK/0678",
+      "TS7/0004"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "ENT,-Ophthalmology-&-Psychiatry",
+      "Neurology",
+      "Ophthalmology"
+    ],
+    "stem": "In acute angle-closure glaucoma, pilocarpine constricts the pupil and opens the angle. What is its mechanism of action?",
+    "members": [
+      "DRILL-OPHTHALMOLOGY/0005",
+      "MOCKBNK/0680",
+      "TS7/0003"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "ENT",
+      "Ophthalmology"
+    ],
+    "stem": "A 70-year-old with hypertension and diabetes has sudden, painless, unilateral visual loss. Fundoscopy shows widespread flame-shaped haemorrhages, dila",
+    "members": [
+      "DRILL-OPHTHALMOLOGY/0007",
+      "MOCKBNK/0682",
+      "TS7/0006"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "ENT",
+      "ENT,-Ophthalmology-&-Psychiatry",
+      "Ophthalmology"
+    ],
+    "stem": "A diabetic with proliferative retinopathy reports a sudden shower of floaters and a dark veil over one eye with poor vision. The red reflex is absent ",
+    "members": [
+      "DRILL-OPHTHALMOLOGY/0009",
+      "MOCKBNK/0684",
+      "TS7/0012"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "ENT",
+      "Ophthalmology"
+    ],
+    "stem": "A myopic 55-year-old notices flashes of light, a shower of floaters, and then a shadow/curtain descending over the temporal visual field of one eye. M",
+    "members": [
+      "DRILL-OPHTHALMOLOGY/0010",
+      "MOCKBNK/0685",
+      "TS7/0014"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "ENT",
+      "ENT,-Ophthalmology-&-Psychiatry",
+      "Ophthalmology"
+    ],
+    "stem": "A 22-year-old reports difficulty seeing at night since childhood and progressive narrowing of the visual field. Fundoscopy shows bony spicule pigmenta",
+    "members": [
+      "DRILL-OPHTHALMOLOGY/0011",
+      "MOCKBNK/0686",
+      "TS7/0015"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "ENT",
+      "ENT,-Ophthalmology-&-Psychiatry",
+      "Ophthalmology"
+    ],
+    "stem": "A 3-month-old has persistent watery discharge and tearing from one eye since birth, with mild medial canthal wetness but no redness or mass. Usual man",
+    "members": [
+      "DRILL-OPHTHALMOLOGY/0014",
+      "MOCKBNK/0689",
+      "TS7/0013"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "Ophthalmology",
+      "Surgery"
+    ],
+    "stem": "A 28-year-old with untreated anterior uveitis (iritis) returns with a fixed, irregular pupil and glare. What complication has developed, and what help",
+    "members": [
+      "DRILL-OPHTHALMOLOGY/0016",
+      "MOCKBNK/0691",
+      "TS7/0009"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "ENT",
+      "Ophthalmology"
+    ],
+    "stem": "After an acute angle-closure attack is controlled medically, what is the definitive preventive treatment?",
+    "members": [
+      "DRILL-OPHTHALMOLOGY/0018",
+      "MOCKBNK/0693",
+      "TS7/0005"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "ENT",
+      "ENT,-Ophthalmology-&-Psychiatry",
+      "Ophthalmology"
+    ],
+    "stem": "An immunocompetent adult has focal necrotizing retinitis with overlying vitritis, described as 'headlight in fog', and a small old scar elsewhere in t",
+    "members": [
+      "DRILL-OPHTHALMOLOGY/0019",
+      "MOCKBNK/0694",
+      "TS7/0011"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "ENT",
+      "Ophthalmology",
+      "Pathology"
+    ],
+    "stem": "A child has eyelid swelling and redness. On examination there is proposis, restricted extraocular movements, pain on eye movement and decreased vision",
+    "members": [
+      "DRILL-OPHTHALMOLOGY/0020",
+      "MOCKBNK/0695",
+      "TS7/0008"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "ENT",
+      "ENT,-Ophthalmology-&-Psychiatry",
+      "Ophthalmology"
+    ],
+    "stem": "A 60-year-old has a vesicular rash on the tip of the nose (Hutchinson sign) with a red painful eye and blurred vision. Most appropriate action?",
+    "members": [
+      "DRILL-OPHTHALMOLOGY/0021",
+      "MOCKBNK/0696",
+      "TS7/0002"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "ENT",
+      "ENT,-Ophthalmology-&-Psychiatry",
+      "Ophthalmology"
+    ],
+    "stem": "An elderly woman has the lower eyelid turning INWARD so the lashes rub against the cornea, causing irritation, redness and a corneal abrasion. Most li",
+    "members": [
+      "DRILL-OPHTHALMOLOGY/0023",
+      "MOCKBNK/0698",
+      "TS7/0010"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "ENT",
+      "ENT,-Ophthalmology-&-Psychiatry",
+      "Ophthalmology"
+    ],
+    "stem": "A 4-month-old has a red, tender, swollen lump at the medial canthus with discharge from the punctum on compression; the eye itself is white and quiet.",
+    "members": [
+      "DRILL-OPHTHALMOLOGY/0024",
+      "MOCKBNK/0699",
+      "TS7/0007"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "ENT",
+      "ENT,-Ophthalmology-&-Psychiatry",
+      "Psychiatry"
+    ],
+    "stem": "A 30-year-old man with schizophrenia is started on an antipsychotic. Three months later he has gained 8 kg and his fasting glucose and lipids are elev",
+    "members": [
+      "DRILL-PSYCH/0003",
+      "MOCKBNK/0703",
+      "TS7/0018"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "ENT",
+      "ENT,-Ophthalmology-&-Psychiatry",
+      "Psychiatry"
+    ],
+    "stem": "A 65-year-old woman who has taken a typical antipsychotic for years develops repetitive, involuntary oro-buccal-lingual chewing and grimacing movement",
+    "members": [
+      "DRILL-PSYCH/0005",
+      "MOCKBNK/0705",
+      "TS7/0017"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "Medicine",
+      "Psychiatry"
+    ],
+    "stem": "A 40-year-old man over 5 days has euphoric mood, grandiosity (plans to quit medicine and start a university), pressured speech and reckless spending, ",
+    "members": [
+      "DRILL-PSYCH/0007",
+      "MOCKBNK/0707",
+      "TS7/0020"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "ENT",
+      "ENT,-Ophthalmology-&-Psychiatry",
+      "Psychiatry"
+    ],
+    "stem": "A new mother on day 3 postpartum is tearful, irritable and labile but can care for her baby, with symptoms fluctuating throughout the day and resolvin",
+    "members": [
+      "DRILL-PSYCH/0009",
+      "MOCKBNK/0709",
+      "TS7/0026"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "ENT",
+      "Psychiatry"
+    ],
+    "stem": "A mother 2 weeks after delivery is confused, disorganised, has bizarre delusions about her baby being evil, and insomnia. What is the most appropriate",
+    "members": [
+      "DRILL-PSYCH/0010",
+      "MOCKBNK/0710",
+      "TS7/0028"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "ENT,-Ophthalmology-&-Psychiatry",
+      "Immunology",
+      "Psychiatry"
+    ],
+    "stem": "A 50-year-old man has severe depression with early-morning waking, diurnal mood variation (worse in the morning), anorexia, weight loss and anhedonia ",
+    "members": [
+      "DRILL-PSYCH/0011",
+      "MOCKBNK/0711",
+      "TS7/0029"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "ENT",
+      "Psychiatry"
+    ],
+    "stem": "A 78-year-old hospitalised man becomes acutely confused over hours, inattentive, with fluctuating alertness and visual hallucinations; he has an activ",
+    "members": [
+      "DRILL-PSYCH/0014",
+      "MOCKBNK/0714",
+      "TS7/0027"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "ENT",
+      "Neurology",
+      "Psychiatry"
+    ],
+    "stem": "A 72-year-old man has progressive memory loss over 2 years with difficulty naming objects and navigating familiar places; functional decline is emergi",
+    "members": [
+      "DRILL-PSYCH/0016",
+      "MOCKBNK/0716",
+      "TS7/0023"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "ENT",
+      "Neurology",
+      "Psychiatry"
+    ],
+    "stem": "A 70-year-old man has fluctuating cognition, well-formed visual hallucinations of people and animals, and mild parkinsonism. His family notes marked s",
+    "members": [
+      "DRILL-PSYCH/0018",
+      "MOCKBNK/0718",
+      "TS7/0019"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "ENT",
+      "Neurology",
+      "Psychiatry"
+    ],
+    "stem": "A 54-year-old man has progressive disinhibition, inappropriate social behaviour, apathy and loss of empathy over 2 years, with relative sparing of mem",
+    "members": [
+      "DRILL-PSYCH/0019",
+      "MOCKBNK/0719",
+      "TS7/0025"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "ENT",
+      "ENT,-Ophthalmology-&-Psychiatry",
+      "Psychiatry"
+    ],
+    "stem": "A chronic heavy drinker stops alcohol abruptly. He has confusion, agitation, tremor, hallucinations and marked autonomic overactivity (tachycardia, hy",
+    "members": [
+      "DRILL-PSYCH/0020",
+      "MOCKBNK/0720",
+      "TS7/0022"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "ENT",
+      "Psychiatry"
+    ],
+    "stem": "A 42-year-old man with alcohol use disorder wants medication to reduce craving and relapse after detoxification. Which agent reduces drinking by antag",
+    "members": [
+      "DRILL-PSYCH/0021",
+      "MOCKBNK/0721",
+      "TS7/0016"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "ENT",
+      "ENT,-Ophthalmology-&-Psychiatry",
+      "Psychiatry"
+    ],
+    "stem": "A 9-year-old boy has persistent, impairing inattention, hyperactivity and impulsivity across school and home, present since age 6. What is the first-l",
+    "members": [
+      "DRILL-PSYCH/0023",
+      "MOCKBNK/0723",
+      "TS7/0024"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "ENT",
+      "Psychiatry"
+    ],
+    "stem": "A 19-year-old woman with severe anorexia nervosa (BMI 14) is started on refeeding. On day 3 she develops weakness, arrhythmia, seizures and confusion.",
+    "members": [
+      "DRILL-PSYCH/0024",
+      "MOCKBNK/0724",
+      "TS7/0021"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "ENT",
+      "Gastroenterology",
+      "Medicine"
+    ],
+    "stem": "A 30-year-old woman presents with fever, fluctuating confusion, and petechiae. Blood film shows schistocytes; platelets are 20,000/μL. There is no sig",
+    "members": [
+      "DRILL-RENAL/0005",
+      "MOCKBNK/0305",
+      "TS2/0027"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "ENT",
+      "Renal"
+    ],
+    "stem": "A 48-year-old woman on peritoneal dialysis presents with abdominal pain and a cloudy effluent bag. What is the most appropriate initial step?",
+    "members": [
+      "DRILL-RENAL/0013",
+      "MOCKBNK/0313",
+      "TS9/0009"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "ENT",
+      "Grand-All-Subject",
+      "Medicine"
+    ],
+    "stem": "A 12-year-old girl with recurrent urinary tract infections and hypertension has renal scarring on DMSA scan, most prominent at the upper and lower pol",
+    "members": [
+      "DRILL-RENAL/0025",
+      "MOCKBNK/0325",
+      "TS9/0005"
+    ]
+  },
+  {
+    "n": 3,
+    "subjects": [
+      "ENT",
+      "Grand-All-Subject",
+      "Surgery"
+    ],
+    "stem": "A 70-year-old woman with a urinary catheter develops fever, rigors, and hypotension with a lactate of 3.2 mmol/L. What is the most appropriate immedia",
+    "members": [
+      "DRILL-UROLOGY/0019",
+      "MOCKBNK/0519",
+      "TS9/0012"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Medicine (75 MCQs)",
+      "Paediatrics (27 MCQs)"
+    ],
+    "stem": "In the data 15, 2, 9, 10, 18, 14, and 72, the median is?",
+    "members": [
+      "JUN24/0060",
+      "MAY26/0083"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Obstetrics & Gynaecology (13 MCQs)",
+      "Obstetrics & Gynaecology (16 MCQs)"
+    ],
+    "stem": "Which of the following is a contraindication for CT Scan?",
+    "members": [
+      "DEC24/0123",
+      "JUN24/0113"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Medicine",
+      "Medicine (78 MCQs)"
+    ],
+    "stem": "A 65-year-old right-handed man presents with a stroke involving the superior division of the left middle cerebral artery. Physical examination reveals",
+    "members": [
+      "DEC24/0012",
+      "JUN25/0014"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Haematology"
+    ],
+    "stem": "A patient with chronic renal failure presents with pallor, fatigue, lethargy, and pedal edema. Laboratory investigations demonstrate a serum creatinin",
+    "members": [
+      "DEC24/0016",
+      "JUN25/0018"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Medicine",
+      "Medicine (78 MCQs)"
+    ],
+    "stem": "A 73-year-old woman presents with a progressively worsening expressionless face, a resting pill-rolling tremor in her right hand, and cogwheel rigidit",
+    "members": [
+      "DEC24/0034",
+      "JUN25/0044"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Medicine",
+      "Medicine (78 MCQs)"
+    ],
+    "stem": "A 50-year-old man with a history of diabetes mellitus presents with progressive ascites, fever, and weight loss over the past 3 months. Diagnostic par",
+    "members": [
+      "DEC24/0052",
+      "JUN25/0086"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Medicine (78 MCQs)",
+      "Surgery"
+    ],
+    "stem": "A 36-year-old woman presents with a 3-month history of spontaneous bloody discharge from her right nipple. Examination reveals a small retroareolar no",
+    "members": [
+      "DEC24/0067",
+      "JUN25/0098"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Medicine",
+      "Pharmacology (11 MCQs)"
+    ],
+    "stem": "A 28-year-old female is brought to the emergency department following an intentional overdose of six alprazolam tablets. On examination, she is drowsy",
+    "members": [
+      "DEC24/0135",
+      "JUN25/0057"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Pharmacology (11 MCQs)",
+      "Pharmacology (16 MCQs)"
+    ],
+    "stem": "A 4-year-old girl accidentally ingests her mother's iron supplements and is brought to the emergency department with symptoms of nausea, vomiting, abd",
+    "members": [
+      "DEC24/0141",
+      "MAY26/0139"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Biochemistry (4 MCQs)",
+      "Biochemistry (5 MCQs)"
+    ],
+    "stem": "Which amino acids are associated with Maple syrup urine disease?",
+    "members": [
+      "DEC24/0151",
+      "DEC25/0169"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Ophthalmology",
+      "Physiology (3 MCQs)"
+    ],
+    "stem": "You are the house officer on call in ophthalmology department and a patient comes to you with some unknown chemical (ELFY, glue or any acidic/basic ch",
+    "members": [
+      "DEC24/0162",
+      "JUN25/0020"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Medicine",
+      "Pathology (1 MCQs)"
+    ],
+    "stem": "A 31-year-old man presents with persistent cervical lymphadenopathy, low-grade fever, night sweats, and unintentional weight loss. A lymph node biopsy",
+    "members": [
+      "DEC24/0164",
+      "JUN25/0140"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Endocrine"
+    ],
+    "stem": "A 42-year-old morbidly obese man presents with polyuria, nocturia, and fatigue. His fasting blood glucose level is 8.2 mmol/L. Which of the following ",
+    "members": [
+      "DEC24/0169",
+      "JUN25/0065"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Surgery"
+    ],
+    "stem": "60-year-old man with IHD and atherosclerosis. Day 4: severe abdominal pain, BP 90/60, soft abdomen, sluggish bowel sounds, maroon stool. Most likely d",
+    "members": [
+      "DEC25/0103",
+      "DEC25/0107"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Paediatrics (18 MCQs)"
+    ],
+    "stem": "A 2-year-old male child with repeated diarrhoea, failure to thrive, malnourished, protuberant abdomen. Weaning started at one year. Which test confirm",
+    "members": [
+      "DEC25/0120",
+      "DEC25/0125"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Endocrine"
+    ],
+    "stem": "A 19-year-old non-obese woman with a strong family history of diabetes (autosomal dominant) presents with mild hyperglycaemia. She is not ketosis-pron",
+    "members": [
+      "DRILL-DIABETES/0001",
+      "MOCKBNK/0126"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Endocrine"
+    ],
+    "stem": "A 28-year-old pregnant woman undergoes a 75 g oral glucose tolerance test at 26 weeks. Her results are: fasting 95 mg/dL, 1-hour 175 mg/dL, 2-hour 150",
+    "members": [
+      "DRILL-DIABETES/0002",
+      "MOCKBNK/0127"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Medicine",
+      "Surgery"
+    ],
+    "stem": "A 50-year-old man with 12 years of type 2 diabetes has visual blurring and floaters. Fundoscopy shows neovascularisation of the disc and vitreous haem",
+    "members": [
+      "DRILL-DIABETES/0004",
+      "MOCKBNK/0129"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Medicine",
+      "Physiology general"
+    ],
+    "stem": "A 60-year-old diabetic has numbness, tingling, and loss of vibration and ankle reflexes in a stocking-glove distribution, with preserved strength. Wha",
+    "members": [
+      "DRILL-DIABETES/0005",
+      "MOCKBNK/0130"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 55-year-old diabetic develops sudden severe unilateral periorbital pain with ptosis, a dilated non-reactive pupil, and an inability to move the eye ",
+    "members": [
+      "DRILL-DIABETES/0006",
+      "MOCKBNK/0131"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 55-year-old diabetic with peripheral neuropathy presents with a warm, red, swollen midfoot and a 'rocker-bottom' deformity. X-ray shows fractures an",
+    "members": [
+      "DRILL-DIABETES/0008",
+      "MOCKBNK/0133"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A diabetic man has a painless plantar ulcer with a warm foot and easily palpable pedal pulses. A second patient has a painful, cool foot with absent p",
+    "members": [
+      "DRILL-DIABETES/0009",
+      "MOCKBNK/0134"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Gastroenterology"
+    ],
+    "stem": "A 50-year-old man with chronic pancreatitis has steatorrhoea, weight loss, and new-onset diabetes requiring insulin. C-peptide is low and faecal elast",
+    "members": [
+      "DRILL-DIABETES/0010",
+      "MOCKBNK/0135"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Endocrine"
+    ],
+    "stem": "A 60-year-old woman started on high-dose oral prednisolone for polymyalgia rheumatica develops fasting hyperglycaemia and glucosuria after 2 weeks. Sh",
+    "members": [
+      "DRILL-DIABETES/0011",
+      "MOCKBNK/0136"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Endocrine",
+      "Surgery"
+    ],
+    "stem": "A diabetic man on metformin and a sulfonylurea is scheduled for elective abdominal surgery. What is the most appropriate perioperative glycaemic manag",
+    "members": [
+      "DRILL-DIABETES/0012",
+      "MOCKBNK/0137"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Endocrine"
+    ],
+    "stem": "A 30-year-old type 1 diabetic has frequent asymptomatic nocturnal hypoglycaemic episodes and drives for a living. Which technology most improves her s",
+    "members": [
+      "DRILL-DIABETES/0014",
+      "MOCKBNK/0139"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Endocrine"
+    ],
+    "stem": "A 52-year-old obese man with type 2 diabetes and BMI 34 is started on a GLP-1 receptor agonist. Which effect is expected and requires counselling?",
+    "members": [
+      "DRILL-DIABETES/0015",
+      "MOCKBNK/0140"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Haematology"
+    ],
+    "stem": "A 64-year-old man on long-term metformin for type 2 diabetes develops numbness and a macrocytic anaemia with low-normal B12. Which association is corr",
+    "members": [
+      "DRILL-DIABETES/0016",
+      "MOCKBNK/0141"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 50-year-old man with type 2 diabetes and no history of cardiovascular disease has an LDL of 110 mg/dL. According to current guidance, what is indica",
+    "members": [
+      "DRILL-DIABETES/0017",
+      "MOCKBNK/0142"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Biochemistry",
+      "Medicine"
+    ],
+    "stem": "A 40-year-old type 1 diabetic asks how often her urine should be screened for early kidney disease. She has normal creatinine and no proteinuria on di",
+    "members": [
+      "DRILL-DIABETES/0018",
+      "MOCKBNK/0143"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Endocrine"
+    ],
+    "stem": "An 82-year-old frail woman with type 2 diabetes on a sulfonylurea has had two falls and a hypoglycaemic episode. What is the most appropriate adjustme",
+    "members": [
+      "DRILL-DIABETES/0019",
+      "MOCKBNK/0144"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Medicine",
+      "Neurology"
+    ],
+    "stem": "A 60-year-old diabetic man develops painful, asymmetric weakness and wasting of the thigh muscles over weeks, with weight loss but preserved sensation",
+    "members": [
+      "DRILL-DIABETES/0020",
+      "MOCKBNK/0145"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Endocrine",
+      "Medicine"
+    ],
+    "stem": "A 65-year-old diabetic woman with poor glycaemic control has fever, flank pain, and gas visible within the renal parenchyma on CT. Urine grows E. coli",
+    "members": [
+      "DRILL-DIABETES/0021",
+      "MOCKBNK/0146"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Endocrine"
+    ],
+    "stem": "A diabetic on basal insulin has consistently elevated morning glucose but normal glucose at 3 a.m. (no nocturnal hypoglycaemia). What does this repres",
+    "members": [
+      "DRILL-DIABETES/0023",
+      "MOCKBNK/0148"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 55-year-old diabetic has several round, atrophic, hyperpigmented plaques on the shins. They are asymptomatic. Which skin manifestation is this?",
+    "members": [
+      "DRILL-DIABETES/0024",
+      "MOCKBNK/0149"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Endocrine"
+    ],
+    "stem": "A 30-year-old woman with pre-existing type 1 diabetes plans pregnancy. What is the most important pre-conceptional intervention to reduce congenital m",
+    "members": [
+      "DRILL-DIABETES/0025",
+      "MOCKBNK/0150"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 70-year-old woman on a thiazide diuretic for hypertension presents with confusion. Serum sodium is 122 mmol/L. She is clinically volume-depleted. Wh",
+    "members": [
+      "DRILL-ELECTROLYTES/0001",
+      "MOCKBNK/0151"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Endocrine",
+      "Medicine"
+    ],
+    "stem": "A 55-year-old man develops hyponatremia 4 days after a subarachnoid haemorrhage. He is clinically volume-depleted with low urine sodium. Which diagnos",
+    "members": [
+      "DRILL-ELECTROLYTES/0002",
+      "MOCKBNK/0152"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A patient's serum sodium measured by flame photometry is 118 mmol/L, but direct ion-selective electrode (after ultracentrifugation) is normal. The pat",
+    "members": [
+      "DRILL-ELECTROLYTES/0003",
+      "MOCKBNK/0153"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 30-year-old man has polyuria and thirst with hypernatremia and dilute urine. After water deprivation, desmopressin is given and urine osmolality ris",
+    "members": [
+      "DRILL-ELECTROLYTES/0004",
+      "MOCKBNK/0154"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 48-year-old woman with chronic hyponatremia (Na 112 mmol/L) is corrected too rapidly to 132 mmol/L within 12 hours. Two days later she develops dysa",
+    "members": [
+      "DRILL-ELECTROLYTES/0005",
+      "MOCKBNK/0155"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 2-month-old infant exclusively on formula with inadequate water intake presents with lethargy and a serum sodium of 160 mmol/L. Urine osmolality is ",
+    "members": [
+      "DRILL-ELECTROLYTES/0006",
+      "MOCKBNK/0156"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 22-year-old man of Asian descent has recurrent episodes of proximal muscle weakness after heavy carbohydrate meals. Between episodes he is well with",
+    "members": [
+      "DRILL-ELECTROLYTES/0008",
+      "MOCKBNK/0158"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A patient with CKD has a potassium of 7.0 mmol/L. The ECG shows peaked T waves and a prolonged PR interval. Which progression indicates impending cata",
+    "members": [
+      "DRILL-ELECTROLYTES/0009",
+      "MOCKBNK/0159"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Medicine",
+      "Obstetrics"
+    ],
+    "stem": "A 68-year-old man with no renal disease has a reported potassium of 6.9 mmol/L, but he is asymptomatic with a normal ECG. Repeat testing after a drawi",
+    "members": [
+      "DRILL-ELECTROLYTES/0010",
+      "MOCKBNK/0160"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 60-year-old man with CKD and a potassium of 6.6 mmol/L has peaked T waves but no QRS widening. Which is the MOST appropriate immediate step?",
+    "members": [
+      "DRILL-ELECTROLYTES/0011",
+      "MOCKBNK/0161"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Endocrine"
+    ],
+    "stem": "A 64-year-old man with weight loss and bone pain has calcium 12.8 mg/dL, phosphate low, and PTH suppressed (<10 pg/mL). What is the most likely mechan",
+    "members": [
+      "DRILL-ELECTROLYTES/0012",
+      "MOCKBNK/0162"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Endocrine"
+    ],
+    "stem": "A 50-year-old alcoholic man has tetany and a corrected calcium of 6.8 mg/dL. Despite IV calcium, the calcium remains low. Magnesium is 1.0 mg/dL. Why ",
+    "members": [
+      "DRILL-ELECTROLYTES/0013",
+      "MOCKBNK/0163"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Endocrine",
+      "Medicine"
+    ],
+    "stem": "Which of the following is a recognised cause of hypomagnesemia?",
+    "members": [
+      "DRILL-ELECTROLYTES/0014",
+      "MOCKBNK/0164"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 40-year-old woman in the third trimester develops seizures. Her blood pressure is 160/100 and she has proteinuria. Which magnesium preparation is th",
+    "members": [
+      "DRILL-ELECTROLYTES/0015",
+      "MOCKBNK/0165"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Endocrine"
+    ],
+    "stem": "A patient with CKD stage 4 has an elevated phosphate and low calcitriol. Which complication results from this derangement?",
+    "members": [
+      "DRILL-ELECTROLYTES/0016",
+      "MOCKBNK/0166"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Renal"
+    ],
+    "stem": "A 25-year-old woman has recurrent renal stones, hypokalemia, and a normal anion gap metabolic acidosis despite a normal GFR. What is the most likely d",
+    "members": [
+      "DRILL-ELECTROLYTES/0017",
+      "MOCKBNK/0167"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A child has proximal muscle weakness, rickets, and glucosuria with a normal plasma glucose. Urine shows phosphaturia, aminoaciduria, and bicarbonate w",
+    "members": [
+      "DRILL-ELECTROLYTES/0018",
+      "MOCKBNK/0168"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Renal"
+    ],
+    "stem": "A 60-year-old man with long-standing diabetes has a normal anion gap metabolic acidosis and a potassium of 5.8 mmol/L. Which mechanism is most likely?",
+    "members": [
+      "DRILL-ELECTROLYTES/0019",
+      "MOCKBNK/0169"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Renal"
+    ],
+    "stem": "A 70-year-old man with septic shock has a high anion gap metabolic acidosis, elevated lactate (8 mmol/L), and low bicarbonate. Which is the primary me",
+    "members": [
+      "DRILL-ELECTROLYTES/0020",
+      "MOCKBNK/0170"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Renal"
+    ],
+    "stem": "A 19-year-old with poorly controlled diabetes vomits repetitively and is found with pH 7.30, HCO3 18, and an elevated anion gap. What best describes t",
+    "members": [
+      "DRILL-ELECTROLYTES/0021",
+      "MOCKBNK/0171"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Renal"
+    ],
+    "stem": "A patient has a normal anion-gap metabolic acidosis. The urine anion gap is positive (urine Na+K − Cl is positive), indicating low urinary ammonium. W",
+    "members": [
+      "DRILL-ELECTROLYTES/0022",
+      "MOCKBNK/0172"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Endocrine"
+    ],
+    "stem": "A malnourished chronic alcoholic presents after a binge with abdominal pain, a high anion-gap metabolic acidosis, elevated lactate, and ketonuria, but",
+    "members": [
+      "DRILL-ELECTROLYTES/0023",
+      "MOCKBNK/0173"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 17-year-old with normal kidney function receives a rapid intravenous infusion of isotonic normal saline. After osmotic equilibrium, which best descr",
+    "members": [
+      "DRILL-ELECTROLYTES/0024",
+      "MOCKBNK/0174"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Endocrine"
+    ],
+    "stem": "A 40-year-old woman presents with a 1-week history of severe anterior neck pain radiating to the ear, fever, and transient palpitations. The thyroid i",
+    "members": [
+      "DRILL-ENDOCRINE/0001",
+      "MOCKBNK/0176"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Cardiovascular"
+    ],
+    "stem": "A 60-year-old man on amiodarone for atrial fibrillation develops thyrotoxicosis with a low uptake on radioactive iodine scan. What is the most likely ",
+    "members": [
+      "DRILL-ENDOCRINE/0002",
+      "MOCKBNK/0177"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Endocrine"
+    ],
+    "stem": "A 35-year-old woman with Graves disease and proptosis develops worsening eye pain, periorbital oedema, and diplopia. She is a smoker. Which factor wor",
+    "members": [
+      "DRILL-ENDOCRINE/0003",
+      "MOCKBNK/0178"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Endocrine"
+    ],
+    "stem": "A 50-year-old woman has an elevated TSH (8.5 mIU/L) with a normal free T4 on routine screening. She is asymptomatic. Which management is most appropri",
+    "members": [
+      "DRILL-ENDOCRINE/0004",
+      "MOCKBNK/0179"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Medicine",
+      "Surgery"
+    ],
+    "stem": "A 45-year-old woman had a total thyroidectomy for papillary thyroid carcinoma and is on thyroxine. Three months later, while on thyroxine, her thyrogl",
+    "members": [
+      "DRILL-ENDOCRINE/0006",
+      "MOCKBNK/0181"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Renal"
+    ],
+    "stem": "A newborn girl is noted to have ambiguous genitalia and, at 2 weeks, develops vomiting, dehydration, and hypotension. Serum electrolytes show hyponatr",
+    "members": [
+      "DRILL-ENDOCRINE/0007",
+      "MOCKBNK/0182"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Renal"
+    ],
+    "stem": "A 50-year-old man with fatigue and hypotension has hyponatraemia but a normal potassium. He has pale skin with no pigmentation. Which statement is cor",
+    "members": [
+      "DRILL-ENDOCRINE/0008",
+      "MOCKBNK/0183"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Endocrine"
+    ],
+    "stem": "A woman who had bilateral adrenalectomy for Cushing disease 5 years ago now presents with progressive visual field loss and a rapidly enlarging pituit",
+    "members": [
+      "DRILL-ENDOCRINE/0009",
+      "MOCKBNK/0184"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Endocrine",
+      "Surgery"
+    ],
+    "stem": "A 55-year-old man has an adrenal mass (3 cm) found incidentally on CT for renal colic. He is hypertensive with hypokalaemia. What is the most appropri",
+    "members": [
+      "DRILL-ENDOCRINE/0010",
+      "MOCKBNK/0185"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Endocrine"
+    ],
+    "stem": "A 45-year-old man presents with coarse facial features, enlarged hands and feet, and worsening glucose intolerance. Which screening test is most appro",
+    "members": [
+      "DRILL-ENDOCRINE/0011",
+      "MOCKBNK/0186"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Neurology",
+      "Surgery"
+    ],
+    "stem": "A 60-year-old man with a known pituitary macroadenoma suddenly develops a severe headache, bilateral visual loss, and hypotension with hypoglycaemia. ",
+    "members": [
+      "DRILL-ENDOCRINE/0012",
+      "MOCKBNK/0187"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 28-year-old woman in the postpartum period presents with headache, bitemporal hemianopia, and mild diabetes insipidus. MRI shows a homogenously enha",
+    "members": [
+      "DRILL-ENDOCRINE/0015",
+      "MOCKBNK/0190"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 7-year-old boy is below the 3rd centile for height with a height velocity below the 25th centile, but normal body proportions. Bone age is delayed. ",
+    "members": [
+      "DRILL-ENDOCRINE/0016",
+      "MOCKBNK/0191"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Endocrine"
+    ],
+    "stem": "A 40-year-old woman has galactorrhoea and amenorrhoea. MRI shows an empty sella with a thin pituitary stalk displaced, but no discrete adenoma. Prolac",
+    "members": [
+      "DRILL-ENDOCRINE/0017",
+      "MOCKBNK/0192"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Endocrine"
+    ],
+    "stem": "A 55-year-old man has recurrent episodes of confusion and diaphoresis relieved by eating, occurring fasting or post-exercise. A 72-hour fast reproduce",
+    "members": [
+      "DRILL-ENDOCRINE/0018",
+      "MOCKBNK/0193"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Endocrine",
+      "Medicine"
+    ],
+    "stem": "A 65-year-old man has bone pain and an elevated alkaline phosphatase with normal calcium and phosphate. X-ray of the pelvis shows cortical thickening ",
+    "members": [
+      "DRILL-ENDOCRINE/0019",
+      "MOCKBNK/0194"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 68-year-old postmenopausal woman has a DEXA T-score of -3.0 at the lumbar spine after a low-trauma wrist fracture. What is the most appropriate firs",
+    "members": [
+      "DRILL-ENDOCRINE/0020",
+      "MOCKBNK/0195"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Endocrine"
+    ],
+    "stem": "A 40-year-old man is found to have asymptomatic hypercalcaemia with a normal PTH and a low urine calcium/creatinine ratio. He has a family history of ",
+    "members": [
+      "DRILL-ENDOCRINE/0021",
+      "MOCKBNK/0196"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 45-year-old man has recurrent renal stones and is found to have primary hyperparathyroidism, a pituitary macroadenoma, and multiple gastric ulcerati",
+    "members": [
+      "DRILL-ENDOCRINE/0022",
+      "MOCKBNK/0197"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Endocrine",
+      "Medicine"
+    ],
+    "stem": "A 50-year-old woman has a 1.5 cm thyroid nodule. Ultrasound shows microcalcifications, irregular margins, marked hypoechoic echotexture, and a taller-",
+    "members": [
+      "DRILL-ENDOCRINE/0023",
+      "MOCKBNK/0198"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Endocrine"
+    ],
+    "stem": "A 70-year-old man in the ICU with severe sepsis has a low free T3, a normal TSH, and a normal free T4. He is clinically euthyroid. What explains these",
+    "members": [
+      "DRILL-ENDOCRINE/0024",
+      "MOCKBNK/0199"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 25-year-old East Asian man with untreated hyperthyroidism presents with acute symmetric proximal muscle weakness and a potassium of 2.6 mmol/L durin",
+    "members": [
+      "DRILL-ENDOCRINE/0025",
+      "MOCKBNK/0200"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Surgery"
+    ],
+    "stem": "A 6-year-old child has a midline neck swelling that moves upward on protrusion of the tongue and on swallowing. It is non-tender and cystic. What is t",
+    "members": [
+      "DRILL-ENDOCRINESURGERY/0001",
+      "MOCKBNK/0426"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Surgery"
+    ],
+    "stem": "A 20-year-old presents with a painless, fluctuant swelling in the anterior triangle of the neck, anterior to the sternocleidomastoid. It has been pres",
+    "members": [
+      "DRILL-ENDOCRINESURGERY/0002",
+      "MOCKBNK/0427"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Surgery"
+    ],
+    "stem": "A singer undergoes thyroid lobectomy and afterwards reports difficulty hitting high notes and a change in vocal pitch, but no breathiness or hoarsenes",
+    "members": [
+      "DRILL-ENDOCRINESURGERY/0003",
+      "MOCKBNK/0428"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Surgery"
+    ],
+    "stem": "After a total thyroidectomy, a patient develops immediate stridor, respiratory distress, and a fixed midline (paramedian) cord bilaterally. What is th",
+    "members": [
+      "DRILL-ENDOCRINESURGERY/0004",
+      "MOCKBNK/0429"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Surgery"
+    ],
+    "stem": "A 38-year-old woman has a 2.5 cm papillary thyroid carcinoma with no distant metastases but with a 0.5 cm suspicious central compartment node. What is",
+    "members": [
+      "DRILL-ENDOCRINESURGERY/0005",
+      "MOCKBNK/0430"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Surgery"
+    ],
+    "stem": "After total thyroidectomy for a 3 cm follicular variant papillary carcinoma with extrathyroidal extension, which adjuvant therapy is indicated?",
+    "members": [
+      "DRILL-ENDOCRINESURGERY/0006",
+      "MOCKBNK/0431"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Surgery"
+    ],
+    "stem": "A 60-year-old woman with long-standing Hashimoto thyroiditis develops a rapidly enlarging, painful thyroid mass with compressive symptoms over 2 weeks",
+    "members": [
+      "DRILL-ENDOCRINESURGERY/0007",
+      "MOCKBNK/0432"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Surgery"
+    ],
+    "stem": "A patient requires reoperation for recurrent thyroid nodules after a previous partial thyroidectomy. Which complication risk is substantially higher t",
+    "members": [
+      "DRILL-ENDOCRINESURGERY/0008",
+      "MOCKBNK/0433"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Surgery"
+    ],
+    "stem": "A 34-year-old woman with Graves disease and a large multinodular goitre has compressive symptoms and declining response to antithyroid drugs. She is p",
+    "members": [
+      "DRILL-ENDOCRINESURGERY/0009",
+      "MOCKBNK/0434"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Surgery"
+    ],
+    "stem": "A patient with primary hyperparathyroidism has a single enlarged parathyroid gland on sestamibi scan and normal other glands on exploration. What is t",
+    "members": [
+      "DRILL-ENDOCRINESURGERY/0010",
+      "MOCKBNK/0435"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Surgery"
+    ],
+    "stem": "A patient with long-standing CKD on dialysis develops progressively rising PTH and calcium despite medical therapy and is being evaluated for transpla",
+    "members": [
+      "DRILL-ENDOCRINESURGERY/0011",
+      "MOCKBNK/0436"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Surgery"
+    ],
+    "stem": "A patient with primary hyperparathyroidism suddenly develops severe hypercalcaemia (Ca 15 mg/dL) with confusion, abdominal pain, and dehydration. What",
+    "members": [
+      "DRILL-ENDOCRINESURGERY/0012",
+      "MOCKBNK/0437"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Surgery"
+    ],
+    "stem": "During thyroid lobectomy, the surgeon must ligate the inferior thyroid artery. Why is careful dissection at this site critical for parathyroid preserv",
+    "members": [
+      "DRILL-ENDOCRINESURGERY/0013",
+      "MOCKBNK/0438"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Surgery"
+    ],
+    "stem": "A 58-year-old has a 5 cm adrenal mass found incidentally. Biochemical workup excludes Cushing, pheochromocytoma, and aldosteronism. What is the recomm",
+    "members": [
+      "DRILL-ENDOCRINESURGERY/0014",
+      "MOCKBNK/0439"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Surgery"
+    ],
+    "stem": "A 45-year-old with a 3 cm aldosterone-producing adrenal adenoma and refractory hypertension is planned for surgery. What is the preferred approach?",
+    "members": [
+      "DRILL-ENDOCRINESURGERY/0015",
+      "MOCKBNK/0440"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Surgery"
+    ],
+    "stem": "A patient develops clear rhinorrhoea and a headache 3 days after transsphenoidal pituitary surgery. What is the most likely complication?",
+    "members": [
+      "DRILL-ENDOCRINESURGERY/0016",
+      "MOCKBNK/0441"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Surgery"
+    ],
+    "stem": "Before parathyroidectomy for primary hyperparathyroidism, which pre-operative localisation study is most commonly used to identify the abnormal gland?",
+    "members": [
+      "DRILL-ENDOCRINESURGERY/0018",
+      "MOCKBNK/0443"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Surgery"
+    ],
+    "stem": "A patient develops hypocalcaemia with tingling and a positive Chvostek sign on postoperative day 1 after total thyroidectomy, which resolves with calc",
+    "members": [
+      "DRILL-ENDOCRINESURGERY/0020",
+      "MOCKBNK/0445"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Surgery"
+    ],
+    "stem": "What is the single most important preventive measure against thyroid storm in a patient undergoing thyroidectomy for hyperthyroidism?",
+    "members": [
+      "DRILL-ENDOCRINESURGERY/0021",
+      "MOCKBNK/0446"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Surgery"
+    ],
+    "stem": "A 65-year-old with a long-standing goitre develops exertional dyspnoea, orthopnoea, and cough, with a mediastinal mass on chest X-ray extending below ",
+    "members": [
+      "DRILL-ENDOCRINESURGERY/0023",
+      "MOCKBNK/0448"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Surgery"
+    ],
+    "stem": "A 50-year-old man has severe hypercalcaemia (Ca 17 mg/dL), a hard, fixed neck mass, and a very high PTH. Imaging shows local invasion. What is the dia",
+    "members": [
+      "DRILL-ENDOCRINESURGERY/0025",
+      "MOCKBNK/0450"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT"
+    ],
+    "stem": "A 62-year-old woman reports brief episodes of spinning vertigo for 3 weeks, triggered only when she rolls onto her right side in bed. Each episode las",
+    "members": [
+      "DRILL-ENT/0001",
+      "MOCKBNK/0626"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT"
+    ],
+    "stem": "A 45-year-old male presents with progressive right-sided hearing loss, ringing in the right ear, and a feeling of imbalance for 8 months. Otoscopy is ",
+    "members": [
+      "DRILL-ENT/0002",
+      "MOCKBNK/0627"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT"
+    ],
+    "stem": "A 28-year-old swimmer presents with intense itching and pain in the right ear for 2 weeks. Otoscopy shows black, cotton-wool-like debris in the ear ca",
+    "members": [
+      "DRILL-ENT/0003",
+      "MOCKBNK/0628"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT"
+    ],
+    "stem": "A 68-year-old male with poorly controlled diabetes presents with severe right ear pain for 3 weeks and scanty purulent discharge. Otoscopy shows granu",
+    "members": [
+      "DRILL-ENT/0004",
+      "MOCKBNK/0629"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT"
+    ],
+    "stem": "A 4-year-old boy is brought with hearing difficulty at school. He has had two episodes of acute otitis media in the past year. Otoscopy shows a retrac",
+    "members": [
+      "DRILL-ENT/0005",
+      "MOCKBNK/0630"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT"
+    ],
+    "stem": "A 50-year-old factory worker presents with difficulty hearing conversations in noisy settings. Audiometry shows a bilateral sensorineural hearing loss",
+    "members": [
+      "DRILL-ENT/0006",
+      "MOCKBNK/0631"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT"
+    ],
+    "stem": "A 30-year-old female develops sudden severe vertigo, nausea, and vomiting 1 week after a viral upper respiratory tract infection. She also notices red",
+    "members": [
+      "DRILL-ENT/0007",
+      "MOCKBNK/0632"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT"
+    ],
+    "stem": "A 5-year-old boy with acute otitis media treated 10 days ago returns with fever, earache, and a swelling behind the right ear that pushes the pinna fo",
+    "members": [
+      "DRILL-ENT/0008",
+      "MOCKBNK/0633"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Surgery"
+    ],
+    "stem": "A 35-year-old male with asthma reports that aspirin triggered a severe reaction 2 years ago. He now has bilateral nasal obstruction and anosmia. Exami",
+    "members": [
+      "DRILL-ENT/0009",
+      "MOCKBNK/0634"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT"
+    ],
+    "stem": "A 45-year-old male with diabetic ketoacidosis presents with facial pain, nasal obstruction, and a black necrotic eschar on the nasal mucosa. He is feb",
+    "members": [
+      "DRILL-ENT/0010",
+      "MOCKBNK/0635"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT"
+    ],
+    "stem": "A 20-year-old male presents 2 days after a blow to the nose during a fight. He has bilateral nasal obstruction and a feeling of fullness. Examination ",
+    "members": [
+      "DRILL-ENT/0011",
+      "MOCKBNK/0636"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT"
+    ],
+    "stem": "A 30-year-old male is involved in a road traffic accident with a head injury. Three days later he notices clear watery fluid dripping from the right n",
+    "members": [
+      "DRILL-ENT/0012",
+      "MOCKBNK/0637"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT"
+    ],
+    "stem": "A newborn is noted to have episodes of cyanosis that improve when she cries. A nasogastric tube cannot be passed through the right nostril. What is th",
+    "members": [
+      "DRILL-ENT/0013",
+      "MOCKBNK/0638"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT"
+    ],
+    "stem": "A 30-year-old female has used a topical nasal decongestant spray daily for 4 months to relieve nasal blockage. She now has constant nasal congestion t",
+    "members": [
+      "DRILL-ENT/0014",
+      "MOCKBNK/0639"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT"
+    ],
+    "stem": "A 3-year-old child presents with fever, muffled voice, drooling, and neck stiffness. He refuses to swallow. Examination shows bulging of the posterior",
+    "members": [
+      "DRILL-ENT/0015",
+      "MOCKBNK/0640"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT"
+    ],
+    "stem": "A 40-year-old male presents with rapidly progressive swelling under the jaw, severe pain, trismus, and difficulty swallowing. The floor of the mouth i",
+    "members": [
+      "DRILL-ENT/0016",
+      "MOCKBNK/0641"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT"
+    ],
+    "stem": "An 18-year-old university student presents with fever, severe sore throat, and fatigue for 1 week. Examination shows exudative tonsillitis and tender ",
+    "members": [
+      "DRILL-ENT/0017",
+      "MOCKBNK/0642"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT"
+    ],
+    "stem": "A 6-year-old unvaccinated child presents with a sore throat, low-grade fever, and a grayish-white membrane covering both tonsils that bleeds on attemp",
+    "members": [
+      "DRILL-ENT/0018",
+      "MOCKBNK/0643"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT"
+    ],
+    "stem": "A 55-year-old male smoker presents with a painless swelling in the left side of the throat for 2 months. Examination shows marked enlargement of the l",
+    "members": [
+      "DRILL-ENT/0019",
+      "MOCKBNK/0644"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT"
+    ],
+    "stem": "A 4-year-old child presents with progressive hoarseness of voice. Laryngoscopy shows multiple wart-like papillary lesions on the vocal cords. What is ",
+    "members": [
+      "DRILL-ENT/0020",
+      "MOCKBNK/0645"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT"
+    ],
+    "stem": "A 30-year-old schoolteacher presents with hoarseness that worsens by evening. Laryngoscopy shows bilateral, symmetric, smooth swellings at the junctio",
+    "members": [
+      "DRILL-ENT/0021",
+      "MOCKBNK/0646"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT"
+    ],
+    "stem": "A 2-month-old infant has had inspiratory stridor since birth. It is louder when she is supine and during crying, and softer when she is prone. She fee",
+    "members": [
+      "DRILL-ENT/0022",
+      "MOCKBNK/0647"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT"
+    ],
+    "stem": "A 1-year-old child presents with a soft, fluctuant swelling in the left posterior triangle of the neck that has been present since birth and is slowly",
+    "members": [
+      "DRILL-ENT/0023",
+      "MOCKBNK/0648"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT"
+    ],
+    "stem": "A 50-year-old male presents with a slowly enlarging, pulsatile mass at the angle of the jaw, present for 3 years. It moves laterally but not verticall",
+    "members": [
+      "DRILL-ENT/0025",
+      "MOCKBNK/0650"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 42-year-old woman reports progressive difficulty swallowing both liquids and solids for 2 years, with regurgitation of undigested food and a 4 kg we",
+    "members": [
+      "DRILL-GI/0001",
+      "MOCKBNK/0326"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Medicine",
+      "Psychiatry"
+    ],
+    "stem": "A 60-year-old man who smokes and drinks alcohol reports progressive dysphagia — first to solids, now to liquids — with a 6 kg weight loss over 3 month",
+    "members": [
+      "DRILL-GI/0002",
+      "MOCKBNK/0327"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Gastroenterology"
+    ],
+    "stem": "A 38-year-old man presents after several episodes of forceful vomiting following a binge, followed by small-volume bright-red haematemesis. He is haem",
+    "members": [
+      "DRILL-GI/0004",
+      "MOCKBNK/0329"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 45-year-old man develops sudden severe lower chest pain and shortness of breath immediately after a bout of violent vomiting. On examination he is f",
+    "members": [
+      "DRILL-GI/0005",
+      "MOCKBNK/0330"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 50-year-old man with a long history of NSAID use presents with sudden severe epigastric pain. His abdomen is rigid and board-like, and an erect ches",
+    "members": [
+      "DRILL-GI/0006",
+      "MOCKBNK/0331"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 40-year-old man reports recurrent epigastric pain that is relieved by eating but wakes him at night. Endoscopy shows a duodenal ulcer. Which pain pa",
+    "members": [
+      "DRILL-GI/0007",
+      "MOCKBNK/0332"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 60-year-old man presents with melaena and is haemodynamically stable after initial fluid resuscitation. What is the single most appropriate next ste",
+    "members": [
+      "DRILL-GI/0008",
+      "MOCKBNK/0333"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Medicine",
+      "Surgery"
+    ],
+    "stem": "A 68-year-old diabetic man presents with fever, right upper quadrant pain, and vomiting. CT shows gas within the gallbladder wall. What is the most ap",
+    "members": [
+      "DRILL-GI/0010",
+      "MOCKBNK/0335"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Gastroenterology"
+    ],
+    "stem": "A 74-year-old woman presents with colicky abdominal pain, vomiting, and constipation. Abdominal X-ray shows small-bowel obstruction, air in the biliar",
+    "members": [
+      "DRILL-GI/0011",
+      "MOCKBNK/0336"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 6-year-old boy presents with painless passage of dark red blood per rectum and iron-deficiency anaemia. Which of the following is the most likely ca",
+    "members": [
+      "DRILL-GI/0012",
+      "MOCKBNK/0337"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Cardiovascular",
+      "ENT"
+    ],
+    "stem": "A 72-year-old man with atrial fibrillation presents with sudden severe diffuse abdominal pain that is out of proportion to his near-normal examination",
+    "members": [
+      "DRILL-GI/0013",
+      "MOCKBNK/0338"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Medicine",
+      "Surgery"
+    ],
+    "stem": "A 70-year-old woman presents with vomiting, abdominal distension, and a tender irreducible lump in the right groin below and lateral to the pubic tube",
+    "members": [
+      "DRILL-GI/0015",
+      "MOCKBNK/0340"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 75-year-old man presents with painless, large-volume bright red bleeding per rectum. He is otherwise well and haemodynamically stable. What is the m",
+    "members": [
+      "DRILL-GI/0016",
+      "MOCKBNK/0341"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 60-year-old woman presents with fever, left lower quadrant pain, and leukocytosis. Diverticulitis is suspected. What is the most appropriate imaging",
+    "members": [
+      "DRILL-GI/0017",
+      "MOCKBNK/0342"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Cardiovascular",
+      "ENT"
+    ],
+    "stem": "A 68-year-old woman with hypertension presents with sudden crampy left-sided abdominal pain followed by bloody diarrhoea. She has no history of atrial",
+    "members": [
+      "DRILL-GI/0018",
+      "MOCKBNK/0343"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 35-year-old man presents with a tender, fluctuant swelling beside the anus, with fever. What is the most appropriate management?",
+    "members": [
+      "DRILL-GI/0022",
+      "MOCKBNK/0347"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 72-year-old woman with aortic stenosis presents with recurrent episodes of intermittent, painless bright red bleeding per rectum and iron-deficiency",
+    "members": [
+      "DRILL-GI/0023",
+      "MOCKBNK/0348"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 65-year-old woman develops profuse watery diarrhoea 7 days after completing a course of clindamycin. Sigmoidoscopy shows yellow-white adherent plaqu",
+    "members": [
+      "DRILL-GI/0024",
+      "MOCKBNK/0349"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 28-year-old man with known ulcerative colitis presents with fever, tachycardia, abdominal distension, and dilated colon (>6 cm) on abdominal X-ray. ",
+    "members": [
+      "DRILL-GI/0025",
+      "MOCKBNK/0350"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Medicine",
+      "Pathology"
+    ],
+    "stem": "A 45-year-old with fatigue and jaundice has laboratory evidence of haemolysis and a positive direct Coombs (antiglobulin) test. This immune haemolytic",
+    "members": [
+      "DRILL-HAEMATOLOGY/0001",
+      "MOCKBNK/0201"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Medicine",
+      "Paediatrics"
+    ],
+    "stem": "Which of the following findings indicates that haemolysis is the cause of a neonate's hyperbilirubinaemia?",
+    "members": [
+      "DRILL-HAEMATOLOGY/0002",
+      "MOCKBNK/0202"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Haematology"
+    ],
+    "stem": "A 9-month-old breastfed-and-goat's-milk-fed infant has progressive pallor. Hb 6 g/dL, MCV 106 fL, MCHC 39. Which dietary deficiency is most likely?",
+    "members": [
+      "DRILL-HAEMATOLOGY/0006",
+      "MOCKBNK/0206"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 20-year-old has lifelong mild jaundice, gallstones, splenomegaly and a spherocytosis on the blood film with raised MCHC. Which is the most likely di",
+    "members": [
+      "DRILL-HAEMATOLOGY/0013",
+      "MOCKBNK/0213"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Endocrine"
+    ],
+    "stem": "A 65-year-old has bone pain, pathological vertebral fractures, anaemia and renal impairment. Serum shows a monoclonal paraprotein with rouleaux on the",
+    "members": [
+      "DRILL-HAEMATOLOGY/0022",
+      "MOCKBNK/0222"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "Halfway through a blood transfusion a patient develops fever, chills, loin/back pain, dark urine and hypotension. What is the most appropriate immedia",
+    "members": [
+      "DRILL-HAEMATOLOGY/0025",
+      "MOCKBNK/0225"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Gastroenterology"
+    ],
+    "stem": "A 55-year-old man with cirrhosis presents with confusion and asterixis. Serum ammonia is elevated. In the liver, ammonia is detoxified by combining wi",
+    "members": [
+      "DRILL-HEPATOLOGY/0001",
+      "MOCKBNK/0226"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 60-year-old man with ascites due to cirrhosis presents with fever and abdominal pain. Diagnostic paracentesis shows an ascitic fluid polymorphonucle",
+    "members": [
+      "DRILL-HEPATOLOGY/0002",
+      "MOCKBNK/0227"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 58-year-old man with decompensated cirrhosis and ascites develops oliguria and a creatinine rising from 1.0 to 2.6 mg/dL over 2 weeks. Urine sedimen",
+    "members": [
+      "DRILL-HEPATOLOGY/0003",
+      "MOCKBNK/0228"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 52-year-old man with compensated cirrhosis develops new-onset abdominal distension and shifting dullness. He is otherwise stable with normal renal f",
+    "members": [
+      "DRILL-HEPATOLOGY/0004",
+      "MOCKBNK/0229"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 55-year-old man with chronic liver disease attends for routine review and is found to have a prolonged prothrombin time. Which supplement most direc",
+    "members": [
+      "DRILL-HEPATOLOGY/0005",
+      "MOCKBNK/0230"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Gastroenterology"
+    ],
+    "stem": "A 45-year-old man with hepatitis B-related cirrhosis is under surveillance. What is the most appropriate screening strategy for hepatocellular carcino",
+    "members": [
+      "DRILL-HEPATOLOGY/0006",
+      "MOCKBNK/0231"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 30-year-old woman presents with ascites, tender hepatomegaly, and right upper quadrant pain of 3 weeks duration. Doppler ultrasound shows thrombosis",
+    "members": [
+      "DRILL-HEPATOLOGY/0007",
+      "MOCKBNK/0232"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Gastroenterology"
+    ],
+    "stem": "A 48-year-old man with heavy alcohol use presents with jaundice, tender hepatomegaly, and a Maddrey discriminant function of 40. He has no gastrointes",
+    "members": [
+      "DRILL-HEPATOLOGY/0008",
+      "MOCKBNK/0233"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Infectious"
+    ],
+    "stem": "Which of the following is the most common cause of acute viral hepatitis in children?",
+    "members": [
+      "DRILL-HEPATOLOGY/0009",
+      "MOCKBNK/0234"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Gastroenterology"
+    ],
+    "stem": "A pregnant woman with chronic hepatitis B (HBsAg positive) delivers a baby. After giving hepatitis B immunoglobulin, what additional step most effecti",
+    "members": [
+      "DRILL-HEPATOLOGY/0010",
+      "MOCKBNK/0235"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Gastroenterology",
+      "Medicine"
+    ],
+    "stem": "A 35-year-old man is found to have the following serology: HBsAg positive, anti-HBc IgG positive, anti-HBs negative, HBeAg negative, with normal ALT. ",
+    "members": [
+      "DRILL-HEPATOLOGY/0011",
+      "MOCKBNK/0236"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Gastroenterology"
+    ],
+    "stem": "A 28-year-old pregnant woman in her third trimester presents with acute jaundice, malaise, and markedly elevated aminotransferases. She had recently t",
+    "members": [
+      "DRILL-HEPATOLOGY/0012",
+      "MOCKBNK/0237"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 22-year-old woman presents 24 hours after ingesting a large overdose of paracetamol with jaundice, coagulopathy, and grade 2 hepatic encephalopathy.",
+    "members": [
+      "DRILL-HEPATOLOGY/0013",
+      "MOCKBNK/0238"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 50-year-old man presents with fatigue, joint pain, new-onset diabetes, and slate-grey skin pigmentation. Serum ferritin is markedly elevated with a ",
+    "members": [
+      "DRILL-HEPATOLOGY/0014",
+      "MOCKBNK/0239"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 17-year-old boy presents with a tremor, dysarthria, and deteriorating school performance. Examination shows Kayser-Fleischer rings, and serum cerulo",
+    "members": [
+      "DRILL-HEPATOLOGY/0015",
+      "MOCKBNK/0240"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Gastroenterology"
+    ],
+    "stem": "A 22-year-old man is found to have an isolated raised unconjugated bilirubin (40 µmol/L) on routine testing. His haemoglobin, reticulocyte count, and ",
+    "members": [
+      "DRILL-HEPATOLOGY/0017",
+      "MOCKBNK/0242"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Biochemistry",
+      "Medicine"
+    ],
+    "stem": "A 48-year-old woman presents with pruritus and fatigue. Liver biochemistry shows a markedly raised alkaline phosphatase, and anti-mitochondrial antibo",
+    "members": [
+      "DRILL-HEPATOLOGY/0018",
+      "MOCKBNK/0243"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Gastroenterology"
+    ],
+    "stem": "A 24-year-old woman presents with jaundice and fatigue. Liver enzymes show a marked hepatocellular pattern (AST 900, ALT 850), IgG is elevated, and an",
+    "members": [
+      "DRILL-HEPATOLOGY/0019",
+      "MOCKBNK/0244"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Gastroenterology"
+    ],
+    "stem": "A 60-year-old man with a history of chronic alcohol-related pancreatitis presents with steatorrhoea and weight loss. Deficiency of which pancreatic en",
+    "members": [
+      "DRILL-HEPATOLOGY/0020",
+      "MOCKBNK/0245"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Gastroenterology"
+    ],
+    "stem": "A 40-year-old man had acute pancreatitis 6 weeks ago and now presents with a firm epigastric mass and early satiety. CT shows a well-defined cystic le",
+    "members": [
+      "DRILL-HEPATOLOGY/0021",
+      "MOCKBNK/0246"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 65-year-old man presents with painless jaundice and a palpable non-tender gallbladder. What is the most likely diagnosis?",
+    "members": [
+      "DRILL-HEPATOLOGY/0022",
+      "MOCKBNK/0247"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 26-year-old man presents with fever, right upper quadrant pain, and a tender liver. Ultrasound shows a single 6 cm abscess in the right lobe. What i",
+    "members": [
+      "DRILL-HEPATOLOGY/0023",
+      "MOCKBNK/0248"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Biochemistry",
+      "Medicine"
+    ],
+    "stem": "A patient's liver function tests show an alkaline phosphatase of 900 U/L with near-normal AST and ALT. Which pattern of liver injury does this represe",
+    "members": [
+      "DRILL-HEPATOLOGY/0024",
+      "MOCKBNK/0249"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 30-year-old man with a 5-year history of ulcerative colitis presents with fatigue, pruritus, and a persistently raised alkaline phosphatase. MRCP sh",
+    "members": [
+      "DRILL-HEPATOLOGY/0025",
+      "MOCKBNK/0250"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Neurology"
+    ],
+    "stem": "A 45-year-old woman presents with the 'worst headache of her life' of sudden onset 4 hours ago, vomiting and neck stiffness. Non-contrast CT brain is ",
+    "members": [
+      "DRILL-NEURO/0001",
+      "MOCKBNK/0251"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Medicine",
+      "Pathology"
+    ],
+    "stem": "A 28-year-old woman on combined oral contraceptives, 3 weeks postpartum, has progressive bifrontal headache, blurred vision with papilloedema, and a f",
+    "members": [
+      "DRILL-NEURO/0002",
+      "MOCKBNK/0252"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Medicine",
+      "Neurology"
+    ],
+    "stem": "A 68-year-old man has sudden right hemiparesis, right hemisensory loss, right homonymous hemianopia and expressive (Broca) aphasia. Which vessel is mo",
+    "members": [
+      "DRILL-NEURO/0003",
+      "MOCKBNK/0253"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 59-year-old man has acute left-sided weakness of 2 h duration from an ischaemic stroke. His BP is 190/115 mmHg. Before considering IV thrombolysis, ",
+    "members": [
+      "DRILL-NEURO/0005",
+      "MOCKBNK/0255"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 55-year-old hypertensive man has sudden vertigo, vomiting, ataxia and headache. He is drowsy. CT shows a cerebellar haemorrhage (3 cm) with early ob",
+    "members": [
+      "DRILL-NEURO/0006",
+      "MOCKBNK/0256"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 40-year-old man is 'awake' with eyes open after a large ventral pontine infarct. He cannot speak or move his limbs, but he can reliably move his eye",
+    "members": [
+      "DRILL-NEURO/0007",
+      "MOCKBNK/0257"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "Which combination best satisfies the clinical criteria for brain (brainstem) death?",
+    "members": [
+      "DRILL-NEURO/0008",
+      "MOCKBNK/0258"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 70-year-old man with cirrhosis continues to seize 10 minutes after receiving a benzodiazepine for status epilepticus. Which second-line agent is pre",
+    "members": [
+      "DRILL-NEURO/0009",
+      "MOCKBNK/0259"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Neurology"
+    ],
+    "stem": "A 34-year-old adult has a FIRST unprovoked generalised tonic-clonic seizure. EEG shows generalised epileptiform activity and MRI is normal. Which fact",
+    "members": [
+      "DRILL-NEURO/0010",
+      "MOCKBNK/0260"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Neurology"
+    ],
+    "stem": "A 16-year-old girl has brief myoclonic jerks of her arms on waking and occasional generalised tonic-clonic seizures in the morning. Which is the most ",
+    "members": [
+      "DRILL-NEURO/0011",
+      "MOCKBNK/0261"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Neurology"
+    ],
+    "stem": "A 7-year-old girl has frequent brief episodes of staring and unresponsiveness with rapid blinking, during which she does not fall, lasting 5–10 second",
+    "members": [
+      "DRILL-NEURO/0012",
+      "MOCKBNK/0262"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 22-year-old collapsed with twitching movements of all limbs for about 20 seconds after standing up quickly, then quickly recovered with full orienta",
+    "members": [
+      "DRILL-NEURO/0013",
+      "MOCKBNK/0263"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 32-year-old man has severe, strictly unilateral, tearing and nasal-stuffy headache around the same eye, occurring in clusters every night and making",
+    "members": [
+      "DRILL-NEURO/0014",
+      "MOCKBNK/0264"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Neurology"
+    ],
+    "stem": "A 38-year-old woman with migraine takes sumatriptan or ibuprofen on most days (roughly 18 days per month) and now has a daily, dull, diffuse headache ",
+    "members": [
+      "DRILL-NEURO/0015",
+      "MOCKBNK/0265"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 68-year-old woman has a new severe temporal headache, jaw claudication while chewing, scalp tenderness, and an ESR of 90 mm/h. What is the most appr",
+    "members": [
+      "DRILL-NEURO/0016",
+      "MOCKBNK/0266"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 29-year-old woman with frequent disabling migraines (5–6 attacks/month) needs preventive therapy. She plans pregnancy in the next year. Which prophy",
+    "members": [
+      "DRILL-NEURO/0017",
+      "MOCKBNK/0267"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 60-year-old woman has brief, electric-shock-like stabbing pains in the right cheek/ jaw triggered by touching her face, chewing and cold air. Neurol",
+    "members": [
+      "DRILL-NEURO/0018",
+      "MOCKBNK/0268"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 34-year-old man awakens with inability to close his LEFT eye and flattening of the left nasolabial fold; BOTH upper and lower face are weak, includi",
+    "members": [
+      "DRILL-NEURO/0019",
+      "MOCKBNK/0269"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "Which clinical feature best distinguishes a CENTRAL (upper motor neuron) facial palsy from a PERIPHERAL (lower motor neuron/Bell's) palsy?",
+    "members": [
+      "DRILL-NEURO/0020",
+      "MOCKBNK/0270"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Neurology"
+    ],
+    "stem": "A 24-year-old woman has recurrent 'seizures' with asynchronous thrashing, pelvic thrusting, eyes tightly shut, and crying during events, with normal c",
+    "members": [
+      "DRILL-NEURO/0021",
+      "MOCKBNK/0271"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 45-year-old woman presents with new headaches and seizures. Imaging shows an extra-axial, contrast-enhancing dural-based mass; histology reveals psa",
+    "members": [
+      "DRILL-NEURO/0022",
+      "MOCKBNK/0272"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Anatomy",
+      "Medicine"
+    ],
+    "stem": "A 58-year-old hypertensive man has sudden vertigo, hoarseness, dysphagia, and ataxia. Examination shows right-sided Horner syndrome, loss of pain and ",
+    "members": [
+      "DRILL-NEURO/0023",
+      "MOCKBNK/0273"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Neurology"
+    ],
+    "stem": "A 26-year-old woman with epilepsy on levetiracetam becomes pregnant. Which is the most appropriate management of her antiepileptic therapy?",
+    "members": [
+      "DRILL-NEURO/0024",
+      "MOCKBNK/0274"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A patient remains in electrographic status epilepticus despite a benzodiazepine AND a second-line agent. What is the appropriate next step?",
+    "members": [
+      "DRILL-NEURO/0025",
+      "MOCKBNK/0275"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Gastroenterology"
+    ],
+    "stem": "A 45-year-old woman presents with chronic diarrhoea, weight loss, and steatorrhoea. To distinguish small-intestinal mucosal disease from pancreatic in",
+    "members": [
+      "DRILL-NUTRITION/0001",
+      "MOCKBNK/0276"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A patient with chronic watery diarrhoea has a stool osmolality of 290 mOsm/kg with stool sodium 40 mmol/L and potassium 30 mmol/L. What type of diarrh",
+    "members": [
+      "DRILL-NUTRITION/0002",
+      "MOCKBNK/0277"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 52-year-old man presents with migratory arthralgia, chronic diarrhoea, and weight loss. Small-bowel biopsy shows PAS-positive foamy macrophages in t",
+    "members": [
+      "DRILL-NUTRITION/0003",
+      "MOCKBNK/0278"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Gastroenterology"
+    ],
+    "stem": "A 60-year-old man who had a Billroth II gastrectomy years ago presents with diarrhoea, steatorrhoea, and macrocytic anaemia. A glucose breath test sho",
+    "members": [
+      "DRILL-NUTRITION/0004",
+      "MOCKBNK/0279"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 25-year-old man reports bloating, cramping, and loose stools within 2 hours of drinking milk, which started gradually in his twenties. What is the m",
+    "members": [
+      "DRILL-NUTRITION/0005",
+      "MOCKBNK/0280"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Biochemistry",
+      "Medicine"
+    ],
+    "stem": "A 50-year-old woman undergoes resection of 100 cm of terminal ileum for Crohn disease. Which two deficiencies is she most at risk of developing?",
+    "members": [
+      "DRILL-NUTRITION/0006",
+      "MOCKBNK/0281"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Medicine",
+      "Physiology general"
+    ],
+    "stem": "A 45-year-old woman who had a gastrectomy 1 year ago develops palpitations, sweating, and weakness 90 minutes after meals. What is the most likely mec",
+    "members": [
+      "DRILL-NUTRITION/0007",
+      "MOCKBNK/0282"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Haematology"
+    ],
+    "stem": "A 62-year-old woman with pernicious anaemia (positive anti-intrinsic factor antibodies) requires treatment. What is the most appropriate long-term the",
+    "members": [
+      "DRILL-NUTRITION/0008",
+      "MOCKBNK/0283"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 30-year-old man presents with intensely pruritic vesicles on his elbows, knees, and buttocks. Duodenal biopsy shows villous atrophy consistent with ",
+    "members": [
+      "DRILL-NUTRITION/0009",
+      "MOCKBNK/0284"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Haematology"
+    ],
+    "stem": "A 35-year-old man develops chronic diarrhoea, steatorrhoea, and megaloblastic anaemia 6 months after returning from an extended stay in South Asia. Wh",
+    "members": [
+      "DRILL-NUTRITION/0010",
+      "MOCKBNK/0285"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Haematology"
+    ],
+    "stem": "A 55-year-old man who had a partial gastrectomy for gastric cancer 2 years ago develops fatigue. Blood film shows microcytic, hypochromic anaemia. Wha",
+    "members": [
+      "DRILL-NUTRITION/0011",
+      "MOCKBNK/0286"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Gastroenterology",
+      "Medicine"
+    ],
+    "stem": "A 28-year-old woman with chronic diarrhoea and weight loss has a negative anti-tTG IgA test, but coeliac disease is still suspected. Which additional ",
+    "members": [
+      "DRILL-NUTRITION/0012",
+      "MOCKBNK/0287"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 6-month-old exclusively breastfed infant develops a rash around the mouth and perineum, diarrhoea, and failure to thrive. Which deficiency is most l",
+    "members": [
+      "DRILL-NUTRITION/0013",
+      "MOCKBNK/0288"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Endocrine"
+    ],
+    "stem": "In a region of endemic iodine deficiency, a pregnant woman's newborn is at greatest risk of which condition?",
+    "members": [
+      "DRILL-NUTRITION/0014",
+      "MOCKBNK/0289"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Renal"
+    ],
+    "stem": "A 40-year-old man with severe anorexia is started on aggressive enteral nutrition after a period of starvation. Within 2 days he develops weakness and",
+    "members": [
+      "DRILL-NUTRITION/0015",
+      "MOCKBNK/0290"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "An alcoholic man presents confused with ataxia and ophthalmoplegia. Before administering intravenous glucose, which should be given first?",
+    "members": [
+      "DRILL-NUTRITION/0016",
+      "MOCKBNK/0291"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 3-year-old child in a low-resource setting presents with night blindness and dry, thickened conjunctiva. Without treatment, what is the most feared ",
+    "members": [
+      "DRILL-NUTRITION/0017",
+      "MOCKBNK/0292"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 2-year-old child presents with generalised oedema, a distended abdomen, and a flaky-paint dermatitis with depigmented hair. Which form of malnutriti",
+    "members": [
+      "DRILL-NUTRITION/0018",
+      "MOCKBNK/0293"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 12-month-old infant presents with severe wasting of muscle and subcutaneous fat, an 'old man' facies, and weight for age below the third centile — b",
+    "members": [
+      "DRILL-NUTRITION/0019",
+      "MOCKBNK/0294"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Haematology"
+    ],
+    "stem": "A 58-year-old strict vegan presents with progressive paraesthesia of the feet, loss of vibration sense, and an unsteady gait, with brisk knee reflexes",
+    "members": [
+      "DRILL-NUTRITION/0020",
+      "MOCKBNK/0295"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "In assessing the nutritional status of an acutely ill hospitalised patient, which protein best reflects recent (short-term) nutritional change?",
+    "members": [
+      "DRILL-NUTRITION/0021",
+      "MOCKBNK/0296"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A patient on total parenteral nutrition for 3 weeks develops a fever and rigors. A central line is in situ. What is the most likely complication?",
+    "members": [
+      "DRILL-NUTRITION/0022",
+      "MOCKBNK/0297"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A patient with a functional gastrointestinal tract requires nutritional support. Which feeding route is preferred and why?",
+    "members": [
+      "DRILL-NUTRITION/0023",
+      "MOCKBNK/0298"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Gastroenterology"
+    ],
+    "stem": "A 58-year-old man with chronic pancreatitis has steatorrhoea and weight loss despite eating. Which treatment most directly addresses the steatorrhoea?",
+    "members": [
+      "DRILL-NUTRITION/0024",
+      "MOCKBNK/0299"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Gastroenterology"
+    ],
+    "stem": "A 50-year-old woman with coeliac disease remains symptomatic with persistent villous atrophy despite 12 months of strict gluten avoidance. Which compl",
+    "members": [
+      "DRILL-NUTRITION/0025",
+      "MOCKBNK/0300"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "Chronic acid reflux in Barrett's oesophagus causes the normal squamous epithelium to be replaced by columnar (intestinal-type) epithelium. This transf",
+    "members": [
+      "DRILL-ONCOLOGY/0001",
+      "MOCKBNK/0351"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "The uterine myometrium enlarges during pregnancy, and the prostate enlarges with benign prostatic hyperplasia in older men. Which mechanism best expla",
+    "members": [
+      "DRILL-ONCOLOGY/0002",
+      "MOCKBNK/0352"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A malignant tumour shows marked pleomorphism, hyperchromatic nuclei, a high nuclear:cytoplasmic ratio, prominent nucleoli and numerous mitoses. This l",
+    "members": [
+      "DRILL-ONCOLOGY/0003",
+      "MOCKBNK/0353"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "On a cervical smear, squamous epithelial cells show nuclear atypia, loss of normal maturation and disordered architecture involving the FULL thickness",
+    "members": [
+      "DRILL-ONCOLOGY/0004",
+      "MOCKBNK/0354"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "On histology of an area of recent myocardial infarction, sheets of cells show loss of nuclei, eosinophilic cytoplasm, and an intense neutrophil infilt",
+    "members": [
+      "DRILL-ONCOLOGY/0005",
+      "MOCKBNK/0355"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Medicine",
+      "Surgery"
+    ],
+    "stem": "A child develops retinoblastoma affecting both eyes at an early age, and a family member has the same condition. A defective gene normally functions a",
+    "members": [
+      "DRILL-ONCOLOGY/0006",
+      "MOCKBNK/0356"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Medicine",
+      "Surgery"
+    ],
+    "stem": "A breast cancer shows amplification of a gene encoding a growth-factor receptor tyrosine kinase, targeted by the drug trastuzumab. Which gene is this,",
+    "members": [
+      "DRILL-ONCOLOGY/0007",
+      "MOCKBNK/0357"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A colorectal carcinoma is reported as T3 N1 M0. What do these designations describe, and what distinguishes it from tumour grading?",
+    "members": [
+      "DRILL-ONCOLOGY/0008",
+      "MOCKBNK/0358"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A patient with cirrhosis develops hepatocellular carcinoma and his alpha-fetoprotein (AFP) is markedly elevated. Which statement about tumour markers ",
+    "members": [
+      "DRILL-ONCOLOGY/0009",
+      "MOCKBNK/0359"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A colorectal carcinoma is found to have multiple liver deposits. Through which route did the tumour most likely reach the liver, and what is the value",
+    "members": [
+      "DRILL-ONCOLOGY/0010",
+      "MOCKBNK/0360"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A patient with HIV/AIDS has multiple, solitary, darkly pigmented plaques that evolve into nodular, bluish, painful skin lesions. What is the most like",
+    "members": [
+      "DRILL-ONCOLOGY/0011",
+      "MOCKBNK/0361"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Medicine",
+      "Obstetrics"
+    ],
+    "stem": "A 40-year-old woman has spontaneous blood-stained discharge from one nipple. On examination NO lump is palpable and mammography is otherwise unremarka",
+    "members": [
+      "DRILL-ONCOLOGY/0012",
+      "MOCKBNK/0362"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Medicine",
+      "Renal"
+    ],
+    "stem": "A 35-year-old woman with MEN 2A develops a thyroid lump and chronic diarrhoea; she undergoes total thyroidectomy. Which type of thyroid cancer is most",
+    "members": [
+      "DRILL-ONCOLOGY/0013",
+      "MOCKBNK/0363"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 4-year-old child presents with a large, painless, palpable abdominal mass, hypertension and microscopic haematuria. Imaging shows a renal mass. What",
+    "members": [
+      "DRILL-ONCOLOGY/0014",
+      "MOCKBNK/0364"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 40-year-old woman has a large (6-7 cm), firm, mobile breast lump in the upper outer quadrant that has grown rapidly, but no axillary lymph nodes are",
+    "members": [
+      "DRILL-ONCOLOGY/0015",
+      "MOCKBNK/0365"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Medicine",
+      "Physiology"
+    ],
+    "stem": "A woman presents with a tender, cord-like, linear band beneath the skin of the breast/chest wall. What is the pathophysiology of Mondor's disease?",
+    "members": [
+      "DRILL-ONCOLOGY/0016",
+      "MOCKBNK/0366"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "Which type of colorectal polyp has the HIGHEST malignant potential and is most likely to harbour carcinoma?",
+    "members": [
+      "DRILL-ONCOLOGY/0017",
+      "MOCKBNK/0367"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 45-year-old woman presents with headaches and new-onset seizures. Imaging shows a well-circumscribed extra-axial tumour arising from and irritating ",
+    "members": [
+      "DRILL-ONCOLOGY/0018",
+      "MOCKBNK/0368"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 60-year-old heavy smoker with a central lung mass and hilar lymphadenopathy develops Cushing-like features with a low potassium (hypokalaemic alkalo",
+    "members": [
+      "DRILL-ONCOLOGY/0019",
+      "MOCKBNK/0369"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Gastroenterology"
+    ],
+    "stem": "A 50-year-old overweight woman has progressive painless obstructive jaundice, weight loss, and a palpable distended gallbladder (Courvoisier sign). Im",
+    "members": [
+      "DRILL-ONCOLOGY/0020",
+      "MOCKBNK/0370"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Gastroenterology"
+    ],
+    "stem": "A 55-year-old man with cirrhosis and chronic hepatitis B has worsening abdominal pain, weight loss and a sharply elevated alpha-fetoprotein (AFP). Ima",
+    "members": [
+      "DRILL-ONCOLOGY/0021",
+      "MOCKBNK/0371"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Medicine",
+      "Surgery"
+    ],
+    "stem": "A 55-year-old woman has a hard, irregular, painless breast lump that is fixed to skin, with overlying peau d'orange. Biopsy shows cords of malignant c",
+    "members": [
+      "DRILL-ONCOLOGY/0022",
+      "MOCKBNK/0372"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Medicine",
+      "Surgery"
+    ],
+    "stem": "A 65-year-old has altered bowel habit, rectal bleeding and an 'apple-core' lesion on barium enema. Progression from a benign adenomatous polyp to inva",
+    "members": [
+      "DRILL-ONCOLOGY/0023",
+      "MOCKBNK/0373"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Endocrine",
+      "Medicine"
+    ],
+    "stem": "A 40-year-old has a high-grade cervical lesion and tests positive for high-risk HPV. Which oncogenic mechanism explains HPV-associated cervical carcin",
+    "members": [
+      "DRILL-ONCOLOGY/0024",
+      "MOCKBNK/0374"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Renal"
+    ],
+    "stem": "A 70-year-old man with advanced prostate cancer has new-onset back pain and a raised PSA. A bone scan shows 'hot spots' in the lumbar spine and pelvis",
+    "members": [
+      "DRILL-ONCOLOGY/0025",
+      "MOCKBNK/0375"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Ophthalmology"
+    ],
+    "stem": "A 12-year-old boy has recurrent seasonal eye itching and redness, worse in summer, with conjunctival hyperaemia, cobblestone papillae on the upper tar",
+    "members": [
+      "DRILL-OPHTHALMOLOGY/0001",
+      "MOCKBNK/0676"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Ophthalmology"
+    ],
+    "stem": "A long-standing diabetic with proliferative retinopathy develops a retinal detachment with visible vitreous haemorrhage and traction bands. Definitive",
+    "members": [
+      "DRILL-OPHTHALMOLOGY/0002",
+      "MOCKBNK/0677"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Ophthalmology"
+    ],
+    "stem": "A 68-year-old with acute angle-closure glaucoma has markedly elevated intraocular pressure unresponsive to initial topical and oral therapy. Which age",
+    "members": [
+      "DRILL-OPHTHALMOLOGY/0004",
+      "MOCKBNK/0679"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Ophthalmology"
+    ],
+    "stem": "A 19-year-old is struck in the eye with a ball and develops layering of blood in the anterior chamber (hyphema). Mainstay of acute management?",
+    "members": [
+      "DRILL-OPHTHALMOLOGY/0006",
+      "MOCKBNK/0681"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Ophthalmology"
+    ],
+    "stem": "A patient has sudden, painless, monocular visual loss. Which typically presents WITH pain on eye movement and is therefore NOT in the 'painless' diffe",
+    "members": [
+      "DRILL-OPHTHALMOLOGY/0008",
+      "MOCKBNK/0683"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Ophthalmology"
+    ],
+    "stem": "A 78-year-old has gradually worsening central blurring and distortion (metamorphopsia) with difficulty reading. Most appropriate initial investigation",
+    "members": [
+      "DRILL-OPHTHALMOLOGY/0012",
+      "MOCKBNK/0687"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Ophthalmology"
+    ],
+    "stem": "An 80-year-old with AMD develops rapid central vision loss and distortion. OCT shows subretinal fluid and new vessels under the macula. Which statemen",
+    "members": [
+      "DRILL-OPHTHALMOLOGY/0013",
+      "MOCKBNK/0688"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Ophthalmology",
+      "Orthopaedics"
+    ],
+    "stem": "A 35-year-old has a mild red, mildly tender eye with localized injected vessels that blanch on phenylephrine, and no vision loss. A 60-year-old with r",
+    "members": [
+      "DRILL-OPHTHALMOLOGY/0015",
+      "MOCKBNK/0690"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Ophthalmology",
+      "Surgery"
+    ],
+    "stem": "A 6-week-old infant is found to have a dense white pupil (leukocoria) and poor visual fixation in one eye. What is the most important principle in man",
+    "members": [
+      "DRILL-OPHTHALMOLOGY/0017",
+      "MOCKBNK/0692"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Ophthalmology"
+    ],
+    "stem": "A 50-year-old farmer with chronic sun exposure has a triangular, fleshy, fibrovascular growth extending from the nasal limbus ONTO the cornea, with mi",
+    "members": [
+      "DRILL-OPHTHALMOLOGY/0022",
+      "MOCKBNK/0697"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Ophthalmology"
+    ],
+    "stem": "A 65-year-old with hypertension and diabetes wakes with sudden, painless vision loss in one eye. Exam shows a relative afferent pupillary defect and a",
+    "members": [
+      "DRILL-OPHTHALMOLOGY/0025",
+      "MOCKBNK/0700"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Psychiatry"
+    ],
+    "stem": "A 15-year-old boy tells his teacher that 'the teacher is trying to kill me' and repeats that classmates are secretly plotting to attack him. He is con",
+    "members": [
+      "DRILL-PSYCH/0001",
+      "MOCKBNK/0701"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Psychiatry"
+    ],
+    "stem": "A 22-year-old man presents with delusions and hallucinations that have been continuous for 3 months, with functioning decline. No mood episode is pres",
+    "members": [
+      "DRILL-PSYCH/0002",
+      "MOCKBNK/0702"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Psychiatry"
+    ],
+    "stem": "A patient on an antipsychotic develops rigidity, hyperthermia, fluctuating consciousness and autonomic instability, with a markedly elevated CK. Which",
+    "members": [
+      "DRILL-PSYCH/0004",
+      "MOCKBNK/0704"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Psychiatry"
+    ],
+    "stem": "A 19-year-old man develops painful neck twisting (torticollis), eye deviation (oculogyric crisis) and tongue protrusion within 2 days of starting a hi",
+    "members": [
+      "DRILL-PSYCH/0006",
+      "MOCKBNK/0706"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Psychiatry"
+    ],
+    "stem": "A 33-year-old woman with bipolar I disorder presents with a 3-week episode of major depression while on her mood stabiliser. Which is LEAST appropriat",
+    "members": [
+      "DRILL-PSYCH/0008",
+      "MOCKBNK/0708"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Psychiatry"
+    ],
+    "stem": "A 30-year-old woman has recurrent, unexpected episodes of intense fear peaking within minutes, with palpitations, sweating, tremor, chest discomfort, ",
+    "members": [
+      "DRILL-PSYCH/0012",
+      "MOCKBNK/0712"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Psychiatry"
+    ],
+    "stem": "A 28-year-old woman with panic disorder asks about treatment. She wants a medication that treats the underlying attack frequency. Which is the most ap",
+    "members": [
+      "DRILL-PSYCH/0013",
+      "MOCKBNK/0713"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Psychiatry"
+    ],
+    "stem": "A postoperative elderly patient is agitated and hallucinating with delirium. Which is the MOST appropriate first-line management approach?",
+    "members": [
+      "DRILL-PSYCH/0015",
+      "MOCKBNK/0715"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Psychiatry"
+    ],
+    "stem": "A 69-year-old hypertensive, diabetic smoker has stepwise cognitive decline with abrupt worsening, emotional lability, focal neurologic signs and gait ",
+    "members": [
+      "DRILL-PSYCH/0017",
+      "MOCKBNK/0717"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Psychiatry"
+    ],
+    "stem": "A 35-year-old man with long-standing opioid dependence stops use. He has rhinorrhoea, lacrimation, yawning, piloerection, mydriasis, muscle cramps, di",
+    "members": [
+      "DRILL-PSYCH/0022",
+      "MOCKBNK/0722"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Psychiatry"
+    ],
+    "stem": "A 21-year-old woman of normal weight has recurrent episodes of binge-eating followed by self-induced vomiting several times a week, with dental enamel",
+    "members": [
+      "DRILL-PSYCH/0025",
+      "MOCKBNK/0725"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Medicine",
+      "Renal"
+    ],
+    "stem": "A 60-year-old woman develops fever, a maculopapular rash, and rising creatinine 10 days after starting a new antibiotic. Urine shows WBC casts and per",
+    "members": [
+      "DRILL-RENAL/0001",
+      "MOCKBNK/0301"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Immunology"
+    ],
+    "stem": "A 45-year-old renal transplant recipient has an asymptomatic rise in serum creatinine 1 year after transplantation, despite stable immunosuppression. ",
+    "members": [
+      "DRILL-RENAL/0002",
+      "MOCKBNK/0302"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Medicine",
+      "Renal"
+    ],
+    "stem": "A 55-year-old man with decompensated cirrhosis and ascites develops progressive oliguria. Urine sodium is 8 mmol/L, urine osmolality is 650 mOsm/kg, a",
+    "members": [
+      "DRILL-RENAL/0003",
+      "MOCKBNK/0303"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Haematology"
+    ],
+    "stem": "A 3-year-old child develops bloody diarrhoea followed by oliguria, pallor, and bruising. Blood film shows schistocytes and thrombocytopenia; creatinin",
+    "members": [
+      "DRILL-RENAL/0004",
+      "MOCKBNK/0304"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Haematology"
+    ],
+    "stem": "A 20-year-old man with newly diagnosed Burkitt lymphoma develops oliguria 24 hours after starting chemotherapy. Labs show potassium 6.8 mmol/L, phosph",
+    "members": [
+      "DRILL-RENAL/0006",
+      "MOCKBNK/0306"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Medicine",
+      "Renal"
+    ],
+    "stem": "According to KDIGO, which urine output criterion defines acute kidney injury?",
+    "members": [
+      "DRILL-RENAL/0007",
+      "MOCKBNK/0307"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Medicine",
+      "Surgery"
+    ],
+    "stem": "A 65-year-old man develops AKI after prolonged hypotension during cardiac surgery. Urine microscopy shows muddy brown granular casts and urine sodium ",
+    "members": [
+      "DRILL-RENAL/0008",
+      "MOCKBNK/0308"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 58-year-old woman has an eGFR of 35 mL/min/1.73 m² with known diabetic nephropathy. Which CKD stage does this represent?",
+    "members": [
+      "DRILL-RENAL/0009",
+      "MOCKBNK/0309"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 35-year-old man presents with bilateral flank pain, hypertension, and haematuria. Imaging shows multiple bilateral renal cysts and his father died o",
+    "members": [
+      "DRILL-RENAL/0010",
+      "MOCKBNK/0310"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 62-year-old hypertensive smoker develops recurrent 'flash' pulmonary oedema. After starting an ACE inhibitor, serum creatinine rises from 1.2 to 2.1",
+    "members": [
+      "DRILL-RENAL/0011",
+      "MOCKBNK/0311"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Haematology"
+    ],
+    "stem": "A 50-year-old man with advanced CKD (eGFR 12) develops prolonged bleeding after tooth extraction. Platelet count is normal. Which agent most directly ",
+    "members": [
+      "DRILL-RENAL/0012",
+      "MOCKBNK/0312"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A patient is being prepared for maintenance haemodialysis. Which vascular access is preferred for long-term dialysis?",
+    "members": [
+      "DRILL-RENAL/0014",
+      "MOCKBNK/0314"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 55-year-old man with CKD stage 4 is counselled on dietary modification. Which dietary restriction is most important to slow progression and prevent ",
+    "members": [
+      "DRILL-RENAL/0015",
+      "MOCKBNK/0315"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Cardiovascular",
+      "ENT"
+    ],
+    "stem": "A 60-year-old man with a 20-year history of poorly controlled hypertension has slowly progressive renal impairment with mild proteinuria (<1 g/day). U",
+    "members": [
+      "DRILL-RENAL/0016",
+      "MOCKBNK/0316"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Haematology",
+      "Medicine"
+    ],
+    "stem": "A 7-year-old boy develops palpable purpura on the buttocks and legs, abdominal pain, and arthralgia 2 weeks after an upper respiratory infection. Urin",
+    "members": [
+      "DRILL-RENAL/0017",
+      "MOCKBNK/0317"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 45-year-old man presents with sinusitis, haemoptysis, and rapidly progressive renal failure. Urine shows RBC casts. Which antibody is most likely to",
+    "members": [
+      "DRILL-RENAL/0018",
+      "MOCKBNK/0318"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 55-year-old woman has rapidly progressive glomerulonephritis with haematuria, but NO upper respiratory or sinus involvement. Renal biopsy shows pauc",
+    "members": [
+      "DRILL-RENAL/0019",
+      "MOCKBNK/0319"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A renal biopsy in a patient with rapidly progressive glomerulonephritis shows crescentic GN with linear immunofluorescence for IgG along the glomerula",
+    "members": [
+      "DRILL-RENAL/0020",
+      "MOCKBNK/0320"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Medicine",
+      "Neurology"
+    ],
+    "stem": "A 40-year-old man with nephrotic syndrome due to membranous nephropathy develops sudden left flank pain and gross haematuria. What complication should",
+    "members": [
+      "DRILL-RENAL/0021",
+      "MOCKBNK/0321"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Renal"
+    ],
+    "stem": "A 30-year-old man with untreated HIV infection develops nephrotic-range proteinuria and progressive renal failure. Biopsy shows collapsing focal segme",
+    "members": [
+      "DRILL-RENAL/0022",
+      "MOCKBNK/0322"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Medicine"
+    ],
+    "stem": "A 25-year-old woman has persistent microscopic haematuria found on a routine check. She is otherwise well with normal blood pressure, normal renal fun",
+    "members": [
+      "DRILL-RENAL/0023",
+      "MOCKBNK/0323"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Renal"
+    ],
+    "stem": "A 60-year-old man with long-standing rheumatoid arthritis develops nephrotic-range proteinuria and renal impairment. Renal biopsy shows apple-green bi",
+    "members": [
+      "DRILL-RENAL/0024",
+      "MOCKBNK/0324"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Urology"
+    ],
+    "stem": "A 45-year-old man presents with his first renal colic. Non-contrast CT shows a radio-opaque stone in the left renal pelvis. Which is the most common c",
+    "members": [
+      "DRILL-UROLOGY/0001",
+      "MOCKBNK/0501"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Urology"
+    ],
+    "stem": "A 50-year-old man with gout presents with renal colic. Plain abdominal X-ray shows no visible stone, but CT confirms a renal calculus. What is the mos",
+    "members": [
+      "DRILL-UROLOGY/0002",
+      "MOCKBNK/0502"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Surgery"
+    ],
+    "stem": "A 19-year-old with a history of childhood renal stones has a stone analysis showing hexagonal crystals. Which inheritance pattern and treatment is cor",
+    "members": [
+      "DRILL-UROLOGY/0003",
+      "MOCKBNK/0503"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Surgery"
+    ],
+    "stem": "A 40-year-old woman with Crohn disease (extensive ileal resection) develops recurrent calcium oxalate stones. What is the underlying mechanism?",
+    "members": [
+      "DRILL-UROLOGY/0004",
+      "MOCKBNK/0504"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Surgery"
+    ],
+    "stem": "A 55-year-old woman with recurrent renal stones is found to have hypercalcaemia with low phosphate and elevated PTH. Which stone type is she forming?",
+    "members": [
+      "DRILL-UROLOGY/0005",
+      "MOCKBNK/0505"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Surgery"
+    ],
+    "stem": "A 58-year-old smoker presents with painless gross haematuria, left flank pain, and a palpable abdominal mass. CT shows a 9 cm heterogeneous renal mass",
+    "members": [
+      "DRILL-UROLOGY/0006",
+      "MOCKBNK/0506"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Surgery",
+      "Urology"
+    ],
+    "stem": "A 3-year-old child is found to have a large, smooth, unilateral abdominal mass that does not cross the midline. There is no haematuria. What is the mo",
+    "members": [
+      "DRILL-UROLOGY/0007",
+      "MOCKBNK/0507"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Surgery"
+    ],
+    "stem": "A 60-year-old heavy smoker presents with painless gross haematuria. Cystoscopy is normal, but retrograde pyelography shows a filling defect in the ren",
+    "members": [
+      "DRILL-UROLOGY/0008",
+      "MOCKBNK/0508"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Surgery"
+    ],
+    "stem": "A 28-year-old man has a painless testicular mass. Tumour markers show an elevated alpha-fetoprotein (AFP) and normal human chorionic gonadotropin (hCG",
+    "members": [
+      "DRILL-UROLOGY/0009",
+      "MOCKBNK/0509"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Surgery"
+    ],
+    "stem": "A 1-year-old boy has an undescended right testis that has not spontaneously descended. What is the most important long-term concern and management?",
+    "members": [
+      "DRILL-UROLOGY/0010",
+      "MOCKBNK/0510"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Surgery"
+    ],
+    "stem": "A 26-year-old man presents with infertility and a 'bag of worms' sensation in the left scrotum that diminishes when supine. What is the most likely fi",
+    "members": [
+      "DRILL-UROLOGY/0011",
+      "MOCKBNK/0511"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Surgery"
+    ],
+    "stem": "A couple presents with infertility. The man has a low semen volume and a left varicocele on exam. Which initial step is most appropriate?",
+    "members": [
+      "DRILL-UROLOGY/0012",
+      "MOCKBNK/0512"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Surgery"
+    ],
+    "stem": "A 60-year-old man with poor hygiene has inability to retract the foreskin over the glans, with no acute pain or swelling. A younger man presents acute",
+    "members": [
+      "DRILL-UROLOGY/0013",
+      "MOCKBNK/0513"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Surgery"
+    ],
+    "stem": "A 55-year-old uncircumcised man presents with a non-healing ulcerative lesion on the glans penis. Which is the strongest associated risk factor?",
+    "members": [
+      "DRILL-UROLOGY/0014",
+      "MOCKBNK/0514"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Orthopaedics",
+      "Surgery"
+    ],
+    "stem": "A 50-year-old man reports a progressively curved, painful erection with a palpable firm band on the dorsal penis. What is the diagnosis?",
+    "members": [
+      "DRILL-UROLOGY/0015",
+      "MOCKBNK/0515"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Surgery"
+    ],
+    "stem": "A 30-year-old man presents with dysuria, fever, and perineal pain; the prostate is tender and boggy on exam. What is the most appropriate initial anti",
+    "members": [
+      "DRILL-UROLOGY/0016",
+      "MOCKBNK/0516"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Surgery"
+    ],
+    "stem": "A 24-year-old pregnant woman at 16 weeks is found to have asymptomatic bacteriuria on screening. What is the most appropriate management?",
+    "members": [
+      "DRILL-UROLOGY/0017",
+      "MOCKBNK/0517"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Surgery"
+    ],
+    "stem": "A 28-year-old woman presents with fever, flank pain, and costovertebral angle tenderness. Urinalysis shows leucocytes and nitrites. What is the most l",
+    "members": [
+      "DRILL-UROLOGY/0018",
+      "MOCKBNK/0518"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Surgery"
+    ],
+    "stem": "In which of the following patients is treatment of asymptomatic bacteriuria clearly indicated?",
+    "members": [
+      "DRILL-UROLOGY/0020",
+      "MOCKBNK/0520"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Surgery"
+    ],
+    "stem": "A 25-year-old man with a T6 spinal cord injury has recurrent urinary tract infections and incomplete emptying. Which management is most appropriate?",
+    "members": [
+      "DRILL-UROLOGY/0021",
+      "MOCKBNK/0521"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Respiratory",
+      "Surgery"
+    ],
+    "stem": "A 30-year-old man with a cervical spinal cord injury suddenly develops a severe headache, sweating, and a blood pressure of 200/110 mmHg. The trigger ",
+    "members": [
+      "DRILL-UROLOGY/0022",
+      "MOCKBNK/0522"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Surgery"
+    ],
+    "stem": "An 80-year-old man with long-standing bladder outlet obstruction has constant dribbling incontinence with a palpable bladder. Which type of incontinen",
+    "members": [
+      "DRILL-UROLOGY/0023",
+      "MOCKBNK/0523"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Surgery"
+    ],
+    "stem": "A 45-year-old man with a history of recurrent urethral discharge and prior catheterisation has a weak stream, terminal dribbling, and a palpable bladd",
+    "members": [
+      "DRILL-UROLOGY/0024",
+      "MOCKBNK/0524"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Surgery"
+    ],
+    "stem": "During a hysterectomy, the ureter is most commonly injured at which anatomical relationship?",
+    "members": [
+      "DRILL-UROLOGY/0025",
+      "MOCKBNK/0525"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Applied-Anatomy-&-Surgery",
+      "Cardiovascular"
+    ],
+    "stem": "A 60-year-old hypertensive man wakes with drooping of the left lower face. He can wrinkle his forehead on the left and close the left eye fully. Taste",
+    "members": [
+      "MOCKBNK/0003",
+      "TS4/0002"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Anatomy"
+    ],
+    "stem": "A 45-year-old woman received an intramuscular injection in the left buttock two weeks ago. She now has a painless limp: when she stands on the left le",
+    "members": [
+      "MOCKBNK/0005",
+      "TS4/0001"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Anatomy",
+      "Surgery"
+    ],
+    "stem": "A 30-year-old man undergoes open shoulder surgery under prolonged traction. He now has weakness of elbow flexion when the forearm is fully supinated, ",
+    "members": [
+      "MOCKBNK/0007",
+      "TS4/0003"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Anatomy",
+      "ENT"
+    ],
+    "stem": "A 40-year-old man with an odontogenic infection develops dysphagia and fever. CT shows a retropharyngeal collection extending inferiorly BEHIND the al",
+    "members": [
+      "MOCKBNK/0010",
+      "TS4/0005"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Anatomy",
+      "ENT"
+    ],
+    "stem": "A vascular surgeon repairs a traumatic pseudoaneurysm of the superficial femoral artery within the adductor (subsartorial) canal. Which statement abou",
+    "members": [
+      "MOCKBNK/0015",
+      "TS4/0006"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Applied-Anatomy-&-Surgery",
+      "ENT"
+    ],
+    "stem": "During a total abdominal hysterectomy, the surgeon ligates the uterine artery at its crossing with the ureter at the base of the broad ligament. Which",
+    "members": [
+      "MOCKBNK/0019",
+      "TS4/0004"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Grand-All-Subject"
+    ],
+    "stem": "A 28-year-old woman with regular 28-day cycles is investigated for infertility. On cycle day 12, ultrasound shows a mature 20 mm dominant follicle and",
+    "members": [
+      "MOCKBNK/0026",
+      "TS9/0014"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Biochemistry-&-Microbiology",
+      "ENT"
+    ],
+    "stem": "A 5-month-old infant who was born at home and missed newborn screening has fair skin, eczema, and a musty odour. Plasma phenylalanine is 510 µmol/L. D",
+    "members": [
+      "MOCKBNK/0052",
+      "TS6/0005"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Biochemistry-&-Microbiology",
+      "Respiratory"
+    ],
+    "stem": "A 14-year-old boy, tall and thin with long fingers, has had two deep venous thromboses and a pulmonary embolism. Slit-lamp examination shows the lens ",
+    "members": [
+      "MOCKBNK/0068",
+      "TS6/0002"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Biochemistry-&-Microbiology",
+      "ENT"
+    ],
+    "stem": "A 52-year-old man reports that his urine turns dark after standing for some hours and progressive low-back stiffness. Examination shows grey-blue pigm",
+    "members": [
+      "MOCKBNK/0069",
+      "TS6/0004"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Biochemistry"
+    ],
+    "stem": "A 62-year-old man has an isolated serum alkaline phosphatase of 520 U/L (normal <120). Bilirubin, ALT, GGT, calcium, and phosphate are normal. Which i",
+    "members": [
+      "MOCKBNK/0071",
+      "TS6/0001"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Haematology"
+    ],
+    "stem": "A 58-year-old woman with rheumatoid arthritis has Hb 9.5 g/dL, MCV 78 fL, low serum iron, normal-low transferrin, and ferritin 320 µg/L. Which mediato",
+    "members": [
+      "MOCKBNK/0074",
+      "TS6/0003"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Grand-All-Subject"
+    ],
+    "stem": "A 60-year-old man with worsening heart failure develops a right-sided pleural effusion. Thoracentesis yields clear, straw-colored fluid: total protein",
+    "members": [
+      "MOCKBNK/0083",
+      "TS9/0015"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Grand-All-Subject"
+    ],
+    "stem": "A 47-year-old man is brought in 2 hours after ingesting a large quantity of his wife’s amlodipine tablets. He is hypotensive (78/40 mmHg), bradycardic",
+    "members": [
+      "MOCKBNK/0103",
+      "TS9/0016"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Applied-Anatomy-&-Surgery",
+      "ENT"
+    ],
+    "stem": "A 68-year-old man with perforated sigmoid diverticulitis is in the emergency department. After 30 mL/kg of crystalloid, blood pressure remains 82/50 m",
+    "members": [
+      "MOCKBNK/0378",
+      "TS4/0008"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Applied-Anatomy-&-Surgery",
+      "Surgery"
+    ],
+    "stem": "Five minutes after a right subclavian central venous catheter insertion, a 55-year-old man undergoing elective surgery develops sudden hypotension, ta",
+    "members": [
+      "MOCKBNK/0382",
+      "TS4/0009"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Applied-Anatomy-&-Surgery",
+      "ENT"
+    ],
+    "stem": "A 72-year-old man has massive abdominal distension, crampy pain and absolute constipation for 48 hours. Abdominal X-ray shows a grossly dilated sigmoi",
+    "members": [
+      "MOCKBNK/0386",
+      "TS4/0011"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Gastroenterology"
+    ],
+    "stem": "A 68-year-old woman presents with sudden severe epigastric pain and distension, violent retching without the ability to vomit, and an inability to pas",
+    "members": [
+      "MOCKBNK/0387",
+      "TS4/0012"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Applied-Anatomy-&-Surgery",
+      "Respiratory"
+    ],
+    "stem": "A 32-year-old woman has low-grade fever, night sweats, weight loss and gradually increasing abdominal distension for 3 months. The abdomen is 'doughy'",
+    "members": [
+      "MOCKBNK/0389",
+      "TS4/0010"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Applied-Anatomy-&-Surgery",
+      "ENT"
+    ],
+    "stem": "A 45-year-old woman with known diverticular disease has worsening left lower quadrant pain, fever and generalised tenderness. An erect chest X-ray sho",
+    "members": [
+      "MOCKBNK/0396",
+      "TS4/0007"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Surgery"
+    ],
+    "stem": "A 66-year-old man undergoes an uneventful right hemicolectomy for colon cancer. Histology reports a moderately differentiated adenocarcinoma extending",
+    "members": [
+      "MOCKBNK/0405",
+      "TS9/0010"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Applied-Anatomy-&-Surgery",
+      "ENT"
+    ],
+    "stem": "A 71-year-old man collapses at home with sudden severe abdominal and back pain. On arrival he is pale and sweaty, with a blood pressure of 78/50 mmHg,",
+    "members": [
+      "MOCKBNK/0479",
+      "TS4/0013"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Obstetrics-&-Gynaecology"
+    ],
+    "stem": "A 32-year-old G2P1 at 33 weeks presents with sudden severe constant abdominal pain and dark red vaginal bleeding. The uterus is firm and tender. Fetal",
+    "members": [
+      "MOCKBNK/0527",
+      "TS3/0004"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Cardiovascular",
+      "ENT"
+    ],
+    "stem": "A 24-year-old primigravida at 35 weeks presents with headache and a blood pressure of 172/112 mmHg confirmed on two readings 15 minutes apart, with 3+",
+    "members": [
+      "MOCKBNK/0528",
+      "TS3/0001"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Obstetrics-&-Gynaecology"
+    ],
+    "stem": "A 36-year-old G6P5 (grand multipara) in labour at term for 16 hours develops sudden severe constant suprapubic pain. Contractions have stopped and the",
+    "members": [
+      "MOCKBNK/0539",
+      "TS3/0003"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Obstetrics-&-Gynaecology"
+    ],
+    "stem": "A 31-year-old G2P1 at 33 weeks has a fundal height 4 cm below dates on two consecutive visits, with normal blood pressure. Ultrasound shows an estimat",
+    "members": [
+      "MOCKBNK/0547",
+      "TS3/0005"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Pharmacology"
+    ],
+    "stem": "A 28-year-old G2P1 at 37 weeks had a positive group B streptococcus (GBS) vaginal swab at 36 weeks. She is now in labour with ruptured membranes for 2",
+    "members": [
+      "MOCKBNK/0549",
+      "TS3/0002"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Obstetrics"
+    ],
+    "stem": "A 20-year-old university student who is sexually active requests contraception. She often forgets daily pills, wants reliable protection for the next ",
+    "members": [
+      "MOCKBNK/0554",
+      "TS3/0010"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Obstetrics-&-Gynaecology"
+    ],
+    "stem": "A 26-year-old woman with polycystic ovary syndrome (oligomenorrhea, hirsutism and acne; BMI 28 kg/m²) has only 3–4 periods a year. She is sexually act",
+    "members": [
+      "MOCKBNK/0556",
+      "TS3/0011"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Obstetrics-&-Gynaecology"
+    ],
+    "stem": "A 24-year-old nulliparous woman presents with sudden severe left iliac fossa pain and vomiting over 4 hours. She is afebrile. A tender 7 cm left adnex",
+    "members": [
+      "MOCKBNK/0558",
+      "TS3/0009"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Obstetrics-&-Gynaecology"
+    ],
+    "stem": "A 26-year-old nulliparous woman at 7 weeks of amenorrhea has mild brown spotting but no pain. Quantitative β-hCG fell from 850 to 610 IU/L over 48 hou",
+    "members": [
+      "MOCKBNK/0563",
+      "TS3/0012"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Obstetrics-&-Gynaecology",
+      "Surgery"
+    ],
+    "stem": "A 55-year-old woman, para 4, reports a dragging sensation and something coming down for the past year, worse at the end of the day. On examination wit",
+    "members": [
+      "MOCKBNK/0565",
+      "TS3/0008"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Pathology"
+    ],
+    "stem": "A 29-year-old woman who had evacuation of a hydatidiform mole 6 months ago has a rising β-hCG, now 150,000 IU/L. Chest X-ray shows multiple bilateral ",
+    "members": [
+      "MOCKBNK/0573",
+      "TS3/0007"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Obstetrics-&-Gynaecology"
+    ],
+    "stem": "A 21-year-old competitive long-distance runner (BMI 17.5 kg/m²) has had amenorrhea for 7 months and a recent metatarsal stress fracture. A pregnancy t",
+    "members": [
+      "MOCKBNK/0574",
+      "TS3/0006"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Paediatrics"
+    ],
+    "stem": "A 7-year-old girl has had a dry, persistent cough for 10 days with low-grade fever but minimal chest findings. Chest X-ray shows bilateral patchy inte",
+    "members": [
+      "MOCKBNK/0591",
+      "TS5/0001"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Neurology",
+      "Paediatrics"
+    ],
+    "stem": "An 18-month-old boy has fever of 40.1°C, lethargy, and neck stiffness. A petechial rash is spreading rapidly over his trunk, blood pressure is 82/50 m",
+    "members": [
+      "MOCKBNK/0594",
+      "TS5/0003"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Community Medicine",
+      "Paediatrics"
+    ],
+    "stem": "A 4-year-old girl from a low-resource setting is assessed for undernutrition. Her height-for-age is below −3 standard deviations, while her weight-for",
+    "members": [
+      "MOCKBNK/0598",
+      "TS5/0002"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Paediatrics"
+    ],
+    "stem": "A healthy 6-month-old boy is brought for routine vaccination. Which of the following developmental findings is NORMAL for this age?",
+    "members": [
+      "MOCKBNK/0614",
+      "TS5/0005"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Paediatrics"
+    ],
+    "stem": "A 24-month-old boy has a vocabulary of eight single words and does not combine two words. He passed newborn hearing screening. What is the most approp",
+    "members": [
+      "MOCKBNK/0615",
+      "TS5/0004"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Haematology"
+    ],
+    "stem": "A researcher records the monthly incomes (in thousand rupees) of 9 households in a village: 8, 10, 12, 12, 15, 16, 18, 20, 350. Which measure of centr",
+    "members": [
+      "MOCKBNK/0727",
+      "TS8/0018"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Infectious"
+    ],
+    "stem": "In a randomized controlled trial, a new antihypertensive drug is compared with placebo. The primary outcome is the mean fall in systolic blood pressur",
+    "members": [
+      "MOCKBNK/0728",
+      "TS8/0016"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Community Medicine",
+      "ENT"
+    ],
+    "stem": "A team surveys a town of 5,000 adults on a single day and finds that 85 currently have diabetes mellitus. Which epidemiological measure does the figur",
+    "members": [
+      "MOCKBNK/0736",
+      "TS8/0017"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Forensic Medicine"
+    ],
+    "stem": "A 2-year-old boy, previously well, develops 3 weeks of irritability, insomnia, profuse sweating, and photophobia. His hands and feet are red, swollen,",
+    "members": [
+      "MOCKBNK/0758",
+      "TS8/0020"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "ENT",
+      "Forensic Medicine"
+    ],
+    "stem": "A body is found in an open field in summer, and forensic entomology is used to estimate the postmortem interval. The body is colonised by several arth",
+    "members": [
+      "MOCKBNK/0773",
+      "TS8/0019"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Ophthalmology-Core"
+    ],
+    "stem": "A 70-year-old female presents to the emergency department with sudden onset of severe right eye pain, headache, nausea, and vomiting for 3 hours. She ",
+    "members": [
+      "MCORE/1476",
+      "MCORE/1501"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Ophthalmology-Core"
+    ],
+    "stem": "A 65-year-old male is noted to have an enlarged cup-to-disc ratio of 0.8 on routine fundoscopy. He is asymptomatic and has no complaints about his vis",
+    "members": [
+      "MCORE/1477",
+      "MCORE/1502"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Ophthalmology-Core"
+    ],
+    "stem": "A 75-year-old male with a history of hypertension and smoking presents with sudden, painless vision loss in his left eye that occurred 2 hours ago. Vi",
+    "members": [
+      "MCORE/1478",
+      "MCORE/1503"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Pharmacology"
+    ],
+    "stem": "A 28-year-old female presents with a painful red left eye for 2 days. She reports photophobia and blurred vision. She had a cold sore on her lip last ",
+    "members": [
+      "MCORE/1479",
+      "MCORE/1504"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Ophthalmology"
+    ],
+    "stem": "A 35-year-old male presents with a painful red left eye, photophobia, and blurred vision for 4 days. On examination, there is ciliary flush (circumcor",
+    "members": [
+      "MCORE/1480",
+      "MCORE/1505"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Ophthalmology"
+    ],
+    "stem": "A 78-year-old female complains of gradual, painless blurring of vision in both eyes over the past year. She has difficulty reading and notices glare w",
+    "members": [
+      "MCORE/1481",
+      "MCORE/1506"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Pharmacology"
+    ],
+    "stem": "A 68-year-old male with a history of hypertension presents with sudden painless vision loss in his right eye. Fundoscopy reveals a cherry red spot and",
+    "members": [
+      "MCORE/1482",
+      "MCORE/1507"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Ophthalmology-Core"
+    ],
+    "stem": "A 5-year-old child is brought by his mother who noticed that his left eye turns inward. On examination, the left eye deviates medially. Cover-uncover ",
+    "members": [
+      "MCORE/1483",
+      "MCORE/1508"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Ophthalmology"
+    ],
+    "stem": "A 72-year-old female underwent cataract surgery 4 days ago. She now presents with severe pain, redness, and decreased vision in the operated eye. On e",
+    "members": [
+      "MCORE/1484",
+      "MCORE/1509"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Ophthalmology-Core"
+    ],
+    "stem": "The swinging flashlight test is performed on a patient with unilateral vision loss. When the light is moved from the unaffected eye to the affected ey",
+    "members": [
+      "MCORE/1485",
+      "MCORE/1510"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Ophthalmology"
+    ],
+    "stem": "A 60-year-old female presents with an acutely painful red left eye. She has had episodes of intermittent blurred vision and halos around lights in dim",
+    "members": [
+      "MCORE/1486",
+      "MCORE/1511"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Ophthalmology-Core"
+    ],
+    "stem": "A 72-year-old female with sudden painless vision loss in her right eye has CRAO confirmed on fundoscopy. ESR is 12 mm/hr. Which of the following is th",
+    "members": [
+      "MCORE/1487",
+      "MCORE/1512"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Ophthalmology-Core"
+    ],
+    "stem": "A 32-year-old female presents with acute onset of pain behind her left eye that worsens with eye movement. She reports blurred vision and difficulty d",
+    "members": [
+      "MCORE/1488",
+      "MCORE/1513"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Ophthalmology-Core"
+    ],
+    "stem": "A 25-year-old contact lens wearer presents with a painful red left eye, photophobia, and mucopurulent discharge for 2 days. Slit lamp examination reve",
+    "members": [
+      "MCORE/1489",
+      "MCORE/1514"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Ophthalmology"
+    ],
+    "stem": "Which of the following conditions does NOT produce a relative afferent pupillary defect (APD / Marcus Gunn pupil)?",
+    "members": [
+      "MCORE/1490",
+      "MCORE/1515"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Ophthalmology-Core"
+    ],
+    "stem": "A 55-year-old male is found to have IOP of 26 mmHg in both eyes on routine screening. He is asymptomatic. Fundoscopy reveals cup-to-disc ratio of 0.6 ",
+    "members": [
+      "MCORE/1491",
+      "MCORE/1516"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Ophthalmology-Core"
+    ],
+    "stem": "A 4-year-old boy is noted to have a right esotropia. His mother says she noticed the eye turning inward for about 6 months. Visual acuity is difficult",
+    "members": [
+      "MCORE/1492",
+      "MCORE/1517"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Ophthalmology-Core"
+    ],
+    "stem": "A 45-year-old male presents with acute onset of painful red right eye, blurred vision, and halos around lights. On examination, there is ciliary flush",
+    "members": [
+      "MCORE/1493",
+      "MCORE/1518"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Ophthalmology-Core"
+    ],
+    "stem": "A patient has a cataract extraction with IOL implantation. On the first postoperative day, the patient has mild discomfort, no hypopyon, and red refle",
+    "members": [
+      "MCORE/1494",
+      "MCORE/1519"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Orthopaedics"
+    ],
+    "stem": "A 68-year-old female presents with gradual painless vision loss and glare. She has diabetes and has been on long-term oral steroids for rheumatoid art",
+    "members": [
+      "MCORE/1495",
+      "MCORE/1520"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Ophthalmology-Core"
+    ],
+    "stem": "A 66-year-old male presents with sudden painless vision loss in the right eye. Fundoscopy shows a cherry red spot and attenuated retinal arterioles. E",
+    "members": [
+      "MCORE/1496",
+      "MCORE/1521"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Ophthalmology-Core"
+    ],
+    "stem": "A 30-year-old female with known multiple sclerosis presents with subacute blurred vision and pain on moving her left eye. Examination reveals a relati",
+    "members": [
+      "MCORE/1497",
+      "MCORE/1522"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Ophthalmology-Core"
+    ],
+    "stem": "A 70-year-old male is diagnosed with bilateral primary open-angle glaucoma. Latanoprost is started. After 4 weeks, IOP remains elevated at 24 mmHg. Wh",
+    "members": [
+      "MCORE/1498",
+      "MCORE/1523"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Ophthalmology"
+    ],
+    "stem": "A 50-year-old male presents with bilateral red, itchy eyes and watery discharge. There is no photophobia or visual disturbance. On examination, there ",
+    "members": [
+      "MCORE/1499",
+      "MCORE/1524"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Ophthalmology-Core"
+    ],
+    "stem": "A 74-year-old male presents with sudden painless loss of vision in his left eye. Fundoscopy reveals a cherry red spot and attenuated arterioles. Which",
+    "members": [
+      "MCORE/1500",
+      "MCORE/1525"
+    ]
+  },
+  {
+    "n": 2,
+    "subjects": [
+      "Applied-Basics"
+    ],
+    "stem": "A review question gives this trigger: Upper thigh anatomy. Which linked concept should you revise first?",
+    "members": [
+      "MCORE/1808",
+      "MCORE/1823"
+    ]
+  }
+]

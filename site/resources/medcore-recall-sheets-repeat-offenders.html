@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Repeat Offenders — NRE recall vault</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============ Zephyr tokens ============ */
+:root{
+  --void:#080F11; --ground:#0C171A; --panel:#122428; --panel2:#17323B;
+  --amber:#F5A524; --amber-dim:rgba(245,165,36,.14);
+  --text:#E8F1F2; --muted:#93AFB4; --faint:rgba(232,241,242,.38);
+  --med:#F0B429; --cardio:#FF7A70; --pharm:#54D7A2; --obgyn:#B48CFB;
+  --teal:#39C6B5; --line:rgba(255,255,255,.08); --line-strong:rgba(255,255,255,.16);
+  --r-chip:6px; --r-card:14px;
+}
+*{box-sizing:border-box; margin:0}
+html{scroll-behavior:smooth; scroll-padding-top:76px}
+body{
+  background:var(--void); color:var(--text);
+  font-family:"Newsreader",Georgia,serif; font-size:17px; line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--amber); color:var(--void)}
+:focus-visible{outline:2px solid var(--amber); outline-offset:2px; border-radius:4px}
+
+h1,h2{font-family:"Instrument Serif",Georgia,serif; font-weight:400; line-height:1.08}
+.mono{font-family:"IBM Plex Mono",ui-monospace,monospace}
+.wrap{max-width:1060px; margin:0 auto; padding:0 26px}
+
+/* ============ nav ============ */
+nav{
+  position:sticky; top:0; z-index:50;
+  background:rgba(8,15,17,.82); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+nav .wrap{display:flex; align-items:center; gap:22px; height:54px; overflow-x:auto; scrollbar-width:none}
+nav .wrap::-webkit-scrollbar{display:none}
+.brand{font-family:"Instrument Serif",serif; font-style:italic; font-size:19px; color:var(--amber); white-space:nowrap}
+nav a{font-family:"IBM Plex Mono",monospace; font-size:12.5px; color:var(--muted); text-decoration:none; white-space:nowrap; padding:4px 2px}
+nav a:hover{color:var(--amber)}
+nav .spacer{flex:1}
+
+/* ============ hero ============ */
+header{padding:86px 0 0}
+.kicker{font-family:"IBM Plex Mono",monospace; font-size:13px; color:var(--teal); letter-spacing:.04em; margin-bottom:18px}
+.hero{font-size:clamp(46px,7.5vw,84px); max-width:14ch; letter-spacing:-.01em}
+.hero em{font-style:italic; color:var(--amber)}
+.deck-note{margin-top:22px; max-width:62ch; color:var(--muted); font-size:18.5px}
+.deck-note strong{color:var(--text); font-weight:600}
+
+.ticker{margin:54px 0 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+  overflow:hidden; padding:13px 0; background:var(--ground)}
+.ticker-track{display:flex; gap:38px; width:max-content; animation:slide 58s linear infinite; will-change:transform}
+.ticker:hover .ticker-track{animation-play-state:paused}
+@keyframes slide{to{transform:translateX(-50%)}}
+.ticker span{font-family:"IBM Plex Mono",monospace; font-size:13.5px; color:var(--amber); white-space:nowrap}
+.ticker span::after{content:"·"; color:var(--faint); margin-left:38px}
+
+/* ============ sections ============ */
+section{padding:78px 0 10px}
+.sec-head{display:flex; align-items:baseline; gap:18px; border-top:1px solid var(--line-strong); padding-top:22px; margin-bottom:8px}
+.sec-head .idx{font-family:"IBM Plex Mono",monospace; font-size:13px; color:var(--muted); flex:0 0 auto}
+.sec-head h2{font-size:clamp(30px,4.4vw,46px)}
+.sec-sub{color:var(--muted); font-size:16.5px; max-width:64ch; margin-bottom:36px; padding-left:calc(13px + 1.55ch)}
+aside.hint{
+  margin:0 0 30px; padding:13px 18px; background:var(--panel); border:1px solid var(--line);
+  border-radius:var(--r-chip); font-family:"IBM Plex Mono",monospace; font-size:12.5px; color:var(--muted)
+}
+aside.hint b{color:var(--amber); font-weight:500}
+
+/* ============ 01 rapid fire ============ */
+.deck{margin-bottom:52px}
+.deck-bar{display:flex; align-items:center; gap:14px; margin-bottom:4px}
+.deck-bar .dot{width:11px; height:11px; border-radius:50%; flex:0 0 auto}
+.deck h3{font-family:"Instrument Serif",serif; font-size:26px; font-weight:400; letter-spacing:.005em}
+.deck-bar .count{margin-left:auto; font-family:"IBM Plex Mono",monospace; font-size:12.5px; color:var(--muted)}
+.deck-bar .count.cleared{color:var(--amber)}
+.reveal-all{
+  font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--muted);
+  background:none; border:1px solid var(--line-strong); border-radius:var(--r-chip);
+  padding:5px 12px; cursor:pointer; transition:color .15s, border-color .15s
+}
+.reveal-all:hover{color:var(--amber); border-color:var(--amber)}
+.rf-grid{display:grid; grid-template-columns:1fr 1fr; column-gap:44px}
+.rf-item{
+  display:flex; align-items:baseline; gap:13px; padding:10px 2px 9px;
+  border-bottom:1px dashed var(--line); cursor:pointer
+}
+.rf-item:hover .rf-q{color:var(--text)}
+.rf-item .n{font-family:"IBM Plex Mono",monospace; font-size:11.5px; color:var(--muted); flex:0 0 24px; padding-top:2px}
+.rf-q{font-size:16.5px; color:var(--faint); transition:color .2s; line-height:1.45}
+.rf-answer{
+  margin-left:auto; font-family:"IBM Plex Mono",monospace; font-size:13px;
+  color:var(--amber); text-align:right; white-space:nowrap;
+  filter:blur(7px); user-select:none; padding-top:1px
+}
+.rf-item.open .rf-answer{filter:blur(0); animation:pop .3s ease}
+@keyframes pop{0%{transform:scale(.9); opacity:.4}100%{transform:scale(1); opacity:1}}
+.rf-item.open .n{color:var(--deck,var(--amber))}
+
+/* ============ 02 surgery table ============ */
+.search{
+  display:flex; align-items:center; gap:12px; margin-bottom:14px;
+  border:1px solid var(--line-strong); border-radius:var(--r-chip);
+  background:var(--panel); padding:0 16px; height:46px; max-width:460px
+}
+.search label{font-family:"IBM Plex Mono",monospace; font-size:11.5px; color:var(--muted); flex:0 0 auto}
+.search input{
+  background:none; border:none; color:var(--text); font-family:"IBM Plex Mono",monospace;
+  font-size:14px; width:100%; outline:none
+}
+.search input::placeholder{color:var(--faint)}
+.sx-meta{font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--muted); margin-bottom:18px}
+table.sx{width:100%; border-collapse:collapse}
+.sx thead th{
+  font-family:"IBM Plex Mono",monospace; font-size:11.5px; font-weight:500; letter-spacing:.06em;
+  text-transform:uppercase; text-align:left; color:var(--muted);
+  border-bottom:1px solid var(--line-strong); padding:0 14px 10px
+}
+.sx tbody tr{border-bottom:1px solid var(--line); transition:background .12s}
+.sx tbody tr:hover{background:var(--panel)}
+.sx td{padding:10px 14px; vertical-align:top; font-size:16px}
+.sx .topic{font-family:"Newsreader",serif; width:24%}
+.sx .initial{font-family:"IBM Plex Mono",monospace; font-size:13px; color:var(--teal); width:33%}
+.sx .gold{font-size:15.5px; color:var(--amber)}
+.sx .gold .dashes{color:var(--faint); font-family:"IBM Plex Mono",monospace; font-size:13px}
+.sx .tagline{display:block; font-family:"IBM Plex Mono",monospace; font-size:10px; letter-spacing:.08em; color:var(--faint); margin-bottom:1px}
+.sx .none{color:var(--faint); font-family:"IBM Plex Mono",monospace; font-size:13px}
+.sx tbody tr.hidden{display:none}
+
+/* ============ 03 CMV ============ */
+.stat-band{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin-bottom:40px}
+.stat{background:var(--ground); padding:20px 18px 17px}
+.stat .v{font-family:"Instrument Serif",serif; font-size:29px; color:var(--amber); line-height:1.15}
+.stat .l{font-family:"IBM Plex Mono",monospace; font-size:11px; color:var(--muted); margin-top:6px; letter-spacing:.04em}
+.dossier{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+.organ{background:var(--panel); border:1px solid var(--line); border-radius:var(--r-card); padding:22px 20px 14px; border-top:3px solid var(--oc,var(--amber))}
+.organ.wide{grid-column:span 2}
+.organ h4{font-family:"Instrument Serif",serif; font-weight:400; font-size:22px; margin-bottom:12px}
+.organ ul{list-style:none}
+.organ li{padding-left:17px; position:relative; font-size:15.5px; color:var(--muted); padding-bottom:6px; line-height:1.5}
+.organ li::before{content:"—"; position:absolute; left:0; color:var(--oc,var(--amber)); font-size:12px; top:2px}
+.organ li strong, .strip strong, .dossier li strong{color:var(--amber); font-weight:500}
+.strip{background:var(--panel); border:1px solid var(--line); border-radius:var(--r-card); padding:20px 22px; margin-top:14px}
+.strip h4{font-family:"Instrument Serif",serif; font-weight:400; font-size:22px; margin-bottom:8px}
+.strip p{font-size:15.5px; color:var(--muted); padding-bottom:4px}
+.strip.duo{display:grid; grid-template-columns:1.1fr .9fr; gap:12px 34px}
+
+/* ============ 04 flip cards ============ */
+.flip-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(235px,1fr)); gap:12px}
+.flip{perspective:1100px; cursor:pointer}
+.flip .inner{position:relative; transform-style:preserve-3d; transition:transform .5s cubic-bezier(.2,.7,.25,1)}
+.flip.on .inner{transform:rotateY(180deg)}
+.face{
+  min-height:118px; border-radius:var(--r-card); padding:16px 17px;
+  backface-visibility:hidden; -webkit-backface-visibility:hidden;
+  display:flex; flex-direction:column; justify-content:space-between
+}
+.face.front{background:var(--panel); border:1px solid var(--line); border-top:3px solid var(--fc)}
+.face.front .cue{font-size:16px; line-height:1.4}
+.face.front .tap{font-family:"IBM Plex Mono",monospace; font-size:10.5px; color:var(--faint); letter-spacing:.05em}
+.face.front .ix{position:absolute; top:12px; right:14px; font-family:"IBM Plex Mono",monospace; font-size:10.5px; color:var(--faint)}
+.face.back{
+  position:absolute; inset:0; transform:rotateY(180deg);
+  background:var(--amber-dim); border:1px solid rgba(245,165,36,.5); border-radius:var(--r-card)
+}
+.face.back .bug{font-family:"IBM Plex Mono",monospace; font-size:13.5px; color:var(--amber); line-height:1.5}
+.face.back .tap{font-family:"IBM Plex Mono",monospace; font-size:10px; color:var(--muted); letter-spacing:.05em}
+
+/* ============ 05 gonorrhea ============ */
+.duo-dossier{display:grid; grid-template-columns:1.15fr .85fr; gap:16px; align-items:start}
+.ddx{display:flex; flex-wrap:wrap; gap:7px; padding-top:4px}
+.ddx span{
+  font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--text);
+  background:var(--panel2); border:1px solid var(--line-strong); border-radius:var(--r-chip); padding:4px 11px
+}
+
+/* ============ 06 uti tabs ============ */
+.tabs{display:flex; flex-wrap:wrap; gap:9px; margin-bottom:20px}
+.tabs button{
+  font-family:"IBM Plex Mono",monospace; font-size:12.5px; color:var(--muted);
+  background:var(--panel); border:1px solid var(--line-strong); border-radius:var(--r-chip);
+  padding:8px 15px; cursor:pointer; transition:all .15s
+}
+.tabs button:hover{color:var(--text); border-color:var(--muted)}
+.tabs button[aria-selected="true"]{color:var(--void); background:var(--amber); border-color:var(--amber); font-weight:600}
+.uti-panel{display:none}
+.uti-panel.active{display:block; animation:fadein .25s ease}
+@keyframes fadein{from{opacity:0; transform:translateY(5px)}to{opacity:1; transform:none}}
+.uti-cols{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+.uti-cols .col{background:var(--panel); border:1px solid var(--line); border-radius:var(--r-card); padding:22px 20px 12px; border-top:3px solid var(--tc,var(--amber))}
+.uti-cols h4{font-family:"IBM Plex Mono",monospace; font-size:11.5px; font-weight:500; letter-spacing:.07em; color:var(--muted); margin-bottom:12px}
+.uti-cols ul{list-style:none}
+.uti-cols li{padding-left:17px; position:relative; font-size:15.5px; color:var(--muted); padding-bottom:7px; line-height:1.5}
+.uti-cols li::before{content:"—"; position:absolute; left:0; color:var(--tc,var(--amber)); font-size:12px; top:2px}
+.hallmark-strip{margin-top:26px; display:flex; flex-wrap:wrap; gap:9px}
+.hallmark-strip span{
+  font-family:"IBM Plex Mono",monospace; font-size:12.5px; border-radius:var(--r-chip); padding:6px 13px;
+  background:var(--panel2); border:1px solid var(--line-strong); color:var(--text)
+}
+.hallmark-strip b{color:var(--amber); font-weight:500}
+
+footer{margin-top:80px; border-top:1px solid var(--line); padding:34px 0 46px}
+footer p{font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--muted); line-height:2}
+footer b{color:var(--amber); font-weight:500}
+
+/* ============ responsive ============ */
+@media (max-width:860px){
+  .rf-grid{grid-template-columns:1fr}
+  .stat-band{grid-template-columns:1fr 1fr}
+  .dossier{grid-template-columns:1fr}
+  .organ.wide{grid-column:auto}
+  .duo-dossier,.uti-cols,.strip.duo{grid-template-columns:1fr}
+  .sx thead th.tagcol,.sx td.tagcell{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .ticker-track{animation:none; flex-wrap:wrap; width:auto}
+  .flip .inner{transition:none}
+  .flip.on .inner{transform:none}
+  .flip.on .face.back{position:static}
+  .uti-panel.active,.rf-item.open .rf-answer{animation:none}
+}
+@media print{
+  nav,.ticker,.reveal-all,.search,.tap{display:none}
+  body{background:#fff; color:#000}
+  .rf-answer{filter:none; user-select:auto}
+  .uti-panel{display:block}
+  .face.back{position:static; transform:none; background:none; border:1px dashed #999}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <span class="brand">Repeat Offenders</span>
+    <div class="spacer"></div>
+    <a href="#rapid">Rapid fire</a>
+    <a href="#surgery">Surgery tests</a>
+    <a href="#cmv">CMV</a>
+    <a href="#bowel">Diarrhea bugs</a>
+    <a href="#gon">Gonorrhea</a>
+    <a href="#uti">UTI</a>
+  </div>
+</nav>
+
+<header class="wrap">
+  <p class="kicker">NRE–I / PMDC · high-yield revision · guess first, then reveal</p>
+  <h1 class="hero">The questions that <em>never leave</em> the exam hall.</h1>
+  <p class="deck-note"><strong>Same material you know, rebuilt for active recall</strong> — every answer stays hidden until you commit to a guess. Ten repeats per subject, a gold-standard surgery table, and three full clinical dossiers. Tap anything that looks secretive.</p>
+</header>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>E. coli</span><span>IM Adrenaline</span><span>Atropine + Pralidoxime</span><span>IV Lorazepam</span><span>Nebulized SABA</span><span>IV fluids</span><span>Hyperacute T waves</span><span>Doppler ultrasound</span><span>Strep pneumoniae</span><span>U waves</span><span>Adenosine</span><span>IV Furosemide</span><span>Synchronized cardioversion</span><span>Valsalva</span><span>VSD</span><span>Boot-shaped heart</span><span>ACE inhibitors</span><span>IV labetalol</span><span>Warfarin / DOAC</span><span>Heart failure</span><span>Gingival hyperplasia</span><span>Red man syndrome</span><span>Ototoxic + nephrotoxic</span><span>50S inhibitor</span><span>Pregnancy & children</span><span>Tendon rupture</span><span>Protamine sulfate</span><span>Vitamin K</span><span>Aspirin</span><span>Lactic acidosis</span><span>Magnesium sulfate</span><span>Painless</span><span>Painful + tender uterus</span><span>Ampulla</span><span>Semen analysis</span><span>Ketosis + dehydration</span><span>RSV</span><span>Nebulized epinephrine + steroids</span><span>Thelarche</span><span>N. gonorrhoeae</span>
+    <span>E. coli</span><span>IM Adrenaline</span><span>Atropine + Pralidoxime</span><span>IV Lorazepam</span><span>Nebulized SABA</span><span>IV fluids</span><span>Hyperacute T waves</span><span>Doppler ultrasound</span><span>Strep pneumoniae</span><span>U waves</span><span>Adenosine</span><span>IV Furosemide</span><span>Synchronized cardioversion</span><span>Valsalva</span><span>VSD</span><span>Boot-shaped heart</span><span>ACE inhibitors</span><span>IV labetalol</span><span>Warfarin / DOAC</span><span>Heart failure</span><span>Gingival hyperplasia</span><span>Red man syndrome</span><span>Ototoxic + nephrotoxic</span><span>50S inhibitor</span><span>Pregnancy & children</span><span>Tendon rupture</span><span>Protamine sulfate</span><span>Vitamin K</span><span>Aspirin</span><span>Lactic acidosis</span><span>Magnesium sulfate</span><span>Painless</span><span>Painful + tender uterus</span><span>Ampulla</span><span>Semen analysis</span><span>Ketosis + dehydration</span><span>RSV</span><span>Nebulized epinephrine + steroids</span><span>Thelarche</span><span>N. gonorrhoeae</span>
+  </div>
+</div>
+
+<main class="wrap">
+
+<!-- ==================== 01 RAPID FIRE ==================== -->
+<section id="rapid">
+  <div class="sec-head"><span class="idx">01</span><h2>Few repeated questions — all the time</h2></div>
+  <p class="sec-sub">40 one-liners that the exam keeps asking. Cover, guess, reveal — the blur is the whole game.</p>
+  <aside class="hint"><b>how it works</b> — read the faded question → say the answer out loud → click the line. 10/10 clears the deck.</aside>
+
+  <div class="deck" data-deck style="--deck:var(--med)">
+    <div class="deck-bar">
+      <span class="dot" style="background:var(--med)"></span><h3>Medicine</h3>
+      <button class="reveal-all" type="button">reveal deck</button>
+      <span class="count" data-count>0/10 revealed</span>
+    </div>
+    <div class="rf-grid">
+      <div class="rf-item" role="button" tabindex="0"><span class="n">01</span><span class="rf-q">Most common cause of UTI</span><span class="rf-answer">E. coli</span></div>
+      <div class="rf-item" role="button" tabindex="0"><span class="n">02</span><span class="rf-q">Anaphylaxis first drug</span><span class="rf-answer">IM Adrenaline</span></div>
+      <div class="rf-item" role="button" tabindex="0"><span class="n">03</span><span class="rf-q">Organophosphate poisoning antidote</span><span class="rf-answer">Atropine + Pralidoxime</span></div>
+      <div class="rf-item" role="button" tabindex="0"><span class="n">04</span><span class="rf-q">Status epilepticus first drug</span><span class="rf-answer">IV Lorazepam</span></div>
+      <div class="rf-item" role="button" tabindex="0"><span class="n">05</span><span class="rf-q">Acute asthma exacerbation — best first step</span><span class="rf-answer">Nebulized SABA (salbutamol)</span></div>
+      <div class="rf-item" role="button" tabindex="0"><span class="n">06</span><span class="rf-q">DKA first management</span><span class="rf-answer">IV fluids</span></div>
+      <div class="rf-item" role="button" tabindex="0"><span class="n">07</span><span class="rf-q">Early sign of MI</span><span class="rf-answer">Hyperacute T waves</span></div>
+      <div class="rf-item" role="button" tabindex="0"><span class="n">08</span><span class="rf-q">Best test for DVT</span><span class="rf-answer">Doppler ultrasound</span></div>
+      <div class="rf-item" role="button" tabindex="0"><span class="n">09</span><span class="rf-q">Most common cause of community pneumonia</span><span class="rf-answer">Strep pneumoniae</span></div>
+      <div class="rf-item" role="button" tabindex="0"><span class="n">10</span><span class="rf-q">Hypokalemia ECG hallmark</span><span class="rf-answer">U waves</span></div>
+    </div>
+  </div>
+
+  <div class="deck" data-deck style="--deck:var(--cardio)">
+    <div class="deck-bar">
+      <span class="dot" style="background:var(--cardio)"></span><h3>Cardiology</h3>
+      <button class="reveal-all" type="button">reveal deck</button>
+      <span class="count" data-count>0/10 revealed</span>
+    </div>
+    <div class="rf-grid">
+      <div class="rf-item" role="button" tabindex="0"><span class="n">01</span><span class="rf-q">SVT acute management</span><span class="rf-answer">Adenosine</span></div>
+      <div class="rf-item" role="button" tabindex="0"><span class="n">02</span><span class="rf-q">Acute pulmonary edema</span><span class="rf-answer">IV Furosemide</span></div>
+      <div class="rf-item" role="button" tabindex="0"><span class="n">03</span><span class="rf-q">Unstable VT</span><span class="rf-answer">Synchronized cardioversion</span></div>
+      <div class="rf-item" role="button" tabindex="0"><span class="n">04</span><span class="rf-q">HOCM murmur increases with</span><span class="rf-answer">Valsalva</span></div>
+      <div class="rf-item" role="button" tabindex="0"><span class="n">05</span><span class="rf-q">Most common congenital heart defect</span><span class="rf-answer">VSD</span></div>
+      <div class="rf-item" role="button" tabindex="0"><span class="n">06</span><span class="rf-q">TOF X-ray finding</span><span class="rf-answer">Boot-shaped heart</span></div>
+      <div class="rf-item" role="button" tabindex="0"><span class="n">07</span><span class="rf-q">Drug causing dry cough</span><span class="rf-answer">ACE inhibitors</span></div>
+      <div class="rf-item" role="button" tabindex="0"><span class="n">08</span><span class="rf-q">Hypertensive emergency — best drug</span><span class="rf-answer">IV labetalol</span></div>
+      <div class="rf-item" role="button" tabindex="0"><span class="n">09</span><span class="rf-q">Atrial fibrillation stroke prevention</span><span class="rf-answer">Warfarin / DOAC</span></div>
+      <div class="rf-item" role="button" tabindex="0"><span class="n">10</span><span class="rf-q">High BNP suggests</span><span class="rf-answer">Heart failure</span></div>
+    </div>
+  </div>
+
+  <div class="deck" data-deck style="--deck:var(--pharm)">
+    <div class="deck-bar">
+      <span class="dot" style="background:var(--pharm)"></span><h3>Pharmacology</h3>
+      <button class="reveal-all" type="button">reveal deck</button>
+      <span class="count" data-count>0/10 revealed</span>
+    </div>
+    <div class="rf-grid">
+      <div class="rf-item" role="button" tabindex="0"><span class="n">01</span><span class="rf-q">Phenytoin side effect</span><span class="rf-answer">Gingival hyperplasia</span></div>
+      <div class="rf-item" role="button" tabindex="0"><span class="n">02</span><span class="rf-q">Vancomycin reaction</span><span class="rf-answer">Red man syndrome</span></div>
+      <div class="rf-item" role="button" tabindex="0"><span class="n">03</span><span class="rf-q">Aminoglycoside toxicity</span><span class="rf-answer">Ototoxic + nephrotoxic</span></div>
+      <div class="rf-item" role="button" tabindex="0"><span class="n">04</span><span class="rf-q">Macrolide mechanism</span><span class="rf-answer">50S inhibitor</span></div>
+      <div class="rf-item" role="button" tabindex="0"><span class="n">05</span><span class="rf-q">Tetracycline contraindication</span><span class="rf-answer">Pregnancy & children</span></div>
+      <div class="rf-item" role="button" tabindex="0"><span class="n">06</span><span class="rf-q">Fluoroquinolone side effect</span><span class="rf-answer">Tendon rupture</span></div>
+      <div class="rf-item" role="button" tabindex="0"><span class="n">07</span><span class="rf-q">Heparin antidote</span><span class="rf-answer">Protamine sulfate</span></div>
+      <div class="rf-item" role="button" tabindex="0"><span class="n">08</span><span class="rf-q">Warfarin antidote</span><span class="rf-answer">Vitamin K</span></div>
+      <div class="rf-item" role="button" tabindex="0"><span class="n">09</span><span class="rf-q">NSAID causing asthma exacerbation</span><span class="rf-answer">Aspirin</span></div>
+      <div class="rf-item" role="button" tabindex="0"><span class="n">10</span><span class="rf-q">Metformin dangerous complication</span><span class="rf-answer">Lactic acidosis</span></div>
+    </div>
+  </div>
+
+  <div class="deck" data-deck style="--deck:var(--obgyn)">
+    <div class="deck-bar">
+      <span class="dot" style="background:var(--obgyn)"></span><h3>OBGYN + Pediatrics</h3>
+      <button class="reveal-all" type="button">reveal deck</button>
+      <span class="count" data-count>0/10 revealed</span>
+    </div>
+    <div class="rf-grid">
+      <div class="rf-item" role="button" tabindex="0"><span class="n">01</span><span class="rf-q">Eclampsia treatment</span><span class="rf-answer">Magnesium sulfate</span></div>
+      <div class="rf-item" role="button" tabindex="0"><span class="n">02</span><span class="rf-q">Placenta previa bleeding</span><span class="rf-answer">Painless</span></div>
+      <div class="rf-item" role="button" tabindex="0"><span class="n">03</span><span class="rf-q">Placental abruption bleeding</span><span class="rf-answer">Painful + tender uterus</span></div>
+      <div class="rf-item" role="button" tabindex="0"><span class="n">04</span><span class="rf-q">Most common ectopic pregnancy site</span><span class="rf-answer">Ampulla</span></div>
+      <div class="rf-item" role="button" tabindex="0"><span class="n">05</span><span class="rf-q">First test in infertility</span><span class="rf-answer">Semen analysis</span></div>
+      <div class="rf-item" role="button" tabindex="0"><span class="n">06</span><span class="rf-q">Hyperemesis gravidarum causes</span><span class="rf-answer">Ketosis + dehydration</span></div>
+      <div class="rf-item" role="button" tabindex="0"><span class="n">07</span><span class="rf-q">Most common cause of bronchiolitis</span><span class="rf-answer">RSV</span></div>
+      <div class="rf-item" role="button" tabindex="0"><span class="n">08</span><span class="rf-q">Croup treatment</span><span class="rf-answer">Nebulized epinephrine + steroids</span></div>
+      <div class="rf-item" role="button" tabindex="0"><span class="n">09</span><span class="rf-q">Gonococcal neonatal conjunctivitis — day 3–5</span><span class="rf-answer">N. gonorrhoeae</span></div>
+      <div class="rf-item" role="button" tabindex="0"><span class="n">10</span><span class="rf-q">First sign of puberty in girls</span><span class="rf-answer">Thelarche (breast budding)</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 02 SURGERY ==================== -->
+<section id="surgery">
+  <div class="sec-head"><span class="idx">02</span><h2>Surgery — best initial & gold standard tests</h2></div>
+  <p class="sec-sub">The NRE / PMDC revision pattern: first move vs definitive answer. Search it, scan it, drill it.</p>
+  <div class="search">
+    <label for="sx-search">find</label>
+    <input id="sx-search" type="search" placeholder="try ‘cholecystitis’…" autocomplete="off">
+  </div>
+  <p class="sx-meta"><span id="sx-count">40</span> contexts listed — initial test in teal, definitive in amber.</p>
+
+  <table class="sx">
+    <thead><tr>
+      <th class="tagcol">context</th><th class="tagcol">best initial / first test</th><th class="tagcol">gold standard / definitive</th>
+    </tr></thead>
+    <tbody id="sx-body">
+      <tr><td class="topic">Anal fistula</td><td class="initial">Clinical exam</td><td class="gold">MRI pelvis</td></tr>
+      <tr><td class="topic">Perianal abscess</td><td class="initial">Clinical exam</td><td class="gold">CT/MRI if deep or complex</td></tr>
+      <tr><td class="topic">Pilonidal sinus</td><td class="initial">Clinical</td><td class="gold">Usually no imaging</td></tr>
+      <tr><td class="topic">Appendicitis</td><td class="initial">USG (children/pregnancy)</td><td class="gold">CT abdomen in adults when imaging needed</td></tr>
+      <tr><td class="topic">Gallstones / biliary colic</td><td class="initial">USG</td><td class="gold">USG</td></tr>
+      <tr><td class="topic">Acute cholecystitis</td><td class="initial">USG</td><td class="gold">HIDA scan if diagnosis uncertain</td></tr>
+      <tr><td class="topic">Choledocholithiasis</td><td class="initial">USG + LFTs</td><td class="gold">MRCP/EUS diagnostic; ERCP therapeutic</td></tr>
+      <tr><td class="topic">Acute pancreatitis</td><td class="initial">Serum lipase</td><td class="gold">Contrast CT when complications/severity assessment is needed</td></tr>
+      <tr><td class="topic">Pancreatic cancer</td><td class="initial">Contrast CT</td><td class="gold">Histopathology</td></tr>
+      <tr><td class="topic">Liver mass / HCC</td><td class="initial">USG</td><td class="gold">Multiphasic CT/MRI</td></tr>
+      <tr><td class="topic">Intestinal obstruction</td><td class="initial">Abdominal X-ray</td><td class="gold">CT abdomen</td></tr>
+      <tr><td class="topic">Perforated viscus</td><td class="initial">Erect CXR</td><td class="gold">CT abdomen</td></tr>
+      <tr><td class="topic">GI bleeding</td><td class="initial">Endoscopy according to source</td><td class="gold">Endoscopy</td></tr>
+      <tr><td class="topic">Esophageal varices</td><td class="initial"><span class="none">—</span></td><td class="gold">Upper GI endoscopy</td></tr>
+      <tr><td class="topic">Achalasia</td><td class="initial">Barium swallow</td><td class="gold">Esophageal manometry</td></tr>
+      <tr><td class="topic">Esophageal cancer</td><td class="initial">Endoscopy + biopsy</td><td class="gold">Histopathology</td></tr>
+      <tr><td class="topic">GERD</td><td class="initial">Clinical</td><td class="gold">24-h pH monitoring</td></tr>
+      <tr><td class="topic">Peptic ulcer</td><td class="initial">Endoscopy</td><td class="gold">Endoscopy + biopsy when indicated</td></tr>
+      <tr><td class="topic">Colorectal cancer</td><td class="initial">Colonoscopy</td><td class="gold">Histopathology</td></tr>
+      <tr><td class="topic">Rectal cancer staging</td><td class="initial"><span class="none">—</span></td><td class="gold">MRI pelvis</td></tr>
+      <tr><td class="topic">Colon cancer staging</td><td class="initial"><span class="none">—</span></td><td class="gold">CT chest/abdomen/pelvis</td></tr>
+      <tr><td class="topic">Intussusception</td><td class="initial">USG</td><td class="gold">Air/contrast enema: diagnostic + therapeutic</td></tr>
+      <tr><td class="topic">Hirschsprung disease</td><td class="initial">Contrast enema</td><td class="gold">Rectal biopsy</td></tr>
+      <tr><td class="topic">Hemorrhoids</td><td class="initial">Clinical / anoscopy</td><td class="gold">Anoscopy/proctoscopy</td></tr>
+      <tr><td class="topic">Anal fissure</td><td class="initial">Clinical</td><td class="gold">Clinical</td></tr>
+      <tr><td class="topic">Breast lump</td><td class="initial">Triple assessment</td><td class="gold">Core needle biopsy</td></tr>
+      <tr><td class="topic">Breast cancer</td><td class="initial">Mammography/USG depending on age</td><td class="gold">Core biopsy → histopathology</td></tr>
+      <tr><td class="topic">Thyroid nodule</td><td class="initial">USG thyroid</td><td class="gold">FNAC</td></tr>
+      <tr><td class="topic">Pheochromocytoma</td><td class="initial">Plasma free metanephrines</td><td class="gold">CT/MRI for localization</td></tr>
+      <tr><td class="topic">Hyperparathyroidism</td><td class="initial">Serum Ca/PTH</td><td class="gold">Sestamibi for localization</td></tr>
+      <tr><td class="topic">DVT</td><td class="initial">Compression Doppler US</td><td class="gold">Venography → historical gold standard</td></tr>
+      <tr><td class="topic">Varicose veins</td><td class="initial">Duplex US</td><td class="gold">Duplex US</td></tr>
+      <tr><td class="topic">Acute limb ischemia</td><td class="initial">Clinical + Doppler</td><td class="gold">CT angiography for anatomy/intervention</td></tr>
+      <tr><td class="topic">PAD</td><td class="initial">ABPI/ABI</td><td class="gold">Angiography for anatomy/intervention</td></tr>
+      <tr><td class="topic">Aortic aneurysm</td><td class="initial">USG</td><td class="gold">CT angiography for planning</td></tr>
+      <tr><td class="topic">Aortic dissection</td><td class="initial"><span class="none">—</span></td><td class="gold">CT angiography</td></tr>
+      <tr><td class="topic">Trauma: abdomen</td><td class="initial">FAST if unstable</td><td class="gold">CT abdomen if stable</td></tr>
+      <tr><td class="topic">Head trauma</td><td class="initial">Non-contrast CT head</td><td class="gold">CT</td></tr>
+      <tr><td class="topic">Spinal trauma</td><td class="initial">CT</td><td class="gold">MRI for cord/ligament injury</td></tr>
+      <tr><td class="topic">Compartment syndrome</td><td class="initial">Clinical</td><td class="gold">Pressure measurement if uncertain</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ==================== 03 CMV ==================== -->
+<section id="cmv">
+  <div class="sec-head"><span class="idx">03</span><h2>Cytomegalovirus (CMV)</h2></div>
+  <p class="sec-sub">The transplant-window virus. If the vignette mentions an immunocompromised host and an organ, CMV is whispering from the options.</p>
+
+  <div class="stat-band">
+    <div class="stat"><div class="v">first 100 days</div><div class="l">peak reactivation window post-transplant</div></div>
+    <div class="stat"><div class="v">CD4 < 50/mm³</div><div class="l">the AIDS threshold below which it strikes</div></div>
+    <div class="stat"><div class="v">> 10,000 copies/mL</div><div class="l">viral load favouring reactivation in HIV</div></div>
+    <div class="stat"><div class="v">asymptomatic</div><div class="l">most common presentation in adults</div></div>
+  </div>
+
+  <div class="dossier">
+    <div class="organ" style="--oc:var(--cardio)">
+      <h4>Key points</h4>
+      <ul>
+        <li>Most common in adults, usually <strong>asymptomatic</strong>.</li>
+        <li>Reactivation occurs in <strong>immunocompromised</strong> patients (e.g. transplant, HIV).</li>
+        <li><strong>Transmission:</strong> sexual contact, vertical (congenital), breast milk, respiratory droplets, blood transfusion.</li>
+        <li><strong>Risk of reactivation:</strong> organ transplant (first 100 days) and HIV with CD4 < 50/mm³ or viral load > 10,000 copies/mL.</li>
+      </ul>
+    </div>
+    <div class="organ" style="--oc:var(--teal)">
+      <h4>Hallmarks</h4>
+      <ul>
+        <li>Most often asymptomatic.</li>
+        <li>Reactivation in immunocompromised.</li>
+        <li>In transplant: within <strong>first 100 days</strong>.</li>
+        <li>In HIV: CD4 < 50/mm³ or viral load > 10,000 copies/mL.</li>
+      </ul>
+    </div>
+    <div class="organ" style="--oc:var(--med)">
+      <h4>Clinical features — where it lands</h4>
+      <ul>
+        <li><strong>Retinitis</strong> — the AIDS / CD4 < 50 eye.</li>
+        <li><strong>GI & hepatobiliary</strong> — colitis + hepatitis.</li>
+        <li><strong>Esophagitis</strong> — odynophagia.</li>
+        <li><strong>Pneumonitis</strong> — transplant & hematologic.</li>
+        <li><strong>CNS</strong> — the diffuse patterns.</li>
+      </ul>
+    </div>
+
+    <div class="organ wide" style="--oc:var(--cardio)">
+      <h4>Clinical features</h4>
+      <div class="dossier" style="gap:10px 30px">
+        <div>
+          <ul>
+            <li><strong>CMV retinitis</strong> — seen in AIDS (CD4 < 50/mm³).</li>
+            <li>Painless visual loss.</li>
+            <li>Floating spots (floaters).</li>
+            <li>Retinal detachment.</li>
+            <li><strong>“Pizza pie” appearance</strong> — white, fluffy, perivascular lesions.</li>
+          </ul>
+        </div>
+        <div>
+          <ul>
+            <li><strong>GI & hepatobiliary:</strong> nonspecific symptoms, bloody diarrhea, abdominal pain, hepatitis / cholangitis — can contribute to AIDS cholangiopathy.</li>
+            <li><strong>CMV esophagitis:</strong> odynophagia (painful swallowing), shallow distal esophageal ulcers; seen in immunocompromised (CD4 < 50/mm³).</li>
+            <li><strong>Pneumonitis:</strong> fever, cough, dyspnea, sparse sputum; high mortality; more common in hematologic malignancies and transplant patients than in AIDS.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="organ" style="--oc:var(--obgyn)">
+      <h4>CNS involvement</h4>
+      <ul>
+        <li>Polyradiculopathy</li>
+        <li>Transverse myelitis</li>
+        <li>Subacute encephalitis</li>
+        <li>Periventricular calcifications</li>
+        <li>Seen in immunocompromised (CD4 < 50/mm³).</li>
+      </ul>
+    </div>
+
+    <div class="organ" style="--oc:var(--teal)">
+      <h4>Diagnosis</h4>
+      <ul>
+        <li>Virus isolation / culture.</li>
+        <li><strong>PCR</strong> — serum or tissue.</li>
+        <li><strong>Histopathology</strong> — gold standard for tissue-invasive disease.</li>
+      </ul>
+    </div>
+    <div class="organ" style="--oc:var(--amber)">
+      <h4>Treatment</h4>
+      <ul>
+        <li><strong>Ganciclovir</strong> — first line.</li>
+        <li><strong>Valganciclovir</strong> — oral.</li>
+        <li><strong>Foscarnet</strong> — if resistant.</li>
+        <li>Treat underlying disease / reduce immunosuppression if possible.</li>
+      </ul>
+    </div>
+    <div class="organ" style="--oc:var(--pharm)">
+      <h4>Exam eye</h4>
+      <ul>
+        <li>Transplant + <strong>first 100 days</strong> → think CMV.</li>
+        <li>AIDS + <strong>painless visual loss</strong> → retinitis.</li>
+        <li>Odynophagia + <strong>shallow distal ulcers</strong> in an immunocompromised host → esophagitis.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 04 DIARRHEA ==================== -->
+<section id="bowel">
+  <div class="sec-head"><span class="idx">04</span><h2>Key organisms causing diarrhea</h2></div>
+  <p class="sec-sub">Classic trigger → bug pairings. Read the cue, name the organism, then flip the card to check yourself.</p>
+  <aside class="hint"><b>tap a card</b> — cue on the front, bug on the back. Flip back and re-test any you missed.</aside>
+  <div class="flip-grid">
+    <div class="flip" role="button" tabindex="0" style="--fc:var(--med)"><div class="inner">
+      <div class="face front"><span class="ix">01</span><p class="cue">Most common bacterial organism</p><p class="tap">tap for the bug</p></div>
+      <div class="face back"><p class="bug">Campylobacter</p><p class="tap">tap to flip back</p></div>
+    </div></div>
+    <div class="flip" role="button" tabindex="0" style="--fc:var(--cardio)"><div class="inner">
+      <div class="face front"><span class="ix">02</span><p class="cue">Recent antibiotic use</p><p class="tap">tap for the bug</p></div>
+      <div class="face back"><p class="bug">Clostridium difficile</p><p class="tap">tap to flip back</p></div>
+    </div></div>
+    <div class="flip" role="button" tabindex="0" style="--fc:var(--pharm)"><div class="inner">
+      <div class="face front"><span class="ix">03</span><p class="cue">Camping</p><p class="tap">tap for the bug</p></div>
+      <div class="face back"><p class="bug">Giardia</p><p class="tap">tap to flip back</p></div>
+    </div></div>
+    <div class="flip" role="button" tabindex="0" style="--fc:var(--obgyn)"><div class="inner">
+      <div class="face front"><span class="ix">04</span><p class="cue">Traveler’s diarrhea</p><p class="tap">tap for the bug</p></div>
+      <div class="face back"><p class="bug">Enterotoxigenic E. coli (ETEC)</p><p class="tap">tap to flip back</p></div>
+    </div></div>
+    <div class="flip" role="button" tabindex="0" style="--fc:var(--med)"><div class="inner">
+      <div class="face front"><span class="ix">05</span><p class="cue">Church picnics / mayonnaise</p><p class="tap">tap for the bug</p></div>
+      <div class="face back"><p class="bug">Staphylococcus aureus</p><p class="tap">tap to flip back</p></div>
+    </div></div>
+    <div class="flip" role="button" tabindex="0" style="--fc:var(--cardio)"><div class="inner">
+      <div class="face front"><span class="ix">06</span><p class="cue">Uncooked hamburgers</p><p class="tap">tap for the bug</p></div>
+      <div class="face back"><p class="bug">E. coli O157:H7</p><p class="tap">tap to flip back</p></div>
+    </div></div>
+    <div class="flip" role="button" tabindex="0" style="--fc:var(--pharm)"><div class="inner">
+      <div class="face front"><span class="ix">07</span><p class="cue">Fried rice</p><p class="tap">tap for the bug</p></div>
+      <div class="face back"><p class="bug">Bacillus cereus</p><p class="tap">tap to flip back</p></div>
+    </div></div>
+    <div class="flip" role="button" tabindex="0" style="--fc:var(--obgyn)"><div class="inner">
+      <div class="face front"><span class="ix">08</span><p class="cue">Poultry / eggs</p><p class="tap">tap for the bug</p></div>
+      <div class="face back"><p class="bug">Salmonella</p><p class="tap">tap to flip back</p></div>
+    </div></div>
+    <div class="flip" role="button" tabindex="0" style="--fc:var(--med)"><div class="inner">
+      <div class="face front"><span class="ix">09</span><p class="cue">Raw seafood</p><p class="tap">tap for the bug</p></div>
+      <div class="face back"><p class="bug">Vibrio · Hepatitis A virus</p><p class="tap">tap to flip back</p></div>
+    </div></div>
+    <div class="flip" role="button" tabindex="0" style="--fc:var(--cardio)"><div class="inner">
+      <div class="face front"><span class="ix">10</span><p class="cue">AIDS</p><p class="tap">tap for the bug</p></div>
+      <div class="face back"><p class="bug">Isospora · Cryptosporidium · Mycobacterium avium complex</p><p class="tap">tap to flip back</p></div>
+    </div></div>
+    <div class="flip" role="button" tabindex="0" style="--fc:var(--pharm)"><div class="inner">
+      <div class="face front"><span class="ix">11</span><p class="cue">Pseudoappendicitis</p><p class="tap">tap for the bug</p></div>
+      <div class="face back"><p class="bug">Yersinia · Campylobacter</p><p class="tap">tap to flip back</p></div>
+    </div></div>
+  </div>
+</section>
+
+<!-- ==================== 05 GONORRHEA ==================== -->
+<section id="gon">
+  <div class="sec-head"><span class="idx">05</span><h2>Gonorrhea</h2></div>
+  <p class="sec-sub">Discharge + dysuria + a partner who also needs treating. The intracellular diplococcus with an IV rule for disseminated disease.</p>
+
+  <div class="duo-dossier">
+    <div>
+      <div class="organ" style="--oc:var(--cardio); margin-top:0">
+        <h4>Key points</h4>
+        <ul>
+          <li>Caused by a <strong>gram negative intracellular diplococcus</strong>.</li>
+          <li>Can infect almost <strong>any site</strong> in the female reproductive tract.</li>
+          <li>In males infection is usually limited to the <strong>urethra</strong>.</li>
+        </ul>
+      </div>
+      <div class="organ" style="--oc:var(--med)">
+        <h4>Clinical features</h4>
+        <ul>
+          <li><strong>In females:</strong> greenish-yellow discharge, pelvic or adnexal pain and swollen Bartholin glands.</li>
+          <li><strong>In males:</strong> purulent urethral discharge, dysuria and erythema of urethral meatus.</li>
+        </ul>
+      </div>
+      <div class="organ" style="--oc:var(--teal)">
+        <h4>Diagnosis</h4>
+        <ul>
+          <li><strong>Gold standard:</strong> Gram stain and culture from relevant site (pharynx, cervix, urethra or anus).</li>
+          <li>Nucleic acid amplification tests can be done on urine or genital samples.</li>
+          <li><strong>In disseminated infection:</strong> may present with monoarticular septic arthritis, rash and/or tenosynovitis.</li>
+        </ul>
+      </div>
+      <div class="organ" style="--oc:var(--amber)">
+        <h4>Treatment</h4>
+        <ul>
+          <li>Intramuscular <strong>ceftriaxone</strong>.</li>
+          <li>Oral <strong>azithromycin</strong> (regardless of co-infection).</li>
+          <li>Condoms are effective for prevention.</li>
+          <li>Sexual partner(s) should be treated if possible.</li>
+          <li>Fluoroquinolones should not be used due to resistance.</li>
+          <li>In disseminated infection: <strong>IV ceftriaxone</strong> for at least 24 hours.</li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <div class="organ" style="--oc:var(--obgyn); margin-top:0">
+        <h4>Differential diagnosis</h4>
+        <div class="ddx">
+          <span>Chlamydia infection</span><span>Endometriosis</span><span>Pharyngitis</span><span>Pelvic inflammatory disease</span><span>Vaginitis</span><span>Urinary tract infection</span><span>Salpingitis</span><span>Tubo-ovarian abscess</span>
+        </div>
+      </div>
+      <div class="organ" style="--oc:var(--cardio)">
+        <h4>Complications</h4>
+        <ul>
+          <li>Persistent infection with pain</li>
+          <li>Infertility</li>
+          <li>Tubo-ovarian abscess with rupture</li>
+          <li><strong>Disseminated infection:</strong> migratory polyarthralgia, tenosynovitis and pustular skin lesions</li>
+        </ul>
+      </div>
+      <div class="organ" style="--oc:var(--pharm)">
+        <h4>Exam eye</h4>
+        <ul>
+          <li>IM <strong>ceftriaxone</strong> — the treatment reflex; fluoroquinolones are out due to resistance.</li>
+          <li><strong>IV only when disease disseminates</strong> → for at least 24 hours.</li>
+          <li>Oral <strong>azithromycin regardless of co-infection</strong>, and sexual partner(s) treated if possible.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 06 UTI ==================== -->
+<section id="uti">
+  <div class="sec-head"><span class="idx">06</span><h2>Types of UTI — criteria & treatment</h2></div>
+  <p class="sec-sub">Five presentations, one decision tree each: who qualifies, and what to prescribe. Pick a type and work the two columns.</p>
+
+  <div class="tabs" role="tablist" aria-label="UTI types">
+    <button role="tab" aria-selected="true" data-tab="p1" type="button">Uncomplicated</button>
+    <button role="tab" aria-selected="false" data-tab="p2" type="button">Complicated</button>
+    <button role="tab" aria-selected="false" data-tab="p3" type="button">Pregnancy</button>
+    <button role="tab" aria-selected="false" data-tab="p4" type="button">Recurrent prevention</button>
+    <button role="tab" aria-selected="false" data-tab="p5" type="button">Interstitial cystitis</button>
+  </div>
+
+  <div class="uti-panel active" data-panel="p1">
+    <div class="uti-cols">
+      <div class="col" style="--tc:var(--pharm)"><h4>criteria · acute cystitis</h4><ul>
+        <li>Lower UTI in an otherwise healthy, <strong>nonpregnant adult woman</strong>.</li>
+        <li>Dysuria, frequency, urgency, suprapubic pain.</li>
+        <li>Infection confined to the bladder.</li>
+        <li>No systemic symptoms.</li>
+      </ul></div>
+      <div class="col" style="--tc:var(--amber)"><h4>treatment</h4><ul>
+        <li><strong>Nitrofurantoin</strong> for 5 days.</li>
+        <li><strong>TMP-SMX</strong> for 3 days (if local resistance low and appropriate).</li>
+        <li>Nitrofurantoin <strong>not suitable</strong> if suspected pyelonephritis or complicated UTI.</li>
+        <li><strong>Urine culture</strong> if treatment fails or recurrence/atypical features.</li>
+      </ul></div>
+    </div>
+  </div>
+
+  <div class="uti-panel" data-panel="p2">
+    <div class="uti-cols">
+      <div class="col" style="--tc:var(--med)"><h4>criteria · higher-risk host</h4><ul>
+        <li>Does <strong>not meet</strong> criteria for uncomplicated UTI.</li>
+        <li>Higher risk setting: pregnancy · male sex · diabetes or other comorbidities · immunocompromised · urinary catheter or stent · urinary tract obstruction · recurrent or refractory UTI.</li>
+        <li>May present with <strong>fever, chills, vomiting</strong>, abdominal or flank pain (pyelonephritis).</li>
+      </ul></div>
+      <div class="col" style="--tc:var(--amber)"><h4>treatment</h4><ul>
+        <li>Obtain <strong>urine culture</strong>.</li>
+        <li>Antibiotics according to severity, local resistance and culture results.</li>
+        <li>If <strong>hemodynamically unstable, septic</strong>, or unable to take oral treatment → urgent hospital assessment and <strong>IV antibiotics</strong> (e.g. third/fourth generation cephalosporin or as per local policy).</li>
+      </ul></div>
+    </div>
+  </div>
+
+  <div class="uti-panel" data-panel="p3">
+    <div class="uti-cols">
+      <div class="col" style="--tc:var(--pharm)"><h4>criteria · gestational</h4><ul>
+        <li>Routine screening for <strong>asymptomatic bacteriuria</strong>.</li>
+        <li>May present with acute cystitis.</li>
+        <li>Increased risk of pyelonephritis and urosepsis.</li>
+      </ul></div>
+      <div class="col" style="--tc:var(--amber)"><h4>treatment</h4><ul>
+        <li><strong>Asymptomatic bacteriuria should be treated.</strong></li>
+        <li><strong>Pregnancy-appropriate antibiotics</strong> guided by culture (e.g. nitrofurantoin or cephalexin/amoxicillin if susceptible).</li>
+        <li>Follow-up culture may be advised.</li>
+        <li>Pyelonephritis requires <strong>urgent assessment</strong>, often inpatient <strong>IV therapy</strong>.</li>
+        <li>Avoid antibiotics unsuitable for the trimester or suspected upper-tract infection.</li>
+      </ul></div>
+    </div>
+  </div>
+
+  <div class="uti-panel" data-panel="p4">
+    <div class="uti-cols">
+      <div class="col" style="--tc:var(--obgyn)"><h4>criteria · definition & behaviors</h4><ul>
+        <li>Recurrent UTI = <strong>≥ 2 infections in 6 months</strong> or <strong>≥ 3 infections in 12 months</strong>.</li>
+        <li>Behavioral measures first line: adequate fluid intake · postcoital voiding · avoid spermicides · vaginal estrogen in postmenopausal women (when appropriate).</li>
+      </ul></div>
+      <div class="col" style="--tc:var(--amber)"><h4>treatment / prevention</h4><ul>
+        <li>If behavioral measures are ineffective:</li>
+        <li><strong>Low-dose antibiotic prophylaxis</strong> (postcoital or continuous) after evaluation and discussion of risks/benefits.</li>
+        <li>Choice: <strong>TMP-SMX or nitrofurantoin</strong> (as per local resistance).</li>
+      </ul></div>
+    </div>
+  </div>
+
+  <div class="uti-panel" data-panel="p5">
+    <div class="uti-cols">
+      <div class="col" style="--tc:var(--teal)"><h4>criteria · an infection look-alike</h4><ul>
+        <li><strong>Chronic suprapubic pain</strong> or discomfort related to bladder.</li>
+        <li>Associated with frequency and urgency.</li>
+        <li>Symptoms > 6 weeks without an underlying infection or other identifiable cause.</li>
+        <li>May mimic UTI.</li>
+      </ul></div>
+      <div class="col" style="--tc:var(--amber)"><h4>treatment</h4><ul>
+        <li>Avoid individual dietary triggers.</li>
+        <li>Symptom management (e.g. <strong>amitriptyline</strong>).</li>
+        <li>Bladder instillations or <strong>hydrodistension</strong> (selected cases).</li>
+        <li>Multimodal approach, often with specialist input.</li>
+      </ul></div>
+    </div>
+  </div>
+
+  <div class="hallmark-strip" aria-label="Hallmarks">
+    <span><b>Uncomplicated cystitis</b> dysuria + frequency, no systemic signs</span>
+    <span><b>Pyelonephritis</b> fever + flank pain / CVA tenderness</span>
+    <span><b>Pregnancy</b> screen & treat asymptomatic bacteriuria</span>
+    <span><b>Recurrent UTI</b> ≥ 2 in 6 mo or ≥ 3 in 12 mo</span>
+    <span><b>Interstitial cystitis</b> bladder pain > 6 weeks, no infection</span>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><b>Repeat offenders</b> — 40 rapid-fire repeats · 40 surgical test pairings · 3 clinical dossiers · 1 flip deck</p>
+    <p>source material: six high-yield NRE revision sheets (recreated for active recall) · NRE–I / PMDC prep system</p>
+  </div>
+</footer>
+
+<script>
+// rapid-fire reveal + deck counters
+document.querySelectorAll('[data-deck]').forEach(function(deck){
+  var items = deck.querySelectorAll('.rf-item');
+  var count = deck.querySelector('[data-count]');
+  var btn = deck.querySelector('.reveal-all');
+  var n = items.length;
+
+  function render(){
+    var open = deck.querySelectorAll('.rf-item.open').length;
+    count.textContent = open === n ? 'deck cleared ✓ ' + n + '/' + n : open + '/' + n + ' revealed';
+    count.classList.toggle('cleared', open === n);
+    btn.textContent = open === n ? 'hide deck' : 'reveal deck';
+  }
+  items.forEach(function(it){
+    function toggle(){ it.classList.toggle('open'); render(); }
+    it.addEventListener('click', toggle);
+    it.addEventListener('keydown', function(e){
+      if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); toggle(); }
+    });
+  });
+  btn.addEventListener('click', function(){
+    var allOpen = deck.querySelectorAll('.rf-item.open').length === n;
+    items.forEach(function(it){ it.classList.toggle('open', !allOpen); });
+    render();
+  });
+  render();
+});
+
+// surgery table filter
+var sxIn = document.getElementById('sx-search');
+var sxRows = Array.prototype.slice.call(document.querySelectorAll('#sx-body tr'));
+var sxCount = document.getElementById('sx-count');
+sxIn.addEventListener('input', function(){
+  var q = sxIn.value.trim().toLowerCase(), shown = 0;
+  sxRows.forEach(function(tr){
+    var hit = tr.textContent.toLowerCase().indexOf(q) !== -1;
+    tr.classList.toggle('hidden', !hit);
+    if(hit) shown++;
+  });
+  sxCount.textContent = shown;
+});
+
+// flip cards
+document.querySelectorAll('.flip').forEach(function(f){
+  function toggle(){ f.classList.toggle('on'); }
+  f.addEventListener('click', toggle);
+  f.addEventListener('keydown', function(e){
+    if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); toggle(); }
+  });
+});
+
+// UTI tabs
+var tabs = document.querySelectorAll('.tabs [role="tab"]');
+tabs.forEach(function(t){
+  t.addEventListener('click', function(){
+    tabs.forEach(function(x){ x.setAttribute('aria-selected', x === t ? 'true' : 'false'); });
+    document.querySelectorAll('.uti-panel').forEach(function(p){
+      p.classList.toggle('active', p.dataset.panel === t.dataset.tab);
+    });
+  });
+});
+</script>
+</body>
+</html>
