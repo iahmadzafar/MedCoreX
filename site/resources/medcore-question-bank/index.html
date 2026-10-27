@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" data-pattern="dots">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MedCORE Question Bank</title>
+<meta name="description" content="MedCORE Question Bank: practice mode with instant right or wrong and the full seven-layer breakdown.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="blobs" aria-hidden="true"><div class="blob"></div><div class="blob"></div><div class="blob"></div></div>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#/"><span class="logo-mark">◆</span>MedCORE</a>
+    <nav class="links" aria-label="Main">
+      <a href="#/" id="navHome">Subjects</a>
+      <a href="#/" id="navPractice" hidden>Practice</a>
+      <a href="https://medcorex.pages.dev/library">Library</a>
+    </nav>
+    <div class="theme-chip" title="Current theme">
+      <div class="swatches"><i style="background:var(--c1)"></i><i style="background:var(--c2)"></i><i style="background:var(--c3)"></i><i style="background:var(--c4)"></i></div>
+      <span class="theme-name" id="themeName">Theme</span>
+      <button class="icon-btn" id="lockBtn" aria-pressed="false" title="Keep this theme on next visit">🔓</button>
+      <button class="icon-btn" id="remixBtn" title="Remix theme (T)">🎲</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap" id="main">
+
+  <!-- ============ SUBJECTS ============ -->
+  <section id="home" hidden>
+    <div class="hero">
+      <div class="rv">
+        <p class="eyebrow">◆ MedCORE · Practice mode</p>
+        <h1 class="mega"><span>MedCORE</span> <span class="w2">Question</span> <span class="w3">Bank.</span></h1>
+        <p class="lede">Instant right or wrong with the <span class="hl">full seven-layer breakdown</span>: concept, discriminator, trap, rule, and why every other option dies. Choose a subject to start.</p>
+        <div class="row"><button class="btn" data-scroll="subjects">Choose a subject ↓</button><button class="btn ghost" data-open-keys>⌨ Shortcuts</button></div>
+      </div>
+      <div class="hero-art rv" aria-hidden="true">
+        <div class="sticker">PRACTICE<br>✦ MODE ✦</div>
+        <div class="shape s1"></div><div class="shape s2"></div><div class="shape s3"></div>
+      </div>
+    </div>
+    <div class="marquee rv" aria-hidden="true"><div class="track" id="tips"></div></div>
+    <div class="stats">
+      <div class="card hov stat rv" style="--accent:var(--c1)"><div class="num" id="stAnswered">0</div><div class="lbl">Questions answered</div></div>
+      <div class="card hov stat rv" style="--accent:var(--c2)"><div class="num" id="stAcc">0%</div><div class="lbl">Accuracy</div></div>
+      <div class="card hov stat rv" style="--accent:var(--c3)"><div class="num" id="stBest">0</div><div class="lbl">Best streak</div></div>
+      <div class="card hov stat rv" style="--accent:var(--c4)"><div class="num" id="stTime">0</div><div class="lbl">Minutes practised</div></div>
+    </div>
+    <h2 class="rv" id="subjects" style="margin-bottom:22px">Choose a subject</h2>
+    <div class="subjects" id="subjGrid"></div>
+  </section>
+
+  <!-- ============ PRACTICE ============ -->
+  <section id="practice" hidden>
+    <div class="ptop">
+      <div class="ptitle"><a class="back" href="#/" aria-label="Back to subjects">‹</a><div><p class="eyebrow" id="pSub">Practice mode · instant right/wrong with the full seven-layer breakdown</p><h2 id="pName">Subject</h2></div></div>
+    </div>
+
+    <div class="card toolbar">
+      <div class="search" role="search">
+        <input class="field" id="qsearch" type="search" placeholder="Search this subject…" aria-label="Search questions in this subject">
+        <span class="shint" id="searchCount" hidden></span>
+      </div>
+      <span class="sep"></span>
+      <div class="timer"><span id="clock">00:00:00</span><button class="icon-btn" id="clockBtn" aria-label="Start timer">▶</button></div>
+      <span class="sep"></span>
+      <div class="score" aria-live="polite"><b class="g" id="scOk">✓ 0</b><b class="r" id="scBad">✗ 0</b></div>
+      <span class="streak" id="streak" title="Current streak">🔥 0</span>
+      <button class="chip" id="restartBtn" style="margin-left:auto">↺ Restart</button>
+    </div>
+
+    <!-- practice view -->
+    <div class="layout" id="vPractice">
+      <div>
+        <article class="card qcard" id="qcard"></article>
+        <div class="nextbar">
+          <button class="btn ghost" id="prevBtn">‹ Prev</button>
+          <span class="hint muted">press <kbd>Space</kbd></span>
+          <button class="btn alt" id="nextBtn">Skip ahead ›</button>
+        </div>
+      </div>
+      <aside class="rail">
+        <div class="card">
+          <h3>Jump to question</h3>
+          <form class="jump" id="jumpForm">
+            <input class="field" id="jumpInput" type="number" min="1" inputmode="numeric" placeholder="question no." aria-label="Question number">
+            <button class="btn sm" type="submit">Go →</button>
+          </form>
+          <div class="jump-row">
+            <button class="chip" id="firstUnanswered" type="button">○ First unanswered</button>
+            <button class="chip" id="firstFlagged" type="button">⚑ Flagged</button>
+          </div>
+          <div class="progress-big">
+            <div class="bar"><i class="g" id="barG"></i><i class="r" id="barR"></i></div>
+            <span class="bar-txt" id="barTxt">0 / 0</span>
+          </div>
+          <div class="tally">
+            <div class="trow" id="trRight"><i style="background:var(--ok)"></i><span>Right</span><b>0</b></div>
+            <div class="trow" id="trWrong"><i style="background:var(--bad)"></i><span>Wrong</span><b>0</b></div>
+            <div class="trow" id="trFlag"><i style="background:var(--c4);border-radius:50%"></i><span>Flagged</span><b>0</b></div>
+            <div class="trow" id="trLeft"><i style="background:var(--surface)"></i><span>Not yet</span><b>0</b></div>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Confidence</h3>
+          <p class="muted review-empty" id="confEmpty">Mark sure / guess / blind as you answer — then see where your real accuracy lives.</p>
+          <div class="tally" id="confTally" hidden></div>
+        </div>
+        <div class="card">
+          <h3>Review</h3>
+          <p class="muted review-empty" id="reviewEmpty">Wrong answers and flagged questions collect here for a second pass.</p>
+          <div class="qlinks" id="reviewList" hidden></div>
+          <p class="muted review-more" id="reviewMore" hidden></p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+</main>
+
+<!-- full breakdown -->
+<dialog id="bdDlg" aria-labelledby="bdTitle">
+  <div class="dhead"><h3 id="bdTitle">Full breakdown</h3><button class="icon-btn" data-close aria-label="Close">✕</button></div>
+  <div class="dbody" id="bdBody"></div>
+  <div class="dfoot"><button class="btn ghost sm" id="bdPrev">‹ Prev</button><span class="muted" style="font-weight:700">Close <kbd>Esc</kbd></span><button class="btn alt sm" id="bdNext">Next question ›</button></div>
+</dialog>
+
+<!-- shortcuts -->
+<dialog id="keysDlg" aria-labelledby="keysTitle">
+  <div class="dhead"><h3 id="keysTitle">⌨ All shortcuts</h3><button class="icon-btn" data-close aria-label="Close">✕</button></div>
+  <div class="dbody keys">
+    <div>Next or skip <kbd>Space</kbd></div>
+    <div>Pick option <span><kbd>1</kbd>–<kbd>5</kbd> or <kbd>A</kbd>–<kbd>E</kbd></span></div>
+    <div>Lock in <span><kbd>S</kbd> Sure <kbd>G</kbd> Guess <kbd>B</kbd> Blind</span></div>
+    <div>Move <span><kbd>←</kbd> <kbd>→</kbd></span></div>
+    <div>Search this subject <kbd>/</kbd></div>
+    <div>Expand breakdown <kbd>E</kbd></div>
+    <div>Flag question <kbd>F</kbd></div>
+    <div>Restart subject <kbd>R</kbd></div>
+    <div>Remix theme <kbd>T</kbd></div>
+    <div>This list <kbd>?</kbd></div>
+    <div>Close <kbd>Esc</kbd></div>
+  </div>
+</dialog>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

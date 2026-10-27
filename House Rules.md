@@ -24,6 +24,7 @@
 
 ### 1.3 — Space
 - **Airy rhythm:** generous but not gauzy. Section gaps ~72px on pages / ~48px in books; line-height 1.7; every box gets at least 16px inner padding, 20px for anything holding prose.
+- **Bottom breathing room (standing rule, 27 Oct 2026):** no content ever touches the bottom edge. Module pages without a footer carry `padding-bottom:120px` on the main sections (`#home,#practice`). Pages that end in the footer keep the footer's `margin-top:56px` plus ≥48px of footer bottom padding. Any new file without either gets it added on sight, no approval needed.
 - No element sits inside another without air: nested boxes increase padding, not shrink it.
 - Max reading width: ~72 characters of prose. Reading width is a rule, not a habit.
 
