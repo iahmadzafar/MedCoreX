@@ -7,6 +7,7 @@
 <title>MedCoreX — a private study library</title>
 <meta name="description" content="Seven shelves, one standard. A curated library of books, drills, recalled papers and exam intelligence.">
 <meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="/assets/studyverse.css">
 <style>
 /* ═══ PAGE: home — catalogue tabs, rules, quote (kit carries the rest) ═══ */
 .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
@@ -31,7 +32,6 @@
 .resume{display:none;align-items:center;gap:8px;text-decoration:none;font-weight:800;border:2px solid var(--ink);border-radius:999px;padding:.55em 1em;background:var(--c4);transition:transform .2s var(--ease)}
 .resume.on{display:inline-flex}
 .resume:hover{transform:translateY(-2px) rotate(-2deg)}
-
 .rules{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
 .rule .num{font-family:var(--font-display);font-weight:var(--dw);font-size:.9rem;letter-spacing:.14em;background:var(--c2);border:2px solid var(--ink);border-radius:999px;display:inline-block;padding:.2em .8em;margin-bottom:12px}
 .rule h3{font-size:1.35rem;margin-bottom:8px}
@@ -42,10 +42,9 @@
 @media (max-width:900px){.rules{grid-template-columns:1fr}}
 @media print{.faqitem,.quote{box-shadow:none;break-inside:avoid}}
 </style>
+<script src="/assets/studyverse.js"></script>
 </head>
 <body>
-
-<div class="blobs" aria-hidden="true"><div class="blob"></div><div class="blob"></div><div class="blob"></div></div>
 
 <header class="nav">
   <div class="wrap">
@@ -56,13 +55,7 @@
       <a href="/about">About</a>
       <a href="/faq">FAQ</a> <a href="/stats">Stats</a> <a href="/login" id="navAuth">Sign in</a>
     </nav>
-    <div class="engine" title="Theme engine">
-      <div class="swatches"><i style="background:var(--c1)"></i><i style="background:var(--c2)"></i><i style="background:var(--c3)"></i><i style="background:var(--c4)"></i></div>
-      <span class="theme-name" id="themeName">Theme</span>
-      <button class="icon-btn" id="modeBtn" aria-pressed="false" title="Dark / light">🌙</button>
-      <button class="icon-btn" id="lockBtn" aria-pressed="false" title="Keep this theme on next visit">🔓</button>
-      <button class="icon-btn" id="remixBtn" title="Remix theme (T)">🎲</button>
-    </div>
+    <div class="engine" title="Theme engine" data-sv-engine></div>
   </div>
 </header>
 
@@ -120,8 +113,6 @@
     <span>🎒 read · learn · repeat</span>
   </div>
 </div></footer>
-
-<div class="toast" id="toast" role="status"></div>
 
 <script>
 
