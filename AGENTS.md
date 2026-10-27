@@ -51,3 +51,21 @@ disk, never `git add` it (owner removed it from the repo in `a05bba5`).
 
 Never in chat, never in git. PAT lives in macOS Keychain + gh keyring; Cloudflare token in
 Actions secrets (`CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`).
+
+## Design kit (owner ruling, 27 Oct 2026)
+- All shared design lives in site/assets/studyverse.css + site/assets/studyverse.js.
+- NEVER paste theme styles, the theme engine, toast, confetti or count-up into a page.
+  Link /assets/studyverse.* and call window.SV.
+- Page CSS uses kit tokens only (no hex colours) so dark mode works everywhere.
+- Saved-progress names start with "medcore." (e.g. medcore.qb, medcore.book).
+  Theme prefs stay mx-lock / mx-mode.
+- Test-only, never deployed or linked: verify.js, prooflocal.js, domproof.js,
+  bankproof.js, prodcheck.js, serve.js, deploy.sh.
+- New page = copy the shell from site/about.html, then add page CSS/JS.
+
+## Change notes from the owner's assistant
+Notes arrive as:
+  CN-### · <file>
+  FIND (exact text) … REPLACE WITH … WHY … CHECK …
+Apply exactly. If FIND doesn't match exactly once, stop and report; don't guess.
+Commit as "CN-###: <one-line why>", run CHECK, report the result.
