@@ -1,0 +1,25 @@
+# Legacy aliases — old links keep working after files were merged, renamed or removed.
+# Targets are extensionless (Pages serves those directly; no redirect chains).
+
+# Everything merged into the question bank
+/resources/test-series-html-nre-test-series-2026-by-subject   /resources/medcore-question-bank  301
+/resources/25mcqs-*                                           /resources/medcore-question-bank  301
+/resources/test-series-html-nre-test-series-session-*         /resources/medcore-question-bank  301
+
+# Diagnostic Tree was removed at the owner's request
+/resources/standalone-htmls-diagnostic-reasoning-framework    /  301
+
+# Files renamed in the MedCORE rebrand (old → new)
+/resources/standalone-htmls-nre-main-bank-2023                /resources/medcore-question-bank  301
+/resources/standalone-htmls-nre-cheat-card                    /resources/medcore-cheat-card  301
+/resources/standalone-htmls-nre-memory-master-core            /resources/medcore-memory-master-core  301
+/resources/standalone-htmls-nre-past-paper-hub                /resources/medcore-past-paper-hub  301
+/resources/standalone-htmls-nre-pattern-analysis              /resources/medcore-pattern-analysis  301
+/resources/standalone-htmls-nre-2026-prediction-intelligence-report  /resources/medcore-prediction-intelligence-report  301
+/resources/standalone-htmls-nre-prediction-exam-2026          /resources/medcore-prediction-exam  301
+/resources/standalone-htmls-nre-prediction-exam-2026-answer-key  /resources/medcore-prediction-exam-answer-key  301
+/resources/standalone-htmls-nre-system-full-picture-report    /resources/medcore-system-full-picture-report  301
+/resources/side-projects-last-day-sheet-nre-last-day-revision-sheet-oct2026  /resources/side-projects-last-day-revision-sheet  301
+/resources/planner-plan-nre-battle-lms                        /resources/planner-medcore-battle-lms  301
+/resources/cheatsheets-derm-ent-mcq-drill-nre                 /resources/cheatsheets-derm-ent-mcq-drill  301
+/resources/standalone-htmls-60-day-nre-battle-plan            /resources/standalone-htmls-60-day-battle-plan  301

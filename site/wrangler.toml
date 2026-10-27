@@ -1,0 +1,8 @@
+name = "medcorehub"
+pages_build_output_dir = "."
+compatibility_date = "2025-01-01"
+
+[[d1_databases]]
+binding = "medcore_db"
+database_name = "medcore-db"
+database_id = "2d13a393-397b-4f29-bec8-ebd9c5e1ee36"

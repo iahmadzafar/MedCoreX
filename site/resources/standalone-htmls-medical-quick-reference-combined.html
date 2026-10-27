@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Medical Quick Reference</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{height:100%}
+  body{background:#0E1A2B;font-family:'Archivo',-apple-system,sans-serif;overflow:hidden}
+  iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:#fff}
+  .pill{
+    position:fixed; bottom:18px; right:18px; z-index:2147483646;
+    display:flex; align-items:center; gap:4px;
+    background:rgba(14,26,43,.92); border:1px solid rgba(246,243,236,.18);
+    border-radius:999px; padding:5px 6px; backdrop-filter:blur(8px);
+    box-shadow:0 10px 30px rgba(0,0,0,.35);
+  }
+  .pill .lbl{
+    font-family:'Space Mono',monospace; font-size:0.5938rem; letter-spacing:1.5px;
+    text-transform:uppercase; color:#9FB2CC; padding:0 8px 0 10px;
+  }
+  .pill button{
+    border:0; border-radius:999px; padding:7px 10px; font-size:0.75rem; font-weight:700;
+    font-family:'Archivo',sans-serif; letter-spacing:.4px; transition:.15s;
+    background:transparent; color:#9FB2CC;
+  }
+  .pill button.on{background:rgba(212,255,63,.18); outline:2px solid #D4FF3F}
+  .pill .sw{display:block; width:14px; height:14px; border-radius:50%; border:1px solid rgba(246,243,236,.45)}
+  .pill button:not(.on):hover{color:#F6F3EC; background:rgba(246,243,236,.08)}
+  .pill .sep{width:1px; height:18px; background:rgba(246,243,236,.18); margin:0 3px}
+  .pill a{
+    color:#9FB2CC; text-decoration:none; font-size:0.75rem; padding:7px 10px;
+    border-radius:999px; font-family:'Archivo',sans-serif;
+  }
+  .pill a:hover{color:#D4FF3F}
+</style>
+
+</head>
+<body>
+<iframe id="pane" src="" title="Quick Reference"></iframe>
+<div class="pill" role="tablist">
+  <span class="lbl">Quick Reference</span>
+  <button id="b-light" data-v="light" title="Light version"><span class="sw" style="background:#FFFFFF"></span></button>
+  <button id="b-dark" data-v="dark" title="Dark version"><span class="sw" style="background:#1A1A2E"></span></button>
+  <span class="sep"></span>
+  <a id="pop" href="#" target="_blank" rel="noopener" title="Open in new tab">↗</a>
+</div>
+<script>
+const SRC = { light: "standalone-htmls-medical-quick-reference-light.html", dark: "standalone-htmls-medical-quick-reference-dark.html" };
+const KEY = "nre-mqr-view";
+function set(v){
+  document.getElementById("pane").src = SRC[v];
+  document.getElementById("pop").href = SRC[v];
+  document.getElementById("b-light").classList.toggle("on", v === "light");
+  document.getElementById("b-dark").classList.toggle("on", v === "dark");
+  try{ localStorage.setItem(KEY, v); }catch(e){}
+}
+document.getElementById("b-light").onclick = () => set("light");
+document.getElementById("b-dark").onclick = () => set("dark");
+let v = "light";
+try{ v = localStorage.getItem(KEY) || "light"; }catch(e){}
+set(v);
+</script>
+
+<script src="/medcore-sync.js" defer></script>
+</body>
+</html>

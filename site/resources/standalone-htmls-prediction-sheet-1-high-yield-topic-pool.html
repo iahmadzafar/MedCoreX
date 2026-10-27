@@ -1,0 +1,742 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Prediction Sheet 1 — High-Yield Topic Pool</title>
+<meta name="description" content="Ranked, evidence-tiered prediction pool for the October sitting: recognition trigger, key discriminator, main trap per topic.">
+<style>
+:root{
+  --bg:#f4f6f8; --card:#ffffff; --ink:#18202c; --line:#d7dce4; --line2:#e9edf2;
+  --muted:#5a6376; --faint:#848c9c; --accent:#0d4c6b; --accent-soft:#e8f2f7;
+  --head:#0f3348; --head-ink:#ffffff; --head-sub:#a9c6d6; --hover:#f8fafc;
+  --t1c:#8a2f1c; --t1bg:#fbeae4; --t1ln:#e2b3a4;
+  --t2c:#7a5310; --t2bg:#f9f2e0; --t2ln:#e3cb99;
+  --t3c:#1c5637; --t3bg:#e9f4ee; --t3ln:#a6cdb6;
+  --t4c:#1a4870; --t4bg:#e8f1f9; --t4ln:#a7c4dd;
+  --t5c:#4b4841; --t5bg:#f1efeb; --t5ln:#cecac2;
+  --trap:#8a2f1c; --maxw:1120px;
+}
+html.dark{
+  --bg:#0e1319; --card:#161d27; --ink:#dce3ed; --line:#2a3341; --line2:#212a36;
+  --muted:#8a94a7; --faint:#6d7789; --accent:#7cc0e4; --accent-soft:#18293a;
+  --head:#080c12; --head-ink:#e9eff6; --head-sub:#7d92a8; --hover:#1b2430;
+  --t1c:#f0a48f; --t1bg:#2e1a14; --t1ln:#6b3a2b;
+  --t2c:#e8c480; --t2bg:#2a2214; --t2ln:#6a5426;
+  --t3c:#93d3ae; --t3bg:#16271e; --t3ln:#38664b;
+  --t4c:#9cc6e6; --t4bg:#14222e; --t4ln:#35566f;
+  --t5c:#c2beb4; --t5bg:#21242a; --t5ln:#4a4f58;
+  --trap:#f0a48f;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+body{font:0.875rem/1.55 "Iowan Old Style","Charter",Georgia,serif;color:var(--ink);background:var(--bg);
+transition:background .25s,color .25s;-webkit-font-smoothing:antialiased}
+body.mobile-viewport{--maxw:600px}
+
+header.top{background:var(--head);color:var(--head-ink);border-bottom:3px solid var(--accent)}
+.top-inner{max-width:var(--maxw);margin:0 auto;padding:22px 20px 14px;display:flex;justify-content:space-between;align-items:flex-start;gap:14px;flex-wrap:wrap}
+.mark{display:flex;align-items:flex-start;gap:12px}
+.mark h1{font-family:-apple-system,"Segoe UI",Helvetica,sans-serif;font-size:1.1875rem;letter-spacing:.4px}
+.mark p{color:var(--head-sub);font-size:0.75rem;margin-top:3px;max-width:60ch;font-family:-apple-system,sans-serif;line-height:1.5}
+.toolbar{display:flex;gap:8px;flex:none;padding-top:2px}
+.tbtn{display:flex;align-items:center;gap:6px;background:none;border:1px solid rgba(255,255,255,.3);border-radius:16px;
+color:var(--head-ink);font:0.7188rem -apple-system,sans-serif;padding:5px 11px;cursor:pointer}
+.tbtn:hover{background:rgba(255,255,255,.13)}
+body.mobile-viewport .tbtn[data-tool=mobile],body:not(.mobile-viewport) .tbtn[data-tool=desktop]{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+
+nav{position:sticky;top:0;z-index:6;background:var(--card);border-bottom:1px solid var(--line);box-shadow:0 1px 5px rgba(8,14,24,.07)}
+.nav-inner{max-width:var(--maxw);margin:0 auto;padding:7px 14px;display:flex;gap:4px;overflow-x:auto;scrollbar-width:thin}
+nav a{font:0.7188rem -apple-system,sans-serif;color:var(--muted);text-decoration:none;padding:4px 10px;border-radius:12px;white-space:nowrap;flex:none}
+nav a:hover{background:var(--accent-soft);color:var(--accent)}
+nav a.active{background:var(--accent);color:#fff}
+html.dark nav a.active{color:#0e1319}
+
+main{max-width:var(--maxw);margin:0 auto;padding:18px 20px 40px}
+.overview{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-bottom:20px}
+.ov{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:13px 15px}
+.ov .v{font-family:-apple-system,sans-serif;font-size:1.5rem;font-weight:600;color:var(--accent);line-height:1}
+.ov .l{font:0.625rem -apple-system,sans-serif;letter-spacing:1.5px;text-transform:uppercase;color:var(--faint);margin-top:6px}
+.legend{display:flex;gap:8px;flex-wrap:wrap;background:var(--card);border:1px solid var(--line);border-radius:9px;padding:11px 14px;margin-bottom:22px;
+font:0.6875rem -apple-system,sans-serif;color:var(--muted);align-items:center}
+.legend b{color:var(--ink);font-weight:600;letter-spacing:1.2px;text-transform:uppercase;font-size:0.625rem;margin-right:4px}
+.tier{display:inline-block;font:0.5938rem -apple-system,sans-serif;letter-spacing:1.1px;text-transform:uppercase;padding:3px 7px;border-radius:3px;border:1px solid;font-weight:600;white-space:nowrap}
+.t1{color:var(--t1c);background:var(--t1bg);border-color:var(--t1ln)}
+.t2{color:var(--t2c);background:var(--t2bg);border-color:var(--t2ln)}
+.t3{color:var(--t3c);background:var(--t3bg);border-color:var(--t3ln)}
+.t4{color:var(--t4c);background:var(--t4bg);border-color:var(--t4ln)}
+.t5{color:var(--t5c);background:var(--t5bg);border-color:var(--t5ln)}
+
+.system{background:var(--card);border:1px solid var(--line);border-radius:11px;margin-bottom:9px;overflow:hidden}
+.sys-head{width:100%;display:flex;align-items:center;gap:10px;background:none;border:none;color:var(--ink);
+font:600 0.9375rem -apple-system,sans-serif;padding:13px 15px;cursor:pointer;text-align:left}
+.sys-head:hover{background:var(--hover)}
+.chev{flex:none;color:var(--accent);transition:transform .18s}
+.system.open .chev{transform:rotate(90deg)}
+.count{margin-left:auto;font:0.6875rem -apple-system,sans-serif;color:var(--faint);letter-spacing:1px}
+.bar{height:3px;background:var(--line2);border-radius:2px;width:74px;flex:none}
+.bar i{display:block;height:100%;background:var(--accent);border-radius:2px}
+.sys-body{display:none;border-top:1px solid var(--line2);padding:4px 15px 12px}
+.system.open .sys-body{display:block}
+table{width:100%;border-collapse:collapse;font-size:0.825rem}
+thead th{font:0.625rem -apple-system,sans-serif;letter-spacing:1.6px;text-transform:uppercase;color:var(--faint);text-align:left;padding:10px 8px 7px;border-bottom:1px solid var(--line)}
+tbody td{padding:9px 8px;border-bottom:1px solid var(--line2);vertical-align:top}
+tbody tr:last-child td{border-bottom:none}
+td.rank{width:34px;color:var(--faint);font-variant-numeric:tabular-nums;font:0.75rem -apple-system,sans-serif}
+td.topic{width:20%;font-weight:600;color:var(--ink)}
+td.tiercell{width:104px}
+td.trap{color:var(--trap)}
+.klabel{display:none}
+.srch{position:sticky;top:34px;z-index:5;background:var(--card);border:1px solid var(--line);border-radius:9px;padding:8px 12px;margin-bottom:16px;
+display:flex;gap:10px;align-items:center}
+.srch input{flex:1;border:none;background:none;color:var(--ink);font:0.875rem -apple-system,sans-serif;outline:none}
+.srch span{font:0.6563rem -apple-system,sans-serif;color:var(--faint);letter-spacing:1.2px;text-transform:uppercase;white-space:nowrap}
+.filters{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:18px}
+.fbtn{font:0.6563rem -apple-system,sans-serif;letter-spacing:.6px;border:1px solid var(--line);background:var(--card);color:var(--muted);
+border-radius:14px;padding:4px 11px;cursor:pointer}
+.fbtn.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+html.dark .fbtn.on{color:#0e1319}
+.hits{font:0.6875rem -apple-system,sans-serif;color:var(--faint);margin-left:auto;white-space:nowrap}
+
+footer.site{background:var(--head);color:var(--head-sub);margin-top:26px;border-top:3px solid var(--accent)}
+.foot-inner{max-width:var(--maxw);margin:0 auto;padding:16px 20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;
+font:0.7188rem -apple-system,sans-serif}
+.pc{display:flex;gap:3px;flex-wrap:wrap}
+.pc b{font:0.5938rem -apple-system,sans-serif;font-weight:600;letter-spacing:.6px;padding:3px 6px;border-radius:3px;border:1px solid var(--line2);color:var(--faint);background:var(--bg)}
+.pc b.hit{color:#fff;background:var(--accent);border-color:var(--accent)}
+html.dark .pc b.hit{color:#0e1319}
+.papers-band{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.pb{flex:1;min-width:120px;background:var(--card);border:1px solid var(--line);border-radius:9px;padding:11px 13px}
+.pb .pn{font:600 0.75rem -apple-system,sans-serif;color:var(--ink)}
+.pb .pc2{font:0.625rem -apple-system,sans-serif;color:var(--faint);margin-top:4px;letter-spacing:.4px}
+td.papers{width:150px}
+.hide{display:none!important}
+@media (max-width:760px){td.papers{width:auto}}
+
+@media (max-width:760px){
+  .top-inner{padding:16px 14px 12px}
+  .mark p{display:none}
+  main{padding:14px 12px 30px}
+  .srch{top:30px}
+  thead{display:none}
+  tbody tr{display:block;padding:10px 0;border-bottom:1px solid var(--line2)}
+  tbody td{display:block;border:none;padding:2px 0}
+  td.rank{padding-top:0}
+  td.topic{width:auto;font-size:0.9063rem}
+  td.tiercell{width:auto;margin:3px 0}
+  td .klabel{display:inline;font:0.5938rem -apple-system,sans-serif;letter-spacing:1.4px;text-transform:uppercase;color:var(--faint);margin-right:6px}
+  td.trigger:before{content:'Trigger — '}
+  td.disc:before{content:'Discriminator — '}
+  td.trap:before{content:'Trap — '}
+}
+@media print{
+  @page{size:A4;margin:12mm}
+  body{background:#fff;font-size:10pt}
+  header.top,.toolbar,.srch,.filters{display:none}
+  .system{break-inside:avoid;border-color:#ccc;page-break-inside:avoid}
+  .system.open .sys-body{display:block}
+  .sys-body{display:block!important}
+  thead{display:table-header-group}
+  footer.site{display:none}
+}
+</style><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Archivo:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style id="hub-theme-bridge">
+:root{
+--bg:#F6F3EC;--card:#FFFFFF;--ink:#101A28;--line:#DDD6C6;--line2:#EAE5D9;
+--muted:#5A6376;--faint:#848C9C;--accent:#0E1A2B;--accent-soft:#E7EDF3;
+--head:#0E1A2B;--head-ink:#F6F3EC;--head-sub:#9FB2CC;--hover:#F8F6F0;
+--trap:#C43A2C;
+--t1c:#B0341E;--t1bg:#FBEAE4;--t1ln:#E8B9AA;
+--t2c:#8A5A12;--t2bg:#F9F2E0;--t2ln:#E3CB99;
+--t3c:#1C5637;--t3bg:#E9F4EE;--t3ln:#A6DBB6;
+--t4c:#1A4870;--t4bg:#E8F1F9;--t4ln:#A7C4DD;
+--t5c:#4B4841;--t5bg:#F1EFEB;--t5ln:#CECAC2;
+}
+html.dark{
+--bg:#0B1422;--card:#16283F;--ink:#F6F3EC;--line:rgba(246,243,236,.16);--line2:#232C40;
+--muted:#8FA3BE;--faint:#6D7789;--acc:#D4FF3F;--acc-soft:#1E2A14;
+--head:#0E1A2B;--head-ink:#F6F3EC;--head-sub:#9FB2CC;--hover:#1B2430;
+--trap:#FF8A7A;
+--t1c:#FF9080;--t1bg:#2E1A14;--t1ln:#6B3A2B;
+--t2c:#F0C46A;--t2bg:#2A2214;--t2ln:#6A5426;
+--t3c:#8FE0B0;--t3bg:#16271E;--t3ln:#38664B;
+--t4c:#9CC6E6;--t4bg:#14222E;--t4ln:#35566F;
+--t5c:#C2BEB4;--t5bg:#21242A;--t5ln:#4A4F58;
+}
+body{font-family:'Archivo',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif!important}
+.mark h1,.sys-head,h1,h2{font-family:'Bricolage Grotesque','Archivo',sans-serif!important}
+.mark h1{font-weight:800}
+</style>
+
+</head><body>
+<header class="top"><div class="top-inner">
+<div class="mark">
+<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#7cc0e4" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="9.5"/><path d="M12 2.5v19M2.5 12h19"/></svg>
+<div><h1>Prediction Sheet 1 &mdash; High-Yield Topic Pool</h1>
+<p>Evidence from all five recalled sittings &mdash; Jun 2024, Dec 2024, Jun 2025, Dec 2025, May 2026 &middot; 822 questions scanned &middot; each topic shows which papers tested it, plus its trigger, discriminator and trap &middot; tap a subject to open it</p></div>
+</div>
+<div class="toolbar">
+<button class="tbtn" data-tool="theme" id="themeBtn"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M19.1 4.9l-1.8 1.8M6.7 17.3l-1.8 1.8"/></svg><span>Theme</span></button>
+<button class="tbtn" data-tool="mobile"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="7" y="2.5" width="10" height="19" rx="2"/><path d="M11 18.5h2"/></svg>Mobile</button>
+<button class="tbtn" data-tool="desktop"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="2.5" y="4" width="19" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>Desktop</button>
+</div></div></header>
+<nav><div class="nav-inner"><a href="#s-0">Medicine</a><a href="#s-1">Surgery</a><a href="#s-2">Paediatrics</a><a href="#s-3">Obstetrics</a><a href="#s-4">Gynecology</a><a href="#s-5">ENT</a><a href="#s-6">Ophthalmology</a><a href="#s-7">Forensic Medicine</a><a href="#s-8">Pharmacology</a><a href="#s-9">Pathology</a><a href="#s-10">Anatomy</a><a href="#s-11">Physiology</a><a href="#s-12">Infectious Disease</a><a href="#s-13">Dermatology</a></div></nav>
+<main>
+<div class="overview">
+<div class="ov"><span class="v">100</span><span class="l">Topics</span></div>
+<div class="ov"><span class="v">17</span><span class="l">Seen in all 5 papers</span></div>
+<div class="ov"><span class="v">55</span><span class="l">Seen in 3+ papers</span></div>
+<div class="ov"><span class="v">94/100</span><span class="l">Matched to papers</span></div>
+<div class="ov"><span class="v">14</span><span class="l">Subjects</span></div>
+</div>
+<div class="papers-band"></div>
+<div class="legend"><b>Evidence</b>
+<span class="tier t1">3+ papers</span><span class="tier t2">2 papers</span>
+<span class="tier t3">1 paper</span><span class="tier t4">Prediction only</span><span class="tier t5">Not in past papers</span></div>
+<div class="srch"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+<input id="q" placeholder="Search topics, triggers, discriminators, traps&hellip;"><span class="hits" id="hits"></span></div>
+<div class="filters"><button class="fbtn on" data-f="all">All</button><button class="fbtn" data-f="t1">3+ papers</button><button class="fbtn" data-f="t2">2 papers</button><button class="fbtn" data-f="t3">1 paper</button><button class="fbtn" data-f="t4">Prediction only</button><button class="fbtn" data-f="t5">Not seen</button></div>
+<div class="filters"><button class="fbtn on" data-p="all">Any paper</button><button class="fbtn" data-p="Jun24">Jun24</button><button class="fbtn" data-p="Dec24">Dec24</button><button class="fbtn" data-p="Jun25">Jun25</button><button class="fbtn" data-p="Dec25">Dec25</button><button class="fbtn" data-p="May26">May26</button></div>
+<section class="system" id="s-0">
+<button class="sys-head" aria-expanded="false"><svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+Medicine<span class="bar"><i style="width:88%"></i></span><span class="count">26 topics</span></button>
+<div class="sys-body"><table><thead><tr><th></th><th>Topic</th><th>Evidence</th><th>Seen in</th><th><span class="klabel">Trigger</span>Recognition trigger</th><th>Key discriminator</th><th>Main trap</th></tr></thead><tbody>
+<tr><td class="rank">1</td><td class="topic">Aortic dissection</td>
+<td class="tiercell"><span class="tier t3">Dec25 only</span></td>
+<td class="papers"><span class="pc"><b class="">Jun24</b><b class="">Dec24</b><b class="">Jun25</b><b class="hit">Dec25</b><b class="">May26</b></span></td>
+<td class="trigger">Sudden tearing chest/back pain + BP difference between arms</td><td class="disc">CT angiography for diagnosis; Type A surgery, Type B IV beta-blocker</td><td class="trap">Treating as MI based on chest pain alone</td></tr>
+<tr><td class="rank">3</td><td class="topic">Rheumatoid arthritis</td>
+<td class="tiercell"><span class="tier t1">Seen in 4 of 5 papers</span></td>
+<td class="papers"><span class="pc"><b class="">Jun24</b><b class="hit">Dec24</b><b class="hit">Jun25</b><b class="hit">Dec25</b><b class="hit">May26</b></span></td>
+<td class="trigger">Symmetric MCP/PIP pain + morning stiffness &gt;1 hour</td><td class="disc">Anti-CCP is the best confirming test when asked</td><td class="trap">Mistaking shoulder pain or age for OA</td></tr>
+<tr><td class="rank">4</td><td class="topic">Osteoarthritis</td>
+<td class="tiercell"><span class="tier t1">Seen in 4 of 5 papers</span></td>
+<td class="papers"><span class="pc"><b class="">Jun24</b><b class="hit">Dec24</b><b class="hit">Jun25</b><b class="hit">Dec25</b><b class="hit">May26</b></span></td>
+<td class="trigger">Elderly + DIP Heberden nodes + pain worse with use</td><td class="disc">DIP involvement strongly favors OA</td><td class="trap">Confusing PIP Bouchard nodes with RA</td></tr>
+<tr><td class="rank">6</td><td class="topic">IgA nephropathy</td>
+<td class="tiercell"><span class="tier t1">Seen in 3 papers</span></td>
+<td class="papers"><span class="pc"><b class="hit">Jun24</b><b class="">Dec24</b><b class="">Jun25</b><b class="hit">Dec25</b><b class="hit">May26</b></span></td>
+<td class="trigger">Hematuria during or immediately after URTI</td><td class="disc">Synpharyngitic hematuria, often normal C3</td><td class="trap">Post-strep GN timing</td></tr>
+<tr><td class="rank">13</td><td class="topic">Esophageal varices</td>
+<td class="tiercell"><span class="tier t1">Seen in 3 papers</span></td>
+<td class="papers"><span class="pc"><b class="hit">Jun24</b><b class="">Dec24</b><b class="hit">Jun25</b><b class="hit">Dec25</b><b class="">May26</b></span></td>
+<td class="trigger">Cirrhosis/portal HTN + hematemesis</td><td class="disc">Endoscopic band ligation; vasoactive bridge may be terlipressin/octreotide</td><td class="trap">Mallory-Weiss or PPI-only answer</td></tr>
+<tr><td class="rank">14</td><td class="topic">H. pylori eradication confirmation</td>
+<td class="tiercell"><span class="tier t3">May26 only</span></td>
+<td class="papers"><span class="pc"><b class="">Jun24</b><b class="">Dec24</b><b class="">Jun25</b><b class="">Dec25</b><b class="hit">May26</b></span></td>
+<td class="trigger">Treated PUD after triple therapy</td><td class="disc">Urea breath test for eradication</td><td class="trap">Serology, endoscopy, barium</td></tr>
+<tr><td class="rank">15</td><td class="topic">IBS</td>
+<td class="tiercell"><span class="tier t2">Seen in 2 papers</span></td>
+<td class="papers"><span class="pc"><b class="">Jun24</b><b class="">Dec24</b><b class="">Jun25</b><b class="hit">Dec25</b><b class="hit">May26</b></span></td>
+<td class="trigger">Chronic abdominal pain relieved by defecation + normal workup</td><td class="disc">No red flags; stress worsens</td><td class="trap">IBD when there is no blood/weight loss</td></tr>
+<tr><td class="rank">16</td><td class="topic">Chronic bronchitis</td>
+<td class="tiercell"><span class="tier t1">Seen in 3 papers</span></td>
+<td class="papers"><span class="pc"><b class="">Jun24</b><b class="hit">Dec24</b><b class="">Jun25</b><b class="hit">Dec25</b><b class="hit">May26</b></span></td>
+<td class="trigger">Smoker + productive cough for 2 years</td><td class="disc">Productive cough &gt;=3 months/year for 2 years</td><td class="trap">Asthma or bronchiectasis</td></tr>
+<tr><td class="rank">17</td><td class="topic">Pleural effusion vs collapse</td>
+<td class="tiercell"><span class="tier t2">Seen in 2 papers</span></td>
+<td class="papers"><span class="pc"><b class="">Jun24</b><b class="hit">Dec24</b><b class="">Jun25</b><b class="hit">Dec25</b><b class="">May26</b></span></td>
+<td class="trigger">Dullness with tracheal shift</td><td class="disc">Effusion pushes trachea away; collapse pulls toward</td><td class="trap">Pneumothorax if percussion note ignored</td></tr>
+<tr><td class="rank">18</td><td class="topic">Goodpasture syndrome</td>
+<td class="tiercell"><span class="tier t1">Seen in 3 papers</span></td>
+<td class="papers"><span class="pc"><b class="hit">Jun24</b><b class="hit">Dec24</b><b class="">Jun25</b><b class="hit">Dec25</b><b class="">May26</b></span></td>
+<td class="trigger">Hemoptysis + hematuria/RBC casts</td><td class="disc">Anti-GBM pulmonary-renal syndrome</td><td class="trap">GPA/Wegener without ENT/sinus clue</td></tr>
+<tr><td class="rank">19</td><td class="topic">Cushing syndrome</td>
+<td class="tiercell"><span class="tier t1">Seen in 5 of 5 papers</span></td>
+<td class="papers"><span class="pc"><b class="hit">Jun24</b><b class="hit">Dec24</b><b class="hit">Jun25</b><b class="hit">Dec25</b><b class="hit">May26</b></span></td>
+<td class="trigger">Purple striae + proximal weakness + HTN + eosinopenia</td><td class="disc">Cortisol excess</td><td class="trap">Addison, hypothyroid, diabetes</td></tr>
+<tr><td class="rank">20</td><td class="topic">Hypocalcaemia</td>
+<td class="tiercell"><span class="tier t3">Dec25 only</span></td>
+<td class="papers"><span class="pc"><b class="">Jun24</b><b class="">Dec24</b><b class="">Jun25</b><b class="hit">Dec25</b><b class="">May26</b></span></td>
+<td class="trigger">Tetany + Chvostek/Trousseau</td><td class="disc">Low calcium</td><td class="trap">Magnesium or potassium reflex answer</td></tr>
+<tr><td class="rank">21</td><td class="topic">Hyperparathyroidism</td>
+<td class="tiercell"><span class="tier t2">Seen in 2 papers</span></td>
+<td class="papers"><span class="pc"><b class="">Jun24</b><b class="">Dec24</b><b class="">Jun25</b><b class="hit">Dec25</b><b class="hit">May26</b></span></td>
+<td class="trigger">Bone/renal symptoms or early biochemical clue</td><td class="disc">Early hypophosphatemia; later hypercalcemia</td><td class="trap">Choosing PTH/hypercalcemia for earliest abnormality</td></tr>
+<tr><td class="rank">22</td><td class="topic">Parkinson disease</td>
+<td class="tiercell"><span class="tier t1">Seen in 5 of 5 papers</span></td>
+<td class="papers"><span class="pc"><b class="hit">Jun24</b><b class="hit">Dec24</b><b class="hit">Jun25</b><b class="hit">Dec25</b><b class="hit">May26</b></span></td>
+<td class="trigger">Resting tremor + rigidity + bradykinesia + shuffling gait</td><td class="disc">Resting tremor; substantia nigra dopamine loss</td><td class="trap">Essential tremor/intention tremor</td></tr>
+<tr><td class="rank">23</td><td class="topic">Myasthenia gravis</td>
+<td class="tiercell"><span class="tier t2">Seen in 2 papers</span></td>
+<td class="papers"><span class="pc"><b class="">Jun24</b><b class="">Dec24</b><b class="hit">Jun25</b><b class="">Dec25</b><b class="hit">May26</b></span></td>
+<td class="trigger">Ptosis/diplopia worse at day end, improves with rest</td><td class="disc">Pyridostigmine for symptomatic treatment</td><td class="trap">GBS or Lambert-Eaton</td></tr>
+<tr><td class="rank">24</td><td class="topic">Guillain-Barre syndrome</td>
+<td class="tiercell"><span class="tier t2">Seen in 2 papers</span></td>
+<td class="papers"><span class="pc"><b class="">Jun24</b><b class="">Dec24</b><b class="hit">Jun25</b><b class="">Dec25</b><b class="hit">May26</b></span></td>
+<td class="trigger">Ascending weakness after infection + areflexia</td><td class="disc">Acute inflammatory demyelinating polyneuropathy</td><td class="trap">Myasthenia or MS</td></tr>
+<tr><td class="rank">25</td><td class="topic">Amaurosis fugax / TIA</td>
+<td class="tiercell"><span class="tier t4">Prediction only</span></td>
+<td class="papers"><span class="pc"><b>—</b></span></td>
+<td class="trigger">Transient monocular blindness</td><td class="disc">Retinal artery embolic TIA</td><td class="trap">Treating as completed stroke only</td></tr>
+<tr><td class="rank">26</td><td class="topic">AML</td>
+<td class="tiercell"><span class="tier t3">May26 only</span></td>
+<td class="papers"><span class="pc"><b class="">Jun24</b><b class="">Dec24</b><b class="">Jun25</b><b class="">Dec25</b><b class="hit">May26</b></span></td>
+<td class="trigger">Auer rods + MPO positive +/- gum hyperplasia</td><td class="disc">Auer rods = AML</td><td class="trap">ALL because of blasts</td></tr>
+<tr><td class="rank">27</td><td class="topic">CML</td>
+<td class="tiercell"><span class="tier t2">Seen in 2 papers</span></td>
+<td class="papers"><span class="pc"><b class="">Jun24</b><b class="">Dec24</b><b class="hit">Jun25</b><b class="">Dec25</b><b class="hit">May26</b></span></td>
+<td class="trigger">Massive splenomegaly + myeloid left shift</td><td class="disc">BCR-ABL / Philadelphia chromosome</td><td class="trap">CLL or myelofibrosis</td></tr>
+<tr><td class="rank">28</td><td class="topic">Iron deficiency anemia</td>
+<td class="tiercell"><span class="tier t1">Seen in 5 of 5 papers</span></td>
+<td class="papers"><span class="pc"><b class="hit">Jun24</b><b class="hit">Dec24</b><b class="hit">Jun25</b><b class="hit">Dec25</b><b class="hit">May26</b></span></td>
+<td class="trigger">Microcytic hypochromic anemia + low ferritin</td><td class="disc">Low ferritin + high TIBC</td><td class="trap">Thalassemia trait</td></tr>
+<tr><td class="rank">29</td><td class="topic">B12 deficiency</td>
+<td class="tiercell"><span class="tier t1">Seen in 5 of 5 papers</span></td>
+<td class="papers"><span class="pc"><b class="hit">Jun24</b><b class="hit">Dec24</b><b class="hit">Jun25</b><b class="hit">Dec25</b><b class="hit">May26</b></span></td>
+<td class="trigger">Macrocytosis + glossitis + posterior column signs</td><td class="disc">Pernicious anemia if Schilling/intrinsic factor clue</td><td class="trap">Folate deficiency</td></tr>
+<tr><td class="rank">30</td><td class="topic">Gout</td>
+<td class="tiercell"><span class="tier t1">Seen in 4 of 5 papers</span></td>
+<td class="papers"><span class="pc"><b class="">Jun24</b><b class="hit">Dec24</b><b class="hit">Jun25</b><b class="hit">Dec25</b><b class="hit">May26</b></span></td>
+<td class="trigger">Sudden painful red first MTP</td><td class="disc">Podagra</td><td class="trap">RA/OA</td></tr>
+<tr><td class="rank">91</td><td class="topic">Doubling time</td>
+<td class="tiercell"><span class="tier t3">Dec25 only</span></td>
+<td class="papers"><span class="pc"><b class="">Jun24</b><b class="">Dec24</b><b class="">Jun25</b><b class="hit">Dec25</b><b class="">May26</b></span></td>
+<td class="trigger">Population growth rate given</td><td class="disc">Rule of 70</td><td class="trap">Exact arithmetic trap</td></tr>
+<tr><td class="rank">92</td><td class="topic">Study design</td>
+<td class="tiercell"><span class="tier t5">Syllabus core</span></td>
+<td class="papers"><span class="pc"><b>—</b></span></td>
+<td class="trigger">Groups receive surgery vs diet/intervention</td><td class="disc">Randomized controlled trial if assigned intervention</td><td class="trap">Cohort because groups are followed</td></tr>
+<tr><td class="rank">93</td><td class="topic">Data presentation</td>
+<td class="tiercell"><span class="tier t2">Seen in 2 papers</span></td>
+<td class="papers"><span class="pc"><b class="hit">Jun24</b><b class="">Dec24</b><b class="">Jun25</b><b class="">Dec25</b><b class="hit">May26</b></span></td>
+<td class="trigger">Percentages/proportions asked</td><td class="disc">Pie chart</td><td class="trap">Bar chart when parts of whole</td></tr>
+<tr><td class="rank">94</td><td class="topic">Median/biostatistics basics</td>
+<td class="tiercell"><span class="tier t1">Seen in 3 papers</span></td>
+<td class="papers"><span class="pc"><b class="hit">Jun24</b><b class="">Dec24</b><b class="">Jun25</b><b class="hit">Dec25</b><b class="hit">May26</b></span></td>
+<td class="trigger">Skewed data or middle value</td><td class="disc">Median</td><td class="trap">Mean</td></tr>
+</tbody></table></div></section>
+<section class="system" id="s-1">
+<button class="sys-head" aria-expanded="false"><svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+Surgery<span class="bar"><i style="width:56%"></i></span><span class="count">16 topics</span></button>
+<div class="sys-body"><table><thead><tr><th></th><th>Topic</th><th>Evidence</th><th>Seen in</th><th><span class="klabel">Trigger</span>Recognition trigger</th><th>Key discriminator</th><th>Main trap</th></tr></thead><tbody>
+<tr><td class="rank">9</td><td class="topic">Testicular torsion</td>
+<td class="tiercell"><span class="tier t1">Seen in 3 papers</span></td>
+<td class="papers"><span class="pc"><b class="">Jun24</b><b class="">Dec24</b><b class="hit">Jun25</b><b class="hit">Dec25</b><b class="hit">May26</b></span></td>
+<td class="trigger">Sudden severe testicular pain + high-riding testis + absent cremasteric reflex</td><td class="disc">Urgent surgical exploration if Doppler unavailable</td><td class="trap">Waiting for imaging</td></tr>
+<tr><td class="rank">10</td><td class="topic">Perforated peptic ulcer</td>
+<td class="tiercell"><span class="tier t1">Seen in 3 papers</span></td>
+<td class="papers"><span class="pc"><b class="">Jun24</b><b class="">Dec24</b><b class="hit">Jun25</b><b class="hit">Dec25</b><b class="hit">May26</b></span></td>
+<td class="trigger">Sudden severe abdominal pain + board-like rigidity + free air</td><td class="disc">Exploratory laparotomy / surgical management</td><td class="trap">PPI or endoscopy as definitive step</td></tr>
+<tr><td class="rank">11</td><td class="topic">Esophageal carcinoma</td>
+<td class="tiercell"><span class="tier t1">Seen in 3 papers</span></td>
+<td class="papers"><span class="pc"><b class="hit">Jun24</b><b class="">Dec24</b><b class="hit">Jun25</b><b class="hit">Dec25</b><b class="">May26</b></span></td>
+<td class="trigger">Progressive dysphagia solids first then liquids + weight loss</td><td class="disc">Mechanical obstruction pattern</td><td class="trap">Achalasia</td></tr>
+<tr><td class="rank">12</td><td class="topic">Achalasia</td>
+<td class="tiercell"><span class="tier t1">Seen in 4 of 5 papers</span></td>
+<td class="papers"><span class="pc"><b class="hit">Jun24</b><b class="hit">Dec24</b><b class="">Jun25</b><b class="hit">Dec25</b><b class="hit">May26</b></span></td>
+<td class="trigger">Dysphagia to liquids and solids + bird-beak</td><td class="disc">Functional obstruction; manometry/endoscopy depending wording</td><td class="trap">Cancer when liquids are involved early</td></tr>
+<tr><td class="rank">41</td><td class="topic">Femoral hernia location</td>
+<td class="tiercell"><span class="tier t1">Seen in 3 papers</span></td>
+<td class="papers"><span class="pc"><b class="">Jun24</b><b class="">Dec24</b><b class="hit">Jun25</b><b class="hit">Dec25</b><b class="hit">May26</b></span></td>
+<td class="trigger">Groin swelling below pubic tubercle</td><td class="disc">Below and lateral to pubic tubercle</td><td class="trap">Inguinal hernia locations</td></tr>
+<tr><td class="rank">42</td><td class="topic">Direct inguinal hernia</td>
+<td class="tiercell"><span class="tier t1">Seen in 5 of 5 papers</span></td>
+<td class="papers"><span class="pc"><b class="hit">Jun24</b><b class="hit">Dec24</b><b class="hit">Jun25</b><b class="hit">Dec25</b><b class="hit">May26</b></span></td>
+<td class="trigger">Hernia through Hesselbach triangle</td><td class="disc">Direct inguinal</td><td class="trap">Indirect hernia</td></tr>
+<tr><td class="rank">43</td><td class="topic">Thyroglossal duct cyst</td>
+<td class="tiercell"><span class="tier t1">Seen in 3 papers</span></td>
+<td class="papers"><span class="pc"><b class="hit">Jun24</b><b class="hit">Dec24</b><b class="">Jun25</b><b class="">Dec25</b><b class="hit">May26</b></span></td>
+<td class="trigger">Midline neck swelling moves with tongue protrusion</td><td class="disc">Thyroglossal duct cyst</td><td class="trap">Thyroid nodule/branchial cyst</td></tr>
+<tr><td class="rank">44</td><td class="topic">Breast carcinoma severity/workup</td>
+<td class="tiercell"><span class="tier t1">Seen in 5 of 5 papers</span></td>
+<td class="papers"><span class="pc"><b class="hit">Jun24</b><b class="hit">Dec24</b><b class="hit">Jun25</b><b class="hit">Dec25</b><b class="hit">May26</b></span></td>
+<td class="trigger">Hard irregular lump, skin changes, nodes</td><td class="disc">Triple assessment; lymph nodes worsen prognosis</td><td class="trap">Fibroadenoma/reassurance</td></tr>
+<tr><td class="rank">45</td><td class="topic">Fibroadenoma</td>
+<td class="tiercell"><span class="tier t2">Seen in 2 papers</span></td>
+<td class="papers"><span class="pc"><b class="">Jun24</b><b class="">Dec24</b><b class="hit">Jun25</b><b class="">Dec25</b><b class="hit">May26</b></span></td>
+<td class="trigger">Young woman + painless mobile breast lump</td><td class="disc">Reassurance/follow-up if classic small lesion</td><td class="trap">Mastectomy/cancer management</td></tr>
+<tr><td class="rank">46</td><td class="topic">Intraductal papilloma</td>
+<td class="tiercell"><span class="tier t1">Seen in 3 papers</span></td>
+<td class="papers"><span class="pc"><b class="">Jun24</b><b class="hit">Dec24</b><b class="hit">Jun25</b><b class="hit">Dec25</b><b class="">May26</b></span></td>
+<td class="trigger">Bloody nipple discharge from single duct, no lump</td><td class="disc">Intraductal papilloma</td><td class="trap">Breast carcinoma</td></tr>
+<tr><td class="rank">47</td><td class="topic">Acute appendicitis</td>
+<td class="tiercell"><span class="tier t1">Seen in 3 papers</span></td>
+<td class="papers"><span class="pc"><b class="hit">Jun24</b><b class="">Dec24</b><b class="">Jun25</b><b class="hit">Dec25</b><b class="hit">May26</b></span></td>
+<td class="trigger">Periumbilical pain migrates to RIF + rebound</td><td class="disc">Appendectomy/definitive surgical management</td><td class="trap">Antibiotics only</td></tr>
+<tr><td class="rank">48</td><td class="topic">Tension pneumothorax</td>
+<td class="tiercell"><span class="tier t1">Seen in 5 of 5 papers</span></td>
+<td class="papers"><span class="pc"><b class="hit">Jun24</b><b class="hit">Dec24</b><b class="hit">Jun25</b><b class="hit">Dec25</b><b class="hit">May26</b></span></td>
+<td class="trigger">Hypotension + tracheal deviation + absent breath sounds</td><td class="disc">Needle decompression before CXR</td><td class="trap">Waiting for imaging</td></tr>
+<tr><td class="rank">49</td><td class="topic">Burns escharotomy</td>
+<td class="tiercell"><span class="tier t3">Jun25 only</span></td>
+<td class="papers"><span class="pc"><b class="">Jun24</b><b class="">Dec24</b><b class="hit">Jun25</b><b class="">Dec25</b><b class="">May26</b></span></td>
+<td class="trigger">Circumferential burn + weak pulses + paresthesia</td><td class="disc">Escharotomy</td><td class="trap">Fasciotomy or fluids only</td></tr>
+<tr><td class="rank">50</td><td class="topic">Pelvic fracture shock</td>
+<td class="tiercell"><span class="tier t1">Seen in 5 of 5 papers</span></td>
+<td class="papers"><span class="pc"><b class="hit">Jun24</b><b class="hit">Dec24</b><b class="hit">Jun25</b><b class="hit">Dec25</b><b class="hit">May26</b></span></td>
+<td class="trigger">Pelvic fracture + shock</td><td class="disc">Internal hemorrhage/blood loss</td><td class="trap">Fat embolism/head injury</td></tr>
+<tr><td class="rank">51</td><td class="topic">Gallstone disease / cholangitis</td>
+<td class="tiercell"><span class="tier t1">Seen in 3 papers</span></td>
+<td class="papers"><span class="pc"><b class="hit">Jun24</b><b class="">Dec24</b><b class="hit">Jun25</b><b class="">Dec25</b><b class="hit">May26</b></span></td>
+<td class="trigger">RUQ pain + fever + jaundice + CBD stone</td><td class="disc">Urgent ERCP if septic cholangitis</td><td class="trap">Cholecystectomy first</td></tr>
+<tr><td class="rank">52</td><td class="topic">Pancreatic pseudocyst</td>
+<td class="tiercell"><span class="tier t3">Dec25 only</span></td>
+<td class="papers"><span class="pc"><b class="">Jun24</b><b class="">Dec24</b><b class="">Jun25</b><b class="hit">Dec25</b><b class="">May26</b></span></td>
+<td class="trigger">Epigastric mass 4-6 weeks after pancreatitis</td><td class="disc">Pseudocyst without fever</td><td class="trap">Abscess/cancer</td></tr>
+</tbody></table></div></section>
+<section class="system" id="s-2">
+<button class="sys-head" aria-expanded="false"><svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+Paediatrics<span class="bar"><i style="width:80%"></i></span><span class="count">10 topics</span></button>
+<div class="sys-body"><table><thead><tr><th></th><th>Topic</th><th>Evidence</th><th>Seen in</th><th><span class="klabel">Trigger</span>Recognition trigger</th><th>Key discriminator</th><th>Main trap</th></tr></thead><tbody>
+<tr><td class="rank">5</td><td class="topic">Post-streptococcal GN</td>
+<td class="tiercell"><span class="tier t1">Seen in 3 papers</span></td>
+<td class="papers"><span class="pc"><b class="">Jun24</b><b class="hit">Dec24</b><b class="">Jun25</b><b class="hit">Dec25</b><b class="hit">May26</b></span></td>
+<td class="trigger">Cola urine + periorbital edema 1-3 weeks after sore throat</td><td class="disc">Latent period after infection + low C3</td><td class="trap">IgA nephropathy, which occurs during URTI</td></tr>
+<tr><td class="rank">7</td><td class="topic">Epiglottitis</td>
+<td class="tiercell"><span class="tier t1">Seen in 4 of 5 papers</span></td>
+<td class="papers"><span class="pc"><b class="hit">Jun24</b><b class="hit">Dec24</b><b class="">Jun25</b><b class="hit">Dec25</b><b class="hit">May26</b></span></td>
+<td class="trigger">Toxic child + drooling + tripod + thumb sign</td><td class="disc">Secure airway first in controlled setting</td><td class="trap">Examining throat or delaying for imaging</td></tr>
+<tr><td class="rank">63</td><td class="topic">Down syndrome</td>
+<td class="tiercell"><span class="tier t1">Seen in 5 of 5 papers</span></td>
+<td class="papers"><span class="pc"><b class="hit">Jun24</b><b class="hit">Dec24</b><b class="hit">Jun25</b><b class="hit">Dec25</b><b class="hit">May26</b></span></td>
+<td class="trigger">Upslanting eyes + single palmar crease</td><td class="disc">Trisomy 21; VSD/AV canal associations</td><td class="trap">Patau/Edwards</td></tr>
+<tr><td class="rank">64</td><td class="topic">Erb palsy</td>
+<td class="tiercell"><span class="tier t1">Seen in 4 of 5 papers</span></td>
+<td class="papers"><span class="pc"><b class="">Jun24</b><b class="hit">Dec24</b><b class="hit">Jun25</b><b class="hit">Dec25</b><b class="hit">May26</b></span></td>
+<td class="trigger">Newborn after difficult delivery + waiter&#x27;s tip</td><td class="disc">C5-C6 upper trunk</td><td class="trap">Klumpke palsy</td></tr>
+<tr><td class="rank">65</td><td class="topic">Severe dehydration</td>
+<td class="tiercell"><span class="tier t1">Seen in 4 of 5 papers</span></td>
+<td class="papers"><span class="pc"><b class="hit">Jun24</b><b class="hit">Dec24</b><b class="hit">Jun25</b><b class="">Dec25</b><b class="hit">May26</b></span></td>
+<td class="trigger">Drowsy child with profuse diarrhea/vomiting unable to drink</td><td class="disc">IV Ringer lactate</td><td class="trap">ORS when severe</td></tr>
+<tr><td class="rank">66</td><td class="topic">Neonatal CPR ratio</td>
+<td class="tiercell"><span class="tier t2">Seen in 2 papers</span></td>
+<td class="papers"><span class="pc"><b class="">Jun24</b><b class="hit">Dec24</b><b class="">Jun25</b><b class="hit">Dec25</b><b class="">May26</b></span></td>
+<td class="trigger">Newborn resuscitation compression:ventilation</td><td class="disc">3:1</td><td class="trap">Adult/pediatric ratios</td></tr>
+<tr><td class="rank">67</td><td class="topic">Vitamin K deficiency bleeding</td>
+<td class="tiercell"><span class="tier t1">Seen in 5 of 5 papers</span></td>
+<td class="papers"><span class="pc"><b class="hit">Jun24</b><b class="hit">Dec24</b><b class="hit">Jun25</b><b class="hit">Dec25</b><b class="hit">May26</b></span></td>
+<td class="trigger">Newborn bleeding, no prophylaxis</td><td class="disc">Vitamin K deficiency</td><td class="trap">Hemophilia</td></tr>
+<tr><td class="rank">68</td><td class="topic">Rickets</td>
+<td class="tiercell"><span class="tier t3">May26 only</span></td>
+<td class="papers"><span class="pc"><b class="">Jun24</b><b class="">Dec24</b><b class="">Jun25</b><b class="">Dec25</b><b class="hit">May26</b></span></td>
+<td class="trigger">Bowed legs + rachitic rosary + low Ca/phosphate + high ALP</td><td class="disc">Vitamin D deficiency</td><td class="trap">Renal failure/excess calcium</td></tr>
+<tr><td class="rank">69</td><td class="topic">Croup</td>
+<td class="tiercell"><span class="tier t2">Seen in 2 papers</span></td>
+<td class="papers"><span class="pc"><b class="hit">Jun24</b><b class="hit">Dec24</b><b class="">Jun25</b><b class="">Dec25</b><b class="">May26</b></span></td>
+<td class="trigger">Barking cough + steeple sign + non-toxic</td><td class="disc">Nebulized adrenaline/steroids depending severity</td><td class="trap">Epiglottitis</td></tr>
+<tr><td class="rank">70</td><td class="topic">Autism</td>
+<td class="tiercell"><span class="tier t3">Dec25 only</span></td>
+<td class="papers"><span class="pc"><b class="">Jun24</b><b class="">Dec24</b><b class="">Jun25</b><b class="hit">Dec25</b><b class="">May26</b></span></td>
+<td class="trigger">Poor eye contact + hand flapping + delayed speech</td><td class="disc">Autism spectrum disorder</td><td class="trap">CP/ADHD</td></tr>
+</tbody></table></div></section>
+<section class="system" id="s-3">
+<button class="sys-head" aria-expanded="false"><svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+Obstetrics<span class="bar"><i style="width:29%"></i></span><span class="count">7 topics</span></button>
+<div class="sys-body"><table><thead><tr><th></th><th>Topic</th><th>Evidence</th><th>Seen in</th><th><span class="klabel">Trigger</span>Recognition trigger</th><th>Key discriminator</th><th>Main trap</th></tr></thead><tbody>
+<tr><td class="rank">2</td><td class="topic">Anti-D immunoglobulin</td>
+<td class="tiercell"><span class="tier t1">Seen in 4 of 5 papers</span></td>
+<td class="papers"><span class="pc"><b class="hit">Jun24</b><b class="hit">Dec24</b><b class="hit">Jun25</b><b class="hit">Dec25</b><b class="">May26</b></span></td>
+<td class="trigger">Rh-negative mother + Rh-positive baby or sensitising event</td><td class="disc">Give anti-D within 72 hours</td><td class="trap">Choosing 24h/48h/96h instead of 72h</td></tr>
+<tr><td class="rank">53</td><td class="topic">Placenta previa</td>
+<td class="tiercell"><span class="tier t2">Seen in 2 papers</span></td>
+<td class="papers"><span class="pc"><b class="hit">Jun24</b><b class="">Dec24</b><b class="">Jun25</b><b class="">Dec25</b><b class="hit">May26</b></span></td>
+<td class="trigger">Painless bright red antepartum bleeding + soft uterus</td><td class="disc">Avoid PV exam until placenta location known; CS if major/late</td><td class="trap">Abruption</td></tr>
+<tr><td class="rank">54</td><td class="topic">Placental abruption</td>
+<td class="tiercell"><span class="tier t1">Seen in 3 papers</span></td>
+<td class="papers"><span class="pc"><b class="hit">Jun24</b><b class="">Dec24</b><b class="">Jun25</b><b class="hit">Dec25</b><b class="hit">May26</b></span></td>
+<td class="trigger">Painful bleeding + tender rigid uterus + fetal distress</td><td class="disc">Pain and uterine tenderness</td><td class="trap">Placenta previa</td></tr>
+<tr><td class="rank">55</td><td class="topic">Ectopic pregnancy</td>
+<td class="tiercell"><span class="tier t1">Seen in 5 of 5 papers</span></td>
+<td class="papers"><span class="pc"><b class="hit">Jun24</b><b class="hit">Dec24</b><b class="hit">Jun25</b><b class="hit">Dec25</b><b class="hit">May26</b></span></td>
+<td class="trigger">Amenorrhea + abdominal pain + bleeding + shock</td><td class="disc">Rule out first in reproductive-age acute abdomen</td><td class="trap">PID/miscarriage without pregnancy test</td></tr>
+<tr><td class="rank">56</td><td class="topic">Severe pre-eclampsia / HELLP</td>
+<td class="tiercell"><span class="tier t1">Seen in 3 papers</span></td>
+<td class="papers"><span class="pc"><b class="">Jun24</b><b class="hit">Dec24</b><b class="hit">Jun25</b><b class="">Dec25</b><b class="hit">May26</b></span></td>
+<td class="trigger">BP &gt;=160/110 + proteinuria + headache/epigastric pain +/- low platelets</td><td class="disc">MgSO4 for seizure prophylaxis; delivery depending gestation/stability</td><td class="trap">Simple gestational HTN</td></tr>
+<tr><td class="rank">57</td><td class="topic">Gestational diabetes</td>
+<td class="tiercell"><span class="tier t1">Seen in 4 of 5 papers</span></td>
+<td class="papers"><span class="pc"><b class="hit">Jun24</b><b class="">Dec24</b><b class="hit">Jun25</b><b class="hit">Dec25</b><b class="hit">May26</b></span></td>
+<td class="trigger">Pregnancy 24-28 weeks / glucosuria</td><td class="disc">OGTT</td><td class="trap">Random glucose/urine glucose</td></tr>
+<tr><td class="rank">58</td><td class="topic">Preterm labor steroids/neuroprotection</td>
+<td class="tiercell"><span class="tier t3">Dec25 only</span></td>
+<td class="papers"><span class="pc"><b class="">Jun24</b><b class="">Dec24</b><b class="">Jun25</b><b class="hit">Dec25</b><b class="">May26</b></span></td>
+<td class="trigger">Preterm contractions with cervical dilation</td><td class="disc">Betamethasone for lung maturity; MgSO4 for neuroprotection if very preterm</td><td class="trap">Continuing tocolysis as fetal outcome drug</td></tr>
+</tbody></table></div></section>
+<section class="system" id="s-4">
+<button class="sys-head" aria-expanded="false"><svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+Gynecology<span class="bar"><i style="width:25%"></i></span><span class="count">4 topics</span></button>
+<div class="sys-body"><table><thead><tr><th></th><th>Topic</th><th>Evidence</th><th>Seen in</th><th><span class="klabel">Trigger</span>Recognition trigger</th><th>Key discriminator</th><th>Main trap</th></tr></thead><tbody>
+<tr><td class="rank">59</td><td class="topic">PCOS</td>
+<td class="tiercell"><span class="tier t3">Jun24 only</span></td>
+<td class="papers"><span class="pc"><b class="hit">Jun24</b><b class="">Dec24</b><b class="">Jun25</b><b class="">Dec25</b><b class="">May26</b></span></td>
+<td class="trigger">Infertility + obesity + hirsutism + irregular cycles</td><td class="disc">Hyperandrogenism + polycystic ovaries</td><td class="trap">Endometriosis/hyperprolactinemia</td></tr>
+<tr><td class="rank">60</td><td class="topic">Androgen insensitivity</td>
+<td class="tiercell"><span class="tier t5">Syllabus core</span></td>
+<td class="papers"><span class="pc"><b>—</b></span></td>
+<td class="trigger">Primary amenorrhea + blind vagina + absent uterus + 46XY + normal breasts</td><td class="disc">Testicular feminization/AIS</td><td class="trap">Mullerian agenesis if karyotype is 46XX</td></tr>
+<tr><td class="rank">61</td><td class="topic">Abnormal uterine bleeding in adolescence</td>
+<td class="tiercell"><span class="tier t1">Seen in 5 of 5 papers</span></td>
+<td class="papers"><span class="pc"><b class="hit">Jun24</b><b class="hit">Dec24</b><b class="hit">Jun25</b><b class="hit">Dec25</b><b class="hit">May26</b></span></td>
+<td class="trigger">Heavy bleeding since menarche, pregnancy/coag normal</td><td class="disc">Anovulatory cycles most common</td><td class="trap">Fibroid/cancer</td></tr>
+<tr><td class="rank">62</td><td class="topic">GTN</td>
+<td class="tiercell"><span class="tier t5">Syllabus core</span></td>
+<td class="papers"><span class="pc"><b>—</b></span></td>
+<td class="trigger">High beta-hCG + bleeding after pregnancy/molar features</td><td class="disc">Serial beta-hCG follow-up</td><td class="trap">Normal miscarriage follow-up</td></tr>
+</tbody></table></div></section>
+<section class="system" id="s-5">
+<button class="sys-head" aria-expanded="false"><svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+ENT<span class="bar"><i style="width:33%"></i></span><span class="count">3 topics</span></button>
+<div class="sys-body"><table><thead><tr><th></th><th>Topic</th><th>Evidence</th><th>Seen in</th><th><span class="klabel">Trigger</span>Recognition trigger</th><th>Key discriminator</th><th>Main trap</th></tr></thead><tbody>
+<tr><td class="rank">8</td><td class="topic">Nasal foreign body</td>
+<td class="tiercell"><span class="tier t1">Seen in 5 of 5 papers</span></td>
+<td class="papers"><span class="pc"><b class="hit">Jun24</b><b class="hit">Dec24</b><b class="hit">Jun25</b><b class="hit">Dec25</b><b class="hit">May26</b></span></td>
+<td class="trigger">Child + unilateral foul-smelling/blood-stained nasal discharge</td><td class="disc">Foreign body until proven otherwise</td><td class="trap">Treating as sinusitis</td></tr>
+<tr><td class="rank">98</td><td class="topic">Otic barotrauma</td>
+<td class="tiercell"><span class="tier t3">Dec25 only</span></td>
+<td class="papers"><span class="pc"><b class="">Jun24</b><b class="">Dec24</b><b class="">Jun25</b><b class="hit">Dec25</b><b class="">May26</b></span></td>
+<td class="trigger">Ear pain/fullness after airplane travel + retracted congested TM</td><td class="disc">Barotrauma</td><td class="trap">AOM/cholesteatoma</td></tr>
+<tr><td class="rank">99</td><td class="topic">Retropharyngeal abscess</td>
+<td class="tiercell"><span class="tier t3">Dec25 only</span></td>
+<td class="papers"><span class="pc"><b class="">Jun24</b><b class="">Dec24</b><b class="">Jun25</b><b class="hit">Dec25</b><b class="">May26</b></span></td>
+<td class="trigger">Child + fever + neck stiffness + pharyngeal abscess</td><td class="disc">Retropharyngeal space</td><td class="trap">Submandibular/parapharyngeal</td></tr>
+</tbody></table></div></section>
+<section class="system" id="s-6">
+<button class="sys-head" aria-expanded="false"><svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+Ophthalmology<span class="bar"><i style="width:50%"></i></span><span class="count">4 topics</span></button>
+<div class="sys-body"><table><thead><tr><th></th><th>Topic</th><th>Evidence</th><th>Seen in</th><th><span class="klabel">Trigger</span>Recognition trigger</th><th>Key discriminator</th><th>Main trap</th></tr></thead><tbody>
+<tr><td class="rank">71</td><td class="topic">Acute angle-closure glaucoma</td>
+<td class="tiercell"><span class="tier t2">Seen in 2 papers</span></td>
+<td class="papers"><span class="pc"><b class="hit">Jun24</b><b class="">Dec24</b><b class="">Jun25</b><b class="">Dec25</b><b class="hit">May26</b></span></td>
+<td class="trigger">Painful red eye + halos + fixed mid-dilated pupil</td><td class="disc">Lower IOP urgently; pilocarpine may appear after pressure lowered</td><td class="trap">Conjunctivitis</td></tr>
+<tr><td class="rank">72</td><td class="topic">Vernal keratoconjunctivitis</td>
+<td class="tiercell"><span class="tier t3">Dec25 only</span></td>
+<td class="papers"><span class="pc"><b class="">Jun24</b><b class="">Dec24</b><b class="">Jun25</b><b class="hit">Dec25</b><b class="">May26</b></span></td>
+<td class="trigger">Child + severe itching in summer + cobblestone papillae</td><td class="disc">Spring catarrh</td><td class="trap">Bacterial/viral conjunctivitis</td></tr>
+<tr><td class="rank">73</td><td class="topic">Endophthalmitis</td>
+<td class="tiercell"><span class="tier t2">Seen in 2 papers</span></td>
+<td class="papers"><span class="pc"><b class="hit">Jun24</b><b class="">Dec24</b><b class="">Jun25</b><b class="hit">Dec25</b><b class="">May26</b></span></td>
+<td class="trigger">Severe pain/redness/hypopyon 1 day after cataract surgery</td><td class="disc">Post-op endophthalmitis</td><td class="trap">Lens reaction</td></tr>
+<tr><td class="rank">74</td><td class="topic">Amblyopia from strabismus</td>
+<td class="tiercell"><span class="tier t3">Dec24 only</span></td>
+<td class="papers"><span class="pc"><b class="">Jun24</b><b class="hit">Dec24</b><b class="">Jun25</b><b class="">Dec25</b><b class="">May26</b></span></td>
+<td class="trigger">Child with long-standing squint + reduced vision, normal structures</td><td class="disc">Amblyopia</td><td class="trap">Cataract/glaucoma</td></tr>
+</tbody></table></div></section>
+<section class="system" id="s-7">
+<button class="sys-head" aria-expanded="false"><svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+Forensic Medicine<span class="bar"><i style="width:33%"></i></span><span class="count">3 topics</span></button>
+<div class="sys-body"><table><thead><tr><th></th><th>Topic</th><th>Evidence</th><th>Seen in</th><th><span class="klabel">Trigger</span>Recognition trigger</th><th>Key discriminator</th><th>Main trap</th></tr></thead><tbody>
+<tr><td class="rank">95</td><td class="topic">Kerosene ingestion</td>
+<td class="tiercell"><span class="tier t1">Seen in 3 papers</span></td>
+<td class="papers"><span class="pc"><b class="">Jun24</b><b class="">Dec24</b><b class="hit">Jun25</b><b class="hit">Dec25</b><b class="hit">May26</b></span></td>
+<td class="trigger">Child ingests kerosene</td><td class="disc">Aspiration pneumonitis/bronchopneumonia</td><td class="trap">Gastric lavage/toxicity focus</td></tr>
+<tr><td class="rank">96</td><td class="topic">Rigor mortis timing</td>
+<td class="tiercell"><span class="tier t2">Seen in 2 papers</span></td>
+<td class="papers"><span class="pc"><b class="">Jun24</b><b class="">Dec24</b><b class="hit">Jun25</b><b class="hit">Dec25</b><b class="">May26</b></span></td>
+<td class="trigger">Rigor distribution after death</td><td class="disc">Estimate PMI from progression</td><td class="trap">Treating rigor as instant</td></tr>
+<tr><td class="rank">97</td><td class="topic">Organophosphate poisoning</td>
+<td class="tiercell"><span class="tier t2">Seen in 2 papers</span></td>
+<td class="papers"><span class="pc"><b class="">Jun24</b><b class="hit">Dec24</b><b class="hit">Jun25</b><b class="">Dec25</b><b class="">May26</b></span></td>
+<td class="trigger">Salivation, lacrimation, bronchorrhea, miosis</td><td class="disc">Atropine + pralidoxime</td><td class="trap">Naloxone/benzodiazepine</td></tr>
+</tbody></table></div></section>
+<section class="system" id="s-8">
+<button class="sys-head" aria-expanded="false"><svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+Pharmacology<span class="bar"><i style="width:100%"></i></span><span class="count">6 topics</span></button>
+<div class="sys-body"><table><thead><tr><th></th><th>Topic</th><th>Evidence</th><th>Seen in</th><th><span class="klabel">Trigger</span>Recognition trigger</th><th>Key discriminator</th><th>Main trap</th></tr></thead><tbody>
+<tr><td class="rank">35</td><td class="topic">Warfarin reversal</td>
+<td class="tiercell"><span class="tier t1">Seen in 3 papers</span></td>
+<td class="papers"><span class="pc"><b class="hit">Jun24</b><b class="hit">Dec24</b><b class="">Jun25</b><b class="hit">Dec25</b><b class="">May26</b></span></td>
+<td class="trigger">Warfarin + high INR +/- bleeding</td><td class="disc">Oral vitamin K for high INR/no major bleed; PCC/FFP if major bleed</td><td class="trap">Protamine</td></tr>
+<tr><td class="rank">36</td><td class="topic">Paracetamol overdose</td>
+<td class="tiercell"><span class="tier t3">Dec25 only</span></td>
+<td class="papers"><span class="pc"><b class="">Jun24</b><b class="">Dec24</b><b class="">Jun25</b><b class="hit">Dec25</b><b class="">May26</b></span></td>
+<td class="trigger">Child ingests paracetamol</td><td class="disc">N-acetylcysteine if toxic risk/level</td><td class="trap">Observation when risk remains unclear</td></tr>
+<tr><td class="rank">37</td><td class="topic">Benzodiazepine antidote</td>
+<td class="tiercell"><span class="tier t2">Seen in 2 papers</span></td>
+<td class="papers"><span class="pc"><b class="">Jun24</b><b class="hit">Dec24</b><b class="">Jun25</b><b class="">Dec25</b><b class="hit">May26</b></span></td>
+<td class="trigger">Sedation + normal pupils + ataxia</td><td class="disc">Flumazenil</td><td class="trap">Naloxone</td></tr>
+<tr><td class="rank">38</td><td class="topic">Phenytoin adverse effects</td>
+<td class="tiercell"><span class="tier t1">Seen in 4 of 5 papers</span></td>
+<td class="papers"><span class="pc"><b class="hit">Jun24</b><b class="hit">Dec24</b><b class="">Jun25</b><b class="hit">Dec25</b><b class="hit">May26</b></span></td>
+<td class="trigger">Gingival hyperplasia + hirsutism</td><td class="disc">Phenytoin signature</td><td class="trap">Carbamazepine/valproate</td></tr>
+<tr><td class="rank">39</td><td class="topic">Wernicke encephalopathy</td>
+<td class="tiercell"><span class="tier t1">Seen in 3 papers</span></td>
+<td class="papers"><span class="pc"><b class="">Jun24</b><b class="">Dec24</b><b class="hit">Jun25</b><b class="hit">Dec25</b><b class="hit">May26</b></span></td>
+<td class="trigger">Alcoholic + confusion + ataxia + ophthalmoplegia</td><td class="disc">Thiamine before glucose</td><td class="trap">Giving glucose first</td></tr>
+<tr><td class="rank">40</td><td class="topic">ACE inhibitor in diabetic nephropathy</td>
+<td class="tiercell"><span class="tier t1">Seen in 3 papers</span></td>
+<td class="papers"><span class="pc"><b class="hit">Jun24</b><b class="">Dec24</b><b class="">Jun25</b><b class="hit">Dec25</b><b class="hit">May26</b></span></td>
+<td class="trigger">DM + HTN + microalbuminuria/proteinuria</td><td class="disc">ACEi/ARB renal protection</td><td class="trap">CCB/thiazide as generic HTN answer</td></tr>
+</tbody></table></div></section>
+<section class="system" id="s-9">
+<button class="sys-head" aria-expanded="false"><svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+Pathology<span class="bar"><i style="width:40%"></i></span><span class="count">5 topics</span></button>
+<div class="sys-body"><table><thead><tr><th></th><th>Topic</th><th>Evidence</th><th>Seen in</th><th><span class="klabel">Trigger</span>Recognition trigger</th><th>Key discriminator</th><th>Main trap</th></tr></thead><tbody>
+<tr><td class="rank">81</td><td class="topic">Hypersensitivity types</td>
+<td class="tiercell"><span class="tier t1">Seen in 4 of 5 papers</span></td>
+<td class="papers"><span class="pc"><b class="hit">Jun24</b><b class="hit">Dec24</b><b class="">Jun25</b><b class="hit">Dec25</b><b class="hit">May26</b></span></td>
+<td class="trigger">Asked to classify TB, PSGN, AIHA, contact dermatitis</td><td class="disc">I, II, III, IV examples cold</td><td class="trap">Type III vs IV</td></tr>
+<tr><td class="rank">82</td><td class="topic">Barrett esophagus</td>
+<td class="tiercell"><span class="tier t1">Seen in 3 papers</span></td>
+<td class="papers"><span class="pc"><b class="hit">Jun24</b><b class="">Dec24</b><b class="">Jun25</b><b class="hit">Dec25</b><b class="hit">May26</b></span></td>
+<td class="trigger">Chronic GERD + squamous to columnar change</td><td class="disc">Metaplasia, premalignant</td><td class="trap">Dysplasia/hyperplasia</td></tr>
+<tr><td class="rank">83</td><td class="topic">Acute inflammation mediator</td>
+<td class="tiercell"><span class="tier t2">Seen in 2 papers</span></td>
+<td class="papers"><span class="pc"><b class="">Jun24</b><b class="hit">Dec24</b><b class="">Jun25</b><b class="hit">Dec25</b><b class="">May26</b></span></td>
+<td class="trigger">Immediate vascular permeability</td><td class="disc">Histamine</td><td class="trap">Prostaglandins/cytokines</td></tr>
+<tr><td class="rank">84</td><td class="topic">Marjolin ulcer</td>
+<td class="tiercell"><span class="tier t2">Seen in 2 papers</span></td>
+<td class="papers"><span class="pc"><b class="">Jun24</b><b class="hit">Dec24</b><b class="">Jun25</b><b class="hit">Dec25</b><b class="">May26</b></span></td>
+<td class="trigger">Chronic burn scar ulcer becomes raised non-healing nodule</td><td class="disc">SCC in scar; wide local excision</td><td class="trap">Venous/diabetic ulcer</td></tr>
+<tr><td class="rank">85</td><td class="topic">TTP vs DIC</td>
+<td class="tiercell"><span class="tier t3">Dec25 only</span></td>
+<td class="papers"><span class="pc"><b class="">Jun24</b><b class="">Dec24</b><b class="">Jun25</b><b class="hit">Dec25</b><b class="">May26</b></span></td>
+<td class="trigger">MAHA + thrombocytopenia; coag profile asked</td><td class="disc">TTP normal PT/APTT; DIC prolonged</td><td class="trap">Treating all MAHA as DIC</td></tr>
+</tbody></table></div></section>
+<section class="system" id="s-10">
+<button class="sys-head" aria-expanded="false"><svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+Anatomy<span class="bar"><i style="width:67%"></i></span><span class="count">6 topics</span></button>
+<div class="sys-body"><table><thead><tr><th></th><th>Topic</th><th>Evidence</th><th>Seen in</th><th><span class="klabel">Trigger</span>Recognition trigger</th><th>Key discriminator</th><th>Main trap</th></tr></thead><tbody>
+<tr><td class="rank">75</td><td class="topic">Common peroneal nerve</td>
+<td class="tiercell"><span class="tier t2">Seen in 2 papers</span></td>
+<td class="papers"><span class="pc"><b class="">Jun24</b><b class="hit">Dec24</b><b class="">Jun25</b><b class="">Dec25</b><b class="hit">May26</b></span></td>
+<td class="trigger">Fibular neck injury + foot drop</td><td class="disc">Common peroneal nerve</td><td class="trap">Sciatic nerve</td></tr>
+<tr><td class="rank">76</td><td class="topic">Radial nerve</td>
+<td class="tiercell"><span class="tier t1">Seen in 3 papers</span></td>
+<td class="papers"><span class="pc"><b class="hit">Jun24</b><b class="">Dec24</b><b class="">Jun25</b><b class="hit">Dec25</b><b class="hit">May26</b></span></td>
+<td class="trigger">Midshaft humerus fracture + wrist drop</td><td class="disc">Radial nerve</td><td class="trap">Axillary nerve</td></tr>
+<tr><td class="rank">77</td><td class="topic">Axillary nerve</td>
+<td class="tiercell"><span class="tier t1">Seen in 3 papers</span></td>
+<td class="papers"><span class="pc"><b class="hit">Jun24</b><b class="">Dec24</b><b class="">Jun25</b><b class="hit">Dec25</b><b class="hit">May26</b></span></td>
+<td class="trigger">Surgical neck humerus + deltoid weakness + regimental badge numbness</td><td class="disc">Axillary nerve</td><td class="trap">Radial nerve</td></tr>
+<tr><td class="rank">78</td><td class="topic">Anterior interosseous nerve</td>
+<td class="tiercell"><span class="tier t4">Prediction only</span></td>
+<td class="papers"><span class="pc"><b>—</b></span></td>
+<td class="trigger">Supracondylar fracture + cannot make OK sign</td><td class="disc">AIN branch of median nerve</td><td class="trap">Ulnar or radial nerve</td></tr>
+<tr><td class="rank">79</td><td class="topic">Facial nerve lesion level</td>
+<td class="tiercell"><span class="tier t1">Seen in 5 of 5 papers</span></td>
+<td class="papers"><span class="pc"><b class="hit">Jun24</b><b class="hit">Dec24</b><b class="hit">Jun25</b><b class="hit">Dec25</b><b class="hit">May26</b></span></td>
+<td class="trigger">Facial palsy + hyperacusis</td><td class="disc">Lesion proximal to nerve to stapedius</td><td class="trap">Stylomastoid foramen lesion</td></tr>
+<tr><td class="rank">80</td><td class="topic">Brainstem crossed syndrome</td>
+<td class="tiercell"><span class="tier t3">Dec25 only</span></td>
+<td class="papers"><span class="pc"><b class="">Jun24</b><b class="">Dec24</b><b class="">Jun25</b><b class="hit">Dec25</b><b class="">May26</b></span></td>
+<td class="trigger">Ipsilateral cranial nerve palsy + contralateral hemiplegia</td><td class="disc">Brainstem lesion</td><td class="trap">Internal capsule/cortex</td></tr>
+</tbody></table></div></section>
+<section class="system" id="s-11">
+<button class="sys-head" aria-expanded="false"><svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+Physiology<span class="bar"><i style="width:20%"></i></span><span class="count">5 topics</span></button>
+<div class="sys-body"><table><thead><tr><th></th><th>Topic</th><th>Evidence</th><th>Seen in</th><th><span class="klabel">Trigger</span>Recognition trigger</th><th>Key discriminator</th><th>Main trap</th></tr></thead><tbody>
+<tr><td class="rank">86</td><td class="topic">Metabolic alkalosis from vomiting</td>
+<td class="tiercell"><span class="tier t1">Seen in 5 of 5 papers</span></td>
+<td class="papers"><span class="pc"><b class="hit">Jun24</b><b class="hit">Dec24</b><b class="hit">Jun25</b><b class="hit">Dec25</b><b class="hit">May26</b></span></td>
+<td class="trigger">Vomiting + high pH + high HCO3 + low Cl</td><td class="disc">Metabolic alkalosis</td><td class="trap">Respiratory alkalosis</td></tr>
+<tr><td class="rank">87</td><td class="topic">High altitude response</td>
+<td class="tiercell"><span class="tier t5">Syllabus core</span></td>
+<td class="papers"><span class="pc"><b>—</b></span></td>
+<td class="trigger">Shift to high altitude</td><td class="disc">Hyperventilation lowers pCO2</td><td class="trap">Assuming CO2 rises</td></tr>
+<tr><td class="rank">88</td><td class="topic">Pancreatic bicarbonate secretion</td>
+<td class="tiercell"><span class="tier t1">Seen in 4 of 5 papers</span></td>
+<td class="papers"><span class="pc"><b class="hit">Jun24</b><b class="hit">Dec24</b><b class="hit">Jun25</b><b class="">Dec25</b><b class="hit">May26</b></span></td>
+<td class="trigger">High flow pancreatic secretion</td><td class="disc">HCO3-rich ductal secretion</td><td class="trap">Chloride</td></tr>
+<tr><td class="rank">89</td><td class="topic">Resting membrane/action potential ions</td>
+<td class="tiercell"><span class="tier t1">Seen in 4 of 5 papers</span></td>
+<td class="papers"><span class="pc"><b class="hit">Jun24</b><b class="hit">Dec24</b><b class="">Jun25</b><b class="hit">Dec25</b><b class="hit">May26</b></span></td>
+<td class="trigger">Resting potential/depolarization asked</td><td class="disc">Resting = K; depolarization = Na influx</td><td class="trap">Mixing phases</td></tr>
+<tr><td class="rank">90</td><td class="topic">Shock hemodynamics</td>
+<td class="tiercell"><span class="tier t1">Seen in 5 of 5 papers</span></td>
+<td class="papers"><span class="pc"><b class="hit">Jun24</b><b class="hit">Dec24</b><b class="hit">Jun25</b><b class="hit">Dec25</b><b class="hit">May26</b></span></td>
+<td class="trigger">Compare anaphylactic/hypovolemic/cardiogenic shock</td><td class="disc">Anaphylaxis low SVR; cardiogenic low CO</td><td class="trap">Treating all shock as low CO</td></tr>
+</tbody></table></div></section>
+<section class="system" id="s-12">
+<button class="sys-head" aria-expanded="false"><svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+Infectious Disease<span class="bar"><i style="width:100%"></i></span><span class="count">4 topics</span></button>
+<div class="sys-body"><table><thead><tr><th></th><th>Topic</th><th>Evidence</th><th>Seen in</th><th><span class="klabel">Trigger</span>Recognition trigger</th><th>Key discriminator</th><th>Main trap</th></tr></thead><tbody>
+<tr><td class="rank">31</td><td class="topic">CAP organism</td>
+<td class="tiercell"><span class="tier t1">Seen in 5 of 5 papers</span></td>
+<td class="papers"><span class="pc"><b class="hit">Jun24</b><b class="hit">Dec24</b><b class="hit">Jun25</b><b class="hit">Dec25</b><b class="hit">May26</b></span></td>
+<td class="trigger">Most common CAP organism</td><td class="disc">Streptococcus pneumoniae</td><td class="trap">H. influenzae as second common</td></tr>
+<tr><td class="rank">32</td><td class="topic">Meningitis investigation</td>
+<td class="tiercell"><span class="tier t1">Seen in 3 papers</span></td>
+<td class="papers"><span class="pc"><b class="hit">Jun24</b><b class="hit">Dec24</b><b class="">Jun25</b><b class="">Dec25</b><b class="hit">May26</b></span></td>
+<td class="trigger">Fever + neck stiffness/bulging fontanelle</td><td class="disc">Lumbar puncture if no raised ICP contraindication</td><td class="trap">Blood CP/culture as confirmation</td></tr>
+<tr><td class="rank">33</td><td class="topic">ATT adverse effects</td>
+<td class="tiercell"><span class="tier t2">Seen in 2 papers</span></td>
+<td class="papers"><span class="pc"><b class="hit">Jun24</b><b class="hit">Dec24</b><b class="">Jun25</b><b class="">Dec25</b><b class="">May26</b></span></td>
+<td class="trigger">ATT + joint pains/hyperuricemia</td><td class="disc">Pyrazinamide</td><td class="trap">INH or rifampicin</td></tr>
+<tr><td class="rank">34</td><td class="topic">Measles</td>
+<td class="tiercell"><span class="tier t1">Seen in 4 of 5 papers</span></td>
+<td class="papers"><span class="pc"><b class="">Jun24</b><b class="hit">Dec24</b><b class="hit">Jun25</b><b class="hit">Dec25</b><b class="hit">May26</b></span></td>
+<td class="trigger">Fever + cough/coryza/conjunctivitis + Koplik spots</td><td class="disc">Koplik spots</td><td class="trap">Rubella/scarlet fever</td></tr>
+</tbody></table></div></section>
+<section class="system" id="s-13">
+<button class="sys-head" aria-expanded="false"><svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+Dermatology<span class="bar"><i style="width:100%"></i></span><span class="count">1 topics</span></button>
+<div class="sys-body"><table><thead><tr><th></th><th>Topic</th><th>Evidence</th><th>Seen in</th><th><span class="klabel">Trigger</span>Recognition trigger</th><th>Key discriminator</th><th>Main trap</th></tr></thead><tbody>
+<tr><td class="rank">100</td><td class="topic">Psoriasis</td>
+<td class="tiercell"><span class="tier t2">Seen in 2 papers</span></td>
+<td class="papers"><span class="pc"><b class="">Jun24</b><b class="">Dec24</b><b class="">Jun25</b><b class="hit">Dec25</b><b class="hit">May26</b></span></td>
+<td class="trigger">Extensor plaques + silvery scales + nail pitting</td><td class="disc">Psoriasis</td><td class="trap">Tinea/eczema</td></tr>
+</tbody></table></div></section>
+</main>
+<footer class="site"><div class="foot-inner">
+<span>October 2026 &middot; 100 topics / 14 subjects &middot; evidence: 5 recalled papers, 822 questions</span>
+<span>Prepared for Ahmad</span></div></footer>
+<script>
+(function(){
+  var body=document.body, root=document.documentElement;
+  if(localStorage.getItem('medcore.theme')!=='light'||(localStorage.getItem('medcore.theme')==='dark'&&window.matchMedia('(prefers-color-scheme: dark)').matches)){root.classList.add('dark');}
+  document.getElementById('themeBtn').addEventListener('click',function(){
+    var d=root.classList.toggle('dark');localStorage.setItem('medcore.theme',d?'dark':'light');
+  });
+  if(localStorage.getItem('ps1-vp')==='mobile'){body.classList.add('mobile-viewport');}
+  document.querySelectorAll('.tbtn[data-tool=mobile],.tbtn[data-tool=desktop]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var m=b.dataset.tool==='mobile';body.classList.toggle('mobile-viewport',m);localStorage.setItem('ps1-vp',m?'mobile':'desktop');
+    });
+  });
+  var open;try{open=JSON.parse(localStorage.getItem('ps1-open')||'[]');}catch(e){open=[]}
+  document.querySelectorAll('.system').forEach(function(sec){
+    if(open.indexOf(sec.id)>-1){sec.classList.add('open');}
+    sec.querySelector('.sys-head').addEventListener('click',function(){
+      var on=sec.classList.toggle('open');var cur;try{cur=JSON.parse(localStorage.getItem('ps1-open')||'[]');}catch(e){cur=[]}
+      if(on){if(cur.indexOf(sec.id)<0)cur.push(sec.id);}else{cur=cur.filter(function(x){return x!==sec.id;});}
+      localStorage.setItem('ps1-open',JSON.stringify(cur));
+    });
+  });
+  document.querySelectorAll('.exp').forEach(function(b){
+    b.addEventListener('click',function(){var t=document.getElementById(b.dataset.exp);if(t){if(!t.classList.contains('open'))t.querySelector('.sys-head').click();t.scrollIntoView({behavior:'smooth',block:'start'});}});
+  });
+  var links=[].slice.call(document.querySelectorAll('nav a')), secs=[].slice.call(document.querySelectorAll('.system'));
+  function mark(){var cur=null;secs.forEach(function(s){if(s.getBoundingClientRect().top<110)cur=s.id;});
+    links.forEach(function(a){a.classList.toggle('active',!!cur&&a.getAttribute('href')==='#'+cur);});}
+  mark();window.addEventListener('scroll',mark,{passive:true});
+  links.forEach(function(a){a.addEventListener('click',function(){
+    var t=document.getElementById(a.getAttribute('href').slice(1));
+    if(t&&!t.classList.contains('open'))t.querySelector('.sys-head').click();});});
+
+  var q=document.getElementById('q'), hits=document.getElementById('hits');
+  function apply(){
+    var t=q.value.trim().toLowerCase(), f=document.querySelector('.fbtn[data-f].on'), pfBtn=document.querySelector('.fbtn[data-p].on'), total=0;
+    secs.forEach(function(sec){
+      var rows=[].slice.call(sec.querySelectorAll('tbody tr')), shown=0;
+      rows.forEach(function(tr){
+        var ok=!t||tr.textContent.toLowerCase().indexOf(t)>-1;
+        var tier=tr.querySelector('.tier');var cls=tier?tier.className.replace('tier','').trim():'';
+        if(f&&f.dataset.f!=='all'&&cls!==f.dataset.f){ok=false;}
+        var pf=pfBtn&&pfBtn.dataset.p;
+        if(pf&&pf!=='all'){
+          var hb=tr.querySelector('.pc b.hit');
+          var okp=false;
+          if(hb){var hl=[].slice.call(tr.querySelectorAll('.pc b'));okp=hl.some(function(x){return x.textContent===pf&&x.classList.contains('hit');});}
+          if(!okp)ok=false;
+        }
+        tr.classList.toggle('hide',!ok);if(ok)shown++;
+      });
+      total+=shown;
+      sec.classList.toggle('hide',shown===0);
+      if(t||f){if(shown>0&&!sec.classList.contains('open'))sec.classList.add('open');}
+      var c=sec.querySelector('.count');if(c)c.textContent=shown+(shown===1?' topic':' topics');
+    });
+    hits.textContent=total+' / '+TOTAL+' shown';
+  }
+  var TOTAL=100;
+  q.addEventListener('input',apply);
+  document.querySelectorAll('.fbtn').forEach(function(b){
+    b.addEventListener('click',function(){
+      var sel=b.dataset.p?'[data-p]':'[data-f]';
+      document.querySelectorAll('.fbtn'+sel).forEach(function(x){x.classList.remove('on');});
+      b.classList.add('on');apply();
+    });
+  });
+  hits.textContent=TOTAL+' / '+TOTAL+' shown';
+})();
+</script>
+<script src="/medcore-sync.js" defer></script>
+</body></html>

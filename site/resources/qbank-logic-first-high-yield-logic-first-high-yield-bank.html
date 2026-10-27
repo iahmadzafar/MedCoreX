@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en" data-banktheme="ink" data-mode="dark">
+<head>
+<script>try{var __f=localStorage.getItem("medcore.banktheme")||"ink",__t=localStorage.getItem("medcore.theme")||"dark";document.documentElement.setAttribute("data-banktheme",__f);document.documentElement.setAttribute("data-mode",__t);}catch(e){}</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Logic-First High-Yield Bank</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' fill='%23F5A524'/%3E%3Cg fill='none' stroke='%23080F11' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3l9 5-9 5-9-5 9-5z'/%3E%3Cpath d='M3 13l9 5 9-5'/%3E%3Cpath d='M3 17.5l9 5 9-5' opacity='.55'/%3E%3C/g%3E%3C/svg%3E" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+    :root{
+    --void:var(--nx-bg); --bg:var(--nx-bg); --bg2:var(--nx-card); --bg3:var(--nx-card2); --bg4:var(--nx-rim2);
+    --ink:var(--nx-txt); --muted:var(--nx-muted); --faint:var(--nx-faint); --line:var(--nx-rim);
+    --t1:var(--nx-good); --t2:var(--nx-a2); --t3:var(--nx-a1); --t4:var(--nx-muted);
+    --good:var(--nx-good); --warn:var(--nx-a1); --bad:var(--nx-no); --accent:var(--nx-a1);
+    --chalk:var(--nx-txt); --chalk-2:var(--nx-txt2); --amber:var(--nx-a1); --mint:var(--nx-good);
+    --cyan:var(--nx-a2); --coral:var(--nx-no); --violet:var(--nx-violet);
+    --ground:var(--nx-bg); --ground-2:var(--nx-card2);
+    --on-accent:var(--nx-on); --shadow:var(--nx-shadow); --radius:0;
+    --serif:'Source Serif 4',Georgia,serif;
+    --body:'Plus Jakarta Sans',-apple-system,'Segoe UI',sans-serif;
+    --mono:'JetBrains Mono',ui-monospace,monospace;
+  }
+  /* ═══════════ Nexus Duo — family × mode, boxy, no gradients ═══════════ */
+  html[data-banktheme="ink"][data-mode="dark"]{ --nx-bg:#0B0C0E;--nx-card:#141619;--nx-card2:#191C20;--nx-txt:#EDEFF2;--nx-txt2:#C6CCD4;--nx-muted:#8A919B;--nx-faint:#6E757F;--nx-rim:#23262B;--nx-rim2:#2B2F35;--nx-a1:#B58AD6;--nx-a2:#5FA8C4;--nx-good:#4E9A6A;--nx-no:#C05A5A;--nx-violet:#8A7BD8; --nx-on:#0B0C0E; --nx-shadow:0 10px 30px rgba(0,0,0,.45); }
+  html[data-banktheme="ink"][data-mode="light"]{ --nx-bg:#FAF9F6;--nx-card:#FFFFFF;--nx-card2:#F4F2ED;--nx-txt:#14161A;--nx-txt2:#3C4249;--nx-muted:#6B7280;--nx-faint:#8D949C;--nx-rim:#E7E5DF;--nx-rim2:#D8D5CC;--nx-a1:#6E4A96;--nx-a2:#2E6E9E;--nx-good:#2F7D53;--nx-no:#B23A48;--nx-violet:#6A4FB8; --nx-on:#FFFFFF; --nx-shadow:0 8px 24px rgba(0,0,0,.10); }
+  html[data-banktheme="ice"][data-mode="dark"]{ --nx-bg:#0F1113;--nx-card:#171A1E;--nx-card2:#1C2025;--nx-txt:#E9EEF3;--nx-txt2:#C2CBD4;--nx-muted:#828C97;--nx-faint:#67707B;--nx-rim:#242830;--nx-rim2:#2C313A;--nx-a1:#7FB2D9;--nx-a2:#7FB2D9;--nx-good:#5FA37F;--nx-no:#C46868;--nx-violet:#8A7BD8; --nx-on:#0B0C0E; --nx-shadow:0 10px 30px rgba(0,0,0,.45); }
+  html[data-banktheme="ice"][data-mode="light"]{ --nx-bg:#F7FAFC;--nx-card:#FFFFFF;--nx-card2:#EFF5F9;--nx-txt:#101820;--nx-txt2:#374A57;--nx-muted:#63798A;--nx-faint:#8A9BA8;--nx-rim:#E2E8EC;--nx-rim2:#CFD9E0;--nx-a1:#2E6E9E;--nx-a2:#2E6E9E;--nx-good:#1F7A55;--nx-no:#B33A4B;--nx-violet:#5B4FB0; --nx-on:#FFFFFF; --nx-shadow:0 8px 24px rgba(0,0,0,.10); }
+  html[data-banktheme="copper"][data-mode="dark"]{ --nx-bg:#12100F;--nx-card:#1A1816;--nx-card2:#201D1B;--nx-txt:#EFE9E3;--nx-txt2:#CCC3B9;--nx-muted:#8E857A;--nx-faint:#726A60;--nx-rim:#282420;--nx-rim2:#322D28;--nx-a1:#C97A4A;--nx-a2:#4FD6E0;--nx-good:#5E9A72;--nx-no:#C2604F;--nx-violet:#A98BFF; --nx-on:#0B0C0E; --nx-shadow:0 10px 30px rgba(0,0,0,.45); }
+  html[data-banktheme="copper"][data-mode="light"]{ --nx-bg:#FDF8F4;--nx-card:#FFFFFF;--nx-card2:#F8F0E9;--nx-txt:#1A1512;--nx-txt2:#4A3F37;--nx-muted:#7C6C60;--nx-faint:#9C8B7E;--nx-rim:#EDE4DC;--nx-rim2:#DCCFC4;--nx-a1:#A85F33;--nx-a2:#2E6E9E;--nx-good:#2F7D53;--nx-no:#B4402F;--nx-violet:#6A4FB8; --nx-on:#FFFFFF; --nx-shadow:0 8px 24px rgba(0,0,0,.10); }
+  html[data-banktheme="paper"][data-mode="dark"]{ --nx-bg:#151011;--nx-card:#1D1618;--nx-card2:#241C1E;--nx-txt:#F2EAEB;--nx-txt2:#D2C3C6;--nx-muted:#96848A;--nx-faint:#7A6A70;--nx-rim:#2C2325;--nx-rim2:#382C2F;--nx-a1:#C4666F;--nx-a2:#4FD6E0;--nx-good:#5FA37F;--nx-no:#D96A6A;--nx-violet:#A98BFF; --nx-on:#0B0C0E; --nx-shadow:0 10px 30px rgba(0,0,0,.45); }
+  html[data-banktheme="paper"][data-mode="light"]{ --nx-bg:#FAFAF7;--nx-card:#FFFFFF;--nx-card2:#F4F4EF;--nx-txt:#14161A;--nx-txt2:#3C4249;--nx-muted:#6B7280;--nx-faint:#8D949C;--nx-rim:#E6E7E2;--nx-rim2:#D8DAD4;--nx-a1:#8C2F39;--nx-a2:#2E6E9E;--nx-good:#2F7D53;--nx-no:#B23A48;--nx-violet:#6A4FB8; --nx-on:#FFFFFF; --nx-shadow:0 8px 24px rgba(0,0,0,.10); }
+  body{ background:var(--nx-bg) !important; }
+  body *{ border-radius:0 !important; }
+  .brand-badge{ border-radius:13px !important; background:linear-gradient(135deg,#F5A524,#d59a6a) !important; }
+  .quiz-bar i{ background:var(--nx-a1) !important; }
+  h1,.tier-title,.quiz-done h2{ font-family:'Space Grotesk','Plus Jakarta Sans',sans-serif !important; }
+  .stat .num,.quiz-progress b{ font-family:'JetBrains Mono',monospace !important; }
+  .nx-fam{ display:flex; border:1px solid var(--nx-rim2); overflow:hidden; }
+  .nx-fam button{ appearance:none; border:0; background:transparent; color:var(--nx-txt2); cursor:pointer;
+    font-family:'JetBrains Mono',monospace; font-size:10.5px; font-weight:600; padding:7px 10px; }
+  .nx-fam button + button{ border-left:1px solid var(--nx-rim2); }
+  .nx-fam button.on{ background:var(--nx-a1); color:var(--nx-bg); }
+  html[data-mode="light"] .nx-fam button.on{ color:#fff; }
+  
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background:
+      radial-gradient(1200px 500px at 80% -10%, rgba(176,106,78,.07), transparent 60%),
+      var(--bg);
+    color:var(--ink);
+    font-family:var(--body);
+    font-size:0.9063rem; line-height:1.55;
+    min-height:100vh;min-height:100dvh;height:100dvh;min-height:100dvh;height:100dvh;
+    -webkit-font-smoothing:antialiased;
+  }
+  .shell{max-width:100%; margin:0 auto; padding:28px 22px 80px;}
+
+  /* header */
+  header{display:flex; align-items:flex-end; justify-content:space-between; gap:18px; flex-wrap:wrap; margin-bottom:6px;}
+  .brand{display:flex; align-items:center; gap:14px;}
+  .brand-badge{
+    width:46px; height:46px; border-radius:13px; flex:none;
+    display:grid; place-items:center; color:var(--bg);
+    background:linear-gradient(135deg, var(--accent), #d59a6a);
+  }
+  h1{font-family:var(--serif); font-size:1.625rem; font-weight:700; letter-spacing:.2px;}
+  .kicker{font-size:0.6875rem; letter-spacing:2.6px; text-transform:uppercase; color:var(--muted); margin-bottom:3px;}
+  .head-actions{display:flex; gap:8px; align-items:center;}
+
+  /* buttons */
+  .btn{
+    appearance:none; border:1px solid var(--line); background:var(--bg2); color:var(--ink);
+    font:inherit; font-size:0.7813rem; font-weight:500; padding:8px 13px; border-radius:9px;
+    cursor:pointer; display:inline-flex; align-items:center; gap:7px; transition:.15s;
+  }
+  .btn:hover{border-color:var(--faint); background:var(--bg3);}
+  .btn svg{width:15px; height:15px; flex:none;}
+  .btn.active{color:var(--bg); border-color:transparent;}
+  .btn.t1.active{background:var(--t1);} .btn.t2.active{background:var(--t2);}
+  .btn.t3.active{background:var(--t3);} .btn.t4.active{background:var(--t4);}
+  .btn.icon-only{padding:8px 10px;}
+
+  /* stats */
+  .stats{display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin:20px 0 6px;}
+  .stat{
+    background:var(--bg2); border:1px solid var(--line); border-radius:var(--radius);
+    padding:13px 16px; display:flex; align-items:center; gap:12px;
+  }
+  .stat .ico{width:34px; height:34px; border-radius:9px; display:grid; place-items:center; flex:none;}
+  .stat .ico svg{width:17px; height:17px;}
+  .stat .num{font-family:var(--serif); font-size:1.375rem; font-weight:700; line-height:1;}
+  .stat .lab{font-size:0.7188rem; color:var(--muted); margin-top:3px;}
+  .ico.banked{background:rgba(78,157,123,.14); color:var(--good);}
+  .ico.faint{background:rgba(201,154,78,.14); color:var(--warn);}
+  .ico.missed{background:rgba(201,107,91,.14); color:var(--bad);}
+  .ico.untouched{background:rgba(154,164,174,.12); color:var(--muted);}
+
+  .masterybar{height:5px; border-radius:3px; background:var(--bg4); overflow:hidden; margin:10px 0 4px; display:flex;}
+  .masterybar i{height:100%; display:block;}
+
+  /* controls */
+  .controls{display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin:18px 0 4px;}
+  .chips{display:flex; gap:7px; flex-wrap:wrap;}
+  .search{position:relative; flex:1; min-width:190px; max-width:320px;}
+  .search svg{position:absolute; left:11px; top:50%; translate:0 -50%; width:15px; height:15px; color:var(--faint); pointer-events:none;}
+  .search input{
+    width:100%; padding:9px 12px 9px 33px; background:var(--bg2); color:var(--ink);
+    border:1px solid var(--line); border-radius:9px; font:inherit; font-size:0.8125rem; outline:none;
+  }
+  .search input:focus{border-color:var(--accent);}
+  select{
+    appearance:none; background:var(--bg2) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path d='M1 1l4 4 4-4' stroke='%239aa4ae' stroke-width='1.5' fill='none' stroke-linecap='round'/></svg>") no-repeat right 11px center;
+    color:var(--ink); border:1px solid var(--line); border-radius:9px; font:inherit; font-size:0.7813rem;
+    padding:9px 30px 9px 12px; cursor:pointer; outline:none;
+  }
+  .toggle{display:inline-flex; align-items:center; gap:8px; font-size:0.7813rem; color:var(--muted); cursor:pointer; user-select:none; margin-left:auto;}
+  .toggle input{accent-color:var(--accent); width:15px; height:15px; cursor:pointer;}
+
+  /* browse */
+  #browseView{margin-top:14px;}
+  .tier-section{margin-bottom:26px;}
+  .tier-head{display:flex; align-items:baseline; gap:14px; margin:6px 0 10px;}
+  .tier-title{font-family:var(--serif); font-size:1.1875rem; font-weight:700;}
+  .tier-dot{width:10px; height:10px; border-radius:3px; transform:translateY(-1px);}
+  .tier-sub{font-size:0.75rem; color:var(--muted); font-style:italic;}
+  .tier-count{font-size:0.7188rem; color:var(--faint); margin-left:auto; white-space:nowrap;}
+  .cards{display:grid; gap:10px;}
+  .card{
+    background:var(--bg2); border:1px solid var(--line); border-left:3px solid var(--tc,var(--faint));
+    border-radius:var(--radius); padding:15px 18px 13px; position:relative;
+  }
+  .card-top{display:flex; align-items:center; gap:10px; margin-bottom:7px; flex-wrap:wrap;}
+  .fnum{font-family:var(--serif); font-size:0.8125rem; font-weight:700; color:var(--tc,var(--faint)); letter-spacing:.5px;}
+  .pill{font-size:0.6563rem; font-weight:600; letter-spacing:.6px; text-transform:uppercase; padding:3px 9px; border-radius:20px;}
+  .pill.t1{background:rgba(78,157,123,.13); color:var(--t1);}
+  .pill.t2{background:rgba(91,140,196,.13); color:var(--t2);}
+  .pill.t3{background:rgba(201,154,78,.13); color:var(--t3);}
+  .pill.t4{background:rgba(138,143,150,.15); color:var(--t4);}
+  .subj-tag{font-size:0.6875rem; color:var(--muted); border:1px solid var(--line); padding:2px 8px; border-radius:6px;}
+  .mastery{display:flex; gap:5px; margin-left:auto;}
+  .mbtn{
+    width:29px; height:29px; border-radius:8px; border:1px solid var(--line); background:var(--bg3);
+    color:var(--muted); cursor:pointer; display:grid; place-items:center; transition:.12s;
+  }
+  .mbtn svg{width:13px; height:13px;}
+  .mbtn:hover{color:var(--ink); border-color:var(--faint);}
+  .mbtn.on-good{background:var(--good); border-color:var(--good); color:#fff;}
+  .mbtn.on-warn{background:var(--warn); border-color:var(--warn); color:#fff;}
+  .mbtn.on-bad{background:var(--bad); border-color:var(--bad); color:#fff;}
+  .fact{font-family:var(--serif); font-size:1.0313rem; font-weight:600; line-height:1.42; margin-bottom:8px;}
+  .logic-toggle{
+    appearance:none; border:none; background:none; color:var(--muted); font:inherit; font-size:0.75rem;
+    cursor:pointer; display:inline-flex; align-items:center; gap:6px; padding:2px 0; margin-bottom:2px;
+  }
+  .logic-toggle:hover{color:var(--ink);}
+  .logic-toggle svg{width:12px; height:12px; transition:transform .18s;}
+  .logic-toggle.open svg{transform:rotate(180deg);}
+  .logic{
+    display:none; font-size:0.8125rem; color:var(--muted); border-left:2px solid var(--line);
+    padding:2px 0 2px 12px; margin:4px 0 8px;
+  }
+  .logic.open{display:block;}
+  .logic b{color:var(--ink); font-weight:600;}
+  .meta{font-size:0.7188rem; color:var(--faint); margin-top:2px;}
+  .selfcheck{font-size:0.7813rem; color:var(--muted); font-style:italic; margin-top:6px;}
+  .selfcheck b{color:var(--tc,var(--faint)); font-style:normal; font-weight:600;}
+
+  /* quiz */
+  #quizView{margin-top:16px; display:none;}
+  .quiz-shell{max-width:100%; margin:0 auto;}
+  .quiz-top{display:flex; align-items:center; gap:14px; margin-bottom:14px;}
+  .quiz-progress{font-size:0.7813rem; color:var(--muted);}
+  .quiz-progress b{color:var(--ink); font-family:var(--serif); font-size:0.9375rem;}
+  .quiz-bar{flex:1; height:6px; border-radius:3px; background:var(--bg4); overflow:hidden;}
+  .quiz-bar i{display:block; height:100%; background:linear-gradient(90deg,var(--t1),var(--accent)); border-radius:3px; transition:width .25s;}
+  .quiz-card{
+    background:var(--bg2); border:1px solid var(--line); border-radius:18px;
+    padding:34px 36px 28px; box-shadow:var(--shadow); min-height:300px; display:flex; flex-direction:column;
+  }
+  .q-tags{display:flex; gap:8px; align-items:center; margin-bottom:18px;}
+  .q-fact{font-family:var(--serif); font-size:1.375rem; font-weight:600; line-height:1.4; flex:1;}
+  .q-reveal-area{margin-top:22px;}
+  .q-logic{
+    display:none; background:var(--bg3); border-radius:12px; padding:16px 18px; margin-top:14px;
+  }
+  .q-logic.open{display:block;}
+  .q-logic .q-l1{font-size:0.8438rem; color:var(--ink); margin-bottom:8px;}
+  .q-logic .q-l1 b{color:var(--tc,var(--ink)); font-weight:600;}
+  .q-logic .q-l2{font-size:0.7813rem; color:var(--muted); font-style:italic;}
+  .q-actions{display:flex; gap:10px; margin-top:24px; justify-content:center; opacity:0; pointer-events:none; transition:.2s;}
+  .q-actions.show{opacity:1; pointer-events:auto;}
+  .grade{
+    flex:1; max-width:180px; padding:11px 8px; border-radius:11px; border:1px solid var(--line);
+    background:var(--bg3); color:var(--ink); font:inherit; font-size:0.8125rem; font-weight:500; cursor:pointer;
+    display:inline-flex; align-items:center; justify-content:center; gap:8px; transition:.12s;
+  }
+  .grade svg{width:15px; height:15px;}
+  .grade:hover{transform:translateY(-1px);}
+  .grade.good:hover{border-color:var(--good); color:var(--good);}
+  .grade.warn:hover{border-color:var(--warn); color:var(--warn);}
+  .grade.bad:hover{border-color:var(--bad); color:var(--bad);}
+  .quiz-done{text-align:center; padding:30px 0;}
+  .quiz-done h2{font-family:var(--serif); font-size:1.5rem; margin-bottom:6px;}
+  .quiz-done p{color:var(--muted); margin-bottom:22px;}
+
+  .empty{padding:50px 20px; text-align:center; color:var(--faint); border:1px dashed var(--line); border-radius:var(--radius);}
+  .empty svg{width:30px; height:30px; opacity:.5; margin-bottom:10px;}
+
+  footer{margin-top:36px; text-align:center; font-size:0.7188rem; color:var(--faint);}
+  @media(max-width:640px){
+    .stats{grid-template-columns:repeat(2,1fr);}
+    .quiz-card{padding:24px 20px 20px;}
+    .q-fact{font-size:1.1563rem;}
+    .toggle{margin-left:0; width:100%; justify-content:flex-end;}
+  }
+</style>
+
+</head>
+<body>
+<div class="shell">
+
+  <header>
+    <div class="brand">
+      <div class="brand-badge" id="brandIcon"></div>
+      <div>
+        <div class="kicker">The free-marks layer</div>
+        <h1>Logic-First High-Yield Bank</h1>
+      </div>
+    </div>
+    <div class="head-actions">
+      <span class="nx-fam" id="nxFam"><button type="button" data-f="ink">Ink</button><button type="button" data-f="ice">Ice</button><button type="button" data-f="copper">Copper</button><button type="button" data-f="paper">Paper</button></span>
+      <button class="btn icon-only" id="themeBtn" title="Toggle theme" aria-label="Toggle theme"></button>
+      <button class="btn" id="resetBtn" title="Reset all mastery"></button>
+    </div>
+  </header>
+
+  <div class="stats" id="stats"></div>
+  <div class="masterybar" id="masteryBar" title="Mastery coverage"></div>
+
+  <div class="controls">
+    <div class="chips" id="tierChips"></div>
+    <select id="subjectSel" aria-label="Filter by subject"></select>
+    <div class="search" id="searchWrap">
+      <input id="searchInput" type="text" placeholder="Search facts…" aria-label="Search facts">
+    </div>
+  </div>
+
+  <div class="controls" style="margin-top:10px;">
+    <div class="chips" id="viewToggle">
+      <button class="btn active" data-view="browse" id="viewBrowse"></button>
+      <button class="btn" data-view="quiz" id="viewQuiz"></button>
+    </div>
+    <label class="toggle" id="skipMasteredWrap"><input type="checkbox" id="skipMastered"> Only not-yet-banked</label>
+  </div>
+
+  <main id="browseView"></main>
+  <main id="quizView"></main>
+
+  <footer>Bank the easy points first — the hard questions shouldn't have to carry the paper.</footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- icons (SF-Symbol style, stroke-based, currentColor) ---------- */
+  var S = function(inner, vb){ return '<svg viewBox="'+(vb||"0 0 24 24")+'" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+inner+'</svg>'; };
+  var icons = {
+    layers: S('<path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/><path d="M3 17.5l9 5 9-5" opacity=".55"/>'),
+    check: S('<path d="M5 12.5l4.5 4.5L19 7.5"/>'),
+    wave:  S('<path d="M2.5 9.5c3-4 6-4 9 0s6 4 9 0"/><path d="M2.5 14.5c3-4 6-4 9 0s6 4 9 0"/>'),
+    xmark: S('<path d="M6 6l12 12M18 6L6 18"/>'),
+    minus: S('<path d="M5 12h14"/>'),
+    clear: S('<path d="M9 9l6 6M15 9l-6 6"/><circle cx="12" cy="12" r="9" opacity=".45"/>'),
+    search:S('<circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/>'),
+    book:  S('<path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 1 6.5 18H20v3H6.5A2.5 2.5 0 0 1 4 18.5z"/>'),
+    quiz:  S('<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"/>'),
+    reset: S('<path d="M4 4v6h6"/><path d="M4.5 13a8 8 0 1 0 2-6.2L4 10"/>'),
+    sun:   S('<circle cx="12" cy="12" r="4.5"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5 5l1.4 1.4M17.6 17.6L19 19M19 5l-1.4 1.4M6.4 17.6L5 19"/>'),
+    moon:  S('<path d="M20 14.5A8.5 8.5 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5z"/>'),
+    chev:  S('<path d="M6 9.5l6 6 6-6"/>'),
+    target:S('<circle cx="12" cy="12" r="9"/><path d="M12 12l5-5" /><circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none"/>'),
+    done:  S('<path d="M12 3l9 5v8l-9 5-9-5V8l9-5z"/><path d="M8.5 12.5l2.5 2.5 5-5"/>')
+  };
+  document.getElementById('brandIcon').innerHTML = icons.layers;
+
+  /* ---------- data (fresh-written, 39 entries) ---------- */
+  var TIERS = {
+    1: { name:"Free Marks",       color:"#4e9d7b", css:"t1", cadence:"Review weekly",          blurb:"Highest yield × dead-simple logic. Medicine + Surgery carry half the paper; these are their most bankable single-fact answers." },
+    2: { name:"One-Step Free Marks", color:"#5b8cc4", css:"t2", cadence:"Review biweekly",    blurb:"High yield × slightly harder logic: one clean rule gives the answer, but it demands a single small connection." },
+    3: { name:"Reliable Easy",     color:"#c99a4e", css:"t3", cadence:"Final push",           blurb:"Medium yield × simple logic. Anatomy, pharm, community, paeds pockets that show up regularly but not every sitting." },
+    4: { name:"Low-Yield Banks",   color:"#8a8f96", css:"t4", cadence:"Only if time remains", blurb:"Forensics, biochem, special senses and legal pockets: small but predictable — bank them in the final stretch." }
+  };
+
+  var D = [
+  /* Tier 1 — Free Marks */
+  {t:1, s:"Obstetrics",    p:"Blueprint staple; exact window is the whole question.",
+   f:"Anti-D goes to an Rh-negative mother after any sensitising event, and the clock starts at 72 hours.",
+   l:"Rh-negative mother + Rh-positive baby (or event) — the only correct option is anti-D within 72 hours; every other timeline is a trap.",
+   c:"Rh-negative mother + Rh-positive exposure → pick the 72-hour anti-D option without reading further."},
+  {t:1, s:"Anaesthesia",   p:"Guaranteed one question; the drug and the trigger share the same stem.",
+   f:"Dantrolene is the treatment for malignant hyperthermia — the clue is the anaesthetic.",
+   l:"MH is triggered by succinylcholine and volatile gases; the two facts collapse to one: malignant hyperthermia = dantrolene. Other muscle relaxants are decoys.",
+   c:"See malignant hyperthermia + an operating-room or succinylcholine cue → dantrolene, immediately."},
+  {t:1, s:"Paediatrics",   p:"Confirmed both sittings; the toxicity split is the whole answer.",
+   f:"A barky cough plus a non-toxic child points to croup; the same cough with a toxic child is epiglottitis, which needs a secured airway first.",
+   l:"Toxicity is the on/off switch: non-toxic = croup (home care), toxic + drooling = epiglottitis (airway first, never poke the throat).",
+   c:"Barking cough → ask one word: is the child toxic? That word chooses the path."},
+  {t:1, s:"Medicine",      p:"Most repeated discriminator; the window is the question.",
+   f:"The timing of hematuria after a sore throat separates the two look-alikes: weeks after infection = post-streptococcal GN with low C3; during the illness = IgA nephropathy.",
+   l:"One temporal fact (weeks vs during) settles which of the two you are in; C3 low vs normal confirms.",
+   c:"Any time reference after a sore throat → plot it: during = IgA, 2–3 weeks = PSGN."},
+  {t:1, s:"Obstetrics",    p:"Confirmed both sittings; painless-vs-painful is the exact split.",
+   f:"Painless vaginal bleeding late in pregnancy is placenta praevia; painful bleeding with a rigid uterus is placental abruption.",
+   l:"Pain is the single physical switch — the two carry opposite management, so naming pain settles the emergency.",
+   c:"Bleeding in the third trimester → is there pain? Pain → abruption, no pain → praevia."},
+  {t:1, s:"Medicine",      p:"Confirmed both sittings; the onset-order cue is the discriminator.",
+   f:"Dysphagia that starts with solids and only later hits liquids is cancer; dysphagia to liquids from the start is achalasia.",
+   l:"The order of what becomes hard to swallow is the whole story — mechanical narrowing takes solids first, functional obstruction spares nothing.",
+   c:"Read the stem's first symptom order: solids → then liquids = cancer; liquids from day one = achalasia."},
+  {t:1, s:"Medicine",      p:"High frequency; joint pattern is the entire answer.",
+   f:"DIP joint + Heberden nodes + pain made worse by use points to osteoarthritis; PIP/MCP + morning stiffness over an hour is rheumatoid arthritis.",
+   l:"Joint location plus the stiffness-and-activity pattern picks the joint disease with no lab chain.",
+   c:"Which joints, what time of day, pain with use or with rest → that triangulation names the disease."},
+  {t:1, s:"Haematology",   p:"One-step logic; normal platelet + bleeding is the trigger.",
+   f:"A bleeding child who bruises and bleeds from the gums with a normal platelet count has a clotting-factor problem, not a platelet one.",
+   l:"Platelets look right but bleeding goes on → the defect is in clotting factors, narrowing the answer to factor tests and away from platelet counts.",
+   c:"Bleeding + normal platelet count → think factor (haemophilia etc.), not platelet quantity."},
+  {t:1, s:"Paediatrics",   p:"Management-sequence staple; wrong-drug trap confirmed.",
+   f:"DKA in a child is treated with fluids first, then insulin — never metformin, which belongs to type 2 adult diabetes.",
+   l:"The drug that fits a chronic adult setting is offered as a trap for an acute paediatric one; the staging (fluids → insulin) refuses it.",
+   c:"Child + DKA → fluids then insulin; any metformin option is the decoy by definition."},
+  {t:1, s:"Ophthalmology", p:"Guaranteed 1–2 questions; acute-vs-chronic drug trap.",
+   f:"Acute-angle glaucoma is the painful, red, hard eye with a mid-dilated pupil; give pilocarpine plus acetazolamide, not a chronic open-angle eye drop.",
+   l:"Acute = closed angle needs pressure cut fast; a chronic maintenance drop is the wrong register entirely.",
+   c:"Painful red eye + halos/blur + hard globe → acute angle closure; pick acute therapy, never latanoprost."},
+  {t:1, s:"Forensic",      p:"A vocabulary question that rewards one exact term.",
+   f:"Vicarious liability is the legal doctrine where the senior (surgeon) answers for the junior (nurse) under his authority in the theatre.",
+   l:"The master-answers-for-servant idea is one clean definition; the stem names a nurse and a surgeon, which is the doctrine's signature.",
+   c:"Fault sits with a subordinate but the question asks who answers → the doctrine is always vicarious liability."},
+  {t:1, s:"Physiology",    p:"Straightforward recall; the dim-room cue is a free mark.",
+   f:"A person who moves into a dark room sees best with rod vision driven by rhodopsin, which takes minutes to adapt.",
+   l:"Sudden darkness + time to see = dark adaptation, a one-line physiology fact that names the answer.",
+   c:"Bright → dim transition → adaptation; pick the fact about rods and rhodopsin regenerating."},
+
+  /* Tier 2 — One-Step Free Marks */
+  {t:2, s:"Medicine",      p:"Confirmed; definitive-step question.",
+   f:"Esophageal variceal bleeding in a cirrhotic patient stops with endoscopic band ligation — the definitive first step is the band, not just a PPI.",
+   l:"Cirrhosis + haematemesis = varices, and varices answer to banding; a PPI-only answer is the decoy because it does not stop portal-pressure bleeding.",
+   c:"Cirrhosis + variceal bleed → ask step 1 or definitive → band ligation."},
+  {t:2, s:"Pharmacology",  p:"Repeated; side-effect-to-drug is a free mark.",
+   f:"Phenytoin is the chronic seizure drug that causes gum overgrowth in a patient on it for years.",
+   l:"One recognisable side-effect names its drug; the reverse also works — a first-line anticonvulsant with gingival hypertrophy is phenytoin.",
+   c:"Gingival hyperplasia + epilepsy → phenytoin, instantly."},
+  {t:2, s:"Toxicology",    p:"Toxicity one-liner.",
+   f:"Aspirin poisoning produces ringing in the ears and a respiratory alkalosis early (the body hyperventilates), then a metabolic acidosis later.",
+   l:"An isolated toxicity pattern + a wide-gap acidosis confirms aspirin; the ringing is the giveaway the body remembers.",
+   c:"Unexplained acid-base + tinnitus + young patient → salicylate."},
+  {t:2, s:"Pharmacology",  p:"Wrong-antidote trap confirmed.",
+   f:"The reversal agent depends on matching: cholinergic excess gets physostigmine; opioid overdose gets naloxone.",
+   l:"The antidote mirrors the poison — cholinergic excess → physostigmine, opioid → naloxone; swapping them is the trap the exam sets.",
+   c:"Name the toxidrome → pick the antidote that fits it; never let the fashionable decoy seduce you."},
+  {t:2, s:"Obstetrics",    p:"Confirmed; management one-liner.",
+   f:"A pregnant woman with a severe headache, high blood pressure, and convulsions has eclampsia — control the seizure with magnesium sulfate.",
+   l:"Pre-eclampsia plus a seizure → eclampsia, and that gets magnesium; the alternative anticonvulsants are the classic decoys.",
+   c:"Headache + hypertension + convulsion in pregnancy → magnesium sulfate."},
+  {t:2, s:"Paediatrics",   p:"Confirmed recall; one-lab-arrow logic.",
+   f:"A child with a coarse facial appearance, protruding tongue, and delayed development suggests hypothyroidism — screening catches it by a high TSH.",
+   l:"The facial constellation is a Down-look-alike; the lab arrow (high TSH, low T4) is the confirmatory single fact.",
+   c:"Coarse face + tongue + slow development → check the thyroid axis."},
+  {t:2, s:"Haematology",   p:"Syndrome-to-enzyme logic.",
+   f:"Haemolytic anaemia in a newborn with a specific enzyme deficiency is G6PD — the trigger is often a drug or fava beans, and the test is the enzyme.",
+   l:"The pattern (haemolysis after a trigger in an otherwise well infant) names G6PD by logic of cause.",
+   c:"Newborn + jaundice/anaemia + a drug or fava trigger → G6PD."},
+  {t:2, s:"Cardiology",    p:"Confirmed; reperfusion priority.",
+   f:"In a STEMI the artery is fully blocked, so the treatment opens it — primary angioplasty if available, else fibrinolysis — because time is muscle.",
+   l:"The word STEMI means full occlusion, so management is reperfusion, not the antiplatelet-only thinking of stable disease.",
+   c:"Full-block STEMI → open the vessel (PCI/fibrinolysis); not observation."},
+  {t:2, s:"Medicine",      p:"Confirmed both sittings; A-surgery / B-medicine.",
+   f:"An aortic dissection splits into Type A (ascending, needs surgery) vs Type B (descending, IV medication).",
+   l:"One anatomical fact — where the tear is — decides invasive vs medical; any chest-pain-only answer ignoring the split is an MI trap.",
+   c:"Tearing pain + BP difference → ask ascending (A) or descending (B); that is the whole branch."},
+  {t:2, s:"Haematology",   p:"Confirmed; X-linked logic.",
+   f:"Prolonged bleeding after a baby boy is circumcised, when his brothers bleed too, is haemophilia — an X-linked factor deficiency.",
+   l:"Family history of bleeding + prolonged bleed after a cut in a male → X-linked factor problem (haemophilia), not platelets.",
+   c:"Male + family bleeders + bleeding after a procedure → factor VIII/IX."},
+  {t:2, s:"Community",     p:"Stepwise reading; a words-vs-meaning question.",
+   f:"When a treatment only delays death without curing, the correct statistic is survival time gained, not a false cure — and the endpoint measures the delay.",
+   l:"The wording delays-but-does-not-cure forces the survival/delay interpretation, a logical reading of the endpoint.",
+   c:"Read the endpoint word carefully; delay not cure → survival-time, not cure-rate."},
+
+  /* Tier 3 — Reliable Easy */
+  {t:3, s:"Anatomy",       p:"Nerve-injury dominant; level is the trap.",
+   f:"A nerve injury above the shoulder where the arm cannot be abducted or rotated is the axillary nerve at the surgical neck of the humerus.",
+   l:"Location-to-nerve logic: what movement is lost tells you the nerve and its level; the level is the discriminator.",
+   c:"Name the lost movement → nerve; name the fracture → level."},
+  {t:3, s:"Anatomy",       p:"Level mapping; the trap is a wrong root.",
+   f:"A posterior disc herniation in the low back presses the nerve root that exits below the disc — so an L4–L5 disc hits the L5 root, and L5–S1 hits S1.",
+   l:"The root involved is the one below the disc; knowing that pair settles the level.",
+   c:"L4–L5 disc → L5 root; L5–S1 disc → S1 root. Memorise the pair."},
+  {t:3, s:"Community",     p:"Confirmed; simple list memory.",
+   f:"The Expanded Programme on Immunisation starts at birth: BCG and oral polio are the birth doses — hepatitis B where scheduled.",
+   l:"Birth = BCG + OPV is a pure recall fact that, once known, is instantaneous.",
+   c:"At birth → BCG + OPV; do not overthink later vaccines."},
+  {t:3, s:"Immunology",    p:"Type-matching; each type has a signature.",
+   f:"Hypersensitivity that destroys cells — the baby's blood attacked by maternal antibody — is type II; the haemolytic picture.",
+   l:"The pattern (antibody attacks a cell) maps to a type; each type has its own signature.",
+   c:"Cell attacked by antibody → type II; immune-complex → type III; anaphylactic → type I."},
+  {t:3, s:"Community",     p:"Prevention-window logic.",
+   f:"Congenital rubella is prevented because antibody travels the placenta — so vaccinate the mother before pregnancy, and never give a live vaccine during it.",
+   l:"Logic of prevention: give immunity where it can cross to the baby before conception; a live vaccine in pregnancy is forbidden.",
+   c:"Prevent rubella syndrome → pre-pregnancy immunity; read the vaccine-timing carefully."},
+  {t:3, s:"ENT",           p:"Confirmed; one-sided cue = foreign body.",
+   f:"Persistent unilateral, foul, blood-stained nasal discharge in a child is a foreign body until proven otherwise, not sinusitis.",
+   l:"One-sided nasty discharge in a child is almost always an object; until-proven-otherwise is the ready answer.",
+   c:"Foul + unilateral + child → foreign body; removal, not an antibiotic."},
+  {t:3, s:"Surgery",       p:"Confirmed; emergency-no-delay logic.",
+   f:"Testicular pain that comes suddenly, with a high-riding testis and no cremasteric reflex, is torsion — a surgical emergency, not infection.",
+   l:"Sudden severe pain + absent reflex = torsion → surgery now; waiting for imaging loses the gonad.",
+   c:"Sudden testicular pain + abnormal lie → torsion, operate; never watch and wait."},
+  {t:3, s:"Community",     p:"Concept; reasoning, not arithmetic.",
+   f:"In data with an outlier, the median is more resistant than the mean — the mean is dragged by a huge number, the median is not.",
+   l:"Statistical reasoning: the outlier pulls the average but not the middle, so the median resists.",
+   c:"A lone huge value present → suspect the mean is skewed; prefer the median."},
+  {t:3, s:"Medicine",      p:"Confirmed; pain-food relationship.",
+   f:"In a gastric ulcer the pain worsens with eating; in a duodenal ulcer it is relieved by food — relief and worsening are two sides of the same clock.",
+   l:"The pain-meal relationship is the whole discriminator between the two ulcers.",
+   c:"Worse after food = gastric; eased by food = duodenal."},
+
+  /* Tier 4 — Low-Yield Banks */
+  {t:4, s:"Forensic",      p:"Naming a doctrine = free when known.",
+   f:"The test that governs standard of care in professional negligence is the Bolam test — acting as a responsible body of practitioners would.",
+   l:"A one-sentence definition attached to a named principle; the stem asks for the test and only one fits.",
+   c:"Standard of care → Bolam; thing speaks for itself → res ipsa loquitur; keep the names tied to ideas."},
+  {t:4, s:"Biochemistry",  p:"Mechanism; one flow answers.",
+   f:"In starvation the brain keeps working by switching fuel: after glycogen runs out it burns ketones made from fat, sparing glucose for what needs it.",
+   l:"A logic story of fuel-switching: no glucose → ketones from fat; a single mechanistic path answers it.",
+   c:"Starvation, day 3+ → ketone fuel; do not pick a glucose answer."},
+  {t:4, s:"Microbiology",  p:"Picture-to-name logic.",
+   f:"The pear-shaped, flagellated organism in stool is Giardia — the parasite that causes watery diarrhoea, traceable by one shape and one flagella clue.",
+   l:"Shape + flagella + diarrhoea collapses the list to one organism.",
+   c:"Pear-shaped + flagellate + loose stool → Giardia."},
+  {t:4, s:"Forensic",      p:"Paired-doctrine logic.",
+   f:"Vicarious liability reappears in its twin form: res ipsa loquitur when the harm speaks for itself — a retained swab is both in one.",
+   l:"Two doctrine names cover one recurring scenario, so learn them as a pair.",
+   c:"Retained swab → has both: vicarious (surgeon) and res ipsa (obvious)."},
+  {t:4, s:"Pharmacology",  p:"Toxicity one-grand-sign logic.",
+   f:"Digoxin toxicity shows up as yellow-tinted vision (xanthopsia) and arrhythmia in a patient on digoxin — the antidote is digoxin-specific antibody.",
+   l:"A branded visual symptom + a heart-rhythm cue on a known drug → toxicity; the specific antibody reverses it.",
+   c:"Digoxin patient + yellow vision or arrhythmia → digi-Fab antidote."},
+  {t:4, s:"Anatomy",       p:"Level logic; forehead = the boundary.",
+   f:"A facial palsy with a dry eye on the same side and a spared forehead points central; a true upper-motor-neuron pattern spares the forehead — that single line names the lesion level.",
+   l:"One anatomical rule (forehead spared or not) places the lesion above or at the facial nucleus.",
+   c:"Forehead spared → upper motor neuron; forehead weak → lower (Bell's)."},
+  {t:4, s:"Physiology",    p:"Direction-of-change logic.",
+   f:"In hyperventilation the falling carbon dioxide makes blood more alkaline — and the body faints, so the answer is respiratory alkalosis from blowing off CO2.",
+   l:"Cause-effect: fast breathing → CO2 down → alkalosis; naming the direction answers it.",
+   c:"Over-breathing → respiratory alkalosis; never pick acidosis for the hyperventilator."}
+  ];
+  D.forEach(function(e,i){ e.id = i+1; });
+
+  /* ---------- state ---------- */
+  var STORE_KEY = "logicFirstBank.v1";
+  var state = {
+    tier: 0,            // 0 = all
+    subject: "all",
+    q: "",
+    view: "browse",
+    skipMastered: false,
+    mastery: {}
+  };
+  try{ var saved = JSON.parse(localStorage.getItem(STORE_KEY) || "null"); if(saved) Object.assign(state, saved); }catch(err){}
+  if(!state.mastery || typeof state.mastery !== "object") state.mastery = {};
+  D.forEach(function(e){ if(!(e.id in state.mastery)) state.mastery[e.id] = 0; });
+
+  function persist(){ try{ localStorage.setItem(STORE_KEY, JSON.stringify(state)); }catch(err){} }
+
+  /* ---------- helpers ---------- */
+  function esc(s){ return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+  function filtered(){
+    var q = state.q.trim().toLowerCase();
+    return D.filter(function(e){
+      if(state.tier && e.t !== state.tier) return false;
+      if(state.subject !== "all" && e.s !== state.subject) return false;
+      if(q && (e.f+" "+e.l+" "+e.s+" "+e.p).toLowerCase().indexOf(q) === -1) return false;
+      return true;
+    });
+  }
+  function masteryLabel(m){
+    if(m === 1) return "banked"; if(m === 2) return "faint"; if(m === 3) return "missed";
+    return "untouched";
+  }
+
+  /* ---------- stats ---------- */
+  function renderStats(){
+    var counts = {1:0, 2:0, 3:0}, unt = 0;
+    D.forEach(function(e){ var m = state.mastery[e.id]; if(m===1||m===2||m===3) counts[m]++; else unt++; });
+    var banked = counts[1], faint = counts[2], missed = counts[3];
+    var covered = banked + faint + missed;
+    var pct = Math.round(covered / D.length * 100);
+    document.getElementById("stats").innerHTML =
+      '<div class="stat"><div class="ico banked">'+icons.check+'</div><div><div class="num">'+banked+'</div><div class="lab">Banked</div></div></div>'+
+      '<div class="stat"><div class="ico faint">'+icons.wave+'</div><div><div class="num">'+faint+'</div><div class="lab">Faint</div></div></div>'+
+      '<div class="stat"><div class="ico missed">'+icons.xmark+'</div><div><div class="num">'+missed+'</div><div class="lab">Missed</div></div></div>'+
+      '<div class="stat"><div class="ico untouched">'+icons.clear+'</div><div><div class="num">'+unt+'</div><div class="lab">Untouched · '+covered+'/'+D.length+' covered</div></div></div>';
+    var bar = "";
+    if(banked) bar += '<i style="width:'+(banked/D.length*100)+'%; background:var(--good)"></i>';
+    if(faint)  bar += '<i style="width:'+(faint/D.length*100)+'%; background:var(--warn)"></i>';
+    if(missed) bar += '<i style="width:'+(missed/D.length*100)+'%; background:var(--bad)"></i>';
+    if(pct)    bar += '<i style="width:'+(unt/D.length*100)+'%; background:transparent"></i>';
+    document.getElementById("masteryBar").innerHTML = bar;
+  }
+
+  /* ---------- browse ---------- */
+  function renderBrowse(){
+    var list = filtered();
+    var html = "";
+    [1,2,3,4].forEach(function(t){
+      var items = list.filter(function(e){ return e.t === t; });
+      if(!items.length) return;
+      var tier = TIERS[t];
+      var covered = items.filter(function(e){ return state.mastery[e.id] !== 0; }).length;
+      html += '<section class="tier-section">'+
+        '<div class="tier-head">'+
+          '<span class="tier-dot" style="background:'+tier.color+'"></span>'+
+          '<span class="tier-title" style="color:'+tier.color+'">Tier '+t+' — '+tier.name+'</span>'+
+          '<span class="tier-sub">'+esc(tier.cadence)+'</span>'+
+          '<span class="tier-count">'+covered+'/'+items.length+' covered</span>'+
+        '</div>'+
+        '<div class="tier-sub" style="margin:-4px 0 10px 24px">'+esc(tier.blurb)+'</div>'+
+        '<div class="cards">';
+      items.forEach(function(e){
+        html += cardHtml(e);
+      });
+      html += '</div></section>';
+    });
+    if(!list.length){
+      html = '<div class="empty">'+icons.search+'<br>No facts match your filters — loosen the search or clear the subject.</div>';
+    }
+    document.getElementById("browseView").innerHTML = html;
+  }
+
+  function cardHtml(e){
+    var tier = TIERS[e.t];
+    var m = state.mastery[e.id];
+    var mm = m === 1 ? icons.check : (m === 2 ? icons.wave : (m === 3 ? icons.xmark : icons.clear));
+    return '<article class="card" style="--tc:'+tier.color+'" data-id="'+e.id+'">'+
+      '<div class="card-top">'+
+        '<span class="fnum">F'+String(e.id).padStart(2,"0")+'</span>'+
+        '<span class="pill '+tier.css+'">Tier '+e.t+'</span>'+
+        '<span class="subj-tag">'+esc(e.s)+'</span>'+
+        '<span class="pill '+tier.css+'" style="background:none;color:var(--tc)">'+esc(masteryLabel(m))+'</span>'+
+        '<div class="mastery">'+
+          '<button class="mbtn on-good" data-act="1" title="Banked" aria-label="Mark banked">'+icons.check+'</button>'+
+          '<button class="mbtn on-warn" data-act="2" title="Faint" aria-label="Mark faint">'+icons.wave+'</button>'+
+          '<button class="mbtn on-bad"  data-act="3" title="Missed" aria-label="Mark missed">'+icons.xmark+'</button>'+
+          '<button class="mbtn" data-act="0" title="Clear" aria-label="Clear mark">'+icons.clear+'</button>'+
+        '</div>'+
+      '</div>'+
+      '<div class="fact">'+esc(e.f)+'</div>'+
+      '<button class="logic-toggle" aria-expanded="false">'+icons.chev+'<span>Logic that answers</span></button>'+
+      '<div class="logic"><b>'+esc(e.l)+'</b></div>'+
+      '<div class="meta">'+esc(e.p)+'</div>'+
+      '<div class="selfcheck"><b>Self-check:</b> '+esc(e.c)+'</div>'+
+    '</article>';
+  }
+
+  /* ---------- quiz ---------- */
+  var quiz = { list: [], idx: -1, revealed: false };
+  function buildQuizList(){
+    var list = filtered();
+    if(state.skipMastered) list = list.filter(function(e){ return state.mastery[e.id] !== 1; });
+    quiz.list = list; quiz.idx = 0; quiz.revealed = false;
+  }
+  function renderQuiz(){
+    var view = document.getElementById("quizView");
+    view.style.display = state.view === "quiz" ? "block" : "none";
+    document.getElementById("browseView").style.display = state.view === "browse" ? "block" : "none";
+    if(state.view !== "quiz") return;
+    if(quiz.idx < 0) buildQuizList();
+    if(quiz.idx >= quiz.list.length){
+      var totals = {1:0,2:0,3:0,0:0};
+      quiz.list.forEach(function(e){ totals[state.mastery[e.id]]++; });
+      view.innerHTML = '<div class="quiz-shell"><div class="quiz-card quiz-done">'+
+        '<h2>Round complete</h2>'+
+        '<p>You went through '+quiz.list.length+' fact'+(quiz.list.length===1?"":"s")+' — '+totals[1]+' banked, '+totals[2]+' faint, '+totals[3]+' missed.</p>'+
+        '<div><button class="btn" id="quizRestart">'+icons.reset+'<span>Run it again</span></button></div>'+
+      '</div></div>';
+      document.getElementById("quizRestart").addEventListener("click", function(){ buildQuizList(); renderQuiz(); });
+      return;
+    }
+    var e = quiz.list[quiz.idx];
+    var tier = TIERS[e.t];
+    var done = quiz.list.filter(function(x){ return state.mastery[x.id] !== 0; }).length;
+    view.innerHTML =
+      '<div class="quiz-shell">'+
+        '<div class="quiz-top">'+
+          '<span class="quiz-progress"><b>'+(quiz.idx+1)+'</b> / '+quiz.list.length+'</span>'+
+          '<div class="quiz-bar"><i style="width:'+((quiz.idx)/quiz.list.length*100)+'%"></i></div>'+
+          '<span class="pill '+tier.css+'">Tier '+e.t+' · '+tier.name+'</span>'+
+        '</div>'+
+        '<div class="quiz-card" style="--tc:'+tier.color+'">'+
+          '<div class="q-tags"><span class="fnum">F'+String(e.id).padStart(2,"0")+'</span><span class="subj-tag">'+esc(e.s)+'</span>'+
+          '<span class="tier-sub" style="margin-left:auto">'+esc(tier.cadence)+'</span></div>'+
+          '<div class="q-fact">'+esc(e.f)+'</div>'+
+          '<div class="q-reveal-area">'+
+            '<button class="btn" id="qReveal">'+icons.quiz+'<span>Reveal the logic</span></button>'+
+            '<div class="q-logic" id="qLogic">'+
+              '<div class="q-l1"><b>'+esc(e.l)+'</b></div>'+
+              '<div class="q-l2">Self-check: '+esc(e.c)+'</div>'+
+            '</div>'+
+          '</div>'+
+          '<div class="q-actions" id="qActions">'+
+            '<button class="grade good" data-v="1">'+icons.check+'<span>Banked</span></button>'+
+            '<button class="grade warn" data-v="2">'+icons.wave+'<span>Faint</span></button>'+
+            '<button class="grade bad" data-v="3">'+icons.xmark+'<span>Missed</span></button>'+
+          '</div>'+
+        '</div>'+
+      '</div>';
+    var reveal = document.getElementById("qReveal");
+    reveal.addEventListener("click", function(){
+      document.getElementById("qLogic").classList.add("open");
+      document.getElementById("qActions").classList.add("show");
+      reveal.style.display = "none";
+      quiz.revealed = true;
+      if(quiz.idx < quiz.list.length - 1){
+        var next = document.createElement("button");
+        next.className = "btn"; next.id = "qNext";
+        next.innerHTML = icons.target + "<span>Next fact</span>";
+        reveal.parentNode.insertBefore(next, reveal);
+        next.addEventListener("click", function(){ quiz.idx++; quiz.revealed=false; renderQuiz(); });
+      }
+    });
+    document.querySelectorAll("#qActions .grade").forEach(function(btn){
+      btn.addEventListener("click", function(){
+        state.mastery[e.id] = parseInt(btn.dataset.v, 10);
+        persist(); renderStats();
+        quiz.idx++; quiz.revealed = false;
+        renderQuiz();
+      });
+    });
+  }
+
+  /* ---------- controls ---------- */
+  function renderChips(){
+    var html = '<button class="btn '+(state.tier===0?"active":"")+'" data-t="0">All</button>';
+    [1,2,3,4].forEach(function(t){
+      html += '<button class="btn t'+t+' '+(state.tier===t?"active":"")+'" data-t="'+t+'">Tier '+t+'</button>';
+    });
+    document.getElementById("tierChips").innerHTML = html;
+    document.getElementById("tierChips").querySelectorAll("button").forEach(function(b){
+      b.addEventListener("click", function(){
+        state.tier = parseInt(b.dataset.t, 10); persist();
+        renderChips(); buildQuizList(); renderViews();
+      });
+    });
+  }
+  function renderSubjects(){
+    var subs = [];
+    D.forEach(function(e){ if(subs.indexOf(e.s) === -1) subs.push(e.s); });
+    subs.sort();
+    var html = '<option value="all">All subjects</option>';
+    subs.forEach(function(s){ html += '<option value="'+esc(s)+'"'+(state.subject===s?" selected":"")+'>'+esc(s)+'</option>'; });
+    document.getElementById("subjectSel").innerHTML = html;
+  }
+  function renderViews(){
+    renderStats();
+    renderBrowse();
+    renderQuiz();
+  }
+
+  /* ---------- wire up ---------- */
+  document.getElementById("viewBrowse").innerHTML = icons.book + "<span>Browse</span>";
+  document.getElementById("viewQuiz").innerHTML  = icons.quiz + "<span>Quiz</span>";
+  document.getElementById("resetBtn").innerHTML = icons.reset + "<span>Reset</span>";
+  document.getElementById("themeBtn").innerHTML = icons.moon;
+
+  var root = document.documentElement, FAM = ["ink","ice","copper","paper"];
+  function setFam(f, save){
+    if (FAM.indexOf(f) < 0) f = "ink";
+    root.setAttribute("data-banktheme", f);
+    if (save !== false) { try { localStorage.setItem("medcore.banktheme", f); } catch(e){} }
+    var b = document.getElementById("nxFam");
+    if (b) [].slice.call(b.children).forEach(function(x){ x.classList.toggle("on", x.getAttribute("data-f") === f); });
+  }
+  function setMode(m, save){
+    if (m !== "light") m = "dark";
+    root.setAttribute("data-mode", m);
+    document.getElementById("themeBtn").innerHTML = m === "light" ? "☀" : "☾";
+    if (save !== false) { try { localStorage.setItem("medcore.theme", m); } catch(e){} }
+  }
+  function boot(){
+    var f = "ink", m = "dark";
+    try { f = localStorage.getItem("medcore.banktheme") || "ink"; m = localStorage.getItem("medcore.theme") === "light" ? "light" : "dark"; } catch(e){}
+    setFam(f, false); setMode(m, false);
+  }
+  boot();
+  document.getElementById("nxFam").addEventListener("click", function(e){
+    var b = e.target.closest("button[data-f]"); if (b) setFam(b.getAttribute("data-f"));
+  });
+  document.getElementById("themeBtn").addEventListener("click", function(){
+    setMode(root.getAttribute("data-mode") === "light" ? "dark" : "light");
+  });
+  window.addEventListener("storage", function(e){
+    if (e.key === "medcore.banktheme" && e.newValue) setFam(e.newValue, false);
+    if (e.key === "medcore.theme" && e.newValue) setMode(e.newValue, false);
+  });
+
+  document.getElementById("resetBtn").addEventListener("click", function(){
+    if(!confirm("Clear all mastery marks for all 39 facts?")) return;
+    D.forEach(function(e){ state.mastery[e.id] = 0; });
+    persist(); buildQuizList(); renderViews();
+  });
+
+  document.getElementById("viewToggle").querySelectorAll("button").forEach(function(b){
+    b.addEventListener("click", function(){
+      state.view = b.dataset.view; persist();
+      document.getElementById("viewToggle").querySelectorAll("button").forEach(function(x){ x.classList.remove("active"); });
+      b.classList.add("active");
+      if(state.view === "quiz") buildQuizList();
+      renderViews();
+    });
+  });
+
+  document.getElementById("subjectSel").addEventListener("change", function(){
+    state.subject = this.value; persist(); buildQuizList(); renderViews();
+  });
+
+  var searchTimer = null;
+  document.getElementById("searchInput").addEventListener("input", function(){
+    var self = this;
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(function(){ state.q = self.value; persist(); buildQuizList(); renderViews(); }, 160);
+  });
+
+  document.getElementById("skipMastered").addEventListener("change", function(){
+    state.skipMastered = this.checked; persist(); buildQuizList(); renderViews();
+  });
+
+  document.getElementById("browseView").addEventListener("click", function(ev){
+    var toggle = ev.target.closest(".logic-toggle");
+    if(toggle){
+      var open = toggle.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      toggle.parentNode.querySelector(".logic").classList.toggle("open", open);
+      return;
+    }
+    var btn = ev.target.closest(".mbtn");
+    if(btn){
+      var card = btn.closest(".card");
+      var id = parseInt(card.dataset.id, 10);
+      state.mastery[id] = parseInt(btn.dataset.act, 10);
+      persist(); renderStats(); buildQuizList();
+      card.outerHTML = cardHtml(D.filter(function(e){ return e.id === id; })[0]);
+      return;
+    }
+  });
+
+  document.getElementById("searchWrap").querySelector("svg") || (function(){
+    var svg = document.createElement("span");
+    svg.innerHTML = icons.search; svg.style.cssText = "position:absolute;left:11px;top:50%;translate:0 -50%;width:15px;height:15px;color:var(--faint);pointer-events:none;display:grid;place-items:center";
+    svg.firstChild.style.cssText = "width:100%;height:100%";
+    document.getElementById("searchWrap").appendChild(svg);
+  })();
+
+  renderSubjects();
+  renderChips();
+  renderViews();
+  document.getElementById("skipMastered").checked = state.skipMastered;
+})();
+</script>
+
+<script src="/medcore-sync.js" defer></script>
+</body>
+</html>

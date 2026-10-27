@@ -1,0 +1,60 @@
+// GET /api/google/callback?code=…&state=… → exchange code, sign the user in, redirect back.
+import { newId, createSession, setSessionCookie, readCookie } from '../_util.js';
+
+export async function onRequestGet({ request, env }) {
+  const url = new URL(request.url);
+  const code = url.searchParams.get('code');
+  const state = url.searchParams.get('state');
+  const savedState = readCookie(request, 'g_state');
+  const ret = readCookie(request, 'g_return') || '/';
+
+  if (!env.GOOGLE_CLIENT_ID || !env.GOOGLE_CLIENT_SECRET) {
+    return new Response('Google sign-in is not configured.', { status: 503 });
+  }
+  if (!code || !state || !savedState || state !== savedState) {
+    return new Response('Sign-in failed (state mismatch). Close this tab and try again.', { status: 400 });
+  }
+
+  // Exchange the authorization code for tokens (server-to-server, over TLS).
+  const body = new URLSearchParams({
+    code, client_id: env.GOOGLE_CLIENT_ID, client_secret: env.GOOGLE_CLIENT_SECRET,
+    redirect_uri: url.origin + '/api/google/callback', grant_type: 'authorization_code'
+  });
+  const tokRes = await fetch('https://oauth2.googleapis.com/token', {
+    method: 'POST', headers: { 'content-type': 'application/x-www-form-urlencoded' }, body
+  });
+  const tok = await tokRes.json().catch(function () { return {}; });
+  if (!tok.id_token) return new Response('Token exchange failed. Close this tab and try again.', { status: 400 });
+
+  // Decode the ID token payload. It came straight from Google's token endpoint over TLS,
+  // so we trust the channel; we still validate audience, issuer and expiry.
+  let p;
+  try {
+    const part = tok.id_token.split('.')[1].replace(/-/g, '+').replace(/_/g, '/');
+    p = JSON.parse(decodeURIComponent(escape(atob(part))));
+  } catch (e) { return new Response('Bad token.', { status: 400 }); }
+
+  const okIss = p.iss === 'accounts.google.com' || p.iss === 'https://accounts.google.com';
+  const okAud = p.aud === env.GOOGLE_CLIENT_ID;
+  const okExp = !p.exp || p.exp * 1000 > Date.now();
+  const email = (p.email || '').toLowerCase();
+  if (!okIss || !okAud || !okExp || !email) return new Response('Invalid token.', { status: 400 });
+  if (p.email_verified === false) return new Response('Your Google email is not verified.', { status: 400 });
+
+  // Find or create the account (Google users have no password).
+  let u = await env.medcore_db.prepare('SELECT id,email FROM users WHERE email=?').bind(email).first();
+  if (!u) {
+    const id = newId();
+    await env.medcore_db.prepare('INSERT INTO users (id,email,pass_hash,salt,created_at) VALUES (?,?,?,?,?)')
+      .bind(id, email, 'google-oauth', 'google', Date.now()).run();
+    u = { id, email };
+  }
+
+  const token = await createSession(env, u.id);
+  const h = new Headers();
+  h.set('Location', (ret && ret.charAt(0) === '/' ? ret : '/') + (ret.indexOf('?') >= 0 ? '&' : '?') + 'signed_in=1');
+  h.append('Set-Cookie', setSessionCookie(token));
+  h.append('Set-Cookie', 'g_state=; Path=/; Max-Age=0');
+  h.append('Set-Cookie', 'g_return=; Path=/; Max-Age=0');
+  return new Response(null, { status: 302, headers: h });
+}

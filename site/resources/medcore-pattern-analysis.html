@@ -1,0 +1,131 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"><title>Pattern Analysis — 4 Papers</title><style>body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; max-width: 100%; margin: 2em auto; padding: clamp(1em,5vw,4em); line-height: 1.7; color: #1a1a1a; background: #fff; }
+h1 { text-align: center; color: #1a1a1a; font-size: 1.5rem; }
+.meta { text-align: center; color: #777; font-size: 0.8125rem; margin-bottom: 2em; }
+h2 { color: #c0392b; border-bottom: 2px solid #c0392b; padding-bottom: 4px; margin-top: 2em; font-size: 0.9375rem; }
+.subject-header { background: #c0392b; color: white; padding: 0.5em 1em; margin-top: 2.5em; border-radius: 4px; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.5px; }
+.q-card { margin: 1.5em 0; padding: 1em 1.2em; border: 1px solid #e0e0e0; border-left: 4px solid #c0392b; border-radius: 6px; }
+.q-num { font-weight: 700; color: #c0392b; font-family: 'Courier New', monospace; margin-bottom: 0.4em; }
+.q-stem { font-size: 0.875rem; margin-bottom: 0.6em; }
+.opt { margin: 0.35em 0; padding: 0.25em 0.6em; border-radius: 3px; font-size: 0.8125rem; }
+.opt-letter { font-family: 'Courier New', monospace; font-weight: 700; color: #555; }
+.opt.correct { background: #e8f5e9; border-left: 3px solid #2e7d32; font-weight: 600; }
+.opt.correct .opt-letter { color: #2e7d32; }
+.badge { font-size: 0.6875rem; font-weight: 700; padding: 1px 6px; border-radius: 8px; margin-left: 6px; }
+.badge.ok { background: #2e7d32; color: white; }
+.why { margin-top: 0.6em; padding: 0.5em 0.7em; background: #f5f5f5; border-radius: 3px; font-size: 0.8125rem; }
+.why .label { font-weight: 700; }
+.why-not { margin-top: 0.3em; padding: 0.35em 0.7em; background: #fce4ec; border-radius: 3px; font-size: 0.75rem; color: #7f1d1d; }
+.variants { margin-top: 0.5em; padding: 0.4em 0.7em; background: #e3f2fd; border-radius: 3px; font-size: 0.75rem; color: #0d47a1; }
+.variants .label { font-weight: 700; }
+.variants div { margin: 0.2em 0; }
+.note { background: #fff8e1; border: 1px solid #f0e0a0; border-radius: 6px; padding: 0.8em 1em; margin: 1.5em 0; font-size: 0.8125rem; }
+table { width: 100%; border-collapse: collapse; margin: 1em 0; }
+th { background: #c0392b; color: white; padding: 0.5em; text-align: left; font-size: 0.75rem; }
+td { padding: 0.4em 0.5em; border-bottom: 1px solid #eee; font-size: 0.8125rem; }
+.bar-row { display: flex; align-items: center; margin: 3px 0; }
+.bar-label { width: 160px; font-size: 0.75rem; color: #555; }
+.bar-track { flex: 1; height: 18px; background: #f0f0f0; border-radius: 3px; margin: 0 8px; overflow: hidden; }
+.bar-fill { height: 100%; background: #c0392b; border-radius: 3px; }
+.bar-val { width: 60px; font-size: 0.6875rem; color: #777; font-family: 'Courier New', monospace; }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"><style id="polish">html{font-size:clamp(15px,12.9px + .52vw,17px);-webkit-text-size-adjust:100%}
+
+:focus-visible{outline:2px solid #0e7c7b;outline-offset:2px;border-radius:2px}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,[tabindex]:focus-visible{outline:2px solid #0e7c7b;outline-offset:2px}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+
+body{font-family:'Inter',-apple-system,'Segoe UI',Roboto,Arial,sans-serif!important}
+h1{font-size:clamp(1.5rem,1.2rem + 1.4vw,2.1rem)}
+@media (max-width:720px){
+  body{padding:0 clamp(12px,4vw,24px)!important;margin:1em auto!important}
+  .q-card{padding:14px 14px}
+  .opt{font-size:.8rem;padding:8px 10px}
+  table{display:block;overflow-x:auto;white-space:nowrap}
+}
+@media print{ body{max-width:100%;font-size:9pt} .q-card{break-inside:avoid} }
+</style>
+</head><body><h1>exam Pattern Analysis — 4 Papers</h1><p class="meta">682 MCQs total · Clean classification (June 2024: 147 · Dec 2024: 171 · May 2026: 177 · Dec 2025: 187) · Rebuilt after data-integrity fix</p>
+<h2>Subject Distribution per Paper</h2>
+<p style="margin:1em 0 0.2em;font-weight:600">June 2024 — 147 MCQs</p>
+<div class="bar-row"><div class="bar-label">Medicine</div><div class="bar-track"><div class="bar-fill" style="width:53%"></div></div><div class="bar-val">78 (53%)</div></div>
+<div class="bar-row"><div class="bar-label">Surgery</div><div class="bar-track"><div class="bar-fill" style="width:11%"></div></div><div class="bar-val">16 (11%)</div></div>
+<div class="bar-row"><div class="bar-label">Paediatrics</div><div class="bar-track"><div class="bar-fill" style="width:8%"></div></div><div class="bar-val">12 (8%)</div></div>
+<div class="bar-row"><div class="bar-label">Obstetrics & Gynaecology</div><div class="bar-track"><div class="bar-fill" style="width:10%"></div></div><div class="bar-val">14 (10%)</div></div>
+<div class="bar-row"><div class="bar-label">Pharmacology</div><div class="bar-track"><div class="bar-fill" style="width:7%"></div></div><div class="bar-val">10 (7%)</div></div>
+<div class="bar-row"><div class="bar-label">ENT</div><div class="bar-track"><div class="bar-fill" style="width:3%"></div></div><div class="bar-val">4 (3%)</div></div>
+<div class="bar-row"><div class="bar-label">Biochemistry</div><div class="bar-track"><div class="bar-fill" style="width:1%"></div></div><div class="bar-val">2 (1%)</div></div>
+<div class="bar-row"><div class="bar-label">Ophthalmology</div><div class="bar-track"><div class="bar-fill" style="width:2%"></div></div><div class="bar-val">3 (2%)</div></div>
+<div class="bar-row"><div class="bar-label">Psychiatry</div><div class="bar-track"><div class="bar-fill" style="width:1%"></div></div><div class="bar-val">2 (1%)</div></div>
+<div class="bar-row"><div class="bar-label">Anatomy</div><div class="bar-track"><div class="bar-fill" style="width:1%"></div></div><div class="bar-val">1 (1%)</div></div>
+<div class="bar-row"><div class="bar-label">Physiology</div><div class="bar-track"><div class="bar-fill" style="width:2%"></div></div><div class="bar-val">3 (2%)</div></div>
+<div class="bar-row"><div class="bar-label">Pathology</div><div class="bar-track"><div class="bar-fill" style="width:1%"></div></div><div class="bar-val">2 (1%)</div></div>
+<p style="margin:1em 0 0.2em;font-weight:600">Dec 2024 — 171 MCQs</p>
+<div class="bar-row"><div class="bar-label">Medicine</div><div class="bar-track"><div class="bar-fill" style="width:47%"></div></div><div class="bar-val">81 (47%)</div></div>
+<div class="bar-row"><div class="bar-label">Surgery</div><div class="bar-track"><div class="bar-fill" style="width:11%"></div></div><div class="bar-val">19 (11%)</div></div>
+<div class="bar-row"><div class="bar-label">Paediatrics</div><div class="bar-track"><div class="bar-fill" style="width:11%"></div></div><div class="bar-val">19 (11%)</div></div>
+<div class="bar-row"><div class="bar-label">Obstetrics & Gynaecology</div><div class="bar-track"><div class="bar-fill" style="width:10%"></div></div><div class="bar-val">17 (10%)</div></div>
+<div class="bar-row"><div class="bar-label">Pharmacology</div><div class="bar-track"><div class="bar-fill" style="width:6%"></div></div><div class="bar-val">11 (6%)</div></div>
+<div class="bar-row"><div class="bar-label">ENT</div><div class="bar-track"><div class="bar-fill" style="width:5%"></div></div><div class="bar-val">8 (5%)</div></div>
+<div class="bar-row"><div class="bar-label">Biochemistry</div><div class="bar-track"><div class="bar-fill" style="width:2%"></div></div><div class="bar-val">4 (2%)</div></div>
+<div class="bar-row"><div class="bar-label">Ophthalmology</div><div class="bar-track"><div class="bar-fill" style="width:1%"></div></div><div class="bar-val">2 (1%)</div></div>
+<div class="bar-row"><div class="bar-label">Forensic Medicine</div><div class="bar-track"><div class="bar-fill" style="width:1%"></div></div><div class="bar-val">2 (1%)</div></div>
+<div class="bar-row"><div class="bar-label">Anatomy</div><div class="bar-track"><div class="bar-fill" style="width:1%"></div></div><div class="bar-val">2 (1%)</div></div>
+<div class="bar-row"><div class="bar-label">Physiology</div><div class="bar-track"><div class="bar-fill" style="width:2%"></div></div><div class="bar-val">3 (2%)</div></div>
+<div class="bar-row"><div class="bar-label">Pathology</div><div class="bar-track"><div class="bar-fill" style="width:1%"></div></div><div class="bar-val">1 (1%)</div></div>
+<div class="bar-row"><div class="bar-label">Community Medicine</div><div class="bar-track"><div class="bar-fill" style="width:1%"></div></div><div class="bar-val">2 (1%)</div></div>
+<p style="margin:1em 0 0.2em;font-weight:600">May 2026 — 177 MCQs</p>
+<div class="bar-row"><div class="bar-label">Medicine</div><div class="bar-track"><div class="bar-fill" style="width:20%"></div></div><div class="bar-val">35 (20%)</div></div>
+<div class="bar-row"><div class="bar-label">Surgery</div><div class="bar-track"><div class="bar-fill" style="width:16%"></div></div><div class="bar-val">28 (16%)</div></div>
+<div class="bar-row"><div class="bar-label">Paediatrics</div><div class="bar-track"><div class="bar-fill" style="width:15%"></div></div><div class="bar-val">27 (15%)</div></div>
+<div class="bar-row"><div class="bar-label">Obstetrics & Gynaecology</div><div class="bar-track"><div class="bar-fill" style="width:10%"></div></div><div class="bar-val">18 (10%)</div></div>
+<div class="bar-row"><div class="bar-label">Pharmacology</div><div class="bar-track"><div class="bar-fill" style="width:9%"></div></div><div class="bar-val">16 (9%)</div></div>
+<div class="bar-row"><div class="bar-label">ENT</div><div class="bar-track"><div class="bar-fill" style="width:1%"></div></div><div class="bar-val">1 (1%)</div></div>
+<div class="bar-row"><div class="bar-label">Biochemistry</div><div class="bar-track"><div class="bar-fill" style="width:1%"></div></div><div class="bar-val">1 (1%)</div></div>
+<div class="bar-row"><div class="bar-label">Ophthalmology</div><div class="bar-track"><div class="bar-fill" style="width:1%"></div></div><div class="bar-val">2 (1%)</div></div>
+<div class="bar-row"><div class="bar-label">Psychiatry</div><div class="bar-track"><div class="bar-fill" style="width:1%"></div></div><div class="bar-val">2 (1%)</div></div>
+<div class="bar-row"><div class="bar-label">Forensic Medicine</div><div class="bar-track"><div class="bar-fill" style="width:3%"></div></div><div class="bar-val">5 (3%)</div></div>
+<div class="bar-row"><div class="bar-label">Anatomy</div><div class="bar-track"><div class="bar-fill" style="width:3%"></div></div><div class="bar-val">6 (3%)</div></div>
+<div class="bar-row"><div class="bar-label">Physiology</div><div class="bar-track"><div class="bar-fill" style="width:5%"></div></div><div class="bar-val">8 (5%)</div></div>
+<div class="bar-row"><div class="bar-label">Pathology</div><div class="bar-track"><div class="bar-fill" style="width:5%"></div></div><div class="bar-val">8 (5%)</div></div>
+<div class="bar-row"><div class="bar-label">Community Medicine</div><div class="bar-track"><div class="bar-fill" style="width:11%"></div></div><div class="bar-val">20 (11%)</div></div>
+<p style="margin:1em 0 0.2em;font-weight:600">Dec 2025 — 187 MCQs</p>
+<div class="bar-row"><div class="bar-label">Medicine</div><div class="bar-track"><div class="bar-fill" style="width:50%"></div></div><div class="bar-val">94 (50%)</div></div>
+<div class="bar-row"><div class="bar-label">Surgery</div><div class="bar-track"><div class="bar-fill" style="width:11%"></div></div><div class="bar-val">20 (11%)</div></div>
+<div class="bar-row"><div class="bar-label">Paediatrics</div><div class="bar-track"><div class="bar-fill" style="width:10%"></div></div><div class="bar-val">18 (10%)</div></div>
+<div class="bar-row"><div class="bar-label">Obstetrics & Gynaecology</div><div class="bar-track"><div class="bar-fill" style="width:9%"></div></div><div class="bar-val">16 (9%)</div></div>
+<div class="bar-row"><div class="bar-label">Pharmacology</div><div class="bar-track"><div class="bar-fill" style="width:5%"></div></div><div class="bar-val">10 (5%)</div></div>
+<div class="bar-row"><div class="bar-label">ENT</div><div class="bar-track"><div class="bar-fill" style="width:4%"></div></div><div class="bar-val">8 (4%)</div></div>
+<div class="bar-row"><div class="bar-label">Biochemistry</div><div class="bar-track"><div class="bar-fill" style="width:3%"></div></div><div class="bar-val">5 (3%)</div></div>
+<div class="bar-row"><div class="bar-label">Ophthalmology</div><div class="bar-track"><div class="bar-fill" style="width:3%"></div></div><div class="bar-val">5 (3%)</div></div>
+<div class="bar-row"><div class="bar-label">Psychiatry</div><div class="bar-track"><div class="bar-fill" style="width:2%"></div></div><div class="bar-val">3 (2%)</div></div>
+<div class="bar-row"><div class="bar-label">Forensic Medicine</div><div class="bar-track"><div class="bar-fill" style="width:2%"></div></div><div class="bar-val">3 (2%)</div></div>
+<div class="bar-row"><div class="bar-label">Anatomy</div><div class="bar-track"><div class="bar-fill" style="width:1%"></div></div><div class="bar-val">2 (1%)</div></div>
+<div class="bar-row"><div class="bar-label">Physiology</div><div class="bar-track"><div class="bar-fill" style="width:1%"></div></div><div class="bar-val">2 (1%)</div></div>
+<div class="bar-row"><div class="bar-label">Pathology</div><div class="bar-track"><div class="bar-fill" style="width:1%"></div></div><div class="bar-val">1 (1%)</div></div>
+<h2>Cross-Paper Comparison (MCQs per Subject)</h2>
+<table><tr><th>Subject</th><th>June 2024</th><th>Dec 2024</th><th>May 2026</th><th>Dec 2025</th><th>Total</th></tr>
+<tr><td>Medicine</td><td>78</td><td>81</td><td>35</td><td>94</td><td><b>288</b></td></tr>
+<tr><td>Surgery</td><td>16</td><td>19</td><td>28</td><td>20</td><td><b>83</b></td></tr>
+<tr><td>Paediatrics</td><td>12</td><td>19</td><td>27</td><td>18</td><td><b>76</b></td></tr>
+<tr><td>Obstetrics & Gynaecology</td><td>14</td><td>17</td><td>18</td><td>16</td><td><b>65</b></td></tr>
+<tr><td>Pharmacology</td><td>10</td><td>11</td><td>16</td><td>10</td><td><b>47</b></td></tr>
+<tr><td>ENT</td><td>4</td><td>8</td><td>1</td><td>8</td><td><b>21</b></td></tr>
+<tr><td>Biochemistry</td><td>2</td><td>4</td><td>1</td><td>5</td><td><b>12</b></td></tr>
+<tr><td>Ophthalmology</td><td>3</td><td>2</td><td>2</td><td>5</td><td><b>12</b></td></tr>
+<tr><td>Psychiatry</td><td>2</td><td>—</td><td>2</td><td>3</td><td><b>7</b></td></tr>
+<tr><td>Forensic Medicine</td><td>—</td><td>2</td><td>5</td><td>3</td><td><b>10</b></td></tr>
+<tr><td>Anatomy</td><td>1</td><td>2</td><td>6</td><td>2</td><td><b>11</b></td></tr>
+<tr><td>Physiology</td><td>3</td><td>3</td><td>8</td><td>2</td><td><b>16</b></td></tr>
+<tr><td>Pathology</td><td>2</td><td>1</td><td>8</td><td>1</td><td><b>12</b></td></tr>
+<tr><td>Community Medicine</td><td>—</td><td>2</td><td>20</td><td>—</td><td><b>22</b></td></tr>
+</table>
+<h2>Answer Distribution (only papers with real answers)</h2>
+<table><tr><th>Paper</th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>Source</th></tr>
+<tr><td>May 2026</td><td>44</td><td>58</td><td>52</td><td>22</td><td>1</td><td>AI-generated key (earlier session), verified against recall stems</td></tr>
+<tr><td>Dec 2025</td><td>60</td><td>48</td><td>28</td><td>48</td><td>3</td><td>corrected recall paper (PDF)</td></tr>
+</table>
+<div class="note"><b>Method & integrity notes:</b> May 2026 subjects and answers come from the original key document (177/177 aligned, zero stem mismatches). Dec 2025 answers are from the corrected recall paper; subjects classified by word-boundary keyword matching (fixed after a substring bug — "year" matching "ear" — had inflated ENT to 37% of one paper; corrected ENT share is 3–5%). June 2024 and Dec 2024 have no answer sources in the recalls; their answer fields were stripped (previously fabricated as "all A") and answer analysis is intentionally omitted for them.</div>
+
+<script src="/medcore-sync.js" defer></script>
+</body></html>

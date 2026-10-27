@@ -1,0 +1,22 @@
+name: Deploy MedCORE Hub
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Prune junk before upload
+        run: rm -rf .github .gitignore && find . -maxdepth 1 \( -name '.DS_Store' -o -name '*.bak-*' \) -delete
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy . --project-name=medcorehub --branch=main

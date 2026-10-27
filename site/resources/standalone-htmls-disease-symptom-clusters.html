@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Disease Symptom Clusters</title>
+<style>
+  :root{
+    --bg:#f5f6f9; --card:#ffffff; --ink:#1a1f2e; --line:#d8dce6; --line2:#edf0f5;
+    --muted:#5c637a; --faint:#828a9d; --accent:#0e4f6e; --accent-soft:#eaf3f8;
+    --head:#12354d; --head-ink:#fff; --head-sub:#b9cdd9; --hover:#fbfcfe;
+    --maxw:1150px;
+  }
+  html.dark{
+    --bg:#0f1420; --card:#171e2e; --ink:#dce3ef; --line:#2a3348; --line2:#232c40;
+    --muted:#8b95ad; --faint:#6b7590; --accent:#7cc4e8; --accent-soft:#1c2a3e;
+    --head:#0b101b; --head-ink:#e8eef6; --head-sub:#7d90a8; --hover:#1d2536;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:64px}
+  body{font:0.875rem/1.55 "Iowan Old Style","Charter",Georgia,serif;color:var(--ink);background:var(--bg);transition:background .25s,color .25s}
+  body.mobile-viewport{--maxw:580px}
+  header.top{background:var(--head);color:var(--head-ink);border-bottom:3px solid var(--accent)}
+  .top-inner{max-width:var(--maxw);margin:0 auto;padding:24px 22px 16px;display:flex;justify-content:space-between;align-items:flex-start;gap:14px;flex-wrap:wrap}
+  .mark{display:flex;align-items:flex-start;gap:12px}
+  .mark h1{font-family:-apple-system,"Segoe UI",Helvetica,sans-serif;font-size:1.25rem;letter-spacing:.4px}
+  .mark p{color:var(--head-sub);font-size:0.75rem;margin-top:2px;max-width:52ch;font-family:-apple-system,sans-serif}
+  .toolbar{display:flex;gap:8px;flex:none;padding-top:4px}
+  .tbtn{display:flex;align-items:center;gap:6px;background:none;border:1px solid rgba(255,255,255,.28);border-radius:16px;color:var(--head-ink);font:0.7188rem -apple-system,sans-serif;padding:5px 11px;cursor:pointer}
+  .tbtn:hover{background:rgba(255,255,255,.12)}
+  body.mobile-viewport .tbtn[data-tool=mobile], body:not(.mobile-viewport) .tbtn[data-tool=desktop]{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+  nav{position:sticky;top:0;z-index:5;background:var(--card);border-bottom:1px solid var(--line);box-shadow:0 1px 4px rgba(10,15,30,.08)}
+  .nav-inner{max-width:var(--maxw);margin:0 auto;padding:7px 14px;display:flex;flex-wrap:wrap;gap:3px}
+  nav a{font:0.7188rem -apple-system,sans-serif;color:var(--muted);text-decoration:none;padding:4px 9px;border-radius:11px;white-space:nowrap}
+  nav a:hover{background:var(--accent-soft);color:var(--accent)}
+  nav a.active{background:var(--accent);color:#fff}
+  html.dark nav a.active{color:#0f1420}
+  main{max-width:var(--maxw);margin:0 auto;padding:20px 22px 30px}
+  .system{background:var(--card);border:1px solid var(--line);border-radius:10px;margin-bottom:18px;overflow:hidden}
+  .sys-head{display:flex;align-items:center;gap:11px;width:100%;background:var(--accent-soft);border:none;color:var(--accent);font:600 0.9063rem -apple-system,sans-serif;padding:12px 18px;cursor:pointer;text-align:left;letter-spacing:.3px}
+  .sys-head:hover{filter:brightness(.97)}
+  html.dark .sys-head:hover{filter:brightness(1.2)}
+  .sys-head .count{color:var(--muted);font-weight:400;font-size:0.7188rem}
+  .sys-head .chev{margin-left:auto;transition:transform .25s;flex:none}
+  .system.open .sys-head .chev{transform:rotate(90deg)}
+  .sys-body{display:none}
+  .system.open .sys-body{display:block}
+  table{width:100%;border-collapse:collapse}
+  th,td{padding:7px 13px;border-bottom:1px solid var(--line2);text-align:left;vertical-align:top}
+  tr:last-child th,tr:last-child td{border-bottom:none}
+  thead th{font:600 0.625rem -apple-system,sans-serif;text-transform:uppercase;letter-spacing:.9px;color:var(--muted);background:var(--hover)}
+  td.num{font-size:0.6563rem;color:var(--muted);width:28px;text-align:right;padding-right:0}
+  td.name{font-weight:650;width:215px}
+  tr:hover td{background:var(--hover)}
+  body.mobile-viewport td.name{width:112px;font-size:0.7813rem}
+  body.mobile-viewport th:nth-child(1),body.mobile-viewport td.num{display:none}
+  .obs{color:var(--muted);font-size:0.6875rem}
+  footer.site{border-top:1px solid var(--line)}
+  .foot-inner{max-width:var(--maxw);margin:0 auto;padding:16px 22px 22px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;color:var(--faint);font-size:0.6875rem;font-family:-apple-system,sans-serif}
+  @media print{
+    body{background:#fff;font-size:0.6563rem}
+    nav,.toolbar{display:none}
+    .sys-body{display:block!important}
+    .system{border:none;border-top:2px solid var(--ink);border-radius:0;margin-bottom:8px;page-break-inside:avoid}
+  }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Archivo:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style id="hub-theme-bridge">
+:root{
+--bg:#F6F3EC;--card:#FFFFFF;--ink:#101A28;--line:#DDD6C6;--line2:#EAE5D9;
+--muted:#5A6376;--faint:#848C9C;--accent:#0E1A2B;--accent-soft:#E7EDF3;
+--head:#0E1A2B;--head-ink:#F6F3EC;--head-sub:#9FB2CC;--hover:#F8F6F0;
+--trap:#C43A2C;
+--t1c:#B0341E;--t1bg:#FBEAE4;--t1ln:#E8B9AA;
+--t2c:#8A5A12;--t2bg:#F9F2E0;--t2ln:#E3CB99;
+--t3c:#1C5637;--t3bg:#E9F4EE;--t3ln:#A6DBB6;
+--t4c:#1A4870;--t4bg:#E8F1F9;--t4ln:#A7C4DD;
+--t5c:#4B4841;--t5bg:#F1EFEB;--t5ln:#CECAC2;
+}
+html.dark{
+--bg:#0B1422;--card:#16283F;--ink:#F6F3EC;--line:rgba(246,243,236,.16);--line2:#232C40;
+--muted:#8FA3BE;--faint:#6D7789;--acc:#D4FF3F;--acc-soft:#1E2A14;
+--head:#0E1A2B;--head-ink:#F6F3EC;--head-sub:#9FB2CC;--hover:#1B2430;
+--trap:#FF8A7A;
+--t1c:#FF9080;--t1bg:#2E1A14;--t1ln:#6B3A2B;
+--t2c:#F0C46A;--t2bg:#2A2214;--t2ln:#6A5426;
+--t3c:#8FE0B0;--t3bg:#16271E;--t3ln:#38664B;
+--t4c:#9CC6E6;--t4bg:#14222E;--t4ln:#35566F;
+--t5c:#C2BEB4;--t5bg:#21242A;--t5ln:#4A4F58;
+}
+body{font-family:'Archivo',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif!important}
+.mark h1,.sys-head,h1,h2{font-family:'Bricolage Grotesque','Archivo',sans-serif!important}
+.mark h1{font-weight:800}
+</style>
+
+</head>
+<body>
+<header class="top">
+  <div class="top-inner">
+    <div class="mark">
+      <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#7cc4e8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="9.5"/></svg>
+      <div>
+        <h1>Disease Symptom Clusters</h1>
+        <p>Classic diseases by organ system &middot; each cluster written as a compressed vignette stem (age, build-up, symptom string) &middot; study the cluster, see the paper present it as a disguise</p>
+      </div>
+    </div>
+    <div class="toolbar">
+      <button class="tbtn" data-tool="theme" id="themeBtn" aria-label="Toggle theme">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M19.1 4.9l-1.8 1.8M6.7 17.3l-1.8 1.8"/></svg>
+        <span>Theme</span></button>
+      <button class="tbtn" data-tool="mobile" aria-label="Mobile view"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="7" y="2.5" width="10" height="19" rx="2"/><path d="M11 18.5h2"/></svg>Mobile</button>
+      <button class="tbtn" data-tool="desktop" aria-label="Desktop view"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="2.5" y="4" width="19" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>Desktop</button>
+    </div>
+  </div>
+</header>
+<nav><div class="nav-inner">
+<a href="#cardio">Cardio</a>
+<a href="#resp">Respiratory</a>
+<a href="#gi">GI</a>
+<a href="#hep">Hepatobiliary</a>
+<a href="#neuro">Neuro</a>
+<a href="#psych">Psych</a>
+<a href="#endo">Endocrine</a>
+<a href="#renal">Renal &amp; Electrolytes</a>
+<a href="#heme">Haematology</a>
+<a href="#id">Infectious Disease</a>
+<a href="#rheum">Rheumatology</a>
+<a href="#derm">Dermatology</a>
+</div></nav>
+<main>
+<section class="system" id="cardio">
+<button class="sys-head" aria-expanded="false"><svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>Cardiovascular <span class="count">18 diseases</span></button>
+<div class="sys-body">
+<table>
+<thead><tr><th></th><th>Disease</th><th>Symptom cluster (as the exam presents it)</th></tr></thead>
+<tbody>
+<tr><td class="num">1</td><td class="name">STEMI</td><td>55-year-old diabetic man &middot; crushing retrosternal chest pain for 2 h radiating to left arm and jaw + diaphoresis + nausea mistaken for "indigestion"</td></tr>
+<tr><td class="num">2</td><td class="name">NSTEMI / unstable angina</td><td>60-year-old smoker &middot; rest or crescendo exertional chest pain, now freezing at rest (unstable) &mdash; vs brief exertional pain eased by rest in stable angina</td></tr>
+<tr><td class="num">3</td><td class="name">Stable angina</td><td>Exertional retrosternal tightness lasting &lt;10 min, eased by rest &middot; no pain at rest &middot; same trigger every time &middot; female patient may report only fatigue or dyspnoea</td></tr>
+<tr><td class="num">4</td><td class="name">Aortic dissection</td><td>40&ndash;60-year-old hypertensive man &middot; sudden tearing chest pain radiating to the back between the shoulders + unequal BP or pulses between arms</td></tr>
+<tr><td class="num">5</td><td class="name">Pericarditis</td><td>Young man after viral prodrome &middot; sharp chest pain made worse lying flat and breathing in, eased sitting forward + low-grade fever</td></tr>
+<tr><td class="num">6</td><td class="name">Cardiac tamponade</td><td>Patient with cancer or TB &middot; severe dyspnoea + distended neck veins rising on inspiration + muffled heart sounds + falling BP</td></tr>
+<tr><td class="num">7</td><td class="name">Infective endocarditis</td><td>Dental procedure or IV drug user weeks earlier &middot; fever for weeks + weight loss + night sweats + splinter haemorrhages / painful finger nodules</td></tr>
+<tr><td class="num">8</td><td class="name">Acute rheumatic fever</td><td>Child 5&ndash;15 years, 2&ndash;3 weeks after sore throat &middot; migratory large-joint pain + breathlessness + later uncontrolled limb movements</td></tr>
+<tr><td class="num">9</td><td class="name">Rheumatic mitral stenosis</td><td>Woman in 30s&ndash;40s with childhood sore-throat illness &middot; effort breathlessness + flushing cheeks &mdash; first decompensation on pregnancy or any fast heart rate</td></tr>
+<tr><td class="num">10</td><td class="name">Mitral regurgitation <span class="obs">(rheumatic)</span></td><td>Rheumatic heart disease patient &middot; breathlessness lying flat / on exertion + fatigue &mdash; murmur heard at apex radiating to axilla</td></tr>
+<tr><td class="num">11</td><td class="name">Mitral valve prolapse</td><td>Thin young woman &middot; palpitations + occasional sharp chest pain + anxiety-like episodes &mdash; heart beat "skipping"</td></tr>
+<tr><td class="num">12</td><td class="name">Degenerative aortic stenosis</td><td>Man over 65 (or 60s with congenital valve) &mdash; progression triad in order: effort breathlessness &rarr; chest pain on exertion &rarr; sudden faint on exertion</td></tr>
+<tr><td class="num">13</td><td class="name">Hypertrophic obstructive cardiomyopathy</td><td>Young athlete &middot; faints or chest pain during sport (worse standing) &mdash; family history of sudden unexplained death</td></tr>
+<tr><td class="num">14</td><td class="name">Dilated cardiomyopathy</td><td>Young&ndash;middle-aged man, heavy drinker or post-viral &middot; progressive breathlessness lying flat + swelling of ankles + easy fatigue</td></tr>
+<tr><td class="num">15</td><td class="name">Atrial fibrillation</td><td>Elderly or hyperthyroid patient &middot; palpitations with irregular "beat-to-beat chaos" + effort intolerance + no warning spells &mdash; may present as sudden stroke</td></tr>
+<tr><td class="num">16</td><td class="name">Paroxysmal supraventricular tachycardia</td><td>Young person with no heart disease &middot; sudden fast pounding heart starting and stopping like a switch (over minutes/hours), anxiety and light-headedness during a run</td></tr>
+<tr><td class="num">17</td><td class="name">Deep vein thrombosis</td><td>Post-bed-rest / post-surgery / long flight / on pills &middot; one-sided calf pain + swelling + warmth, worse on standing</td></tr>
+<tr><td class="num">18</td><td class="name">Pulmonary embolism</td><td>Postoperative or post-immobilised patient &middot; sudden breathlessness + sharp chest pain worse on breathing in + fast heart rate, sometimes fainting &mdash; calf was swollen days earlier</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section class="system" id="resp">
+<button class="sys-head" aria-expanded="false"><svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>Respiratory <span class="count">18 diseases</span></button>
+<div class="sys-body">
+<table>
+<thead><tr><th></th><th>Disease</th><th>Symptom cluster (as the exam presents it)</th></tr></thead>
+<tbody>
+<tr><td class="num">1</td><td class="name">Lobar pneumonia <span class="obs">(pneumococcal)</span></td><td>Adult &middot; sudden shaking fever + cough with rust-coloured sputum + one-sided sharp chest pain on breathing in</td></tr>
+<tr><td class="num">2</td><td class="name">Atypical pneumonia <span class="obs">(Mycoplasma)</span></td><td>Young adult / hostel student &middot; dry cough lasting weeks + gradual low fever + malaise, chest findings minimal despite patient looking ill</td></tr>
+<tr><td class="num">3</td><td class="name">Pulmonary tuberculosis</td><td>Weight loss + evening fever + drenching night sweats + cough &gt;2 weeks with blood-streaked sputum + close TB contact</td></tr>
+<tr><td class="num">4</td><td class="name">Miliary / extrapulmonary TB</td><td>Elderly or immunosuppressed &middot; indolent fever + weight loss with no cough, or neck swelling / back pain only</td></tr>
+<tr><td class="num">5</td><td class="name">Pneumocystis pneumonia</td><td>AIDS patient with CD4 below 200 &middot; weeks of dry cough + breathlessness on stairs + low-grade fever, chest mostly clear</td></tr>
+<tr><td class="num">6</td><td class="name">Acute asthma</td><td>Child / young adult &middot; sudden wheeze + breathlessness + night coughing spells, often after cold air, dust, exercise or infection</td></tr>
+<tr><td class="num">7</td><td class="name">Life-threatening asthma</td><td>Asthmatic silent on listening, blue lips, drowsy or struggling to finish sentences &mdash; the quiet chest, not the loud one, is the emergency</td></tr>
+<tr><td class="num">8</td><td class="name">COPD</td><td>60-year-old heavy smoker &middot; years of morning productive cough + slowly progressive breathlessness + barrel-shaped chest</td></tr>
+<tr><td class="num">9</td><td class="name">Cor pulmonale</td><td>Long-standing COPD patient &middot; swollen ankles + distended tender liver + neck veins full while lying at 45&deg;, plus the smoker's cough</td></tr>
+<tr><td class="num">10</td><td class="name">Bronchiectasis</td><td>Lifelong or post-measles/pneumonia &middot; daily large-volume purulent sputum, worse leaning forward, + recurrent chest infections + finger clubbing</td></tr>
+<tr><td class="num">11</td><td class="name">Lung carcinoma</td><td>50+ smoker &middot; change in habitual cough + blood-streaked sputum + weight loss + hoarse voice / drooping eyelid on one side</td></tr>
+<tr><td class="num">12</td><td class="name">Superior vena cava obstruction</td><td>Lung cancer patient &middot; face fullness and puffiness worse in the morning + distended neck veins + dilated chest veins</td></tr>
+<tr><td class="num">13</td><td class="name">Malignant pleural effusion</td><td>Older patient, known or unknown cancer &middot; months of gradually increasing breathlessness + dull ache, no fever</td></tr>
+<tr><td class="num">14</td><td class="name">Spontaneous pneumothorax</td><td>Tall thin young man &middot; sudden one-sided sharp pain + breathlessness during rest or exertion</td></tr>
+<tr><td class="num">15</td><td class="name">Tension pneumothorax</td><td>Trauma / ventilated / asthmatic &middot; rapidly worsening breathlessness + drifting BP down and heart rate up + distended neck veins with trachea shifted away</td></tr>
+<tr><td class="num">16</td><td class="name">Sarcoidosis</td><td>Young adult &middot; dry cough + breathlessness + skin lumps in scars + painful shins + facial palsy-like weakness, often found on a routine film</td></tr>
+<tr><td class="num">17</td><td class="name">Asbestosis / silicosis</td><td>Years in asbestos, construction, mining, grinding work &middot; progressive breathlessness + dry cough + finger clubbing (asbestos) years after exposure ends</td></tr>
+<tr><td class="num">18</td><td class="name">Croup</td><td>Child 6 months&ndash;3 years &middot; barking cough like a seal + hoarse cry + noise on breathing in, worse at night, after 1&ndash;2 days of runny nose</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section class="system" id="gi">
+<button class="sys-head" aria-expanded="false"><svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>Gastrointestinal <span class="count">18 diseases</span></button>
+<div class="sys-body">
+<table>
+<thead><tr><th></th><th>Disease</th><th>Symptom cluster (as the exam presents it)</th></tr></thead>
+<tbody>
+<tr><td class="num">1</td><td class="name">GERD</td><td>Overweight 40s man &middot; burning behind the breastbone after meals and at night when lying down + sour taste in mouth, eased by sitting up</td></tr>
+<tr><td class="num">2</td><td class="name">Achalasia</td><td>Young adult &middot; difficulty swallowing BOTH food and liquids, intermittent for months &middot; food "sticking in the chest" + regurgitation of undigested meals</td></tr>
+<tr><td class="num">3</td><td class="name">Oesophageal varices rupture</td><td>Known cirrhotic &middot; sudden large-volume vomiting of blood + faintness, preceded by retching or nothing at all</td></tr>
+<tr><td class="num">4</td><td class="name">Mallory-Weiss tear / Boerhaave</td><td>Heavy alcohol binge &middot; forceful retching, then blood-streaked vomit (tear) &mdash; vs sudden severe chest and upper abdominal pain with crunching under the skin (rupture)</td></tr>
+<tr><td class="num">5</td><td class="name">Duodenal ulcer <span class="obs">(H. pylori)</span></td><td>40s man, smoker &middot; burning pain in the upper abdomen 2&ndash;3 h after meals and waking at night, eased by food &mdash; pain eats when he eats</td></tr>
+<tr><td class="num">6</td><td class="name">Gastric cancer</td><td>Over 50, long-standing indigestion turned different &middot; early fullness after small meals + anorexia + weight loss + iron deficiency</td></tr>
+<tr><td class="num">7</td><td class="name">Small bowel obstruction</td><td>Old hernia scar or previous operation &middot; crampy central colic + effortless bilious vomiting + swollen abdomen + absolute constipation and no gas</td></tr>
+<tr><td class="num">8</td><td class="name">Large bowel obstruction</td><td>60+ patient &middot; progressive constipation then absolute &middot; marked abdominal distension with late vomiting &mdash; changing bowel habit first is the clue to a stenosing cancer</td></tr>
+<tr><td class="num">9</td><td class="name">Acute appendicitis</td><td>Young patient &middot; pain starting near the navel then settling lower right + anorexia + low fever + nausea; pain worsened by the ride to hospital</td></tr>
+<tr><td class="num">10</td><td class="name">Diverticulitis</td><td>Older patient &middot; persistent left lower abdominal pain + fever + change in bowel habit &mdash; often blotches of blood in stool</td></tr>
+<tr><td class="num">11</td><td class="name">Crohn's disease</td><td>Young adult &middot; cramping right-lower abdominal pain + non-bloody diarrhoea + weight loss + mouth ulcers + perianal skin fissures and pits + night sweats</td></tr>
+<tr><td class="num">12</td><td class="name">Ulcerative colitis</td><td>Young adult &middot; bloody, mucous-loaded small-volume stools many times a day + urgency + tenesmus, improving then relapsing</td></tr>
+<tr><td class="num">13</td><td class="name">Acute mesenteric ischaemia</td><td>Elderly atrial-fibrillation patient &middot; pain out of proportion to findings &mdash; severe pain, soft abdomen, then rapid collapse with blood in stool</td></tr>
+<tr><td class="num">14</td><td class="name">Ischaemic colitis</td><td>60+ vascular patient after low-flow episode &middot; sudden left-sided abdominal pain + diarrhoea with fresh blood, low-grade</td></tr>
+<tr><td class="num">15</td><td class="name">Acute pancreatitis</td><td>Alcoholic or gallstone patient &middot; severe constant boring upper abdominal pain boring through to the back + repeated vomiting easing nothing + worse lying flat &mdash; gallstone patient often still, painless-jaundiced before the attack</td></tr>
+<tr><td class="num">16</td><td class="name">Chronic pancreatitis</td><td>Long-term alcoholic &middot; recurrent episodes of upper abdominal pain boring to the back + steatorrhoea (greasy floating stools) + weight loss + later sugar in blood</td></tr>
+<tr><td class="num">17</td><td class="name">Colorectal cancer</td><td>50+ with change in stool calibre to ribbon-like + blood mixed in stool + tenesmus (feeling of incomplete evacuation) + iron deficiency in a man</td></tr>
+<tr><td class="num">18</td><td class="name">Pseudomembranous colitis</td><td>After any antibiotic course &middot; profuse watery diarrhoea with mucus, cramping, fever, dehydration</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section class="system" id="hep">
+<button class="sys-head" aria-expanded="false"><svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>Hepatobiliary <span class="count">16 diseases</span></button>
+<div class="sys-body">
+<table>
+<thead><tr><th></th><th>Disease</th><th>Symptom cluster (as the exam presents it)</th></tr></thead>
+<tbody>
+<tr><td class="num">1</td><td class="name">Biliary colic</td><td>Obese fertile woman in her 40s ("fat, forty, fertile") &middot; severe steady right-upper pain 30&ndash;60 min after fatty meals, radiating to right shoulder, eased after hours &mdash; no fever</td></tr>
+<tr><td class="num">2</td><td class="name">Acute cholecystitis</td><td>Same woman &middot; right-upper pain constant &gt;6 h + fever + vomiting + pain on breathing in under the ribs on the right, tender point below the ribs</td></tr>
+<tr><td class="num">3</td><td class="name">Choledocholithiasis</td><td>Gallstone patient &middot; episodic dark urine + pale stools + itching + mild jaundice WITHOUT fever or rigors &mdash; stone sitting quietly in the common duct</td></tr>
+<tr><td class="num">4</td><td class="name">Ascending cholangitis</td><td>Same patient plus infection &middot; jaundice + rigors and swinging fever + right-upper pain &mdash; fever and shaking push it above plain duct blockage</td></tr>
+<tr><td class="num">5</td><td class="name">Hepatitis A / E</td><td>Adult after street food or contaminated water &middot; 5&ndash;10 days of malaise, nausea, aversion to cigarettes then jaundice + passing dark urine &mdash; hepatitis E is dangerous in pregnancy</td></tr>
+<tr><td class="num">6</td><td class="name">Hepatitis B (chronic)</td><td>Often silent &middot; discovered on screening; flares give fatigue + right-upper discomfort + jaundice; late presentation = ascites, variceal bleeding</td></tr>
+<tr><td class="num">7</td><td class="name">Alcoholic hepatitis</td><td>Heavy drinker &middot; jaundice appearing over days + low-grade fever + tender enlarged liver on the right + anorexia</td></tr>
+<tr><td class="num">8</td><td class="name">Decompensated cirrhosis</td><td>Known liver patient &middot; swollen abdomen + oozing bleed from gums, then vomited blood + confusion worse in the evening + yellow eyes</td></tr>
+<tr><td class="num">9</td><td class="name">Spontaneous bacterial peritonitis</td><td>Cirrhotic with ascites &middot; new abdominal pain + fever + worsening confusion, sometimes only confusion with NO pain</td></tr>
+<tr><td class="num">10</td><td class="name">Hepatic encephalopathy</td><td>Cirrhotic &middot; day-night reversal + flapping tremor of outstretched hands + constructional apraxia (cannot draw a star) &mdash; trigger = bleed, constipation, infection, sedatives</td></tr>
+<tr><td class="num">11</td><td class="name">Hepatorenal syndrome</td><td>Advanced cirrhosis &middot; urine output falling over days with no protein in urine, no blocks, no slumping BP &mdash; creatinine climbing in a patient otherwise only cirrhotic</td></tr>
+<tr><td class="num">12</td><td class="name">Wilson's disease</td><td>Child / young adult &middot; clumsiness and slurred speech with strange grimacing + stiffness, or sudden worsening of jaundice in a young cirrhotic + tremor resting-irregular</td></tr>
+<tr><td class="num">13</td><td class="name">Haemochromatosis</td><td>Man in 40s&ndash;50s &middot; grey-bronzed skin + aching joints (2nd/3rd knuckles) + fatigue + sugar in blood + liver enlargement</td></tr>
+<tr><td class="num">14</td><td class="name">Budd-Chiari syndrome</td><td>Young woman on pills or clotting disorder &middot; sudden abdominal distension + right-upper pain + tender enlarged liver, no mouth yellowing early</td></tr>
+<tr><td class="num">15</td><td class="name">Amoebic liver abscess</td><td>Man with amoebic dysentery weeks earlier &middot; swinging fever + night sweats + right-upper pain referred to right shoulder + tender swollen liver</td></tr>
+<tr><td class="num">16</td><td class="name">Hepatocellular carcinoma</td><td>Cirrhotic or hepatitis-B carrier &middot; stable patient deteriorating &mdash; weight loss + right-upper ache + rapidly growing liver + sudden abdominal bleed</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section class="system" id="neuro">
+<button class="sys-head" aria-expanded="false"><svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>Neurology <span class="count">18 diseases</span></button>
+<div class="sys-body">
+<table>
+<thead><tr><th></th><th>Disease</th><th>Symptom cluster (as the exam presents it)</th></tr></thead>
+<tbody>
+<tr><td class="num">1</td><td class="name">Ischaemic stroke (MCA)</td><td>Older hypertensive &middot; sudden face droop + arm &gt; leg weakness + slurred or garbled speech on waking</td></tr>
+<tr><td class="num">2</td><td class="name">TIA</td><td>Same patient &middot; identical episode which fully recovers in minutes to &lt;24 h &mdash; transient one-eye blindness lasting seconds counts too</td></tr>
+<tr><td class="num">3</td><td class="name">Intracerebral haemorrhage</td><td>Hypertensive &middot; progressive headache + vomiting + hemiparesis evolving over minutes-hours WITH intact consciousness early</td></tr>
+<tr><td class="num">4</td><td class="name">Subarachnoid haemorrhage</td><td>40s&ndash;50s &middot; "worst headache of my life" hitting like a thunderclap during straining + vomiting + neck rigidity, no focal weakness</td></tr>
+<tr><td class="num">5</td><td class="name">Subdural haematoma</td><td>Elderly or alcoholic after trivial stumble (days&ndash;weeks earlier) &middot; slowly fluctuating drowsiness + confusion + headache, one pupil later dilating</td></tr>
+<tr><td class="num">6</td><td class="name">Extradural haematoma</td><td>Young man hit on the temple &middot; brief blackout, then lucid interval of hours, then rapid dilating pupil + weakness on the opposite side + vomiting</td></tr>
+<tr><td class="num">7</td><td class="name">Bacterial meningitis</td><td>Young adult / child &middot; fever + severe headache + vomiting + neck stiffness + photophobia; child may show only fever + lethargy + refusal to feed + high-pitched cry, bulging fontanelle if &lt;18 months</td></tr>
+<tr><td class="num">8</td><td class="name">HSV encephalitis</td><td>Adult &middot; fever + confusion behaving bizarrelly + olfactory/smell hallucinations or unpleasant drinking of previously tolerated food &mdash; often mis-sent home</td></tr>
+<tr><td class="num">9</td><td class="name">Multiple sclerosis</td><td>Young woman &middot; blurred vision in one eye with pain moving the eye + numb patches + electric shock down the back on neck bending, relapsing and remitting</td></tr>
+<tr><td class="num">10</td><td class="name">Guillain-Barré syndrome</td><td>Young adult 2&ndash;4 weeks after diarrhoea or flu &middot; symmetric weakness climbing legs &rarr; arms over days + absent reflexes + backache; breathing effort is the danger</td></tr>
+<tr><td class="num">11</td><td class="name">Myasthenia gravis</td><td>Young woman / older man &middot; drooping eyelids and double vision worsening through the day + difficulty chewing meat at dinner but fine at breakfast &mdash; fatigue improves with rest</td></tr>
+<tr><td class="num">12</td><td class="name">Parkinson's disease</td><td>Man over 60 &middot; pill-rolling finger tremor at rest + smaller handwriting + shuffle + staring face, all beginning on one side</td></tr>
+<tr><td class="num">13</td><td class="name">Huntington's disease</td><td>Man in 30s&ndash;40s &middot; facial grimacing + writhingpurposeless limb movements + personality change and irritability, parent died the same way</td></tr>
+<tr><td class="num">14</td><td class="name">Motor neuron disease (ALS)</td><td>Man over 50 &middot; wasted hand muscles + jumping twitches + slurred speech + stumbling, NO sensory loss, NO eye or bladder involvement</td></tr>
+<tr><td class="num">15</td><td class="name">Bell's palsy</td><td>Overnight &middot; one-sided whole-half face droop + inability to wrinkle the forehead or close the eye + taste blunted on the front tongue; forehead sparing = stroke, not Bell's</td></tr>
+<tr><td class="num">16</td><td class="name">Trigeminal neuralgia</td><td>Over 50 &middot; electric-shock jabs on one side of the face from eating, washing, cold wind; completely painless between attacks, never crosses midline</td></tr>
+<tr><td class="num">17</td><td class="name">Migraine vs cluster</td><td>Young woman &middot; one-sided throbbing headache preceded by flashing lights, nausea, light intolerance, sleep fixes it &mdash; vs a man smoker: sudden eye-tearing one-sided knife-stab behind the eye at the same clock time nightly for weeks</td></tr>
+<tr><td class="num">18</td><td class="name">Wernicke's encephalopathy</td><td>Alcoholic or vomiting post-op young man &middot; confusion + walking like a sailor + darting eye movements/jerks &mdash; never wait for the classic three; give the vitamin first</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section class="system" id="psych">
+<button class="sys-head" aria-expanded="false"><svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>Psychiatry <span class="count">16 diseases</span></button>
+<div class="sys-body">
+<table>
+<thead><tr><th></th><th>Disease</th><th>Symptom cluster (as the exam presents it)</th></tr></thead>
+<tbody>
+<tr><td class="num">1</td><td class="name">Schizophrenia (first episode)</td><td>Young adult 18&ndash;25 &middot; months of social retreat and strange preoccupations, then clear auditory commentary voices + fixed false beliefs + flattened affect</td></tr>
+<tr><td class="num">2</td><td class="name">Acute psychotic mania</td><td>Young adult &middot; three sleepless nights + grandiose pressure speech + spending sprees + sexual disinhibition</td></tr>
+<tr><td class="num">3</td><td class="name">Bipolar depression</td><td>Same patient &middot; opposite phase: retarded movement + guilt-heavy hopelessness + early-morning waking in low mood</td></tr>
+<tr><td class="num">4</td><td class="name">Major depressive disorder</td><td>Middle-aged woman &middot; &gt;2 weeks of pervasive disinterest + fatigue + early-morning waking + appetite drop + worthlessness; ask about plans to harm self</td></tr>
+<tr><td class="num">5</td><td class="name">Persistent depressive disorder</td><td>Years of "always been like this" mildly-flat mood, never a clear episode &mdash; two years minus brief relief</td></tr>
+<tr><td class="num">6</td><td class="name">Panic disorder</td><td>Young woman &middot; sudden 10-minute surge of racing heart + choking + dread of dying or going mad, peaks at 10 min then subsides, leaving dread of the next one</td></tr>
+<tr><td class="num">7</td><td class="name">Generalised anxiety</td><td>Years of constant worry about many things + restlessness + poor sleep + tension headaches + irritable bowel</td></tr>
+<tr><td class="num">8</td><td class="name">PTSD</td><td>After a road accident or violence witnessed &middot; months of nightmares/flashbacks of the event + avoiding that junction/shop/vehicle + constant startle + irritability</td></tr>
+<tr><td class="num">9</td><td class="name">OCD</td><td>Young adult &middot; hours spent washing, checking, praying counting; knows it is irrational, distressing, but cannot stop &mdash; eating time stealing the day</td></tr>
+<tr><td class="num">10</td><td class="name">Anorexia nervosa</td><td>Adolescent girl &middot; starvation-thin yet insists she is fat + exercises compulsively + period stops + soft hair on the arms + cold intolerance + bradycardia</td></tr>
+<tr><td class="num">11</td><td class="name">Bulimia nervosa</td><td>Normal-weight young woman &middot; binge-empties in secret, then vomiting or laxative abuse + eroded enamel + swollen parotids + fresh stretch-scars on knuckles</td></tr>
+<tr><td class="num">12</td><td class="name">Alcohol withdrawal</td><td>Drinker 6&ndash;48 h after last drink &middot; coarse tremor + sweating + anxiety, then 24&ndash;72 h: hallucinations, confusion, seizures; later vivid visual hallucinations of small animals, fully awake</td></tr>
+<tr><td class="num">13</td><td class="name">Delirium vs dementia</td><td>&mdash; sudden onset + fluctuating consciousness + visual hallucinations + worse at night = delirium; years-slow decline with clear consciousness = dementia</td></tr>
+<tr><td class="num">14</td><td class="name">Somatic symptom / illness anxiety</td><td>Multiple doctors later, no organic findings fit the fixed conviction of disease; multiple organ complaints for years starting before 30</td></tr>
+<tr><td class="num">15</td><td class="name">Conversion (functional neuro) disorder</td><td>After an emotional upset &middot; weakness/blindness/seizure that fails anatomically &mdash; no dissonance (patient calm), reflexes intact, imaging clean</td></tr>
+<tr><td class="num">16</td><td class="name">Opioid overdose / withdrawal</td><td>Overdose: pinpoint pupils + slowed breathing + unconsciousness &mdash; withdrawal: gooseflesh + runny eyes + cramps + diarrhoea + dilated pupils + yawning</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section class="system" id="endo">
+<button class="sys-head" aria-expanded="false"><svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>Endocrine <span class="count">18 diseases</span></button>
+<div class="sys-body">
+<table>
+<thead><tr><th></th><th>Disease</th><th>Symptom cluster (as the exam presents it)</th></tr></thead>
+<tbody>
+<tr><td class="num">1</td><td class="name">Diabetic ketoacidosis</td><td>Young diabetic missing insulin or first presentation &middot; 1&ndash;2 days of rapid laboured breathing + fruit-smelling breath + vomiting + abdominal pain + drowsiness</td></tr>
+<tr><td class="num">2</td><td class="name">Hyperosmolar hyperglycaemic state</td><td>Elderly bed-bound type-2 &middot; days to weeks of polyuria + confusion or coma, NO quick breathing, NO fruit breath &mdash; serum syrup-high</td></tr>
+<tr><td class="num">3</td><td class="name">Type 1 diabetes (first presentation)</td><td>Child/young adult &middot; weeks of drinking gallons + urinating round the clock + weight falling despite eating + bedwetting returning</td></tr>
+<tr><td class="num">4</td><td class="name">Type 2 diabetes</td><td>Overweight 40s&ndash;50s with family history &middot; often silent; fatigue + recurrent skin/genital infections + slow-healing wounds + blurred vision after meals</td></tr>
+<tr><td class="num">5</td><td class="name">Hypoglycaemia</td><td>Diabetic on insulin / sulfonylurea &middot; trembling + cold sweat + hunger, coming on as intoxication; unexplained episodes &rarr; alcohol-like behaviour at wrong times = insulinoma</td></tr>
+<tr><td class="num">6</td><td class="name">Graves' disease</td><td>Young woman &middot; weight loss with large appetite + palpitations + heat intolerance + eye prominence + neck swelling + pretibial flesh swelling</td></tr>
+<tr><td class="num">7</td><td class="name">Toxic multinodular goitre</td><td>Older woman with long-standing neck swelling &middot; suddenly hyperthyroid (&mdash; no eye signs)</td></tr>
+<tr><td class="num">8</td><td class="name">Thyroid storm</td><td>Hyperthyroid after infection/surgery &middot; delirium + fever &gt;40 + tachyarrhythmia + vomiting = an emergency cluster</td></tr>
+<tr><td class="num">9</td><td class="name">Hypothyroidism</td><td>Middle-aged woman &middot; weight gain with poor appetite + cold intolerance + constipation + dry skin + hoarse voice + heavy periods + slow reflex relaxation</td></tr>
+<tr><td class="num">10</td><td class="name">Myxoedema coma</td><td>Long-standing hypothyroid stopped medication, elderly in winter &middot; hypothermia + coma + slow breathing + facial puffiness</td></tr>
+<tr><td class="num">11</td><td class="name">Subacute (de Quervain's) thyroiditis</td><td>After viral sore throat &middot; painful neck swelling moving to jaw + transient hyperthyroidism then swing to low</td></tr>
+<tr><td class="num">12</td><td class="name">Primary hyperparathyroidism</td><td>Man/woman over 50 on routine chemistry &middot; "moans, stones, groans": fatigue/depression + recurrent kidney stones + bone aches + constipation + peptic ulcer</td></tr>
+<tr><td class="num">13</td><td class="name">Cushing syndrome</td><td>Middle-aged or young &middot; moon face + central fat with thin limbs + purple stretch marks + easy bruising + high BP + sugar; woman also stalls cycles + body-hair excess</td></tr>
+<tr><td class="num">14</td><td class="name">Addison's disease / adrenal crisis</td><td>Young woman &middot; weeks of fatigue + salt craving + nausea + weight loss + darkening of skin creases/nipples; crisis on infection/stop steroid: vomiting + collapse + low BP unresponsive to drips</td></tr>
+<tr><td class="num">15</td><td class="name">Pheochromocytoma</td><td>50s patient &middot; paroxysmal attacks: pounding headache + drenching sweats + palpitations + pale pallor with BP spiking &mdash; between attacks completely asymptomatic</td></tr>
+<tr><td class="num">16</td><td class="name">Primary hyperaldosteronism</td><td>Young-middle-aged hypertensive with potassium LOW and no clear other cause &mdash; muscle cramps + numbness + palpitations + polyuria</td></tr>
+<tr><td class="num">17</td><td class="name">Acromegaly</td><td>Adult &middot; rings and shoes tightening over months + enlarged hands/feet/jaw + sweating + headaches + snoring, plus carpal-tunnel symptoms</td></tr>
+<tr><td class="num">18</td><td class="name">Prolactinoma</td><td>Young woman &middot; absent or absent periods + milk leaking from breasts without pregnancy + headaches; man: headaches + vision loss + lost libido</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section class="system" id="renal">
+<button class="sys-head" aria-expanded="false"><svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>Renal &amp; Electrolytes <span class="count">18 diseases</span></button>
+<div class="sys-body">
+<table>
+<thead><tr><th></th><th>Disease</th><th>Symptom cluster (as the exam presents it)</th></tr></thead>
+<tbody>
+<tr><td class="num">1</td><td class="name">Nephrotic syndrome</td><td>Child / young adult &middot; periorbital puffiness on waking + frothy urine + swollen legs and scrotum + triggers by cold/past infection; no blood in urine notably</td></tr>
+<tr><td class="num">2</td><td class="name">Post-infectious glomerulonephritis</td><td>Child 1&ndash;3 weeks after sore throat or skin boil &middot; tea-coloured urine + puffy face + mild hypertension &mdash; recovers</td></tr>
+<tr><td class="num">3</td><td class="name">IgA nephropathy</td><td>Young man &middot; blood in urine appearing 1&ndash;2 days after each throat infection (not 2&ndash;3 weeks) &mdash; episodes recur for years</td></tr>
+<tr><td class="num">4</td><td class="name">Rapidly progressive glomerulonephritis</td><td>Adult, often smoker with lung bleeding &middot; weeks of rapidly falling kidney numbers + blood in urine + haemoptysis</td></tr>
+<tr><td class="num">5</td><td class="name">Prerenal AKI</td><td>Post-diarrhoea / vomiting / heart failure patient &middot; creatinine climbing + concentrated urine + concentrated sodium-high urine sign</td></tr>
+<tr><td class="num">6</td><td class="name">Acute tubular necrosis</td><td>AKI after prolonged low BP or tubular-toxin (dye, aminoglycoside) &middot; culture-negative, no rash, urine dilute &mdash; climbs then falls over 2&ndash;3 weeks</td></tr>
+<tr><td class="num">7</td><td class="name">Obstructive uropathy / BPH retention</td><td>Man 60+ &middot; weak stream + hesitancy + dribbling + nocturia; sudden anuria + loin pain = blockage &mdash; check before diuretics</td></tr>
+<tr><td class="num">8</td><td class="name">Uncomplicated cystitis</td><td>Young woman &middot; burning on passing urine + urgency + frequency + cloudy urine, NO fever or flank pain</td></tr>
+<tr><td class="num">9</td><td class="name">Acute pyelonephritis</td><td>Woman with lower-tract symptoms + fever + chills/rigors + flank pain tender to thump + vomiting</td></tr>
+<tr><td class="num">10</td><td class="name">Renal colic (nephrolithiasis)</td><td>Adult &middot; sudden severe loin pain colicking waves radiating groin + writhing position + blood in urine, no fever</td></tr>
+<tr><td class="num">11</td><td class="name">Contrast / drug nephrotoxicity</td><td>AKI within 48&ndash;72 h of contrast, aminoglycoside, NSAIDs in a fragile patient &mdash; creatinine climb, urine dilute</td></tr>
+<tr><td class="num">12</td><td class="name">Hyperkalaemia</td><td>CKD / on ACE inhibitor or spironolactone &middot; muscle weakness + palpitations + narrow T waves on film &mdash; often asymptomatic until dangerous</td></tr>
+<tr><td class="num">13</td><td class="name">Hypokalaemia</td><td>Diuretic or diarrhoea/vomiting patient &middot; weakness + cramps + constipation + flat T waves with ECG-driven U waves</td></tr>
+<tr><td class="num">14</td><td class="name">Hyponatraemia (SIADH)</td><td>Lung cancer / post-op / on carbamazepine elderly &middot; gradually: confusion + anorexia + seizures if sodium fast-drop, no swelling, concentrated urine</td></tr>
+<tr><td class="num">15</td><td class="name">Hypernatraemia</td><td>Infant, elderly, or lithium / central DI patient &middot; thirst (unless elderly) + agitation &rarr; lethargy + dry mucosa</td></tr>
+<tr><td class="num">16</td><td class="name">Diabetes insipidus</td><td>Neurosurgery patient or pituitary lesion &middot; sudden gallons of dilute urine + raging thirst + waking at night to drink; women often present with postpartum failure to lactate</td></tr>
+<tr><td class="num">17</td><td class="name">Metabolic acidosis</td><td>Diabetic/DKA, septic, poisoned, or chronic-kidney patient &middot; deep rapid breathing + fruity breath or anorexia, low BP with volume loss</td></tr>
+<tr><td class="num">18</td><td class="name">Uraemia / advanced CKD</td><td>Weeks of anorexia + nausea worse mornings + itchy skin + hiccups + fatiguability + halitosis of urine + pale sallow skin</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section class="system" id="heme">
+<button class="sys-head" aria-expanded="false"><svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>Haematology <span class="count">16 diseases</span></button>
+<div class="sys-body">
+<table>
+<thead><tr><th></th><th>Disease</th><th>Symptom cluster (as the exam presents it)</th></tr></thead>
+<tbody>
+<tr><td class="num">1</td><td class="name">Iron deficiency anaemia</td><td>Menstruating woman / man over 50 &middot; years-slow onset + fatigue + restless legs + brittle nails + spoon nails; in a man it always means finding the bleed</td></tr>
+<tr><td class="num">2</td><td class="name">Vitamin B12 deficiency</td><td>Vegetarian / gastric surgery / on metformin long-term &middot; anaemia + lemon-yellow skin + burning feet + position/vibration loss in legs + sore tongue</td></tr>
+<tr><td class="num">3</td><td class="name">Thalassaemia minor / trait</td><td>Healthy young person with life-long microcytic anaemia &mdash; normal iron, no symptoms, family trait; do not transfuse</td></tr>
+<tr><td class="num">4</td><td class="name">Sickle cell crisis</td><td>Child / young adult of African or Sindhi-Baloch stock &middot; recurrent bony pain triggered cold-infection + jaundice episodes + priapism, lives on pain relief</td></tr>
+<tr><td class="num">5</td><td class="name">Autoimmune haemolytic anaemia</td><td>Adult with anaemia + jaundice + dark urine + recent viral illness or on a pill; spleen palpable</td></tr>
+<tr><td class="num">6</td><td class="name">ITP</td><td>Young woman or child &middot; sudden petechiae on shins + gum bleed + epistaxis, no fever, no enlarged nodes, platelets <25</td></tr>
+<tr><td class="num">7</td><td class="name">TTP</td><td>Adult woman &middot; fever + confusion + petechiae + falling Hb + rising kidney marker (MAHA, thrombocytopenia, neuro + renal, fever)</td></tr>
+<tr><td class="num">8</td><td class="name">DIC</td><td>After placental abruption / sepsis / trauma &middot; bleeding from every puncture + oozing gums + microthrombi shutting organs down</td></tr>
+<tr><td class="num">9</td><td class="name">Aplastic anaemia</td><td>Young adult after drug or chemical exposure &middot; weeks of three-line failure: pallor + infection fevers + gum bleeding, fresh-looking films</td></tr>
+<tr><td class="num">10</td><td class="name">AML</td><td>Adult &middot; days&ndash;weeks: pallor + bruising + gum hypertrophy/bleed + fevers + bone pain; sometimes presents as DIC with clotting deranged</td></tr>
+<tr><td class="num">11</td><td class="name">ALL</td><td>Child &middot; days&ndash;weeks: pallor + fever + bruiselike petechiae + bone pain + enlarged nodes/gums + limb pain mistaken for juvenile arthritis</td></tr>
+<tr><td class="num">12</td><td class="name">CML</td><td>40s&ndash;50s &middot; weeks of fatigue + early fullness + left-side rib-cage ache + weight loss &mdash; spleen enormous, often incidentally found</td></tr>
+<tr><td class="num">13</td><td class="name">CLL</td><td>Man 60+ &middot; often silent for years, found on routine count; lymph nodes rubbery + splenomegaly + recurrent chest/skin infections + herpetic reactivation</td></tr>
+<tr><td class="num">14</td><td class="name">Hodgkin lymphoma</td><td>Young adult &middot; painless rubbery neck nodes + alcohol-triggered ache at node sites + drenching night sweats + weight loss + itching</td></tr>
+<tr><td class="num">15</td><td class="name">Multiple myeloma</td><td>Man over 60 &middot; back pain (not relieved by bed rest) + recurring pneumonia + fatigue + thirst + raised creatinine + nerve symptoms from collapse</td></tr>
+<tr><td class="num">16</td><td class="name">Polycythaemia vera</td><td>Man 50s&ndash;60s &middot; red-purple suffused face + itching after hot showers + headaches + gout + clots at unusual sites</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section class="system" id="id">
+<button class="sys-head" aria-expanded="false"><svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>Infectious Disease <span class="count">16 diseases</span></button>
+<div class="sys-body">
+<table>
+<thead><tr><th></th><th>Disease</th><th>Symptom cluster (as the exam presents it)</th></tr></thead>
+<tbody>
+<tr><td class="num">1</td><td class="name">Dengue</td><td>Monsoon mosquito exposure &middot; sudden high fever + severe retro-orbital headache + aching bones ("bone-break") + face flush then a fine rash, days 3&ndash;5 bleeding/petechiae danger</td></tr>
+<tr><td class="num">2</td><td class="name">Malaria (falciparum)</td><td>Travel to endemic area weeks earlier &middot; periodic fever with chills and drenching sweats + headache + anaemia; falciparum: confusion, jaundice, dark urine</td></tr>
+<tr><td class="num">3</td><td class="name">Typhoid</td><td>Week 1: stepwise fever + headache + relative slow pulse + coated tongue; week 2: abdominal discomfort + pea-soup diarrhoea or constipation + rose-spot rash</td></tr>
+<tr><td class="num">4</td><td class="name">Measles</td><td>Unvaccinated child &middot; 3 Cs (cough, coryza, conjunctivitis) + fever spike + gray-blue dots inside cheeks (day 2) &rarr; rash from hairline downwards day 3&ndash;5</td></tr>
+<tr><td class="num">5</td><td class="name">Rubella</td><td>Mild fever + swelling behind ears + lymph glands (posterior auricular, suboccipital) + fine rash starting on face same day &mdash; danger is a pregnant contact</td></tr>
+<tr><td class="num">6</td><td class="name">Mumps</td><td>Child/adolescent &middot; fever + painful jaw/ear swelling pushed up when chewing + tender ear lobe; adolescent male: testicular pain later</td></tr>
+<tr><td class="num">7</td><td class="name">Chickenpox</td><td>Child &middot; 1&ndash;2 days fever + "dew-drop on rose petal" vesicles in different stages all over, starting on trunk, intensely itchy</td></tr>
+<tr><td class="num">8</td><td class="name">Herpes zoster</td><td>Adult &middot; burning band-like pain on one side for 2&ndash;3 days BEFORE a unilateral dermatome cluster of grouped vesicles appears</td></tr>
+<tr><td class="num">9</td><td class="name">Pertussis (whooping cough)</td><td>Unvaccinated infant / child &middot; 1&ndash;2 weeks catarrh, then fits of 10&ndash;20 coughs in expiration with loud "whoop" on inspiration, often vomiting, face red</td></tr>
+<tr><td class="num">10</td><td class="name">Tetanus</td><td>Contaminated wound / piercing days&ndash;weeks earlier &middot; jaw lock + stiff neck + back arching + spasms triggered by sound/light, fully conscious between spasms</td></tr>
+<tr><td class="num">11</td><td class="name">Rabies</td><td>Dog/animal bite weeks&ndash;months earlier &middot; fever + pain/paraesthesia at old bite + hydrophobia (fear of water, unable to drink) + aerophobia + agitation</td></tr>
+<tr><td class="num">12</td><td class="name">Leptospirosis</td><td>Flooding / cattle-rat exposure &middot; sudden fever + severe muscle pain especially calves + red eyes + headache &rarr; jaundice + kidney injury in severe forms</td></tr>
+<tr><td class="num">13</td><td class="name">Enteric fever / hepatitis A overlap</td><td>Street-food / contaminated water source &middot; fever + abdominal discomfort + nausea + anorexia + dark urine &mdash; full-context contact history</td></tr>
+<tr><td class="num">14</td><td class="name">Cellulitis</td><td>Leg skin break (tinea pedis, ulcer, IV) &middot; hot, red, painful, swollen, sharply-bordered zone expanding over hours&ndash;days + fever + draining lymph nodes</td></tr>
+<tr><td class="num">15</td><td class="name">Necrotising fasciitis</td><td>Immunosuppressed/diabetic &middot; pain massively out of proportion to innocent-looking skin + rapid spread + crepitus + blisters + grey drainage + systemic collapse</td></tr>
+<tr><td class="num">16</td><td class="name">Amoebic vs bacillary dysentery</td><td>Amoebic: gradual + abdominal cramps + mucus with blood, stool is non-fatty liquid &middot; Shigella: abrupt + high fever + tenesmus + small-volume bloody stool + urgency</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section class="system" id="rheum">
+<button class="sys-head" aria-expanded="false"><svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>Rheumatology <span class="count">16 diseases</span></button>
+<div class="sys-body">
+<table>
+<thead><tr><th></th><th>Disease</th><th>Symptom cluster (as the exam presents it)</th></tr></thead>
+<tbody>
+<tr><td class="num">1</td><td class="name">Rheumatoid arthritis</td><td>Woman 30&ndash;50 &middot; symmetric small-joint pain with 1 h+ morning stiffness (fingers, wrists) improving with movement + swollen knuckles + fatigue</td></tr>
+<tr><td class="num">2</td><td class="name">Systemic lupus erythematosus</td><td>Young woman &middot; sun-exposed cheek rash + joint pain (non-erosive) + mouth ulcers + hair thinning + fatigue + unexplained fever + kidney involvement later</td></tr>
+<tr><td class="num">3</td><td class="name">Acute gout</td><td>Man over 40 &middot; sudden excruciating first-metatarsophalangeal (big toe) or ankle pain overnight after heavy meat or beer or diuretic start + red swollen joint &mdash; even the bedsheet hurts</td></tr>
+<tr><td class="num">4</td><td class="name">Pseudogout (CPPD)</td><td>Elderly woman &middot; acute knee/wrist pain overnight + chondrocalcinosis X-ray, mimics gout/sepsis</td></tr>
+<tr><td class="num">5</td><td class="name">Osteoarthritis</td><td>Older patient &middot; pain in weight-bearing joints worse with use by evening + brief &lt;30 min stiffness + bony knuckle swellings (Heberden/Bouchard) + crepitus</td></tr>
+<tr><td class="num">6</td><td class="name">Ankylosing spondylitis</td><td>Young man 20s&ndash;30s &middot; insidious back pain + morning stiffness &gt;30 min improving with exercise, worsening with rest + night pain that makes him get up and walk</td></tr>
+<tr><td class="num">7</td><td class="name">Reactive arthritis</td><td>Young man, weeks after diarrhoea or urethral discharge &middot; can't see, can't pee, can't climb the tree &mdash; conjunctivitis + urethritis + asymmetric lower-limb oligoarthritis</td></tr>
+<tr><td class="num">8</td><td class="name">Psoriatic arthritis</td><td>Psoriasis patient &middot; painful swollen single digit (sausage digit) + morning stiffness + back pain + nails pitted</td></tr>
+<tr><td class="num">9</td><td class="name">Systemic sclerosis</td><td>Woman 30s&ndash;50s &middot; fingers turning white then blue in cold (Raynaud) + skin thickening/tightening + heartburn + difficulty swallowing</td></tr>
+<tr><td class="num">10</td><td class="name">Polymyositis / dermatomyositis</td><td>Middle-aged &middot; weeks of climbing stairs/lifting arms impossible + weak neck flexion vs legs strong (proximal weakness) &mdash; dermatomyositis: purplish eyelid rash + knuckle bumps</td></tr>
+<tr><td class="num">11</td><td class="name">Polymyalgia rheumatica</td><td>Patient over 50 &middot; days-to-weeks: shoulder/hip girdle aching + morning stiffness &gt;45 min, no real weakness + feels ten years old overnight</td></tr>
+<tr><td class="num">12</td><td class="name">Giant cell arteritis</td><td>Patient 50+ &middot; new temporal headache + scalp tenderness when combing + jaw claudication chewing + vision loss/or amaurosis fugax &mdash; usually coexists with polymyalgia</td></tr>
+<tr><td class="num">13</td><td class="name">Takayasu arteritis</td><td>Young woman &middot; arm claudication (pain when combing/exercising arms) + absent/weak pulses in arms ("pulseless disease") + BP difference between arms</td></tr>
+<tr><td class="num">14</td><td class="name">Granulomatosis with polyangiitis (GPA)</td><td>Adult &middot; months of sinusitis not responding + nose bleeds/crusting + saddle-nose + haemoptysis + blood in urine + ear involvement</td></tr>
+<tr><td class="num">15</td><td class="name">Septic arthritis</td><td>Single hot red swollen joint (especially knee) + fever + cannot bear weight &mdash; a prosthetic joint makes this an emergency every time</td></tr>
+<tr><td class="num">16</td><td class="name">Behcet's disease</td><td>Young adult &middot; recurrent painful mouth ulcers + genital ulcers + red painful eye + skin pustules pricked by a needle + joint pain</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section class="system" id="derm">
+<button class="sys-head" aria-expanded="false"><svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>Dermatology <span class="count">15 diseases</span></button>
+<div class="sys-body">
+<table>
+<thead><tr><th></th><th>Disease</th><th>Symptom cluster (as the exam presents it)</th></tr></thead>
+<tbody>
+<tr><td class="num">1</td><td class="name">Psoriasis</td><td>Young adult &middot; silvery scale on red plaques over knees/elbows/scalp + nail pitting + morning joint stiffness + Koebner (rash appearing at sites of injury)</td></tr>
+<tr><td class="num">2</td><td class="name">Atopic dermatitis</td><td>Child &middot; dry itchy skin + family asthma/hayfever history + flexural folds itchy in children, face/neck in adults &mdash; worse with soaps, wool, sweat</td></tr>
+<tr><td class="num">3</td><td class="name">Contact dermatitis</td><td>Adult &middot; itching/burning red vesicular rash precisely matching the letter/document pattern of nickel, henna, fragrance, or a specific leather strap</td></tr>
+<tr><td class="num">4</td><td class="name">Seborrhoeic dermatitis</td><td>Adult &middot; greasy yellowish scale in eyebrows, nasolabial folds, scalp margins, ears + often in HIV patients more severe</td></tr>
+<tr><td class="num">5</td><td class="name">Pemphigus vulgaris</td><td>Middle-aged &middot; mouth erosions FIRST + flaccid fragile blisters everywhere + Nikolsky positive (skin slides off with finger rub) &mdash; older patient's tense blisters with mouth spared: bullous pemphigoid</td></tr>
+<tr><td class="num">6</td><td class="name">Stevens-Johnson syndrome / TEN</td><td>On a new drug (sulfa, anticonvulsant, NSAID) &middot; 1&ndash;2 days prodrome of fever + burning eyes/mouth, then rapid sheet-like skin peeling + blisters on face/trunk + mucosal erosions</td></tr>
+<tr><td class="num">7</td><td class="name">Urticaria / anaphylaxis</td><td>After food/bee sting/drug &middot; rapidly itchy weals lasting &lt;24 h each + lip/tongue swelling + throat tightness + dizziness = escalate to emergency</td></tr>
+<tr><td class="num">8</td><td class="name">Erythema nodosum</td><td>Young woman &middot; tender red nodules on the shins + low-grade fever + joint aches; underlying: TB, sarcoidosis, strep throat, pills</td></tr>
+<tr><td class="num">9</td><td class="name">Lichen planus</td><td>Adult &middot; purple polygonal flat-topped itchy papules on wrists/forearms + white lacy pattern inside the mouth (Wickham striae)</td></tr>
+<tr><td class="num">10</td><td class="name">Scabies</td><td>Family members all itching &middot; intense nocturnal itch + burrows in finger webs, wrists, waistline + infant involvement of palms/soles</td></tr>
+<tr><td class="num">11</td><td class="name">Tinea corporis / versicolor</td><td>Tinea corporis: ring with active raised itchy border and central pale patch &middot; versicolor: painless finely-scaling patches on oil-rich trunk, less visible on tanned skin</td></tr>
+<tr><td class="num">12</td><td class="name">Impetigo</td><td>Child &middot; honey-coloured crusted sores around mouth/nose + contagious within household/daycare + itchy scratch marks spreading contamination</td></tr>
+<tr><td class="num">13</td><td class="name">Tinea capitis / kerion</td><td>Child scalp &middot; patchy hair loss with black-dot stubs + boggy painful swollen plaque (kerion) + broken hairs + posterior cervical nodes</td></tr>
+<tr><td class="num">14</td><td class="name">Melanoma</td><td>Adult with a changing mole &middot; ABCDE: asymmetry + irregular border + colour variation + diameter &gt;6 mm + evolution; nodular: rapidly growing skin lump that bleeds</td></tr>
+<tr><td class="num">15</td><td class="name">Basal cell / squamous cell carcinoma</td><td>Chronic fair-skinned sun-exposed site &middot; BCC: pearly telangiectatic nodule with rolled edge that erodes &mdash; SCC: non-healing crusted verrucous nodule on the lip/ear/back of hand</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+</main>
+<footer class="site"><div class="foot-inner">
+<span>Sep 22, 2026 &middot; 12 organ systems / 203 diseases &middot; classics only &middot; vignette-stem clusters</span>
+<span>Prepared for Ahmad</span>
+</div></footer>
+<script>
+(function(){
+  var body=document.body;
+  var savedTheme=localStorage.getItem('medcore.theme');
+  if(savedTheme==='dark'){document.documentElement.classList.add('dark');}
+  document.getElementById('themeBtn').addEventListener('click',function(){
+    var d=document.documentElement.classList.toggle('dark');
+    localStorage.setItem('medcore.theme',d?'dark':'light');
+  });
+  if(localStorage.getItem('dsc-viewport')==='mobile'){body.classList.add('mobile-viewport');}
+  document.querySelectorAll('.tbtn[data-tool=mobile],.tbtn[data-tool=desktop]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var m=b.dataset.tool==='mobile';
+      body.classList.toggle('mobile-viewport',m);
+      localStorage.setItem('dsc-viewport',m?'mobile':'desktop');
+    });
+  });
+  var openState;try{openState=JSON.parse(localStorage.getItem('dsc-open')||'[]');}catch(e){openState=[]}
+  document.querySelectorAll('.system').forEach(function(sec){
+    if(openState.indexOf(sec.id)>-1){sec.classList.add('open');}
+    sec.querySelector('.sys-head').addEventListener('click',function(){
+      var on=sec.classList.toggle('open');
+      var cur;try{cur=JSON.parse(localStorage.getItem('dsc-open')||'[]');}catch(e){cur=[]}
+      if(on){if(cur.indexOf(sec.id)<0)cur.push(sec.id);}else{cur=cur.filter(function(x){return x!==sec.id;});}
+      localStorage.setItem('dsc-open',JSON.stringify(cur));
+    });
+  });
+  var links=document.querySelectorAll('nav a');
+  var secs=document.querySelectorAll('.system');
+  function mark(){
+    var cur='';
+    secs.forEach(function(s){if(s.getBoundingClientRect().top<90)cur=s.id;});
+    links.forEach(function(a){a.classList.toggle('active',a.getAttribute('href')==='#'+cur&&!!cur);});
+  }
+  mark();
+  window.addEventListener('scroll',mark,{passive:true});
+  links.forEach(function(a){
+    a.addEventListener('click',function(){
+      var target=document.getElementById(a.getAttribute('href').slice(1));
+      if(target&&!target.classList.contains('open'))setTimeout(function(){target.querySelector('.sys-head').click();},400);
+    });
+  });
+})();
+</script>
+
+<script src="/medcore-sync.js" defer></script>
+</body>
+</html>
