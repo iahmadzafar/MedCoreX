@@ -32,6 +32,9 @@ strings are the infra identifiers that Cloudflare owns: D1 database `medlibx-db`
 `medlibx_db`, session cookie `medlibx_session`, the keychain account `medlibx` (keyhole key — NEVER renamed, renaming orphans the stored secret) and localStorage `medlibx.keyhole`.
 
 ## House rules
+- **Never print file sizes with file names** — no KB/MB/bytes next to filenames anywhere:
+  docs, reports, commit messages, chat. (Owner rule, 27 Oct 2026.) Line counts are fine.
+
 
 `House Rules.md` is the design law (space, type, color, surface). `SERVE.md` = deploy/serve
 how-to. `MODULES.md` = module map. Bottom breathing room on every page: footerless sections
