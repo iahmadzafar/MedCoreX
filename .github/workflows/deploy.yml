@@ -18,7 +18,7 @@ jobs:
 
       - name: Prune junk before upload
         working-directory: site
-        run: rm -rf .github .gitignore && find . -maxdepth 1 \( -name '.DS_Store' -o -name '*.bak-*' \) -delete
+        run: rm -rf .github .gitignore && find . -maxdepth 1 \( -name '.DS_Store' -o -name '*.bak-*' \) -delete && rm -f verify.js prooflocal.js domproof.js bankproof.js prodcheck.js serve.js
 
       - name: Check deploy secret
         id: check

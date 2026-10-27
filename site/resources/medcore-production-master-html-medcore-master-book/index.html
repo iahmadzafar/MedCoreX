@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" data-pattern="dots">
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="light dark">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Study Book — MedCoreX</title>
+<meta name="description" content="MedCoreX Study Book: chapters, recalls and full answer breakdowns with mark-complete progress.">
+<link rel="stylesheet" href="/assets/studyverse.css">
+<link rel="stylesheet" href="/resources/medcore-production-master-html-medcore-master-book/style.css">
+<script src="/assets/studyverse.js"></script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="/"><span class="logo-mark">📚</span>MedCoreX</a>
+    <nav class="links" aria-label="Main">
+      <a href="/">Home</a>
+      <a href="/library">Library</a>
+      <a href="/about">About</a>
+      <a href="/faq">FAQ</a>
+      <a href="/stats">Stats</a>
+      <a href="/login" id="navAuth">Sign in</a>
+    </nav>
+    <div class="engine" data-sv-engine title="Theme engine"></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="bookhead rv">
+    <p class="eyebrow">◆ MedCoreX · Study Book</p>
+    <h1>Chapters, recalls &amp; the drills inside them.</h1>
+    <p class="lede">Every chapter with its recall blocks and full answer breakdowns. Mark chapters complete — progress follows your account.</p>
+    <div class="progress-row">
+      <div class="bar" aria-label="Chapters marked complete"><i class="g" id="bkBar"></i></div>
+      <span class="bar-txt" id="bkCount">0 / 0 marked</span>
+      <button class="btn ghost sm" id="revealAll" type="button">Reveal all answers on screen</button>
+      <button class="btn alt sm" id="collapseAll" type="button">Collapse all</button>
+    </div>
+  </section>
+
+  <div class="booklayout">
+    <aside class="card toc" aria-label="Contents">
+      <h3>Contents</h3>
+      <input class="field" id="bkSearch" type="search" placeholder="Filter chapters…" aria-label="Filter chapters">
+      <p class="muted" id="bkFilterNote" hidden></p>
+      <div id="tocList"></div>
+    </aside>
+    <div id="bookBody"></div>
+  </div>
+</main>
+
+<footer class="foot"><div class="wrap foot-in">
+  <div>
+    <div class="logo"><span class="logo-mark">📚</span>MedCoreX</div>
+    <p class="foot-tag">A private study library — curated with discipline, and kept current and exact.</p>
+  </div>
+  <nav class="foot-links" aria-label="Footer">
+    <a href="/library">Library</a><a href="/about">About</a><a href="/faq">FAQ</a><a href="/login" id="footAuth">Sign in</a>
+  </nav>
+  <div class="foot-legal">
+    <span>© 2026 MedCoreX. All rights reserved. · Files are licensed for the account holder's personal use.</span>
+    <span>🎒 read · learn · repeat</span>
+  </div>
+</div></footer>
+
+<script src="/resources/medcore-production-master-html-medcore-master-book/data.js"></script>
+<script src="/resources/medcore-production-master-html-medcore-master-book/app.js"></script>
+<script src="/medcore-sync.js" defer></script>
+<script src="/auth-nav.js" defer></script>
+</body>
+</html>
