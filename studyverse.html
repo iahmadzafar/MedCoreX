@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en" data-pattern="dots">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Studyverse Study Resource Hub</title>
+<style>
+/* =========================================================
+   1. DESIGN TOKENS
+   Every color, font, radius, border and shadow in the app
+   reads from these variables. The theme engine (bottom of
+   file) rewrites them on each visit, so every page and
+   section changes together and stays consistent.
+   ========================================================= */
+:root{
+  --bg:#fff4e0; --surface:#fffdf8; --ink:#1d1433;
+  --c1:#ff6b9a; --c2:#ffd34d; --c3:#4cc9d8; --c4:#9b7bff;
+  --radius:18px; --bw:3px;
+  --shadow:6px 6px 0 var(--ink);
+  --shadow-hover:10px 10px 0 var(--ink);
+  --title-shadow:3px 3px 0 var(--c2);
+  --font-display:Futura,"Century Gothic","Trebuchet MS",sans-serif;
+  --font-body:"Avenir Next","Segoe UI",sans-serif;
+  --dw:800; --case:uppercase; --track:.01em;
+  --tilt:-1deg;
+  --ease:cubic-bezier(.34,1.56,.64,1);
+  --muted:color-mix(in srgb,var(--ink) 68%,transparent);
+  --line:color-mix(in srgb,var(--ink) 14%,transparent);
+  --pill:min(var(--radius),999px);
+}
+
+/* =========================================================
+   2. BASE
+   ========================================================= */
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font-body);color:var(--ink);background-color:var(--bg);
+  line-height:1.55;min-height:100vh;overflow-x:hidden;
+  transition:background-color .8s ease,color .8s ease;
+}
+html[data-pattern=dots] body{background-image:radial-gradient(color-mix(in srgb,var(--ink) 14%,transparent) 1.4px,transparent 1.6px);background-size:22px 22px}
+html[data-pattern=grid] body{background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:34px 34px}
+html[data-pattern=stripes] body{background-image:repeating-linear-gradient(-45deg,color-mix(in srgb,var(--c2) 20%,transparent) 0 14px,transparent 14px 30px)}
+html[data-pattern=checks] body{background-image:conic-gradient(color-mix(in srgb,var(--c1) 11%,transparent) 25%,transparent 0 50%,color-mix(in srgb,var(--c3) 11%,transparent) 0 75%,transparent 0);background-size:56px 56px}
+html[data-pattern=waves] body{background-image:radial-gradient(circle at 50% 0,transparent 13px,color-mix(in srgb,var(--c4) 20%,transparent) 14px 16px,transparent 17px);background-size:36px 18px}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+::selection{background:var(--c2)}
+kbd{font-family:var(--font-display);border:2px solid var(--ink);border-radius:6px;padding:0 .4em;background:var(--surface);font-size:.85em}
+
+h1,h2,h3,.display{font-family:var(--font-display);font-weight:var(--dw);text-transform:var(--case);letter-spacing:var(--track);line-height:1}
+h2{font-size:clamp(2rem,5vw,3.4rem);text-shadow:var(--title-shadow)}
+h3{font-size:1.25rem}
+.eyebrow{font-family:var(--font-display);text-transform:uppercase;letter-spacing:.14em;font-size:.78rem;font-weight:700}
+.muted{color:var(--muted)}
+.hl{background:linear-gradient(transparent 58%,var(--c2) 58%);padding:0 .1em}
+
+/* =========================================================
+   3. BACKGROUND BLOBS (live, always moving)
+   ========================================================= */
+.blobs{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.blob{position:absolute;width:42vmax;height:42vmax;filter:blur(50px);opacity:.42;border-radius:42% 58% 63% 37%/45% 41% 59% 55%;animation:morph 18s ease-in-out infinite alternate,drift 26s ease-in-out infinite alternate;transition:background .8s}
+.blob:nth-child(1){background:var(--c1);top:-12vmax;left:-10vmax}
+.blob:nth-child(2){background:var(--c3);bottom:-16vmax;right:-12vmax;animation-delay:-6s,-9s}
+.blob:nth-child(3){background:var(--c2);top:35%;left:45%;width:28vmax;height:28vmax;animation-delay:-11s,-3s}
+@keyframes morph{50%{border-radius:61% 39% 36% 64%/57% 63% 37% 43%}100%{border-radius:35% 65% 50% 50%/30% 50% 50% 70%}}
+@keyframes drift{50%{transform:translate(8vw,6vh) rotate(60deg) scale(1.1)}100%{transform:translate(-5vw,10vh) rotate(140deg) scale(.95)}}
+
+/* =========================================================
+   4. SHARED COMPONENTS
+   ========================================================= */
+.wrap{width:min(1180px,100% - 40px);margin-inline:auto}
+.card{
+  background:var(--surface);border:var(--bw) solid var(--ink);border-radius:var(--radius);
+  box-shadow:var(--shadow);padding:22px;position:relative;
+  transition:transform .35s var(--ease),box-shadow .35s var(--ease),background .8s;
+}
+.card.hov:hover{transform:translate(-3px,-3px) rotate(var(--tilt));box-shadow:var(--shadow-hover)}
+.btn{
+  display:inline-flex;align-items:center;gap:.5em;cursor:pointer;text-decoration:none;
+  font-family:var(--font-display);font-weight:var(--dw);text-transform:var(--case);letter-spacing:.03em;
+  background:var(--c1);color:var(--ink);border:var(--bw) solid var(--ink);border-radius:var(--pill);
+  padding:.75em 1.3em;box-shadow:4px 4px 0 var(--ink);font-size:.95rem;
+  transition:transform .25s var(--ease),box-shadow .25s var(--ease),background .8s;
+}
+.btn:hover{transform:translate(-2px,-2px) rotate(-2deg);box-shadow:7px 7px 0 var(--ink)}
+.btn:active{transform:translate(3px,3px);box-shadow:0 0 0 var(--ink)}
+.btn.alt{background:var(--c3)}
+.btn.ghost{background:var(--surface)}
+.btn.sm{padding:.45em .9em;font-size:.8rem;box-shadow:3px 3px 0 var(--ink)}
+.chip{
+  cursor:pointer;border:2px solid var(--ink);border-radius:999px;background:var(--surface);
+  padding:.35em .9em;font-weight:700;font-size:.85rem;transition:transform .2s var(--ease),background .3s;
+}
+.chip:hover{transform:translateY(-2px) rotate(-2deg)}
+.chip[aria-pressed=true]{background:var(--c2);box-shadow:3px 3px 0 var(--ink)}
+.field{
+  border:var(--bw) solid var(--ink);border-radius:var(--pill);background:var(--surface);
+  padding:.7em 1.1em;outline:none;min-width:0;transition:box-shadow .2s;
+}
+.field:focus{box-shadow:4px 4px 0 var(--c1)}
+.row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin:34px 0 22px}
+.section-head p{max-width:46ch}
+.tag{display:inline-block;font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;padding:.2em .7em;border:2px solid var(--ink);border-radius:999px;background:var(--accent,var(--c2))}
+
+/* reveal animation, staggered via --i set in JS */
+.page{display:none;padding-bottom:110px}
+.page.active{display:block}
+.page.active .rv{animation:rise .7s var(--ease) both;animation-delay:calc(var(--i,0) * 70ms)}
+@keyframes rise{from{opacity:0;transform:translateY(28px) scale(.97)}}
+
+/* =========================================================
+   5. NAV
+   ========================================================= */
+.nav{position:sticky;top:0;z-index:50;padding:14px 0;backdrop-filter:blur(10px);background:color-mix(in srgb,var(--bg) 75%,transparent);border-bottom:var(--bw) solid var(--ink);transition:background .8s}
+.nav .wrap{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--font-display);font-weight:var(--dw);font-size:1.35rem;text-transform:var(--case)}
+.logo-mark{width:38px;height:38px;background:var(--c1);border:var(--bw) solid var(--ink);border-radius:42% 58% 63% 37%/45% 41% 59% 55%;animation:morph 6s ease-in-out infinite alternate;display:grid;place-items:center;font-size:1rem}
+.links{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto}
+.links a{text-decoration:none;font-weight:700;padding:.45em 1em;border-radius:var(--pill);border:2px solid transparent;transition:all .25s var(--ease)}
+.links a:hover{border-color:var(--ink);transform:rotate(-3deg)}
+.links a[aria-current=page]{background:var(--ink);color:var(--bg)}
+.theme-chip{display:flex;align-items:center;gap:10px;border:2px solid var(--ink);border-radius:999px;padding:4px 4px 4px 12px;background:var(--surface)}
+.swatches{display:flex}
+.swatches i{width:16px;height:16px;border-radius:50%;border:2px solid var(--ink);margin-left:-5px;transition:background .8s}
+.swatches i:first-child{margin-left:0}
+.theme-name{font-weight:800;font-size:.82rem;white-space:nowrap}
+.icon-btn{width:34px;height:34px;border-radius:50%;border:2px solid var(--ink);background:var(--c2);cursor:pointer;display:grid;place-items:center;font-size:1rem;transition:transform .4s var(--ease)}
+.icon-btn:hover{transform:rotate(180deg) scale(1.1)}
+.icon-btn[aria-pressed=true]{background:var(--c4)}
+
+/* =========================================================
+   6. HOME
+   ========================================================= */
+.hero{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:30px;align-items:center;padding:50px 0 30px}
+.mega{font-size:clamp(3rem,9vw,7.4rem);line-height:.92;margin:14px 0 22px}
+.mega .w2{color:var(--c1);-webkit-text-stroke:2px var(--ink)}
+.mega .w4{color:var(--c3);-webkit-text-stroke:2px var(--ink)}
+.mega span{display:inline-block;transition:transform .4s var(--ease)}
+.mega span:hover{transform:rotate(-6deg) scale(1.06)}
+.lede{font-size:1.15rem;max-width:44ch;margin-bottom:24px}
+.hero-art{position:relative;height:340px}
+.sticker{position:absolute;right:8%;top:6%;width:170px;aspect-ratio:1;background:var(--c2);border:var(--bw) dashed var(--ink);border-radius:50%;display:grid;place-items:center;text-align:center;font-family:var(--font-display);font-weight:var(--dw);font-size:1.5rem;line-height:1;animation:spin 16s linear infinite;box-shadow:var(--shadow);z-index:2}
+.shape{position:absolute;border:var(--bw) solid var(--ink);transition:background .8s}
+.s1{width:130px;height:130px;background:var(--c1);left:6%;top:20%;border-radius:calc(var(--radius) * .8);animation:spin 22s linear infinite reverse}
+.s2{width:110px;height:110px;background:var(--c3);border-radius:50%;left:38%;bottom:4%;animation:bounce 3.2s var(--ease) infinite}
+.s3{width:150px;height:130px;background:var(--c4);right:2%;bottom:10%;border:none;clip-path:polygon(50% 0,100% 100%,0 100%);animation:float 5s ease-in-out infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes bounce{50%{transform:translateY(-34px) scale(1.05,.95)}}
+@keyframes float{50%{transform:translateY(-18px) rotate(12deg)}}
+
+.marquee{overflow:hidden;border-block:var(--bw) solid var(--ink);background:var(--ink);color:var(--bg);padding:12px 0;margin:10px 0 34px;transform:rotate(-1.2deg)}
+.track{display:flex;width:max-content;animation:scroll 40s linear infinite;font-family:var(--font-display);font-weight:var(--dw);text-transform:var(--case);font-size:1.1rem}
+.track span{padding:0 22px;white-space:nowrap}
+.track span::after{content:"✦";margin-left:44px;color:var(--c2)}
+.marquee:hover .track{animation-play-state:paused}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.stat{background:var(--accent)}
+.stat .num{font-family:var(--font-display);font-weight:var(--dw);font-size:clamp(2.2rem,4vw,3.2rem);line-height:1}
+.stat .lbl{font-weight:700;margin-top:6px}
+.home-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:18px;margin-top:18px}
+.pick h3{font-size:1.7rem;margin:12px 0 8px}
+.quick{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.quick a{text-decoration:none;display:flex;flex-direction:column;justify-content:space-between;min-height:130px;background:var(--accent)}
+.quick .emoji{font-size:2rem;transition:transform .4s var(--ease)}
+.quick a:hover .emoji{transform:scale(1.3) rotate(-12deg)}
+
+/* =========================================================
+   7. LIBRARY
+   ========================================================= */
+.toolbar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:14px}
+.toolbar .field{flex:1 1 240px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.lib-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px}
+.res{display:flex;flex-direction:column;gap:10px;overflow:hidden}
+.res::before{content:"";position:absolute;inset:0 0 auto 0;height:10px;background:var(--accent);border-bottom:2px solid var(--ink)}
+.res .top{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
+.res h3{font-size:1.2rem}
+.res p{font-size:.93rem;color:var(--muted);flex:1}
+.res .foot{display:flex;justify-content:space-between;align-items:center}
+.star{background:none;border:none;font-size:1.5rem;cursor:pointer;transition:transform .35s var(--ease);line-height:1}
+.star:hover{transform:scale(1.3) rotate(20deg)}
+.star.on{animation:pop .45s var(--ease)}
+@keyframes pop{50%{transform:scale(1.6) rotate(-20deg)}}
+.empty{grid-column:1/-1;text-align:center;padding:50px}
+
+/* =========================================================
+   8. FLASHCARDS
+   ========================================================= */
+.fc-layout{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:24px;align-items:start}
+.flip{perspective:1200px;height:clamp(250px,42vh,360px);cursor:pointer;margin-bottom:20px}
+.flip .inner{position:relative;width:100%;height:100%;transition:transform .75s var(--ease);transform-style:preserve-3d}
+.flip.flipped .inner{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:30px;border:var(--bw) solid var(--ink);border-radius:var(--radius);box-shadow:var(--shadow);transition:background .8s}
+.face.front{background:var(--c2)}
+.face.back{background:var(--c3);transform:rotateY(180deg)}
+.face .big{font-family:var(--font-display);font-weight:var(--dw);font-size:clamp(1.5rem,3.4vw,2.4rem);line-height:1.15;max-width:22ch}
+.face .hint{position:absolute;bottom:14px;font-size:.8rem;font-weight:700;opacity:.7}
+.face .count{position:absolute;top:14px;left:18px;font-weight:800}
+.dots{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0 16px}
+.dots i{width:12px;height:12px;border-radius:50%;border:2px solid var(--ink);background:var(--surface)}
+.dots i.known{background:var(--c4)}
+.dots i.cur{transform:scale(1.4);background:var(--c1)}
+.side form{display:grid;gap:10px;margin-top:12px}
+.side textarea.field{border-radius:calc(var(--radius) * .7);resize:vertical;min-height:70px}
+
+/* =========================================================
+   9. FOCUS
+   ========================================================= */
+.focus-layout{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:24px;align-items:start}
+.timer{display:flex;flex-direction:column;align-items:center;gap:20px;text-align:center}
+.ring{position:relative;width:min(300px,80vw);aspect-ratio:1}
+.ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ring circle{fill:none;stroke-width:22}
+.ring .bgc{stroke:color-mix(in srgb,var(--ink) 10%,transparent)}
+.ring .fg{stroke:var(--c1);stroke-linecap:round;transition:stroke-dashoffset 1s linear,stroke .8s}
+.ring .time{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--font-display);font-weight:var(--dw);font-size:clamp(3rem,8vw,4.6rem)}
+.ring.running{animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{50%{transform:scale(1.03)}}
+.tasks{list-style:none;display:grid;gap:10px;margin-top:14px}
+.tasks li{display:flex;align-items:center;gap:12px;padding:10px 14px;border:2px solid var(--ink);border-radius:calc(var(--radius) * .6);background:var(--surface);transition:transform .3s var(--ease),opacity .3s}
+.tasks li:hover{transform:translateX(4px)}
+.tasks li.done span{text-decoration:line-through;opacity:.55}
+.tasks input[type=checkbox]{width:22px;height:22px;accent-color:var(--c4);cursor:pointer}
+.tasks span{flex:1}
+.x{background:none;border:none;cursor:pointer;font-size:1.1rem;opacity:.6}
+.x:hover{opacity:1;transform:rotate(90deg)}
+
+/* =========================================================
+   10. NOTES
+   ========================================================= */
+.notes-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:24px}
+.note{background:var(--accent);min-height:220px;display:flex;flex-direction:column;transform:rotate(var(--r));padding:18px}
+.note:hover{transform:rotate(0) scale(1.03);box-shadow:var(--shadow-hover)}
+.note::before{content:"";position:absolute;top:-14px;left:50%;width:70px;height:26px;transform:translateX(-50%) rotate(-3deg);background:color-mix(in srgb,var(--surface) 70%,transparent);border:2px solid var(--ink)}
+.note input,.note textarea{background:transparent;border:none;outline:none;width:100%}
+.note input{font-family:var(--font-display);font-weight:var(--dw);font-size:1.2rem;margin-bottom:8px}
+.note textarea{flex:1;resize:none;min-height:130px}
+.note .x{position:absolute;top:8px;right:10px}
+
+/* =========================================================
+   11. TOAST + CONFETTI
+   ========================================================= */
+.toast{position:fixed;left:50%;bottom:70px;transform:translate(-50%,140%);background:var(--ink);color:var(--bg);padding:12px 22px;border-radius:999px;font-weight:800;z-index:99;transition:transform .5s var(--ease);box-shadow:4px 4px 0 var(--c1)}
+.toast.show{transform:translate(-50%,0)}
+.confetti{position:fixed;width:10px;height:14px;z-index:98;pointer-events:none;border:1.5px solid var(--ink)}
+
+/* =========================================================
+   12. RESPONSIVE + PRINT
+   ========================================================= */
+@media (max-width:900px){
+  .hero,.home-grid,.fc-layout,.focus-layout{grid-template-columns:minmax(0,1fr)}
+  .hero-art{height:240px}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .theme-chip .theme-name{display:none}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+@media print{
+  .nav,.blobs,.toast,.marquee,.hero-art,.btn,.icon-btn{display:none!important}
+  .page{display:block!important;padding-bottom:20px;break-after:page}
+  .card{box-shadow:none;break-inside:avoid}
+  .page .rv{animation:none!important}
+}
+</style>
+</head>
+<body>
+
+<div class="blobs" aria-hidden="true"><div class="blob"></div><div class="blob"></div><div class="blob"></div></div>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#home"><span class="logo-mark">✎</span>Studyverse</a>
+    <nav class="links" aria-label="Main">
+      <a href="#home">Home</a>
+      <a href="#library">Library</a>
+      <a href="#cards">Flashcards</a>
+      <a href="#focus">Focus</a>
+      <a href="#notes">Notes</a>
+    </nav>
+    <div class="theme-chip" title="Current theme">
+      <div class="swatches"><i style="background:var(--c1)"></i><i style="background:var(--c2)"></i><i style="background:var(--c3)"></i><i style="background:var(--c4)"></i></div>
+      <span class="theme-name" id="themeName">Theme</span>
+      <button class="icon-btn" id="lockBtn" aria-pressed="false" title="Keep this theme on next visit">🔓</button>
+      <button class="icon-btn" id="remixBtn" title="Remix theme (T)">🎲</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ================= HOME ================= -->
+  <section class="page" id="home">
+    <div class="hero">
+      <div class="rv">
+        <p class="eyebrow"><span id="greet">Hello</span> · <span id="clock">--:--</span></p>
+        <h1 class="mega"><span>Study</span> <span class="w2">loud.</span><br><span>Learn</span> <span class="w4">wild.</span></h1>
+        <p class="lede">Your hub for <span class="hl">resources, flashcards, focus sessions and notes</span>. Every visit brings a brand new look. Press <kbd>T</kbd> to remix it any time.</p>
+        <div class="row"><a class="btn" href="#library">Browse library →</a><a class="btn alt" href="#focus">Start focusing</a></div>
+      </div>
+      <div class="hero-art rv" aria-hidden="true">
+        <div class="sticker">STUDY<br>✦ HUB ✦</div>
+        <div class="shape s1"></div><div class="shape s2"></div><div class="shape s3"></div>
+      </div>
+    </div>
+
+    <div class="marquee rv"><div class="track" id="tips"></div></div>
+
+    <div class="stats">
+      <div class="card hov stat rv" style="--accent:var(--c1)"><div class="num" data-stat="saved">0</div><div class="lbl">Saved resources</div></div>
+      <div class="card hov stat rv" style="--accent:var(--c2)"><div class="num" data-stat="known">0</div><div class="lbl">Cards mastered</div></div>
+      <div class="card hov stat rv" style="--accent:var(--c3)"><div class="num" data-stat="focus">0</div><div class="lbl">Focus minutes</div></div>
+      <div class="card hov stat rv" style="--accent:var(--c4)"><div class="num" data-stat="notes">0</div><div class="lbl">Notes written</div></div>
+    </div>
+
+    <div class="home-grid">
+      <div class="card hov pick rv" id="pick"></div>
+      <div class="quick">
+        <a class="card hov rv" href="#library" style="--accent:var(--c3)"><span class="emoji">📚</span><div><h3>Library</h3><span class="muted">Curated free resources</span></div></a>
+        <a class="card hov rv" href="#cards" style="--accent:var(--c2)"><span class="emoji">🃏</span><div><h3>Flashcards</h3><span class="muted">Flip, recall, master</span></div></a>
+        <a class="card hov rv" href="#focus" style="--accent:var(--c1)"><span class="emoji">⏱️</span><div><h3>Focus</h3><span class="muted">Pomodoro + to-dos</span></div></a>
+        <a class="card hov rv" href="#notes" style="--accent:var(--c4)"><span class="emoji">🗒️</span><div><h3>Notes</h3><span class="muted">Sticky, saved, yours</span></div></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= LIBRARY ================= -->
+  <section class="page" id="library">
+    <div class="section-head rv">
+      <div><p class="eyebrow">The stacks</p><h2>Resource Library</h2></div>
+      <p class="muted">Free, trusted places to learn. Filter by subject or type, search, and star the ones you want to keep close.</p>
+    </div>
+    <div class="toolbar rv">
+      <input class="field" id="q" type="search" placeholder="Search resources…" aria-label="Search resources">
+      <select class="field" id="type" aria-label="Filter by type" style="flex:0 0 auto">
+        <option>All types</option><option>Course</option><option>Video</option><option>Tool</option><option>Book</option><option>Practice</option>
+      </select>
+      <button class="chip" id="savedOnly" aria-pressed="false">★ Saved only</button>
+    </div>
+    <div class="chips rv" id="subjects"></div>
+    <div class="lib-grid" id="libGrid"></div>
+  </section>
+
+  <!-- ================= FLASHCARDS ================= -->
+  <section class="page" id="cards">
+    <div class="section-head rv">
+      <div><p class="eyebrow">Active recall</p><h2>Flashcards</h2></div>
+      <p class="muted">Click the card or press <kbd>Space</kbd> to flip. Use <kbd>←</kbd> <kbd>→</kbd> to move through the deck.</p>
+    </div>
+    <div class="chips rv" id="decks"></div>
+    <div class="fc-layout">
+      <div class="rv">
+        <div class="flip" id="flip" tabindex="0" role="button" aria-label="Flip card">
+          <div class="inner">
+            <div class="face front"><span class="count" id="fcCount"></span><div class="big" id="fcFront"></div><span class="hint">tap to flip ↻</span></div>
+            <div class="face back"><span class="count">Answer</span><div class="big" id="fcBack"></div><span class="hint">tap to flip back ↻</span></div>
+          </div>
+        </div>
+        <div class="dots" id="fcDots"></div>
+        <div class="row">
+          <button class="btn ghost" id="prev">← Prev</button>
+          <button class="btn" id="knowBtn">✓ Got it</button>
+          <button class="btn alt" id="next">Next →</button>
+          <button class="btn ghost sm" id="shuffle">🔀 Shuffle</button>
+        </div>
+      </div>
+      <aside class="card side rv">
+        <h3>Make your own</h3>
+        <p class="muted">Cards you add go into <b>My deck</b> and stay saved in this browser.</p>
+        <form id="addCard">
+          <textarea class="field" id="newFront" placeholder="Question" required></textarea>
+          <textarea class="field" id="newBack" placeholder="Answer" required></textarea>
+          <button class="btn alt" type="submit">+ Add card</button>
+        </form>
+        <p class="muted" style="margin-top:14px" id="deckStat"></p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ================= FOCUS ================= -->
+  <section class="page" id="focus">
+    <div class="section-head rv">
+      <div><p class="eyebrow">Deep work</p><h2>Focus Room</h2></div>
+      <p class="muted">Work in focused sprints with short breaks. Finished focus sessions count toward your stats on the home page.</p>
+    </div>
+    <div class="focus-layout">
+      <div class="card timer rv">
+        <div class="chips" id="modes" style="margin:0;justify-content:center">
+          <button class="chip" data-mode="focus" aria-pressed="true">Focus 25</button>
+          <button class="chip" data-mode="short" aria-pressed="false">Short break 5</button>
+          <button class="chip" data-mode="long" aria-pressed="false">Long break 15</button>
+        </div>
+        <div class="ring" id="ring">
+          <svg viewBox="0 0 260 260"><circle class="bgc" cx="130" cy="130" r="110"/><circle class="fg" id="ringFg" cx="130" cy="130" r="110"/></svg>
+          <div class="time" id="time">25:00</div>
+        </div>
+        <div class="row" style="justify-content:center">
+          <button class="btn" id="startBtn">▶ Start</button>
+          <button class="btn ghost" id="resetBtn">↺ Reset</button>
+        </div>
+        <p class="muted" id="sessionInfo"></p>
+      </div>
+      <div class="card rv">
+        <h3>Session to-dos</h3>
+        <form class="row" id="taskForm" style="margin-top:12px">
+          <input class="field" id="taskIn" placeholder="What are you working on?" style="flex:1" required>
+          <button class="btn sm" type="submit">Add</button>
+        </form>
+        <ul class="tasks" id="tasks"></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= NOTES ================= -->
+  <section class="page" id="notes">
+    <div class="section-head rv">
+      <div><p class="eyebrow">Brain dump</p><h2>Sticky Notes</h2></div>
+      <button class="btn" id="addNote">+ New note</button>
+    </div>
+    <div class="notes-grid" id="notesGrid"></div>
+  </section>
+
+</main>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+/* =========================================================
+   THEME ENGINE
+   Generates a fresh, harmonious palette + font pairing +
+   shape language on every visit, then writes it into the
+   CSS variables above. Nothing else in the app hardcodes
+   style, so the theme carries over everywhere.
+   ========================================================= */
+const rand=(a,b)=>Math.random()*(b-a)+a;
+const pick=a=>a[Math.floor(Math.random()*a.length)];
+const hsl=(h,s,l)=>`hsl(${Math.round((h%360+360)%360)} ${Math.round(s)}% ${Math.round(l)}%)`;
+
+const SCHEMES={
+  Triadic:[0,120,240,60], Complementary:[0,180,30,210], Split:[0,150,210,45],
+  Analogous:[0,32,64,-32], Tetradic:[0,90,180,270], Candy:[0,300,60,200]
+};
+const DISPLAY=[
+  {f:'Futura,"Century Gothic","Trebuchet MS",sans-serif',w:800,c:'uppercase',t:'.01em'},
+  {f:'Rockwell,"Roboto Slab",Georgia,serif',w:800,c:'none',t:'-.01em'},
+  {f:'"American Typewriter","Courier New",monospace',w:700,c:'none',t:'-.02em'},
+  {f:'"Marker Felt","Comic Sans MS",cursive',w:700,c:'none',t:'0'},
+  {f:'"Chalkboard SE","Comic Sans MS",cursive',w:700,c:'none',t:'0'},
+  {f:'Didot,"Bodoni 72","Times New Roman",serif',w:700,c:'none',t:'-.02em'},
+  {f:'Copperplate,"Copperplate Gothic Light",serif',w:700,c:'uppercase',t:'.04em'},
+  {f:'Impact,"Arial Black",sans-serif',w:400,c:'uppercase',t:'.02em'},
+  {f:'"Avenir Next Condensed","Arial Narrow",sans-serif',w:800,c:'uppercase',t:'.01em'},
+  {f:'"Cooper Black","Bookman Old Style",Georgia,serif',w:900,c:'none',t:'-.01em'}
+];
+const BODY=[
+  '"Avenir Next","Segoe UI",sans-serif','"Gill Sans","Gill Sans MT",sans-serif',
+  'Optima,Candara,sans-serif','Georgia,"Times New Roman",serif',
+  'Menlo,Consolas,monospace','Baskerville,"Hoefler Text",Georgia,serif','"Trebuchet MS",Verdana,sans-serif'
+];
+const SHADOWS=[
+  ['6px 6px 0 var(--ink)','10px 10px 0 var(--ink)'],
+  ['6px 6px 0 var(--c4)','10px 10px 0 var(--c1)'],
+  ['4px 4px 0 var(--c2),8px 8px 0 var(--ink)','6px 6px 0 var(--c2),12px 12px 0 var(--ink)'],
+  ['0 14px 30px -12px color-mix(in srgb,var(--c4) 70%,transparent)','0 22px 40px -12px color-mix(in srgb,var(--c1) 70%,transparent)'],
+  ['-6px 6px 0 var(--c3)','-10px 10px 0 var(--ink)']
+];
+const ADJ=['Electric','Bubblegum','Cosmic','Retro','Sour','Velvet','Jazzy','Turbo','Lemon','Neon','Groovy','Fizzy','Disco','Cherry','Tropical','Glitter','Mango','Pixel'];
+const NOUN=['Notebook','Riot','Library','Sundae','Lab','Arcade','Atlas','Mixtape','Garden','Comet','Parade','Studio','Lagoon','Cassette','Carnival','Orbit'];
+
+function makeTheme(){
+  const h=rand(0,360), name=Object.keys(SCHEMES), scheme=pick(name), offs=SCHEMES[scheme], s=rand(74,96);
+  const d=pick(DISPLAY), sh=pick(SHADOWS);
+  return {
+    name:`${pick(ADJ)} ${pick(NOUN)}`, scheme,
+    vars:{
+      '--c1':hsl(h+offs[0],s,rand(60,68)), '--c2':hsl(h+offs[1],s,rand(62,72)),
+      '--c3':hsl(h+offs[2],s,rand(60,70)), '--c4':hsl(h+offs[3],s*.9,rand(64,74)),
+      '--bg':hsl(h+offs[1]*.25,rand(70,95),rand(93,96)),
+      '--surface':hsl(h,100,rand(98.5,99.5)),
+      '--ink':hsl(h+200,rand(35,60),rand(9,15)),
+      '--font-display':d.f,'--dw':d.w,'--case':d.c,'--track':d.t,
+      '--font-body':pick(BODY),
+      '--radius':pick(['0px','8px','16px','26px','34px']),
+      '--bw':pick(['2px','3px','4px']),
+      '--shadow':sh[0],'--shadow-hover':sh[1],
+      '--title-shadow':pick(['3px 3px 0 var(--c2)','4px 4px 0 var(--c3)','none','-3px 3px 0 var(--c1)']),
+      '--tilt':pick(['0deg','-1deg','1.2deg','-2deg'])
+    },
+    pattern:pick(['dots','grid','stripes','checks','waves','plain'])
+  };
+}
+function applyTheme(t){
+  const r=document.documentElement;
+  Object.entries(t.vars).forEach(([k,v])=>r.style.setProperty(k,v));
+  r.dataset.pattern=t.pattern;
+  document.getElementById('themeName').textContent=t.name;
+  current=t;
+}
+
+/* =========================================================
+   STATE (saved in this browser)
+   ========================================================= */
+let S={saved:[],known:{},focus:0,sessions:0,notes:null,tasks:[],custom:[],lock:null};
+try{S=Object.assign(S,JSON.parse(localStorage.getItem('studyverse')||'{}'))}catch(e){}
+const save=()=>{try{localStorage.setItem('studyverse',JSON.stringify(S))}catch(e){}};
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+let current;
+
+applyTheme(S.lock||makeTheme());
+const lockBtn=$('#lockBtn');
+const syncLock=()=>{lockBtn.setAttribute('aria-pressed',!! S.lock);lockBtn.textContent=S.lock?'🔒':'🔓'};
+syncLock();
+function remix(){applyTheme(makeTheme());if(S.lock){S.lock=current;save()}toast(`New theme: ${current.name} · ${current.scheme}`);burst(innerWidth-60,40)}
+$('#remixBtn').onclick=remix;
+lockBtn.onclick=()=>{S.lock=S.lock?null:current;save();syncLock();toast(S.lock?'Theme locked for next visit':'A new theme every visit')};
+
+/* =========================================================
+   FEEDBACK: toast + confetti
+   ========================================================= */
+let tt;
+function toast(msg){const t=$('#toast');t.textContent=msg;t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),2200)}
+function burst(x,y){
+  for(let i=0;i<34;i++){
+    const c=document.createElement('span');c.className='confetti';
+    c.style.cssText=`left:${x}px;top:${y}px;background:var(--c${1+i%4});border-radius:${i%3?'2px':'50%'}`;
+    document.body.appendChild(c);
+    const a=rand(0,Math.PI*2),dist=rand(80,220);
+    c.animate([{transform:'translate(0,0) rotate(0)',opacity:1},{transform:`translate(${Math.cos(a)*dist}px,${Math.sin(a)*dist+120}px) rotate(${rand(-540,540)}deg)`,opacity:0}],{duration:rand(800,1300),easing:'cubic-bezier(.2,.7,.3,1)'}).onfinish=()=>c.remove();
+  }
+}
+
+/* =========================================================
+   DATA
+   ========================================================= */
+const SUBJ=['Math','Physics','Chemistry','Biology','CS','History','Literature','Economics','Skills'];
+const RES=[
+  ['Khan Academy','Math','Course','https://www.khanacademy.org','Mastery based lessons and practice from arithmetic all the way to calculus.'],
+  ['3Blue1Brown','Math','Video','https://www.3blue1brown.com','Beautiful animated intuition for linear algebra, calculus and neural networks.'],
+  ['Desmos Graphing','Math','Tool','https://www.desmos.com','Graph any function instantly and drag sliders to see how it changes.'],
+  ["Paul's Online Math Notes",'Math','Book','https://tutorial.math.lamar.edu','Clear notes and worked examples for algebra, calculus and differential equations.'],
+  ['Wolfram Alpha','Math','Tool','https://www.wolframalpha.com','Computational engine that solves and explains math, science and data questions.'],
+  ['PhET Simulations','Physics','Tool','https://phet.colorado.edu','Interactive simulations for physics, chemistry and math concepts.'],
+  ['MIT OpenCourseWare','Physics','Course','https://ocw.mit.edu','Full lecture videos, notes and problem sets from real MIT courses.'],
+  ['Ptable','Chemistry','Tool','https://ptable.com','A dynamic periodic table with properties, orbitals and isotopes.'],
+  ['Chemistry LibreTexts','Chemistry','Book','https://chem.libretexts.org','Free open chemistry textbooks covering intro through advanced topics.'],
+  ['OpenStax','Biology','Book','https://openstax.org','Peer reviewed, free textbooks for biology, physics, economics and more.'],
+  ['HHMI BioInteractive','Biology','Video','https://www.biointeractive.org','Short films, animations and data activities on real biology research.'],
+  ['CS50','CS','Course','https://cs50.harvard.edu','Harvard’s famous intro to computer science, free with problem sets.'],
+  ['freeCodeCamp','CS','Practice','https://www.freecodecamp.org','Hands on coding curriculum with projects and certifications.'],
+  ['Exercism','CS','Practice','https://exercism.org','Coding exercises in dozens of languages with mentor feedback.'],
+  ['Crash Course','History','Video','https://thecrashcourse.com','Fast, funny, well researched video series on history and the sciences.'],
+  ['Project Gutenberg','Literature','Book','https://www.gutenberg.org','Over 70,000 free classic ebooks, ready to read or download.'],
+  ['Our World in Data','Economics','Tool','https://ourworldindata.org','Charts and research on the world’s biggest economic and social trends.'],
+  ['Anki','Skills','Tool','https://apps.ankiweb.net','Spaced repetition flashcards that schedule reviews right before you forget.']
+].map(([t,s,ty,u,d],i)=>({id:i,t,s,ty,u,d}));
+
+const DECKS={
+  Biology:[['What does the mitochondria do?','Produces ATP through cellular respiration'],['Define osmosis','Diffusion of water across a semi permeable membrane'],['DNA base pairs','A pairs with T, C pairs with G'],['Photosynthesis equation','6CO₂ + 6H₂O + light → C₆H₁₂O₆ + 6O₂']],
+  Chemistry:[["Avogadro's number",'6.022 × 10²³ per mole'],['pH of pure water at 25°C','7 (neutral)'],['Ideal gas law','PV = nRT'],['Most electronegative element','Fluorine']],
+  Math:[['d/dx of sin x','cos x'],['Pythagorean theorem','a² + b² = c²'],['Quadratic formula','x = (−b ± √(b² − 4ac)) / 2a'],['∫ 1/x dx','ln|x| + C']],
+  CS:[['Time complexity of binary search','O(log n)'],['A stack is…','Last in, first out (LIFO)'],['A queue is…','First in, first out (FIFO)'],['HTTP 404 means','Resource not found']]
+};
+const TIPS=['Teach it to learn it','25 minutes on, 5 minutes off','Sleep is a study tool','Test yourself before you feel ready','Spaced repetition beats cramming','Mix up your topics','Hydrate, then concentrate','Explain why, not just what','Small daily wins add up'];
+
+/* =========================================================
+   ROUTER
+   ========================================================= */
+function route(){
+  let id=(location.hash||'#home').slice(1);
+  if(!document.getElementById(id)||!document.getElementById(id).classList.contains('page'))id='home';
+  $$('.page').forEach(p=>p.classList.toggle('active',p.id===id));
+  $$('.links a').forEach(a=>a.getAttribute('href')==='#'+id?a.setAttribute('aria-current','page'):a.removeAttribute('aria-current'));
+  $$('#'+id+' .rv').forEach((el,i)=>el.style.setProperty('--i',i));
+  scrollTo({top:0});
+  if(id==='home')renderHome();
+}
+addEventListener('hashchange',route);
+
+/* =========================================================
+   HOME
+   ========================================================= */
+$('#tips').innerHTML=[...TIPS,...TIPS].map(t=>`<span>${t}</span>`).join('');
+function tickClock(){
+  const d=new Date(),h=d.getHours();
+  $('#clock').textContent=d.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});
+  $('#greet').textContent=h<5?'Burning the midnight oil':h<12?'Good morning':h<17?'Good afternoon':'Good evening';
+}
+tickClock();setInterval(tickClock,15000);
+function countUp(el,to){
+  const start=performance.now(),dur=900;
+  const step=t=>{const p=Math.min(1,(t-start)/dur);el.textContent=Math.round(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(step)};
+  requestAnimationFrame(step);
+}
+function renderHome(){
+  const vals={saved:S.saved.length,known:Object.keys(S.known).length,focus:S.focus,notes:(S.notes||[]).filter(n=>n.title||n.body).length};
+  $$('[data-stat]').forEach(el=>countUp(el,vals[el.dataset.stat]));
+  const r=pick(RES),col=`var(--c${SUBJ.indexOf(r.s)%4+1})`;
+  $('#pick').innerHTML=`<p class="eyebrow">Today’s pick 🎯</p><h3>${r.t}</h3><span class="tag" style="--accent:${col}">${r.s} · ${r.ty}</span><p class="muted" style="margin:14px 0 20px">${r.d}</p><div class="row"><a class="btn" href="${r.u}" target="_blank" rel="noopener">Open ↗</a><button class="btn ghost sm" id="repick">Another one</button></div>`;
+  $('#repick').onclick=renderHome;
+}
+
+/* =========================================================
+   LIBRARY
+   ========================================================= */
+let fSub='All',onlySaved=false;
+$('#subjects').innerHTML=['All',...SUBJ].map(s=>`<button class="chip" data-s="${s}" aria-pressed="${s==='All'}">${s}</button>`).join('');
+$('#subjects').onclick=e=>{const b=e.target.closest('.chip');if(!b)return;fSub=b.dataset.s;$$('#subjects .chip').forEach(c=>c.setAttribute('aria-pressed',c===b));renderLib()};
+$('#q').oninput=renderLib;$('#type').onchange=renderLib;
+$('#savedOnly').onclick=e=>{onlySaved=!onlySaved;e.currentTarget.setAttribute('aria-pressed',onlySaved);renderLib()};
+function renderLib(){
+  const q=$('#q').value.toLowerCase().trim(),ty=$('#type').value;
+  const list=RES.filter(r=>(fSub==='All'||r.s===fSub)&&(ty==='All types'||r.ty===ty)&&(!onlySaved||S.saved.includes(r.id))&&(!q||(r.t+r.d+r.s).toLowerCase().includes(q)));
+  $('#libGrid').innerHTML=list.length?list.map((r,i)=>`
+    <article class="card hov res rv" style="--accent:var(--c${SUBJ.indexOf(r.s)%4+1});--i:${i}">
+      <div class="top"><span class="tag">${r.s}</span><button class="star ${S.saved.includes(r.id)?'on':''}" data-id="${r.id}" aria-label="Save ${r.t}">${S.saved.includes(r.id)?'★':'☆'}</button></div>
+      <h3>${r.t}</h3><p>${r.d}</p>
+      <div class="foot"><span class="muted" style="font-weight:700;font-size:.85rem">${r.ty}</span><a class="btn sm" href="${r.u}" target="_blank" rel="noopener">Open ↗</a></div>
+    </article>`).join(''):`<div class="card empty"><h3>Nothing here yet 🌵</h3><p class="muted">Try another subject, or star a few resources first.</p></div>`;
+}
+$('#libGrid').onclick=e=>{
+  const b=e.target.closest('.star');if(!b)return;const id=+b.dataset.id;
+  S.saved=S.saved.includes(id)?S.saved.filter(x=>x!==id):[...S.saved,id];save();
+  if(S.saved.includes(id)){const r=b.getBoundingClientRect();burst(r.left+r.width/2,r.top+r.height/2);toast('Saved to your stars')}
+  renderLib();
+};
+
+/* =========================================================
+   FLASHCARDS
+   ========================================================= */
+let deck='Biology',idx=0,order=null;
+const deckCards=()=>deck==='My deck'?S.custom:DECKS[deck];
+function renderDecks(){$('#decks').innerHTML=[...Object.keys(DECKS),'My deck'].map(d=>`<button class="chip" data-d="${d}" aria-pressed="${d===deck}">${d}${d==='My deck'?` (${S.custom.length})`:''}</button>`).join('')}
+$('#decks').onclick=e=>{const b=e.target.closest('.chip');if(!b)return;deck=b.dataset.d;idx=0;order=null;renderDecks();renderCard()};
+function renderCard(){
+  const cards=deckCards(),flip=$('#flip'),wasFlipped=flip.classList.contains('flipped');flip.classList.remove('flipped');
+  if(!order||order.length!==cards.length)order=cards.map((_,i)=>i);
+  if(!cards.length){$('#fcFront').textContent='Your deck is empty. Add a card →';$('#fcBack').textContent='Use the form on the right';$('#fcCount').textContent='0 / 0';$('#fcDots').innerHTML='';$('#deckStat').textContent='';return}
+  idx=(idx+cards.length)%cards.length;
+  const [f,b]=cards[order[idx]];
+  $('#fcFront').textContent=f;
+  setTimeout(()=>{$('#fcBack').textContent=b},wasFlipped?350:0);
+  $('#fcCount').textContent=`${idx+1} / ${cards.length}`;
+  $('#fcDots').innerHTML=order.map((o,i)=>`<i class="${S.known[deck+':'+cards[o][0]]?'known':''} ${i===idx?'cur':''}"></i>`).join('');
+  const k=cards.filter(c=>S.known[deck+':'+c[0]]).length;
+  $('#deckStat').textContent=`${k} of ${cards.length} mastered in ${deck}.`;
+  $('#knowBtn').textContent=S.known[deck+':'+f]?'↺ Unmark':'✓ Got it';
+}
+const flipIt=()=>$('#flip').classList.toggle('flipped');
+$('#flip').onclick=flipIt;
+$('#prev').onclick=()=>{idx--;renderCard()};
+$('#next').onclick=()=>{idx++;renderCard()};
+$('#shuffle').onclick=()=>{order=order.map(v=>[Math.random(),v]).sort((a,b)=>a[0]-b[0]).map(x=>x[1]);idx=0;renderCard();toast('Deck shuffled')};
+$('#knowBtn').onclick=e=>{
+  const cards=deckCards();if(!cards.length)return;
+  const key=deck+':'+cards[order[idx]][0];
+  if(S.known[key])delete S.known[key];else{S.known[key]=1;const r=e.currentTarget.getBoundingClientRect();burst(r.left+r.width/2,r.top)}
+  save();renderCard();
+};
+$('#addCard').onsubmit=e=>{
+  e.preventDefault();S.custom.push([$('#newFront').value.trim(),$('#newBack').value.trim()]);save();
+  e.target.reset();deck='My deck';idx=S.custom.length-1;order=null;renderDecks();renderCard();toast('Card added to My deck');
+};
+
+/* =========================================================
+   FOCUS TIMER
+   ========================================================= */
+const MODES={focus:25,short:5,long:15},C=2*Math.PI*110;
+let mode='focus',total=MODES.focus*60,left=total,timer=null,endAt=0;
+const fg=$('#ringFg');fg.style.strokeDasharray=C;
+function drawTimer(){
+  const m=String(Math.floor(left/60)).padStart(2,'0'),s=String(left%60).padStart(2,'0');
+  $('#time').textContent=`${m}:${s}`;
+  fg.style.strokeDashoffset=C*(1-left/total);
+  fg.style.stroke=mode==='focus'?'var(--c1)':mode==='short'?'var(--c3)':'var(--c4)';
+  $('#sessionInfo').textContent=`${S.sessions} focus session${S.sessions===1?'':'s'} completed · ${S.focus} minutes total`;
+}
+function setMode(m){clearInterval(timer);timer=null;mode=m;total=left=MODES[m]*60;$('#startBtn').textContent='▶ Start';$('#ring').classList.remove('running');$$('#modes .chip').forEach(c=>c.setAttribute('aria-pressed',c.dataset.mode===m));drawTimer()}
+$('#modes').onclick=e=>{const b=e.target.closest('.chip');if(b)setMode(b.dataset.mode)};
+$('#startBtn').onclick=()=>{
+  if(timer){clearInterval(timer);timer=null;$('#startBtn').textContent='▶ Resume';$('#ring').classList.remove('running');return}
+  endAt=Date.now()+left*1000;$('#startBtn').textContent='❚❚ Pause';$('#ring').classList.add('running');
+  timer=setInterval(()=>{
+    left=Math.max(0,Math.round((endAt-Date.now())/1000));drawTimer();
+    if(left<=0){
+      clearInterval(timer);timer=null;$('#ring').classList.remove('running');
+      if(mode==='focus'){S.focus+=MODES.focus;S.sessions++;save();burst(innerWidth/2,innerHeight/2);toast('Session complete. Take a break! 🎉');setMode('short')}
+      else{toast('Break over. Back to it 💪');setMode('focus')}
+    }
+  },250);
+};
+$('#resetBtn').onclick=()=>setMode(mode);
+
+function renderTasks(){
+  $('#tasks').innerHTML=S.tasks.map((t,i)=>`<li class="${t.done?'done':''}"><input type="checkbox" data-i="${i}" ${t.done?'checked':''} aria-label="Mark done"><span></span><button class="x" data-del="${i}" aria-label="Delete">✕</button></li>`).join('')||'<li class="muted" style="border-style:dashed">No tasks yet. Add one above.</li>';
+  $$('#tasks li span').forEach((sp,i)=>sp.textContent=S.tasks[i].text);
+}
+$('#taskForm').onsubmit=e=>{e.preventDefault();S.tasks.push({text:$('#taskIn').value.trim(),done:false});save();e.target.reset();renderTasks()};
+$('#tasks').onclick=e=>{
+  if(e.target.dataset.del!==undefined){S.tasks.splice(+e.target.dataset.del,1);save();renderTasks()}
+  else if(e.target.dataset.i!==undefined){const t=S.tasks[+e.target.dataset.i];t.done=e.target.checked;save();if(t.done){const r=e.target.getBoundingClientRect();burst(r.left,r.top)}renderTasks()}
+};
+
+/* =========================================================
+   NOTES
+   ========================================================= */
+if(!S.notes)S.notes=[{title:'Exam week plan',body:'Mon: bio review\nTue: chem problem sets\nWed: past paper under timed conditions'},{title:'Feynman this',body:'Explain entropy like I’m 10. If I can’t, I don’t get it yet.'},{title:'Questions for office hours',body:'Why does the integral of 1/x give ln|x|?'}];
+function renderNotes(){
+  $('#notesGrid').innerHTML=S.notes.map((n,i)=>`<div class="card note rv" style="--accent:var(--c${i%4+1});--r:${[-2,1.5,-1,2.2][i%4]}deg;--i:${i}"><button class="x" data-del="${i}" aria-label="Delete note">✕</button><input data-i="${i}" data-k="title" placeholder="Title"><textarea data-i="${i}" data-k="body" placeholder="Write something…"></textarea></div>`).join('');
+  $$('#notesGrid [data-k]').forEach(el=>el.value=S.notes[+el.dataset.i][el.dataset.k]||'');
+}
+$('#notesGrid').oninput=e=>{const el=e.target;if(el.dataset.k){S.notes[+el.dataset.i][el.dataset.k]=el.value;save()}};
+$('#notesGrid').onclick=e=>{if(e.target.dataset.del!==undefined){S.notes.splice(+e.target.dataset.del,1);save();renderNotes()}};
+$('#addNote').onclick=e=>{S.notes.unshift({title:'',body:''});save();renderNotes();$('#notesGrid input').focus();const r=e.currentTarget.getBoundingClientRect();burst(r.left+r.width/2,r.top+r.height/2)};
+
+/* =========================================================
+   KEYBOARD
+   ========================================================= */
+addEventListener('keydown',e=>{
+  if(/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName))return;
+  if(e.key==='t'||e.key==='T')remix();
+  if(location.hash==='#cards'){
+    if(e.key===' '){e.preventDefault();flipIt()}
+    if(e.key==='ArrowRight'){idx++;renderCard()}
+    if(e.key==='ArrowLeft'){idx--;renderCard()}
+  }
+});
+
+/* INIT */
+renderLib();renderDecks();renderCard();drawTimer();renderTasks();renderNotes();route();
+</script>
+</body>
+</html>
