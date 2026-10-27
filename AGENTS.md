@@ -13,6 +13,17 @@ Local == GitHub == live is the expected steady state at the end of any session.
 Verify cheaply: `git status -sb` (no ahead/behind) + `curl -s localhost`-style md5 of any
 `site/` file vs its live URL.
 
+### Sync triggers (owner ruling, 27 Oct 2026)
+
+- **"SYNC!"** (he says it, or anything that close) = do it *now*: commit every pending
+  change with a real message (the hook pushes it), then verify the triple — `git status -sb`,
+  remote hash, one live md5 — and report all three states back.
+- **Idle-drift reminder:** when the working tree has accumulated a noticeable uncommitted
+  change set (several files / multi-module edits) and the session is heading toward a wrap,
+  **remind him to sync proactively** — before he asks, without waiting for "SYNC!".
+  A quiet `git status` showing nothing is also worth one line: "nothing to sync — chain green."
+- He should never have to remember the mechanics; the agent carries them.
+
 ## Naming (owner ruling, 27 Oct 2026)
 
 The project is **MedCoreX / MCX** — nothing is called MedLib X or medcorehub anymore.
