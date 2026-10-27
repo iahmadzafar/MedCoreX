@@ -44,9 +44,14 @@ His call: "remove the sign in and account module for now." Deleted: the gate fun
 - The legacy NRE hub is retired and archived (`NRE-Legacy`); MedCoreX (MCX) is the only live site.
 - Cleanup only ever removes rows I created (exact names); never bulk deletes the ledger.
 
-## Keyhole (the librarian's window) — LIVE
+## Keyhole (the librarian's window) — REMOVED (auth era; retired in `470e27e`)
 
-Ledger admin: https://medcorex.pages.dev/admin/keyhole — list every account (name, email, since, live device sessions), reset a password by hand (new one shown once in the response, all device sessions killed), or cancel a seat by name (two confirmations, unrecoverable).
+> Status: the whole auth module — gate, API suite, login/signup/account pages, this keyhole —
+> was removed at the owner's call ("remove the sign in and account module for now").
+> A partial re-import happened in the Oct 27 folder merge (`51c2b29`); cleanup vs formal
+> restore awaits the owner's fresh call. Restore path: tag `auth-era-on`.
+
+Ledger admin (historical, not served): https://medcorex.pages.dev/admin/keyhole — list every account (name, email, since, live device sessions), reset a password by hand (new one shown once in the response, all device sessions killed), or cancel a seat by name (two confirmations, unrecoverable).
 
 The key: Pages secret `MX_KEYHOLE`, mirrored into the Mac keychain. Retrieve in Terminal:
 
