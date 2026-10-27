@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en" data-mode="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Keyhole — MedCoreX</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%230C171A'/%3E%3Cpath d='M7 7l10 10M17 7L7 17' stroke='%23F5A524' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ground:#0C171A; --ground-2:#101F23; --void:#080F11;
+  --panel:#122428; --panel-2:#172D31;
+  --chalk:#E9F1F2; --chalk-2:#C2D4D6; --muted:#7E979B; --faint:#5A7276;
+  --amber:#F5A524; --mint:#34E0A1; --coral:#FF5470;
+  --line:#1E3338; --line-2:#264248; --line-3:#2E5057;
+  --serif:'Instrument Serif',Georgia,serif;
+  --body:'Newsreader',Georgia,serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+  --maxw:1120px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ground);color:var(--chalk);font-family:var(--body);font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased;min-height:100dvh}
+a{color:inherit}
+h1,h2,h3{font-weight:400;margin:0}
+:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+::selection{background:var(--amber);color:var(--void)}
+
+.topbar{position:sticky;top:0;z-index:50;background:rgba(8,15,17,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.topbar-in{max-width:var(--maxw);margin:0 auto;padding:0 24px;height:60px;display:flex;align-items:center;gap:22px}
+.brand{display:flex;align-items:center;gap:9px;font-family:var(--serif);font-size:22px;line-height:1;text-decoration:none}
+.brand .glyph{width:18px;height:18px;color:var(--amber);flex:none}
+.brand .x{color:var(--amber)}
+.auth{margin-left:auto;font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+
+main{max-width:var(--maxw);margin:0 auto;padding:0 24px 60px;position:relative}
+.pagehead{padding:52px 0 8px}
+.pagehead h1{font-family:var(--serif);font-size:clamp(36px,6vw,58px);line-height:1.05}
+.pagehead .sub{color:var(--muted);margin-top:6px;max-width:660px}
+
+.panel{margin-top:26px;border:1px solid var(--line);background:var(--ground-2);padding:22px;border-radius:2px;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.05),0 1px 2px rgba(0,0,0,.55),0 14px 34px -18px rgba(0,0,0,.65)}
+.panel h2{font-family:var(--serif);font-size:23px;margin-bottom:12px}
+.field label{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin-bottom:6px}
+.field input{width:100%;max-width:520px;background:var(--ground);border:1px solid var(--line-2);color:var(--chalk);font-family:var(--body);font-size:16px;padding:10px 12px;border-radius:2px}
+.field input:focus{border-color:var(--amber);outline:none}
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border:1px solid var(--line-2);color:var(--chalk);padding:9px 16px;border-radius:2px;cursor:pointer;background:transparent;transition:border-color .15s,background .15s}
+.btn:hover{border-color:var(--amber)}
+.btn-amber{background:var(--amber);border-color:var(--amber);color:var(--void)}
+.msg{margin-top:12px;font-size:14.5px;color:var(--muted)}
+.msg.err{color:var(--coral)}
+.msg.ok{color:var(--mint)}
+
+table{width:100%;border-collapse:collapse;margin-top:8px}
+th{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);text-align:left;padding:10px 12px;border-bottom:1px solid var(--line)}
+td{padding:11px 12px;border-bottom:1px solid var(--line);font-size:14.5px;color:var(--chalk-2);vertical-align:top}
+tr:hover td{background:var(--panel)}
+td .u{font-family:var(--mono);font-size:13.5px;color:var(--chalk)}
+td .e{color:var(--muted);font-size:13px}
+.live{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:12px;color:var(--muted)}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--line-3)}
+.dot.on{background:var(--mint)}
+.act{display:inline-flex;gap:8px;flex-wrap:wrap}
+.act button{appearance:none;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:5px 10px;border:1px solid var(--line-2);background:transparent;color:var(--muted);cursor:pointer;border-radius:2px}
+.act button:hover{border-color:var(--amber);color:var(--chalk)}
+.act .danger:hover{border-color:var(--coral);color:var(--coral)}
+
+.locked .panel{display:none}
+.locked .enter{display:block}
+.enter{display:none;padding:40px 0}
+.pw-box{display:none;margin-top:14px;border:1px dashed var(--line-3);padding:14px 16px;border-radius:2px;font-family:var(--mono);font-size:16px;color:var(--amber);word-break:break-all}
+.pw-box.on{display:block}
+.count{font-family:var(--mono);font-size:12px;color:var(--faint);letter-spacing:.08em}
+.hint{font-family:var(--mono);font-size:11.5px;color:var(--faint);margin-top:10px;letter-spacing:.03em}
+</style>
+</head>
+<body>
+<header class="topbar"><div class="topbar-in">
+  <a class="brand" href="/"><svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 7l14 0M5 12l14 0M5 17l9 0"/></svg>MedCoreX&nbsp;<span class="x">X</span></a>
+  <div class="auth">Keyhole · librarian</div>
+</div></header>
+
+<main>
+  <section class="pagehead">
+    <h1>Keyhole</h1>
+    <p class="sub">The ledger of accounts. Who sits at the desk, when they last came, and the quiet actions of the librarian.</p>
+  </section>
+
+  <div class="panel enter" id="enter">
+    <h2>Unlock</h2>
+    <div class="field" style="margin-top:14px">
+      <label for="k">Librarian key</label>
+      <input id="k" type="password" autocomplete="off" style="max-width:520px">
+    </div>
+    <button class="btn btn-amber" id="unlock" type="button">Unlock the ledger</button>
+    <p class="hint">The key lives in this Mac's keychain — <code style="font-family:var(--mono)">security find-generic-password -a medlibx -s keyhole -w</code> — and is stored in this browser after unlock. It never appears in chat or files.</p>
+    <div class="msg" id="m0"></div>
+  </div>
+
+  <div class="panel" id="ledger" style="display:none">
+    <h2>The ledger</h2>
+    <div class="count" id="count"></div>
+    <div style="overflow-x:auto"><table id="t">
+      <thead><tr><th>Name</th><th>Seat · Email</th><th>Since</th><th>Presence</th><th>Actions</th></tr></thead>
+      <tbody></tbody>
+    </table></div>
+    <div class="msg" id="m1"></div>
+  </div>
+
+  <div class="panel pw-box" id="pwbox"></div>
+</main>
+
+<script>
+var KEY = '';
+try { KEY = localStorage.getItem('medlibx.keyhole') || ''; } catch(e){}
+
+function esc(s){return String(s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+function fmt(ts){ if(!ts) return '—'; var d=new Date(ts); return d.toLocaleDateString(undefined,{year:'numeric',month:'short',day:'numeric'}); }
+function show(el,txt,cls){ el.textContent=txt; el.className='msg '+(cls||''); }
+
+async function api(path, opts){
+  opts = opts || {};
+  opts.headers = Object.assign({'x-keyhole': KEY,'Content-Type':'application/json'}, opts.headers||{});
+  var r = await fetch(path, opts);
+  return r.json();
+}
+
+async function render(){
+  var j = await api('/api/keyhole/list');
+  if(!j.ok){ unlockUI(j.error||'Not the librarian.'); return; }
+  document.getElementById('enter').style.display='none';
+  document.getElementById('ledger').style.display='block';
+  var tb=document.querySelector('#t tbody'); tb.innerHTML='';
+  (j.users||[]).forEach(function(u){
+    var tr=document.createElement('tr');
+    tr.innerHTML = '<td><span class="u">'+esc(u.username)+'</span></td>'
+      +'<td>'+esc(u.email)+'</td>'
+      +'<td>'+esc(fmt(u.created_at))+'</td>'
+      +'<td><span class="live"><span class="dot'+(u.active_sessions>0?' on':'')+'"></span>'+ (u.active_sessions>0 ? esc(u.active_sessions)+' device'+(u.active_sessions>1?'s':'')+' in session' : 'absent') +'</span></td>'
+      +'<td><span class="act">'
+      +'<button data-a="reset" data-u="'+esc(u.username)+'">Reset password</button>'
+      +'<button class="danger" data-a="remove" data-u="'+esc(u.username)+'">Remove</button>'
+      +'</span></td>';
+    tb.appendChild(tr);
+  });
+  document.getElementById('count').textContent = (j.users||[]).length + ' name'+((j.users||[]).length===1?'':'s')+' at the desk';
+}
+
+function unlockUI(msg){
+  if(msg) show(document.getElementById('m0'), msg, 'err');
+  document.getElementById('enter').style.display='block';
+  document.getElementById('ledger').style.display='none';
+}
+
+document.getElementById('unlock').addEventListener('click', async function(){
+  KEY = document.getElementById('k').value.trim();
+  var j = await api('/api/keyhole/list');
+  if(!j.ok){ unlockUI(j.error||'Wrong key.'); return; }
+  try{ localStorage.setItem('medlibx.keyhole', KEY); }catch(e){}
+  render();
+});
+
+document.getElementById('ledger').addEventListener('click', async function(e){
+  var b = e.target.closest && e.target.closest('button[data-a]');
+  if(!b) return;
+  var u = b.dataset.u, a = b.dataset.a, m1 = document.getElementById('m1');
+  if(a==='reset'){
+    if(!confirm('Reset the password for \"'+u+'\"? Every device they are signed in on will be signed out.')) return;
+    var r = await api('/api/keyhole/reset',{method:'POST',body:JSON.stringify({username:u})});
+    if(r.ok){
+      var box=document.getElementById('pwbox');
+      box.textContent='New password — shown once: '+r.password;
+      box.classList.add('on');
+      show(m1,'Password replaced by hand. Hand it to '+u+' yourself.','ok');
+      render();
+    } else show(m1, r.error||'Could not reset.', 'err');
+  }
+  if(a==='remove'){
+    if(!confirm('Cancel \"'+u+'\"\\u2019s seat entirely? Account and sessions gone — not recoverable.')) return;
+    if(!confirm('Truly? The name \"'+u+'\" leaves the desk for good.')) return;
+    var r2 = await api('/api/keyhole/remove',{method:'POST',body:JSON.stringify({username:u})});
+    if(r2.ok){ show(m1, u+' removed from the desk.','ok'); render(); }
+    else show(m1, r2.error||'Could not remove.', 'err');
+  }
+});
+
+if(KEY){ render(); } else { unlockUI(''); }
+</script>
+
+<footer style="border-top:1px solid var(--line);background:var(--void);margin-top:40px">
+  <div style="max-width:1120px;margin:0 auto;padding:22px 24px 28px;display:flex;gap:18px;align-items:flex-start;flex-wrap:wrap">
+    <div style="font-family:var(--serif);font-size:19px;display:inline-flex;gap:8px;align-items:center">MedCoreX&nbsp;<span style="color:var(--amber)">X</span></div>
+    <nav style="display:flex;gap:16px;flex-wrap:wrap;margin-left:auto;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase">
+      <a href="/library" style="color:var(--muted);text-decoration:none">Library</a>
+      <a href="/about" style="color:var(--muted);text-decoration:none">About</a>
+      <a href="/faq" style="color:var(--muted);text-decoration:none">FAQ</a>
+    </nav>
+    <div style="width:100%;border-top:1px solid var(--line);margin-top:14px;padding-top:12px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;color:var(--faint);font-family:var(--mono);font-size:11.5px;letter-spacing:.05em">
+      <span>© 2026 MedCoreX. All rights reserved.</span>
+      <span>Files are licensed for the account holder's personal use.</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

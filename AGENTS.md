@@ -29,7 +29,7 @@ Verify cheaply: `git status -sb` (no ahead/behind) + `curl -s localhost`-style m
 The project is **MedCoreX / MCX** — nothing is called MedLib X or medcorehub anymore.
 Keep it that way in every file, title, comment and commit. The only permitted `medlibx`
 strings are the infra identifiers that Cloudflare owns: D1 database `medlibx-db`, binding
-`medlibx_db`, session cookie `medlibx_session`.
+`medlibx_db`, session cookie `medlibx_session`, the keychain account `medlibx` (keyhole key — NEVER renamed, renaming orphans the stored secret) and localStorage `medlibx.keyhole`.
 
 ## House rules
 

@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en" data-mode="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Account — MedCoreX</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%230C171A'/%3E%3Cpath d='M7 7l10 10M17 7L7 17' stroke='%23F5A524' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ground:#0C171A; --ground-2:#101F23; --void:#080F11;
+  --panel:#122428;
+  --chalk:#E9F1F2; --chalk-2:#C2D4D6; --muted:#7E979B; --faint:#5A7276;
+  --amber:#F5A524; --mint:#34E0A1; --coral:#FF5470;
+  --line:#1E3338; --line-2:#264248; --line-3:#2E5057;
+  --serif:'Instrument Serif',Georgia,serif;
+  --body:'Newsreader',Georgia,serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+  --maxw:1020px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ground);color:var(--chalk);font-family:var(--body);font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased;min-height:100dvh;display:flex;flex-direction:column}
+a{color:inherit}
+h1,h2,h3{font-weight:400;margin:0}
+:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+::selection{background:var(--amber);color:var(--void)}
+
+.topbar{position:sticky;top:0;z-index:50;background:rgba(8,15,17,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.topbar-in{max-width:var(--maxw);margin:0 auto;padding:0 24px;height:60px;display:flex;align-items:center;gap:22px}
+.brand{display:flex;align-items:center;gap:9px;font-family:var(--serif);font-size:22px;line-height:1;text-decoration:none}
+.brand .glyph{width:18px;height:18px;color:var(--amber);flex:none}
+.brand .x{color:var(--amber)}
+.topnav{display:flex;gap:18px;margin-left:6px}
+.topnav a{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .15s}
+.topnav a:hover{color:var(--chalk)}
+.auth{margin-left:auto;display:flex;align-items:center;gap:14px}
+.auth a{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--muted)}
+.auth a:hover{color:var(--chalk)}
+.who{font-family:var(--mono);font-size:12px;color:var(--faint);display:flex;align-items:center;gap:10px}
+.who b{color:var(--chalk-2);font-weight:500}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--mint);flex:none}
+main{flex:1;width:100%;max-width:var(--maxw);margin:0 auto;padding:0 24px 48px}
+
+.footer{border-top:1px solid var(--line);background:var(--void)}
+.foot-in{max-width:var(--maxw);margin:0 auto;padding:22px 24px 28px;display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap}
+.foot-brand{font-family:var(--serif);font-size:19px;display:inline-flex;gap:8px;align-items:center}
+.foot-brand .glyph{width:13px;height:13px;color:var(--amber)}
+.foot-brand .x{color:var(--amber)}
+.foot-tag{color:var(--faint);font-size:13.5px;margin:8px 0 0;max-width:360px;line-height:1.55}
+.foot-links{display:flex;gap:16px;flex-wrap:wrap;margin-left:auto;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.foot-links a{color:var(--muted);text-decoration:none}
+.foot-links a:hover{color:var(--chalk)}
+.foot-legal{width:100%;border-top:1px solid var(--line);margin-top:18px;padding-top:14px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--faint);font-family:var(--mono);font-size:11.5px;letter-spacing:.05em}
+
+/* ── page ───────────────────────────────────────────────── */
+.pagehead{padding:48px 0 8px;display:flex;align-items:flex-end;gap:20px;flex-wrap:wrap}
+.pagehead h1{font-family:var(--serif);font-size:clamp(34px,5.4vw,52px);line-height:1.05}
+.pagehead .sub{color:var(--muted)}
+.pagehead .sub i{color:var(--amber);font-style:normal}
+.locked{display:none;color:var(--muted);padding:60px 0}
+.locked.on{display:block}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:30px}
+.panel{border:1px solid var(--line);background:var(--ground-2);padding:22px}
+.panel h2{font-family:var(--serif);font-size:23px;margin-bottom:14px}
+.field{margin-bottom:14px}
+.field label{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin-bottom:6px}
+.field input{width:100%;background:var(--ground);border:1px solid var(--line-2);color:var(--chalk);font-family:var(--body);font-size:16px;padding:10px 12px;border-radius:2px}
+.field input:focus{border-color:var(--amber);outline:none}
+.field input[readonly]{opacity:.75;font-family:var(--mono);font-size:14px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border:1px solid var(--line-2);color:var(--chalk);padding:9px 16px;border-radius:2px;cursor:pointer;background:transparent;transition:border-color .15s,background .15s}
+.btn:hover{border-color:var(--amber)}
+.btn-amber{background:var(--amber);border-color:var(--amber);color:var(--void)}
+.btn-amber:hover{background:#ffc44d}
+.btn-quiet{border-color:rgba(255,84,112,.35);color:var(--coral)}
+.btn-quiet:hover{border-color:var(--coral)}
+.msg{display:none;margin-top:10px;font-size:14px;padding:8px 12px;border-radius:2px}
+.msg.ok{display:block;color:var(--mint);border:1px solid rgba(52,224,161,.35)}
+.msg.err{display:block;color:var(--coral);border:1px solid rgba(255,84,112,.4)}
+.since{font-family:var(--mono);font-size:12px;color:var(--faint);margin-top:14px;letter-spacing:.06em}
+@media (max-width:720px){.grid{grid-template-columns:1fr}}
+</style>
+
+<style id="mx-surface">
+/* ── soft material · "more present" (house rules 1.4) ──
+   every quiet surface floats: contact + ambient on cards, panels, facts, buttons */
+.gcard,.card,.fact,.panel,.btn{
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.05),
+             0 1px 2px rgba(0,0,0,.55),
+             0 14px 30px -18px rgba(0,0,0,.65) !important;
+}
+.btn:hover,.gcard:hover,.card:hover,.fact:hover{
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.06),
+             0 1px 2px rgba(0,0,0,.55),
+             0 18px 44px -16px rgba(0,0,0,.8) !important;
+}
+/* the footer sits on a raised seam, not a dead line */
+.footer{ position:relative }
+.footer::before{ content:""; position:absolute; left:0; right:0; top:-1px; height:1px;
+  background:linear-gradient(90deg,transparent,var(--line-3),transparent) }
+/* ground breathes: a faint ambient pool under the main column */
+main{ position:relative }
+main::before{ content:""; position:absolute; inset:-40px -60px auto; height:200px; pointer-events:none;
+  background:radial-gradient(600px 200px at 50% 0%, rgba(46,80,87,.14), transparent 70%); z-index:0 }
+main>*{ position:relative; z-index:1 }
+</style>
+<style>
+/* shared mobile tightening (house pass) */
+@media (max-width:640px){
+  .topbar-in{padding-left:16px;padding-right:16px;height:56px}
+  main,.pagehead,.foot-in{padding-left:16px;padding-right:16px}
+  .foot-in{flex-wrap:wrap;gap:16px 24px;padding-top:20px}
+  .card{padding:22px 18px}
+  .faq{margin-top:28px}
+  .faq summary{padding:13px 15px}
+  .faq details .a{padding:12px 15px}
+}
+</style>
+</head>
+<body>
+<header class="topbar"><div class="topbar-in">
+  <a class="brand" href="/"><svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 7l14 0M5 12l14 0M5 17l9 0"/></svg>MedCoreX&nbsp;<span class="x">X</span></a>
+  <nav class="topnav"><a href="/library">Library</a><a href="/about">About</a><a href="/faq">FAQ</a></nav>
+  <div class="auth" id="auth"><a href="/login">Sign in</a></div>
+</div></header>
+
+<main>
+  <div class="locked" id="locked">
+    <p>The desk only opens for members. <a href="/login?next=/account" style="color:var(--chalk)">Sign in</a> or <a href="/signup" style="color:var(--chalk)">create an account</a>.</p>
+  </div>
+
+  <section id="page" style="display:none">
+    <div class="pagehead">
+      <div>
+        <h1>Your seat</h1>
+        <p class="sub">Signed in as <i id="who-name">—</i></p>
+      </div>
+      <div style="margin-left:auto"><a class="btn" href="/library">Open the library</a></div>
+    </div>
+
+    <div class="grid">
+      <div class="panel">
+        <h2>Name at the desk</h2>
+        <div class="field">
+          <label for="username">Username</label>
+          <input id="username" type="text" maxlength="24" autocomplete="off">
+          <p class="since">Lowercase letters, numbers and dashes · 3–24 characters</p>
+        </div>
+        <button class="btn btn-amber" id="saveName" type="button">Save username</button>
+        <div class="msg" id="msgName" role="status"></div>
+      </div>
+
+      <div class="panel">
+        <h2>The lock</h2>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" type="text" readonly>
+          <p class="since">The email names your seat — changes go through the librarian</p>
+        </div>
+        <div class="field">
+          <label for="cpass">Current password</label>
+          <input id="cpass" type="password" autocomplete="current-password">
+        </div>
+        <div class="field">
+          <label for="npass">New password</label>
+          <input id="npass" type="password" autocomplete="new-password">
+        </div>
+        <button class="btn btn-amber" id="savePass" type="button">Change password</button>
+        <div class="msg" id="msgPass" role="status"></div>
+      </div>
+    </div>
+
+    <div class="panel" style="margin-top:14px">
+      <h2>Leave the desk</h2>
+      <p class="sub" style="color:var(--muted);font-size:14.5px;margin:0 0 14px">Signs out on this device. The shelf keeps your place in the file you left open.</p>
+      <button class="btn btn-quiet" id="logout" type="button">Sign out</button>
+    </div>
+  </section>
+</main>
+
+<footer class="footer"><div class="foot-in">
+  <div>
+    <div class="foot-brand"><svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M5 7l14 0M5 12l14 0M5 17l9 0"/></svg>MedCoreX&nbsp;<span class="x">X</span></div>
+    <p class="foot-tag">A private study library — curated with discipline, guarded behind an account, and kept current and exact.</p>
+  </div>
+  <nav class="foot-links" aria-label="Footer"><a href="/library">Library</a><a href="/about">About</a><a href="/faq">FAQ</a><a href="/login">Sign in</a></nav>
+  <div class="foot-legal"><span>© 2026 MedCoreX. All rights reserved.</span><span>Files are licensed for the account holder's personal use.</span></div>
+</div></footer>
+
+<script>
+var kick=false;
+function esc(s){return String(s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+function msg(el,text,isErr){ el.textContent=text; el.className=isErr?'msg err':'msg ok'; setTimeout(function(){el.className='msg';},4000); }
+
+fetch('/api/me').then(function(r){return r.json();}).then(function(j){
+  var locked=document.getElementById('locked'),page=document.getElementById('page');
+  if(!(j&&j.ok&&j.user)){ locked.classList.add('on'); return; }
+  locked.classList.remove('on'); page.style.display='block';
+  document.getElementById('who-name').textContent=j.user.username;
+  document.getElementById('email').value=j.user.email;
+  if(j.user.created_at){
+    var d=new Date(j.user.created_at);
+    var last=document.querySelector('.pagehead .sub');
+    if(last) last.title='Member since '+d.toLocaleDateString();
+  }
+  var a=document.getElementById('auth');
+  if(a) a.innerHTML='<span class="who"><span class="dot"></span><b>'+esc(j.user.username)+'</b></span><a href="/account">Account</a><a href="#" id="out">Sign out</a>',
+    document.getElementById('out').addEventListener('click',function(e){e.preventDefault();fetch('/api/logout',{method:'POST'}).then(function(){location.href='/';});});
+}).catch(function(){ document.getElementById('locked').classList.add('on'); });
+
+document.getElementById('saveName').addEventListener('click',function(){
+  var u=document.getElementById('username').value.trim();
+  if(!/^[a-z0-9-]{3,24}$/.test(u)){msg(document.getElementById('msgName'),'Lowercase letters, numbers, dashes — 3 to 24 characters.',true);return;}
+  fetch('/api/account',{method:'PATCH',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'username',username:u})})
+    .then(function(r){return r.json().then(function(x){return {s:r.status,j:x};});})
+    .then(function(o){
+      if(o.j.ok){ msg(document.getElementById('msgName'),'Done — the desk now calls you '+u+'.',false); document.getElementById('who-name').textContent=u; }
+      else msg(document.getElementById('msgName'),o.j.error||'Could not change the username.',true);
+    });
+});
+
+document.getElementById('savePass').addEventListener('click',function(){
+  var cp=document.getElementById('cpass').value,np=document.getElementById('npass').value;
+  if(np.length<6){msg(document.getElementById('msgPass'),'New password must be at least 6 characters.',true);return;}
+  fetch('/api/account',{method:'PATCH',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'password',current_password:cp,new_password:np})})
+    .then(function(r){return r.json().then(function(x){return {s:r.status,j:x};});})
+    .then(function(o){
+      if(o.j.ok){ msg(document.getElementById('msgPass'),'Password changed. The old lock is gone.',false); document.getElementById('cpass').value='';document.getElementById('npass').value=''; }
+      else msg(document.getElementById('msgPass'),o.j.error||'Could not change the password.',true);
+    });
+});
+
+document.getElementById('logout').addEventListener('click',function(){
+  fetch('/api/logout',{method:'POST'}).then(function(){location.href='/';});
+});
+</script>
+<script src="/medcore-sync.js" defer></script>
+</body>
+</html>
