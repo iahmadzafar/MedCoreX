@@ -35,7 +35,6 @@ strings are the infra identifiers that Cloudflare owns: D1 database `medlibx-db`
 - **Never print file sizes with file names** — no KB/MB/bytes next to filenames anywhere:
   docs, reports, commit messages, chat. (Owner rule, 27 Oct 2026.) Line counts are fine.
 
-
 `House Rules.md` is the design law (space, type, color, surface). `SERVE.md` = deploy/serve
 how-to. `MODULES.md` = module map. Bottom breathing room on every page: footerless sections
 get `padding-bottom:120px`, footer pages ≥48px — add on sight, no approval needed.
