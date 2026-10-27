@@ -162,10 +162,9 @@ h3{font-size:1.25rem}
     <a class="logo" href="/"><span class="logo-mark">📚</span>MedCoreX</a>
     <nav class="links" aria-label="Main">
       <a href="/">Home</a>
-      <a href="/library" aria-current="page">Library</a>
+      <a href="/library">Library</a>
       <a href="/about" aria-current="page">About</a>
-      <a href="/faq">FAQ</a>
-      <a href="/login">Sign in</a>
+      <a href="/faq">FAQ</a> <a href="/stats">Stats</a> <a href="/login" id="navAuth">Sign in</a>
     </nav>
     <div class="engine" title="Theme engine">
       <div class="swatches"><i style="background:var(--c1)"></i><i style="background:var(--c2)"></i><i style="background:var(--c3)"></i><i style="background:var(--c4)"></i></div>
@@ -202,8 +201,7 @@ h3{font-size:1.25rem}
     <p class="foot-tag">A private study library — curated with discipline, and kept current and exact.</p>
   </div>
   <nav class="foot-links" aria-label="Footer">
-    <a href="/">Home</a><a href="/about">About</a><a href="/faq">FAQ</a>
-  </nav>
+    <a href="/">Home</a><a href="/about">About</a><a href="/faq">FAQ</a> <a href="/login" id="footAuth">Sign in</a> </nav>
   <div class="foot-legal">
     <span>© 2026 MedCoreX. All rights reserved. · Files are licensed for the account holder's personal use.</span>
     <span>🎒 read · learn · repeat</span>
@@ -329,5 +327,6 @@ function burst(x,y){
 
 </script>
 <script src="/medcore-sync.js" defer></script>
+<script src="/auth-nav.js" defer></script>
 </body>
 </html>

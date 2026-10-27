@@ -197,11 +197,6 @@ input.field{width:100%}
 .pwbox{display:none}.pwbox.on{display:block;background:color-mix(in srgb,var(--ok) 28%,var(--surface));font-weight:800;overflow-wrap:anywhere}
 .khint code{background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:.1em .4em;font-size:.85em}
 
-/* account nav identity slot */
-.navauth{display:flex;align-items:center;gap:12px;font-weight:700;font-size:.9rem}
-.navauth .who{display:inline-flex;align-items:center;gap:7px}
-.navauth .dot{display:inline-block;width:10px;height:10px;border:2px solid var(--ink);border-radius:50%;background:var(--ok)}
-.navauth a{white-space:nowrap}
 </style>
 </head>
 <body>
@@ -214,10 +209,8 @@ input.field{width:100%}
       <a href="/">Home</a>
       <a href="/library">Library</a>
       <a href="/about">About</a>
-      <a href="/faq">FAQ</a>
-      <a href="/login">Sign in</a>
+      <a href="/faq">FAQ</a> <a href="/stats">Stats</a> <a href="/login" id="navAuth">Sign in</a>
     </nav>
-    <span id="auth" class="navauth"></span>
     <div class="engine" title="Theme engine">
       <div class="swatches"><i style="background:var(--c1)"></i><i style="background:var(--c2)"></i><i style="background:var(--c3)"></i><i style="background:var(--c4)"></i></div>
       <span class="theme-name" id="themeName">Theme</span>
@@ -271,8 +264,7 @@ input.field{width:100%}
     <p class="foot-tag">A private study library — curated with discipline, and kept current and exact.</p>
   </div>
   <nav class="foot-links" aria-label="Footer">
-    <a href="/">Home</a><a href="/about">About</a><a href="/faq">FAQ</a>
-  </nav>
+    <a href="/">Home</a><a href="/about">About</a><a href="/faq">FAQ</a> <a href="/login" id="footAuth">Sign in</a> </nav>
   <div class="foot-legal">
     <span>© 2026 MedCoreX. All rights reserved. · Files are licensed for the account holder's personal use.</span>
     <span>🎒 read · learn · repeat</span>
@@ -414,9 +406,6 @@ fetch('/api/me').then(function(r){return r.json();}).then(function(j){
     var last=document.querySelector('.pagehead .sub');
     if(last) last.title='Member since '+d.toLocaleDateString();
   }
-  var a=document.getElementById('auth');
-  if(a) a.innerHTML='<span class="who"><span class="dot"></span><b>'+esc(j.user.username)+'</b></span><a href="/account">Account</a><a href="#" id="out">Sign out</a>',
-    document.getElementById('out').addEventListener('click',function(e){e.preventDefault();fetch('/api/logout',{method:'POST'}).then(function(){location.href='/';});});
 }).catch(function(){ document.getElementById('locked').classList.add('on'); });
 
 document.getElementById('saveName').addEventListener('click',function(){
@@ -446,5 +435,6 @@ document.getElementById('logout').addEventListener('click',function(){
 });
 </script>
 <script src="/medcore-sync.js" defer></script>
+<script src="/auth-nav.js" defer></script>
 </body>
 </html>
