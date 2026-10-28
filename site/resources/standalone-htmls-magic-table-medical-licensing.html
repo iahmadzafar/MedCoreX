@@ -24,7 +24,7 @@
   --c-21:#78350f; --c-22:#0891b2; --c-23:#a21caf; --c-24:#a16207; --c-25:#166534;
   --c-26:#1e3a8a; --c-27:#65a30d; --c-28:#0284c7; --c-29:#c026d3; --c-30:#d61f69;
   --c-31:#6366f1; --c-32:#ca8a04; --c-33:#9333ea; --c-34:#d97706; --c-35:#3b82f6;
-  --c-36:#059669; --c-37:#64748b; --c-38:#dc2626; --c-39:#0d9488;
+  --c-36:#059669; --c-37:#64748b; --c-38:#dc2626; --c-39:#0d9488; --c-40:#ea580c;
   /* category-chip and score hues (House Rules 1.2: chip hues carry meaning) */
   --tag-gold:#a16207; --tag-blue:#1d4ed8; --tag-red:#be123c; --tag-green:#047857;
   --tag-purple:#6d28d9; --tag-teal:#0f766e; --tag-orange:#c2410c; --tag-pink:#be185d;
@@ -63,6 +63,7 @@ html[data-theme=light]{
   --c-26:#1a3277; --c-27:#578c0b; --c-28:#0272ab; --c-29:#a521b5; --c-30:#b81b5a;
   --c-31:#5558cf; --c-32:#ae7703; --c-33:#7e2cc9; --c-34:#bb6605; --c-35:#3370d4;
   --c-36:#04815a; --c-37:#566478; --c-38:#bd2121; --c-39:#0b7f75;
+  --c-40:#c94b0a;
 }
 .section{--accent-ink:color-mix(in srgb,var(--accent) 70%,var(--text));--accent-border:color-mix(in srgb,var(--accent) 38%,transparent);--accent-tint:color-mix(in srgb,var(--accent) 7%,transparent)}
 /* kit supplies font/colour/background/transition — this page only adds rhythm + tool height */
@@ -197,7 +198,7 @@ tbody tr:hover td{background:var(--accent-tint)}
 
 /* ══════════ SECTION ACCENTS ══════════ */
 #endocrine{--accent:var(--c-01)}#parathyroid{--accent:var(--c-02)}#adrenal{--accent:var(--c-03)}#pituitary{--accent:var(--c-04)}#men{--accent:var(--c-05)}#heart-murmurs{--accent:var(--c-06)}#jvp{--accent:var(--c-07)}#drugs{--accent:var(--c-08)}#anemia{--accent:var(--c-09)}#translocations{--accent:var(--c-10)}#aiha{--accent:var(--c-11)}#anticoag{--accent:var(--c-12)}#oxy-hb{--accent:var(--c-13)}#surgical{--accent:var(--c-14)}#urine-casts{--accent:var(--c-15)}#tubular{--accent:var(--c-16)}#diuretics{--accent:var(--c-17)}#nerves{--accent:var(--c-18)}#cranial{--accent:var(--c-19)}#biostats{--accent:var(--c-20)}#forensic{--accent:var(--c-21)}#pediatrics{--accent:var(--c-22)}#tumor-markers{--accent:var(--c-23)}#appendicitis{--accent:var(--c-24)}#antidotes{--accent:var(--c-25)}#wounds{--accent:var(--c-26)}
-#git{--accent:var(--c-27)}#resp{--accent:var(--c-28)}#infectious{--accent:var(--c-29)}#obgyn{--accent:var(--c-30)}#immuno{--accent:var(--c-31)}#embryo{--accent:var(--c-32)}#psych{--accent:var(--c-33)}#msk{--accent:var(--c-34)}#neuro{--accent:var(--c-35)}#biochem{--accent:var(--c-36)}#community{--accent:var(--c-37)}#cardio{--accent:var(--c-38)}#acid-base{--accent:var(--c-39)}
+#git{--accent:var(--c-27)}#resp{--accent:var(--c-28)}#infectious{--accent:var(--c-29)}#obgyn{--accent:var(--c-30)}#immuno{--accent:var(--c-31)}#embryo{--accent:var(--c-32)}#psych{--accent:var(--c-33)}#msk{--accent:var(--c-34)}#neuro{--accent:var(--c-35)}#biochem{--accent:var(--c-36)}#community{--accent:var(--c-37)}#cardio{--accent:var(--c-38)}#acid-base{--accent:var(--c-39)}#shock{--accent:var(--c-40)}
 
 /* ══════════ BACK TO TOP ══════════ */
 .back-to-top{position:fixed;bottom:1.5rem;right:1.5rem;z-index:200;width:42px;height:42px;border-radius:var(--radius);background:var(--surface);border:1px solid var(--border-strong);color:var(--text-dim);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;transform:translateY(10px);transition:all .3s;box-shadow:var(--shadow-1)}
@@ -281,7 +282,7 @@ summary{cursor:pointer}
       <input type="text" id="searchInput" placeholder="Search tables…" autocomplete="off">
     </div>
     <div class="nav-pills" id="navLinks">
-      <a href="#endocrine">Endocrine</a><a href="#parathyroid">Thyroid</a><a href="#adrenal">Adrenal</a><a href="#pituitary">Pituitary</a><a href="#men">MEN</a><a href="#heart-murmurs">Murmurs</a><a href="#jvp">JVP</a><a href="#drugs">Drugs</a><a href="#anemia">Anemia</a><a href="#translocations">Translocations</a><a href="#aiha">AIHA</a><a href="#anticoag">Anticoagulants</a><a href="#oxy-hb">O₂-Hb</a><a href="#surgical">Surgical</a><a href="#urine-casts">Casts</a><a href="#tubular">Tubular</a><a href="#diuretics">Diuretics</a><a href="#nerves">Nerves</a><a href="#cranial">Cranial</a><a href="#biostats">Biostats</a><a href="#forensic">Forensic</a><a href="#pediatrics">Pediatrics</a><a href="#tumor-markers">Tumor Markers</a><a href="#appendicitis">Appendicitis</a><a href="#antidotes">Antidotes</a><a href="#wounds">Wounds</a><a href="#git">GIT</a><a href="#resp">Respiratory</a><a href="#infectious">ID/Micro</a><a href="#obgyn">OB/GYN</a><a href="#immuno">Immunology</a><a href="#embryo">Embryology</a><a href="#psych">Psychiatry</a><a href="#msk">MSK</a><a href="#neuro">Neurology</a><a href="#biochem">Biochem</a><a href="#community">Community</a><a href="#cardio">Cardiology</a><a href="#acid-base">Acid-Base</a>
+      <a href="#endocrine">Endocrine</a><a href="#parathyroid">Thyroid</a><a href="#adrenal">Adrenal</a><a href="#pituitary">Pituitary</a><a href="#men">MEN</a><a href="#heart-murmurs">Murmurs</a><a href="#jvp">JVP</a><a href="#drugs">Drugs</a><a href="#anemia">Anemia</a><a href="#translocations">Translocations</a><a href="#aiha">AIHA</a><a href="#anticoag">Anticoagulants</a><a href="#oxy-hb">O₂-Hb</a><a href="#surgical">Surgical</a><a href="#urine-casts">Casts</a><a href="#tubular">Tubular</a><a href="#diuretics">Diuretics</a><a href="#nerves">Nerves</a><a href="#cranial">Cranial</a><a href="#biostats">Biostats</a><a href="#forensic">Forensic</a><a href="#pediatrics">Pediatrics</a><a href="#tumor-markers">Tumor Markers</a><a href="#appendicitis">Appendicitis</a><a href="#antidotes">Antidotes</a><a href="#wounds">Wounds</a><a href="#git">GIT</a><a href="#resp">Respiratory</a><a href="#infectious">ID/Micro</a><a href="#obgyn">OB/GYN</a><a href="#immuno">Immunology</a><a href="#embryo">Embryology</a><a href="#psych">Psychiatry</a><a href="#msk">MSK</a><a href="#neuro">Neurology</a><a href="#biochem">Biochem</a><a href="#community">Community</a><a href="#cardio">Cardiology</a><a href="#acid-base">Acid-Base</a><a href="#shock">Shock</a>
     </div>
     <div class="nav-controls">
       <button class="btn-icon" id="selfTestBtn" title="Self-test mode: hide answer columns">
@@ -298,7 +299,7 @@ summary{cursor:pointer}
 <div class="side-links" id="sideLinks">
   <div class="side-head">Contents</div>
   <nav>
-    <a href="#endocrine">Endocrine</a><a href="#parathyroid">Thyroid</a><a href="#adrenal">Adrenal</a><a href="#pituitary">Pituitary</a><a href="#men">MEN</a><a href="#heart-murmurs">Murmurs</a><a href="#jvp">JVP</a><a href="#drugs">Drugs</a><a href="#anemia">Anemia</a><a href="#translocations">Translocations</a><a href="#aiha">AIHA</a><a href="#anticoag">Anticoagulants</a><a href="#oxy-hb">O₂-Hb</a><a href="#surgical">Surgical</a><a href="#urine-casts">Casts</a><a href="#tubular">Tubular</a><a href="#diuretics">Diuretics</a><a href="#nerves">Nerves</a><a href="#cranial">Cranial</a><a href="#biostats">Biostats</a><a href="#forensic">Forensic</a><a href="#pediatrics">Pediatrics</a><a href="#tumor-markers">Tumor Markers</a><a href="#appendicitis">Appendicitis</a><a href="#antidotes">Antidotes</a><a href="#wounds">Wounds</a><a href="#git">GIT</a><a href="#resp">Respiratory</a><a href="#infectious">ID/Micro</a><a href="#obgyn">OB/GYN</a><a href="#immuno">Immunology</a><a href="#embryo">Embryology</a><a href="#psych">Psychiatry</a><a href="#msk">MSK</a><a href="#neuro">Neurology</a><a href="#biochem">Biochem</a><a href="#community">Community</a><a href="#cardio">Cardiology</a><a href="#acid-base">Acid-Base</a>
+    <a href="#endocrine">Endocrine</a><a href="#parathyroid">Thyroid</a><a href="#adrenal">Adrenal</a><a href="#pituitary">Pituitary</a><a href="#men">MEN</a><a href="#heart-murmurs">Murmurs</a><a href="#jvp">JVP</a><a href="#drugs">Drugs</a><a href="#anemia">Anemia</a><a href="#translocations">Translocations</a><a href="#aiha">AIHA</a><a href="#anticoag">Anticoagulants</a><a href="#oxy-hb">O₂-Hb</a><a href="#surgical">Surgical</a><a href="#urine-casts">Casts</a><a href="#tubular">Tubular</a><a href="#diuretics">Diuretics</a><a href="#nerves">Nerves</a><a href="#cranial">Cranial</a><a href="#biostats">Biostats</a><a href="#forensic">Forensic</a><a href="#pediatrics">Pediatrics</a><a href="#tumor-markers">Tumor Markers</a><a href="#appendicitis">Appendicitis</a><a href="#antidotes">Antidotes</a><a href="#wounds">Wounds</a><a href="#git">GIT</a><a href="#resp">Respiratory</a><a href="#infectious">ID/Micro</a><a href="#obgyn">OB/GYN</a><a href="#immuno">Immunology</a><a href="#embryo">Embryology</a><a href="#psych">Psychiatry</a><a href="#msk">MSK</a><a href="#neuro">Neurology</a><a href="#biochem">Biochem</a><a href="#community">Community</a><a href="#cardio">Cardiology</a><a href="#acid-base">Acid-Base</a><a href="#shock">Shock</a>
   </nav>
 </div>
 <div class="no-results" id="noResults">No matching sections found.</div>
@@ -1339,6 +1340,29 @@ summary{cursor:pointer}
       <tr><td><strong>HypoK⁺</strong></td><td>Diuretics, vomiting, diarrhea, aldosterone excess, insulin</td><td>U waves, flat T, arrhythmia; oral/IV replacement (never rapid IV bolus)</td></tr>
     </tbody>
   </table></div></div></div>
+</section>
+
+<section class="section" id="shock" data-search="shock distributive cardiogenic obstructive hypovolemic sepsis anaphylaxis neurogenic hemorrhage norepinephrine dopamine dobutamine fluids vasopressors MAP lactate shock classification management">
+  <div class="section-header"><a class="section-num" href="#shock">40</a><div class="section-titles"><div class="kicker">Distributive · Cardiogenic · Obstructive · Hypovolemic</div><h2 class="section-title">Shock</h2><span class="section-accent"></span></div><button class="section-print" title="Print this section"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V3h12v6"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="7"/></svg><span class="sp-label">PRINT</span></button></div>
+  <div class="card"><div class="card-title"><span class="ct-label">Shock Classification</span><span class="ct-fill"></span><button class="ct-btn" data-ct="recall" title="Self-test this table"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></button><button class="ct-btn" data-ct="fold" title="Collapse / expand"><svg class="ico-fold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button></div><div class="card-collapsible"><div class="table-wrap"><table>
+    <thead><tr><th>Type</th><th>Typical Causes</th><th>Hemodynamics</th><th>Bedside Clues</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Distributive</strong></td><td>Sepsis, anaphylaxis, neurogenic, spinal</td><td>↓SVR, warm shock</td><td>Bounding pulses, warm extremities, flushed skin</td></tr>
+      <tr><td><strong>Cardiogenic</strong></td><td>MI, acute heart failure, end-stage cardiomyopathy</td><td>↓CO, ↑SVR, cold shock</td><td>Cool clammy skin, JVD, pulmonary edema, new murmur</td></tr>
+      <tr><td><strong>Obstructive</strong></td><td>Tension pneumothorax, cardiac tamponade, massive PE</td><td>Mechanical block to filling</td><td>JVD, muffled heart sounds, absent/unilateral breath sounds, tracheal deviation</td></tr>
+      <tr><td><strong>Hypovolemic</strong></td><td>Hemorrhage, burns, severe dehydration, DKA</td><td>↓Preload, tachycardia early</td><td>Tachycardia, hypotension (late sign), flat neck veins, delayed cap refill</td></tr>
+    </tbody>
+  </table></div><p class="card-note">Hypotension is a late sign — tachycardia and altered mentation come first. Obstructive and cardiogenic shock can look like distributive; look for JVD, muffled heart sounds, and absent breath sounds before labeling it sepsis.</p></div></div>
+  <div class="card"><div class="card-title"><span class="ct-label">Shock Management</span><span class="ct-fill"></span><button class="ct-btn" data-ct="recall" title="Self-test this table"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></button><button class="ct-btn" data-ct="fold" title="Collapse / expand"><svg class="ico-fold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button></div><div class="card-collapsible"><div class="table-wrap"><table>
+    <thead><tr><th>Step</th><th>Action</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Airway / Breathing</strong></td><td>High-flow O₂; secure airway if GCS falling or respiratory distress</td></tr>
+      <tr><td><strong>Circulation</strong></td><td>Two large-bore IVs / IO; isotonic crystalloid bolus, reassess after each liter</td></tr>
+      <tr><td><strong>Vasopressors</strong></td><td>Norepinephrine first-line once volume replete; target MAP ≥65 mmHg; dobutamine if cardiogenic with low CO</td></tr>
+      <tr><td><strong>Treat the cause</strong></td><td>Sepsis: cultures + broad-spectrum antibiotics · Anaphylaxis: IM epinephrine · Tension PTX: needle decompression · Tamponade: pericardiocentesis · Massive PE: reperfusion · Hemorrhage: surgical/IR control, blood products</td></tr>
+      <tr><td><strong>Monitoring</strong></td><td>MAP, lactate (falling = improving), urine output ≥0.5 mL/kg/hr, CVP if available, serial exams</td></tr>
+    </tbody>
+  </table></div><p class="card-note">Fluid responsiveness matters more than volume given — reassess after every bolus. In cardiogenic shock, fluids can harm; use inotropes/vasopressors early and echo to confirm.</p></div></div>
 </section>
 
 </div>
