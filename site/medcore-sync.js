@@ -43,12 +43,44 @@
   // Backstop: guaranteed periodic sync even if the setItem wrap is unavailable.
   setInterval(function () { if (MED.user) push(); }, 15000);
 
+
+// schema-safe deep merge: objects union, arrays union, numbers max (never regress), else incoming
+function deepMerge(base, inc) {
+  if (Array.isArray(base) && Array.isArray(inc)) {
+    const out = base.slice();
+    for (const v of inc) if (!out.some(x => JSON.stringify(x) === JSON.stringify(v))) out.push(v);
+    return out;
+  }
+  const bothObj = base && inc && typeof base === 'object' && typeof inc === 'object';
+  if (bothObj && !Array.isArray(base) && !Array.isArray(inc)) {
+    const out = Object.assign({}, base);
+    for (const k of Object.keys(inc)) out[k] = (k in base) ? deepMerge(base[k], inc[k]) : inc[k];
+    return out;
+  }
+  if (typeof base === 'number' && typeof inc === 'number') return Math.max(base, inc);
+  return inc;
+}
+
   function pull() {
     return fetch(API + '/progress', { credentials: 'include' })
       .then(function (r) { return r.json(); })
       .then(function (p) {
         if (!p || !p.ok || !p.data) return;
-        for (var k in p.data) { try { localStorage.setItem(k, p.data[k]); } catch (e) {} }
+        for (var k in p.data) {
+          try {
+            var loc = localStorage.getItem(k), acc = p.data[k];
+            if (loc && loc !== acc) {
+              var A = null, B = null;
+              try { A = JSON.parse(loc); } catch (e) {}
+              try { B = JSON.parse(acc); } catch (e) {}
+              if (A && B && typeof A === 'object' && typeof B === 'object' && !Array.isArray(A) && !Array.isArray(B)) {
+                localStorage.setItem(k, JSON.stringify(deepMerge(B, A)));  // base=account, inc=local
+                continue;
+              }
+            }
+            localStorage.setItem(k, acc);
+          } catch (e) {}
+        }
         document.dispatchEvent(new CustomEvent('medcore:synced'));
       }).catch(function () {});
   }

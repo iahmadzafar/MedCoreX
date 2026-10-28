@@ -24,7 +24,20 @@ export async function onRequestPut({ request, env }) {
   const row = await env.medcore_db.prepare('SELECT data FROM progress WHERE user_id=?').bind(u.id).first();
   let existing = {};
   if (row && row.data) { try { existing = JSON.parse(row.data); } catch {} }
-  const merged = { ...existing, ...incoming };
+  // deep merge per key: JSON objects merge (union + max) instead of last-writer-wins replacement
+  const merged = { ...existing };
+  for (const k of Object.keys(incoming)) {
+    if (k in existing && typeof existing[k] === 'string' && typeof incoming[k] === 'string') {
+      let a = null, b = null;
+      try { a = JSON.parse(existing[k]); } catch {}
+      try { b = JSON.parse(incoming[k]); } catch {}
+      if (a && b && typeof a === 'object' && typeof b === 'object' && !Array.isArray(a) && !Array.isArray(b)) {
+        merged[k] = JSON.stringify(deepMerge(a, b));
+        continue;
+      }
+    }
+    merged[k] = incoming[k];
+  }
   const text = JSON.stringify(merged);
   if (text.length > 900000) return bad('progress payload too large.', 413);
 
