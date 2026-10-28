@@ -1,37 +1,12 @@
 {
   "cats": [
-    {
-      "name": "Core Books",
-      "d": "Flagship complete study books"
-    },
-    {
-      "name": "Test Series & Mocks",
-      "d": "Full-length practice exams by subject and session"
-    },
-    {
-      "name": "MCQ Drills",
-      "d": "25-question subject sets for daily practice"
-    },
-    {
-      "name": "Past Papers & Answer Keys",
-      "d": "Recalled papers, keys and breakdowns"
-    },
-    {
-      "name": "Exam Intelligence & Strategy",
-      "d": "Pattern analysis, predictions and battle plans"
-    },
-    {
-      "name": "Quick Reference",
-      "d": "Cheat sheets, tables and last-minute revision"
-    },
-    {
-      "name": "Frameworks & Interactive",
-      "d": "Reasoning tools and interactive practice"
-    },
-    {
-      "name": "MedCORE Systems",
-      "d": "One complete MedCORE book per system"
-    }
+    "Core Books",
+    "Mocks & Drills",
+    "Past Papers & Answer Keys",
+    "Exam Intelligence & Strategy",
+    "Quick Reference",
+    "Frameworks & Interactive",
+    "MedCORE Systems"
   ],
   "items": [
     {
@@ -119,7 +94,7 @@
       "k": 99.6
     },
     {
-      "t": "Prediction Exam · Key",
+      "t": "Prediction Exam \u00b7 Key",
       "d": "Same paper, full key",
       "c": "Past Papers & Answer Keys",
       "f": "medcore-prediction-exam-answer-key.html",
@@ -134,14 +109,14 @@
     },
     {
       "t": "Full Picture Report",
-      "d": "Whole-system map · one view of everything",
+      "d": "Whole-system map \u00b7 one view of everything",
       "c": "Exam Intelligence & Strategy",
       "f": "medcore-system-full-picture-report.html",
       "k": 157.5
     },
     {
       "t": "Pattern Analysis",
-      "d": "Four papers decoded · recurring patterns",
+      "d": "Four papers decoded \u00b7 recurring patterns",
       "c": "Exam Intelligence & Strategy",
       "f": "medcore-pattern-analysis.html",
       "k": 15.8
@@ -162,7 +137,7 @@
     },
     {
       "t": "Battle LMS",
-      "d": "Command centre · schedule, drills, tracking",
+      "d": "Command centre \u00b7 schedule, drills, tracking",
       "c": "Exam Intelligence & Strategy",
       "f": "planner-medcore-battle-lms.html",
       "k": 86.5
@@ -176,7 +151,7 @@
     },
     {
       "t": "Magic Table",
-      "d": "Licensing thresholds · memorise once",
+      "d": "Licensing thresholds \u00b7 memorise once",
       "c": "Quick Reference",
       "f": "standalone-htmls-magic-table-medical-licensing.html",
       "k": 207.2
@@ -197,7 +172,7 @@
     },
     {
       "t": "Last Day Sheet",
-      "d": "Final night · highest-yield only",
+      "d": "Final night \u00b7 highest-yield only",
       "c": "Quick Reference",
       "f": "side-projects-last-day-revision-sheet.html",
       "k": 62.8
@@ -281,10 +256,17 @@
     },
     {
       "t": "MedCORE Question Bank",
-      "d": "Test series + main bank merged · six subject groups",
-      "c": "Test Series & Mocks",
+      "d": "Test series + main bank merged \u00b7 six subject groups",
+      "c": "Mocks & Drills",
       "f": "medcore-question-bank.html",
       "k": 5301.1
+    },
+    {
+      "t": "Repeat Offenders",
+      "d": "The NRE recall vault \u2014 questions that keep coming back",
+      "c": "Quick Reference",
+      "f": "nre-recall-sheets-repeat-offenders.html",
+      "k": 53.6
     }
   ]
 }
