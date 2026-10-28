@@ -1,6 +1,6 @@
 // Shared helpers for the MedLib X API (Cloudflare Pages Functions + D1).
-// Adapted from the proven MedCORE Hub auth stack — binding renamed to medlibx_db,
-// session cookie namespaced to medlibx_session, username added to the model.
+// Adapted from the proven MedCORE Hub auth stack — binding renamed to medcore_db,
+// session cookie namespaced to medcore_session, username added to the model.
 
 export function json(data, status = 200, headers = {}) {
   return new Response(JSON.stringify(data), {
@@ -38,7 +38,7 @@ export function validUsername(u) {
   return typeof u === 'string' && /^[a-z0-9-]{3,24}$/.test(u);
 }
 
-const COOKIE = 'medlibx_session';
+const COOKIE = 'medcore_session';
 const MAX_AGE = 90 * 24 * 3600; // 90 days — long enough that "come back later" never surprises
 
 export function setSessionCookie(token) {
@@ -56,15 +56,15 @@ export function readCookie(request, name = COOKIE) {
 export async function getUser(request, env) {
   const token = readCookie(request);
   if (!token) return null;
-  const row = await env.medlibx_db.prepare('SELECT user_id, expires_at FROM sessions WHERE token=?').bind(token).first();
+  const row = await env.medcore_db.prepare('SELECT user_id, expires_at FROM sessions WHERE token=?').bind(token).first();
   if (!row || row.expires_at < Date.now()) return null;
-  const u = await env.medlibx_db.prepare('SELECT id, email, username, created_at FROM users WHERE id=?').bind(row.user_id).first();
+  const u = await env.medcore_db.prepare('SELECT id, email, username, created_at FROM users WHERE id=?').bind(row.user_id).first();
   return u || null;
 }
 
 export async function createSession(env, userId) {
   const token = newToken(), now = Date.now(), exp = now + MAX_AGE * 1000;
-  await env.medlibx_db.prepare('INSERT INTO sessions (token,user_id,created_at,expires_at) VALUES (?,?,?,?)')
+  await env.medcore_db.prepare('INSERT INTO sessions (token,user_id,created_at,expires_at) VALUES (?,?,?,?)')
     .bind(token, userId, now, exp).run();
   return token;
 }

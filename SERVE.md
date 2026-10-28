@@ -55,10 +55,10 @@ Ledger admin (historical, not served): https://medcorex.pages.dev/admin/keyhole 
 
 The key: Pages secret `MX_KEYHOLE`, mirrored into the Mac keychain. Retrieve in Terminal:
 
-    security find-generic-password -a medlibx -s keyhole -w
+    security find-generic-password -a medcore -s keyhole -w
 
-Paste into the keyhole page once — the browser remembers it (localStorage `medlibx.keyhole`). The key is never pasted into chat, never written to any file, and nothing is reachable without it.
+Paste into the keyhole page once — the browser remembers it (localStorage `medcore.keyhole`). The key is never pasted into chat, never written to any file, and nothing is reachable without it.
 
 ## Sessions · practical "come back later"
 
-90-day session cookies (`medlibx_session`, HttpOnly/Secure/SameSite=Lax), sessions + users live in D1 `medlibx-db`. Sign in once, come back weeks later on the same browser — still signed. Private/incognito windows discard cookies by design; the site cannot remember those. Always use the plain medcorex.pages.dev host; per-deploy snapshot subdomains don't share cookies.
+90-day session cookies (`medcore_session`, HttpOnly/Secure/SameSite=Lax), sessions + users live in D1 `medcore-auth-db`. Sign in once, come back weeks later on the same browser — still signed. Private/incognito windows discard cookies by design; the site cannot remember those. Always use the plain medcorex.pages.dev host; per-deploy snapshot subdomains don't share cookies.

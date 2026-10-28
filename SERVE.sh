@@ -22,7 +22,7 @@ class H(http.server.BaseHTTPRequestHandler):
         if os.environ.get('MLX_INSECURE') == '1':
             pass
         elif p.startswith('/resources/'):
-            if 'medlibx_session=' not in (self.headers.get('Cookie') or ''):
+            if 'medcore_session=' not in (self.headers.get('Cookie') or ''):
                 loc = '/login?next=' + urllib.parse.quote(p)
                 sys.stderr.write(f'[gate] {p} -> 302 {loc}\n')
                 self.send_response(302)

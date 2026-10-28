@@ -19,7 +19,7 @@ export async function onRequestPost({ request, env }) {
 
   const username = (body.username || '').trim().toLowerCase();
   if (!username) return bad('Whose name at the desk?');
-  const u = await env.medlibx_db.prepare('SELECT id FROM users WHERE username=?').bind(username).first();
+  const u = await env.medcore_db.prepare('SELECT id FROM users WHERE username=?').bind(username).first();
   if (!u) return bad('No such name at the desk.', 404);
 
   let password = (body.password || '').trim();
@@ -29,9 +29,9 @@ export async function onRequestPost({ request, env }) {
 
   const salt = crypto.randomUUID().replace(/-/g, '').slice(0, 16);
   const pass_hash = await hashPassword(password, salt);
-  await env.medlibx_db.prepare('UPDATE users SET pass_hash=?, salt=? WHERE id=?').bind(pass_hash, salt, u.id).run();
+  await env.medcore_db.prepare('UPDATE users SET pass_hash=?, salt=? WHERE id=?').bind(pass_hash, salt, u.id).run();
   // every seat is emptied — the new password is the only key that opens
-  await env.medlibx_db.prepare('DELETE FROM sessions WHERE user_id=?').bind(u.id).run();
+  await env.medcore_db.prepare('DELETE FROM sessions WHERE user_id=?').bind(u.id).run();
 
   const out = { ok: true, username, sessions_killed: true };
   if (shown) out.password = password; // exactly once

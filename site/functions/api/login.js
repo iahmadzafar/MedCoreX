@@ -13,7 +13,7 @@ function failKey(request, email) {
 }
 
 async function hole(env, key) {
-  const row = await env.medlibx_db.prepare('SELECT fails, last FROM auth_fails WHERE key=?').bind(key).first();
+  const row = await env.medcore_db.prepare('SELECT fails, last FROM auth_fails WHERE key=?').bind(key).first();
   if (!row) return { fails: 0, last: 0 };
   // stale debts (last fail older than the max gap) forgiven on read
   if (row.last < Date.now() - 3600 * 1000) return { fails: 0, last: row.last };
@@ -22,13 +22,13 @@ async function hole(env, key) {
 
 async function recordFail(env, key, fails) {
   const now = Date.now();
-  await env.medlibx_db.prepare(
+  await env.medcore_db.prepare(
     'INSERT INTO auth_fails (key,fails,last) VALUES (?,?,?) ON CONFLICT(key) DO UPDATE SET fails=excluded.fails, last=excluded.last'
   ).bind(key, fails, now).run();
 }
 
 async function clearFail(env, key) {
-  await env.medlibx_db.prepare('DELETE FROM auth_fails WHERE key=?').bind(key).run();
+  await env.medcore_db.prepare('DELETE FROM auth_fails WHERE key=?').bind(key).run();
 }
 
 export async function onRequestPost({ request, env }) {
@@ -52,7 +52,7 @@ export async function onRequestPost({ request, env }) {
   }
 
   const t0 = Date.now();
-  const u = await env.medlibx_db.prepare('SELECT id,email,username,pass_hash,salt FROM users WHERE email=?').bind(email).first();
+  const u = await env.medcore_db.prepare('SELECT id,email,username,pass_hash,salt FROM users WHERE email=?').bind(email).first();
   let h = null;
   if (u) h = await hashPassword(password, u.salt);
   const ok = !!u && !!h && h === u.pass_hash;
@@ -65,7 +65,7 @@ export async function onRequestPost({ request, env }) {
   await clearFail(env, key);
   const token = await createSession(env, u.id);
   // housekeeping: sweep dead sessions so the table doesn't grow forever
-  await env.medlibx_db.prepare('DELETE FROM sessions WHERE expires_at < ?').bind(Date.now()).run();
+  await env.medcore_db.prepare('DELETE FROM sessions WHERE expires_at < ?').bind(Date.now()).run();
   return json({ ok: true, user: { id: u.id, email: u.email, username: u.username } }, 200, { 'Set-Cookie': setSessionCookie(token), ...cors() });
 }
 

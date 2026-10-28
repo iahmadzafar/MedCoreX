@@ -256,7 +256,7 @@ assistant without ever going live.)
 | `mx-mode` | engine source (dark/light) | stays — kit owns it |
 | `mx-stars` | `library.html` (write), `stats.html` (read) | stays (favourites, not progress) |
 | `mx-last` | `index.html` (write), `stats.html` (read) | stays (resume link) |
-| `medlibx.keyhole` | `keyhole.html` | **NEVER renamed** — keychain/browser credential pairing (AGENTS.md exception) |
+| `medcore.keyhole` | `keyhole.html` | **NEVER renamed** — keychain/browser credential pairing (AGENTS.md exception) |
 | `medcore_book` | does not exist yet | Phase 4 introduces `medcore.book` with the four-file Study Book |
 
 **Out of kit scope (resources — Phase 7 territory):** `mlx-theme` (29 files),

@@ -8,7 +8,7 @@ HERE="$(cd "$(dirname "$0")" && pwd)"
 cd "$HERE"
 
 PROJECT="medcorex"
-DB="medlibx-db"
+DB="medcore-auth-db"
 
 if [ -z "${CLOUDFLARE_API_TOKEN:-}" ]; then
   # No env token: OAuth login (`wrangler login`) is fine instead — it lives in

@@ -3,12 +3,12 @@ pages_build_output_dir = "."
 compatibility_date = "2025-01-01"
 
 [[d1_databases]]
-binding = "medlibx_db"
-database_name = "medlibx-db"
+binding = "medcore_db"
+database_name = "medcore-auth-db"
 database_id = "f830d37c-7098-4b80-968d-7352b12b3c66"
 
-# auth/login/progress functions (merged in from the NRE hub) read env.medcore_db
+# progress (saved reader progress) reads env.medcore_progress_db
 [[d1_databases]]
-binding = "medcore_db"
+binding = "medcore_progress_db"
 database_name = "medcore-db"
 database_id = "2d13a393-397b-4f29-bec8-ebd9c5e1ee36"

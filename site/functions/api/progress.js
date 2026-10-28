@@ -23,7 +23,7 @@ export const onRequestOptions = () => options();
 export async function onRequestGet({ request, env }) {
   const u = await getUser(request, env);
   if (!u) return bad('Not signed in.', 401);
-  const row = await env.medcore_db.prepare('SELECT data, updated_at FROM progress WHERE user_id=?').bind(u.id).first();
+  const row = await env.medcore_progress_db.prepare('SELECT data, updated_at FROM progress WHERE user_id=?').bind(u.id).first();
   let data = {};
   if (row && row.data) { try { data = JSON.parse(row.data); } catch {} }
   return json({ ok: true, data, updated_at: row ? row.updated_at : 0 }, 200, cors());
@@ -38,7 +38,7 @@ export async function onRequestPut({ request, env }) {
   const incoming = body && body.data;
   if (!incoming || typeof incoming !== 'object') return bad('data must be an object.');
 
-  const row = await env.medcore_db.prepare('SELECT data FROM progress WHERE user_id=?').bind(u.id).first();
+  const row = await env.medcore_progress_db.prepare('SELECT data FROM progress WHERE user_id=?').bind(u.id).first();
   let existing = {};
   if (row && row.data) { try { existing = JSON.parse(row.data); } catch {} }
   // deep merge per key: JSON objects merge (union + max) instead of last-writer-wins replacement
@@ -58,7 +58,7 @@ export async function onRequestPut({ request, env }) {
   const text = JSON.stringify(merged);
   if (text.length > 900000) return bad('progress payload too large.', 413);
 
-  await env.medcore_db.prepare(
+  await env.medcore_progress_db.prepare(
     'INSERT INTO progress (user_id,data,updated_at) VALUES (?,?,?) ON CONFLICT(user_id) DO UPDATE SET data=excluded.data, updated_at=excluded.updated_at'
   ).bind(u.id, text, Date.now()).run();
 

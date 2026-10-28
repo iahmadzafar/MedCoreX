@@ -50,12 +50,12 @@ export async function onRequestGet({ request, env }) {
   if (p.email_verified === false) return fail('google-email');
 
   // Find or create the account (Google users have no password).
-  // Same D1 binding (medlibx_db) as register/login/_util so Google users live in
+  // Same D1 binding (medcore_db) as register/login/_util so Google users live in
   // the same users table as email/password accounts and can sign in either way.
-  let u = await env.medlibx_db.prepare('SELECT id,email FROM users WHERE email=?').bind(email).first();
+  let u = await env.medcore_db.prepare('SELECT id,email FROM users WHERE email=?').bind(email).first();
   if (!u) {
     const id = newId();
-    await env.medlibx_db.prepare('INSERT INTO users (id,email,pass_hash,salt,created_at) VALUES (?,?,?,?,?)')
+    await env.medcore_db.prepare('INSERT INTO users (id,email,pass_hash,salt,created_at) VALUES (?,?,?,?,?)')
       .bind(id, email, 'google-oauth', 'google', Date.now()).run();
     u = { id, email };
   }

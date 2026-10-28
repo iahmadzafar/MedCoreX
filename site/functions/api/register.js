@@ -5,7 +5,7 @@ export const onRequestOptions = () => options();
 // Assign a unique username derived from the email's local part.
 // Sanitised to [a-z0-9-]; if the base is taken, numeric suffixes are tried,
 // then a random hex tail. Reserved words are locked out (staff-flavoured names).
-const RESERVED = new Set(['admin','administrator','librarian','moderator','medlib','medlibx','staff','support','root','system','official','contact','help','account','accounts','login','logout','register','signup','signin','library','about','faq','terms','privacy','profile','user','users']);
+const RESERVED = new Set(['admin','administrator','librarian','moderator','medlib','medcore','staff','support','root','system','official','contact','help','account','accounts','login','logout','register','signup','signin','library','about','faq','terms','privacy','profile','user','users']);
 
 function baseFromEmail(email) {
   let b = email.split('@')[0].toLowerCase()
@@ -21,7 +21,7 @@ function baseFromEmail(email) {
 async function assignUsername(env, email) {
   const base = baseFromEmail(email);
   const claim = async (u) => {
-    const hit = await env.medlibx_db.prepare('SELECT id FROM users WHERE username=?').bind(u).first();
+    const hit = await env.medcore_db.prepare('SELECT id FROM users WHERE username=?').bind(u).first();
     return hit ? null : u;
   };
   let name = await claim(base);
@@ -48,12 +48,12 @@ export async function onRequestPost({ request, env }) {
   if (wanted && !validUsername(wanted)) return bad('Username must be 3–24 lowercase letters, numbers or dashes.');
   if (wanted && RESERVED.has(wanted)) return bad('That username is reserved. Pick another.');
 
-  const existing = await env.medlibx_db.prepare('SELECT id FROM users WHERE email=?').bind(email).first();
+  const existing = await env.medcore_db.prepare('SELECT id FROM users WHERE email=?').bind(email).first();
   if (existing) return bad('That email is already registered.', 409);
 
   let username = wanted || null;
   if (username) {
-    const taken = await env.medlibx_db.prepare('SELECT id FROM users WHERE username=?').bind(username).first();
+    const taken = await env.medcore_db.prepare('SELECT id FROM users WHERE username=?').bind(username).first();
     if (taken) username = null; // fall through to auto-assignment rather than fail
   }
   if (!username) {
@@ -65,7 +65,7 @@ export async function onRequestPost({ request, env }) {
   const salt = newToken().slice(0, 16);
   const pass_hash = await hashPassword(password, salt);
   try {
-    await env.medlibx_db.prepare('INSERT INTO users (id,email,username,pass_hash,salt,created_at) VALUES (?,?,?,?,?,?)')
+    await env.medcore_db.prepare('INSERT INTO users (id,email,username,pass_hash,salt,created_at) VALUES (?,?,?,?,?,?)')
       .bind(id, email, username, pass_hash, salt, Date.now()).run();
   } catch (e) {
     // UNIQUE constraint fired → a concurrent signup claimed the seat first.
@@ -76,7 +76,7 @@ export async function onRequestPost({ request, env }) {
       username = await assignUsername(env, email);
       if (!username) return bad('Could not assign a username. Try again.', 503);
       try {
-        await env.medlibx_db.prepare('INSERT INTO users (id,email,username,pass_hash,salt,created_at) VALUES (?,?,?,?,?,?)')
+        await env.medcore_db.prepare('INSERT INTO users (id,email,username,pass_hash,salt,created_at) VALUES (?,?,?,?,?,?)')
           .bind(id, email, username, pass_hash, salt, Date.now()).run();
       } catch (e2) {
         // Email dup raced: honest answer either way.

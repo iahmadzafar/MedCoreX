@@ -27,9 +27,9 @@ Verify cheaply: `git status -sb` (no ahead/behind) + `curl -s localhost`-style m
 ## Naming (owner ruling, 27 Oct 2026)
 
 The project is **MedCoreX / MCX** — nothing is called MedLib X or medcorehub anymore.
-Keep it that way in every file, title, comment and commit. The only permitted `medlibx`
-strings are the infra identifiers that Cloudflare owns: D1 database `medlibx-db`, binding
-`medlibx_db`, session cookie `medlibx_session`, the keychain account `medlibx` (keyhole key — NEVER renamed, renaming orphans the stored secret) and localStorage `medlibx.keyhole`.
+Keep it that way in every file, title, comment and commit. The only permitted `medcore`
+strings are the infra identifiers that Cloudflare owns: D1 database `medcore-auth-db`, binding
+`medcore_db`, session cookie `medcore_session`, the keychain account `medcore` (keyhole key — NEVER renamed, renaming orphans the stored secret) and localStorage `medcore.keyhole`.
 
 ## House rules
 - **Never print file sizes with file names** — no KB/MB/bytes next to filenames anywhere:

@@ -11,10 +11,10 @@ export async function onRequestPost({ request, env }) {
   try { body = await request.json(); } catch { return bad('invalid JSON'); }
   const username = (body.username || '').trim().toLowerCase();
   if (!username) return bad('Whose name leaves the desk?');
-  const u = await env.medlibx_db.prepare('SELECT id FROM users WHERE username=?').bind(username).first();
+  const u = await env.medcore_db.prepare('SELECT id FROM users WHERE username=?').bind(username).first();
   if (!u) return bad('No such name at the desk.', 404);
-  await env.medlibx_db.prepare('DELETE FROM sessions WHERE user_id=?').bind(u.id).run();
-  await env.medlibx_db.prepare('DELETE FROM users WHERE id=?').bind(u.id).run();
+  await env.medcore_db.prepare('DELETE FROM sessions WHERE user_id=?').bind(u.id).run();
+  await env.medcore_db.prepare('DELETE FROM users WHERE id=?').bind(u.id).run();
   return json({ ok: true, removed: username }, 200, cors());
 }
 

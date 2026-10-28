@@ -9,7 +9,7 @@ async function isSignedIn(request, env) {
   const token = readCookie(request);
   if (!token) return false;
   try {
-    const row = await env.medlibx_db.prepare('SELECT expires_at FROM sessions WHERE token=?').bind(token).first();
+    const row = await env.medcore_db.prepare('SELECT expires_at FROM sessions WHERE token=?').bind(token).first();
     return !!(row && row.expires_at > Date.now());
   } catch { return false; }
 }

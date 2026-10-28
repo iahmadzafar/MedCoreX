@@ -138,7 +138,7 @@ input.field{width:100%}
       <h2>Unlock</h2>
       <div style="margin-top:10px"><label for="k">Librarian key</label><input class="field" id="k" type="password" autocomplete="off" style="max-width:520px"></div>
       <button class="btn" id="unlock" type="button" style="margin-top:12px">Unlock the ledger</button>
-      <p class="hint khint">The key lives in this Mac's keychain — <code>security find-generic-password -a medlibx -s keyhole -w</code> — and is stored in this browser after unlock. It never appears in chat or files.</p>
+      <p class="hint khint">The key lives in this Mac's keychain — <code>security find-generic-password -a medcore -s keyhole -w</code> — and is stored in this browser after unlock. It never appears in chat or files.</p>
       <div class="msg" id="m0"></div>
     </div>
     <div class="card" id="ledger" style="display:none">
@@ -171,7 +171,7 @@ input.field{width:100%}
 
 <script>
 var KEY = '';
-try { KEY = localStorage.getItem('medlibx.keyhole') || ''; } catch(e){}
+try { KEY = localStorage.getItem('medcore.keyhole') || ''; } catch(e){}
 
 function esc(s){return String(s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
 function fmt(ts){ if(!ts) return '—'; var d=new Date(ts); return d.toLocaleDateString(undefined,{year:'numeric',month:'short',day:'numeric'}); }
@@ -215,7 +215,7 @@ document.getElementById('unlock').addEventListener('click', async function(){
   KEY = document.getElementById('k').value.trim();
   var j = await api('/api/keyhole/list');
   if(!j.ok){ unlockUI(j.error||'Wrong key.'); return; }
-  try{ localStorage.setItem('medlibx.keyhole', KEY); }catch(e){}
+  try{ localStorage.setItem('medcore.keyhole', KEY); }catch(e){}
   render();
 });
 
