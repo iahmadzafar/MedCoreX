@@ -60,7 +60,7 @@ Actions secrets (`CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`).
 - Saved-progress names start with "medcore." (e.g. medcore.qb, medcore.book).
   Theme prefs stay mx-lock / mx-mode.
 - Test-only, never deployed or linked: verify.js, prooflocal.js, domproof.js,
-  bankproof.js, prodcheck.js, serve.js, deploy.sh.
+  bankproof.js, prodcheck.js, libproof.js, serve.js, deploy.sh.
 - New page = copy the shell from site/about.html, then add page CSS/JS.
 
 ## Change notes from the owner's assistant
