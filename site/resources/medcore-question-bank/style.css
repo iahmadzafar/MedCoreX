@@ -269,11 +269,11 @@ body{
 /* =========================================================
    DIALOGS (breakdown + shortcuts)
    ========================================================= */
-dialog{border:var(--bw) solid var(--ink);border-radius:var(--radius);background:var(--surface);color:var(--ink);box-shadow:8px 8px 0 var(--ink);padding:0;width:min(700px,calc(100vw - 36px));max-width:none}
+dialog{border:var(--bw) solid var(--ink);border-radius:var(--radius);background:var(--surface);color:var(--ink);box-shadow:8px 8px 0 var(--ink);padding:0;width:min(980px,calc(100vw - 24px));max-width:none;max-height:90vh}
 dialog::backdrop{background:color-mix(in srgb,var(--ink) 55%,transparent)}
 .dhead{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 22px;border-bottom:var(--bw) solid var(--ink)}
 .dhead h3{font-size:1.1rem}
-.dbody{padding:22px;display:grid;gap:15px;max-height:58vh;overflow:auto}
+.dbody{padding:22px;display:grid;gap:15px;max-height:72vh;overflow:auto}
 .dfoot{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 22px;border-top:var(--bw) solid var(--ink)}
 .dbody .stem{font-size:1.05rem}
 .keys{grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
