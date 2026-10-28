@@ -27,12 +27,12 @@
 
 ### M01 · MedCORE Study Book
 
-- **File:** `site/resources/medcore-production-master-html-medcore-master-book.html`, 1,449 lines — live at `/resources/medcore-production-master-html-medcore-master-book`
+- **File:** `site/resources/medcore-production-master-html-medcore-master-book.html`, 1,439 lines — live at `/resources/medcore-production-master-html-medcore-master-book` (also reachable with `.html`; the extensionless URL serves the four-file module from Phase 4)
 - **What it is:** Every system, one volume.
 - **Inside:** 16 top-level headings; first ones: “Complete Study Book”, “Medicine”, “Surgery”. Data: pure markup + CSS content (no embedded data bank).
-- **Interface:** live search/filter, 640 collapsible <details> blocks, timer/interval logic, sticky headers/bars, keyboard shortcuts, persists state in localStorage, canvas/chart graphics, print stylesheet, 1029 inline SVGs.
-- **Mode system:** none · rules:1 pref:1.
-- **Design passes so far:** fonts:2026 trio; mlx-live toggle; has light block; color-scheme meta.
+- **Interface:** live search/filter, 637 collapsible <details> blocks (95 chapter + 527 recall + 15 nav), sticky headers/bars, keyboard shortcuts, persists state in localStorage, print stylesheet, 1029 inline SVGs.
+- **Mode system:** one theme system (2026-10-28): `html[data-mode]` + key `mlx-theme`, driven by both the sidebar Theme button and the floating chip; legacy `medcore.theme` honoured once as fallback.
+- **Design passes so far:** fonts:2026 trio; mlx-live toggle; has light block; color-scheme meta; crumb-back nav fix; counts corrected (footer 95 topics/2,271 MCQs).
 
 ### M02 · MCQ Architecture
 
