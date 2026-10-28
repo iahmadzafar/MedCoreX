@@ -39,6 +39,40 @@
 .quote{margin:44px auto 0;max-width:760px;text-align:center;border:var(--bw) solid var(--ink);border-radius:var(--radius);box-shadow:var(--shadow);padding:34px 24px;background:var(--surface)}
 .quote p{font-family:var(--font-display);font-weight:var(--dw);text-transform:var(--case);font-size:clamp(1.2rem,3vw,1.9rem);line-height:1.25;margin:0}
 .quote .qs{font-size:.85rem;font-weight:700;color:var(--muted);margin-top:14px}
+.vitals{position:absolute;inset:6% 2% 8% 4%;background:var(--surface);border:var(--bw) solid var(--ink);border-radius:var(--radius);box-shadow:var(--shadow);transform:rotate(-1.6deg);display:flex;flex-direction:column;padding:14px 16px;gap:8px;transition:background .8s}
+.vitals .v-head{display:flex;justify-content:space-between;align-items:center;gap:8px;font-family:var(--font-mono);font-size:clamp(.58rem,1.7cqi,.72rem);font-weight:700;letter-spacing:.08em;color:var(--muted);white-space:nowrap;overflow:hidden}
+.vitals .v-head b{display:flex;align-items:center;gap:7px;color:var(--ink)}
+.vitals .beat{width:10px;height:10px;border-radius:50%;background:var(--c1);animation:beat 1s ease-in-out infinite}
+.vitals .v-body{flex:1;display:flex;gap:12px;min-height:0}
+.vitals .waves{flex:1;display:flex;flex-direction:column;gap:4px;min-width:0}
+.vitals .wave{width:100%;display:block;flex:1 1 0}
+.vitals .wave.ecg{flex-grow:56}
+.vitals .wave.ecg path{stroke:var(--c1);stroke-dasharray:.16 1;animation:sweep 2.4s linear infinite}
+.vitals .wave.pleth{flex-grow:30}
+.vitals .wave.pleth path{stroke:var(--c3);stroke-dasharray:.16 1;animation:sweep 2.4s linear infinite}
+.vitals .wave.resp{flex-grow:20}
+.vitals .wave.resp path{stroke:var(--c2);stroke-dasharray:.16 1;animation:sweep 4.2s linear infinite}
+.vitals .nums{flex:0 0 auto;min-width:88px;display:flex;flex-direction:column;justify-content:space-between;border-left:2px solid var(--line);padding-left:12px}
+.vitals .v b{display:block;font-family:var(--font-display);font-weight:var(--dw);font-size:clamp(.95rem,.55rem + 2.4cqi,1.45rem);line-height:1;font-variant-numeric:tabular-nums;white-space:nowrap}
+.vitals .v>b+span{display:block;font-family:var(--font-mono);font-size:.58rem;letter-spacing:.1em;color:var(--muted);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.vitals .v.hr b{color:var(--c1)}
+.vitals .v.spo2 b{color:var(--c3)}
+.vitals .v.rr b{color:var(--c2)}
+.vitals .v b i{font-style:normal;font-size:.6em;color:var(--muted);margin-left:3px}
+.vitals .v-foot{display:flex;justify-content:space-between;gap:10px;font-family:var(--font-mono);font-size:clamp(.54rem,1.6cqi,.66rem);letter-spacing:.14em;color:var(--muted);white-space:nowrap;overflow:hidden}
+.hero-art{container-type:inline-size}
+@container (max-width:430px){
+  .vitals .v-head b{display:none}
+  .vitals .v>b+span{font-size:.5rem;letter-spacing:.04em}
+  .vitals .nums{min-width:78px;padding-left:8px}
+  .vitals .v-foot span:last-child{display:none}
+}
+@container (max-width:350px){
+  .vitals .wave.resp{display:none}
+  .vitals .nums{min-width:70px}
+}
+@keyframes beat{0%,100%{transform:scale(1)}18%{transform:scale(1.35)}36%{transform:scale(1)}54%{transform:scale(1.22)}72%{transform:scale(1)}}
+@keyframes sweep{to{stroke-dashoffset:-1.16}}
 @media (max-width:900px){.rules{grid-template-columns:1fr}}
 @media print{.faqitem,.quote{box-shadow:none;break-inside:avoid}}
 </style>
@@ -68,8 +102,24 @@
       <div class="row"><a class="btn" href="/library">Open the library →</a><a class="btn alt" href="#standard">The standard</a></div>
     </div>
     <div class="hero-art rv" aria-hidden="true">
-      <div class="sticker">LEARN<br>✦ HEAL ✦</div>
-      <div class="shape s1"></div><div class="shape s2"></div><div class="shape s3"></div>
+      <div class="vitals">
+        <div class="v-head"><span>MedCoreX · MONITOR</span><b><i class="beat"></i>BED 01 · STUDY MODE</b></div>
+        <div class="v-body">
+          <div class="waves">
+            <svg class="wave ecg" viewBox="0 0 300 60" preserveAspectRatio="none"><path pathLength="1" d="M0 40h58l8-24 8 42 8-30 6 12h44l8-24 8 42 8-30 6 12h138" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg class="wave pleth" viewBox="0 0 300 60" preserveAspectRatio="none"><path pathLength="1" d="M0 46h10c12 0 16-38 30-38s10 14 18 20c6 4 8 10 16 10s14-8 22-8s10 10 20 12s16 4 34 4c12 0 16-38 30-38s10 14 18 20c6 4 8 10 16 10s14-8 22-8s10 10 20 12s16 4 34 4" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg class="wave resp" viewBox="0 0 300 44" preserveAspectRatio="none"><path pathLength="1" d="M0 26q19 0 37-14t37 14t37-14t37 14t37-14t37 14t37-14t37 14" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="nums">
+            <div class="v hr"><b id="bpm">72</b><span>HR · BPM</span></div>
+            <div class="v spo2"><b id="spo2">98</b><span>SpO₂ · %</span></div>
+            <div class="v rr"><b id="rr">16</b><span>RESP · /MIN</span></div>
+            <div class="v temp"><b>36.8</b><span>TEMP · °C</span></div>
+            <div class="v nibp"><b>118/76<i>(90)</i></b><span>NIBP · MMHG</span></div>
+          </div>
+        </div>
+        <div class="v-foot"><span>SINUS RHYTHM · SpO₂ OK</span><span>NIBP AUTO · 5 MIN</span></div>
+      </div>
     </div>
   </section>
 
@@ -119,6 +169,9 @@
 /* ═══ HOME: ticker + catalogue tabs ═══ */
 const TIPS=['Teach it to learn it','25 minutes on, 5 minutes off','Sleep is a study tool','Test yourself before you feel ready','Spaced repetition beats cramming','Mix up your topics','Hydrate, then concentrate','Explain why, not just what','Small daily wins add up'];
 document.getElementById('tips').innerHTML=[...TIPS,...TIPS].map(t=>`<span>${t}</span>`).join('');
+SV.countUp(document.getElementById('bpm'),72);
+SV.countUp(document.getElementById('spo2'),98);
+SV.countUp(document.getElementById('rr'),16);
 
 const CATS=["Core Books","Mocks & Drills","Past Papers & Answer Keys","Exam Intelligence & Strategy","Quick Reference","Frameworks & Interactive","MedCORE Systems"];
 const HUES={'Core Books':'var(--c1)','Mocks & Drills':'var(--c3)','Past Papers & Answer Keys':'var(--c2)','Exam Intelligence & Strategy':'var(--c4)','Quick Reference':'var(--c1)','Frameworks & Interactive':'var(--c3)','MedCORE Systems':'var(--c2)'};
@@ -163,6 +216,7 @@ const Items=[
 
 ];
 function esc(s){return String(s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];})}
+function slugify(c){return c.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'')}
 function href(it){return '/resources/'+encodeURIComponent(it.f.replace(/\.html$/i,''))}
 function kb(k){return k>=1000?(k/1000).toFixed(1)+' MB':Math.round(k)+' KB'}
 const tablist=document.getElementById('tablist'), panels=document.getElementById('panels');
@@ -170,11 +224,12 @@ let tabs=[],panelsByCat={};
 CATS.forEach((cat,ci)=>{
   const hue=HUES[cat];
   const items=Items.filter(it=>it.c===cat);
-  const b=document.createElement('button');
-  b.type='button';b.className='chip';b.setAttribute('role','tab');
+  const b=document.createElement('span');
+  b.className='chip';b.setAttribute('role','tab');b.tabIndex=0;
   b.setAttribute('aria-selected',ci===0?'true':'false');
-  b.textContent=cat;
-  b.addEventListener('click',()=>select(ci));
+  b.innerHTML=esc(cat)+'<a class="shelfgo" href="/library#'+slugify(cat)+'" aria-label="Open '+esc(cat)+' in the library">↗</a>';
+  b.addEventListener('click',e=>{if(e.target.closest('a'))return;select(ci)});
+  b.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();select(ci)}});
   tablist.appendChild(b);tabs.push(b);
   const p=document.createElement('section');
   p.className='panel';p.setAttribute('role','tabpanel');

@@ -12,6 +12,15 @@
 (function () {
 'use strict';
 
+/* proper line icons for the engine chip — no emoji, currentColor, theme-aware */
+const IC={
+ sun:'<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"/></svg>',
+ moon:'<svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" stroke="none" aria-hidden="true"><path d="M20.4 14.2A9 9 0 1 1 9.8 3.6a7.2 7.2 0 0 0 10.6 10.6z"/></svg>',
+ lock:'<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10.5" width="16" height="10.5" rx="2.4"/><path d="M7.6 10.5V7a4.4 4.4 0 0 1 8.8 0v3.5"/></svg>',
+ unlock:'<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10.5" width="16" height="10.5" rx="2.4"/><path d="M7.6 10.5V7a4.4 4.4 0 0 1 8.6-1.4"/></svg>',
+ dice:'<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round" aria-hidden="true"><rect x="3.8" y="3.8" width="16.4" height="16.4" rx="3.8"/><circle cx="8.5" cy="8.5" r="1.35" fill="currentColor" stroke="none"/><circle cx="15.5" cy="8.5" r="1.35" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.35" fill="currentColor" stroke="none"/><circle cx="8.5" cy="15.5" r="1.35" fill="currentColor" stroke="none"/><circle cx="15.5" cy="15.5" r="1.35" fill="currentColor" stroke="none"/></svg>'
+};
+
 /* ── engine (verbatim from index.html) ── */
 const rand=(a,b)=>Math.random()*(b-a)+a;
 const pick=a=>a[Math.floor(Math.random()*a.length)];
@@ -25,7 +34,7 @@ const DISPLAY=[
  {f:'"Chalkboard SE","Comic Sans MS",cursive',w:700,c:'none',t:'0'},
  {f:'Didot,"Bodoni 72","Times New Roman",serif',w:700,c:'none',t:'-.02em'},
  {f:'Copperplate,"Copperplate Gothic Light",serif',w:700,c:'uppercase',t:'.04em'},
- {f:'Impact,"Arial Black",sans-serif',w:400,c:'uppercase',t:'.02em'},
+ {f:'Impact,"Franklin Gothic Heavy",sans-serif',w:400,c:'uppercase',t:'.02em'},
  {f:'"Avenir Next Condensed","Arial Narrow",sans-serif',w:800,c:'uppercase',t:'.01em'},
  {f:'"Cooper Black","Bookman Old Style",Georgia,serif',w:900,c:'none',t:'-.01em'}];
 const BODY=['"Avenir Next","Segoe UI",sans-serif','"Gill Sans","Gill Sans MT",sans-serif','Optima,Candara,sans-serif','Georgia,"Times New Roman",serif','Menlo,Consolas,monospace','Baskerville,"Hoefler Text",Georgia,serif','"Trebuchet MS",Verdana,sans-serif'];
@@ -83,7 +92,7 @@ function initMode(){
 function syncMode(){
   const b=document.getElementById('modeBtn'); if(!b) return;
   const d=document.documentElement.dataset.theme==='dark';
-  b.setAttribute('aria-pressed',d); b.textContent=d?'☀️':'🌙';
+  b.setAttribute('aria-pressed',d); b.innerHTML=d?IC.sun:IC.moon;
 }
 document.addEventListener('click',e=>{
   if(e.target.id==='modeBtn'){
@@ -95,7 +104,7 @@ document.addEventListener('click',e=>{
 });
 let LOCK=null; try{LOCK=JSON.parse(localStorage.getItem('mx-lock')||'null')}catch(e){}
 function saveLock(){try{localStorage.setItem('mx-lock',JSON.stringify(LOCK))}catch(e){}}
-const syncLock=()=>{const b=document.getElementById('lockBtn');if(!b)return;b.setAttribute('aria-pressed',!!LOCK);b.textContent=LOCK?'🔒':'🔓'};
+const syncLock=()=>{const b=document.getElementById('lockBtn');if(!b)return;b.setAttribute('aria-pressed',!!LOCK);b.innerHTML=LOCK?IC.lock:IC.unlock};
 syncLock();
 function remix(){applyTheme(makeTheme()); if(LOCK){LOCK=current;saveLock()} toast(`New theme: ${current.name} · ${current.scheme}`); burst(innerWidth-60,40)}
 document.addEventListener('click',e=>{
@@ -153,11 +162,9 @@ window.SV={
 
 /* ── auto-inject: blobs, toast, engine chips (DOMContentLoaded only) ── */
 const CHIP_HTML=
-  '<div class="swatches"><i style="background:var(--c1)"></i><i style="background:var(--c2)"></i><i style="background:var(--c3)"></i><i style="background:var(--c4)"></i></div>'+
-  '<span class="theme-name" id="themeName">Theme</span>'+
-  '<button class="icon-btn" id="modeBtn" aria-label="Toggle dark mode">🌙</button>'+
-  '<button class="icon-btn" id="lockBtn" aria-pressed="false" aria-label="Lock this theme">🔓</button>'+
-  '<button class="icon-btn" id="remixBtn" aria-label="Remix theme">🎲</button>';
+  '<button class="icon-btn" id="modeBtn" aria-label="Toggle dark mode">'+IC.moon+'</button>'+
+  '<button class="icon-btn" id="lockBtn" aria-pressed="false" aria-label="Lock this theme">'+IC.unlock+'</button>'+
+  '<button class="icon-btn" id="remixBtn" aria-label="Remix theme">'+IC.dice+'</button>';
 function fillChips(){
   document.querySelectorAll('[data-sv-engine]').forEach(el=>{
     if(el.dataset.svDone)return;
