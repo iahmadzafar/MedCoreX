@@ -204,8 +204,7 @@
       [acc+'%','Accuracy',right+' correct of '+solved],
       [best,'Best streak','in a row'],
       [minutes,'Minutes practised','timer on this browser'],
-      [touched+'/6','Topics studied','subjects started'],
-      [Math.round(coverage*100)+'%','Bank cleared',(bankTotal-solved)+' left']
+      [touched+'/6','Topics studied','subjects started']
     ];
     document.getElementById('cards').innerHTML=cards.map(function(c,i){
       return '<div class="card" style="--accent:var(--c'+(i%4+1)+')"><div class="num">'+c[0]+'</div><div class="lbl">'+c[1]+'</div><div class="sub">'+esc(c[2])+'</div></div>';
