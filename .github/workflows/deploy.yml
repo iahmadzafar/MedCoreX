@@ -16,9 +16,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # Gate: every inline <script> in every HTML file, every .js and every .json/.jsonl
+      # in the repo must parse. One raw newline in a quoted string kills a whole script
+      # block and ships an incomplete page — this fails the run instead.
+      - name: Proof — every script parses
+        run: node site/scriptproof.js
+
       - name: Prune junk before upload
         working-directory: site
-        run: rm -rf .github .gitignore && find . -maxdepth 1 \( -name '.DS_Store' -o -name '*.bak-*' \) -delete && rm -f verify.js prooflocal.js domproof.js bankproof.js prodcheck.js serve.js libproof.js
+        run: rm -rf .github .gitignore && find . -maxdepth 1 \( -name '.DS_Store' -o -name '*.bak-*' \) -delete && rm -f verify.js prooflocal.js domproof.js bankproof.js prodcheck.js serve.js libproof.js scriptproof.js
 
       - name: Check deploy secret
         id: check

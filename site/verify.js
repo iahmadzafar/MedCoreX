@@ -91,6 +91,12 @@ else fail('file-size rule missing');
 const wf = fs.readFileSync(path.join(ROOT,'.github/workflows/deploy.yml'),'utf8');
 if(wf.includes('libproof.js')) ok('libproof.js registered in deploy prune');
 else fail('libproof.js not in deploy prune');
+if(wf.includes('scriptproof.js')) ok('scriptproof.js registered in deploy prune');
+else fail('scriptproof.js not in deploy prune');
+if(/node site\/scriptproof\.js/.test(wf)) ok('scriptproof runs as a deploy gate');
+else fail('scriptproof is not run before deploy');
+if(fs.readFileSync(path.join(SITE,'deploy.sh'),'utf8').includes('scriptproof.js')) ok('scriptproof.js excluded from manual deploy staging');
+else fail('scriptproof.js not excluded in deploy.sh');
 
 console.log(failures ? '\n' + failures + ' FAILURE(S)\n' : '\nALL GREEN\n');
 process.exit(failures ? 1 : 0);

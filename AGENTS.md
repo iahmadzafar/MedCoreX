@@ -60,7 +60,12 @@ Actions secrets (`CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`).
 - Saved-progress names start with "medcore." (e.g. medcore.qb, medcore.book).
   Theme prefs stay mx-lock / mx-mode.
 - Test-only, never deployed or linked: verify.js, prooflocal.js, domproof.js,
-  bankproof.js, prodcheck.js, libproof.js, serve.js, deploy.sh.
+  bankproof.js, prodcheck.js, libproof.js, serve.js, scriptproof.js, deploy.sh.
+- scriptproof.js is the syntax gate: every inline <script> in every HTML file in the
+  repo, every .js and every .json/.jsonl must parse (`node site/scriptproof.js`,
+  exit 1 = broken). It runs in CI before deploy, so a raw newline inside a quoted
+  string can no longer silently kill a page's whole script block and ship it
+  incomplete. Run it locally before any commit that touches a page.
 - New page = copy the shell from site/about.html, then add page CSS/JS.
 
 ## Change notes from the owner's assistant

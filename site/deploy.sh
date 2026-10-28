@@ -59,6 +59,7 @@ rsync -a --delete \
   --exclude 'deploy.sh' --exclude 'schema.sql' --exclude 'README.md' --exclude 'SERVE.md' \
   --exclude 'verify.js' --exclude 'prooflocal.js' --exclude 'domproof.js' \
   --exclude 'bankproof.js' --exclude 'prodcheck.js' --exclude 'serve.js' \
+  --exclude 'scriptproof.js' \
   "$HERE/" "$STAGE/"
 
 echo "staged $(find "$STAGE" -type f | wc -l | tr -d ' ' | sed 's/^ *//') files"
