@@ -1,0 +1,5350 @@
+[
+  {
+    "topic": "ENT|Unclassified",
+    "n": 882
+  },
+  {
+    "topic": "Endocrine|Diabetes mellitus",
+    "n": 93
+  },
+  {
+    "topic": "Haematology|Anaemia",
+    "n": 90
+  },
+  {
+    "topic": "Surgery|Unclassified",
+    "n": 89
+  },
+  {
+    "topic": "Surgery|Oncology surgery",
+    "n": 87
+  },
+  {
+    "topic": "Medicine|Unclassified",
+    "n": 77
+  },
+  {
+    "topic": "Haematology|Coagulation / Thrombosis",
+    "n": 71
+  },
+  {
+    "topic": "Renal|Electrolytes & Acid-Base",
+    "n": 70
+  },
+  {
+    "topic": "Gastroenterology|Liver / Hepatitis",
+    "n": 63
+  },
+  {
+    "topic": "Surgery|GI surgery",
+    "n": 59
+  },
+  {
+    "topic": "Endocrine|Thyroid",
+    "n": 52
+  },
+  {
+    "topic": "Cardiovascular|Arrhythmia",
+    "n": 52
+  },
+  {
+    "topic": "Obstetrics|Antenatal / Normal labour",
+    "n": 50
+  },
+  {
+    "topic": "ENT|Sinus / Nasal",
+    "n": 48
+  },
+  {
+    "topic": "Pathology|Haemodynamics",
+    "n": 44
+  },
+  {
+    "topic": "Paediatrics|Unclassified",
+    "n": 43
+  },
+  {
+    "topic": "Respiratory|Asthma / COPD",
+    "n": 40
+  },
+  {
+    "topic": "Pharmacology|Cardiovascular drugs",
+    "n": 35
+  },
+  {
+    "topic": "Anatomy|Upper Limb",
+    "n": 34
+  },
+  {
+    "topic": "Respiratory|Pneumonia",
+    "n": 33
+  },
+  {
+    "topic": "Orthopaedics|Arthritis",
+    "n": 33
+  },
+  {
+    "topic": "Neurology|Seizures / Epilepsy",
+    "n": 32
+  },
+  {
+    "topic": "Ophthalmology|Glaucoma / Cataract",
+    "n": 31
+  },
+  {
+    "topic": "Ophthalmology|Retina / Neuro-ophthalmic",
+    "n": 30
+  },
+  {
+    "topic": "ENT|Hearing / Vertigo",
+    "n": 30
+  },
+  {
+    "topic": "Ophthalmology|Red eye",
+    "n": 29
+  },
+  {
+    "topic": "Renal|Nephrotic / Nephritic",
+    "n": 29
+  },
+  {
+    "topic": "ENT|Airway / Tonsil",
+    "n": 29
+  },
+  {
+    "topic": "Cardiovascular|Hypertension",
+    "n": 28
+  },
+  {
+    "topic": "Anatomy|Lower Limb",
+    "n": 27
+  },
+  {
+    "topic": "Paediatrics|Neonatology",
+    "n": 27
+  },
+  {
+    "topic": "Pharmacology|Immunosuppressants / Steroids",
+    "n": 27
+  },
+  {
+    "topic": "Medicine (75 MCQs)|Unclassified",
+    "n": 26
+  },
+  {
+    "topic": "Gastroenterology|Pancreas",
+    "n": 26
+  },
+  {
+    "topic": "Surgery|Trauma / Resuscitation",
+    "n": 26
+  },
+  {
+    "topic": "Endocrine|Parathyroid / Calcium",
+    "n": 26
+  },
+  {
+    "topic": "Gastroenterology|Bowel obstruction",
+    "n": 25
+  },
+  {
+    "topic": "Obstetrics|Contraception",
+    "n": 25
+  },
+  {
+    "topic": "Endocrine|Adrenal / Cushing",
+    "n": 24
+  },
+  {
+    "topic": "Anatomy|Thorax",
+    "n": 24
+  },
+  {
+    "topic": "Orthopaedics|Fractures",
+    "n": 23
+  },
+  {
+    "topic": "Infectious|Bacterial",
+    "n": 23
+  },
+  {
+    "topic": "Haematology|Leukaemia / Lymphoma",
+    "n": 23
+  },
+  {
+    "topic": "Community Medicine|Epidemiology / Biostatistics",
+    "n": 23
+  },
+  {
+    "topic": "Infectious|Viral",
+    "n": 23
+  },
+  {
+    "topic": "Pathology|Neoplasia",
+    "n": 23
+  },
+  {
+    "topic": "Ophthalmology|Unclassified",
+    "n": 23
+  },
+  {
+    "topic": "Medicine-Cardiology|Myocardial infarction",
+    "n": 23
+  },
+  {
+    "topic": "Medicine|Liver / Hepatitis",
+    "n": 22
+  },
+  {
+    "topic": "Neurology|Meningitis / Encephalitis",
+    "n": 20
+  },
+  {
+    "topic": "Pharmacology|Antibiotics",
+    "n": 19
+  },
+  {
+    "topic": "ENT|Otitis",
+    "n": 19
+  },
+  {
+    "topic": "Cardiovascular|Myocardial infarction",
+    "n": 19
+  },
+  {
+    "topic": "Surgery-Vascular|Unclassified",
+    "n": 19
+  },
+  {
+    "topic": "Immunology|Autoimmunity",
+    "n": 17
+  },
+  {
+    "topic": "Pharmacology|Unclassified",
+    "n": 17
+  },
+  {
+    "topic": "Medicine-Cardiology|Unclassified",
+    "n": 17
+  },
+  {
+    "topic": "General|Unclassified",
+    "n": 16
+  },
+  {
+    "topic": "Surgery-Hernia|GI surgery",
+    "n": 16
+  },
+  {
+    "topic": "Medicine (92 MCQs)|Unclassified",
+    "n": 15
+  },
+  {
+    "topic": "Neurology|Neuroanatomy",
+    "n": 15
+  },
+  {
+    "topic": "Surgery-Gi|Pancreas",
+    "n": 15
+  },
+  {
+    "topic": "Renal|Prostate",
+    "n": 14
+  },
+  {
+    "topic": "Biochemistry|Vitamins / Minerals",
+    "n": 14
+  },
+  {
+    "topic": "Biochemistry|Protein / Amino acids",
+    "n": 14
+  },
+  {
+    "topic": "Psychiatry|Psychosis / Schizophrenia",
+    "n": 14
+  },
+  {
+    "topic": "Neurology|Headache",
+    "n": 14
+  },
+  {
+    "topic": "Psychiatry|Substance use",
+    "n": 14
+  },
+  {
+    "topic": "Mock-Exams|Unclassified",
+    "n": 14
+  },
+  {
+    "topic": "Medicine|Hypertension",
+    "n": 13
+  },
+  {
+    "topic": "Medicine|Diabetes mellitus",
+    "n": 13
+  },
+  {
+    "topic": "Medicine-Respiratory|Pneumonia",
+    "n": 13
+  },
+  {
+    "topic": "Surgery-Gi|Unclassified",
+    "n": 13
+  },
+  {
+    "topic": "Surgery-Thyroid|Thyroid",
+    "n": 13
+  },
+  {
+    "topic": "Mock-Exams|Hypertension",
+    "n": 13
+  },
+  {
+    "topic": "Mock-Exams|Neuroanatomy",
+    "n": 13
+  },
+  {
+    "topic": "Gynecology|Unclassified",
+    "n": 13
+  },
+  {
+    "topic": "Respiratory|PE / DVT",
+    "n": 12
+  },
+  {
+    "topic": "Renal|AKI / CKD",
+    "n": 12
+  },
+  {
+    "topic": "Medicine-Cardiology|Cardiovascular drugs",
+    "n": 12
+  },
+  {
+    "topic": "Surgery-Gi|GI surgery",
+    "n": 12
+  },
+  {
+    "topic": "Surgery-Gi|Antibiotics",
+    "n": 12
+  },
+  {
+    "topic": "Surgery-Burns|Unclassified",
+    "n": 12
+  },
+  {
+    "topic": "Surgery-Review|Unclassified",
+    "n": 12
+  },
+  {
+    "topic": "Medicine (78 MCQs)|Unclassified",
+    "n": 11
+  },
+  {
+    "topic": "Cardiovascular|Heart failure",
+    "n": 11
+  },
+  {
+    "topic": "Paediatrics|Paediatric infections",
+    "n": 11
+  },
+  {
+    "topic": "Psychiatry|Unclassified",
+    "n": 11
+  },
+  {
+    "topic": "Pathology|Inflammation / Repair",
+    "n": 11
+  },
+  {
+    "topic": "Medicine-Cardiology|Heart failure",
+    "n": 11
+  },
+  {
+    "topic": "Medicine-Cardiology|Rheumatic heart disease",
+    "n": 11
+  },
+  {
+    "topic": "Medicine-Respiratory|Asthma / COPD",
+    "n": 11
+  },
+  {
+    "topic": "Neurology|Dementia / Alzheimer",
+    "n": 10
+  },
+  {
+    "topic": "Surgery-Vascular|PE / DVT",
+    "n": 10
+  },
+  {
+    "topic": "Surgery-Trauma|Unclassified",
+    "n": 10
+  },
+  {
+    "topic": "Mock-Exams|Myocardial infarction",
+    "n": 10
+  },
+  {
+    "topic": "Mock-Exams|Antibiotics",
+    "n": 10
+  },
+  {
+    "topic": "Dermatology|Unclassified",
+    "n": 10
+  },
+  {
+    "topic": "Anatomy|Neuroanatomy",
+    "n": 9
+  },
+  {
+    "topic": "Psychiatry|Mood disorders",
+    "n": 9
+  },
+  {
+    "topic": "Obstetrics & Gynaecology|Antenatal / Normal labour",
+    "n": 9
+  },
+  {
+    "topic": "Haematology|Spleen / Platelets",
+    "n": 9
+  },
+  {
+    "topic": "Medicine-Cardiology|Hypertension",
+    "n": 9
+  },
+  {
+    "topic": "Surgery-Trauma|Spleen / Platelets",
+    "n": 9
+  },
+  {
+    "topic": "Obgyn-Obstetrics|Hypertension",
+    "n": 9
+  },
+  {
+    "topic": "Ent|Antibiotics",
+    "n": 9
+  },
+  {
+    "topic": "Obstetrics|Liver / Hepatitis",
+    "n": 9
+  },
+  {
+    "topic": "Biochemistry|Lipid metabolism",
+    "n": 8
+  },
+  {
+    "topic": "Gastroenterology|IBD",
+    "n": 8
+  },
+  {
+    "topic": "Obstetrics|Obstetric complications",
+    "n": 8
+  },
+  {
+    "topic": "Pathology|Unclassified",
+    "n": 8
+  },
+  {
+    "topic": "Endocrine|Pituitary",
+    "n": 8
+  },
+  {
+    "topic": "Neurology|Stroke",
+    "n": 8
+  },
+  {
+    "topic": "Paediatrics|Paediatric nutrition",
+    "n": 8
+  },
+  {
+    "topic": "Applied-Basics|GI surgery",
+    "n": 8
+  },
+  {
+    "topic": "Cardiology|Myocardial infarction",
+    "n": 8
+  },
+  {
+    "topic": "Pharmacology|Anticoagulants",
+    "n": 7
+  },
+  {
+    "topic": "Obstetrics & Gynaecology (16 MCQs)|Antenatal / Normal labour",
+    "n": 7
+  },
+  {
+    "topic": "Cardiovascular|Pericardial disease",
+    "n": 7
+  },
+  {
+    "topic": "Medicine|Headache",
+    "n": 7
+  },
+  {
+    "topic": "Pharmacology|Analgesia / Anaesthesia",
+    "n": 7
+  },
+  {
+    "topic": "Anatomy|Abdomen / GI",
+    "n": 7
+  },
+  {
+    "topic": "Biochemistry|Enzymes / LFT",
+    "n": 7
+  },
+  {
+    "topic": "Medicine|AKI / CKD",
+    "n": 7
+  },
+  {
+    "topic": "Medicine|Thyroid",
+    "n": 7
+  },
+  {
+    "topic": "Respiratory|TB",
+    "n": 7
+  },
+  {
+    "topic": "Medicine-Cardiology|Arrhythmia",
+    "n": 7
+  },
+  {
+    "topic": "Medicine-Renal|AKI / CKD",
+    "n": 7
+  },
+  {
+    "topic": "Medicine-Neurology|Meningitis / Encephalitis",
+    "n": 7
+  },
+  {
+    "topic": "Surgery-Orthopedics|Fractures",
+    "n": 7
+  },
+  {
+    "topic": "Paediatrics-Fluids|Unclassified",
+    "n": 7
+  },
+  {
+    "topic": "Obgyn-Review|Liver / Hepatitis",
+    "n": 7
+  },
+  {
+    "topic": "Pharmacology (10 MCQs)|Unclassified",
+    "n": 6
+  },
+  {
+    "topic": "Psychiatry|Anxiety / OCD",
+    "n": 6
+  },
+  {
+    "topic": "Urology|Renal stones",
+    "n": 6
+  },
+  {
+    "topic": "Medicine|Stroke",
+    "n": 6
+  },
+  {
+    "topic": "Medicine|Seizures / Epilepsy",
+    "n": 6
+  },
+  {
+    "topic": "Medicine|Upper GI / PUD",
+    "n": 6
+  },
+  {
+    "topic": "Medicine|Autoimmunity",
+    "n": 6
+  },
+  {
+    "topic": "Physiology|Unclassified",
+    "n": 6
+  },
+  {
+    "topic": "Medicine-Respiratory|Unclassified",
+    "n": 6
+  },
+  {
+    "topic": "Medicine-Renal|Nephrotic / Nephritic",
+    "n": 6
+  },
+  {
+    "topic": "Medicine-Dermatology|Unclassified",
+    "n": 6
+  },
+  {
+    "topic": "Surgery-Gi|Abdomen / GI",
+    "n": 6
+  },
+  {
+    "topic": "Surgery-Gi|Bowel obstruction",
+    "n": 6
+  },
+  {
+    "topic": "Obgyn-Gynecology|Infertility",
+    "n": 6
+  },
+  {
+    "topic": "Ophthalmology-Core|Contraception",
+    "n": 6
+  },
+  {
+    "topic": "Mock-Exams|PE / DVT",
+    "n": 6
+  },
+  {
+    "topic": "Dermatology|Thorax",
+    "n": 6
+  },
+  {
+    "topic": "Gynecology|Epidemiology / Biostatistics",
+    "n": 6
+  },
+  {
+    "topic": "Neurology|Unclassified",
+    "n": 6
+  },
+  {
+    "topic": "Pediatrics|Unclassified",
+    "n": 6
+  },
+  {
+    "topic": "Urology|Antibiotics",
+    "n": 6
+  },
+  {
+    "topic": "Urology|Unclassified",
+    "n": 6
+  },
+  {
+    "topic": "Urology|Neuroanatomy",
+    "n": 6
+  },
+  {
+    "topic": "Grand-All-Subject|Liver / Hepatitis",
+    "n": 6
+  },
+  {
+    "topic": "Gastroenterology|Upper GI / PUD",
+    "n": 5
+  },
+  {
+    "topic": "Pathology|Cell injury / Adaptation",
+    "n": 5
+  },
+  {
+    "topic": "Physiology general|Cardiac physiology",
+    "n": 5
+  },
+  {
+    "topic": "Community Medicine|Unclassified",
+    "n": 5
+  },
+  {
+    "topic": "Surgery|Prostate / BPH",
+    "n": 5
+  },
+  {
+    "topic": "Medicine|Heart failure",
+    "n": 5
+  },
+  {
+    "topic": "Medicine|Anaemia",
+    "n": 5
+  },
+  {
+    "topic": "Medicine|Myocardial infarction",
+    "n": 5
+  },
+  {
+    "topic": "Medicine|Nephrotic / Nephritic",
+    "n": 5
+  },
+  {
+    "topic": "Obstetrics & Gynaecology|Unclassified",
+    "n": 5
+  },
+  {
+    "topic": "Gastroenterology|Malabsorption",
+    "n": 5
+  },
+  {
+    "topic": "Forensic Medicine|Asphyxial deaths",
+    "n": 5
+  },
+  {
+    "topic": "Medicine-Respiratory|TB",
+    "n": 5
+  },
+  {
+    "topic": "Medicine-Neurology|Immunosuppressants / Steroids",
+    "n": 5
+  },
+  {
+    "topic": "Surgery-Gi|Renal stones",
+    "n": 5
+  },
+  {
+    "topic": "Surgery-Gi|Neuroanatomy",
+    "n": 5
+  },
+  {
+    "topic": "Surgery-Gi|IBD",
+    "n": 5
+  },
+  {
+    "topic": "Surgery-Gi|Liver / Hepatitis",
+    "n": 5
+  },
+  {
+    "topic": "Surgery-Vascular|Coagulation / Thrombosis",
+    "n": 5
+  },
+  {
+    "topic": "Surgery-Vascular|Neuroanatomy",
+    "n": 5
+  },
+  {
+    "topic": "Surgery-Vascular|Fractures",
+    "n": 5
+  },
+  {
+    "topic": "Surgery-Review|Pancreas",
+    "n": 5
+  },
+  {
+    "topic": "Surgery-Review|Fractures",
+    "n": 5
+  },
+  {
+    "topic": "Paediatrics-Cns|Seizures / Epilepsy",
+    "n": 5
+  },
+  {
+    "topic": "Paediatrics-Cns|Meningitis / Encephalitis",
+    "n": 5
+  },
+  {
+    "topic": "Paediatrics-Emergencies|Antibiotics",
+    "n": 5
+  },
+  {
+    "topic": "Obgyn-Obstetrics|Obstetric complications",
+    "n": 5
+  },
+  {
+    "topic": "Obgyn-Obstetrics|Arrhythmia",
+    "n": 5
+  },
+  {
+    "topic": "Obgyn-Obstetrics|Liver / Hepatitis",
+    "n": 5
+  },
+  {
+    "topic": "Obgyn-Review|Antenatal / Normal labour",
+    "n": 5
+  },
+  {
+    "topic": "Mock-Exams|Thorax",
+    "n": 5
+  },
+  {
+    "topic": "Mock-Exams|Fractures",
+    "n": 5
+  },
+  {
+    "topic": "Dermatology|Myocardial infarction",
+    "n": 5
+  },
+  {
+    "topic": "Respiratory|Unclassified",
+    "n": 5
+  },
+  {
+    "topic": "Urology|Nephrotic / Nephritic",
+    "n": 5
+  },
+  {
+    "topic": "Internal-Medicine-I|Myocardial infarction",
+    "n": 5
+  },
+  {
+    "topic": "Obstetrics & Gynaecology (13 MCQs)|Antenatal / Normal labour",
+    "n": 4
+  },
+  {
+    "topic": "Medicine (78 MCQs)|Shock",
+    "n": 4
+  },
+  {
+    "topic": "Paediatrics (19 MCQs)|Unclassified",
+    "n": 4
+  },
+  {
+    "topic": "Medicine (36 MCQs)|Unclassified",
+    "n": 4
+  },
+  {
+    "topic": "Renal|Dialysis",
+    "n": 4
+  },
+  {
+    "topic": "Paediatrics (27 MCQs)|Unclassified",
+    "n": 4
+  },
+  {
+    "topic": "Community Medicine (20 MCQs)|Unclassified",
+    "n": 4
+  },
+  {
+    "topic": "Obstetrics & Gynaecology (18 MCQs)|Unclassified",
+    "n": 4
+  },
+  {
+    "topic": "Forensic Medicine|Thanatology",
+    "n": 4
+  },
+  {
+    "topic": "Forensic Medicine|Unclassified",
+    "n": 4
+  },
+  {
+    "topic": "Medicine|TB",
+    "n": 4
+  },
+  {
+    "topic": "Anatomy|Cardiovascular anatomy",
+    "n": 4
+  },
+  {
+    "topic": "Medicine|Shock",
+    "n": 4
+  },
+  {
+    "topic": "Medicine|Coagulation / Thrombosis",
+    "n": 4
+  },
+  {
+    "topic": "Surgery|Renal stones",
+    "n": 4
+  },
+  {
+    "topic": "Surgery|Fractures",
+    "n": 4
+  },
+  {
+    "topic": "Community Medicine|Nutrition",
+    "n": 4
+  },
+  {
+    "topic": "Respiratory|ARDS / Oxygenation",
+    "n": 4
+  },
+  {
+    "topic": "Biochemistry|Nucleic acids",
+    "n": 4
+  },
+  {
+    "topic": "Medicine-Neurology|Stroke",
+    "n": 4
+  },
+  {
+    "topic": "Medicine-Neurology|Hypertension",
+    "n": 4
+  },
+  {
+    "topic": "Medicine-Neurology|Unclassified",
+    "n": 4
+  },
+  {
+    "topic": "Medicine-Neurology|Seizures / Epilepsy",
+    "n": 4
+  },
+  {
+    "topic": "Medicine-Psychiatry|Mood disorders",
+    "n": 4
+  },
+  {
+    "topic": "Infectious|Fungal / Mycobacterial",
+    "n": 4
+  },
+  {
+    "topic": "Surgery-Urology|Antibiotics",
+    "n": 4
+  },
+  {
+    "topic": "Surgery-Review|Antibiotics",
+    "n": 4
+  },
+  {
+    "topic": "Paediatrics-Emergencies|ARDS / Oxygenation",
+    "n": 4
+  },
+  {
+    "topic": "Paediatrics-Neonatal|Neonatology",
+    "n": 4
+  },
+  {
+    "topic": "Paediatrics-Review|Arrhythmia",
+    "n": 4
+  },
+  {
+    "topic": "Ophthalmology-Core|Glaucoma / Cataract",
+    "n": 4
+  },
+  {
+    "topic": "Ophthalmology-Core|Hypertension",
+    "n": 4
+  },
+  {
+    "topic": "Ophthalmology-Core|Immunosuppressants / Steroids",
+    "n": 4
+  },
+  {
+    "topic": "Ent-Core|Antibiotics",
+    "n": 4
+  },
+  {
+    "topic": "Applied-Anatomy|Upper Limb",
+    "n": 4
+  },
+  {
+    "topic": "Applied-Anatomy|Neuroanatomy",
+    "n": 4
+  },
+  {
+    "topic": "Applied-Pathology|Leukaemia / Lymphoma",
+    "n": 4
+  },
+  {
+    "topic": "Clinical-Pharmacology|Cardiovascular drugs",
+    "n": 4
+  },
+  {
+    "topic": "Applied-Basics|Meningitis / Encephalitis",
+    "n": 4
+  },
+  {
+    "topic": "Mock-Exams|Shock",
+    "n": 4
+  },
+  {
+    "topic": "Mock-Exams|Bowel obstruction",
+    "n": 4
+  },
+  {
+    "topic": "Mock-Exams|Nucleic acids",
+    "n": 4
+  },
+  {
+    "topic": "Mock-Exams|Diabetes mellitus",
+    "n": 4
+  },
+  {
+    "topic": "Mock-Exams|GI surgery",
+    "n": 4
+  },
+  {
+    "topic": "Mock-Exams|Pericardial disease",
+    "n": 4
+  },
+  {
+    "topic": "Mock-Exams|Asthma / COPD",
+    "n": 4
+  },
+  {
+    "topic": "Dermatology|Seizures / Epilepsy",
+    "n": 4
+  },
+  {
+    "topic": "Neurology|Neurophysiology",
+    "n": 4
+  },
+  {
+    "topic": "Internal-Medicine-II|Pneumonia",
+    "n": 4
+  },
+  {
+    "topic": "Internal-Medicine-II|Asthma / COPD",
+    "n": 4
+  },
+  {
+    "topic": "ENT,-Ophthalmology-&-Psychiatry|Antibiotics",
+    "n": 4
+  },
+  {
+    "topic": "Grand-All-Subject|Neuroanatomy",
+    "n": 4
+  },
+  {
+    "topic": "Medicine (75 MCQs)|Oncology surgery",
+    "n": 3
+  },
+  {
+    "topic": "Paediatrics (11 MCQs)|Unclassified",
+    "n": 3
+  },
+  {
+    "topic": "Pharmacology (10 MCQs)|Diabetes mellitus",
+    "n": 3
+  },
+  {
+    "topic": "Medicine (78 MCQs)|Pneumonia",
+    "n": 3
+  },
+  {
+    "topic": "Medicine (78 MCQs)|Neuroanatomy",
+    "n": 3
+  },
+  {
+    "topic": "Surgery (18 MCQs)|GI surgery",
+    "n": 3
+  },
+  {
+    "topic": "Paediatrics (19 MCQs)|Neonatology",
+    "n": 3
+  },
+  {
+    "topic": "ENT (8 MCQs)|Sinus / Nasal",
+    "n": 3
+  },
+  {
+    "topic": "Medicine (92 MCQs)|Pneumonia",
+    "n": 3
+  },
+  {
+    "topic": "Medicine (92 MCQs)|Contraception",
+    "n": 3
+  },
+  {
+    "topic": "Medicine (92 MCQs)|Antibiotics",
+    "n": 3
+  },
+  {
+    "topic": "Surgery (20 MCQs)|Trauma / Resuscitation",
+    "n": 3
+  },
+  {
+    "topic": "Surgery (28 MCQs)|Unclassified",
+    "n": 3
+  },
+  {
+    "topic": "Physiology (8 MCQs)|Unclassified",
+    "n": 3
+  },
+  {
+    "topic": "Anatomy|Unclassified",
+    "n": 3
+  },
+  {
+    "topic": "Medicine|Rheumatic heart disease",
+    "n": 3
+  },
+  {
+    "topic": "Physiology general|Renal physiology",
+    "n": 3
+  },
+  {
+    "topic": "Biochemistry|Unclassified",
+    "n": 3
+  },
+  {
+    "topic": "Medicine|PE / DVT",
+    "n": 3
+  },
+  {
+    "topic": "Medicine|Neuroanatomy",
+    "n": 3
+  },
+  {
+    "topic": "Medicine|Leukaemia / Lymphoma",
+    "n": 3
+  },
+  {
+    "topic": "Medicine|IBD",
+    "n": 3
+  },
+  {
+    "topic": "Medicine|Malabsorption",
+    "n": 3
+  },
+  {
+    "topic": "Cardiovascular|Shock",
+    "n": 3
+  },
+  {
+    "topic": "Forensic Medicine|Toxicology",
+    "n": 3
+  },
+  {
+    "topic": "Cardiovascular|Rheumatic heart disease",
+    "n": 3
+  },
+  {
+    "topic": "Medicine-Cardiology|Nephrotic / Nephritic",
+    "n": 3
+  },
+  {
+    "topic": "Medicine-Respiratory|Pericardial disease",
+    "n": 3
+  },
+  {
+    "topic": "Medicine-Respiratory|Nucleic acids",
+    "n": 3
+  },
+  {
+    "topic": "Medicine-Renal|Hypertension",
+    "n": 3
+  },
+  {
+    "topic": "Medicine-Gastroenterology|Unclassified",
+    "n": 3
+  },
+  {
+    "topic": "Medicine-Gastroenterology|Upper GI / PUD",
+    "n": 3
+  },
+  {
+    "topic": "Medicine-Gastroenterology|Malabsorption",
+    "n": 3
+  },
+  {
+    "topic": "Medicine-Gastroenterology|IBD",
+    "n": 3
+  },
+  {
+    "topic": "Medicine-Endocrinology|Hypertension",
+    "n": 3
+  },
+  {
+    "topic": "Medicine-Neurology|Neurophysiology",
+    "n": 3
+  },
+  {
+    "topic": "Medicine-Neurology|Neuroanatomy",
+    "n": 3
+  },
+  {
+    "topic": "Medicine-Infectious|Headache",
+    "n": 3
+  },
+  {
+    "topic": "Medicine-Dermatology|Myocardial infarction",
+    "n": 3
+  },
+  {
+    "topic": "Medicine-Review|Stroke",
+    "n": 3
+  },
+  {
+    "topic": "Medicine-Review|Hypertension",
+    "n": 3
+  },
+  {
+    "topic": "Surgery-Gi|Upper GI / PUD",
+    "n": 3
+  },
+  {
+    "topic": "Surgery-Gi|GIT physiology",
+    "n": 3
+  },
+  {
+    "topic": "Surgery-Breast|Unclassified",
+    "n": 3
+  },
+  {
+    "topic": "Surgery-Breast|Leukaemia / Lymphoma",
+    "n": 3
+  },
+  {
+    "topic": "Surgery-Vascular|Haemodynamics",
+    "n": 3
+  },
+  {
+    "topic": "Surgery-Trauma|Trauma / Resuscitation",
+    "n": 3
+  },
+  {
+    "topic": "Surgery-Urology|AKI / CKD",
+    "n": 3
+  },
+  {
+    "topic": "Surgery-Urology|Prostate",
+    "n": 3
+  },
+  {
+    "topic": "Surgery-Burns|Trauma / Resuscitation",
+    "n": 3
+  },
+  {
+    "topic": "Surgery-Review|Liver / Hepatitis",
+    "n": 3
+  },
+  {
+    "topic": "Surgery-Review|Renal stones",
+    "n": 3
+  },
+  {
+    "topic": "Paediatrics-Cns|Liver / Hepatitis",
+    "n": 3
+  },
+  {
+    "topic": "Paediatrics-Emergencies|Toxicology",
+    "n": 3
+  },
+  {
+    "topic": "Paediatrics-Neonatal|Unclassified",
+    "n": 3
+  },
+  {
+    "topic": "Obgyn-Gynecology|Unclassified",
+    "n": 3
+  },
+  {
+    "topic": "Obgyn-Gynecology|Antenatal / Normal labour",
+    "n": 3
+  },
+  {
+    "topic": "Obgyn-Obstetrics|Antenatal / Normal labour",
+    "n": 3
+  },
+  {
+    "topic": "Obgyn-Obstetrics|Seizures / Epilepsy",
+    "n": 3
+  },
+  {
+    "topic": "Obgyn-Review|Infertility",
+    "n": 3
+  },
+  {
+    "topic": "Obgyn-Review|Unclassified",
+    "n": 3
+  },
+  {
+    "topic": "Ent-Core|Unclassified",
+    "n": 3
+  },
+  {
+    "topic": "Applied-Physiology|Electrolytes & Acid-Base",
+    "n": 3
+  },
+  {
+    "topic": "Applied-Physiology|Neuroanatomy",
+    "n": 3
+  },
+  {
+    "topic": "Applied-Pathology|Oncology surgery",
+    "n": 3
+  },
+  {
+    "topic": "Applied-Pathology|Inflammation / Repair",
+    "n": 3
+  },
+  {
+    "topic": "Applied-Pathology|Hypersensitivity",
+    "n": 3
+  },
+  {
+    "topic": "Applied-Pathology|Unclassified",
+    "n": 3
+  },
+  {
+    "topic": "Applied-Pathology|Cell injury / Adaptation",
+    "n": 3
+  },
+  {
+    "topic": "Applied-Pathology|Parathyroid / Calcium",
+    "n": 3
+  },
+  {
+    "topic": "Applied-Pathology|TB",
+    "n": 3
+  },
+  {
+    "topic": "Immunology|Hypersensitivity",
+    "n": 3
+  },
+  {
+    "topic": "Community-Medicine|Epidemiology / Biostatistics",
+    "n": 3
+  },
+  {
+    "topic": "Applied-Basics|Hypersensitivity",
+    "n": 3
+  },
+  {
+    "topic": "Mock-Exams|Headache",
+    "n": 3
+  },
+  {
+    "topic": "Mock-Exams|Leukaemia / Lymphoma",
+    "n": 3
+  },
+  {
+    "topic": "Mock-Exams|Cell injury / Adaptation",
+    "n": 3
+  },
+  {
+    "topic": "Mock-Exams|Seizures / Epilepsy",
+    "n": 3
+  },
+  {
+    "topic": "Mock-Exams|Viral",
+    "n": 3
+  },
+  {
+    "topic": "Mock-Exams|Liver / Hepatitis",
+    "n": 3
+  },
+  {
+    "topic": "Mock-Exams|Thyroid",
+    "n": 3
+  },
+  {
+    "topic": "Mock-Exams|Nephrotic / Nephritic",
+    "n": 3
+  },
+  {
+    "topic": "Mock-Exams|Trauma / Resuscitation",
+    "n": 3
+  },
+  {
+    "topic": "Mock-Exams|Antenatal / Normal labour",
+    "n": 3
+  },
+  {
+    "topic": "Mock-Exams|Arrhythmia",
+    "n": 3
+  },
+  {
+    "topic": "Mock-Exams|Autoimmunity",
+    "n": 3
+  },
+  {
+    "topic": "Mock-Exams|Inflammation / Repair",
+    "n": 3
+  },
+  {
+    "topic": "Mock-Exams|Pancreas",
+    "n": 3
+  },
+  {
+    "topic": "Mock-Exams|Pneumonia",
+    "n": 3
+  },
+  {
+    "topic": "Cardiology|Heart failure",
+    "n": 3
+  },
+  {
+    "topic": "Cardiology|Hypertension",
+    "n": 3
+  },
+  {
+    "topic": "Cardiology|Cardiovascular drugs",
+    "n": 3
+  },
+  {
+    "topic": "Dermatology|Immunosuppressants / Steroids",
+    "n": 3
+  },
+  {
+    "topic": "Dermatology|Viral",
+    "n": 3
+  },
+  {
+    "topic": "Ent|Sinus / Nasal",
+    "n": 3
+  },
+  {
+    "topic": "Gynecology|Antibiotics",
+    "n": 3
+  },
+  {
+    "topic": "Obstetrics|Arrhythmia",
+    "n": 3
+  },
+  {
+    "topic": "Pediatrics|Liver / Hepatitis",
+    "n": 3
+  },
+  {
+    "topic": "Pediatrics|Antibiotics",
+    "n": 3
+  },
+  {
+    "topic": "Pediatrics|Seizures / Epilepsy",
+    "n": 3
+  },
+  {
+    "topic": "Respiratory|Hypersensitivity",
+    "n": 3
+  },
+  {
+    "topic": "Urology|Bowel obstruction",
+    "n": 3
+  },
+  {
+    "topic": "Obstetrics-&-Gynaecology|Liver / Hepatitis",
+    "n": 3
+  },
+  {
+    "topic": "Applied-Anatomy-&-Surgery|Shock",
+    "n": 3
+  },
+  {
+    "topic": "Biochemistry-&-Microbiology|Antibiotics",
+    "n": 3
+  },
+  {
+    "topic": "Biochemistry-&-Microbiology|Unclassified",
+    "n": 3
+  },
+  {
+    "topic": "Dermatology,-Community-Medicine-&-Forensic|Unclassified",
+    "n": 3
+  },
+  {
+    "topic": "Medicine (75 MCQs)|Nucleic acids",
+    "n": 2
+  },
+  {
+    "topic": "Medicine (75 MCQs)|Cardiovascular drugs",
+    "n": 2
+  },
+  {
+    "topic": "Medicine (75 MCQs)|Electrolytes & Acid-Base",
+    "n": 2
+  },
+  {
+    "topic": "Medicine (75 MCQs)|Shock",
+    "n": 2
+  },
+  {
+    "topic": "Surgery (15 MCQs)|Unclassified",
+    "n": 2
+  },
+  {
+    "topic": "Surgery (15 MCQs)|GI surgery",
+    "n": 2
+  },
+  {
+    "topic": "Obstetrics & Gynaecology (13 MCQs)|Liver / Hepatitis",
+    "n": 2
+  },
+  {
+    "topic": "Physiology (3 MCQs)|Immunosuppressants / Steroids",
+    "n": 2
+  },
+  {
+    "topic": "Medicine (78 MCQs)|Viral",
+    "n": 2
+  },
+  {
+    "topic": "Medicine (78 MCQs)|Upper GI / PUD",
+    "n": 2
+  },
+  {
+    "topic": "Medicine (78 MCQs)|Contraception",
+    "n": 2
+  },
+  {
+    "topic": "Medicine (78 MCQs)|Oncology surgery",
+    "n": 2
+  },
+  {
+    "topic": "Medicine (78 MCQs)|Coagulation / Thrombosis",
+    "n": 2
+  },
+  {
+    "topic": "Surgery (18 MCQs)|Fractures",
+    "n": 2
+  },
+  {
+    "topic": "Surgery (18 MCQs)|Unclassified",
+    "n": 2
+  },
+  {
+    "topic": "Surgery (18 MCQs)|Prostate",
+    "n": 2
+  },
+  {
+    "topic": "Paediatrics (19 MCQs)|Liver / Hepatitis",
+    "n": 2
+  },
+  {
+    "topic": "Obstetrics & Gynaecology (16 MCQs)|Hypertension",
+    "n": 2
+  },
+  {
+    "topic": "Obstetrics & Gynaecology (16 MCQs)|Liver / Hepatitis",
+    "n": 2
+  },
+  {
+    "topic": "Pharmacology (11 MCQs)|Unclassified",
+    "n": 2
+  },
+  {
+    "topic": "ENT (8 MCQs)|Neuroanatomy",
+    "n": 2
+  },
+  {
+    "topic": "ENT (8 MCQs)|Otitis",
+    "n": 2
+  },
+  {
+    "topic": "Medicine (92 MCQs)|Shock",
+    "n": 2
+  },
+  {
+    "topic": "Medicine (92 MCQs)|Asthma / COPD",
+    "n": 2
+  },
+  {
+    "topic": "Medicine (92 MCQs)|Headache",
+    "n": 2
+  },
+  {
+    "topic": "Medicine (92 MCQs)|Neuroanatomy",
+    "n": 2
+  },
+  {
+    "topic": "Medicine (92 MCQs)|Liver / Hepatitis",
+    "n": 2
+  },
+  {
+    "topic": "Pathology|Immunology",
+    "n": 2
+  },
+  {
+    "topic": "Surgery (20 MCQs)|GI surgery",
+    "n": 2
+  },
+  {
+    "topic": "Surgery (20 MCQs)|Fractures",
+    "n": 2
+  },
+  {
+    "topic": "Paediatrics (18 MCQs)|Neonatology",
+    "n": 2
+  },
+  {
+    "topic": "Paediatrics (18 MCQs)|Unclassified",
+    "n": 2
+  },
+  {
+    "topic": "Paediatrics (18 MCQs)|Paediatric nutrition",
+    "n": 2
+  },
+  {
+    "topic": "Paediatrics (18 MCQs)|Antibiotics",
+    "n": 2
+  },
+  {
+    "topic": "Ophthalmology (5 MCQs)|Unclassified",
+    "n": 2
+  },
+  {
+    "topic": "Paediatrics (27 MCQs)|Viral",
+    "n": 2
+  },
+  {
+    "topic": "Community Medicine (20 MCQs)|Diabetes mellitus",
+    "n": 2
+  },
+  {
+    "topic": "Obstetrics & Gynaecology (18 MCQs)|Nucleic acids",
+    "n": 2
+  },
+  {
+    "topic": "Pharmacology (16 MCQs)|Meningitis / Encephalitis",
+    "n": 2
+  },
+  {
+    "topic": "Pathology (8 MCQs)|Unclassified",
+    "n": 2
+  },
+  {
+    "topic": "Forensic Medicine (5 MCQs)|Unclassified",
+    "n": 2
+  },
+  {
+    "topic": "Medicine|Pneumonia",
+    "n": 2
+  },
+  {
+    "topic": "Medicine|Viral",
+    "n": 2
+  },
+  {
+    "topic": "Medicine|Parathyroid / Calcium",
+    "n": 2
+  },
+  {
+    "topic": "Community Medicine|Immunisation",
+    "n": 2
+  },
+  {
+    "topic": "Medicine|Pericardial disease",
+    "n": 2
+  },
+  {
+    "topic": "Medicine|Pancreas",
+    "n": 2
+  },
+  {
+    "topic": "Infectious|Parasitic",
+    "n": 2
+  },
+  {
+    "topic": "Medicine|Bowel obstruction",
+    "n": 2
+  },
+  {
+    "topic": "Medicine|Prostate",
+    "n": 2
+  },
+  {
+    "topic": "Physiology|Respiratory physiology",
+    "n": 2
+  },
+  {
+    "topic": "Physiology general|GIT physiology",
+    "n": 2
+  },
+  {
+    "topic": "Medicine-Cardiology|ARDS / Oxygenation",
+    "n": 2
+  },
+  {
+    "topic": "Medicine-Cardiology|Shock",
+    "n": 2
+  },
+  {
+    "topic": "Medicine-Cardiology|Thorax",
+    "n": 2
+  },
+  {
+    "topic": "Medicine-Respiratory|Hypersensitivity",
+    "n": 2
+  },
+  {
+    "topic": "Medicine-Respiratory|Immunosuppressants / Steroids",
+    "n": 2
+  },
+  {
+    "topic": "Medicine-Respiratory|Respiratory physiology",
+    "n": 2
+  },
+  {
+    "topic": "Medicine-Respiratory|Head & Neck",
+    "n": 2
+  },
+  {
+    "topic": "Medicine-Respiratory|Myocardial infarction",
+    "n": 2
+  },
+  {
+    "topic": "Medicine-Respiratory|Heart failure",
+    "n": 2
+  },
+  {
+    "topic": "Medicine-Respiratory|Protein / Amino acids",
+    "n": 2
+  },
+  {
+    "topic": "Medicine-Respiratory|Nephrotic / Nephritic",
+    "n": 2
+  },
+  {
+    "topic": "Medicine-Respiratory|AKI / CKD",
+    "n": 2
+  },
+  {
+    "topic": "Medicine-Renal|Myocardial infarction",
+    "n": 2
+  },
+  {
+    "topic": "Medicine-Renal|Asthma / COPD",
+    "n": 2
+  },
+  {
+    "topic": "Medicine-Electrolytes|AKI / CKD",
+    "n": 2
+  },
+  {
+    "topic": "Medicine-Gastroenterology|Nucleic acids",
+    "n": 2
+  },
+  {
+    "topic": "Medicine-Endocrinology|Unclassified",
+    "n": 2
+  },
+  {
+    "topic": "Medicine-Endocrinology|Diabetes mellitus",
+    "n": 2
+  },
+  {
+    "topic": "Medicine-Neurology|Autoimmunity",
+    "n": 2
+  },
+  {
+    "topic": "Medicine-Neurology|Endocrine physiology",
+    "n": 2
+  },
+  {
+    "topic": "Medicine-Infectious|Parasitic",
+    "n": 2
+  },
+  {
+    "topic": "Medicine-Infectious|Pneumonia",
+    "n": 2
+  },
+  {
+    "topic": "Medicine-Infectious|Meningitis / Encephalitis",
+    "n": 2
+  },
+  {
+    "topic": "Medicine-Infectious|Shock",
+    "n": 2
+  },
+  {
+    "topic": "Medicine-Infectious|Antibiotics",
+    "n": 2
+  },
+  {
+    "topic": "Medicine-Dermatology|Fungal / Mycobacterial",
+    "n": 2
+  },
+  {
+    "topic": "Medicine-Psychiatry|Psychosis / Schizophrenia",
+    "n": 2
+  },
+  {
+    "topic": "Medicine-Psychiatry|ARDS / Oxygenation",
+    "n": 2
+  },
+  {
+    "topic": "Medicine-Hematology|AKI / CKD",
+    "n": 2
+  },
+  {
+    "topic": "Medicine-Review|Meningitis / Encephalitis",
+    "n": 2
+  },
+  {
+    "topic": "Medicine-Review|Heart failure",
+    "n": 2
+  },
+  {
+    "topic": "Medicine-Review|AKI / CKD",
+    "n": 2
+  },
+  {
+    "topic": "Surgery-Gi|Diabetes mellitus",
+    "n": 2
+  },
+  {
+    "topic": "Surgery-Gi|Hypertension",
+    "n": 2
+  },
+  {
+    "topic": "Surgery-Breast|Oncology surgery",
+    "n": 2
+  },
+  {
+    "topic": "Surgery-Breast|Nucleic acids",
+    "n": 2
+  },
+  {
+    "topic": "Surgery-Breast|Antibiotics",
+    "n": 2
+  },
+  {
+    "topic": "Surgery-Breast|Neuroanatomy",
+    "n": 2
+  },
+  {
+    "topic": "Surgery-Vascular|Cell injury / Adaptation",
+    "n": 2
+  },
+  {
+    "topic": "Surgery-Vascular|Lower Limb",
+    "n": 2
+  },
+  {
+    "topic": "Surgery-Vascular|AKI / CKD",
+    "n": 2
+  },
+  {
+    "topic": "Surgery-Vascular|Transplant / Rejection",
+    "n": 2
+  },
+  {
+    "topic": "Surgery-Trauma|Meningitis / Encephalitis",
+    "n": 2
+  },
+  {
+    "topic": "Surgery-Trauma|Stroke",
+    "n": 2
+  },
+  {
+    "topic": "Surgery-Trauma|Fractures",
+    "n": 2
+  },
+  {
+    "topic": "Surgery-Urology|Nephrotic / Nephritic",
+    "n": 2
+  },
+  {
+    "topic": "Surgery-Burns|ARDS / Oxygenation",
+    "n": 2
+  },
+  {
+    "topic": "Surgery-Review|Abdomen / GI",
+    "n": 2
+  },
+  {
+    "topic": "Surgery-Review|Asphyxial deaths",
+    "n": 2
+  },
+  {
+    "topic": "Surgery-Review|Coagulation / Thrombosis",
+    "n": 2
+  },
+  {
+    "topic": "Surgery-Review|Thyroid",
+    "n": 2
+  },
+  {
+    "topic": "Paediatrics-Emergencies|Neuroanatomy",
+    "n": 2
+  },
+  {
+    "topic": "Paediatrics-Emergencies|Asthma / COPD",
+    "n": 2
+  },
+  {
+    "topic": "Paediatrics-Emergencies|Electrolytes & Acid-Base",
+    "n": 2
+  },
+  {
+    "topic": "Paediatrics-Emergencies|Adrenal / Cushing",
+    "n": 2
+  },
+  {
+    "topic": "Paediatrics-Fluids|Shock",
+    "n": 2
+  },
+  {
+    "topic": "Paediatrics-Neonatal|Hypertension",
+    "n": 2
+  },
+  {
+    "topic": "Paediatrics-Neonatal|Nucleic acids",
+    "n": 2
+  },
+  {
+    "topic": "Paediatrics-Neonatal|Cardiovascular anatomy",
+    "n": 2
+  },
+  {
+    "topic": "Paediatrics-Review|Liver / Hepatitis",
+    "n": 2
+  },
+  {
+    "topic": "Paediatrics-Review|Shock",
+    "n": 2
+  },
+  {
+    "topic": "Obgyn-Gynecology|Antibiotics",
+    "n": 2
+  },
+  {
+    "topic": "Obgyn-Gynecology|Contraception",
+    "n": 2
+  },
+  {
+    "topic": "Obgyn-Obstetrics|Neuroanatomy",
+    "n": 2
+  },
+  {
+    "topic": "Obgyn-Obstetrics|Parathyroid / Calcium",
+    "n": 2
+  },
+  {
+    "topic": "Ophthalmology-Core|Headache",
+    "n": 2
+  },
+  {
+    "topic": "Ophthalmology-Core|Child psychiatry",
+    "n": 2
+  },
+  {
+    "topic": "Ophthalmology-Core|Obstetric complications",
+    "n": 2
+  },
+  {
+    "topic": "Ophthalmology-Core|Thorax",
+    "n": 2
+  },
+  {
+    "topic": "Ophthalmology-Core|Neuroanatomy",
+    "n": 2
+  },
+  {
+    "topic": "Ophthalmology-Core|Meningitis / Encephalitis",
+    "n": 2
+  },
+  {
+    "topic": "Ophthalmology-Core|Sinus / Nasal",
+    "n": 2
+  },
+  {
+    "topic": "Ent-Core|Adrenal / Cushing",
+    "n": 2
+  },
+  {
+    "topic": "Ent-Core|Sinus / Nasal",
+    "n": 2
+  },
+  {
+    "topic": "Ent-Core|Airway / Tonsil",
+    "n": 2
+  },
+  {
+    "topic": "Ent-Core|Hearing / Vertigo",
+    "n": 2
+  },
+  {
+    "topic": "Applied-Anatomy|Neonatology",
+    "n": 2
+  },
+  {
+    "topic": "Applied-Anatomy|Fractures",
+    "n": 2
+  },
+  {
+    "topic": "Applied-Anatomy|GI surgery",
+    "n": 2
+  },
+  {
+    "topic": "Applied-Physiology|Neurophysiology",
+    "n": 2
+  },
+  {
+    "topic": "Clinical-Pharmacology|Myocardial infarction",
+    "n": 2
+  },
+  {
+    "topic": "Clinical-Pharmacology|Unclassified",
+    "n": 2
+  },
+  {
+    "topic": "Clinical-Pharmacology|Analgesia / Anaesthesia",
+    "n": 2
+  },
+  {
+    "topic": "Community-Medicine|Hypertension",
+    "n": 2
+  },
+  {
+    "topic": "Community-Medicine|Stroke",
+    "n": 2
+  },
+  {
+    "topic": "Forensic-Medicine|Unclassified",
+    "n": 2
+  },
+  {
+    "topic": "Forensic-Medicine|Analgesia / Anaesthesia",
+    "n": 2
+  },
+  {
+    "topic": "Forensic-Medicine|Liver / Hepatitis",
+    "n": 2
+  },
+  {
+    "topic": "Forensic-Medicine|Electrolytes & Acid-Base",
+    "n": 2
+  },
+  {
+    "topic": "Applied-Basics|Antibiotics",
+    "n": 2
+  },
+  {
+    "topic": "Applied-Basics|Immunosuppressants / Steroids",
+    "n": 2
+  },
+  {
+    "topic": "Applied-Basics|Paediatric infections",
+    "n": 2
+  },
+  {
+    "topic": "Applied-Basics|Sinus / Nasal",
+    "n": 2
+  },
+  {
+    "topic": "Applied-Basics|Airway / Tonsil",
+    "n": 2
+  },
+  {
+    "topic": "Applied-Basics|Upper Limb",
+    "n": 2
+  },
+  {
+    "topic": "Applied-Basics|Head & Neck",
+    "n": 2
+  },
+  {
+    "topic": "Anatomy|Head & Neck",
+    "n": 2
+  },
+  {
+    "topic": "Mock-Exams|Heart failure",
+    "n": 2
+  },
+  {
+    "topic": "Mock-Exams|Electrolytes & Acid-Base",
+    "n": 2
+  },
+  {
+    "topic": "Mock-Exams|Upper GI / PUD",
+    "n": 2
+  },
+  {
+    "topic": "Mock-Exams|Upper Limb",
+    "n": 2
+  },
+  {
+    "topic": "Mock-Exams|Oncology surgery",
+    "n": 2
+  },
+  {
+    "topic": "Mock-Exams|TB",
+    "n": 2
+  },
+  {
+    "topic": "Mock-Exams|Renal stones",
+    "n": 2
+  },
+  {
+    "topic": "Mock-Exams|ARDS / Oxygenation",
+    "n": 2
+  },
+  {
+    "topic": "Mock-Exams|Head & Neck",
+    "n": 2
+  },
+  {
+    "topic": "Mock-Exams|Meningitis / Encephalitis",
+    "n": 2
+  },
+  {
+    "topic": "Mock-Exams|Epidemiology / Biostatistics",
+    "n": 2
+  },
+  {
+    "topic": "Mock-Exams|Anaemia",
+    "n": 2
+  },
+  {
+    "topic": "Mock-Exams|Stroke",
+    "n": 2
+  },
+  {
+    "topic": "Obstetrics|Infertility",
+    "n": 2
+  },
+  {
+    "topic": "Cardiology|Arrhythmia",
+    "n": 2
+  },
+  {
+    "topic": "Dermatology|PE / DVT",
+    "n": 2
+  },
+  {
+    "topic": "Dermatology|Antenatal / Normal labour",
+    "n": 2
+  },
+  {
+    "topic": "Dermatology|Contraception",
+    "n": 2
+  },
+  {
+    "topic": "Ent|ARDS / Oxygenation",
+    "n": 2
+  },
+  {
+    "topic": "Ent|Airway / Tonsil",
+    "n": 2
+  },
+  {
+    "topic": "Ent|Bowel obstruction",
+    "n": 2
+  },
+  {
+    "topic": "Ent|Thorax",
+    "n": 2
+  },
+  {
+    "topic": "Gynecology|Genetics / Paediatric",
+    "n": 2
+  },
+  {
+    "topic": "Gynecology|Infertility",
+    "n": 2
+  },
+  {
+    "topic": "Gynecology|Antenatal / Normal labour",
+    "n": 2
+  },
+  {
+    "topic": "Gynecology|Contraception",
+    "n": 2
+  },
+  {
+    "topic": "Neurology|Hypertension",
+    "n": 2
+  },
+  {
+    "topic": "Neurology|ARDS / Oxygenation",
+    "n": 2
+  },
+  {
+    "topic": "Obstetrics|Seizures / Epilepsy",
+    "n": 2
+  },
+  {
+    "topic": "Obstetrics|Antibiotics",
+    "n": 2
+  },
+  {
+    "topic": "Obstetrics|Epidemiology / Biostatistics",
+    "n": 2
+  },
+  {
+    "topic": "Pediatrics|ARDS / Oxygenation",
+    "n": 2
+  },
+  {
+    "topic": "Pediatrics|Immunosuppressants / Steroids",
+    "n": 2
+  },
+  {
+    "topic": "Pediatrics|Asthma / COPD",
+    "n": 2
+  },
+  {
+    "topic": "Pediatrics|AKI / CKD",
+    "n": 2
+  },
+  {
+    "topic": "Respiratory|Coagulation / Thrombosis",
+    "n": 2
+  },
+  {
+    "topic": "Urology|Trauma / Resuscitation",
+    "n": 2
+  },
+  {
+    "topic": "Urology|Parathyroid / Calcium",
+    "n": 2
+  },
+  {
+    "topic": "Urology|Prostate",
+    "n": 2
+  },
+  {
+    "topic": "Internal-Medicine-I|Cardiovascular drugs",
+    "n": 2
+  },
+  {
+    "topic": "Internal-Medicine-I|Bowel obstruction",
+    "n": 2
+  },
+  {
+    "topic": "Internal-Medicine-II|Antibiotics",
+    "n": 2
+  },
+  {
+    "topic": "Obstetrics-&-Gynaecology|Arrhythmia",
+    "n": 2
+  },
+  {
+    "topic": "Obstetrics-&-Gynaecology|Antenatal / Normal labour",
+    "n": 2
+  },
+  {
+    "topic": "Biochemistry-&-Microbiology|Enzymes / LFT",
+    "n": 2
+  },
+  {
+    "topic": "Biochemistry-&-Microbiology|Meningitis / Encephalitis",
+    "n": 2
+  },
+  {
+    "topic": "Biochemistry-&-Microbiology|Headache",
+    "n": 2
+  },
+  {
+    "topic": "ENT,-Ophthalmology-&-Psychiatry|Unclassified",
+    "n": 2
+  },
+  {
+    "topic": "Dermatology,-Community-Medicine-&-Forensic|Thorax",
+    "n": 2
+  },
+  {
+    "topic": "Grand-All-Subject|Thyroid",
+    "n": 2
+  },
+  {
+    "topic": "Grand-All-Subject|Infertility",
+    "n": 2
+  },
+  {
+    "topic": "Grand-All-Subject|Nucleic acids",
+    "n": 2
+  },
+  {
+    "topic": "Medicine (75 MCQs)|Neoplasia",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (75 MCQs)|Autoimmunity",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (75 MCQs)|GIT physiology",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (75 MCQs)|Hypertension",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (75 MCQs)|Viral",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (75 MCQs)|Cell injury / Adaptation",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (75 MCQs)|Bowel obstruction",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (75 MCQs)|Pericardial disease",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (75 MCQs)|Diabetes mellitus",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (75 MCQs)|Head & Neck",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (75 MCQs)|Myocardial infarction",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (75 MCQs)|Meningitis / Encephalitis",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (75 MCQs)|Seizures / Epilepsy",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (75 MCQs)|Endocrine physiology",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (75 MCQs)|TB",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (75 MCQs)|PE / DVT",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (75 MCQs)|Thorax",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (75 MCQs)|Neuroanatomy",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (75 MCQs)|Analgesia / Anaesthesia",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (75 MCQs)|Antenatal / Normal labour",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (75 MCQs)|Wound / Infection",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (75 MCQs)|Epidemiology / Biostatistics",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (75 MCQs)|Anaemia",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (75 MCQs)|Asthma / COPD",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (75 MCQs)|Parasitic",
+    "n": 1
+  },
+  {
+    "topic": "Surgery (15 MCQs)|Trauma / Resuscitation",
+    "n": 1
+  },
+  {
+    "topic": "Surgery (15 MCQs)|Renal stones",
+    "n": 1
+  },
+  {
+    "topic": "Surgery (15 MCQs)|Meningitis / Encephalitis",
+    "n": 1
+  },
+  {
+    "topic": "Surgery (15 MCQs)|Thyroid",
+    "n": 1
+  },
+  {
+    "topic": "Surgery (15 MCQs)|Head & Neck",
+    "n": 1
+  },
+  {
+    "topic": "Surgery (15 MCQs)|PE / DVT",
+    "n": 1
+  },
+  {
+    "topic": "Surgery (15 MCQs)|Pneumonia",
+    "n": 1
+  },
+  {
+    "topic": "Paediatrics (11 MCQs)|Meningitis / Encephalitis",
+    "n": 1
+  },
+  {
+    "topic": "Paediatrics (11 MCQs)|Coagulation / Thrombosis",
+    "n": 1
+  },
+  {
+    "topic": "Paediatrics (11 MCQs)|Neonatology",
+    "n": 1
+  },
+  {
+    "topic": "Paediatrics (11 MCQs)|ARDS / Oxygenation",
+    "n": 1
+  },
+  {
+    "topic": "Paediatrics (11 MCQs)|Protein / Amino acids",
+    "n": 1
+  },
+  {
+    "topic": "Obstetrics & Gynaecology (13 MCQs)|Fungal / Mycobacterial",
+    "n": 1
+  },
+  {
+    "topic": "Obstetrics & Gynaecology (13 MCQs)|Neuroanatomy",
+    "n": 1
+  },
+  {
+    "topic": "Obstetrics & Gynaecology (13 MCQs)|Contraception",
+    "n": 1
+  },
+  {
+    "topic": "Obstetrics & Gynaecology (13 MCQs)|Unclassified",
+    "n": 1
+  },
+  {
+    "topic": "Obstetrics & Gynaecology (13 MCQs)|Arrhythmia",
+    "n": 1
+  },
+  {
+    "topic": "Pharmacology (10 MCQs)|Seizures / Epilepsy",
+    "n": 1
+  },
+  {
+    "topic": "Pharmacology (10 MCQs)|Shock",
+    "n": 1
+  },
+  {
+    "topic": "Pharmacology (10 MCQs)|Immunosuppressants / Steroids",
+    "n": 1
+  },
+  {
+    "topic": "ENT (4 MCQs)|Sinus / Nasal",
+    "n": 1
+  },
+  {
+    "topic": "ENT (4 MCQs)|ARDS / Oxygenation",
+    "n": 1
+  },
+  {
+    "topic": "ENT (4 MCQs)|Thorax",
+    "n": 1
+  },
+  {
+    "topic": "ENT (4 MCQs)|Otitis",
+    "n": 1
+  },
+  {
+    "topic": "Biochemistry (2 MCQs)|Liver / Hepatitis",
+    "n": 1
+  },
+  {
+    "topic": "Biochemistry (2 MCQs)|Thorax",
+    "n": 1
+  },
+  {
+    "topic": "Ophthalmology (3 MCQs)|Glaucoma / Cataract",
+    "n": 1
+  },
+  {
+    "topic": "Psychiatry (2 MCQs)|AKI / CKD",
+    "n": 1
+  },
+  {
+    "topic": "Anatomy (1 MCQs)|Unclassified",
+    "n": 1
+  },
+  {
+    "topic": "Physiology (3 MCQs)|Thorax",
+    "n": 1
+  },
+  {
+    "topic": "Recall Defects|Oncology surgery",
+    "n": 1
+  },
+  {
+    "topic": "Recall Defects|Bacterial",
+    "n": 1
+  },
+  {
+    "topic": "Recall Defects|Thyroid",
+    "n": 1
+  },
+  {
+    "topic": "Recall Defects|Shock",
+    "n": 1
+  },
+  {
+    "topic": "Recall Defects|Nephrotic / Nephritic",
+    "n": 1
+  },
+  {
+    "topic": "Recall Defects|Antibiotics",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (78 MCQs)|Renal stones",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (78 MCQs)|GIT physiology",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (78 MCQs)|Liver / Hepatitis",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (78 MCQs)|Diabetes mellitus",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (78 MCQs)|Antenatal / Normal labour",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (78 MCQs)|Anxiety / OCD",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (78 MCQs)|Leukaemia / Lymphoma",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (78 MCQs)|Stroke",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (78 MCQs)|Pituitary",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (78 MCQs)|Headache",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (78 MCQs)|ARDS / Oxygenation",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (78 MCQs)|Parasitic",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (78 MCQs)|Protein / Amino acids",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (78 MCQs)|Electrolytes & Acid-Base",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (78 MCQs)|Analgesia / Anaesthesia",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (78 MCQs)|Substance use",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (78 MCQs)|Medical Jurisprudence",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (78 MCQs)|IBD",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (78 MCQs)|Nucleic acids",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (78 MCQs)|Heart failure",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (78 MCQs)|Myocardial infarction",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (78 MCQs)|Inflammation / Repair",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (78 MCQs)|Lipid metabolism",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (78 MCQs)|Anaemia",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (78 MCQs)|Nephrotic / Nephritic",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (78 MCQs)|Neoplasia",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (78 MCQs)|Seizures / Epilepsy",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (78 MCQs)|Thyroid",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (78 MCQs)|Renal tumour",
+    "n": 1
+  },
+  {
+    "topic": "Surgery (18 MCQs)|Thyroid",
+    "n": 1
+  },
+  {
+    "topic": "Surgery (18 MCQs)|Pneumonia",
+    "n": 1
+  },
+  {
+    "topic": "Surgery (18 MCQs)|Pancreas",
+    "n": 1
+  },
+  {
+    "topic": "Surgery (18 MCQs)|Transplant / Rejection",
+    "n": 1
+  },
+  {
+    "topic": "Surgery (18 MCQs)|Antibiotics",
+    "n": 1
+  },
+  {
+    "topic": "Surgery (18 MCQs)|Wound / Infection",
+    "n": 1
+  },
+  {
+    "topic": "Surgery (18 MCQs)|Lipid metabolism",
+    "n": 1
+  },
+  {
+    "topic": "Paediatrics (19 MCQs)|Lower Limb",
+    "n": 1
+  },
+  {
+    "topic": "Paediatrics (19 MCQs)|IBD",
+    "n": 1
+  },
+  {
+    "topic": "Paediatrics (19 MCQs)|Nucleic acids",
+    "n": 1
+  },
+  {
+    "topic": "Paediatrics (19 MCQs)|Paediatric infections",
+    "n": 1
+  },
+  {
+    "topic": "Paediatrics (19 MCQs)|ARDS / Oxygenation",
+    "n": 1
+  },
+  {
+    "topic": "Paediatrics (19 MCQs)|Seizures / Epilepsy",
+    "n": 1
+  },
+  {
+    "topic": "Paediatrics (19 MCQs)|Bowel obstruction",
+    "n": 1
+  },
+  {
+    "topic": "Obstetrics & Gynaecology (16 MCQs)|Bowel obstruction",
+    "n": 1
+  },
+  {
+    "topic": "Obstetrics & Gynaecology (16 MCQs)|Headache",
+    "n": 1
+  },
+  {
+    "topic": "Obstetrics & Gynaecology (16 MCQs)|Oncology surgery",
+    "n": 1
+  },
+  {
+    "topic": "Obstetrics & Gynaecology (16 MCQs)|Arrhythmia",
+    "n": 1
+  },
+  {
+    "topic": "Obstetrics & Gynaecology (16 MCQs)|Anaemia",
+    "n": 1
+  },
+  {
+    "topic": "Obstetrics & Gynaecology (16 MCQs)|Pituitary",
+    "n": 1
+  },
+  {
+    "topic": "Obstetrics & Gynaecology (16 MCQs)|Infertility",
+    "n": 1
+  },
+  {
+    "topic": "Pharmacology (11 MCQs)|Dialysis",
+    "n": 1
+  },
+  {
+    "topic": "Pharmacology (11 MCQs)|Adrenal / Cushing",
+    "n": 1
+  },
+  {
+    "topic": "Pharmacology (11 MCQs)|Asthma / COPD",
+    "n": 1
+  },
+  {
+    "topic": "Pharmacology (11 MCQs)|Shock",
+    "n": 1
+  },
+  {
+    "topic": "Pharmacology (11 MCQs)|Vitamins / Minerals",
+    "n": 1
+  },
+  {
+    "topic": "Pharmacology (11 MCQs)|Hypertension",
+    "n": 1
+  },
+  {
+    "topic": "ENT (8 MCQs)|Anaemia",
+    "n": 1
+  },
+  {
+    "topic": "ENT (8 MCQs)|Meningitis / Encephalitis",
+    "n": 1
+  },
+  {
+    "topic": "Biochemistry (4 MCQs)|Protein / Amino acids",
+    "n": 1
+  },
+  {
+    "topic": "Biochemistry|Carbohydrate metabolism",
+    "n": 1
+  },
+  {
+    "topic": "Ophthalmology (2 MCQs)|Neuroanatomy",
+    "n": 1
+  },
+  {
+    "topic": "Forensic Medicine (2 MCQs)|Mood disorders",
+    "n": 1
+  },
+  {
+    "topic": "Forensic Medicine (2 MCQs)|Toxicology",
+    "n": 1
+  },
+  {
+    "topic": "Physiology (3 MCQs)|Contraception",
+    "n": 1
+  },
+  {
+    "topic": "Physiology (3 MCQs)|Cardiovascular drugs",
+    "n": 1
+  },
+  {
+    "topic": "Pathology (1 MCQs)|TB",
+    "n": 1
+  },
+  {
+    "topic": "Community Medicine (2 MCQs)|Unclassified",
+    "n": 1
+  },
+  {
+    "topic": "Community Medicine (2 MCQs)|Viral",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (92 MCQs)|Upper GI / PUD",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (92 MCQs)|Leukaemia / Lymphoma",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (92 MCQs)|Nephrotic / Nephritic",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (92 MCQs)|PE / DVT",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (92 MCQs)|Protein / Amino acids",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (92 MCQs)|Coagulation / Thrombosis",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (92 MCQs)|Oncology surgery",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (92 MCQs)|Pancreas",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (92 MCQs)|Inflammation / Repair",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (92 MCQs)|ARDS / Oxygenation",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (92 MCQs)|Wound / Infection",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (92 MCQs)|Obstetric complications",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (92 MCQs)|Viral",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (92 MCQs)|Cell injury / Adaptation",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (92 MCQs)|Child psychiatry",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (92 MCQs)|TB",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (92 MCQs)|Thorax",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (92 MCQs)|Anaemia",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (92 MCQs)|Neurophysiology",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (92 MCQs)|Malabsorption",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (92 MCQs)|Renal stones",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (92 MCQs)|Endocrine physiology",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (92 MCQs)|Adrenal / Cushing",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (92 MCQs)|Lipid metabolism",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (92 MCQs)|Medical Jurisprudence",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (92 MCQs)|Substance use",
+    "n": 1
+  },
+  {
+    "topic": "Surgery (20 MCQs)|Antibiotics",
+    "n": 1
+  },
+  {
+    "topic": "Surgery (20 MCQs)|Hypertension",
+    "n": 1
+  },
+  {
+    "topic": "Surgery (20 MCQs)|Unclassified",
+    "n": 1
+  },
+  {
+    "topic": "Surgery (20 MCQs)|Neoplasia",
+    "n": 1
+  },
+  {
+    "topic": "Surgery (20 MCQs)|Upper GI / PUD",
+    "n": 1
+  },
+  {
+    "topic": "Surgery (20 MCQs)|Bowel obstruction",
+    "n": 1
+  },
+  {
+    "topic": "Surgery (20 MCQs)|Renal stones",
+    "n": 1
+  },
+  {
+    "topic": "Paediatrics (18 MCQs)|Pneumonia",
+    "n": 1
+  },
+  {
+    "topic": "Paediatrics (18 MCQs)|Bowel obstruction",
+    "n": 1
+  },
+  {
+    "topic": "Paediatrics (18 MCQs)|Contraception",
+    "n": 1
+  },
+  {
+    "topic": "Paediatrics (18 MCQs)|Nucleic acids",
+    "n": 1
+  },
+  {
+    "topic": "Paediatrics (18 MCQs)|Paediatric infections",
+    "n": 1
+  },
+  {
+    "topic": "Paediatrics (18 MCQs)|Liver / Hepatitis",
+    "n": 1
+  },
+  {
+    "topic": "Paediatrics (18 MCQs)|Medical Jurisprudence",
+    "n": 1
+  },
+  {
+    "topic": "Obstetrics & Gynaecology (16 MCQs)|Neonatology",
+    "n": 1
+  },
+  {
+    "topic": "Obstetrics & Gynaecology (16 MCQs)|Diabetes mellitus",
+    "n": 1
+  },
+  {
+    "topic": "Obstetrics & Gynaecology (16 MCQs)|Unclassified",
+    "n": 1
+  },
+  {
+    "topic": "Obstetrics & Gynaecology (16 MCQs)|Thyroid",
+    "n": 1
+  },
+  {
+    "topic": "Obstetrics & Gynaecology (16 MCQs)|ARDS / Oxygenation",
+    "n": 1
+  },
+  {
+    "topic": "Obstetrics & Gynaecology (16 MCQs)|Cardiovascular anatomy",
+    "n": 1
+  },
+  {
+    "topic": "Pharmacology (10 MCQs)|Coagulation / Thrombosis",
+    "n": 1
+  },
+  {
+    "topic": "Pharmacology (10 MCQs)|Vitamins / Minerals",
+    "n": 1
+  },
+  {
+    "topic": "Pharmacology (10 MCQs)|Analgesia / Anaesthesia",
+    "n": 1
+  },
+  {
+    "topic": "Pharmacology (10 MCQs)|Thyroid",
+    "n": 1
+  },
+  {
+    "topic": "ENT (8 MCQs)|Thyroid",
+    "n": 1
+  },
+  {
+    "topic": "ENT (8 MCQs)|Airway / Tonsil",
+    "n": 1
+  },
+  {
+    "topic": "Biochemistry (5 MCQs)|Liver / Hepatitis",
+    "n": 1
+  },
+  {
+    "topic": "Paediatrics|Genetics / Paediatric",
+    "n": 1
+  },
+  {
+    "topic": "Biochemistry (5 MCQs)|Protein / Amino acids",
+    "n": 1
+  },
+  {
+    "topic": "Ophthalmology (5 MCQs)|Glaucoma / Cataract",
+    "n": 1
+  },
+  {
+    "topic": "Forensic Medicine (3 MCQs)|Prostate",
+    "n": 1
+  },
+  {
+    "topic": "Forensic Medicine (3 MCQs)|Thanatology",
+    "n": 1
+  },
+  {
+    "topic": "Anatomy (2 MCQs)|PE / DVT",
+    "n": 1
+  },
+  {
+    "topic": "Anatomy (2 MCQs)|Neuroanatomy",
+    "n": 1
+  },
+  {
+    "topic": "Physiology (2 MCQs)|Oncology surgery",
+    "n": 1
+  },
+  {
+    "topic": "Physiology (2 MCQs)|Parathyroid / Calcium",
+    "n": 1
+  },
+  {
+    "topic": "Pathology (1 MCQs)|Unclassified",
+    "n": 1
+  },
+  {
+    "topic": "Recall Defects|Headache",
+    "n": 1
+  },
+  {
+    "topic": "Recall Defects|Psychosis / Schizophrenia",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (36 MCQs)|Toxicology",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (36 MCQs)|Wound / Infection",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (36 MCQs)|Thorax",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (36 MCQs)|Liver / Hepatitis",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (36 MCQs)|Immunosuppressants / Steroids",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (36 MCQs)|Seizures / Epilepsy",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (36 MCQs)|Neuroanatomy",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (36 MCQs)|Parathyroid / Calcium",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (36 MCQs)|Pericardial disease",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (36 MCQs)|TB",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (36 MCQs)|Anaemia",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (36 MCQs)|Spleen / Platelets",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (36 MCQs)|Pancreas",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (36 MCQs)|Meningitis / Encephalitis",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (36 MCQs)|Antibiotics",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (36 MCQs)|Airway / Tonsil",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (36 MCQs)|Retina / Neuro-ophthalmic",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (36 MCQs)|GIT physiology",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (36 MCQs)|Pituitary",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (36 MCQs)|Electrolytes & Acid-Base",
+    "n": 1
+  },
+  {
+    "topic": "Medicine (36 MCQs)|Dementia / Alzheimer",
+    "n": 1
+  },
+  {
+    "topic": "Surgery (28 MCQs)|Thyroid",
+    "n": 1
+  },
+  {
+    "topic": "Surgery (28 MCQs)|Parathyroid / Calcium",
+    "n": 1
+  },
+  {
+    "topic": "Surgery (28 MCQs)|Asthma / COPD",
+    "n": 1
+  },
+  {
+    "topic": "Surgery (28 MCQs)|Renal stones",
+    "n": 1
+  },
+  {
+    "topic": "Surgery (28 MCQs)|GI surgery",
+    "n": 1
+  },
+  {
+    "topic": "Surgery (28 MCQs)|Antibiotics",
+    "n": 1
+  },
+  {
+    "topic": "Surgery (28 MCQs)|Thorax",
+    "n": 1
+  },
+  {
+    "topic": "Surgery (28 MCQs)|Upper GI / PUD",
+    "n": 1
+  },
+  {
+    "topic": "Surgery (28 MCQs)|Bowel obstruction",
+    "n": 1
+  },
+  {
+    "topic": "Surgery (28 MCQs)|Genetics / Paediatric",
+    "n": 1
+  },
+  {
+    "topic": "Surgery (28 MCQs)|Myocardial infarction",
+    "n": 1
+  },
+  {
+    "topic": "Surgery (28 MCQs)|Oncology surgery",
+    "n": 1
+  },
+  {
+    "topic": "Surgery (28 MCQs)|Fractures",
+    "n": 1
+  },
+  {
+    "topic": "Surgery (28 MCQs)|ARDS / Oxygenation",
+    "n": 1
+  },
+  {
+    "topic": "Paediatrics (27 MCQs)|Pneumonia",
+    "n": 1
+  },
+  {
+    "topic": "Paediatrics (27 MCQs)|Anxiety / OCD",
+    "n": 1
+  },
+  {
+    "topic": "Paediatrics (27 MCQs)|Parathyroid / Calcium",
+    "n": 1
+  },
+  {
+    "topic": "Paediatrics (27 MCQs)|Contraception",
+    "n": 1
+  },
+  {
+    "topic": "Paediatrics (27 MCQs)|Meningitis / Encephalitis",
+    "n": 1
+  },
+  {
+    "topic": "Paediatrics (27 MCQs)|IBD",
+    "n": 1
+  },
+  {
+    "topic": "Paediatrics (27 MCQs)|Glaucoma / Cataract",
+    "n": 1
+  },
+  {
+    "topic": "Paediatrics (27 MCQs)|Seizures / Epilepsy",
+    "n": 1
+  },
+  {
+    "topic": "Paediatrics (27 MCQs)|Diabetes mellitus",
+    "n": 1
+  },
+  {
+    "topic": "Paediatrics (27 MCQs)|Asthma / COPD",
+    "n": 1
+  },
+  {
+    "topic": "Paediatrics (27 MCQs)|TB",
+    "n": 1
+  },
+  {
+    "topic": "Paediatrics (27 MCQs)|Oncology surgery",
+    "n": 1
+  },
+  {
+    "topic": "Paediatrics (27 MCQs)|Renal physiology",
+    "n": 1
+  },
+  {
+    "topic": "Paediatrics (27 MCQs)|ARDS / Oxygenation",
+    "n": 1
+  },
+  {
+    "topic": "Community Medicine (20 MCQs)|Cardiovascular drugs",
+    "n": 1
+  },
+  {
+    "topic": "Community Medicine (20 MCQs)|ARDS / Oxygenation",
+    "n": 1
+  },
+  {
+    "topic": "Community Medicine (20 MCQs)|GI surgery",
+    "n": 1
+  },
+  {
+    "topic": "Community Medicine (20 MCQs)|Thyroid",
+    "n": 1
+  },
+  {
+    "topic": "Community Medicine (20 MCQs)|Shock",
+    "n": 1
+  },
+  {
+    "topic": "Community Medicine (20 MCQs)|Antenatal / Normal labour",
+    "n": 1
+  },
+  {
+    "topic": "Community Medicine (20 MCQs)|TB",
+    "n": 1
+  },
+  {
+    "topic": "Community Medicine (20 MCQs)|Lipid metabolism",
+    "n": 1
+  },
+  {
+    "topic": "Community Medicine (20 MCQs)|Cell injury / Adaptation",
+    "n": 1
+  },
+  {
+    "topic": "Obstetrics & Gynaecology (18 MCQs)|Arrhythmia",
+    "n": 1
+  },
+  {
+    "topic": "Obstetrics & Gynaecology (18 MCQs)|Transplant / Rejection",
+    "n": 1
+  },
+  {
+    "topic": "Obstetrics & Gynaecology (18 MCQs)|Neonatology",
+    "n": 1
+  },
+  {
+    "topic": "Obstetrics & Gynaecology (18 MCQs)|Child psychiatry",
+    "n": 1
+  },
+  {
+    "topic": "Obstetrics & Gynaecology (18 MCQs)|Antibiotics",
+    "n": 1
+  },
+  {
+    "topic": "Pharmacology (16 MCQs)|Fractures",
+    "n": 1
+  },
+  {
+    "topic": "Pharmacology (16 MCQs)|Anaemia",
+    "n": 1
+  },
+  {
+    "topic": "Pharmacology (16 MCQs)|Mood disorders",
+    "n": 1
+  },
+  {
+    "topic": "Pharmacology (16 MCQs)|Thyroid",
+    "n": 1
+  },
+  {
+    "topic": "Pharmacology (16 MCQs)|Contraception",
+    "n": 1
+  },
+  {
+    "topic": "Pharmacology (16 MCQs)|Vitamins / Minerals",
+    "n": 1
+  },
+  {
+    "topic": "Pharmacology (16 MCQs)|Hypertension",
+    "n": 1
+  },
+  {
+    "topic": "Pharmacology (16 MCQs)|IBD",
+    "n": 1
+  },
+  {
+    "topic": "Pharmacology (16 MCQs)|Thorax",
+    "n": 1
+  },
+  {
+    "topic": "Pharmacology (16 MCQs)|Pneumonia",
+    "n": 1
+  },
+  {
+    "topic": "Pharmacology (16 MCQs)|Arthritis",
+    "n": 1
+  },
+  {
+    "topic": "Physiology (8 MCQs)|Retina / Neuro-ophthalmic",
+    "n": 1
+  },
+  {
+    "topic": "Physiology (8 MCQs)|Substance use",
+    "n": 1
+  },
+  {
+    "topic": "Physiology (8 MCQs)|Thyroid",
+    "n": 1
+  },
+  {
+    "topic": "Physiology (8 MCQs)|Liver / Hepatitis",
+    "n": 1
+  },
+  {
+    "topic": "Pathology (8 MCQs)|GI surgery",
+    "n": 1
+  },
+  {
+    "topic": "Pathology (8 MCQs)|Neoplasia",
+    "n": 1
+  },
+  {
+    "topic": "Pathology (8 MCQs)|TB",
+    "n": 1
+  },
+  {
+    "topic": "Pathology (8 MCQs)|Parasitic",
+    "n": 1
+  },
+  {
+    "topic": "Pathology (8 MCQs)|Anaemia",
+    "n": 1
+  },
+  {
+    "topic": "Pathology (8 MCQs)|Bacterial",
+    "n": 1
+  },
+  {
+    "topic": "Anatomy (6 MCQs)|Medical Jurisprudence",
+    "n": 1
+  },
+  {
+    "topic": "Anatomy (6 MCQs)|Oncology surgery",
+    "n": 1
+  },
+  {
+    "topic": "Anatomy (6 MCQs)|Pneumonia",
+    "n": 1
+  },
+  {
+    "topic": "Forensic Medicine (5 MCQs)|Hypertension",
+    "n": 1
+  },
+  {
+    "topic": "Forensic Medicine (5 MCQs)|Obstetric complications",
+    "n": 1
+  },
+  {
+    "topic": "Ophthalmology (2 MCQs)|Glaucoma / Cataract",
+    "n": 1
+  },
+  {
+    "topic": "Psychiatry (2 MCQs)|Unclassified",
+    "n": 1
+  },
+  {
+    "topic": "Biochemistry (1 MCQs)|Lower Limb",
+    "n": 1
+  },
+  {
+    "topic": "Obstetrics & Gynaecology|Contraception",
+    "n": 1
+  },
+  {
+    "topic": "Physiology|GIT physiology",
+    "n": 1
+  },
+  {
+    "topic": "Physiology|Neurophysiology",
+    "n": 1
+  },
+  {
+    "topic": "Medicine|Meningitis / Encephalitis",
+    "n": 1
+  },
+  {
+    "topic": "Obstetrics & Gynaecology|Neonatology",
+    "n": 1
+  },
+  {
+    "topic": "Forensic Medicine|Medical Jurisprudence",
+    "n": 1
+  },
+  {
+    "topic": "Medicine|Electrolytes & Acid-Base",
+    "n": 1
+  },
+  {
+    "topic": "Medicine|Pituitary",
+    "n": 1
+  },
+  {
+    "topic": "Medicine|ARDS / Oxygenation",
+    "n": 1
+  },
+  {
+    "topic": "Medicine|Arrhythmia",
+    "n": 1
+  },
+  {
+    "topic": "Immunology|Transplant / Rejection",
+    "n": 1
+  },
+  {
+    "topic": "Medicine|Dialysis",
+    "n": 1
+  },
+  {
+    "topic": "Physiology general|Neurophysiology",
+    "n": 1
+  },
+  {
+    "topic": "Urology|Renal tumour",
+    "n": 1
+  },
+  {
+    "topic": "Surgery|Wound / Infection",
+    "n": 1
+  },
+  {
+    "topic": "Physiology|Cardiac physiology",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Cardiology|Anxiety / OCD",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Cardiology|Nucleic acids",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Cardiology|Neuroanatomy",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Cardiology|Pneumonia",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Cardiology|Headache",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Cardiology|Haemodynamics",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Cardiology|Fungal / Mycobacterial",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Cardiology|Hypersensitivity",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Cardiology|Analgesia / Anaesthesia",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Respiratory|Liver / Hepatitis",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Respiratory|Meningitis / Encephalitis",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Respiratory|Antenatal / Normal labour",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Respiratory|Antibiotics",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Respiratory|Analgesia / Anaesthesia",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Respiratory|Thorax",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Respiratory|Sinus / Nasal",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Respiratory|Trauma / Resuscitation",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Respiratory|Fractures",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Renal|Electrolytes & Acid-Base",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Renal|Shock",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Renal|Pericardial disease",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Renal|Renal physiology",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Renal|Head & Neck",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Renal|Pneumonia",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Renal|Dialysis",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Electrolytes|Seizures / Epilepsy",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Electrolytes|Heart failure",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Electrolytes|Diabetes mellitus",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Electrolytes|Electrolytes & Acid-Base",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Electrolytes|Hypertension",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Gastroenterology|Epidemiology / Biostatistics",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Gastroenterology|Antibiotics",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Endocrinology|Neoplasia",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Endocrinology|Electrolytes & Acid-Base",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Endocrinology|Dialysis",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Endocrinology|Antibiotics",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Endocrinology|Thyroid",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Endocrinology|Adrenal / Cushing",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Endocrinology|Headache",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Neurology|Headache",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Neurology|Trauma / Resuscitation",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Neurology|Shock",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Neurology|ARDS / Oxygenation",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Neurology|Parathyroid / Calcium",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Neurology|Psychosis / Schizophrenia",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Rheumatology|Autoimmunity",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Rheumatology|Antibiotics",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Rheumatology|Hypertension",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Rheumatology|Parathyroid / Calcium",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Rheumatology|Neuroanatomy",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Rheumatology|Myocardial infarction",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Rheumatology|Nephrotic / Nephritic",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Rheumatology|Anaemia",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Rheumatology|TB",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Infectious|Viral",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Infectious|AKI / CKD",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Infectious|Liver / Hepatitis",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Infectious|Seizures / Epilepsy",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Infectious|Myocardial infarction",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Infectious|Hypertension",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Infectious|Bacterial",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Dermatology|Thorax",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Dermatology|Trauma / Resuscitation",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Dermatology|Asthma / COPD",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Dermatology|Protein / Amino acids",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Dermatology|Viral",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Dermatology|Autoimmunity",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Dermatology|Hypertension",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Dermatology|Antibiotics",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Dermatology|Immunosuppressants / Steroids",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Psychiatry|Autoimmunity",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Psychiatry|Dialysis",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Psychiatry|Thyroid",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Psychiatry|Unclassified",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Psychiatry|Hypertension",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Psychiatry|Dementia / Alzheimer",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Psychiatry|Toxicology",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Psychiatry|Liver / Hepatitis",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Psychiatry|Cardiovascular drugs",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Psychiatry|AKI / CKD",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Hematology|Anaemia",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Hematology|Contraception",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Hematology|Transplant / Rejection",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Hematology|Leukaemia / Lymphoma",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Hematology|Unclassified",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Review|Neuroanatomy",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Review|Adrenal / Cushing",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Review|Arrhythmia",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Review|ARDS / Oxygenation",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Review|Pneumonia",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Review|TB",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Review|PE / DVT",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Review|Nephrotic / Nephritic",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Review|Neurophysiology",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Review|Cell injury / Adaptation",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Review|Parasitic",
+    "n": 1
+  },
+  {
+    "topic": "Medicine-Review|Immunosuppressants / Steroids",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Gi|Thorax",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Gi|Epidemiology / Biostatistics",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Gi|Malabsorption",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Gi|Arrhythmia",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Gi|Nucleic acids",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Gi|Antenatal / Normal labour",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Gi|TB",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Gi|Electrolytes & Acid-Base",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Gi|Nutrition",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Gi|Oncology surgery",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Gi|Genetics / Paediatric",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Gi|Shock",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Gi|Prostate",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Hernia|Autoimmunity",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Hernia|Renal stones",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Hernia|Asphyxial deaths",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Hernia|Unclassified",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Hernia|Nucleic acids",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Hernia|Asthma / COPD",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Breast|Paediatric nutrition",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Breast|Analgesia / Anaesthesia",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Breast|Myocardial infarction",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Breast|Immunosuppressants / Steroids",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Thyroid|Pancreas",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Thyroid|ARDS / Oxygenation",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Vascular|Anticoagulants",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Vascular|Diabetes mellitus",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Vascular|Contraception",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Vascular|Thorax",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Vascular|Bowel obstruction",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Vascular|Myocardial infarction",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Vascular|Electrolytes & Acid-Base",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Vascular|Dialysis",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Orthopedics|Dementia / Alzheimer",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Orthopedics|Pneumonia",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Orthopedics|Liver / Hepatitis",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Orthopedics|Unclassified",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Trauma|Genetics / Paediatric",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Trauma|Prostate",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Trauma|Leukaemia / Lymphoma",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Trauma|Pneumonia",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Trauma|Anaemia",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Trauma|Thorax",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Trauma|Headache",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Trauma|Hypertension",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Trauma|Seizures / Epilepsy",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Trauma|ARDS / Oxygenation",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Trauma|Immunosuppressants / Steroids",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Trauma|Adrenal / Cushing",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Urology|Electrolytes & Acid-Base",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Urology|Oncology surgery",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Urology|GI surgery",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Urology|Infertility",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Urology|Unclassified",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Urology|Renal stones",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Urology|Analgesia / Anaesthesia",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Urology|Neuroanatomy",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Urology|Trauma / Resuscitation",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Burns|Wound / Infection",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Burns|Oncology surgery",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Burns|Leukaemia / Lymphoma",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Burns|Shock",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Burns|Electrolytes & Acid-Base",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Burns|Coagulation / Thrombosis",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Burns|Antibiotics",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Burns|Pneumonia",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Vascular|Analgesia / Anaesthesia",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Vascular|Pneumonia",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Review|Genetics / Paediatric",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Review|Neuroanatomy",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Review|Shock",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Review|Trauma / Resuscitation",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Review|Oncology surgery",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Review|ARDS / Oxygenation",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Review|Transplant / Rejection",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Review|GI surgery",
+    "n": 1
+  },
+  {
+    "topic": "Surgery-Review|Spleen / Platelets",
+    "n": 1
+  },
+  {
+    "topic": "Paediatrics-Cns|Unclassified",
+    "n": 1
+  },
+  {
+    "topic": "Paediatrics-Cns|Antenatal / Normal labour",
+    "n": 1
+  },
+  {
+    "topic": "Paediatrics-Cns|Neuroanatomy",
+    "n": 1
+  },
+  {
+    "topic": "Paediatrics-Emergencies|Unclassified",
+    "n": 1
+  },
+  {
+    "topic": "Paediatrics-Emergencies|Analgesia / Anaesthesia",
+    "n": 1
+  },
+  {
+    "topic": "Paediatrics-Fluids|Lower Limb",
+    "n": 1
+  },
+  {
+    "topic": "Paediatrics-Fluids|Neonatology",
+    "n": 1
+  },
+  {
+    "topic": "Paediatrics-Fluids|Viral",
+    "n": 1
+  },
+  {
+    "topic": "Paediatrics-Fluids|Nucleic acids",
+    "n": 1
+  },
+  {
+    "topic": "Paediatrics-Fluids|Vitamins / Minerals",
+    "n": 1
+  },
+  {
+    "topic": "Paediatrics-Fluids|Obstetric complications",
+    "n": 1
+  },
+  {
+    "topic": "Paediatrics-Fluids|Heart failure",
+    "n": 1
+  },
+  {
+    "topic": "Paediatrics-Neonatal|Genetics / Paediatric",
+    "n": 1
+  },
+  {
+    "topic": "Paediatrics-Neonatal|Antenatal / Normal labour",
+    "n": 1
+  },
+  {
+    "topic": "Paediatrics-Neonatal|Neuroanatomy",
+    "n": 1
+  },
+  {
+    "topic": "Paediatrics-Neonatal|Bowel obstruction",
+    "n": 1
+  },
+  {
+    "topic": "Paediatrics-Neonatal|Liver / Hepatitis",
+    "n": 1
+  },
+  {
+    "topic": "Paediatrics-Neonatal|Leukaemia / Lymphoma",
+    "n": 1
+  },
+  {
+    "topic": "Paediatrics-Review|Paediatric infections",
+    "n": 1
+  },
+  {
+    "topic": "Paediatrics-Review|Toxicology",
+    "n": 1
+  },
+  {
+    "topic": "Paediatrics-Review|Neonatology",
+    "n": 1
+  },
+  {
+    "topic": "Paediatrics-Review|Asthma / COPD",
+    "n": 1
+  },
+  {
+    "topic": "Paediatrics-Review|Analgesia / Anaesthesia",
+    "n": 1
+  },
+  {
+    "topic": "Paediatrics-Review|Obstetric complications",
+    "n": 1
+  },
+  {
+    "topic": "Paediatrics-Review|Seizures / Epilepsy",
+    "n": 1
+  },
+  {
+    "topic": "Obgyn-Gynecology|Hypertension",
+    "n": 1
+  },
+  {
+    "topic": "Obgyn-Gynecology|Immunosuppressants / Steroids",
+    "n": 1
+  },
+  {
+    "topic": "Obgyn-Obstetrics|Unclassified",
+    "n": 1
+  },
+  {
+    "topic": "Obgyn-Obstetrics|Anaemia",
+    "n": 1
+  },
+  {
+    "topic": "Obgyn-Review|Thyroid",
+    "n": 1
+  },
+  {
+    "topic": "Obgyn-Review|Diabetes mellitus",
+    "n": 1
+  },
+  {
+    "topic": "Obgyn-Review|Neuroanatomy",
+    "n": 1
+  },
+  {
+    "topic": "Obgyn-Review|Hypertension",
+    "n": 1
+  },
+  {
+    "topic": "Obgyn-Review|Epidemiology / Biostatistics",
+    "n": 1
+  },
+  {
+    "topic": "Obgyn-Review|Contraception",
+    "n": 1
+  },
+  {
+    "topic": "Obgyn-Review|Anaemia",
+    "n": 1
+  },
+  {
+    "topic": "Obgyn-Review|Myocardial infarction",
+    "n": 1
+  },
+  {
+    "topic": "Obgyn-Review|Shock",
+    "n": 1
+  },
+  {
+    "topic": "Obgyn-Review|Obstetric complications",
+    "n": 1
+  },
+  {
+    "topic": "Ent-Core|Paediatric infections",
+    "n": 1
+  },
+  {
+    "topic": "Ent-Core|Neuroanatomy",
+    "n": 1
+  },
+  {
+    "topic": "Applied-Anatomy|Unclassified",
+    "n": 1
+  },
+  {
+    "topic": "Applied-Anatomy|Thorax",
+    "n": 1
+  },
+  {
+    "topic": "Applied-Anatomy|Transplant / Rejection",
+    "n": 1
+  },
+  {
+    "topic": "Applied-Anatomy|Autoimmunity",
+    "n": 1
+  },
+  {
+    "topic": "Applied-Anatomy|Inflammation / Repair",
+    "n": 1
+  },
+  {
+    "topic": "Applied-Anatomy|Head & Neck",
+    "n": 1
+  },
+  {
+    "topic": "Applied-Anatomy|Pituitary",
+    "n": 1
+  },
+  {
+    "topic": "Applied-Anatomy|Thyroid",
+    "n": 1
+  },
+  {
+    "topic": "Applied-Anatomy|Oncology surgery",
+    "n": 1
+  },
+  {
+    "topic": "Applied-Anatomy|GIT physiology",
+    "n": 1
+  },
+  {
+    "topic": "Applied-Anatomy|Headache",
+    "n": 1
+  },
+  {
+    "topic": "Applied-Anatomy|Nucleic acids",
+    "n": 1
+  },
+  {
+    "topic": "Applied-Anatomy|Abdomen / GI",
+    "n": 1
+  },
+  {
+    "topic": "Applied-Anatomy|Lower Limb",
+    "n": 1
+  },
+  {
+    "topic": "Applied-Physiology|Unclassified",
+    "n": 1
+  },
+  {
+    "topic": "Applied-Physiology|GIT physiology",
+    "n": 1
+  },
+  {
+    "topic": "Applied-Physiology|Renal physiology",
+    "n": 1
+  },
+  {
+    "topic": "Applied-Physiology|Bowel obstruction",
+    "n": 1
+  },
+  {
+    "topic": "Applied-Physiology|Hypertension",
+    "n": 1
+  },
+  {
+    "topic": "Applied-Physiology|Thorax",
+    "n": 1
+  },
+  {
+    "topic": "Applied-Physiology|AKI / CKD",
+    "n": 1
+  },
+  {
+    "topic": "Applied-Physiology|Parathyroid / Calcium",
+    "n": 1
+  },
+  {
+    "topic": "Applied-Physiology|Stroke",
+    "n": 1
+  },
+  {
+    "topic": "Applied-Physiology|Diabetes mellitus",
+    "n": 1
+  },
+  {
+    "topic": "Applied-Pathology|Neuroanatomy",
+    "n": 1
+  },
+  {
+    "topic": "Applied-Pathology|Myocardial infarction",
+    "n": 1
+  },
+  {
+    "topic": "Applied-Pathology|Pancreas",
+    "n": 1
+  },
+  {
+    "topic": "Applied-Pathology|Prostate",
+    "n": 1
+  },
+  {
+    "topic": "Applied-Pathology|Liver / Hepatitis",
+    "n": 1
+  },
+  {
+    "topic": "Applied-Pathology|Transplant / Rejection",
+    "n": 1
+  },
+  {
+    "topic": "Applied-Pathology|Bowel obstruction",
+    "n": 1
+  },
+  {
+    "topic": "Clinical-Pharmacology|Antibiotics",
+    "n": 1
+  },
+  {
+    "topic": "Clinical-Pharmacology|Pneumonia",
+    "n": 1
+  },
+  {
+    "topic": "Clinical-Pharmacology|Arrhythmia",
+    "n": 1
+  },
+  {
+    "topic": "Clinical-Pharmacology|Meningitis / Encephalitis",
+    "n": 1
+  },
+  {
+    "topic": "Clinical-Pharmacology|Bacterial",
+    "n": 1
+  },
+  {
+    "topic": "Clinical-Pharmacology|Electrolytes & Acid-Base",
+    "n": 1
+  },
+  {
+    "topic": "Clinical-Pharmacology|Toxicology",
+    "n": 1
+  },
+  {
+    "topic": "Clinical-Pharmacology|Viral",
+    "n": 1
+  },
+  {
+    "topic": "Clinical-Pharmacology|Immunosuppressants / Steroids",
+    "n": 1
+  },
+  {
+    "topic": "Clinical-Pharmacology|Parathyroid / Calcium",
+    "n": 1
+  },
+  {
+    "topic": "Clinical-Pharmacology|AKI / CKD",
+    "n": 1
+  },
+  {
+    "topic": "Clinical-Pharmacology|Hypertension",
+    "n": 1
+  },
+  {
+    "topic": "Clinical-Pharmacology|Vitamins / Minerals",
+    "n": 1
+  },
+  {
+    "topic": "Clinical-Pharmacology|Spleen / Platelets",
+    "n": 1
+  },
+  {
+    "topic": "Clinical-Pharmacology|Thorax",
+    "n": 1
+  },
+  {
+    "topic": "Biochemistry-Vitamins|Arthritis",
+    "n": 1
+  },
+  {
+    "topic": "Biochemistry-Vitamins|Unclassified",
+    "n": 1
+  },
+  {
+    "topic": "Community-Medicine|Liver / Hepatitis",
+    "n": 1
+  },
+  {
+    "topic": "Community-Medicine|Thorax",
+    "n": 1
+  },
+  {
+    "topic": "Community-Medicine|Substance use",
+    "n": 1
+  },
+  {
+    "topic": "Community-Medicine|Unclassified",
+    "n": 1
+  },
+  {
+    "topic": "Forensic-Medicine|Asthma / COPD",
+    "n": 1
+  },
+  {
+    "topic": "Physiology general|Respiratory physiology",
+    "n": 1
+  },
+  {
+    "topic": "Forensic-Medicine|Contraception",
+    "n": 1
+  },
+  {
+    "topic": "Forensic-Medicine|Seizures / Epilepsy",
+    "n": 1
+  },
+  {
+    "topic": "Forensic-Medicine|Headache",
+    "n": 1
+  },
+  {
+    "topic": "Forensic-Medicine|ARDS / Oxygenation",
+    "n": 1
+  },
+  {
+    "topic": "Forensic-Medicine|Anaemia",
+    "n": 1
+  },
+  {
+    "topic": "Forensic-Medicine|Neuroanatomy",
+    "n": 1
+  },
+  {
+    "topic": "Forensic-Medicine|Mood disorders",
+    "n": 1
+  },
+  {
+    "topic": "Forensic-Medicine|Hypertension",
+    "n": 1
+  },
+  {
+    "topic": "Forensic-Medicine|Toxicology",
+    "n": 1
+  },
+  {
+    "topic": "Applied-Basics|Unclassified",
+    "n": 1
+  },
+  {
+    "topic": "Applied-Basics|ARDS / Oxygenation",
+    "n": 1
+  },
+  {
+    "topic": "Applied-Basics|Contraception",
+    "n": 1
+  },
+  {
+    "topic": "Applied-Basics|Red eye",
+    "n": 1
+  },
+  {
+    "topic": "Applied-Basics|Abdomen / GI",
+    "n": 1
+  },
+  {
+    "topic": "Applied-Basics|Spleen / Platelets",
+    "n": 1
+  },
+  {
+    "topic": "Applied-Basics|Nephrotic / Nephritic",
+    "n": 1
+  },
+  {
+    "topic": "Applied-Basics|Lower Limb",
+    "n": 1
+  },
+  {
+    "topic": "Applied-Basics|Endocrine physiology",
+    "n": 1
+  },
+  {
+    "topic": "Mock-Exams|Spleen / Platelets",
+    "n": 1
+  },
+  {
+    "topic": "Mock-Exams|IBD",
+    "n": 1
+  },
+  {
+    "topic": "Mock-Exams|Substance use",
+    "n": 1
+  },
+  {
+    "topic": "Mock-Exams|Analgesia / Anaesthesia",
+    "n": 1
+  },
+  {
+    "topic": "Mock-Exams|Coagulation / Thrombosis",
+    "n": 1
+  },
+  {
+    "topic": "Mock-Exams|Transplant / Rejection",
+    "n": 1
+  },
+  {
+    "topic": "Mock-Exams|Neoplasia",
+    "n": 1
+  },
+  {
+    "topic": "Mock-Exams|Sinus / Nasal",
+    "n": 1
+  },
+  {
+    "topic": "Mock-Exams|Hypersensitivity",
+    "n": 1
+  },
+  {
+    "topic": "Mock-Exams|Toxicology",
+    "n": 1
+  },
+  {
+    "topic": "Mock-Exams|Enzymes / LFT",
+    "n": 1
+  },
+  {
+    "topic": "Mock-Exams|Contraception",
+    "n": 1
+  },
+  {
+    "topic": "Mock-Exams|Red eye",
+    "n": 1
+  },
+  {
+    "topic": "Mock-Exams|Cardiovascular drugs",
+    "n": 1
+  },
+  {
+    "topic": "Mock-Exams|Malabsorption",
+    "n": 1
+  },
+  {
+    "topic": "Mock-Exams|Dementia / Alzheimer",
+    "n": 1
+  },
+  {
+    "topic": "Mock-Exams|Parathyroid / Calcium",
+    "n": 1
+  },
+  {
+    "topic": "Mock-Exams|Adrenal / Cushing",
+    "n": 1
+  },
+  {
+    "topic": "Mock-Exams|Endocrine physiology",
+    "n": 1
+  },
+  {
+    "topic": "Psychiatry|Child psychiatry",
+    "n": 1
+  },
+  {
+    "topic": "Mock-Exams|Arthritis",
+    "n": 1
+  },
+  {
+    "topic": "Mock-Exams|Neonatology",
+    "n": 1
+  },
+  {
+    "topic": "Mock-Exams|Lower Limb",
+    "n": 1
+  },
+  {
+    "topic": "Mock-Exams|AKI / CKD",
+    "n": 1
+  },
+  {
+    "topic": "Mock-Exams|Mood disorders",
+    "n": 1
+  },
+  {
+    "topic": "Mock-Exams|Glaucoma / Cataract",
+    "n": 1
+  },
+  {
+    "topic": "Mock-Exams|Immunosuppressants / Steroids",
+    "n": 1
+  },
+  {
+    "topic": "Mock-Exams|Vitamins / Minerals",
+    "n": 1
+  },
+  {
+    "topic": "Cardiology|Unclassified",
+    "n": 1
+  },
+  {
+    "topic": "Cardiology|Coagulation / Thrombosis",
+    "n": 1
+  },
+  {
+    "topic": "Cardiology|PE / DVT",
+    "n": 1
+  },
+  {
+    "topic": "Cardiology|ARDS / Oxygenation",
+    "n": 1
+  },
+  {
+    "topic": "Cardiology|Analgesia / Anaesthesia",
+    "n": 1
+  },
+  {
+    "topic": "Cardiology|Rheumatic heart disease",
+    "n": 1
+  },
+  {
+    "topic": "Cardiology|Antibiotics",
+    "n": 1
+  },
+  {
+    "topic": "Cardiology|Cardiovascular anatomy",
+    "n": 1
+  },
+  {
+    "topic": "Cardiology|Spleen / Platelets",
+    "n": 1
+  },
+  {
+    "topic": "Cardiology|Headache",
+    "n": 1
+  },
+  {
+    "topic": "Cardiology|Nucleic acids",
+    "n": 1
+  },
+  {
+    "topic": "Dermatology|Asthma / COPD",
+    "n": 1
+  },
+  {
+    "topic": "Dermatology|Hypersensitivity",
+    "n": 1
+  },
+  {
+    "topic": "Dermatology|Pneumonia",
+    "n": 1
+  },
+  {
+    "topic": "Dermatology|Meningitis / Encephalitis",
+    "n": 1
+  },
+  {
+    "topic": "Dermatology|Protein / Amino acids",
+    "n": 1
+  },
+  {
+    "topic": "Dermatology|AKI / CKD",
+    "n": 1
+  },
+  {
+    "topic": "Dermatology|Malabsorption",
+    "n": 1
+  },
+  {
+    "topic": "Dermatology|Oncology surgery",
+    "n": 1
+  },
+  {
+    "topic": "Dermatology|Arrhythmia",
+    "n": 1
+  },
+  {
+    "topic": "Ent|Paediatric infections",
+    "n": 1
+  },
+  {
+    "topic": "Ent|Viral",
+    "n": 1
+  },
+  {
+    "topic": "Ent|Nucleic acids",
+    "n": 1
+  },
+  {
+    "topic": "Ent|Asthma / COPD",
+    "n": 1
+  },
+  {
+    "topic": "Ent|Hypertension",
+    "n": 1
+  },
+  {
+    "topic": "Ent|Neuroanatomy",
+    "n": 1
+  },
+  {
+    "topic": "Ent|Seizures / Epilepsy",
+    "n": 1
+  },
+  {
+    "topic": "Ent|Otitis",
+    "n": 1
+  },
+  {
+    "topic": "Ent|Rheumatic heart disease",
+    "n": 1
+  },
+  {
+    "topic": "Ent|Leukaemia / Lymphoma",
+    "n": 1
+  },
+  {
+    "topic": "Ent|Hearing / Vertigo",
+    "n": 1
+  },
+  {
+    "topic": "Ent|Immunosuppressants / Steroids",
+    "n": 1
+  },
+  {
+    "topic": "Gynecology|Coagulation / Thrombosis",
+    "n": 1
+  },
+  {
+    "topic": "Gynecology|Neuroanatomy",
+    "n": 1
+  },
+  {
+    "topic": "Gynecology|Seizures / Epilepsy",
+    "n": 1
+  },
+  {
+    "topic": "Gynecology|Pituitary",
+    "n": 1
+  },
+  {
+    "topic": "Gynecology|Analgesia / Anaesthesia",
+    "n": 1
+  },
+  {
+    "topic": "Gynecology|Thorax",
+    "n": 1
+  },
+  {
+    "topic": "Gynecology|Oncology surgery",
+    "n": 1
+  },
+  {
+    "topic": "Gynecology|GIT physiology",
+    "n": 1
+  },
+  {
+    "topic": "Gynecology|Myocardial infarction",
+    "n": 1
+  },
+  {
+    "topic": "Gynecology|Neoplasia",
+    "n": 1
+  },
+  {
+    "topic": "Neurology|Diabetes mellitus",
+    "n": 1
+  },
+  {
+    "topic": "Neurology|Substance use",
+    "n": 1
+  },
+  {
+    "topic": "Neurology|Cell injury / Adaptation",
+    "n": 1
+  },
+  {
+    "topic": "Neurology|Oncology surgery",
+    "n": 1
+  },
+  {
+    "topic": "Neurology|Immunosuppressants / Steroids",
+    "n": 1
+  },
+  {
+    "topic": "Neurology|Shock",
+    "n": 1
+  },
+  {
+    "topic": "Neurology|Nutrition",
+    "n": 1
+  },
+  {
+    "topic": "Neurology|Mood disorders",
+    "n": 1
+  },
+  {
+    "topic": "Obstetrics|Diabetes mellitus",
+    "n": 1
+  },
+  {
+    "topic": "Obstetrics|Viral",
+    "n": 1
+  },
+  {
+    "topic": "Obstetrics|Genetics / Paediatric",
+    "n": 1
+  },
+  {
+    "topic": "Obstetrics|PE / DVT",
+    "n": 1
+  },
+  {
+    "topic": "Obstetrics|Vitamins / Minerals",
+    "n": 1
+  },
+  {
+    "topic": "Obstetrics|Nutrition",
+    "n": 1
+  },
+  {
+    "topic": "Obstetrics|Hypertension",
+    "n": 1
+  },
+  {
+    "topic": "Obstetrics|Headache",
+    "n": 1
+  },
+  {
+    "topic": "Obstetrics|Parathyroid / Calcium",
+    "n": 1
+  },
+  {
+    "topic": "Obstetrics|Unclassified",
+    "n": 1
+  },
+  {
+    "topic": "Obstetrics|GI surgery",
+    "n": 1
+  },
+  {
+    "topic": "Pediatrics|Neuroanatomy",
+    "n": 1
+  },
+  {
+    "topic": "Pediatrics|Paediatric nutrition",
+    "n": 1
+  },
+  {
+    "topic": "Pediatrics|Viral",
+    "n": 1
+  },
+  {
+    "topic": "Pediatrics|Diabetes mellitus",
+    "n": 1
+  },
+  {
+    "topic": "Pediatrics|Arrhythmia",
+    "n": 1
+  },
+  {
+    "topic": "Pediatrics|Bowel obstruction",
+    "n": 1
+  },
+  {
+    "topic": "Pediatrics|Cardiovascular drugs",
+    "n": 1
+  },
+  {
+    "topic": "Pediatrics|Cardiovascular anatomy",
+    "n": 1
+  },
+  {
+    "topic": "Pediatrics|Neonatology",
+    "n": 1
+  },
+  {
+    "topic": "Pediatrics|Hypertension",
+    "n": 1
+  },
+  {
+    "topic": "Pediatrics|Stroke",
+    "n": 1
+  },
+  {
+    "topic": "Respiratory|Heart failure",
+    "n": 1
+  },
+  {
+    "topic": "Respiratory|Head & Neck",
+    "n": 1
+  },
+  {
+    "topic": "Respiratory|Analgesia / Anaesthesia",
+    "n": 1
+  },
+  {
+    "topic": "Respiratory|Pancreas",
+    "n": 1
+  },
+  {
+    "topic": "Respiratory|Respiratory physiology",
+    "n": 1
+  },
+  {
+    "topic": "Respiratory|Immunosuppressants / Steroids",
+    "n": 1
+  },
+  {
+    "topic": "Respiratory|Myocardial infarction",
+    "n": 1
+  },
+  {
+    "topic": "Urology|Neurophysiology",
+    "n": 1
+  },
+  {
+    "topic": "Urology|Electrolytes & Acid-Base",
+    "n": 1
+  },
+  {
+    "topic": "Urology|AKI / CKD",
+    "n": 1
+  },
+  {
+    "topic": "Urology|Antenatal / Normal labour",
+    "n": 1
+  },
+  {
+    "topic": "Urology|Leukaemia / Lymphoma",
+    "n": 1
+  },
+  {
+    "topic": "Urology|Myocardial infarction",
+    "n": 1
+  },
+  {
+    "topic": "Urology|Fractures",
+    "n": 1
+  },
+  {
+    "topic": "Urology|Neonatology",
+    "n": 1
+  },
+  {
+    "topic": "Internal-Medicine-I|Adrenal / Cushing",
+    "n": 1
+  },
+  {
+    "topic": "Internal-Medicine-I|Neuroanatomy",
+    "n": 1
+  },
+  {
+    "topic": "Internal-Medicine-I|Pericardial disease",
+    "n": 1
+  },
+  {
+    "topic": "Internal-Medicine-I|AKI / CKD",
+    "n": 1
+  },
+  {
+    "topic": "Internal-Medicine-I|Coagulation / Thrombosis",
+    "n": 1
+  },
+  {
+    "topic": "Internal-Medicine-I|Epidemiology / Biostatistics",
+    "n": 1
+  },
+  {
+    "topic": "Internal-Medicine-I|Pancreas",
+    "n": 1
+  },
+  {
+    "topic": "Internal-Medicine-I|Vitamins / Minerals",
+    "n": 1
+  },
+  {
+    "topic": "Internal-Medicine-I|Thyroid",
+    "n": 1
+  },
+  {
+    "topic": "Internal-Medicine-I|PE / DVT",
+    "n": 1
+  },
+  {
+    "topic": "Internal-Medicine-I|Liver / Hepatitis",
+    "n": 1
+  },
+  {
+    "topic": "Internal-Medicine-I|Anaemia",
+    "n": 1
+  },
+  {
+    "topic": "Internal-Medicine-I|Child psychiatry",
+    "n": 1
+  },
+  {
+    "topic": "Internal-Medicine-I|Leukaemia / Lymphoma",
+    "n": 1
+  },
+  {
+    "topic": "Internal-Medicine-I|Nucleic acids",
+    "n": 1
+  },
+  {
+    "topic": "Internal-Medicine-I|Oncology surgery",
+    "n": 1
+  },
+  {
+    "topic": "Internal-Medicine-II|Unclassified",
+    "n": 1
+  },
+  {
+    "topic": "Internal-Medicine-II|TB",
+    "n": 1
+  },
+  {
+    "topic": "Internal-Medicine-II|Pancreas",
+    "n": 1
+  },
+  {
+    "topic": "Internal-Medicine-II|Coagulation / Thrombosis",
+    "n": 1
+  },
+  {
+    "topic": "Internal-Medicine-II|Heart failure",
+    "n": 1
+  },
+  {
+    "topic": "Internal-Medicine-II|Immunosuppressants / Steroids",
+    "n": 1
+  },
+  {
+    "topic": "Internal-Medicine-II|Diabetes mellitus",
+    "n": 1
+  },
+  {
+    "topic": "Internal-Medicine-II|Analgesia / Anaesthesia",
+    "n": 1
+  },
+  {
+    "topic": "Obstetrics-&-Gynaecology|Neuroanatomy",
+    "n": 1
+  },
+  {
+    "topic": "Obstetrics-&-Gynaecology|Pituitary",
+    "n": 1
+  },
+  {
+    "topic": "Obstetrics-&-Gynaecology|Asthma / COPD",
+    "n": 1
+  },
+  {
+    "topic": "Obstetrics-&-Gynaecology|PE / DVT",
+    "n": 1
+  },
+  {
+    "topic": "Obstetrics-&-Gynaecology|Contraception",
+    "n": 1
+  },
+  {
+    "topic": "Obstetrics-&-Gynaecology|Antibiotics",
+    "n": 1
+  },
+  {
+    "topic": "Obstetrics-&-Gynaecology|Leukaemia / Lymphoma",
+    "n": 1
+  },
+  {
+    "topic": "Obstetrics-&-Gynaecology|Hypertension",
+    "n": 1
+  },
+  {
+    "topic": "Applied-Anatomy-&-Surgery|Hypertension",
+    "n": 1
+  },
+  {
+    "topic": "Applied-Anatomy-&-Surgery|Unclassified",
+    "n": 1
+  },
+  {
+    "topic": "Applied-Anatomy-&-Surgery|Antibiotics",
+    "n": 1
+  },
+  {
+    "topic": "Applied-Anatomy-&-Surgery|TB",
+    "n": 1
+  },
+  {
+    "topic": "Applied-Anatomy-&-Surgery|Bowel obstruction",
+    "n": 1
+  },
+  {
+    "topic": "Biochemistry-&-Microbiology|PE / DVT",
+    "n": 1
+  },
+  {
+    "topic": "Biochemistry-&-Microbiology|Neonatology",
+    "n": 1
+  },
+  {
+    "topic": "Biochemistry-&-Microbiology|Haemodynamics",
+    "n": 1
+  },
+  {
+    "topic": "Biochemistry-&-Microbiology|Fungal / Mycobacterial",
+    "n": 1
+  },
+  {
+    "topic": "Biochemistry-&-Microbiology|Immunosuppressants / Steroids",
+    "n": 1
+  },
+  {
+    "topic": "Biochemistry-&-Microbiology|Shock",
+    "n": 1
+  },
+  {
+    "topic": "Biochemistry-&-Microbiology|Viral",
+    "n": 1
+  },
+  {
+    "topic": "Biochemistry-&-Microbiology|Pneumonia",
+    "n": 1
+  },
+  {
+    "topic": "Biochemistry-&-Microbiology|Liver / Hepatitis",
+    "n": 1
+  },
+  {
+    "topic": "Biochemistry-&-Microbiology|Parasitic",
+    "n": 1
+  },
+  {
+    "topic": "Biochemistry-&-Microbiology|TB",
+    "n": 1
+  },
+  {
+    "topic": "ENT,-Ophthalmology-&-Psychiatry|Oncology surgery",
+    "n": 1
+  },
+  {
+    "topic": "ENT,-Ophthalmology-&-Psychiatry|Neuroanatomy",
+    "n": 1
+  },
+  {
+    "topic": "ENT,-Ophthalmology-&-Psychiatry|Trauma / Resuscitation",
+    "n": 1
+  },
+  {
+    "topic": "ENT,-Ophthalmology-&-Psychiatry|Red eye",
+    "n": 1
+  },
+  {
+    "topic": "ENT,-Ophthalmology-&-Psychiatry|Bowel obstruction",
+    "n": 1
+  },
+  {
+    "topic": "ENT,-Ophthalmology-&-Psychiatry|Child psychiatry",
+    "n": 1
+  },
+  {
+    "topic": "ENT,-Ophthalmology-&-Psychiatry|Diabetes mellitus",
+    "n": 1
+  },
+  {
+    "topic": "ENT,-Ophthalmology-&-Psychiatry|Hypertension",
+    "n": 1
+  },
+  {
+    "topic": "ENT,-Ophthalmology-&-Psychiatry|Psychosis / Schizophrenia",
+    "n": 1
+  },
+  {
+    "topic": "ENT,-Ophthalmology-&-Psychiatry|Autoimmunity",
+    "n": 1
+  },
+  {
+    "topic": "Dermatology,-Community-Medicine-&-Forensic|Antenatal / Normal labour",
+    "n": 1
+  },
+  {
+    "topic": "Dermatology,-Community-Medicine-&-Forensic|Diabetes mellitus",
+    "n": 1
+  },
+  {
+    "topic": "Dermatology,-Community-Medicine-&-Forensic|Parasitic",
+    "n": 1
+  },
+  {
+    "topic": "Dermatology,-Community-Medicine-&-Forensic|Immunosuppressants / Steroids",
+    "n": 1
+  },
+  {
+    "topic": "Dermatology,-Community-Medicine-&-Forensic|Oncology surgery",
+    "n": 1
+  },
+  {
+    "topic": "Dermatology,-Community-Medicine-&-Forensic|Viral",
+    "n": 1
+  },
+  {
+    "topic": "Dermatology,-Community-Medicine-&-Forensic|AKI / CKD",
+    "n": 1
+  },
+  {
+    "topic": "Grand-All-Subject|Electrolytes & Acid-Base",
+    "n": 1
+  },
+  {
+    "topic": "Grand-All-Subject|Hypertension",
+    "n": 1
+  },
+  {
+    "topic": "Grand-All-Subject|Pituitary",
+    "n": 1
+  },
+  {
+    "topic": "Grand-All-Subject|Diabetes mellitus",
+    "n": 1
+  },
+  {
+    "topic": "Grand-All-Subject|Upper GI / PUD",
+    "n": 1
+  },
+  {
+    "topic": "Grand-All-Subject|Shock",
+    "n": 1
+  },
+  {
+    "topic": "Grand-All-Subject|Heart failure",
+    "n": 1
+  },
+  {
+    "topic": "Grand-All-Subject|Parathyroid / Calcium",
+    "n": 1
+  },
+  {
+    "topic": "Grand-All-Subject|Immunosuppressants / Steroids",
+    "n": 1
+  },
+  {
+    "topic": "Grand-All-Subject|Meningitis / Encephalitis",
+    "n": 1
+  },
+  {
+    "topic": "Grand-All-Subject|Arthritis",
+    "n": 1
+  },
+  {
+    "topic": "Grand-All-Subject|ARDS / Oxygenation",
+    "n": 1
+  },
+  {
+    "topic": "Grand-All-Subject|Antenatal / Normal labour",
+    "n": 1
+  },
+  {
+    "topic": "Grand-All-Subject|Antibiotics",
+    "n": 1
+  },
+  {
+    "topic": "Grand-All-Subject|Thorax",
+    "n": 1
+  },
+  {
+    "topic": "Grand-All-Subject|Pancreas",
+    "n": 1
+  }
+]

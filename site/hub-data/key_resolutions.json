@@ -1,0 +1,67 @@
+{
+  "decisions": [
+    {
+      "match": "superior division of the left middle cerebral artery",
+      "answer": "Inferior Frontal gyrus of Dominant Hemisphere",
+      "winner": "any",
+      "reason": "Non-fluent, effortful speech with PRESERVED comprehension after a superior-division MCA stroke is Broca (expressive) aphasia, which localises to the inferior frontal gyrus of the dominant hemisphere. June 2025 keyed inferior temporal lobe — that is Wernicke's area, and would give fluent speech with impaired comprehension. December 2024 is correct."
+    },
+    {
+      "match": "chronic renal failure presents with pallor fatigue lethargy and pedal edema",
+      "answer": "Erythropoietin with I/V iron",
+      "winner": "any",
+      "reason": "Normocytic anaemia (MCV 86 fL) with raised ferritin in chronic renal failure is anaemia of chronic disease: treat the EPO deficit and replete iron. June 2025 keyed B12 replacement, which would give macrocytosis. December 2024 is correct."
+    },
+    {
+      "match": "expressionless face a resting pill rolling tremor",
+      "answer": "Parkinson's disease",
+      "answers": [
+        "parkinson"
+      ],
+      "winner": "any",
+      "reason": "Pill-rolling rest tremor, cogwheel rigidity, bradykinesia and a shuffling gait is idiopathic Parkinson disease. June 2025 keyed Huntington disease, which produces chorea and is typically younger-onset. December 2024 is correct."
+    },
+    {
+      "match": "spontaneous bloody discharge from her right nipple",
+      "answer": "Intraductal papilloma",
+      "winner": "any",
+      "reason": "Spontaneous unilateral bloody nipple discharge with a retroareolar nodule in a 36-year-old is an intraductal papilloma, the commonest benign cause. June 2025 keyed intraductal carcinoma. December 2024 is correct."
+    },
+    {
+      "match": "Maple syrup urine disease",
+      "answer": "Valine",
+      "answers": [
+        "valine",
+        "branched chain amino acids",
+        "branched chain alpha ketoacid dehydrogenase",
+        "branched chain alpha keto acid dehydrogenase",
+        "branched chain ketoacid dehydrogenase"
+      ],
+      "winner": "any",
+      "reason": "MSUD is deficiency of the branched-chain alpha-ketoacid dehydrogenase complex, so valine, leucine and isoleucine are implicated. Phenylalanine points to PKU and methionine to homocystinuria, so 'all of the above' cannot be right. December 2025 is wrong."
+    },
+    {
+      "match": "The medial cord of the brachial plexus continues as which of the following nerves",
+      "answer": "Ulnar nerve",
+      "reason": "The medial cord's terminal continuation is the ulnar nerve; the medial cutaneous nerve of the forearm and medial pectoral nerve branch from it earlier. As a single-best-answer item the ulnar nerve is correct. FCPS-I repeats this three times with two different keys, so majority voting is unsafe here and the item was adjudicated directly."
+    },
+    {
+      "match": "In the early pathological stages of acute appendicitis",
+      "answer": "Suppurative",
+      "reason": "Acute appendicitis characteristically produces suppurative inflammation; gangrenous change is a later complication of vascular compromise, not the early picture."
+    },
+    {
+      "match": "severe pain in the ankle and develops ecchymosis on the second day",
+      "answer": "Rupture of plantaris tendon",
+      "reason": "The patient can still stand on the toes, so the Achilles tendon is intact. Sudden ankle pain with delayed bruising and a normal heel-rise is a plantaris rupture (tennis leg)."
+    }
+  ],
+  "applied": [
+    "DEC25/0169: D -> C (Valine)",
+    "JUN25/0014: D -> A (Inferior Frontal gyrus of Dominant Hemisphere)",
+    "JUN25/0018: A -> B (Erythropoietin with I/V iron)",
+    "JUN25/0044: A -> E (Parkinson's disease)",
+    "JUN25/0098: A -> E (Intraductal papilloma)",
+    "JUN25/0129: A -> E (Valine)"
+  ]
+}

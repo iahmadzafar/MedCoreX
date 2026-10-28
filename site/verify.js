@@ -26,35 +26,37 @@ const libHtml = fs.readFileSync(path.join(SITE,'library.html'),'utf8');
 const idxHtml = fs.readFileSync(path.join(SITE,'index.html'),'utf8');
 const libItems = extractItems(libHtml);
 const idxItems = extractItems(idxHtml);
-ok(`library.html: ${libItems.length} items parsed`);
-ok(`index.html: ${idxItems.length} items parsed`);
+ok('library.html: ' + libItems.length + ' items parsed');
+ok('index.html: ' + idxItems.length + ' items parsed');
 if(libItems.length === idxItems.length) ok('index and library item counts match');
-else fail(`index and library counts differ (${idxItems.length} vs ${libItems.length})`);
+else fail('index and library counts differ (' + idxItems.length + ' vs ' + libItems.length + ')');
 const libKeys = new Set(libItems.map(i=>i.f));
 const idxKeys = new Set(idxItems.map(i=>i.f));
-if([...libKeys].every(k=>idxKeys.has(k)) && libItems.length===idxItems.length) ok('index and library catalogs are identical');
+if(libItems.length===idxItems.length && [...libKeys].every(k=>idxKeys.has(k))) ok('index and library catalogs are identical');
 else fail('index and library catalogs differ');
 
 const titles = libItems.map(i=>i.t);
 const dups = titles.filter((t,i)=>titles.indexOf(t)!==i);
 if(dups.length===0) ok('no duplicate titles');
-else fail('duplicate titles: '+[...new Set(dups)].join(', '));
+else fail('duplicate titles: ' + [...new Set(dups)].join(', '));
 
 console.log('\n[2] hub-data/catalog.json sync');
-const catPath = path.join(ROOT,'hub-data','catalog.json');
-if(fs.existsSync(catPath)){
+const catPath = fs.existsSync(path.join(SITE,'hub-data','catalog.json'))
+  ? path.join(SITE,'hub-data','catalog.json')
+  : (fs.existsSync(path.join(ROOT,'hub-data','catalog.json')) ? path.join(ROOT,'hub-data','catalog.json') : null);
+if(catPath){
   const cat = JSON.parse(fs.readFileSync(catPath,'utf8'));
   const catKeys = new Set((cat.items||[]).map(i=>i.f));
   const missing = libItems.filter(i=>!catKeys.has(i.f)).map(i=>i.f);
   const extra = (cat.items||[]).filter(i=>!libKeys.has(i.f)).map(i=>i.f);
   if(missing.length===0) ok('catalog.json has all library items');
-  else fail('catalog.json missing: '+missing.join(', '));
+  else fail('catalog.json missing: ' + missing.join(', '));
   if(extra.length===0) ok('catalog.json has no extra items vs library');
-  else fail('catalog.json extra vs library: '+extra.join(', '));
+  else fail('catalog.json extra vs library: ' + extra.join(', '));
   const catCats = cat.cats || [];
   const libCats = [...new Set(libItems.map(i=>i.c))];
   if(JSON.stringify(catCats.slice().sort())===JSON.stringify(libCats.slice().sort())) ok('catalog.json cats match library categories');
-  else fail(`catalog cats differ: cat=${catCats.join('|')} vs lib=${libCats.join('|')}`);
+  else fail('catalog cats differ: cat=' + catCats.join('|') + ' vs lib=' + libCats.join('|'));
 }else{
   fail('hub-data/catalog.json missing');
 }
@@ -67,13 +69,13 @@ const missingFiles = libItems.filter(it=>{
   return true;
 });
 if(missingFiles.length===0) ok('every catalog entry has a file or folder under site/resources');
-else fail('missing files/folders for: '+missingFiles.map(i=>i.f).join(', '));
+else fail('missing files/folders for: ' + missingFiles.map(i=>i.f).join(', '));
 
 console.log('\n[4] library.html router rules (single-file shelves)');
 const CATS = ["Core Books","Mocks & Drills","Past Papers & Answer Keys","Exam Intelligence & Strategy","Quick Reference","Frameworks & Interactive","MedCORE Systems"];
 const single = CATS.filter(c=>libItems.filter(i=>i.c===c).length===1);
 if(single.includes('Mocks & Drills') && single.includes('Frameworks & Interactive')) ok('single-file shelves detected (Mocks & Drills, Frameworks & Interactive)');
-else fail('single-file shelves unexpected: '+single.join(', '));
+else fail('single-file shelves unexpected: ' + single.join(', '));
 if(/const DIRECT\s*=/.test(libHtml)) ok('DIRECT map present for single-file shelves');
 else fail('DIRECT map missing');
 if(/location\.replace\(DIRECT\[id\]\)/.test(libHtml)) ok('old hashes redirect via location.replace');
@@ -90,5 +92,5 @@ const wf = fs.readFileSync(path.join(ROOT,'.github/workflows/deploy.yml'),'utf8'
 if(wf.includes('libproof.js')) ok('libproof.js registered in deploy prune');
 else fail('libproof.js not in deploy prune');
 
-console.log(failures ? `\n${failures} FAILURE(S)\n` : '\nALL GREEN\n');
+console.log(failures ? '\n' + failures + ' FAILURE(S)\n' : '\nALL GREEN\n');
 process.exit(failures ? 1 : 0);
