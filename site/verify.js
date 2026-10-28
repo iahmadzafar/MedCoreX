@@ -98,5 +98,21 @@ else fail('scriptproof is not run before deploy');
 if(fs.readFileSync(path.join(SITE,'deploy.sh'),'utf8').includes('scriptproof.js')) ok('scriptproof.js excluded from manual deploy staging');
 else fail('scriptproof.js not excluded in deploy.sh');
 
+console.log('\n[6] Magic Table — kit-coherence (system-level wiring)');
+const mt = fs.readFileSync(path.join(RES,'standalone-htmls-magic-table-medical-licensing.html'),'utf8');
+const kit = fs.readFileSync(path.join(SITE,'assets','studyverse.css'),'utf8');
+if(mt.includes('/assets/studyverse.css')) ok('magic table links studyverse.css');
+else fail('magic table missing studyverse.css link');
+if(mt.includes('/assets/studyverse.js')) ok('magic table links studyverse.js');
+else fail('magic table missing studyverse.js link');
+if(mt.includes('data-sv-engine')) ok('magic table carries engine chip (data-sv-engine)');
+else fail('magic table missing data-sv-engine chip');
+if(mt.includes('class="foot"')) ok('magic table has house footer (foot)');
+else fail('magic table missing house footer');
+if(!mt.includes('mt-theme') && !mt.includes('mlx-theme') && !mt.includes('themeToggle')) ok('magic table: no mt-theme / mlx-theme / themeToggle leftovers');
+else fail('magic table still has theme leftover references');
+if(kit.includes('--font-mono')) ok('kit defines --font-mono label voice');
+else fail('kit missing --font-mono');
+
 console.log(failures ? '\n' + failures + ' FAILURE(S)\n' : '\nALL GREEN\n');
 process.exit(failures ? 1 : 0);

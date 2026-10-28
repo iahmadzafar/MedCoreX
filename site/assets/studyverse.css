@@ -5,6 +5,12 @@
    components ported from the Question Bank. Page CSS may only
    use tokens; no hex outside :root (except --on-accent twins).
    ============================================================ */
+
+/* One font request for the whole site: the mono label voice of
+   House Rules 1.1 (Geist Mono). Display/body stay system faces —
+   the engine owns those and remixes them per theme. */
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600;700&display=swap');
+
 /* accent-fill text token — black in light, white in dark (plan ground rule) */
 :root{--on-accent:#0d0d0d}
 html[data-theme=dark]{--on-accent:#ffffff}
@@ -19,6 +25,7 @@ html[data-theme=dark]{--on-accent:#ffffff}
   --title-shadow:3px 3px 0 var(--c2);
   --font-display:Futura,"Century Gothic","Trebuchet MS",sans-serif;
   --font-body:"Avenir Next","Segoe UI",sans-serif;
+  --font-mono:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
   --dw:800; --case:uppercase; --track:.01em;
   --tilt:-1deg;
   --ease:cubic-bezier(.34,1.56,.64,1);
@@ -159,4 +166,4 @@ dialog{border:var(--bw) solid var(--ink);border-radius:var(--radius);background:
 
 @media (max-width:900px){.hero{grid-template-columns:minmax(0,1fr)}.hero-art{height:230px}.links{order:3;width:100%}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
-@media print{.nav,.blobs,.toast,.btn,.icon-btn,.marquee,.hero-art{display:none!important}.card{box-shadow:none;break-inside:avoid}.rv{animation:none!important}}
+@media print{.nav,.foot,.blobs,.toast,.btn,.icon-btn,.marquee,.hero-art{display:none!important}.card{box-shadow:none;break-inside:avoid}.rv{animation:none!important}}
