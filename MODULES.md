@@ -27,12 +27,12 @@
 
 ### M01 · MedCORE Study Book
 
-- **File:** `site/resources/medcore-production-master-html-medcore-master-book.html`, 1,439 lines — live at `/resources/medcore-production-master-html-medcore-master-book` (also reachable with `.html`; the extensionless URL serves the four-file module from Phase 4)
+- **File:** `site/resources/medcore-production-master-html-medcore-master-book.html`, 1,447 lines — live at `/resources/medcore-production-master-html-medcore-master-book` (also reachable with `.html`; the extensionless URL serves the four-file module from Phase 4)
 - **What it is:** Every system, one volume.
 - **Inside:** 16 top-level headings; first ones: “Complete Study Book”, “Medicine”, “Surgery”. Data: pure markup + CSS content (no embedded data bank).
-- **Interface:** live search/filter, 637 collapsible <details> blocks (95 chapter + 527 recall + 15 nav), sticky headers/bars, keyboard shortcuts, persists state in localStorage, print stylesheet, 1029 inline SVGs.
-- **Mode system:** one theme system (2026-10-28): `html[data-mode]` + key `mlx-theme`, driven by both the sidebar Theme button and the floating chip; legacy `medcore.theme` honoured once as fallback.
-- **Design passes so far:** fonts:2026 trio; mlx-live toggle; has light block; color-scheme meta; crumb-back nav fix; counts corrected (footer 95 topics/2,271 MCQs).
+- **Interface:** live search/filter, 637 collapsible <details> blocks (95 chapter + 527 recall + 15 nav), sticky headers/bars, keyboard shortcuts, persists state in localStorage, print stylesheet, 1029 inline SVGs. Kit hero cover (mega title, sticker, shapes, marquee of the 15 parts, stat cards, CTA row) + kit nav with engine chips; mobile drawer burger lives in the nav.
+- **Mode system:** kit engine (`studyverse.js`, keys `mx-mode`/`mx-lock`) — no bespoke theme code since the 2026-10-29 conversion.
+- **Design passes so far:** 2026-10-29 full kit conversion (tokens only, zero hex outside print `:root`; part identity = colour: 15 parts cycle `--c1..c4`, inherited by subcats/quizzes/tables/nav dots/cover chips, `ac-ink` mix keeps accent labels legible in every theme; kit `.opt` language on all 2,271 MCQ options); crumb-back nav fix; counts corrected (footer 95 topics/2,271 MCQs); color-scheme meta.
 
 ### M02 · MCQ Architecture
 
