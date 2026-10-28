@@ -21,7 +21,7 @@ export async function onRequestGet({ request, env }) {
 
   const h = new Headers();
   h.set('Location', auth.toString());
-  h.append('Set-Cookie', `g_state=${state}; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=600`);
-  h.append('Set-Cookie', `g_return=${encodeURIComponent(ret).slice(0, 200)}; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=600`);
+  h.append('Set-Cookie', `g_state=${state}; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=1800`);
+  h.append('Set-Cookie', `g_return=${encodeURIComponent(ret).slice(0, 200)}; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=1800`);
   return new Response(null, { status: 302, headers: h });
 }

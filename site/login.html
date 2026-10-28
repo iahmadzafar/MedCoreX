@@ -190,6 +190,22 @@ input.field{width:100%}
       })
       .catch(function(){ err.textContent='The desk didn\u2019t answer. Try again.';err.classList.add('on');go.disabled=false;go.textContent='Sign in'; });
   });
+
+  /* Google sign-in failure reasons (callback redirects here with ?e=) */
+  (function(){
+    var code=(new URLSearchParams(location.search).get('e')||'');
+    if(!code) return;
+    var GOOGLE_MSGS={
+      'google-state':'Google sign-in was interrupted — an older attempt expired or another tab was open. Close extra tabs and press Continue with Google once.',
+      'google-exchange':'Google did not accept the sign-in response. Try once more; if it repeats, the stored client secret needs re-checking.',
+      'google-token':'Google sent a sign-in response we could not verify. Try again.',
+      'google-email':'Your Google email is not verified with Google.',
+      'google-config':'Google sign-in is not configured on this deployment yet.'
+    };
+    var m=GOOGLE_MSGS[code]; if(!m) return;
+    err.textContent=m; err.classList.add('on');
+    if(window.history&&history.replaceState) history.replaceState(null,'',location.pathname);
+  })();
 })();
 </script>
 <script src="/auth-nav.js" defer></script>

@@ -1,6 +1,16 @@
 // GET /api/google/callback?code=…&state=… → exchange code, sign the user in, redirect back.
 import { newId, createSession, setSessionCookie, readCookie } from '../_util.js';
 
+
+// failures land back on /login with a reason code the page explains (no bare-text dead ends)
+function fail(code, ret) {
+  const h = new Headers();
+  const base = (ret && ret.charAt(0) === '/' ? ret : '/login');
+  const sep = base.indexOf('?') >= 0 ? '&' : '?';
+  h.set('Location', base + sep + 'e=' + code);
+  return new Response(null, { status: 302, headers: h });
+}
+
 export async function onRequestGet({ request, env }) {
   const url = new URL(request.url);
   const code = url.searchParams.get('code');
@@ -9,10 +19,10 @@ export async function onRequestGet({ request, env }) {
   const ret = readCookie(request, 'g_return') || '/';
 
   if (!env.GOOGLE_CLIENT_ID || !env.GOOGLE_CLIENT_SECRET) {
-    return new Response('Google sign-in is not configured.', { status: 503 });
+    return fail('google-config', ret);
   }
   if (!code || !state || !savedState || state !== savedState) {
-    return new Response('Sign-in failed (state mismatch). Close this tab and try again.', { status: 400 });
+    return fail('google-state', ret);
   }
 
   // Exchange the authorization code for tokens (server-to-server, over TLS).
@@ -24,7 +34,7 @@ export async function onRequestGet({ request, env }) {
     method: 'POST', headers: { 'content-type': 'application/x-www-form-urlencoded' }, body
   });
   const tok = await tokRes.json().catch(function () { return {}; });
-  if (!tok.id_token) return new Response('Token exchange failed. Close this tab and try again.', { status: 400 });
+  if (!tok.id_token) return fail('google-exchange', ret);
 
   // Decode the ID token payload. It came straight from Google's token endpoint over TLS,
   // so we trust the channel; we still validate audience, issuer and expiry.
@@ -32,14 +42,14 @@ export async function onRequestGet({ request, env }) {
   try {
     const part = tok.id_token.split('.')[1].replace(/-/g, '+').replace(/_/g, '/');
     p = JSON.parse(decodeURIComponent(escape(atob(part))));
-  } catch (e) { return new Response('Bad token.', { status: 400 }); }
+  } catch (e) { return fail('google-token', ret); }
 
   const okIss = p.iss === 'accounts.google.com' || p.iss === 'https://accounts.google.com';
   const okAud = p.aud === env.GOOGLE_CLIENT_ID;
   const okExp = !p.exp || p.exp * 1000 > Date.now();
   const email = (p.email || '').toLowerCase();
-  if (!okIss || !okAud || !okExp || !email) return new Response('Invalid token.', { status: 400 });
-  if (p.email_verified === false) return new Response('Your Google email is not verified.', { status: 400 });
+  if (!okIss || !okAud || !okExp || !email) return fail('google-token', ret);
+  if (p.email_verified === false) return fail('google-email', ret);
 
   // Find or create the account (Google users have no password).
   let u = await env.medcore_db.prepare('SELECT id,email FROM users WHERE email=?').bind(email).first();
