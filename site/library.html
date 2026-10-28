@@ -13,6 +13,8 @@
 /* shared components */
 .wrap{width:min(1180px,100% - 40px);margin-inline:auto}
 .btn.sm{padding:.45em .9em;font-size:.8rem;box-shadow:3px 3px 0 var(--ink)}
+/* shelves that hold a single file are links, not portals */
+a.chip,a.card{text-decoration:none;color:inherit}
 /* reveal */
 .portal{display:none;padding-bottom:80px}
 .portal.active{display:block}
@@ -70,14 +72,14 @@
   </div>
 </header>
 
-<div class="catbar"><div class="wrap" id="catbar" role="tablist" aria-label="Shelves"></div></div>
+<div class="catbar"><div class="wrap" id="catbar" role="group" aria-label="Shelves"></div></div>
 
 <main class="wrap">
   <!-- portal picker -->
   <section class="portal" id="portals">
     <div class="section-head rv">
       <div><p class="eyebrow">The hub</p><h2>Pick a shelf</h2></div>
-      <p class="muted">Every shelf opens as its own portal with its files inside. Or use the menu up top.</p>
+      <p class="muted">Every shelf opens as its own portal with its files inside — a shelf holding a single file opens it straight away, no portal in between. Or use the menu up top.</p>
     </div>
     <div class="picker" id="picker"></div>
   </section>
@@ -149,22 +151,43 @@ function esc(s){return String(s).replace(/[&<>"']/g,function(c){return{'&':'&amp
 let STARS=[]; try{STARS=JSON.parse(localStorage.getItem('mx-stars')||'[]')}catch(e){}
 const saveStars=()=>{try{localStorage.setItem('mx-stars',JSON.stringify(STARS))}catch(e){}};
 
+/* single-file shelves: the shelf IS the file — chip and card link straight to it,
+   no one-card portal in between */
+const DIRECT={};
+CATS.forEach(c=>{const its=Items.filter(it=>it.c===c);if(its.length===1)DIRECT[slug(c)]=href(its[0])});
+
 /* category menu bar */
 const catbar=document.getElementById('catbar');
 const homeChip=document.createElement('button');
 homeChip.className='chip';homeChip.type='button';homeChip.textContent='🏠 All shelves';homeChip.dataset.cat='';
 catbar.appendChild(homeChip);
 CATS.forEach(c=>{
+  const s=slug(c);
+  if(DIRECT[s]){
+    const a=document.createElement('a');
+    a.className='chip';a.href=DIRECT[s];a.textContent=c+' ↗';
+    catbar.appendChild(a);
+    return;
+  }
   const b=document.createElement('button');
-  b.className='chip';b.type='button';b.textContent=c;b.dataset.cat=slug(c);
+  b.className='chip';b.type='button';b.textContent=c;b.dataset.cat=s;
   catbar.appendChild(b);
 });
 
 /* portal picker */
 const picker=document.getElementById('picker');
 CATS.forEach(c=>{
+  const s=slug(c);
+  if(DIRECT[s]){
+    const a=document.createElement('a');
+    a.className='card hov rv';a.href=DIRECT[s];a.style.setProperty('--accent',HUES[c]);
+    a.innerHTML='<span class="emoji">'+EMOJI[c]+'</span><h3>'+esc(c)+'</h3><p>'+esc(BLURB[c])+'</p>'+
+      '<span class="size">One file · opens directly ↗</span>';
+    picker.appendChild(a);
+    return;
+  }
   const b=document.createElement('button');
-  b.type='button';b.className='card hov rv';b.style.setProperty('--accent',HUES[c]);b.dataset.cat=slug(c);
+  b.type='button';b.className='card hov rv';b.style.setProperty('--accent',HUES[c]);b.dataset.cat=s;
   b.innerHTML='<span class="emoji">'+EMOJI[c]+'</span><h3>'+esc(c)+'</h3><p>'+esc(BLURB[c])+'</p>';
   picker.appendChild(b);
 });
@@ -172,6 +195,7 @@ CATS.forEach(c=>{
 /* portals */
 const host=document.getElementById('portalHost');
 CATS.forEach(c=>{
+  if(DIRECT[slug(c)])return;
   const s=document.createElement('section');
   s.className='portal';s.id=slug(c);
   const items=Items.filter(it=>it.c===c);
@@ -199,15 +223,17 @@ CATS.forEach(c=>{
 /* router: menu → portal */
 function route(){
   let id=(location.hash||'').slice(1);
-  const known=['portals',...CATS.map(slug)];
+  /* old single-file shelf link (#mocks-drills, #frameworks-interactive) → straight to the file */
+  if(DIRECT[id]){location.replace(DIRECT[id]);return;}
+  const known=['portals',...CATS.filter(c=>!DIRECT[slug(c)]).map(slug)];
   if(known.indexOf(id)<0) id='portals';
   document.querySelectorAll('.portal').forEach(p=>p.classList.toggle('active',p.id===id));
-  catbar.querySelectorAll('.chip').forEach(ch=>ch.setAttribute('aria-pressed',ch.dataset.cat===(id==='portals'?'':id)?'true':'false'));
+  catbar.querySelectorAll('button.chip').forEach(ch=>ch.setAttribute('aria-pressed',ch.dataset.cat===(id==='portals'?'':id)?'true':'false'));
   document.querySelectorAll('.portal.active .rv').forEach((el,i)=>el.style.setProperty('--i',i));
   scrollTo({top:0});
 }
 addEventListener('hashchange',route);
-catbar.addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;location.hash=b.dataset.cat||'portals'});
+catbar.addEventListener('click',e=>{const b=e.target.closest('button.chip');if(!b)return;location.hash=b.dataset.cat||'portals'});
 picker.addEventListener('click',e=>{const b=e.target.closest('[data-cat]');if(b)location.hash=b.dataset.cat});
 
 /* search + stars (delegated per portal) */
