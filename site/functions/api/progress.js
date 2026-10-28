@@ -1,5 +1,22 @@
 import { json, bad, options, cors, getUser } from './_util.js';
 
+// schema-safe deep merge: objects union, arrays union, numbers max (never regress), else incoming
+function deepMerge(base, inc) {
+  if (Array.isArray(base) && Array.isArray(inc)) {
+    const out = base.slice();
+    for (const v of inc) if (!out.some(x => JSON.stringify(x) === JSON.stringify(v))) out.push(v);
+    return out;
+  }
+  const bothObj = base && inc && typeof base === 'object' && typeof inc === 'object';
+  if (bothObj && !Array.isArray(base) && !Array.isArray(inc)) {
+    const out = Object.assign({}, base);
+    for (const k of Object.keys(inc)) out[k] = (k in base) ? deepMerge(base[k], inc[k]) : inc[k];
+    return out;
+  }
+  if (typeof base === 'number' && typeof inc === 'number') return Math.max(base, inc);
+  return inc;
+}
+
 export const onRequestOptions = () => options();
 
 // GET /api/progress → { ok, data: {…} }  (the account's saved progress blob)
