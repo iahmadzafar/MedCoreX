@@ -3,11 +3,9 @@ import { newId, createSession, setSessionCookie, readCookie } from '../_util.js'
 
 
 // failures land back on /login with a reason code the page explains (no bare-text dead ends)
-function fail(code, ret) {
+function fail(code) {
   const h = new Headers();
-  const base = (ret && ret.charAt(0) === '/' ? ret : '/login');
-  const sep = base.indexOf('?') >= 0 ? '&' : '?';
-  h.set('Location', base + sep + 'e=' + code);
+  h.set('Location', '/login?e=' + code);   /* failures always land where the message is shown */
   return new Response(null, { status: 302, headers: h });
 }
 
@@ -19,10 +17,10 @@ export async function onRequestGet({ request, env }) {
   const ret = readCookie(request, 'g_return') || '/';
 
   if (!env.GOOGLE_CLIENT_ID || !env.GOOGLE_CLIENT_SECRET) {
-    return fail('google-config', ret);
+    return fail('google-config');
   }
   if (!code || !state || !savedState || state !== savedState) {
-    return fail('google-state', ret);
+    return fail('google-state');
   }
 
   // Exchange the authorization code for tokens (server-to-server, over TLS).
@@ -34,7 +32,7 @@ export async function onRequestGet({ request, env }) {
     method: 'POST', headers: { 'content-type': 'application/x-www-form-urlencoded' }, body
   });
   const tok = await tokRes.json().catch(function () { return {}; });
-  if (!tok.id_token) return fail('google-exchange', ret);
+  if (!tok.id_token) return fail('google-exchange');
 
   // Decode the ID token payload. It came straight from Google's token endpoint over TLS,
   // so we trust the channel; we still validate audience, issuer and expiry.
@@ -42,14 +40,14 @@ export async function onRequestGet({ request, env }) {
   try {
     const part = tok.id_token.split('.')[1].replace(/-/g, '+').replace(/_/g, '/');
     p = JSON.parse(decodeURIComponent(escape(atob(part))));
-  } catch (e) { return fail('google-token', ret); }
+  } catch (e) { return fail('google-token'); }
 
   const okIss = p.iss === 'accounts.google.com' || p.iss === 'https://accounts.google.com';
   const okAud = p.aud === env.GOOGLE_CLIENT_ID;
   const okExp = !p.exp || p.exp * 1000 > Date.now();
   const email = (p.email || '').toLowerCase();
-  if (!okIss || !okAud || !okExp || !email) return fail('google-token', ret);
-  if (p.email_verified === false) return fail('google-email', ret);
+  if (!okIss || !okAud || !okExp || !email) return fail('google-token');
+  if (p.email_verified === false) return fail('google-email');
 
   // Find or create the account (Google users have no password).
   let u = await env.medcore_db.prepare('SELECT id,email FROM users WHERE email=?').bind(email).first();
