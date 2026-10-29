@@ -154,18 +154,15 @@ body{min-height:100dvh;-webkit-font-smoothing:antialiased}
 
 /* topbar hidden — the sticky layers climb to the top edge */
 body.nav-off .tool{top:0}
-body.nav-off .rail{top:64px}
+body.nav-off .rail{top:calc(var(--stick-h,120px) + 5px)}
 
 @media (max-width:900px){
   .tool .wrap{flex-wrap:wrap;gap:12px}
   .stage{grid-template-columns:1fr;gap:18px;padding-top:18px}
-  /* phones keep the thin horizontal bar — a side tab would steal scarce width */
-  .stage:has(> .rail[data-collapsed="1"]){grid-template-columns:1fr}
-  .rail[data-collapsed="1"]{min-height:0;padding:12px 14px}
-  .rail[data-collapsed="1"] .rail-head{flex-direction:row;height:auto;gap:8px;padding:0 2px}
-  .rail[data-collapsed="1"] .rail-label{writing-mode:horizontal-tb;transform:none}
-  .rail[data-collapsed="1"] .rail-chev{order:0}
+  /* narrow screens get the pull tab too — pinned to the viewport's left edge */
   .rail{position:static;align-self:start;max-height:none;padding:14px}
+  .rail[data-collapsed="1"]{position:fixed;left:0;top:var(--stick-h,120px);width:40px;min-height:150px;z-index:35;border-radius:0 var(--radius) var(--radius) 0;border-left:0;padding:12px 4px}
+  .stage:has(> .rail[data-collapsed="1"]){grid-template-columns:1fr;padding-left:52px}
   .rail #topicList{max-height:46vh}
   .topic-btn{flex:0 0 auto;width:100%}
   .ladder-hero{padding:20px}
