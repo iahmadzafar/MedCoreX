@@ -88,16 +88,9 @@
     },
     {
       "t": "Prediction Exam 2026",
-      "d": "200 MCQs, 14 subjects",
+      "d": "200 MCQs, 14 subjects, key baked in",
       "c": "Past Papers & Answer Keys",
       "f": "medcore-prediction-exam.html",
-      "k": 99.6
-    },
-    {
-      "t": "Prediction Exam \u00b7 Key",
-      "d": "Same paper, full key",
-      "c": "Past Papers & Answer Keys",
-      "f": "medcore-prediction-exam-answer-key.html",
       "k": 99.6
     },
     {
