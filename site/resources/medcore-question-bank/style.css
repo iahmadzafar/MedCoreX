@@ -38,6 +38,7 @@ body{
 /* =========================================================
    SHARED COMPONENTS
    ========================================================= */
+.wrap{width:min(1180px,100% - 40px);margin-inline:auto}
 .card{
   background:var(--surface);border:var(--bw) solid var(--ink);border-radius:var(--radius);
   box-shadow:var(--shadow);padding:22px;position:relative;
@@ -208,8 +209,6 @@ body{
 .flag:hover{transform:translateY(-2px)}
 .flag[aria-pressed=true]{background:var(--c4);color:var(--on-accent);box-shadow:3px 3px 0 var(--ink)}
 .stem{font-size:1.15em;font-weight:600;line-height:1.6}
-/* wide screens: the card may span the viewport, question text keeps today's measure */
-.stem,.opts{max-width:68ch}
 /* verdict + breakdown */
 .verdict{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding:15px 20px;border:var(--bw) solid var(--ink);border-radius:var(--pill);font-weight:800;box-shadow:4px 4px 0 var(--ink)}
 .verdict.good{background:var(--ok);color:var(--on-accent)}

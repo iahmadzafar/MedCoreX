@@ -88,7 +88,7 @@ behind a session (visitors bounce to `/login?next=…`), so no module URL answer
 
 ### M06 · MedCORE Question Bank
 
-- **File:** four-file module `site/resources/medcore-question-bank/` — `index.html` 151 · `style.css` 318 · `app.js` 288 · `data.js` 2 (759 total) — live at `/resources/medcore-question-bank` and `/resources/medcore-question-bank/`
+- **File:** four-file module `site/resources/medcore-question-bank/` — `index.html` 151 · `style.css` 317 · `app.js` 288 · `data.js` 2 (758 total) — live at `/resources/medcore-question-bank` and `/resources/medcore-question-bank/`
 - **What it is:** Test series + main bank merged · six subject groups · 5,299 questions, every one carrying the full seven-layer breakdown.
 - **Inside:** 3 top-level headings (h1+h2); first ones: “MedCORE Question Bank.”, “Choose a subject”, “Subject”. Data: `data.js` holds `SUBJECTS` (Medicine & Allied 2,255 · Surgery & Allied 1,122 · Eye & ENT 371 · Obstetrics & Gynaecology 442 · Paediatrics 448 · Basic Sciences 661) + `TIPS` as a JS literal; 1 JSON.parse() load (the `medcore.qb` state blob). The third heading is the practice title `#pName`, read before JS fills it.
 - **Interface:** live search/filter, timer/interval logic with start/pause, sticky headers/bars, jump-to-question + first-unanswered/flagged, progress bar and right/wrong/flagged/not-yet tally, confidence marking (sure/guess/blind), review list, full-breakdown dialog, keyboard shortcuts, `#/s/<id>` hash routing; persists state in localStorage, print stylesheet, 0 inline SVGs (art is kit CSS shapes + sticker).

@@ -61,9 +61,7 @@ h3{font-size:1.25rem}
 @keyframes morph{50%{border-radius:61% 39% 36% 64%/57% 63% 37% 43%}100%{border-radius:35% 65% 50% 50%/30% 50% 50% 70%}}
 @keyframes drift{50%{transform:translate(8vw,6vh) rotate(60deg) scale(1.1)}100%{transform:translate(-5vw,10vh) rotate(140deg) scale(.95)}}
 
-/* Full-width container: fluid below 1220px (as before), uncapped above so wide screens
-   get the whole viewport. Set --wrap-max (e.g. 1180px) on :root to bring a cap back. */
-.wrap{width:min(100% - 40px,var(--wrap-max,100%));margin-inline:auto}
+.wrap{width:min(1180px,100% - 40px);margin-inline:auto}
 .card{background:var(--surface);border:var(--bw) solid var(--ink);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px;position:relative;transition:transform .35s var(--ease),box-shadow .35s var(--ease),background .8s}
 .card.hov:hover{transform:translate(-3px,-3px) rotate(var(--tilt));box-shadow:var(--shadow-hover)}
 .btn{display:inline-flex;align-items:center;gap:.5em;cursor:pointer;text-decoration:none;font-family:var(--font-display);font-weight:var(--dw);text-transform:var(--case);letter-spacing:.03em;background:var(--c1);color:var(--ink);border:var(--bw) solid var(--ink);border-radius:var(--pill);padding:.75em 1.3em;box-shadow:4px 4px 0 var(--ink);font-size:.95rem;transition:transform .25s var(--ease),box-shadow .25s var(--ease),background .8s}
