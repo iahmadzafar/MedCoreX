@@ -256,8 +256,7 @@ summary{cursor:pointer}
     <nav class="links" aria-label="Main">
       <a href="/">Home</a>
       <a href="/library">Library</a>
-      <a href="/about">About</a>
-      <a href="/faq">FAQ</a> <a href="/stats">Stats</a> <a href="/login" id="navAuth">Sign in</a>
+      <a href="/stats">Stats</a> <a href="/login" id="navAuth">Sign in</a>
     </nav>
     <div class="engine" title="Theme engine" data-sv-engine></div>
   </div>
@@ -1397,6 +1396,45 @@ summary{cursor:pointer}
 .home-tile-kicker{font-family:var(--font-mono);font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted)}
 .home-grid.searching .home-tile{display:none}
 .home-grid.searching .home-tile.match{display:flex}
+
+/* header.nav — fully responsive, adaptive to any screen size */
+@media(max-width:900px){
+  .nav .wrap{
+    flex-direction:column;
+    align-items:stretch;
+    gap:8px;
+    padding:8px 4px;
+  }
+  .nav .logo{
+    justify-content:center;
+    font-size:1.15rem;
+    padding:4px 0;
+  }
+  .nav .logo-mark{
+    width:30px;
+    height:30px;
+    font-size:.7rem;
+  }
+  .nav .links{
+    justify-content:center;
+    width:100%;
+    gap:6px;
+    flex-wrap:wrap;
+  }
+  .nav .links a{
+    display:block;
+    text-align:center;
+    padding:.55rem .85rem;
+    border:2px solid var(--ink);
+    margin:2px 0;
+  }
+  .nav .engine{
+    justify-content:center;
+    width:100%;
+    margin-top:6px;
+    padding:3px 6px 3px 6px;
+  }
+}
 </style>
 
 <script>
