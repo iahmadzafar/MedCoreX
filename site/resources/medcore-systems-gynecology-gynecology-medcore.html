@@ -98,11 +98,7 @@
   h3 { font-size: 11pt; font-weight: 700; color: var(--navy); margin-top: 5mm; margin-bottom: 2mm; text-transform: uppercase; letter-spacing: 0.04em; }
   h4 { font-size: 9.5pt; font-weight: 700; color: var(--gray-700); margin-top: 3mm; margin-bottom: 1.5mm; }
 
-  .sficon { display: inline-block; width: 1em; height: 1em; vertical-align: -0.125em; flex-shrink: 0; }
-  h3 .sficon { width: 0.95em; height: 0.95em; vertical-align: -0.12em; margin-right: 1mm; }
-  h4 .sficon { width: 0.9em; height: 0.9em; vertical-align: -0.1em; margin-right: 1mm; }
-  .band .sficon { width: 1.1em; height: 1.1em; margin: 0; vertical-align: 0; }
-  .alert-strip .sficon { width: 1.2em; height: 1.2em; margin: 0; vertical-align: 0; }
+  .sficon{ width:16px; height:16px; display:inline-block; background-size:contain; background-repeat:no-repeat; vertical-align:-2px; margin-right:6px; flex-shrink: 0; }
 
   .sfi { display: inline-block; width: 100%; height: 100%; background: center / contain no-repeat; }
 
@@ -541,7 +537,6 @@ body.nx-study .buzzword.nx-revealed .dx{ filter:none; user-select:auto; }
 .bline strong{ color:var(--a1); }
 
 html[data-mode="dark"] .sficon[class*="-navy"], html[data-mode="dark"] .sficon[class*="-red"]{ filter:brightness(0) invert(1); opacity:.9; }
-.sficon{ width:16px; height:16px; display:inline-block; background-size:contain; background-repeat:no-repeat; vertical-align:-2px; margin-right:6px; }
 
 @media (max-width:900px){
   .nx-navbtn{ display:inline-flex; }
