@@ -72,11 +72,9 @@ body{line-height:1.7;min-height:100dvh;-webkit-font-smoothing:antialiased}
 .hero{display:block;position:relative;z-index:1;text-align:center;padding:6rem 2rem 2.8rem;border-bottom:1px solid var(--border);transition:margin .3s}
 .hero .kicker{font-family:var(--font-mono);font-size:.6rem;font-weight:500;letter-spacing:.38em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1.1rem}
 .hero h1{font-family:var(--font-display);font-size:clamp(2.6rem,7vw,4.6rem);font-weight:var(--dw);letter-spacing:-.02em;line-height:1.05;margin-bottom:.9rem;color:var(--text)}
-.hero .tagline{font-size:.94rem;color:var(--text-dim);max-width:540px;margin:0 auto 1.4rem;line-height:1.7}
+.hero .tagline{font-size:1rem;color:var(--text);max-width:600px;margin:0 auto 1.6rem;line-height:1.8;font-weight:500}
 .hero .rule{width:64px;height:2px;margin:0 auto 1.1rem;background:linear-gradient(90deg,transparent,var(--c2),transparent)}
-.hero .credits{font-family:var(--font-mono);font-size:.58rem;letter-spacing:.24em;text-transform:uppercase;color:var(--text-muted)}
-.hero .credits b{color:var(--text-dim);font-weight:500;border-bottom:1px solid var(--border-strong)}
-.hero .hint{font-family:var(--font-mono);font-size:.56rem;letter-spacing:.12em;color:var(--text-muted);margin-top:1.2rem}
+.hero .hint{font-family:var(--font-mono);font-size:.66rem;letter-spacing:.1em;color:var(--text-dim);margin-top:1.4rem;font-weight:500}
 .hero .hint .hint-k{display:inline-block;background:var(--c2);color:var(--on-accent);font-weight:700;padding:0 .4em;border-radius:var(--pill)}
 
 /* ══════════ NAV ══════════ */
@@ -254,7 +252,7 @@ summary{cursor:pointer}
 <body>
 <header class="nav">
   <div class="wrap">
-    <a class="logo" href="/"><span class="logo-mark">📚</span>MedCoreX</a>
+    <a class="logo" href="/"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>MedCoreX</a>
     <nav class="links" aria-label="Main">
       <a href="/">Home</a>
       <a href="/library">Library</a>
@@ -281,7 +279,6 @@ summary{cursor:pointer}
   <h1>Magic Table</h1>
   <p class="tagline">High-yield tables for rapid recall — endocrinology, cardiology, pharmacology, hematology, surgery, anatomy, forensics & beyond.</p>
   <div class="rule"></div>
-  <div class="credits">Crafted by <b>Ahmad</b></div>
   <div class="hint"><span class="hint-k">click a section</span> to open it · <span class="hint-k">/</span> to search · <span class="hint-k">[ ]</span> to browse · <span class="hint-k">eye</span> hides answers · click a row to reveal</div>
 </header>
 
@@ -1358,8 +1355,8 @@ summary{cursor:pointer}
 
 <footer class="foot"><div class="wrap foot-in">
   <div>
-    <div class="logo" style="font-size:1.2rem"><span class="logo-mark" style="width:30px;height:30px;font-size:.8rem">📚</span>MedCoreX</div>
-    <p class="foot-tag">A private study library — curated with discipline, and kept current and exact.</p>
+    <div class="logo" style="font-size:1.2rem"><span class="logo-mark" style="width:30px;height:30px;font-size:.8rem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>MedCoreX</div>
+    <p class="foot-tag">MedCoreX medical licensing study library — 40 high-yield tables for rapid recall, curated with discipline and kept current and exact.</p>
   </div>
   <nav class="foot-links" aria-label="Footer">
     <a href="/">Home</a><a href="/about">About</a><a href="/faq">FAQ</a> <a href="/login" id="footAuth">Sign in</a>
