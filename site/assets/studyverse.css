@@ -81,17 +81,46 @@ h3{font-size:1.25rem}
 @keyframes rise{from{opacity:0;transform:translateY(28px) scale(.97)}}
 
 .nav{position:sticky;top:0;z-index:50;padding:12px 0;backdrop-filter:blur(10px);background:color-mix(in srgb,var(--bg) 75%,transparent);border-bottom:var(--bw) solid var(--ink);transition:background .8s}
-.nav .wrap{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+/* Symmetric topbar: logo left · links dead-centre · engine right — true thirds, not flex leftover */
+.nav .wrap{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:14px}
+.nav .logo{grid-column:1;grid-row:1;justify-self:start}
+.nav .links{grid-column:2;grid-row:1;justify-self:center;margin-left:0;justify-content:center}
+.nav .engine{grid-column:3;grid-row:1;justify-self:end}
+/* pages that carry a burger keep the old flex flow untouched */
+.nav .wrap:has(> .burger){display:flex;flex-wrap:wrap}
+.nav .wrap:has(> .burger) .links{margin-left:auto}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--font-display);font-weight:var(--dw);font-size:1.35rem;text-transform:none}
 .logo-mark{width:38px;height:38px;background:var(--c1);border:var(--bw) solid var(--ink);border-radius:42% 58% 63% 37%/45% 41% 59% 55%;animation:morph 6s ease-in-out infinite alternate;display:grid;place-items:center;font-size:1rem}
-.links{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto}
-.links a{text-decoration:none;font-weight:700;padding:.45em 1em;border-radius:var(--pill);border:2px solid transparent;transition:all .25s var(--ease)}
-.links a:hover{border-color:var(--ink);transform:rotate(-3deg)}
+.links{display:flex;gap:6px;flex-wrap:wrap}
+/* the Library dropdown wraps its link in a span — make it behave exactly like a bare link */
+.links .navdrop{display:flex;padding-bottom:0;margin-bottom:0}
+.links a{text-decoration:none;font-weight:700;padding:.45em 1em;border-radius:var(--pill);border:2px solid transparent;transition:background .2s var(--ease),border-color .2s,color .2s}
+.links a:hover{border-color:var(--ink);background:color-mix(in srgb,var(--c1) 16%,transparent)}
 .links a[aria-current=page]{background:var(--ink);color:var(--bg)}
+.navdrop{position:relative;display:inline-block;padding-bottom:4px;margin-bottom:-4px}
+.navmenu{position:absolute;top:100%;left:0;min-width:245px;background:var(--surface);border:var(--bw) solid var(--ink);border-radius:var(--radius);box-shadow:var(--shadow);padding:8px;display:none;flex-direction:column;gap:2px;z-index:70}
+.navdrop:hover .navmenu,.navdrop:focus-within .navmenu{display:flex}
+.navmenu a{text-decoration:none;font-weight:700;padding:.55em .8em;border-radius:var(--pill);border:2px solid transparent;white-space:nowrap;font-size:.88rem;transition:background .15s}
+.navmenu a:hover{background:var(--c2);border-color:var(--ink);transform:none}
+.navmenu a.all{background:var(--ink);color:var(--bg)}
 .engine{display:flex;align-items:center;gap:8px;border:2px solid var(--ink);border-radius:999px;padding:4px;background:var(--surface)}
-.icon-btn{width:34px;height:34px;border-radius:50%;border:2px solid var(--ink);background:var(--c2);cursor:pointer;display:grid;place-items:center;font-size:1rem;transition:transform .4s var(--ease)}
+.icon-btn{position:relative;width:34px;height:34px;border-radius:50%;border:2px solid var(--ink);background:var(--c2);cursor:pointer;display:grid;place-items:center;font-size:1rem;transition:transform .4s var(--ease),background .25s}
+/* the ENTIRE button responds: a transparent layer squares off the rounded corners,
+   so every pixel of the 34px footprint is a live hit target (border-radius clips pointer events) */
+.icon-btn::after,.nav-tog::after{content:"";position:absolute;inset:-4px;border-radius:11px}
 .icon-btn:hover{transform:rotate(180deg) scale(1.1)}
+.icon-btn:active{transform:scale(.86)}
+.icon-btn:focus-visible,.nav-tog:focus-visible{outline:3px solid var(--c4);outline-offset:2px}
 .icon-btn[aria-pressed=true]{background:var(--c4)}
+/* topbar hide/show — chevron lives in the engine cluster, restore pill appears when hidden */
+.nav-tog{position:relative;width:30px;height:30px;padding:0;border-radius:50%;border:2px solid var(--ink);background:var(--surface);color:var(--ink);cursor:pointer;display:grid;place-items:center;transition:background .2s,transform .25s var(--ease)}
+.nav-tog:hover{background:var(--c4);transform:translateY(-2px)}
+.nav-tog:active{transform:scale(.86)}
+.nav-tog[aria-expanded=false]{background:var(--c4)}
+.nav-show{position:fixed;right:16px;bottom:16px;z-index:60;display:none;align-items:center;gap:7px;padding:.6em 1.05em;border:2px solid var(--ink);border-radius:var(--pill);background:var(--surface);box-shadow:var(--shadow);color:var(--ink);font-family:var(--font-display);font-weight:var(--dw);font-size:.8rem;letter-spacing:.03em;text-transform:var(--case);cursor:pointer;transition:background .2s,transform .25s var(--ease)}
+.nav-show:hover{background:var(--c2);transform:translateY(-2px)}
+body.nav-off .nav{display:none}
+body.nav-off .nav-show{display:inline-flex}
 
 .hero{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:30px;align-items:center;padding:46px 0 26px}
 .mega{font-size:clamp(2.6rem,7.5vw,6rem);line-height:.94;margin:14px 0 20px}
@@ -161,6 +190,24 @@ h3{font-size:1.25rem}
 
 
 
-@media (max-width:900px){.hero{grid-template-columns:minmax(0,1fr)}.hero-art{height:230px}.links{order:3;width:100%}}
+@media (max-width:900px){
+  .hero{grid-template-columns:minmax(0,1fr)}.hero-art{height:230px}
+  .links{order:3;width:100%}
+  /* symmetric two-row bar: logo · engine on top, links centred beneath */
+  .nav .wrap{grid-template-columns:auto auto;justify-content:space-between;row-gap:9px}
+  .nav .logo{grid-column:1;grid-row:1}
+  .nav .engine{grid-column:2;grid-row:1;justify-self:end}
+  .nav .links{grid-column:1/-1;grid-row:2;justify-self:center;justify-content:center}
+}
+/* very narrow phones: tighten logo + engine so the chips never clip */
+@media (max-width:430px){
+  .nav .wrap{padding:0 12px}
+  .nav .logo{font-size:1.05rem}
+  .nav .mark{width:32px;height:32px;font-size:.8rem}
+  .engine{gap:5px;padding:3px}
+  .icon-btn{width:30px;height:30px}
+  .nav-tog{width:28px;height:28px}
+  .nav .links a{padding:8px 10px;font-size:.95rem}
+}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
-@media print{.nav,.foot,.blobs,.toast,.btn,.icon-btn,.marquee,.hero-art{display:none!important}.card{box-shadow:none;break-inside:avoid}.rv{animation:none!important}}
+@media print{.nav,.foot,.blobs,.toast,.btn,.icon-btn,.nav-show,.nav-tog,.marquee,.hero-art{display:none!important}.card{box-shadow:none;break-inside:avoid}.rv{animation:none!important}}

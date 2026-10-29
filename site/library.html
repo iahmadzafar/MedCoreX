@@ -22,9 +22,6 @@ a.chip,a.card{text-decoration:none;color:inherit}
 /* nav */
 .nav{position:sticky;top:0;z-index:50;padding:12px 0;backdrop-filter:blur(10px);background:color-mix(in srgb,var(--bg) 75%,transparent);border-bottom:var(--bw) solid var(--ink);transition:background .8s}
 /* category bar — the portal menu */
-.catbar{position:sticky;top:64px;z-index:40;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(8px);border-bottom:var(--bw) solid var(--ink);transition:background .8s}
-.catbar .wrap{display:flex;gap:8px;flex-wrap:wrap;padding:12px 0}
-.catbar .chip{font-size:.78rem;padding:.4em .95em}
 /* portal picker */
 .picker{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:20px;margin-top:26px}
 .picker .card{cursor:pointer;text-align:left;font:inherit;color:inherit;min-height:150px;display:flex;flex-direction:column;gap:8px;background:var(--accent)}
@@ -52,8 +49,8 @@ a.chip,a.card{text-decoration:none;color:inherit}
 .toast{position:fixed;left:50%;bottom:70px;transform:translate(-50%,calc(100% + 90px));background:var(--ink);color:var(--bg);padding:12px 22px;border-radius:999px;font-weight:800;z-index:99;transition:transform .5s var(--ease);box-shadow:4px 4px 0 var(--c1)}
 /* footer */
 .foot{border-top:var(--bw) solid var(--ink);background:var(--surface);transition:background .8s}
-@media (max-width:900px){.links{order:3;width:100%}.catbar{top:110px}}
-@media print{.nav,.catbar,.blobs,.toast,.btn,.icon-btn{display:none!important}.portal{display:block!important;break-after:page}.card{box-shadow:none;break-inside:avoid}.portal .rv{animation:none!important}}
+@media (max-width:900px){.links{order:3;width:100%}}
+@media print{.nav,.blobs,.toast,.btn,.icon-btn{display:none!important}.portal{display:block!important;break-after:page}.card{box-shadow:none;break-inside:avoid}.portal .rv{animation:none!important}}
 </style>
 <script src="/assets/studyverse.js"></script>
 </head>
@@ -71,8 +68,6 @@ a.chip,a.card{text-decoration:none;color:inherit}
     <div class="engine" title="Theme engine" data-sv-engine></div>
   </div>
 </header>
-
-<div class="catbar"><div class="wrap" id="catbar" role="group" aria-label="Shelves"></div></div>
 
 <main class="wrap">
   <!-- portal picker -->
@@ -156,24 +151,6 @@ const saveStars=()=>{try{localStorage.setItem('mx-stars',JSON.stringify(STARS))}
 const DIRECT={};
 CATS.forEach(c=>{const its=Items.filter(it=>it.c===c);if(its.length===1)DIRECT[slug(c)]=href(its[0])});
 
-/* category menu bar */
-const catbar=document.getElementById('catbar');
-const homeChip=document.createElement('button');
-homeChip.className='chip';homeChip.type='button';homeChip.textContent='🏠 All shelves';homeChip.dataset.cat='';
-catbar.appendChild(homeChip);
-CATS.forEach(c=>{
-  const s=slug(c);
-  if(DIRECT[s]){
-    const a=document.createElement('a');
-    a.className='chip';a.href=DIRECT[s];a.textContent=c+' ↗';
-    catbar.appendChild(a);
-    return;
-  }
-  const b=document.createElement('button');
-  b.className='chip';b.type='button';b.textContent=c;b.dataset.cat=s;
-  catbar.appendChild(b);
-});
-
 /* portal picker */
 const picker=document.getElementById('picker');
 CATS.forEach(c=>{
@@ -200,7 +177,7 @@ CATS.forEach(c=>{
   s.className='portal';s.id=slug(c);
   const items=Items.filter(it=>it.c===c);
   s.innerHTML='<div class="section-head rv"><div><p class="eyebrow">Portal · '+esc(EMOJI[c])+' '+esc(c)+'</p><h2>'+esc(c)+'</h2></div>'+
-    '<p class="muted">'+esc(BLURB[c])+'</p></div>'+
+    '<p class="muted">'+esc(BLURB[c])+'</p><a class="chip" href="#portals">← All shelves</a></div>'+
     '<div class="toolbar rv"><input class="field search" type="search" placeholder="Search this portal…" aria-label="Search files">'+
     '<button class="chip saved" aria-pressed="false">★ Saved only</button></div>'+
     '<div class="lib-grid"></div>';
@@ -228,12 +205,10 @@ function route(){
   const known=['portals',...CATS.filter(c=>!DIRECT[slug(c)]).map(slug)];
   if(known.indexOf(id)<0) id='portals';
   document.querySelectorAll('.portal').forEach(p=>p.classList.toggle('active',p.id===id));
-  catbar.querySelectorAll('button.chip').forEach(ch=>ch.setAttribute('aria-pressed',ch.dataset.cat===(id==='portals'?'':id)?'true':'false'));
   document.querySelectorAll('.portal.active .rv').forEach((el,i)=>el.style.setProperty('--i',i));
   scrollTo({top:0});
 }
 addEventListener('hashchange',route);
-catbar.addEventListener('click',e=>{const b=e.target.closest('button.chip');if(!b)return;location.hash=b.dataset.cat||'portals'});
 picker.addEventListener('click',e=>{const b=e.target.closest('[data-cat]');if(b)location.hash=b.dataset.cat});
 
 /* search + stars (delegated per portal) */

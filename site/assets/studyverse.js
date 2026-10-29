@@ -18,7 +18,9 @@ const IC={
  moon:'<svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" stroke="none" aria-hidden="true"><path d="M20.4 14.2A9 9 0 1 1 9.8 3.6a7.2 7.2 0 0 0 10.6 10.6z"/></svg>',
  lock:'<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10.5" width="16" height="10.5" rx="2.4"/><path d="M7.6 10.5V7a4.4 4.4 0 0 1 8.8 0v3.5"/></svg>',
  unlock:'<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10.5" width="16" height="10.5" rx="2.4"/><path d="M7.6 10.5V7a4.4 4.4 0 0 1 8.6-1.4"/></svg>',
- dice:'<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round" aria-hidden="true"><rect x="3.8" y="3.8" width="16.4" height="16.4" rx="3.8"/><circle cx="8.5" cy="8.5" r="1.35" fill="currentColor" stroke="none"/><circle cx="15.5" cy="8.5" r="1.35" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.35" fill="currentColor" stroke="none"/><circle cx="8.5" cy="15.5" r="1.35" fill="currentColor" stroke="none"/><circle cx="15.5" cy="15.5" r="1.35" fill="currentColor" stroke="none"/></svg>'
+ dice:'<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round" aria-hidden="true"><rect x="3.8" y="3.8" width="16.4" height="16.4" rx="3.8"/><circle cx="8.5" cy="8.5" r="1.35" fill="currentColor" stroke="none"/><circle cx="15.5" cy="8.5" r="1.35" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.35" fill="currentColor" stroke="none"/><circle cx="8.5" cy="15.5" r="1.35" fill="currentColor" stroke="none"/><circle cx="15.5" cy="15.5" r="1.35" fill="currentColor" stroke="none"/></svg>',
+ up:'<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 14 6-6 6 6"/></svg>',
+ down:'<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 10 6 6 6-6"/></svg>'
 };
 
 /* ── engine (verbatim from index.html) ── */
@@ -174,6 +176,43 @@ function fillChips(){
     el.dataset.svDone='1';
   });
 }
+/* Library hover menu in the nav — the shelves, one hover away (catbar's job, moved to the kit) */
+const SHELVES=[['Core Books','core-books'],['Mocks & Drills','mocks-drills'],['Past Papers & Answer Keys','past-papers-answer-keys'],['Exam Intelligence & Strategy','exam-intelligence-strategy'],['Quick Reference','quick-reference'],['Frameworks & Interactive','frameworks-interactive'],['MedCORE Systems','medcore-systems']];
+function buildNavMenu(){
+  const a=document.querySelector('.links a[href="/library"]');
+  if(!a||a.parentNode.classList.contains('navdrop'))return;
+  const w=document.createElement('span');w.className='navdrop';
+  a.parentNode.insertBefore(w,a);w.appendChild(a);
+  w.insertAdjacentHTML('beforeend','<div class="navmenu"><a class="all" href="/library">All shelves</a>'+SHELVES.map(function(s){return '<a href="/library#'+s[1]+'">'+s[0]+'</a>'}).join('')+'</div>');
+}
+/* Topbar hide/show — one chevron in the engine cluster, a restore pill when hidden.
+   Preference is remembered across pages (medcore.nav). */
+function applyNav(on){
+  document.body.classList.toggle('nav-off',!on);
+  const t=document.querySelector('.nav-tog');
+  if(t)t.setAttribute('aria-expanded',String(on));
+}
+function buildNavToggle(){
+  if(!document.querySelector('.nav'))return;
+  const eng=document.querySelector('.nav .engine');
+  if(eng&&!eng.querySelector('.nav-tog')){
+    eng.insertAdjacentHTML('beforeend','<button class="nav-tog" type="button" aria-label="Hide topbar" aria-expanded="true" title="Hide topbar">'+IC.up+'</button>');
+    eng.querySelector('.nav-tog').onclick=function(){
+      applyNav(false);
+      try{localStorage.setItem('medcore.nav','off');}catch(e){}
+    };
+  }
+  if(!document.getElementById('navShow')){
+    document.body.insertAdjacentHTML('beforeend','<button class="nav-show" id="navShow" type="button" aria-label="Show topbar">'+IC.down+'<span>Show topbar</span></button>');
+    document.getElementById('navShow').onclick=function(){
+      applyNav(true);
+      try{localStorage.setItem('medcore.nav','on');}catch(e){}
+    };
+  }
+  let on=true;
+  try{ on=localStorage.getItem('medcore.nav')!=='off'; }catch(e){}
+  applyNav(on);
+}
 function boot(){
   if(!document.querySelector('.blobs')){
     document.body.insertAdjacentHTML('afterbegin',
@@ -183,6 +222,8 @@ function boot(){
     document.body.insertAdjacentHTML('beforeend','<div class="toast" id="toast" role="status"></div>');
   }
   fillChips();
+  buildNavMenu();
+  buildNavToggle();
   paint(); syncLock(); syncMode();   /* name/lock/mode state onto the freshly filled chip */
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);
