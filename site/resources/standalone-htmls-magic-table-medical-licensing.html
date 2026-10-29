@@ -93,7 +93,6 @@ body{line-height:1.7;min-height:100dvh;-webkit-font-smoothing:antialiased}
 .nav-pills a:hover{color:var(--text);background:var(--tint)}
 .nav-pills a.active{color:var(--ink);background:var(--c2);border-color:var(--ink)}
 .nav-pills a.hidden{display:none}
-.nav-controls{display:flex;gap:.35rem;flex-shrink:0}
 .btn-icon{width:33px;height:33px;border-radius:var(--radius);background:var(--surface);border:1px solid var(--border-strong);color:var(--text-dim);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .18s;flex-shrink:0}
 .btn-icon:hover{border-color:var(--ink);color:var(--ink)}
 .btn-icon.active{color:var(--on-accent);background:var(--c2);border-color:var(--ink)}
@@ -266,15 +265,6 @@ summary{cursor:pointer}
   </div>
 </header>
 
-<header class="hero">
-  <div class="kicker">Medical Licensing · Quick Reference</div>
-  <h1>Magic Table</h1>
-  <p class="tagline">High-yield tables for rapid recall — endocrinology, cardiology, pharmacology, hematology, surgery, anatomy, forensics & beyond.</p>
-  <div class="rule"></div>
-  <div class="credits">Crafted by <b>Ahmad</b></div>
-  <div class="hint"><span class="hint-k">click a section</span> to open it · <span class="hint-k">/</span> to search · <span class="hint-k">[ ]</span> to browse · <span class="hint-k">eye</span> hides answers · click a row to reveal</div>
-</header>
-
 <div class="nav-wrap" id="navWrap">
   <div class="nav-inner">
     <div class="search-box">
@@ -283,18 +273,17 @@ summary{cursor:pointer}
     </div>
     <div class="nav-pills" id="navLinks">
       <a href="#endocrine">Endocrine</a><a href="#parathyroid">Thyroid</a><a href="#adrenal">Adrenal</a><a href="#pituitary">Pituitary</a><a href="#men">MEN</a><a href="#heart-murmurs">Murmurs</a><a href="#jvp">JVP</a><a href="#drugs">Drugs</a><a href="#anemia">Anemia</a><a href="#translocations">Translocations</a><a href="#aiha">AIHA</a><a href="#anticoag">Anticoagulants</a><a href="#oxy-hb">O₂-Hb</a><a href="#surgical">Surgical</a><a href="#urine-casts">Casts</a><a href="#tubular">Tubular</a><a href="#diuretics">Diuretics</a><a href="#nerves">Nerves</a><a href="#cranial">Cranial</a><a href="#biostats">Biostats</a><a href="#forensic">Forensic</a><a href="#pediatrics">Pediatrics</a><a href="#tumor-markers">Tumor Markers</a><a href="#appendicitis">Appendicitis</a><a href="#antidotes">Antidotes</a><a href="#wounds">Wounds</a><a href="#git">GIT</a><a href="#resp">Respiratory</a><a href="#infectious">ID/Micro</a><a href="#obgyn">OB/GYN</a><a href="#immuno">Immunology</a><a href="#embryo">Embryology</a><a href="#psych">Psychiatry</a><a href="#msk">MSK</a><a href="#neuro">Neurology</a><a href="#biochem">Biochem</a><a href="#community">Community</a><a href="#cardio">Cardiology</a><a href="#acid-base">Acid-Base</a><a href="#shock">Shock</a>
-    </div>
-    <div class="nav-controls">
-      <button class="btn-icon" id="selfTestBtn" title="Self-test mode: hide answer columns">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
-      </button>
-      <button class="btn-icon" id="layoutToggle" title="Switch to desktop layout">
-        <svg class="ico-mobile" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="8" y="3" width="8" height="18" rx="1.5"/><path d="M11 18h2"/></svg>
-        <svg class="ico-alt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="4" width="18" height="13" rx="1"/><path d="M8 21h8M12 17v4"/></svg>
-      </button>
-    </div>
-  </div>
+    </div>  </div>
 </div>
+
+<header class="hero">
+  <div class="kicker">Medical Licensing · Quick Reference</div>
+  <h1>Magic Table</h1>
+  <p class="tagline">High-yield tables for rapid recall — endocrinology, cardiology, pharmacology, hematology, surgery, anatomy, forensics & beyond.</p>
+  <div class="rule"></div>
+  <div class="credits">Crafted by <b>Ahmad</b></div>
+  <div class="hint"><span class="hint-k">click a section</span> to open it · <span class="hint-k">/</span> to search · <span class="hint-k">[ ]</span> to browse · <span class="hint-k">eye</span> hides answers · click a row to reveal</div>
+</header>
 
 <div class="side-links" id="sideLinks">
   <div class="side-head">Contents</div>
@@ -1403,8 +1392,8 @@ summary{cursor:pointer}
 .home-grid-actions{display:flex;gap:.5rem}
 .home-mini-btn{font-family:var(--font-mono);font-size:.6rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--text-dim);background:var(--surface);border:1px solid var(--border-strong);border-radius:var(--radius);padding:.5rem .8rem;cursor:pointer;transition:all .18s}
 .home-mini-btn:hover{background:var(--c2);border-color:var(--ink);color:var(--ink)}
-.home-tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(236px,1fr));gap:.8rem}
-.home-tile{display:flex;flex-direction:column;gap:.4rem;padding:1.05rem 1.15rem;background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--tile-accent);border-radius:var(--radius);box-shadow:var(--shadow-1);text-decoration:none;color:var(--text);transition:all .18s;cursor:pointer}
+.home-tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(236px,1fr));gap:1.2rem}
+.home-tile{display:flex;flex-direction:column;gap:.4rem;padding:1.25rem 1.35rem;background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--tile-accent);border-radius:var(--radius);box-shadow:var(--shadow-1);text-decoration:none;color:var(--text);transition:all .18s;cursor:pointer}
 .home-tile:hover{border-color:var(--tile-accent);transform:translateY(-2px);box-shadow:var(--shadow-2)}
 .home-tile-num{font-family:var(--font-display);font-size:1rem;font-weight:var(--dw);color:var(--tile-accent);opacity:.8;line-height:1}
 .home-tile-title{font-size:.86rem;font-weight:650;line-height:1.4}
@@ -1424,17 +1413,6 @@ summary{cursor:pointer}
     set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
   };
 
-  /* ── layout (sidebar rail) ── */
-  const layoutBtn = $("#layoutToggle");
-  const setLayout = (mode) => {
-    root.dataset.layout = mode;
-    layoutBtn.classList.toggle("active", mode === "desktop");
-    layoutBtn.title = mode === "desktop" ? "Switch to mobile layout" : "Switch to desktop layout";
-    store.set("mt-layout", mode);
-  };
-  setLayout(store.get("mt-layout", "mobile") === "desktop" ? "desktop" : "mobile");
-  layoutBtn.addEventListener("click", () => setLayout(root.dataset.layout === "desktop" ? "mobile" : "desktop"));
-
   /* keep the tool rail parked under the house topbar: kit .nav height varies with
      theme chip width / wrapping, so measure it live and expose it as --chassis */
   const setChassis = () => {
@@ -1449,22 +1427,6 @@ summary{cursor:pointer}
   };
   if (document.readyState === "loading") addEventListener("DOMContentLoaded", initChassis);
   else initChassis();
-
-  /* ── self-test (answers hidden) ── */
-  const selfTestBtn = $("#selfTestBtn");
-  const setSelfTest = (on) => {
-    document.body.classList.toggle("self-test", on);
-    selfTestBtn.classList.toggle("active", on);
-    selfTestBtn.title = on ? "Self-test: answers hidden (click a row to reveal)" : "Self-test: all answers shown";
-    store.set("mt-self-test", on ? "on" : "off");
-  };
-  setSelfTest(store.get("mt-self-test", "on") !== "off");
-
-  selfTestBtn.addEventListener("click", () => {
-    const on = !document.body.classList.contains("self-test");
-    setSelfTest(on);
-    SV.toast(on ? "Self-test on — answers hidden" : "Self-test off — answers shown");
-  });
 
   /* ── collapsed-home system ── */
   const sections = $$(".section");
