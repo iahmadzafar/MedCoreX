@@ -68,6 +68,21 @@ Actions secrets (`CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`).
   incomplete. Run it locally before any commit that touches a page.
 - New page = copy the shell from site/about.html, then add page CSS/JS.
 
+## Systems templates (owner ruling, 29 Oct 2026)
+- The 10 MedCORE Systems files (`site/resources/medcore-systems-*.html`) are content-frozen
+  originals: exactly one `<style>` block + static body, no scripts. <body> never changes.
+- ANY restyle / theme / layout change goes through `python3 tools/systems-kit.py` — never
+  hand-edit their style blocks. The tool refuses body-touching ops and validates all 10
+  atomically (one fails → nothing writes).
+- Inventory: `inspect` · structure+pairs vs manifest: `check` (runs after every mutation) ·
+  palette: `theme show` / `theme set --accent=…` / `theme export|apply preset.json` ·
+  rules: `css get ".page"` / `css set ".page" margin "14mm auto"`. Revert style ops with git.
+- After any change: `check` must pass AND `node site/scriptproof.js` must stay green
+  before commit. Content edits (words/questions) go through CN notes, then
+  `check --update` re-baselines tools/systems-manifest.json in the same commit.
+- Known source defect: NRE Prep originals ship Obstetrics WITHOUT a <body> tag — repaired
+  here. Re-imports from the source folder need the same repair + manifest re-baseline.
+
 ## Change notes from the owner's assistant
 Notes arrive as:
   CN-### · <file>

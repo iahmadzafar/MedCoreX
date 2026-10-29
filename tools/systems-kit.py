@@ -229,13 +229,10 @@ def css_set(css, selector, prop, value):
     patched = 0
     for a, b in spans:
         rule = css[a:b]
-        if re.search(r"(?m)^\s*" + re.escape(prop) + r"\s*:", rule):
-            rule = re.sub(
-                r"(?m)^(\s*)" + re.escape(prop) + r"\s*:[^;]+;",
-                lambda m: f"{m.group(1)}{decl}",
-                rule,
-                count=1,
-            )
+        # token-exact, position-agnostic: works on single-line multi-decl rules too
+        pat = r"(?<![\w-])" + re.escape(prop) + r"(?![\w-])\s*:[^;]+;"
+        if re.search(pat, rule):
+            rule = re.sub(pat, decl, rule, count=1)
         else:
             # insert before final }
             idx = rule.rindex("}")
@@ -376,7 +373,7 @@ def cmd_check(args):
             print("  ✗ " + f)
         return 1
     print(f"systems-kit check: OK — {len(FILES)} files, body fingerprints + structure match manifest")
-    if args.update:
+    if getattr(args, "update", False):
         write_manifest([inventory(s) for s in FILES])
         print("  manifest re-baselined (--update)")
     return 0
@@ -420,14 +417,20 @@ def cmd_theme(args):
         return 0
 
     if args.action == "export":
+        dest = args.path or (args.pairs[0] if args.pairs else None)
+        if not dest:
+            raise KitError("theme export needs PATH")
         pal = palette_of(read("cardiology")["style"])
         doc = {"palette": pal, "fonts": fonts_link_of(read("cardiology")["head"])}
-        Path(args.path).write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-        print(f"preset exported → {args.path}")
+        Path(dest).write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+        print(f"preset exported → {dest}")
         return 0
 
     if args.action == "apply":
-        doc = json.loads(Path(args.path).read_text(encoding="utf-8"))
+        src = args.path or (args.pairs[0] if args.pairs else None)
+        if not src:
+            raise KitError("theme apply needs PATH")
+        doc = json.loads(Path(src).read_text(encoding="utf-8"))
         updates = doc.get("palette", {})
         unknown = [k for k in updates if k.lstrip('-') not in COLOR_TOKENS + FONT_TOKENS + GEOM_TOKENS]
         if unknown:
@@ -539,13 +542,21 @@ def build_parser():
 
 def main():
     ap = build_parser()
-    args = ap.parse_args()
+    args, unknown = ap.parse_known_args()
     try:
+        # accept `theme set --accent=#c0392b` as well as `theme set accent=#c0392b`
+        if unknown and getattr(args, "cmd", None) == "theme" and getattr(args, "action", None) == "set":
+            if not all("=" in u for u in unknown):
+                raise KitError(f"unrecognized arguments: {' '.join(unknown)}")
+            args.pairs = list(args.pairs or []) + unknown
+            unknown = []
+        if unknown:
+            raise KitError(f"unrecognized arguments: {' '.join(unknown)}")
         if args.cmd == "css" and args.action == "set" and (not args.prop or not args.value):
             raise KitError("css set needs: selector prop value")
         if args.cmd == "theme" and args.action == "set" and not args.pairs:
             raise KitError("theme set needs TOKEN=value pairs")
-        if args.cmd == "theme" and args.action in ("export", "apply") and not args.path:
+        if args.cmd == "theme" and args.action in ("export", "apply") and not (args.path or args.pairs):
             raise KitError(f"theme {args.action} needs PATH")
         rc = args.fn(args)
         sys.exit(rc or 0)
