@@ -1,4 +1,4 @@
-// Shared helpers for the MedLib X API (Cloudflare Pages Functions + D1).
+// Shared helpers for the MedCoreX API (Cloudflare Pages Functions + D1).
 // Adapted from the proven MedCORE Hub auth stack — binding renamed to medcore_db,
 // session cookie namespaced to medcore_session, username added to the model.
 
