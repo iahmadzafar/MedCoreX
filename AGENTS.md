@@ -4,6 +4,14 @@ Single source of truth: `/Users/ahmdzafr/Documents/MedCoreX` (repo → `github.c
 
 ## The sync contract (automatic — do not skip, do not need asking)
 
+> **AUTO-PUSH DISABLED — owner ruling, 30 Oct 2026.** The post-commit hook is renamed
+> `.git/hooks/post-commit.disabled`, so **commits now stay LOCAL** and nothing reaches GitHub
+> (and therefore Cloudflare Pages) until Ahmad physically runs `git push origin main`.
+> Reason: the MedCoreX rebuild work must never ride the push→Actions→deploy chain by accident.
+> To restore the old behaviour: rename the file back to `post-commit`. The steps below still
+> describe the chain for whenever it is re-enabled; until then, step 2 does NOT happen
+> automatically and manual push is THE sync, not a fallback.
+
 1. **Commit** your work with a real message.
 2. A **post-commit hook auto-pushes** `main` to GitHub on every commit — so step 1 *is* the sync.
 3. **GitHub Actions** (`/.github/workflows/deploy.yml`) deploys to Cloudflare Pages on every push.
