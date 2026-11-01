@@ -105,7 +105,7 @@ function esc(s){return String(s).replace(/[&<>"']/g,function(c){return{'&':'&amp
 let STARS=[]; try{STARS=JSON.parse(localStorage.getItem('mx-stars')||'[]')}catch(e){}
 const saveStars=()=>{try{localStorage.setItem('mx-stars',JSON.stringify(STARS))}catch(e){}};
 
-/* single-file shelves: the shelf IS the file — chip and card link straight to it,
+/* single-file categories: the category IS the file — chip and card link straight to it,
    no one-card portal in between */
 const DIRECT={};
 CATS.forEach(c=>{const its=Items.filter(it=>it.c===c);if(its.length===1)DIRECT[slug(c)]=href(its[0])});
@@ -159,7 +159,7 @@ CATS.forEach(c=>{
 /* router: menu → portal */
 function route(){
   let id=(location.hash||'').slice(1);
-  /* old single-file shelf link (#mocks-drills, #frameworks-interactive) → straight to the file */
+  /* old single-file category link (#mocks-drills, #frameworks-interactive) → straight to the file */
   if(DIRECT[id]){location.replace(DIRECT[id]);return;}
   const known=['portals',...CATS.filter(c=>!DIRECT[slug(c)]).map(slug)];
   if(known.indexOf(id)<0) id='portals';
