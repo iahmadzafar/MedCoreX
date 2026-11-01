@@ -101,7 +101,7 @@ document.addEventListener('click',e=>{
     const n=document.documentElement.dataset.theme==='dark'?'light':'dark';
     document.documentElement.dataset.theme=n;
     try{localStorage.setItem(MKEY,n)}catch(err){}
-    syncMode(); paint(); toast(n==='dark'?'Dark mode 🌙':'Light mode ☀️');
+    syncMode(); paint(); toast(n==='dark'?'Dark mode on':'Light mode on');
   }
 });
 let LOCK=null; try{LOCK=JSON.parse(localStorage.getItem('mx-lock')||'null')}catch(e){}

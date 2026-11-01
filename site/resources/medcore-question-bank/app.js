@@ -47,7 +47,7 @@ function showHome(){
   SV.countUp($('#stAnswered'),g+r);SV.countUp($('#stAcc'),g+r?Math.round(g/(g+r)*100):0,'%');SV.countUp($('#stBest'),P.best);SV.countUp($('#stTime'),Math.round(time/60));
   $('#subjGrid').innerHTML=SUBJECTS.map((s,i)=>{const t=tally(s,stOf(s.id));const done=t.g+t.r;
     return `<button class="card hov subj rv" data-go="${s.id}" style="--accent:var(--c${i%4+1})">
-      <div class="top"><span class="no">${String(i+1).padStart(2,'0')}</span><span class="emoji" aria-hidden="true">${s.emoji}</span></div>
+      <div class="top"><span class="no">${String(i+1).padStart(2,'0')}</span></div>
       <h3>${s.name}</h3>
       <div class="prog" aria-label="${done} of ${t.n} answered"><i class="g" style="width:${t.g/t.n*100}%"></i><i class="r" style="width:${t.r/t.n*100}%"></i></div>
       <div class="foot"><span>${done} / ${t.n} answered${done?` · ${Math.round(t.g/done*100)}%`:''}</span><span class="go">${done?'Resume':'Start'} →</span></div>
@@ -124,7 +124,7 @@ function lockIn(conf){
   st.conf=st.conf||{};
   st.conf[i]=conf;
   const ok=j===q.answer;
-  if(ok){streak++;if(streak>P.best)P.best=streak;const el=$(`#qcard [data-a="${j}"]`);if(el){const b=el.getBoundingClientRect();SV.burst(b.left+40,b.top+b.height/2)}if(streak%5===0)SV.toast(`🔥 ${streak} in a row!`)}
+  if(ok){streak++;if(streak>P.best)P.best=streak;const el=$(`#qcard [data-a="${j}"]`);if(el){const b=el.getBoundingClientRect();SV.burst(b.left+40,b.top+b.height/2)}if(streak%5===0)SV.toast(`${streak} in a row`)}
   else streak=0;
   if(!clock&&!P.noAuto)startClock();
   sel=null;
@@ -196,7 +196,7 @@ function jumpTo(i){
   $('#qcard').scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});
 }
 $('#reviewList').addEventListener('click',e=>{const c=e.target.closest('[data-q]');if(c)jumpTo(+c.dataset.q)});
-function renderScore(){const t=tally(S,st);$('#scOk').textContent='✓ '+t.g;$('#scBad').textContent='✗ '+t.r;$('#streak').textContent='🔥 '+streak}
+function renderScore(){const t=tally(S,st);$('#scOk').textContent='✓ '+t.g;$('#scBad').textContent='✗ '+t.r;$('#streak').textContent='Streak '+streak}
 
 /* ---------- search: in-subject stem + options ---------- */
 const qsearch=$('#qsearch'),searchCount=$('#searchCount');

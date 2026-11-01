@@ -31,7 +31,7 @@ There are **two** design systems, both owner-approved:
 --c4:         #9b7bff       violet accent
 --ok:         #2fbf71       correct / success
 --bad:        #f2385a       wrong / danger
---muted:      var(--ink)    secondary text (no gray — pure ink)
+--muted:      color-mix(ink 68%, transparent)   secondary text
 --line:       color-mix(ink 14%, transparent)   hairline dividers
 --radius:     18px          base corner radius
 --bw:         3px           base border width
@@ -41,7 +41,7 @@ There are **two** design systems, both owner-approved:
 --tilt:       -1deg         hover card rotation
 --ease:       cubic-bezier(.34,1.56,.64,1)     springy overshoot
 --pill:       min(var(--radius),999px)
---on-accent:  #0d0d0d (light) / #ffffff (dark) — text on accent fills
+--on-accent:  #0d0d0d in BOTH modes — text on accent fills (accents stay light; dark text stays readable)
 ```
 
 ### Fonts (from `studyverse.css` + `studyverse.js`)
@@ -92,7 +92,7 @@ Progress:      .prog, .bar
 Dialog:        dialog (max-width 980px, max-height 90vh)
 Reveal:        .rv (rise animation), staggered via --i
 Patterns:      html[data-pattern] → dots/grid/stripes/checks/waves/plain
-Dark mode:     html[data-theme=dark] — tokens flip; --on-accent → #ffffff
+Dark mode:     html[data-theme=dark] — tokens flip; --on-accent stays #0d0d0d (never white-on-pastel)
 ```
 
 ---
@@ -154,6 +154,13 @@ Icons:          .sfi-* (SVG icon classes), .navy (navy-colored variant)
 ---
 
 ## 4 · House Rules (design law)
+
+> **Scope.** House Rules do not set the look of pages that load the Studyverse
+> Kit (`site/assets/studyverse.css` + `studyverse.js`). Kit pages follow §2 of
+> this document: remixable display fonts, uppercase headings, hard offset
+> shadows and springy hovers are intended, not violations. Content rules still
+> apply everywhere: no emojis, no file counts/sizes in student-facing text,
+> `medcore.` progress keys, bottom breathing room.
 
 ### Type voice (§1.1)
 - Display: Bricolage Grotesque — 800 hero/h1, 700 sections, tracking −0.02em

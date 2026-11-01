@@ -132,7 +132,7 @@ function lockIn(conf){
   const i=st.cur,q=S.questions[i];if(st.ans[i]!==undefined||sel===null)return;
   const j=sel;st.ans[i]=j;st.conf=st.conf||{};st.conf[i]=conf;
   const ok=j===q.answer;
-  if(ok){streak++;if((P.best||0)<streak)P.best=streak;const el=$(`#qcard [data-a="${j}"]`);if(el&&SV.burst){const b=el.getBoundingClientRect();SV.burst(b.left+40,b.top+b.height/2)}if(streak%5===0&&SV.toast)SV.toast(`🔥 ${streak} in a row!`)}
+  if(ok){streak++;if((P.best||0)<streak)P.best=streak;const el=$(`#qcard [data-a="${j}"]`);if(el&&SV.burst){const b=el.getBoundingClientRect();SV.burst(b.left+40,b.top+b.height/2)}if(streak%5===0&&SV.toast)SV.toast(`${streak} in a row`)}
   else streak=0;
   if(!clock&&!P.noAuto)startClock();
   sel=null;save();renderQ();renderScore();renderRail();
@@ -173,7 +173,7 @@ $('#firstUnanswered').onclick=()=>{const i=S.questions.findIndex((q,i)=>st.ans[i
 $('#firstFlagged').onclick=()=>{if(!st.flags.length){if(SV.toast)SV.toast('No flagged questions yet');return}const next=st.flags.find(i=>i>st.cur);jumpTo(next!==undefined?next:st.flags.slice().sort((a,b)=>a-b)[0])};
 function jumpTo(i){if(!Number.isFinite(i))return;i=Math.max(0,Math.min(S.questions.length-1,i));st.cur=i;sel=null;save();renderQ();renderRail();$('#qcard').scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'})}
 $('#reviewList').addEventListener('click',e=>{const c=e.target.closest('[data-q]');if(c)jumpTo(+c.dataset.q)});
-function renderScore(){const t=tally(S,st);$('#scOk').textContent='✓ '+t.g;$('#scBad').textContent='✗ '+t.r;$('#streak').textContent='🔥 '+streak}
+function renderScore(){const t=tally(S,st);$('#scOk').textContent='✓ '+t.g;$('#scBad').textContent='✗ '+t.r;$('#streak').textContent='Streak '+streak}
 
 /* ---------- search ---------- */
 const qsearch=$('#qsearch'),searchCount=$('#searchCount');let hits=[],hi=-1;

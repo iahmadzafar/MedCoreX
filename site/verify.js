@@ -12,33 +12,34 @@ let failures = 0;
 const fail = (m) => { failures++; console.log('  ✗ ' + m); };
 const ok = (m) => console.log('  ✓ ' + m);
 
-console.log('\n[1] inline catalog in library.html + index.html');
-const extractItems = (html) => {
+console.log('\n[1] shared catalog in assets/catalog.js');
+const extractItems = (src) => {
   const items = [];
   const re = /\{t:"([^"]+)",d:"([^"]*)",c:"([^"]+)",f:"([^"]+)",k:([0-9.]+)\}/g;
   let m;
-  while((m=re.exec(html))){
+  while((m=re.exec(src))){
     items.push({t:m[1],d:m[2],c:m[3],f:m[4],k:parseFloat(m[5])});
   }
   return items;
 };
+const catJs = fs.readFileSync(path.join(SITE,'assets','catalog.js'),'utf8');
 const libHtml = fs.readFileSync(path.join(SITE,'library.html'),'utf8');
 const idxHtml = fs.readFileSync(path.join(SITE,'index.html'),'utf8');
-const libItems = extractItems(libHtml);
-const idxItems = extractItems(idxHtml);
-ok('library.html: ' + libItems.length + ' items parsed');
-ok('index.html: ' + idxItems.length + ' items parsed');
-if(libItems.length === idxItems.length) ok('index and library item counts match');
-else fail('index and library counts differ (' + idxItems.length + ' vs ' + libItems.length + ')');
-const libKeys = new Set(libItems.map(i=>i.f));
-const idxKeys = new Set(idxItems.map(i=>i.f));
-if(libItems.length===idxItems.length && [...libKeys].every(k=>idxKeys.has(k))) ok('index and library catalogs are identical');
-else fail('index and library catalogs differ');
+const libItems = extractItems(catJs);
+const idxItems = libItems;
+ok('assets/catalog.js: ' + libItems.length + ' items parsed');
+if(!libHtml.includes('/assets/catalog.js')) fail('library.html does not load assets/catalog.js');
+else ok('library.html loads assets/catalog.js');
+if(!idxHtml.includes('/assets/catalog.js')) fail('index.html does not load assets/catalog.js');
+else ok('index.html loads assets/catalog.js');
+if(!/const Items\s*=/.test(libHtml) && !/const Items\s*=/.test(idxHtml)) ok('no duplicated Items list left in either page');
+else fail('a page still declares its own const Items (must live only in assets/catalog.js)');
 
 const titles = libItems.map(i=>i.t);
 const dups = titles.filter((t,i)=>titles.indexOf(t)!==i);
 if(dups.length===0) ok('no duplicate titles');
 else fail('duplicate titles: ' + [...new Set(dups)].join(', '));
+const libKeys = new Set(libItems.map(i=>i.f));
 
 console.log('\n[2] hub-data/catalog.json sync');
 const catPath = fs.existsSync(path.join(SITE,'hub-data','catalog.json'))
@@ -80,10 +81,12 @@ if(/const DIRECT\s*=/.test(libHtml)) ok('DIRECT map present for single-file shel
 else fail('DIRECT map missing');
 if(/location\.replace\(DIRECT\[id\]\)/.test(libHtml)) ok('old hashes redirect via location.replace');
 else fail('hash redirect missing');
-if(libHtml.includes('role="group"')) ok('catbar role=group (allows link chips)');
-else fail('catbar role should be group');
-if(/catbar\.querySelectorAll\('button\.chip'\)/.test(libHtml)) ok('chip click handler scoped to button.chip');
-else fail('chip handler not scoped');
+if(!/class="catbar"/.test(libHtml) && !/catbar/.test(libHtml)) ok('catbar retired (direct links + picker router)');
+else fail('catbar present but unchecked — restore its checks');
+if(/closest\('\[data-cat\]'\)/.test(libHtml)) ok('picker router via data-cat');
+else fail('picker router missing');
+if(/button class="chip saved"/.test(libHtml)) ok('saved filter chip is a real button');
+else fail('saved filter chip missing');
 
 console.log('\n[5] design-kit constraints');
 if(/Never print file sizes with file names/.test(fs.readFileSync(path.join(ROOT,'AGENTS.md'),'utf8'))) ok('file-size rule present in AGENTS.md');

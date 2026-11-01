@@ -32,7 +32,7 @@ doc = {
         "fonts_url": grab(r"@import url\('([^']+)'\)", kit_css),
         "components": sorted(set(re.findall(r"^\.([a-z0-9-]+)", kit_css, re.M))),
         "patterns": ["dots", "grid", "stripes", "checks", "waves", "plain"],
-        "dark_mode_token": "--on-accent flips to #ffffff",
+        "dark_mode_token": "--on-accent stays #0d0d0d (dark text on accent fills, both modes)",
     },
     "engine": {
         "schemes": ["Triadic", "Complementary", "Split", "Analogous", "Tetradic", "Candy"],

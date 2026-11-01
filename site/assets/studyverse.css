@@ -13,7 +13,7 @@
 
 /* accent-fill text token — black in light, white in dark (plan ground rule) */
 :root{--on-accent:#0d0d0d}
-html[data-theme=dark]{--on-accent:#ffffff}
+html[data-theme=dark]{--on-accent:#0d0d0d}
 
 /* ═══ Studyverse design system — ported to MedCoreX ═══ */
 :root{
@@ -69,6 +69,7 @@ h3{font-size:1.25rem}
 .btn:active{transform:translate(3px,3px);box-shadow:0 0 0 var(--ink)}
 .btn.alt{background:var(--c3)}
 .btn.ghost{background:var(--surface)}
+.btn.sm{padding:.45em .9em;font-size:.8rem;box-shadow:3px 3px 0 var(--ink)}
 .chip{display:inline-block;cursor:pointer;border:2px solid var(--ink);border-radius:999px;background:var(--surface);padding:.35em .9em;font-weight:700;font-size:.85rem;transition:transform .2s var(--ease),background .3s;font-family:var(--font-display);text-transform:uppercase;letter-spacing:.04em}
 .chip:hover{transform:translateY(-2px) rotate(-2deg)}
 .chip[aria-pressed=true]{background:var(--c2);box-shadow:3px 3px 0 var(--ink)}
@@ -149,7 +150,7 @@ body.nav-off .nav-show{display:inline-flex}
 .section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin:34px 0 22px}
 .section-head p{max-width:46ch}
 
-.foot{border-top:var(--bw) solid var(--ink);background:var(--surface);transition:background .8s;margin-top:56px}
+footer.foot{border-top:var(--bw) solid var(--ink);background:var(--surface);transition:background .8s;margin-top:56px}
 .foot-in{display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap;padding:26px 0 48px}
 .foot-tag{color:var(--muted);font-size:.95rem;margin-top:8px;max-width:420px}
 .foot-links{display:flex;gap:14px;flex-wrap:wrap;margin-left:auto;font-weight:700;font-size:.9rem}
@@ -190,6 +191,15 @@ body.nav-off .nav-show{display:inline-flex}
 
 
 
+/* ═══ Text on accent fills ═══
+   Accents stay light in BOTH modes, so text sitting on them is always dark.
+   Light mode: no visible change. Dark mode: no more white-on-pastel.
+   Page CSS rule: any background:var(--c1..c4 | --accent | --ok | --bad)
+   that has no color of its own must add color:var(--on-accent). */
+.btn,.tag,.chip[aria-pressed=true],.icon-btn,.logo-mark,.sticker,
+.opt .let,.opt.sel,.navmenu a:hover{color:var(--on-accent)}
+.btn.ghost,.tag[style*="--accent:var(--surface)"]{color:var(--ink)}
+::selection{color:var(--on-accent)}
 @media (max-width:900px){
   .hero{grid-template-columns:minmax(0,1fr)}.hero-art{height:230px}
   .links{order:3;width:100%}

@@ -43,7 +43,6 @@
       "engine",
       "eyebrow",
       "field",
-      "foot",
       "foot-in",
       "foot-legal",
       "foot-links",
@@ -89,7 +88,7 @@
       "waves",
       "plain"
     ],
-    "dark_mode_token": "--on-accent flips to #ffffff"
+    "dark_mode_token": "--on-accent stays #0d0d0d (dark text on accent fills, both modes)"
   },
   "engine": {
     "schemes": [

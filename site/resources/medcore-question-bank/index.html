@@ -13,11 +13,13 @@
 
 <header class="nav">
   <div class="wrap">
-    <a class="logo" href="#/"><span class="logo-mark">◆</span>MedCORE</a>
+    <a class="logo" href="/"><span class="logo-mark"><svg viewBox="0 0 24 24" style="width:1.15em;height:1.15em" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M12 4.2v16.3"/><path d="M12 5.6c-3 0-3 2.3 0 2.3s3 2.3 0 2.3-3 2.3 0 2.3 3 2.3 0 2.3"/><circle cx="12" cy="3.3" r="1.35" fill="currentColor" stroke="none"/></svg></span>MedCoreX</a>
     <nav class="links" aria-label="Main">
-      <a href="#/" id="navHome">Subjects</a>
+      <a href="/">Home</a>
+      <a href="/library">Library</a>
+      <a href="#/" id="navHome">Question Bank</a>
       <a href="#/" id="navPractice" hidden>Practice</a>
-      <a href="https://medcorex.pages.dev/library">Library</a>
+      <a href="/stats">Stats</a> <a href="/login" id="navAuth">Sign in</a>
     </nav>
     <div class="engine" data-sv-engine title="Current theme"></div>
   </div>
@@ -32,7 +34,7 @@
         <p class="eyebrow">◆ MedCORE · Practice mode</p>
         <h1 class="mega"><span>MedCORE</span> <span class="w2">Question</span> <span class="w3">Bank.</span></h1>
         <p class="lede">Instant right or wrong with the <span class="hl">full seven-layer breakdown</span>: concept, discriminator, trap, rule, and why every other option dies. Choose a subject to start.</p>
-        <div class="row"><button class="btn" data-scroll="subjects">Choose a subject ↓</button><button class="btn ghost" data-open-keys>⌨ Shortcuts</button></div>
+        <div class="row"><button class="btn" data-scroll="subjects">Choose a subject ↓</button><button class="btn ghost" data-open-keys>Shortcuts</button></div>
       </div>
       <div class="hero-art rv" aria-hidden="true">
         <div class="sticker">PRACTICE<br>✦ MODE ✦</div>
@@ -65,7 +67,7 @@
       <div class="timer"><span id="clock">00:00:00</span><button class="icon-btn" id="clockBtn" aria-label="Start timer">▶</button></div>
       <span class="sep"></span>
       <div class="score" aria-live="polite"><b class="g" id="scOk">✓ 0</b><b class="r" id="scBad">✗ 0</b></div>
-      <span class="streak" id="streak" title="Current streak">🔥 0</span>
+      <span class="streak" id="streak" title="Current streak">Streak 0</span>
       <button class="chip" id="restartBtn" style="margin-left:auto">↺ Restart</button>
     </div>
 
@@ -127,7 +129,7 @@
 
 <!-- shortcuts -->
 <dialog id="keysDlg" aria-labelledby="keysTitle">
-  <div class="dhead"><h3 id="keysTitle">⌨ All shortcuts</h3><button class="icon-btn" data-close aria-label="Close">✕</button></div>
+  <div class="dhead"><h3 id="keysTitle">All shortcuts</h3><button class="icon-btn" data-close aria-label="Close">✕</button></div>
   <div class="dbody keys">
     <div>Next or skip <kbd>Space</kbd></div>
     <div>Pick option <span><kbd>1</kbd>–<kbd>5</kbd> or <kbd>A</kbd>–<kbd>E</kbd></span></div>

@@ -65,6 +65,12 @@ Actions secrets (`CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`).
 - NEVER paste theme styles, the theme engine, toast, confetti or count-up into a page.
   Link /assets/studyverse.* and call window.SV.
 - Page CSS uses kit tokens only (no hex colours) so dark mode works everywhere.
+- Kit pages: text on any accent fill (`--c1..c4`, `--accent`, `--ok`, `--bad`)
+  uses `color:var(--on-accent)` when the rule has no colour of its own.
+  `--on-accent` is #0d0d0d in BOTH modes — never white-on-pastel.
+- The library resource list lives only in `site/assets/catalog.js`. Never
+  copy it into a page (index.html and library.html both load it).
+- The kit's footer rule is `footer.foot`. Use `.foot` freely inside cards.
 - Saved-progress names start with "medcore." (e.g. medcore.qb, medcore.book).
   Theme prefs stay mx-lock / mx-mode.
 - Test-only, never deployed or linked: verify.js, prooflocal.js, domproof.js,

@@ -1,5 +1,16 @@
 # MedCoreX — House Rules
 
+> **Scope.** These House Rules do not set the look of pages that load the
+> Studyverse Kit (`site/assets/studyverse.css` + `studyverse.js`). Those pages
+> follow DESIGN-CHOICES.md §2: remixable display fonts, uppercase headings,
+> hard offset shadows and springy hovers are intended, not violations.
+>
+> These rules DO still apply to kit pages:
+> - No emojis. Icons are inline SVG; plain glyphs (✓ ✗ ⚑ ★ ◆ → ↗) are fine.
+> - No file counts or sizes in anything a student reads.
+> - Saved progress keys start with `medcore.`
+> - Bottom breathing room on every page.
+
 > The polish language of the house. Nothing in any file moves until you've read this and corrected it.
 > Where a rule disagrees with something already built, the rule wins once you've approved it.
 

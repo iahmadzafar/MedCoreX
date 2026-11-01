@@ -91,7 +91,7 @@ export async function onRequestPost({ request, env }) {
   return json({ ok: true, user: { id, email, username } }, 200, { 'Set-Cookie': setSessionCookie(token), ...cors() });
 }
 
-// GET /api/register is invalid — point to the front desk.
+// GET /api/register is invalid — point to the sign-up page.
 export async function onRequestGet({ request, env }) {
   const u = await getUser(request, env);
   if (u) return json({ ok: true, user: u }, 200, cors());
