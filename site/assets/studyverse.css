@@ -225,6 +225,8 @@ footer.foot{border-top:var(--bw) solid var(--ink);background:var(--surface);tran
    480 not 430 — the iPhone Pro Max is 440pt wide and missed the old cap. */
 /* ═══ Burger panel (phones ≤900px; the kit injects the button) ═══ */
 @media (max-width:900px){
+  .burger{display:grid}
+  .burger[aria-expanded=true]{color:var(--on-accent)}
   .nav .links{position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:4px;
     margin:0;padding:10px 14px 14px;background:var(--surface);border-bottom:var(--bw) solid var(--ink);
     box-shadow:0 14px 34px -18px rgba(23,17,10,.45);display:none;z-index:60;
