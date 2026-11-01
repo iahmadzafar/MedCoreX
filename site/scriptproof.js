@@ -73,6 +73,22 @@ for (const f of htmlFiles) {
 }
 ok(htmlFiles.length + ' HTML files · ' + htmlBlocks + ' inline script blocks parse');
 
+/* ═══ [1b] HTML shell integrity ═══
+   A file that lost its shell (a whole-file rewrite that kept only a DATA line,
+   say) has zero <script> blocks to parse, so [1] passes it as "nothing to do" —
+   it shipped broken once. Assert the shell itself exists: doctype, head, close. */
+let shellOk = 0;
+for (const f of htmlFiles) {
+  const src = fs.readFileSync(f, 'utf8');
+  const problems = [];
+  if (!src.trimStart().toLowerCase().startsWith('<!doctype')) problems.push('no <!doctype html> first');
+  if (!/<\/head>/i.test(src)) problems.push('no </head>');
+  if (!/<\/html>\s*$/i.test(src)) problems.push('does not end with </html>');
+  if (problems.length) fail(rel(f) + '\n     HTML shell lost: ' + problems.join('; '));
+  else shellOk++;
+}
+ok(htmlFiles.length + ' HTML files carry doctype + </head> + </html>');
+
 /* ═══ [2] every standalone .js in the repo ═══ */
 const jsFiles = walk(ROOT).filter(f => /\.m?js$/i.test(f));
 let jsOk = 0;
