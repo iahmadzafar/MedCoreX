@@ -129,7 +129,7 @@
       <div class="card"><h3>Readiness</h3><div class="readiness"><span class="rbig" id="rScore">—</span><div><div class="rband" id="rBand">—</div><div class="rnote" id="rNote"></div></div></div></div>
       <div class="card"><h3>Focus list</h3><div id="focusBox"></div></div>
       <div class="card"><h3>Around the hub</h3><div class="chips" id="hubBox"></div></div>
-      <div class="card acctcard"><h3>Your seat</h3><div id="acctBox"></div></div>
+      <div class="card acctcard"><h3>Your account</h3><div id="acctBox"></div></div>
     </div>
   </div>
 </main>
@@ -137,12 +137,12 @@
 <footer class="foot"><div class="wrap foot-in">
   <div>
     <div class="logo" style="font-size:1.2rem"><span class="logo-mark" style="width:30px;height:30px;font-size:.8rem"><svg viewBox="0 0 24 24" style="width:1.15em;height:1.15em" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M12 4.2v16.3"/><path d="M12 5.6c-3 0-3 2.3 0 2.3s3 2.3 0 2.3-3 2.3 0 2.3 3 2.3 0 2.3"/><circle cx="12" cy="3.3" r="1.35" fill="currentColor" stroke="none"/></svg></span>MedCoreX</div>
-    <p class="foot-tag">A private study library — curated with discipline, and kept current and exact.</p>
+    <p class="foot-tag">A genuinely great study resource — curated with discipline, and kept current and exact.</p>
   </div>
   <nav class="foot-links" aria-label="Footer">
     <a href="/">Home</a><a href="/about">About</a><a href="/faq">FAQ</a> <a href="/login" id="footAuth">Sign in</a> </nav>
   <div class="foot-legal">
-    <span>© 2026 MedCoreX. All rights reserved. · Files are licensed for the account holder's personal use.</span>
+    <span>© 2026 MedCoreX. All rights reserved. · Developed by AHMDZAFR</span>
     <span>🎒 read · learn · repeat</span>
   </div>
 </div></footer>
@@ -236,7 +236,7 @@
     document.getElementById('hubBox').innerHTML=hubChips().map(function(c){return '<span class="chipx">'+esc(c)+'</span>';}).join('');
     var box=document.getElementById('acctBox'),row=document.getElementById('acctRow');
     if(acct&&acct.email){
-      box.innerHTML='<p style="font-weight:700">Signed in as <b>'+esc(acct.email)+'</b>.</p><p class="muted" style="font-size:.9rem;margin-top:6px">Progress syncs to your seat across devices.</p><a class="btn alt sm" href="/account">Your seat</a>';
+      box.innerHTML='<p style="font-weight:700">Signed in as <b>'+esc(acct.email)+'</b>.</p><p class="muted" style="font-size:.9rem;margin-top:6px">Progress syncs to your account across devices.</p><a class="btn alt sm" href="/account">Your account</a>';
       row.innerHTML='<span class="chipx">● Signed in · progress syncs to your account</span>';
     }else{
       box.innerHTML='<p style="font-weight:700">Local to this browser.</p><p class="muted" style="font-size:.9rem;margin-top:6px">Sign in and your numbers follow you across devices.</p><a class="btn sm" href="/login?next=/stats">Sign in</a>';

@@ -131,7 +131,7 @@ input.field{width:100%}
       <div>
         <p class="eyebrow">◆ MedCoreX · Librarian</p>
         <h1>Keyhole</h1>
-        <p class="sub">The ledger of accounts. Who sits at the desk, when they last came, and the quiet actions of the librarian.</p>
+        <p class="sub">The ledger of accounts. Who signed in, when they last came, and the quiet actions of the librarian.</p>
       </div>
     </div>
     <div class="card" id="enter">
@@ -145,7 +145,7 @@ input.field{width:100%}
       <h2>The ledger</h2>
       <div class="kcount" id="count"></div>
       <div class="ktable"><table id="t">
-        <thead><tr><th>Name</th><th>Seat · Email</th><th>Since</th><th>Presence</th><th>Actions</th></tr></thead>
+        <thead><tr><th>Name</th><th>Account · Email</th><th>Since</th><th>Presence</th><th>Actions</th></tr></thead>
         <tbody></tbody>
       </table></div>
       <div class="msg" id="m1"></div>
@@ -202,7 +202,7 @@ async function render(){
       +'</span></td>';
     tb.appendChild(tr);
   });
-  document.getElementById('count').textContent = (j.users||[]).length + ' name'+((j.users||[]).length===1?'':'s')+' at the desk';
+  document.getElementById('count').textContent = (j.users||[]).length + ' account'+((j.users||[]).length===1?'':'s');
 }
 
 function unlockUI(msg){
@@ -235,10 +235,10 @@ document.getElementById('ledger').addEventListener('click', async function(e){
     } else show(m1, r.error||'Could not reset.', 'err');
   }
   if(a==='remove'){
-    if(!confirm('Cancel \"'+u+'\"\\u2019s seat entirely? Account and sessions gone — not recoverable.')) return;
-    if(!confirm('Truly? The name \"'+u+'\" leaves the desk for good.')) return;
+    if(!confirm('Cancel \"'+u+'\"\\u2019s account entirely? Account and sessions gone — not recoverable.')) return;
+    if(!confirm('Truly? The account \"'+u+'\" is removed for good.')) return;
     var r2 = await api('/api/keyhole/remove',{method:'POST',body:JSON.stringify({username:u})});
-    if(r2.ok){ show(m1, u+' removed from the desk.','ok'); render(); }
+    if(r2.ok){ show(m1, u+' account removed.','ok'); render(); }
     else show(m1, r2.error||'Could not remove.', 'err');
   }
 });

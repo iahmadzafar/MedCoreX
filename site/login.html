@@ -5,7 +5,7 @@
 <meta name="color-scheme" content="light dark">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sign in — MedCoreX</title>
-<meta name="description" content="Sign in to MedCoreX — your seat at the private study library.">
+<meta name="description" content="Sign in to MedCoreX — your account at the private study library.">
 <meta name="robots" content="noindex, nofollow">
 <link rel="stylesheet" href="/assets/studyverse.css">
 <style>
@@ -128,9 +128,9 @@ input.field{width:100%}
 <main class="wrap">
   <div class="authcol">
     <div class="card">
-      <p class="eyebrow">◆ MedCoreX · Library desk</p>
+      <p class="eyebrow">◆ MedCoreX · Sign in</p>
       <h1>Sign in</h1>
-      <p class="sub">Your seat at the shelf.</p>
+      <p class="sub">Your account at MedCoreX.</p>
       <div id="err" role="alert"></div>
       <a class="btn alt" href="/api/google/start" style="width:100%;justify-content:center">▶ Continue with Google</a>
       <div class="gsep">or with email</div>
@@ -139,7 +139,7 @@ input.field{width:100%}
         <div><label for="password">Password</label><input class="field" id="password" name="password" type="password" autocomplete="current-password" required></div>
         <button class="btn" id="go" type="submit">Sign in</button>
       </form>
-      <p class="swapline">New to the shelf? <a href="/signup">Create an account</a></p>
+      <p class="swapline">New to MedCoreX? <a href="/signup">Create an account</a></p>
       <p class="backline"><a href="/">← Back to the front</a></p>
     </div>
   </div>
@@ -148,12 +148,12 @@ input.field{width:100%}
 <footer class="foot"><div class="wrap foot-in">
   <div>
     <div class="logo" style="font-size:1.2rem"><span class="logo-mark" style="width:30px;height:30px;font-size:.8rem"><svg viewBox="0 0 24 24" style="width:1.15em;height:1.15em" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M12 4.2v16.3"/><path d="M12 5.6c-3 0-3 2.3 0 2.3s3 2.3 0 2.3-3 2.3 0 2.3 3 2.3 0 2.3"/><circle cx="12" cy="3.3" r="1.35" fill="currentColor" stroke="none"/></svg></span>MedCoreX</div>
-    <p class="foot-tag">A private study library — curated with discipline, and kept current and exact.</p>
+    <p class="foot-tag">A genuinely great study resource — curated with discipline, and kept current and exact.</p>
   </div>
   <nav class="foot-links" aria-label="Footer">
     <a href="/">Home</a><a href="/about">About</a><a href="/faq">FAQ</a> <a href="/login" id="footAuth">Sign in</a> </nav>
   <div class="foot-legal">
-    <span>© 2026 MedCoreX. All rights reserved. · Files are licensed for the account holder's personal use.</span>
+    <span>© 2026 MedCoreX. All rights reserved. · Developed by AHMDZAFR</span>
     <span>🎒 read · learn · repeat</span>
   </div>
 </div></footer>
@@ -188,7 +188,7 @@ input.field{width:100%}
         if(o.s===200&&o.j.ok){ location.href=dest(); }
         else{ err.textContent=(o.j&&o.j.error)||'Could not sign in.';err.classList.add('on');go.disabled=false;go.textContent='Sign in'; }
       })
-      .catch(function(){ err.textContent='The desk didn\u2019t answer. Try again.';err.classList.add('on');go.disabled=false;go.textContent='Sign in'; });
+      .catch(function(){ err.textContent='The server didn\u2019t answer. Try again.';err.classList.add('on');go.disabled=false;go.textContent='Sign in'; });
   });
 
   /* Google sign-in failure reasons (callback redirects here with ?e=) */

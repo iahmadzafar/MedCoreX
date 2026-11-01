@@ -5,7 +5,7 @@
 <meta name="color-scheme" content="light dark">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Create account — MedCoreX</title>
-<meta name="description" content="Create your MedCoreX account — one minute, your seat at the shelf.">
+<meta name="description" content="Create your MedCoreX account — one minute.">
 <meta name="robots" content="index, follow">
 <link rel="stylesheet" href="/assets/studyverse.css">
 <style>
@@ -128,7 +128,7 @@ input.field{width:100%}
 <main class="wrap">
   <div class="authcol">
     <div class="card" id="card">
-      <p class="eyebrow">◆ MedCoreX · Front desk</p>
+      <p class="eyebrow">◆ MedCoreX · Create account</p>
       <h1>Create account</h1>
       <p class="sub">One minute. Your username is assigned the moment the account is made — you can change it later.</p>
       <div id="form-wrap">
@@ -140,13 +140,13 @@ input.field{width:100%}
           <div><label for="password">Password</label><input class="field" id="password" name="password" type="password" autocomplete="new-password" required><p class="hint">Six characters or more. Longer is stronger.</p></div>
           <button class="btn" id="go" type="submit">Create account</button>
         </form>
-        <p class="swapline">Already seated? <a href="/login">Sign in</a></p>
+        <p class="swapline">Already have an account? <a href="/login">Sign in</a></p>
         <p class="backline"><a href="/">← Back to the front</a></p>
       </div>
       <div class="done" id="done">
-        <p class="big">The desk has a name for you.</p>
+        <p class="big">Your account is ready.</p>
         <div class="uname" id="uname">—</div>
-        <p>That username is yours, kept at the desk with your email. Change it any time from your account page if another name feels truer.</p>
+        <p>That username is saved with your email. Change it any time from your account page if another name feels truer.</p>
         <button class="btn" id="enter" type="button" style="margin-top:14px">Enter the library</button>
       </div>
     </div>
@@ -156,12 +156,12 @@ input.field{width:100%}
 <footer class="foot"><div class="wrap foot-in">
   <div>
     <div class="logo" style="font-size:1.2rem"><span class="logo-mark" style="width:30px;height:30px;font-size:.8rem"><svg viewBox="0 0 24 24" style="width:1.15em;height:1.15em" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M12 4.2v16.3"/><path d="M12 5.6c-3 0-3 2.3 0 2.3s3 2.3 0 2.3-3 2.3 0 2.3 3 2.3 0 2.3"/><circle cx="12" cy="3.3" r="1.35" fill="currentColor" stroke="none"/></svg></span>MedCoreX</div>
-    <p class="foot-tag">A private study library — curated with discipline, and kept current and exact.</p>
+    <p class="foot-tag">A genuinely great study resource — curated with discipline, and kept current and exact.</p>
   </div>
   <nav class="foot-links" aria-label="Footer">
     <a href="/">Home</a><a href="/about">About</a><a href="/faq">FAQ</a> <a href="/login" id="footAuth">Sign in</a> </nav>
   <div class="foot-legal">
-    <span>© 2026 MedCoreX. All rights reserved. · Files are licensed for the account holder's personal use.</span>
+    <span>© 2026 MedCoreX. All rights reserved. · Developed by AHMDZAFR</span>
     <span>🎒 read · learn · repeat</span>
   </div>
 </div></footer>
@@ -191,7 +191,7 @@ input.field{width:100%}
           err.textContent=(o.j&&o.j.error)||'Could not create the account.';err.classList.add('on');go.disabled=false;go.textContent='Create account';
         }
       })
-      .catch(function(){ err.textContent='The front desk didn\u2019t answer. Try again.';err.classList.add('on');go.disabled=false;go.textContent='Create account'; });
+      .catch(function(){ err.textContent='The server didn\u2019t answer. Try again.';err.classList.add('on');go.disabled=false;go.textContent='Create account'; });
   });
   document.getElementById('enter').addEventListener('click',function(){
     location.href='/library';

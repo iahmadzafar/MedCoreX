@@ -73,8 +73,8 @@ a.chip,a.card{text-decoration:none;color:inherit}
   <!-- portal picker -->
   <section class="portal" id="portals">
     <div class="section-head rv">
-      <div><p class="eyebrow">The hub</p><h2>Pick a shelf</h2></div>
-      <p class="muted">Every shelf opens as its own portal with its files inside — a shelf holding a single file opens it straight away, no portal in between. Or use the menu up top.</p>
+      <div><p class="eyebrow">The hub</p><h2>Pick a category</h2></div>
+      <p class="muted">Every category opens as its own portal with its files inside — a category holding a single file opens it straight away, no portal in between. Or use the menu up top.</p>
     </div>
     <div class="picker" id="picker"></div>
   </section>
@@ -85,12 +85,12 @@ a.chip,a.card{text-decoration:none;color:inherit}
 <footer class="foot"><div class="wrap foot-in">
   <div>
     <div class="logo" style="font-size:1.2rem"><span class="logo-mark" style="width:30px;height:30px;font-size:.8rem"><svg viewBox="0 0 24 24" style="width:1.15em;height:1.15em" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M12 4.2v16.3"/><path d="M12 5.6c-3 0-3 2.3 0 2.3s3 2.3 0 2.3-3 2.3 0 2.3 3 2.3 0 2.3"/><circle cx="12" cy="3.3" r="1.35" fill="currentColor" stroke="none"/></svg></span>MedCoreX</div>
-    <p class="foot-tag">A private study library — curated with discipline, and kept current and exact.</p>
+    <p class="foot-tag">A genuinely great study resource — curated with discipline, and kept current and exact.</p>
   </div>
   <nav class="foot-links" aria-label="Footer">
     <a href="/">Home</a><a href="/about">About</a><a href="/faq">FAQ</a> <a href="/login" id="footAuth">Sign in</a> </nav>
   <div class="foot-legal">
-    <span>© 2026 MedCoreX. All rights reserved. · Files are licensed for the account holder's personal use.</span>
+    <span>© 2026 MedCoreX. All rights reserved. · Developed by AHMDZAFR</span>
     <span>🎒 read · learn · repeat</span>
   </div>
 </div></footer>
@@ -177,7 +177,7 @@ CATS.forEach(c=>{
   s.className='portal';s.id=slug(c);
   const items=Items.filter(it=>it.c===c);
   s.innerHTML='<div class="section-head rv"><div><p class="eyebrow">Portal · '+esc(EMOJI[c])+' '+esc(c)+'</p><h2>'+esc(c)+'</h2></div>'+
-    '<p class="muted">'+esc(BLURB[c])+'</p><a class="chip" href="#portals">← All shelves</a></div>'+
+    '<p class="muted">'+esc(BLURB[c])+'</p><a class="chip" href="#portals">← All categories</a></div>'+
     '<div class="toolbar rv"><input class="field search" type="search" placeholder="Search this portal…" aria-label="Search files">'+
     '<button class="chip saved" aria-pressed="false">★ Saved only</button></div>'+
     '<div class="lib-grid"></div>';

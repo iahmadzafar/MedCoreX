@@ -95,5 +95,5 @@ export async function onRequestPost({ request, env }) {
 export async function onRequestGet({ request, env }) {
   const u = await getUser(request, env);
   if (u) return json({ ok: true, user: u }, 200, cors());
-  return bad('Create an account from the front desk (POST /api/register).', 405);
+  return bad('Create an account from the sign-up page (POST /api/register).', 405);
 }

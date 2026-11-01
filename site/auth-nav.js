@@ -1,9 +1,9 @@
 /* ============================================================
-   MedCoreX · auth-nav — who is at the desk
+   MedCoreX · auth-nav — the signed-in menu
    Loaded by every shell + stats. Swaps the nav "Sign in"
    anchor (#navAuth) for the member chip (hover / tap menu:
-   Stats · Your seat · Sign out) and the footer anchor
-   (#footAuth) for "Your seat" — only when /api/me says a
+   Progress · Account · Sign out) and the footer anchor
+   (#footAuth) for "Account" — only when /api/me says a
    session exists. Self-styled; the kit owns nothing here.
    ============================================================ */
 (function () {
@@ -47,8 +47,8 @@
         '<span class="navme-dot"></span><b>' + esc(user.username || 'member') + '</b><i>&#9662;</i></button>' +
         '<div class="navme-menu" role="menu">' +
         '<span class="meta">Signed in</span>' +
-        '<a href="/stats" role="menuitem">Stats &amp; progress</a>' +
-        '<a href="/account" role="menuitem">Your seat — name &amp; password</a>' +
+        '<a href="/stats" role="menuitem">Progress</a>' +
+        '<a href="/account" role="menuitem">Account</a>' +
         '<a href="/library" role="menuitem">Library</a>' +
         '<button class="out" type="button" role="menuitem">Sign out</button>' +
         '</div>';
@@ -64,7 +64,7 @@
       });
     }
     var foot = document.getElementById('footAuth');
-    if (foot) { foot.textContent = 'Your seat'; foot.setAttribute('href', '/account'); }
+    if (foot) { foot.textContent = 'Account'; foot.setAttribute('href', '/account'); }
   }
 
   function go() {

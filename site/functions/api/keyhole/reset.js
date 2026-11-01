@@ -18,9 +18,9 @@ export async function onRequestPost({ request, env }) {
   try { body = await request.json(); } catch { return bad('invalid JSON'); }
 
   const username = (body.username || '').trim().toLowerCase();
-  if (!username) return bad('Whose name at the desk?');
+  if (!username) return bad('Which account?');
   const u = await env.medcore_db.prepare('SELECT id FROM users WHERE username=?').bind(username).first();
-  if (!u) return bad('No such name at the desk.', 404);
+  if (!u) return bad('No such account.', 404);
 
   let password = (body.password || '').trim();
   if (password && password.length < 6) return bad('Password must be at least 6 characters.');

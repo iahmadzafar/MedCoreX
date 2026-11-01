@@ -73,5 +73,5 @@ export async function onRequestPost({ request, env }) {
 export async function onRequestGet({ request, env }) {
   const u = await getUser(request, env);
   if (u) return json({ ok: true, user: u }, 200, cors());
-  return bad('Sign in from the library desk (POST /api/login).', 405);
+  return bad('Sign in from the sign-in page (POST /api/login).', 405);
 }
