@@ -87,9 +87,21 @@ h3{font-size:1.25rem}
 .nav .logo{grid-column:1;grid-row:1;justify-self:start}
 .nav .links{grid-column:2;grid-row:1;justify-self:center;margin-left:0;justify-content:center}
 .nav .engine{grid-column:3;grid-row:1;justify-self:end}
-/* pages that carry a burger keep the old flex flow untouched */
-.nav .wrap:has(> .burger){display:flex;flex-wrap:wrap}
-.nav .wrap:has(> .burger) .links{margin-left:auto}
+/* pages that carry a burger switch to flex flow — MOBILE ONLY (the burger
+   is injected on every page, so an unscoped rule would break the desktop thirds) */
+@media (max-width:900px){
+  .nav .wrap:has(> .burger){display:flex;justify-content:flex-start;align-items:center;gap:10px}
+  .nav .wrap:has(> .burger) .engine{margin-left:auto}
+}
+/* burger button — injected by the kit; phones only, desktop keeps the thirds grid */
+.burger{display:none;position:relative;width:38px;height:38px;padding:0;cursor:pointer;place-items:center;
+  border:2px solid var(--ink);border-radius:12px;background:var(--surface);color:var(--ink);
+  box-shadow:3px 3px 0 var(--ink);transition:transform .2s var(--ease),box-shadow .2s var(--ease),background .2s}
+.burger:hover{background:color-mix(in srgb,var(--c2) 40%,var(--surface))}
+.burger:active{transform:scale(.86);box-shadow:1px 1px 0 var(--ink)}
+.burger[aria-expanded=true]{background:var(--c2)}
+.burger::after{content:"";position:absolute;inset:-6px;border-radius:16px}
+.burger:focus-visible{outline:3px solid var(--c4);outline-offset:2px}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--font-display);font-weight:var(--dw);font-size:1.35rem;text-transform:none}
 .logo-mark{width:38px;height:38px;background:var(--c1);border:var(--bw) solid var(--ink);border-radius:42% 58% 63% 37%/45% 41% 59% 55%;animation:morph 6s ease-in-out infinite alternate;display:grid;place-items:center;font-size:1rem}
 .links{display:flex;gap:6px;flex-wrap:wrap}
@@ -211,6 +223,19 @@ footer.foot{border-top:var(--bw) solid var(--ink);background:var(--surface);tran
 }
 /* phones: tighten logo + engine so the chips never clip.
    480 not 430 — the iPhone Pro Max is 440pt wide and missed the old cap. */
+/* ═══ Burger panel (phones ≤900px; the kit injects the button) ═══ */
+@media (max-width:900px){
+  .nav .links{position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:4px;
+    margin:0;padding:10px 14px 14px;background:var(--surface);border-bottom:var(--bw) solid var(--ink);
+    box-shadow:0 14px 34px -18px rgba(23,17,10,.45);display:none;z-index:60;
+    max-height:calc(100dvh - 58px);overflow-y:auto;overscroll-behavior:contain}
+  .nav.burger-open .links{display:flex}
+  .nav .links a{padding:11px 13px;font-size:.95rem;white-space:normal}
+  .nav .links .navdrop{flex-direction:column;align-items:stretch}
+  /* shelves submenu stays open in the panel — hover is unreliable on touch */
+  .nav .links .navmenu{position:static;display:flex;min-width:0;flex-direction:column;padding:0 0 0 14px;border-left:2px solid var(--line);margin-left:13px}
+  .nav .links .navmenu a{padding:7px 10px;font-size:.85rem}
+}
 @media (max-width:480px){
   .nav .wrap{padding:0 12px}
   .nav .logo{font-size:1.05rem}

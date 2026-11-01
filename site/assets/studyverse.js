@@ -213,6 +213,25 @@ function buildNavToggle(){
   try{ on=localStorage.getItem('medcore.nav')!=='off'; }catch(e){}
   applyNav(on);
 }
+/* Burger — phones only (≤900px CSS hides it). The kit injects the button into
+   every topbar; desktop keeps the symmetric thirds grid untouched. */
+function buildBurger(){
+  const wrap=document.querySelector('.nav .wrap');
+  if(!wrap||wrap.querySelector('.burger'))return;
+  wrap.insertAdjacentHTML('beforeend','<button class="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">'+
+    '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>');
+  const nav=wrap.closest('.nav'), btn=wrap.querySelector('.burger'), links=wrap.querySelector('.links');
+  if(links&&!links.id)links.id='navLinks';
+  function set(open){
+    nav.classList.toggle('burger-open',open);
+    btn.setAttribute('aria-expanded',String(open));
+  }
+  btn.addEventListener('click',function(e){e.stopPropagation();set(!nav.classList.contains('burger-open'));});
+  /* any link click closes — matters for QB hash routing where no navigation fires */
+  if(links)links.addEventListener('click',function(e){if(e.target.closest('a'))set(false);});
+  document.addEventListener('click',function(e){if(!nav.contains(e.target))set(false);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false);});
+}
 function boot(){
   if(!document.querySelector('.blobs')){
     document.body.insertAdjacentHTML('afterbegin',
@@ -224,6 +243,7 @@ function boot(){
   fillChips();
   buildNavMenu();
   buildNavToggle();
+  buildBurger();
   paint(); syncLock(); syncMode();   /* name/lock/mode state onto the freshly filled chip */
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);
