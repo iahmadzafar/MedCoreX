@@ -173,7 +173,7 @@ $('#firstUnanswered').onclick=()=>{const i=S.questions.findIndex((q,i)=>st.ans[i
 $('#firstFlagged').onclick=()=>{if(!st.flags.length){if(SV.toast)SV.toast('No flagged questions yet');return}const next=st.flags.find(i=>i>st.cur);jumpTo(next!==undefined?next:st.flags.slice().sort((a,b)=>a-b)[0])};
 function jumpTo(i){if(!Number.isFinite(i))return;i=Math.max(0,Math.min(S.questions.length-1,i));st.cur=i;sel=null;save();renderQ();renderRail();$('#qcard').scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'})}
 $('#reviewList').addEventListener('click',e=>{const c=e.target.closest('[data-q]');if(c)jumpTo(+c.dataset.q)});
-function renderScore(){const t=tally(S,st);$('#scOk').textContent='✓ '+t.g;$('#scBad').textContent='✗ '+t.r;$('#streak').textContent='Streak '+streak}
+function renderScore(){const t=tally(S,st);$('#scOk').textContent='✓ '+t.g;$('#scBad').textContent='✗ '+t.r;}
 
 /* ---------- search ---------- */
 const qsearch=$('#qsearch'),searchCount=$('#searchCount');let hits=[],hi=-1;
@@ -192,7 +192,7 @@ $$('[data-open-keys]').forEach(b=>b.onclick=()=>$('#keysDlg').showModal());
 
 /* ---------- timer ---------- */
 let clock=null;const fmt=s=>[s/3600,s%3600/60,s%60].map(v=>String(Math.floor(v)).padStart(2,'0')).join(':');
-function drawClock(){$('#clock').textContent=fmt(st?st.time:0);$('#clockBtn').textContent=clock?'❚❚':'▶';$('#clockBtn').setAttribute('aria-label',clock?'Pause timer':'Start timer')}
+function drawClock(){$('#clock').textContent=fmt(st?st.time:0);$('#clockBtn').innerHTML=clock?'<svg viewBox="0 0 24 24" width="14" height="14" fill="#000" aria-hidden="true"><rect x="7" y="5" width="3.5" height="14" rx="1"/><rect x="13.5" y="5" width="3.5" height="14" rx="1"/></svg>':'<svg viewBox="0 0 24 24" width="14" height="14" fill="#000" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>';$('#clockBtn').setAttribute('aria-label',clock?'Pause timer':'Start timer')}
 function startClock(){if(clock||!st)return;clock=setInterval(()=>{if(document.hidden)return;st.time++;if(st.time%10===0)save();drawClock()},1000);drawClock()}
 function stopClock(){clearInterval(clock);clock=null;save();if(st)drawClock()}
 $('#clockBtn').onclick=()=>{if(clock){stopClock();P.noAuto=true;save()}else{P.noAuto=false;startClock()}};
@@ -200,7 +200,7 @@ $('#clockBtn').onclick=()=>{if(clock){stopClock();P.noAuto=true;save()}else{P.no
 /* ---------- restart ---------- */
 let armed=0;
 function restart(){if(!S)return;if(Date.now()-armed>3000){armed=Date.now();if(SV.toast)SV.toast(`Restart ${S.name}? Press again within 3s to clear answers, flags and time`);return}armed=0;stopClock();P.sets[S.id]={ans:{},flags:[],conf:{},cur:0,time:0};st=P.sets[S.id];streak=0;sel=null;save();drawClock();if(SV.toast)SV.toast('Fresh start');renderQ();renderRail();renderScore()}
-$('#restartBtn').onclick=restart;
+
 
 /* ---------- keyboard ---------- */
 addEventListener('keydown',e=>{
