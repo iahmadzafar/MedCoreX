@@ -307,6 +307,31 @@ dialog::backdrop{background:color-mix(in srgb,var(--ink) 55%,transparent)}
   .subjects{grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}
   .bd{grid-template-columns:minmax(0,1fr)}
 }
+@media (max-width:600px){
+  /* practice view: question first, chrome compact */
+  .ptop{margin:14px 0 10px}
+  .ptitle{gap:10px}
+  .back{width:38px;height:38px;font-size:1.3rem;box-shadow:2px 2px 0 var(--ink)}
+  .ptitle .eyebrow{display:none}
+  .ptitle h2{font-size:1.45rem;text-shadow:none}
+  .toolbar{gap:8px;padding:12px;margin-bottom:12px}
+  .toolbar .field{flex:1 1 100%;padding:.55em 1em}
+  .toolbar .sep{display:none}
+  .timer,.score,.streak{font-size:.9rem}
+  .qcard{min-height:240px;gap:14px;padding:16px;font-size:min(calc(1rem * var(--qs)),1.06rem)}
+  .qno{font-size:.85rem}
+  .flag{padding:.35em .8em;font-size:.8rem}
+  .stem{font-size:1.05em;line-height:1.55}
+  .opts{gap:10px}
+  .opt{padding:12px 13px;gap:10px;font-size:.95em}
+  .opt .let{width:26px;height:26px}
+  .verdict{padding:12px 14px;font-size:.92rem}
+  .nextbar{gap:8px}
+  .nextbar .btn{padding:.6em 1em;font-size:.85rem}
+  .nextbar .hint{display:none}
+  .rail h3{font-size:.95rem}
+  .jump-row{gap:6px}
+}
 @media print{
   .nav,.blobs,.toast,.marquee,.hero-art,.btn,.icon-btn,.ptop,.toolbar,.rail,.nextbar,#vPractice,#keysDlg{display:none!important}
   .page{display:block!important;padding-bottom:20px;break-after:page}

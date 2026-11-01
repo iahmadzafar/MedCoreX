@@ -35,7 +35,7 @@ html[data-theme=dark]{--on-accent:#0d0d0d}
   --ok:#2fbf71; --bad:#f2385a;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{font-family:var(--font-body);color:var(--ink);background-color:var(--bg);line-height:1.55;min-height:100vh;overflow-x:hidden;transition:background-color .8s ease,color .8s ease}
 html[data-pattern=dots] body{background-image:radial-gradient(color-mix(in srgb,var(--ink) 14%,transparent) 1.4px,transparent 1.6px);background-size:22px 22px}
 html[data-pattern=grid] body{background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:34px 34px}
@@ -209,15 +209,16 @@ footer.foot{border-top:var(--bw) solid var(--ink);background:var(--surface);tran
   .nav .engine{grid-column:2;grid-row:1;justify-self:end}
   .nav .links{grid-column:1/-1;grid-row:2;justify-self:center;justify-content:center}
 }
-/* very narrow phones: tighten logo + engine so the chips never clip */
-@media (max-width:430px){
+/* phones: tighten logo + engine so the chips never clip.
+   480 not 430 — the iPhone Pro Max is 440pt wide and missed the old cap. */
+@media (max-width:480px){
   .nav .wrap{padding:0 12px}
   .nav .logo{font-size:1.05rem}
   .nav .mark{width:32px;height:32px;font-size:.8rem}
   .engine{gap:5px;padding:3px}
   .icon-btn{width:30px;height:30px}
   .nav-tog{width:28px;height:28px}
-  .nav .links a{padding:8px 10px;font-size:.95rem}
+  .nav .links a{padding:7px 9px;font-size:.85rem;white-space:nowrap}
 }
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 @media print{.nav,.foot,.blobs,.toast,.btn,.icon-btn,.nav-show,.nav-tog,.marquee,.hero-art{display:none!important}.card{box-shadow:none;break-inside:avoid}.rv{animation:none!important}}
