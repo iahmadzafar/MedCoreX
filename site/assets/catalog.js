@@ -15,6 +15,7 @@ const Items=[
 {t:"Memory Master",d:"Recall-first core file",c:"Core Books",f:"medcore-memory-master-core.html",k:510},
 {t:"Logic-First Bank",d:"Clinical reasoning, high-yield only",c:"Core Books",f:"qbank-logic-first-high-yield-logic-first-high-yield-bank.html",k:46.3},
 {t:"MedCORE Question Bank",d:"Test series + main bank merged · six subject groups",c:"Mocks & Drills",f:"medcore-question-bank.html",k:5301.1},
+{t:"Fresh Mock Bank",d:"NRE Prep fresh mock sets · practice sets",c:"Mocks & Drills",f:"medcore-fresh-mock-bank.html",k:531.2},
 {t:"Past Paper Hub",d:"All recalled past papers",c:"Past Papers & Answer Keys",f:"medcore-past-paper-hub.html",k:202.5},
 {t:"June 2025",d:"140 MCQs, verified key + distractor analysis",c:"Past Papers & Answer Keys",f:"standalone-htmls-june-2025-answer-key.html",k:111.4},
 {t:"June 2024",d:"147 MCQs, self-scoring",c:"Past Papers & Answer Keys",f:"standalone-htmls-june-2024-answer-key.html",k:108.6},
