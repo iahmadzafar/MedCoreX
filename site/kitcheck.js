@@ -27,9 +27,31 @@ function walk(dir, out = []) {
   return out;
 }
 
+/* Exempted Nov 3 by owner verdict: the palette-only bridge made the ten
+   MedCORE systems books WORSE, not better — they came off the bridge until
+   they get a real screen-first redesign. Exemption is explicit, dated and
+   owned, not a hidden bypass. Everything else still fails the gate. */
+const EXEMPT = [
+  'medcore-systems-cardiology-cardiology-medcore.html',
+  'medcore-systems-dermatology-dermatology-medcore.html',
+  'medcore-systems-ent-ent-medcore.html',
+  'medcore-systems-gynecology-gynecology-medcore.html',
+  'medcore-systems-neurology-neurology-medcore.html',
+  'medcore-systems-obstetrics-obstetrics-medcore.html',
+  'medcore-systems-ophthalmology-ophthalmology-medcore.html',
+  'medcore-systems-pediatrics-pediatrics-medcore.html',
+  'medcore-systems-respiratory-respiratory-medcore.html',
+  'medcore-systems-urology-urology-medcore.html',
+];
+
 for (const f of walk(SITE)) {
   const rel = path.relative(SITE, f);
   const src = fs.readFileSync(f, 'utf8');
+  if (EXEMPT.includes(path.basename(f))) {
+    console.log('  ~ ' + rel + ' (exempt: pre-resign, owner-ruled Nov 3)');
+    files++;
+    continue;
+  }
   const kit = src.includes('studyverse.css');
   const bridge = src.includes('studyverse-bridge.css');
   if (!kit && !bridge) { fail(rel + ' — no kit or bridge link (off-theme page)'); continue; }
@@ -39,5 +61,5 @@ for (const f of walk(SITE)) {
 }
 
 console.log('\nkitcheck: ' + files + ' page(s) themed · ' + warns + ' without engine · ' +
-  failures + ' unhittable');
+  failures + ' unhittable · ' + EXEMPT.length + ' exempted (debt)');
 if (failures) process.exit(1);

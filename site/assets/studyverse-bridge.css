@@ -112,44 +112,10 @@ html[data-sv-map="navy"]{
   --sans:var(--font-body)!important; --serif:var(--font-display)!important; --mono:var(--font-mono)!important;
 }
 
-/* ── SYSTEMS — the 10 MedCORE systems books (kitify --with-systems) ── */
-html[data-sv-map="systems"]{
-  --navy:var(--ink)!important;
-  --teal:var(--c3)!important; --amber:var(--c2)!important;
-  --blue-soft:color-mix(in srgb,var(--c3) 10%,var(--surface))!important;
-  --gray-50:var(--surface)!important;
-  --gray-100:color-mix(in srgb,var(--ink) 7%,var(--surface))!important;
-  --gray-200:color-mix(in srgb,var(--ink) 13%,transparent)!important;
-  --gray-300:color-mix(in srgb,var(--ink) 28%,transparent)!important;
-  --gray-400:color-mix(in srgb,var(--ink) 46%,transparent)!important;
-  --gray-500:color-mix(in srgb,var(--ink) 62%,transparent)!important;
-  --gray-600:color-mix(in srgb,var(--ink) 74%,transparent)!important;
-  --gray-700:color-mix(in srgb,var(--ink) 88%,transparent)!important;
-  --body:var(--ink)!important; --body-bg:var(--surface)!important;
-}
-
-/* ── systems: de-paper for screen — print costume off, body untouched ──
-   The books' .page wrappers are frozen body markup, but their geometry is
-   style only: on screen the A4 sheet becomes a fluid reading block. Scoped
-   to @media screen so Ctrl+P never inherits the fluid layout. */
-@media screen{
-  html[data-sv-map="systems"] .page{
-    width:min(1180px,100% - 16px);
-    min-height:0;margin:0 auto;padding:26px;
-    background:var(--surface);box-shadow:none;
-    break-after:0;page-break-after:0;
-  }
-  html[data-sv-map="systems"] .page::before{
-    height:4px;left:0;right:0;
-  }
-  html[data-sv-map="systems"] .cover{
-    min-height:0;padding:42px 26px;
-    background:linear-gradient(160deg,var(--ink) 0%,var(--ink) 100%);
-  }
-  /* page furniture is print-only — page numbers mean nothing on screen */
-  html[data-sv-map="systems"] .page-footer{display:none}
-  html[data-sv-map="systems"] .page-header{position:static;padding:2px 0 14px}
-}
+/* ═══ RETIRED · Nov 3: the systems family + screen de-paper blocks came off ═══
+   A palette-only bridge over the ten A4 books made them worse (owner verdict).
+   They sit out of the bridge and out of kitcheck until they get a real
+   screen-first redesign. Full history: this file + journal part-25. */
 
 /* ── base layer: body voice, one level of type coercion ── */
 body{background:var(--bg)!important;color:var(--ink)!important;font-family:var(--font-body)!important}
