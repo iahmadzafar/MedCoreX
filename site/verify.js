@@ -115,7 +115,8 @@ else fail('scriptproof.js not excluded in deploy.sh');
 
 console.log('\n[6] Magic Table — kit-coherence (system-level wiring)');
 const mt = fs.readFileSync(path.join(RES,'standalone-htmls-magic-table-medical-licensing.html'),'utf8');
-const kit = fs.readFileSync(path.join(SITE,'assets','studyverse.css'),'utf8');
+const kit = fs.readFileSync(path.join(SITE,'assets','studyverse.css'),'utf8')
+  + fs.readFileSync(path.join(SITE,'assets','studyverse-tokens.css'),'utf8');
 if(mt.includes('/assets/studyverse.css')) ok('magic table links studyverse.css');
 else fail('magic table missing studyverse.css link');
 if(mt.includes('/assets/studyverse.js')) ok('magic table links studyverse.js');
