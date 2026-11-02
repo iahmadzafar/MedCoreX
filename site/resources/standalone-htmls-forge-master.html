@@ -33,6 +33,9 @@
   --nav-h:66px;
 }
 
+/* an app-grade canvas: no giant glow smears behind a dense reading surface */
+.blobs{display:none!important}
+
 /* ═══ toolbar (below the kit nav; case-ladder pattern) ═══ */
 .tool{position:sticky;top:var(--nav-h);z-index:40;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:var(--bw) solid var(--ink);transition:background .8s,top .2s}
 body.nav-off .tool{top:0}
@@ -171,7 +174,7 @@ body.nav-open .drawer-scrim{opacity:1;pointer-events:auto}
 /* single / empty / reading modes */
 body.forge-single .card{display:none!important}
 body.forge-single .card.forge-active{display:flex!important}
-.forge-placeholder{display:none;border:2px dashed var(--hair);border-radius:var(--radius);margin:0 auto 30px;padding:60px 24px;text-align:center;color:var(--muted)}
+.forge-placeholder{display:none;background:var(--surface);border:var(--bw) solid var(--ink);border-radius:var(--radius);box-shadow:var(--shadow);margin:40px auto 30px;padding:70px 24px;color:var(--muted)}
 .forge-placeholder svg{width:44px;height:44px;opacity:.4}
 .forge-placeholder-title{font-family:var(--font-display);font-weight:var(--dw);text-transform:var(--case);letter-spacing:.05em;font-size:1rem;color:var(--ink);margin-top:12px}
 .forge-placeholder-sub{font-size:.9rem;line-height:1.6;max-width:46ch;margin:8px auto 0;color:var(--muted)}
@@ -187,15 +190,19 @@ body.forge-reading .card{display:flex!important;width:100%;max-width:860px}
 body.forge-reading .reading-exit{display:inline-flex}
 
 /* kbd hint chip */
-.kbd-hint{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);z-index:400;display:flex;align-items:center;gap:12px;border:2px solid var(--ink);border-radius:999px;background:var(--surface);box-shadow:3px 3px 0 var(--ink);padding:7px 14px;font-family:var(--font-mono);font-size:.62rem;color:var(--faint);letter-spacing:.03em;white-space:nowrap;opacity:.75;transition:opacity .3s}
+.kbd-hint{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);z-index:400;display:flex;align-items:center;gap:12px;border:2px solid var(--ink);border-radius:999px;background:var(--surface);box-shadow:3px 3px 0 var(--ink);padding:7px 14px;font-family:var(--font-mono);font-size:.62rem;color:var(--faint);letter-spacing:.03em;white-space:nowrap;opacity:.75;transition:opacity .4s}
 .kbd-hint:hover{opacity:1}
+.kbd-hint.kbd-hidden{opacity:0;pointer-events:none}
 body.forge-reading .kbd-hint{display:none}
+
+/* footer tracks the page canvas in both modes (dark band never reads as paper-white) */
+footer.foot{background:var(--bg)}
 
 :focus-visible{outline:3px solid var(--c4);outline-offset:2px}
 
 /* ═══ phones ≤900px: drawer becomes an overlay ═══ */
 @media screen and (max-width:900px){
-  :root{--nav-h:58px}
+  :root{--nav-h:65px}
   .forge-main{margin-left:0;padding:18px 14px 90px}
   body.forge-reading .forge-main{margin-left:0}
   .forge-nav{transform:translateX(-104%);width:min(300px,86vw);box-shadow:var(--shadow-hover)}
@@ -206,6 +213,9 @@ body.forge-reading .kbd-hint{display:none}
 /* ═══ phones ≤640px: single-column zones / 16px reading text ═══ */
 @media screen and (max-width:640px){
   .forge-main{font-size:1rem}
+  .tool .grow,.tool .tool-status{display:none}
+  .tool .wrap{gap:7px}
+  .tool .btn{padding:.45em .7em;font-size:.68rem}
   .forge-main .card{margin-bottom:22px}
   .zones{grid-template-columns:1fr}
   .zones>.zone{grid-column:auto;grid-row:auto}
@@ -23669,6 +23679,9 @@ body.forge-reading .kbd-hint{display:none}
   if (list) list.addEventListener('click', function (e) {
     if (e.target && e.target.classList && e.target.classList.contains('forge-nav-item')) closeDrawer();
   });
+  /* keyboard legend fades itself out so it never sits on card content */
+  var hint = document.getElementById('kbdHint');
+  if (hint) setTimeout(function () { hint.classList.add('kbd-hidden'); }, 6000);
 })();
 </script>
 
@@ -23822,10 +23835,6 @@ body.forge-reading .kbd-hint{display:none}
     if (typing) return;
     if (e.key === 'ArrowLeft') { e.preventDefault(); step(-1); }
     else if (e.key === 'ArrowRight') { e.preventDefault(); step(1); }
-    else if (e.key === 't' || e.key === 'T') {
-      var mb = document.getElementById('modeBtn');
-      if (mb) mb.click();
-    }
     else if (e.key === '/') { e.preventDefault(); search.focus(); search.select(); }
     else if (e.key === 'r' || e.key === 'R') { document.body.classList.toggle('forge-reading'); }
     else if (e.key === 's' || e.key === 'S') {
@@ -23856,15 +23865,10 @@ body.forge-reading .kbd-hint{display:none}
   });
   if (!applyHash()) showNone();
 })();
-
-/* sidebar toggle */
-var navToggle = document.getElementById('navToggle');
-if (navToggle) navToggle.addEventListener('click', function () {
-  if (window.innerWidth > 900) document.body.classList.toggle('forge-nav-hidden');
-  else document.body.classList.toggle('nav-open');
-});
-
 </script>
+
+<script src="/medcore-sync.js" defer></script>
+<script src="/auth-nav.js" defer></script>
 
 </body>
 </html>
