@@ -55,6 +55,16 @@ Never deploy from it, never copy files back from it without asking. `studyverse.
 (owner's design reference) lives in this repo root, **git-ignored on purpose** — keep it on
 disk, never `git add` it (owner removed it from the repo in `a05bba5`).
 
+## Accounts (owner law — 2 Nov 2026)
+- **Users and their accounts, their credentials are never ever deleted.**
+  No exceptions. The keyhole ledger only grows.
+- The keyhole *Remove* action must not be used against real accounts; access
+  revocation happens via block/approve status (approval-gate build), not
+  deletion. *Reset password* is allowed (rotates, deletes nothing).
+- Never drop or wipe the D1 `medcore-auth-db` users/sessions tables.
+- Founding accounts (Oct 2026): iahmadzafar, chk-audit-phase1,
+  iaroojfatima23, ayeshazain6598, asiabasharat027.
+
 ## Secrets
 
 Never in chat, never in git. PAT lives in macOS Keychain + gh keyring; Cloudflare token in
