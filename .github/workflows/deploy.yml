@@ -22,6 +22,11 @@ jobs:
       - name: Proof — every script parses
         run: node site/scriptproof.js
 
+      # Gate: every HTML in site/ must link the kit or the bridge — a page
+      # can never silently fall back to its own private theme again.
+      - name: Proof — every page wears the home theme
+        run: node site/kitcheck.js
+
       - name: Prune junk before upload
         working-directory: site
         run: rm -rf .github .gitignore && find . -maxdepth 1 \( -name '.DS_Store' -o -name '*.bak-*' \) -delete && rm -f verify.js prooflocal.js domproof.js bankproof.js prodcheck.js serve.js libproof.js scriptproof.js kitcheck.js

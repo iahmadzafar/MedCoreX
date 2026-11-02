@@ -128,6 +128,29 @@ html[data-sv-map="systems"]{
   --body:var(--ink)!important; --body-bg:var(--surface)!important;
 }
 
+/* ── systems: de-paper for screen — print costume off, body untouched ──
+   The books' .page wrappers are frozen body markup, but their geometry is
+   style only: on screen the A4 sheet becomes a fluid reading block. Scoped
+   to @media screen so Ctrl+P never inherits the fluid layout. */
+@media screen{
+  html[data-sv-map="systems"] .page{
+    width:min(1180px,100% - 16px);
+    min-height:0;margin:0 auto;padding:26px;
+    background:var(--surface);box-shadow:none;
+    break-after:0;page-break-after:0;
+  }
+  html[data-sv-map="systems"] .page::before{
+    height:4px;left:0;right:0;
+  }
+  html[data-sv-map="systems"] .cover{
+    min-height:0;padding:42px 26px;
+    background:linear-gradient(160deg,var(--ink) 0%,var(--ink) 100%);
+  }
+  /* page furniture is print-only — page numbers mean nothing on screen */
+  html[data-sv-map="systems"] .page-footer{display:none}
+  html[data-sv-map="systems"] .page-header{position:static;padding:2px 0 14px}
+}
+
 /* ── base layer: body voice, one level of type coercion ── */
 body{background:var(--bg)!important;color:var(--ink)!important;font-family:var(--font-body)!important}
 h1,h2,h3,.display{font-family:var(--font-display)!important;font-weight:var(--dw,800)!important}
