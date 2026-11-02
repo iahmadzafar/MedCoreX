@@ -57,7 +57,9 @@ $('#subjGrid').onclick=e=>{const b=e.target.closest('[data-go]');if(b)location.h
 function showPractice(){
   $('#home').hidden=true;$('#practice').hidden=false;
   $('#navHome').removeAttribute('aria-current');
-  const np=$('#navPractice');np.hidden=false;np.href=location.hash;np.textContent=S.name;np.setAttribute('aria-current','page');
+  /* keep the topbar one row on both home and practice — the subject is already
+     shown in #pName; don't repeat the long subject name in the nav and force a
+     second row. */
   $('#pName').textContent=S.name;
   streak=0;sel=null;
   st.cur=Math.min(st.cur,S.questions.length-1);
