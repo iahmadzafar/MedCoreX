@@ -71,9 +71,18 @@ Never in chat, never in git. PAT lives in macOS Keychain + gh keyring; Cloudflar
 Actions secrets (`CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`).
 
 ## Design kit (owner ruling, 27 Oct 2026)
-- All shared design lives in site/assets/studyverse.css + site/assets/studyverse.js.
+- All shared design lives in site/assets/studyverse*.css + studyverse.js:
+  the token contract in studyverse-tokens.css (@import'ed by both the
+  component sheet and the bridge — never paste tokens anywhere else),
+  components in studyverse.css, the engine in studyverse.js.
 - NEVER paste theme styles, the theme engine, toast, confetti or count-up into a page.
   Link /assets/studyverse.* and call window.SV.
+- Legacy (non-kit) pages wear the home theme through the bridge, and ONLY
+  through tools/kitify.py — never by hand: it tags <html data-sv-map="<family>">
+  and injects the bridge css + both scripts before </head>. A new family =
+  one alias block in studyverse-bridge.css + one signature in kitify.
+- Gate: site/kitcheck.js (runs in CI after scriptproof) — every site HTML
+  must link kit css or bridge css, or the deploy fails.
 - Page CSS uses kit tokens only (no hex colours) so dark mode works everywhere.
 - Kit pages: text on any accent fill (`--c1..c4`, `--accent`, `--ok`, `--bad`)
   uses `color:var(--on-accent)` when the rule has no colour of its own.

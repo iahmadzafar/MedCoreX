@@ -1,39 +1,17 @@
 /* ============================================================
    MedCoreX · Studyverse KIT — site/assets/studyverse.css
-   The one shared design layer. Cut-from-source out of
-   site/index.html (Phase 1, PLAN — Design Kit.md) + shared
-   components ported from the Question Bank. Page CSS may only
-   use tokens; no hex outside :root (except --on-accent twins).
+   The component layer. Tokens live in studyverse-tokens.css
+   (@import below) — never paste tokens into this file or a page.
+   Page CSS may only use tokens; no hex outside :root (except
+   --on-accent twins).
    ============================================================ */
+@import url('/assets/studyverse-tokens.css');
 
 /* One font request for the whole site: the mono label voice of
    House Rules 1.1 (Geist Mono). Display/body stay system faces —
    the engine owns those and remixes them per theme. */
 @import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600;700&display=swap');
 
-/* accent-fill text token — black in light, white in dark (plan ground rule) */
-:root{--on-accent:#0d0d0d}
-html[data-theme=dark]{--on-accent:#0d0d0d}
-
-/* ═══ Studyverse design system — ported to MedCoreX ═══ */
-:root{
-  --bg:#fff4e0; --surface:#fffdf8; --ink:#1d1433;
-  --c1:#ff6b9a; --c2:#ffd34d; --c3:#4cc9d8; --c4:#9b7bff;
-  --radius:18px; --bw:3px;
-  --shadow:6px 6px 0 var(--ink);
-  --shadow-hover:10px 10px 0 var(--ink);
-  --title-shadow:3px 3px 0 var(--c2);
-  --font-display:Futura,"Century Gothic","Trebuchet MS",sans-serif;
-  --font-body:"Avenir Next","Segoe UI",sans-serif;
-  --font-mono:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
-  --dw:800; --case:uppercase; --track:.01em;
-  --tilt:-1deg;
-  --ease:cubic-bezier(.34,1.56,.64,1);
-  --muted:color-mix(in srgb,var(--ink) 68%,transparent);
-  --line:color-mix(in srgb,var(--ink) 14%,transparent);
-  --pill:min(var(--radius),999px);
-  --ok:#2fbf71; --bad:#f2385a;
-}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{font-family:var(--font-body);color:var(--ink);background-color:var(--bg);line-height:1.55;min-height:100vh;overflow-x:hidden;transition:background-color .8s ease,color .8s ease}

@@ -1,0 +1,159 @@
+/* ============================================================
+   MedCoreX · Studyverse BRIDGE — site/assets/studyverse-bridge.css
+   Ground-level theme layer for NON-kit pages. Loads AFTER a
+   page's own styles and re-points the page's own token names at
+   kit tokens, so the page keeps every rule it owns while all
+   values flow from the home theme. Tokens come from
+   studyverse-tokens.css (imported below); the engine
+   (studyverse.js) paints --bg/--surface/--ink/--c1..c4/fonts
+   inline on <html>, so the page follows remix/lock/dark mode.
+
+   Rules of the bridge:
+   - Kit-owned names (--bg,--surface,--ink,--c1..c4,--font-*)
+     are NEVER aliased here — the engine owns them.
+   - Page-owned names are aliased with !important (no non-kit
+     page sets a custom property with !important — verified
+     fleet-wide Nov 3, so this beats every page declaration,
+     including <style> blocks that live after <body>).
+   - Families: what a page calls its colors decides its map.
+     tools/kitify.py tags each page data-sv-map="<family>" on
+     <html>; a family block below consumes that tag. Adding a
+     page family = adding a block here + a kitify signature.
+   - The .blobs/.toast/.icon-btn visuals below mirror kit rules
+     (bridge pages don't link the component sheet, and kit
+     class names were checked: no non-kit page owns them).
+   ============================================================ */
+@import url('/assets/studyverse-tokens.css');
+
+/* ── shared neutrals + states, identical to the tokens contract ── */
+:root,html[data-mode],html[data-theme]{
+  --accent:var(--c1)!important;
+  --accent-soft:color-mix(in srgb,var(--c1) 30%,transparent)!important;
+  --muted:color-mix(in srgb,var(--ink) 68%,transparent)!important;
+  --line:color-mix(in srgb,var(--ink) 14%,transparent)!important;
+  --ok:#2fbf71!important; --bad:#f2385a!important;
+  --good:var(--ok)!important; --green:var(--ok)!important;
+  --red:var(--bad)!important; --never:var(--bad)!important; --warn:var(--c2)!important;
+  --radius:18px!important; --bw:3px!important; --pill:min(var(--radius),999px)!important;
+  --r:var(--radius)!important; --r-card:var(--radius)!important; --r-chip:999px!important;
+  --shadow:6px 6px 0 var(--ink)!important; --shadow-hover:10px 10px 0 var(--ink)!important;
+  --title-shadow:3px 3px 0 var(--c2)!important;
+  --tilt:-1deg!important; --ease:cubic-bezier(.34,1.56,.64,1)!important;
+  --card:var(--surface)!important;
+  --head:var(--ink)!important; --head-ink:var(--bg)!important;
+  --head-sub:color-mix(in srgb,var(--bg) 75%,transparent)!important;
+  --hover:color-mix(in srgb,var(--ink) 6%,transparent)!important;
+  --zebra:color-mix(in srgb,var(--ink) 6%,var(--surface))!important;
+  --grid:color-mix(in srgb,var(--ink) 8%,transparent)!important;
+}
+
+/* ── ZEPHYR — cheat-card, forge-master, qbank-logic, both recall sheets ── */
+html[data-sv-map="zephyr"]{
+  --void:var(--bg)!important; --ground:var(--bg)!important; --ground-2:var(--surface)!important;
+  --panel:var(--surface)!important; --panel-2:var(--surface)!important;
+  --chalk:var(--ink)!important; --chalk-2:var(--ink)!important; --text:var(--ink)!important;
+  --faint:var(--muted)!important;
+  --amber:var(--c2)!important; --amber-dim:color-mix(in srgb,var(--c2) 55%,var(--ink))!important;
+  --mint:var(--ok)!important; --coral:var(--c1)!important;
+  --violet:var(--c4)!important; --cyan:var(--c3)!important;
+  --line-2:var(--line)!important; --line-3:var(--line)!important; --line-strong:var(--ink)!important;
+  --serif:var(--font-display)!important; --body:var(--font-body)!important;
+  --mono:var(--font-mono)!important; --sans:var(--font-body)!important;
+  --bg2:var(--surface)!important;
+  --bg3:color-mix(in srgb,var(--ink) 4%,var(--surface))!important;
+  --bg4:color-mix(in srgb,var(--ink) 8%,var(--surface))!important;
+  --med:var(--c4)!important; --cardio:var(--c1)!important;
+  --obgyn:var(--c4)!important; --pharm:var(--c3)!important;
+}
+
+/* ── NEXUS — pattern-analysis, prediction-intelligence-report ── */
+html[data-sv-map="nexus"]{
+  --fg:var(--ink)!important; --tx:var(--ink)!important; --tx2:var(--muted)!important;
+  --panel:var(--surface)!important; --panel2:var(--surface)!important;
+  --panel-2:var(--surface)!important; --bg2:var(--surface)!important;
+  --ground-2:var(--surface)!important; --line2:var(--line)!important;
+}
+
+/* ── TABLE — prediction-sheet-1, disease-symptom-clusters ── */
+html[data-sv-map="table"]{
+  --t1c:var(--c1)!important; --t2c:var(--c4)!important; --t3c:var(--c2)!important;
+  --t4c:var(--c3)!important; --t5c:var(--ok)!important; --trap:var(--bad)!important;
+  --t1bg:color-mix(in srgb,var(--c1) 14%,var(--surface))!important;
+  --t2bg:color-mix(in srgb,var(--c4) 14%,var(--surface))!important;
+  --t3bg:color-mix(in srgb,var(--c2) 14%,var(--surface))!important;
+  --t4bg:color-mix(in srgb,var(--c3) 14%,var(--surface))!important;
+  --t5bg:color-mix(in srgb,var(--ok) 14%,var(--surface))!important;
+  --t1ln:color-mix(in srgb,var(--c1) 35%,transparent)!important;
+  --t2ln:color-mix(in srgb,var(--c4) 35%,transparent)!important;
+  --t3ln:color-mix(in srgb,var(--c2) 35%,transparent)!important;
+  --t4ln:color-mix(in srgb,var(--c3) 35%,transparent)!important;
+  --t5ln:color-mix(in srgb,var(--ok) 35%,transparent)!important;
+}
+
+/* ── ARCH — 800-plus-mcq-architecture ── */
+html[data-sv-map="arch"]{
+  --acc:var(--c1)!important; --ink2:var(--muted)!important;
+  --bg2:var(--surface)!important; --line2:var(--line)!important;
+  --panel:var(--surface)!important; --panel2:var(--surface)!important;
+  --navy:var(--ink)!important;
+  --tint:color-mix(in srgb,var(--c1) 12%,var(--surface))!important;
+  --tint2:color-mix(in srgb,var(--c3) 12%,var(--surface))!important;
+  --vign:color-mix(in srgb,var(--ink) 5%,transparent)!important;
+  --border:var(--line)!important; --border2:var(--line)!important;
+  --surface2:var(--surface)!important; --dim:var(--muted)!important;
+  --orange:var(--c2)!important; --pink:var(--c1)!important;
+  --sans:var(--font-body)!important; --serif:var(--font-display)!important; --mono:var(--font-mono)!important;
+}
+
+/* ── NAVY — memory-master-core ── */
+html[data-sv-map="navy"]{
+  --navy:var(--ink)!important; --blue:var(--c3)!important;
+  --gold:var(--c2)!important; --red:var(--bad)!important; --paper:var(--surface)!important;
+  --sans:var(--font-body)!important; --serif:var(--font-display)!important; --mono:var(--font-mono)!important;
+}
+
+/* ── SYSTEMS — the 10 MedCORE systems books (kitify --with-systems) ── */
+html[data-sv-map="systems"]{
+  --navy:var(--ink)!important;
+  --teal:var(--c3)!important; --amber:var(--c2)!important;
+  --blue-soft:color-mix(in srgb,var(--c3) 10%,var(--surface))!important;
+  --gray-50:var(--surface)!important;
+  --gray-100:color-mix(in srgb,var(--ink) 7%,var(--surface))!important;
+  --gray-200:color-mix(in srgb,var(--ink) 13%,transparent)!important;
+  --gray-300:color-mix(in srgb,var(--ink) 28%,transparent)!important;
+  --gray-400:color-mix(in srgb,var(--ink) 46%,transparent)!important;
+  --gray-500:color-mix(in srgb,var(--ink) 62%,transparent)!important;
+  --gray-600:color-mix(in srgb,var(--ink) 74%,transparent)!important;
+  --gray-700:color-mix(in srgb,var(--ink) 88%,transparent)!important;
+  --body:var(--ink)!important; --body-bg:var(--surface)!important;
+}
+
+/* ── base layer: body voice, one level of type coercion ── */
+body{background:var(--bg)!important;color:var(--ink)!important;font-family:var(--font-body)!important}
+h1,h2,h3,.display{font-family:var(--font-display)!important;font-weight:var(--dw,800)!important}
+
+/* ── legacy machinery: the engine owns mode/storage now ── */
+.mlx-toggle{display:none!important}
+
+/* ── kit-injected chrome (mirrors of kit visuals, scoped here) ── */
+.blobs{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.blob{position:absolute;width:42vmax;height:42vmax;filter:blur(50px);opacity:.55;border-radius:42% 58% 63% 37%/45% 41% 59% 55%;animation:morph 18s ease-in-out infinite alternate,drift 26s ease-in-out infinite alternate;transition:background .8s}
+.blob:nth-child(1){background:var(--c1);top:-12vmax;left:-10vmax}
+.blob:nth-child(2){background:var(--c3);bottom:-16vmax;right:-12vmax;animation-delay:-6s,-9s}
+.blob:nth-child(3){background:var(--c2);top:35%;left:45%;width:28vmax;height:28vmax;animation-delay:-11s,-3s}
+@keyframes morph{50%{border-radius:61% 39% 36% 64%/57% 63% 37% 43%}100%{border-radius:35% 65% 50% 50%/30% 50% 50% 70%}}
+@keyframes drift{50%{transform:translate(8vw,6vh) rotate(60deg) scale(1.1)}100%{transform:translate(-5vw,10vh) rotate(140deg) scale(.95)}}
+.toast{position:fixed;left:50%;bottom:70px;transform:translate(-50%,calc(100% + 90px));background:var(--ink);color:var(--bg);padding:12px 22px;border-radius:999px;font-weight:800;z-index:99;transition:transform .5s var(--ease);box-shadow:4px 4px 0 var(--c1)}
+.toast.show{transform:translate(-50%,0)}
+
+/* floating engine chip — bridge.js injects it on chip-less pages */
+.svb-engine{position:fixed;right:14px;bottom:14px;z-index:99;display:flex;align-items:center;gap:5px;
+  border:2px solid var(--ink);border-radius:999px;padding:3px;background:var(--surface);box-shadow:4px 4px 0 var(--ink)}
+.icon-btn{position:relative;width:34px;height:34px;border-radius:50%;border:2px solid var(--ink);background:var(--c2);
+  cursor:pointer;display:grid;place-items:center;color:var(--on-accent)!important;transition:transform .4s var(--ease),background .25s}
+.icon-btn:hover{transform:rotate(180deg) scale(1.1)}
+.icon-btn:active{transform:scale(.86)}
+.icon-btn[aria-pressed=true]{background:var(--c4)}
+
+@media print{.blobs,.toast,.svb-engine{display:none!important}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}

@@ -1,0 +1,37 @@
+/* ============================================================
+   MedCoreX · Studyverse KIT — site/assets/studyverse-tokens.css
+   The design contract: tokens ONLY (cut-from-source out of
+   site/assets/studyverse.css Nov 3, 2026). Imported by
+   studyverse.css (components) and studyverse-bridge.css (legacy
+   pages), so one token edit propagates to every page linking
+   either. Never paste this block into a page or a second file.
+   ============================================================ */
+
+/* One font request for the whole site: the mono label voice of
+   House Rules 1.1 (Geist Mono). Display/body stay system faces —
+   the engine owns those and remixes them per theme. */
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600;700&display=swap');
+
+/* accent-fill text token — black in light, black in dark (plan ground rule) */
+:root{--on-accent:#0d0d0d}
+html[data-theme=dark]{--on-accent:#0d0d0d}
+
+/* ═══ Studyverse design system — ported to MedCoreX ═══ */
+:root{
+  --bg:#fff4e0; --surface:#fffdf8; --ink:#1d1433;
+  --c1:#ff6b9a; --c2:#ffd34d; --c3:#4cc9d8; --c4:#9b7bff;
+  --radius:18px; --bw:3px;
+  --shadow:6px 6px 0 var(--ink);
+  --shadow-hover:10px 10px 0 var(--ink);
+  --title-shadow:3px 3px 0 var(--c2);
+  --font-display:Futura,"Century Gothic","Trebuchet MS",sans-serif;
+  --font-body:"Avenir Next","Segoe UI",sans-serif;
+  --font-mono:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --dw:800; --case:uppercase; --track:.01em;
+  --tilt:-1deg;
+  --ease:cubic-bezier(.34,1.56,.64,1);
+  --muted:color-mix(in srgb,var(--ink) 68%,transparent);
+  --line:color-mix(in srgb,var(--ink) 14%,transparent);
+  --pill:min(var(--radius),999px);
+  --ok:#2fbf71; --bad:#f2385a;
+}
