@@ -30,7 +30,6 @@ const Items=[
 {t:"Cheat Card",d:"One-page recall sheet",c:"Quick Reference",f:"medcore-cheat-card.html",k:24.9},
 {t:"Magic Table",d:"Licensing thresholds · memorise once",c:"Quick Reference",f:"standalone-htmls-magic-table-medical-licensing.html",k:207.2},
 {t:"Symptom Clusters",d:"Symptom to differential, grouped",c:"Quick Reference",f:"standalone-htmls-disease-symptom-clusters.html",k:62.1},
-{t:"Last Day Sheet",d:"Final night · highest-yield only",c:"Quick Reference",f:"side-projects-last-day-revision-sheet.html",k:62.8},
 {t:"Repeat Offenders",d:"The NRE recall vault — questions that keep coming back",c:"Quick Reference",f:"nre-recall-sheets-repeat-offenders.html",k:53.6},{t:"Case Ladder",d:"Interactive clinical case practice",c:"Frameworks & Interactive",f:"standalone-htmls-case-ladder-interactive.html",k:119.1},
 {t:"Cardiology",d:"Complete system book",c:"MedCORE Systems",f:"medcore-systems-cardiology-cardiology-medcore.html",k:408.9},
 {t:"Neurology",d:"Complete system book",c:"MedCORE Systems",f:"medcore-systems-neurology-neurology-medcore.html",k:725.5},
