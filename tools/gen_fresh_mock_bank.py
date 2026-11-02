@@ -27,7 +27,7 @@ def build(fname):
     s = open(fname, encoding="utf-8").read()
     d = json.loads(re.search(r"const DATA = (\{.*?\});", s, re.S).group(1))
     sid = base_id(os.path.basename(fname))
-    name = (d.get("subject") or "Fresh Mock Set") + " — " + (d.get("chapter") or "Fresh Mock Set")
+    name = d.get("subject") or "Practice Set"
     qs = []
     for q in d.get("questions", []):
         opts = sorted((q.get("options") or []), key=lambda o: o.get("letter", "A"))

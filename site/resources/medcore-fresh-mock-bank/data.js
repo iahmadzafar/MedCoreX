@@ -2,7 +2,7 @@
 const SUBJECTS = [
   {
     "id": "diabetes",
-    "name": "Diabetes Mellitus & Complications (Medicine) — Fresh Mock Set",
+    "name": "Diabetes Mellitus & Complications (Medicine)",
     "questions": [
       {
         "q": "A 19-year-old non-obese woman with a strong family history of diabetes (autosomal dominant) presents with mild hyperglycaemia. She is not ketosis-prone and her C-peptide is normal. Which feature best fits maturity-onset diabetes of the young (MODY)?",
@@ -583,7 +583,7 @@ const SUBJECTS = [
   },
   {
     "id": "ent",
-    "name": "ENT — Mock Set",
+    "name": "ENT",
     "questions": [
       {
         "q": "A 45-year-old has recurrent episodes of vertigo lasting 30-40 minutes, fluctuating sensorineural hearing loss, tinnitus and a sense of aural fullness in one ear. Between episodes he is well. Dix-Hallpike and neurological examination are normal. Diagnosis?",
@@ -1164,7 +1164,7 @@ const SUBJECTS = [
   },
   {
     "id": "electrolytes",
-    "name": "Electrolytes & Acid-Base (Medicine) — Fresh Mock Set",
+    "name": "Electrolytes & Acid-Base (Medicine)",
     "questions": [
       {
         "q": "A 70-year-old woman on a thiazide diuretic for hypertension presents with confusion. Serum sodium is 122 mmol/L. She is clinically volume-depleted. Which mechanism best explains the hyponatremia?",
@@ -1745,7 +1745,7 @@ const SUBJECTS = [
   },
   {
     "id": "endocrine",
-    "name": "Endocrinology (Thyroid / Adrenal / Pituitary) — Fresh Mock Set",
+    "name": "Endocrinology (Thyroid / Adrenal / Pituitary)",
     "questions": [
       {
         "q": "A 40-year-old woman presents with a 1-week history of severe anterior neck pain radiating to the ear, fever, and transient palpitations. The thyroid is tender and firm. She recently had a viral upper respiratory infection. What is the most likely diagnosis?",
@@ -2326,7 +2326,7 @@ const SUBJECTS = [
   },
   {
     "id": "endocrinesurgery",
-    "name": "Endocrine Surgery (Thyroid / Parathyroid / Adrenal) — Fresh Mock Set",
+    "name": "Endocrine Surgery (Thyroid / Parathyroid / Adrenal)",
     "questions": [
       {
         "q": "A 6-year-old child has a midline neck swelling that moves upward on protrusion of the tongue and on swallowing. It is non-tender and cystic. What is the diagnosis and management?",
@@ -2907,7 +2907,7 @@ const SUBJECTS = [
   },
   {
     "id": "gi-emergencies",
-    "name": "GI Emergencies (Medicine/Surgery) — Fresh Mock Set",
+    "name": "GI Emergencies (Medicine/Surgery)",
     "questions": [
       {
         "q": "A 42-year-old woman reports progressive difficulty swallowing both liquids and solids for 2 years, with regurgitation of undigested food and a 4 kg weight loss. Barium swallow shows a smooth tapered 'bird-beak' narrowing at the gastro-oesophageal junction. What is the most appropriate definitive management?",
@@ -3488,7 +3488,7 @@ const SUBJECTS = [
   },
   {
     "id": "haematology",
-    "name": "Haematology — Mock Set",
+    "name": "Haematology",
     "questions": [
       {
         "q": "A 45-year-old with fatigue and jaundice has laboratory evidence of haemolysis and a positive direct Coombs (antiglobulin) test. This immune haemolytic anaemia is best classified under which type of hypersensitivity reaction?",
@@ -4069,7 +4069,7 @@ const SUBJECTS = [
   },
   {
     "id": "hepatology",
-    "name": "Hepatology (Medicine/Surgery) — Fresh Mock Set",
+    "name": "Hepatology (Medicine/Surgery)",
     "questions": [
       {
         "q": "A 55-year-old man with cirrhosis presents with confusion and asterixis. Serum ammonia is elevated. In the liver, ammonia is detoxified by combining with which molecule to form glutamine?",
@@ -4650,7 +4650,7 @@ const SUBJECTS = [
   },
   {
     "id": "neuro",
-    "name": "Neurology (Stroke / Coma / Epilepsy / Headache) — Fresh Mock Set",
+    "name": "Neurology (Stroke / Coma / Epilepsy / Headache)",
     "questions": [
       {
         "q": "A 45-year-old woman presents with the 'worst headache of her life' of sudden onset 4 hours ago, vomiting and neck stiffness. Non-contrast CT brain is normal. What is the next best step?",
@@ -5231,7 +5231,7 @@ const SUBJECTS = [
   },
   {
     "id": "nutrition-malabsorption",
-    "name": "Nutrition & Malabsorption (Medicine) — Fresh Mock Set",
+    "name": "Nutrition & Malabsorption (Medicine)",
     "questions": [
       {
         "q": "A 45-year-old woman presents with chronic diarrhoea, weight loss, and steatorrhoea. To distinguish small-intestinal mucosal disease from pancreatic insufficiency, which test result would be most informative?",
@@ -5812,7 +5812,7 @@ const SUBJECTS = [
   },
   {
     "id": "oncology-genpath",
-    "name": "Oncology — Mock Set",
+    "name": "Oncology",
     "questions": [
       {
         "q": "Chronic acid reflux in Barrett's oesophagus causes the normal squamous epithelium to be replaced by columnar (intestinal-type) epithelium. This transformation is best described as?",
@@ -6393,7 +6393,7 @@ const SUBJECTS = [
   },
   {
     "id": "ophthalmology",
-    "name": "Ophthalmology — Mock Set",
+    "name": "Ophthalmology",
     "questions": [
       {
         "q": "A 12-year-old boy has recurrent seasonal eye itching and redness, worse in summer, with conjunctival hyperaemia, cobblestone papillae on the upper tarsal conjunctiva, punctate epithelial erosions on fluorescein, and pain on eye movement. Visual acuity is 6/6. Diagnosis?",
@@ -6974,7 +6974,7 @@ const SUBJECTS = [
   },
   {
     "id": "psych",
-    "name": "Psychiatry (Schizophrenia / Mood / Delirium-Dementia / Substance) — Fresh Mock Set",
+    "name": "Psychiatry (Schizophrenia / Mood / Delirium-Dementia / Substance)",
     "questions": [
       {
         "q": "A 15-year-old boy tells his teacher that 'the teacher is trying to kill me' and repeats that classmates are secretly plotting to attack him. He is convinced of this despite evidence to the contrary. He has no prominent depressed or manic mood. What is the most likely diagnosis?",
@@ -7555,7 +7555,7 @@ const SUBJECTS = [
   },
   {
     "id": "renal",
-    "name": "Renal — AKI / CKD / Glomerular (Medicine) — Fresh Mock Set",
+    "name": "Renal — AKI / CKD / Glomerular (Medicine)",
     "questions": [
       {
         "q": "A 60-year-old woman develops fever, a maculopapular rash, and rising creatinine 10 days after starting a new antibiotic. Urine shows WBC casts and peripheral blood shows eosinophilia. What is the most likely diagnosis?",
@@ -8136,7 +8136,7 @@ const SUBJECTS = [
   },
   {
     "id": "urology",
-    "name": "Urology (Surgery & Medicine) — Fresh Mock Set",
+    "name": "Urology (Surgery & Medicine)",
     "questions": [
       {
         "q": "A 45-year-old man presents with his first renal colic. Non-contrast CT shows a radio-opaque stone in the left renal pelvis. Which is the most common composition of such stones?",
