@@ -74,9 +74,21 @@ else fail('missing files/folders for: ' + missingFiles.map(i=>i.f).join(', '));
 
 console.log('\n[4] library.html router rules (single-file shelves)');
 const CATS = ["Core Books","Mocks & Drills","Past Papers & Answer Keys","Exam Intelligence & Strategy","Quick Reference","Frameworks & Interactive","MedCORE Systems"];
-const single = CATS.filter(c=>libItems.filter(i=>i.c===c).length===1);
-if(single.includes('Mocks & Drills') && single.includes('Frameworks & Interactive')) ok('single-file shelves detected (Mocks & Drills, Frameworks & Interactive)');
-else fail('single-file shelves unexpected: ' + single.join(', '));
+const perCount = Object.fromEntries(CATS.map(c=>[c, libItems.filter(i=>i.c===c).length]));
+const single = CATS.filter(c=>perCount[c]===1);
+/* Router is data-driven: DIRECT is built at runtime for whichever shelves are
+   single-file, so the check is consistency, not a hardcoded shelf list —
+   a shelf can vacate/register as the catalog grows (e.g. Mocks & Drills went
+   two-deep when Fresh Mock Bank landed). */
+if(single.length === 0){
+  ok('no single-file shelves (every shelf has a picker)');
+}else{
+  /* DIRECT is composed at runtime from the same slug function for whichever
+     shelves are single-file — wiring is consistency, not a hardcoded list */
+  if(/if\(its\.length===1\)DIRECT\[slug\(c\)\]=href\(its\[0\]\)/.test(libHtml.replace(/\s+/g,'')))
+    ok('single-file shelf wiring intact — shelves: ' + single.join(', '));
+  else fail('single-file shelf exists (' + single.join(', ') + ') but runtime DIRECT composition not found');
+}
 if(/const DIRECT\s*=/.test(libHtml)) ok('DIRECT map present for single-file shelves');
 else fail('DIRECT map missing');
 if(/location\.replace\(DIRECT\[id\]\)/.test(libHtml)) ok('old hashes redirect via location.replace');
