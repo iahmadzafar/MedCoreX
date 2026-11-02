@@ -27,11 +27,24 @@ function walk(dir, out = []) {
   return out;
 }
 
-/* Exempted Nov 3 by owner verdict: the palette-only bridge made the ten
-   MedCORE systems books WORSE, not better — they came off the bridge until
-   they get a real screen-first redesign. Exemption is explicit, dated and
-   owned, not a hidden bypass. Everything else still fails the gate. */
+/* Exempted Nov 3 by owner verdict — TWENTY pages, not the ten first thought:
+   the palette-only bridge was "the same cheap trick" for the systems books
+   AND the standalone pages. All twenty sit off the bridge until real per-page
+   kit conversions land (pattern: forge-master, cbf48fa). Exemption is
+   explicit, dated and owned; everything else still fails the gate. */
 const EXEMPT = [
+  /* ten standalone (were bridge consumers, reverted to pre-bridge bytes) */
+  'medcore-cheat-card.html',
+  'medcore-memory-master-core.html',
+  'medcore-pattern-analysis.html',
+  'medcore-prediction-intelligence-report.html',
+  'medcore-recall-sheets-repeat-offenders.html',
+  'nre-recall-sheets-repeat-offenders.html',
+  'qbank-logic-first-high-yield-logic-first-high-yield-bank.html',
+  'standalone-htmls-800-plus-mcq-architecture.html',
+  'standalone-htmls-disease-symptom-clusters.html',
+  'standalone-htmls-prediction-sheet-1-high-yield-topic-pool.html',
+  /* ten systems books (struck first, same verdict) */
   'medcore-systems-cardiology-cardiology-medcore.html',
   'medcore-systems-dermatology-dermatology-medcore.html',
   'medcore-systems-ent-ent-medcore.html',
