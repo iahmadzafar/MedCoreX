@@ -223,21 +223,6 @@ footer.foot{border-top:var(--bw) solid var(--ink);background:var(--surface);tran
 }
 /* phones: tighten logo + engine so the chips never clip.
    480 not 430 — the iPhone Pro Max is 440pt wide and missed the old cap. */
-/* ═══ Burger panel (phones ≤900px; the kit injects the button) ═══ */
-@media (max-width:900px){
-  .burger{display:grid}
-  .burger[aria-expanded=true]{color:var(--on-accent)}
-  .nav .links{position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:4px;
-    margin:0;padding:10px 14px 14px;background:var(--surface);border-bottom:var(--bw) solid var(--ink);
-    box-shadow:0 14px 34px -18px rgba(23,17,10,.45);display:none;z-index:60;
-    max-height:calc(100dvh - 58px);overflow-y:auto;overscroll-behavior:contain}
-  .nav.burger-open .links{display:flex}
-  .nav .links a{padding:11px 13px;font-size:.95rem;white-space:normal}
-  .nav .links .navdrop{flex-direction:column;align-items:stretch}
-  /* shelves submenu stays open in the panel — hover is unreliable on touch */
-  .nav .links .navmenu{position:static;display:flex;min-width:0;flex-direction:column;padding:0 0 0 14px;border-left:2px solid var(--line);margin-left:13px}
-  .nav .links .navmenu a{padding:7px 10px;font-size:.85rem}
-}
 @media (max-width:480px){
   .nav .wrap{padding:0 12px}
   .nav .logo{font-size:1.05rem}
@@ -249,3 +234,22 @@ footer.foot{border-top:var(--bw) solid var(--ink);background:var(--surface);tran
 }
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 @media print{.nav,.foot,.blobs,.toast,.btn,.icon-btn,.nav-show,.nav-tog,.marquee,.hero-art{display:none!important}.card{box-shadow:none;break-inside:avoid}.rv{animation:none!important}}
+
+/* ═══ Burger panel (phones ≤900px; the kit injects the button) ═══
+   LAST in the sheet: panel rules win over the ≤480 nav tightening ═══ */
+@media (max-width:900px){
+  .burger{display:grid}
+  .burger[aria-expanded=true]{color:var(--on-accent)}
+  .nav .links{position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:3px;
+    margin:0;padding:12px 14px 16px;background:var(--surface);border-bottom:var(--bw) solid var(--ink);
+    box-shadow:0 14px 34px -18px rgba(23,17,10,.45);display:none;z-index:60;
+    max-height:calc(100dvh - 58px);overflow-y:auto;overscroll-behavior:contain}
+  .nav.burger-open .links{display:flex}
+  .nav .links a{padding:10px 14px;font-size:.85rem;white-space:normal}
+  .nav .links .navdrop{flex-direction:column;align-items:stretch}
+  /* shelves submenu: plain indented list inside the panel — no card chrome */
+  .nav .links .navmenu{position:static;display:flex;flex-direction:column;gap:2px;min-width:0;
+    background:none;border:0;border-radius:0;box-shadow:none;
+    padding:2px 0 2px 14px;border-left:2px solid var(--line);margin:2px 0 2px 13px}
+  .nav .links .navmenu a{padding:8px 12px;font-size:.79rem}
+}
