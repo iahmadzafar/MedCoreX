@@ -57,12 +57,12 @@ behind a session (visitors bounce to `/login?next=…`), so no module URL answer
 
 ### M03 · Forge Cards
 
-- **File:** `site/resources/standalone-htmls-forge-master.html`, 25,065 lines — live at `/resources/standalone-htmls-forge-master`
+- **File:** `site/resources/standalone-htmls-forge-master.html`, 23,871 lines — live at `/resources/standalone-htmls-forge-master`
 - **What it is:** 100 high-yield cards.
 - **Inside:** 100 top-level headings; first ones: “ACS: STEMI & NSTEMI”, “Acute Kidney Injury (AKI)”, “Diabetic Ketoacidosis (DKA)”. Data: pure markup + CSS content (no embedded data bank).
-- **Interface:** live search/filter (`#forgeSearch`), sticky headers/bars, keyboard shortcuts, persists state in localStorage, print stylesheet, 8 inline SVGs. No canvas and no timer — cards reveal on click.
-- **Mode system:** dark · rules:6 pref:1.
-- **Design passes so far:** fonts:2026 trio; mlx-live toggle; 4-family interactive themes; has light block; color-scheme meta.
+- **Interface:** live search/filter (`#forgeSearch`), sticky headers/bars, keyboard shortcuts, print stylesheet, 8 inline SVGs. No canvas and no timer — cards reveal on click.
+- **Mode system:** engine-driven (`html[data-theme]`) via the kit; light tokens forced only inside `@media print`.
+- **Design passes so far:** on the Studyverse kit (Nov 3 2026): kit nav + tool bar + `footer.foot`, tokens-only page CSS, engine owns light/dark (mx-mode/mx-lock), drawer scrim, phone pass ≤900/≤640. Ink/Ice/Copper/Paper four-theme picker (nx-fam), Zephyr fonts, mlx toggle and old phone-pass/mlx-live tails removed. Card bodies untouched.
 
 ### M04 · Memory Master
 
