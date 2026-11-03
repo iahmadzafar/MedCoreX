@@ -376,10 +376,14 @@ Present in `site/resources/` but absent from `hub-data/catalog.json`, so the lib
 them. Listed so a future audit doesn't read them as lost modules — and so nobody mistakes the
 twins for each other.
 
-- **`medcore-past-paper-hub-practice/`** — module-shaped folder (`index.html` 155 · `app.js` 227 ·
-  `data.js` 5): realtime practice over the five recalled papers (68 subject groups · 822 questions).
-  Its only inbound link is `medcore-prediction-exam-practice.html`. **This — not M06 — is where
-  recalled past papers are practised.**
+- **`medcore-past-paper-hub-practice/`** — module-shaped folder (`index.html` 196 · `style.css` 197 ·
+  `app.js` 505 · `data.js` 5): realtime practice over the five recalled papers (68 subject groups ·
+  822 questions). **Rebuilt from the ground up in the home theme on 3 Nov 2026** — own `style.css`
+  (kit tokens only, no hex), home-page hero with the paper monitor, footer, and its own app.js; no
+  dependency on M06's stylesheet. Its only inbound link is `medcore-prediction-exam-practice.html`.
+  **This — not M06 — is where recalled past papers are practised.** Data note: 461 of the 822
+  questions carry a written layer (`rule`/`trap`/`fix`/`note`); the other 361 show an honest
+  "no reasoning layer recorded" note rather than an empty box.
 - **`medcore-prediction-exam-practice.html`**, 148 lines — realtime practice hub, no inbound links.
 - **`medcore-prediction-exam-restyled.html`**, 487 lines — the “Paper view” target of the page above.
 - **`medcore-recall-sheets-repeat-offenders.html`**, 813 lines — unreferenced twin of **M26**:
