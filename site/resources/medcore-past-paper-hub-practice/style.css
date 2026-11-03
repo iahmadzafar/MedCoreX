@@ -6,31 +6,10 @@
    app.js) rewrites them on each visit, so every page and
    section changes together and stays consistent.
    ========================================================= */
-:root{
-  --bg:#fff4e0; --surface:#fffdf8; --ink:#1d1433;
-  --c1:#ff6b9a; --c2:#ffd34d; --c3:#4cc9d8; --c4:#9b7bff;
-  --radius:18px; --bw:3px;
-  --shadow:6px 6px 0 var(--ink);
-  --shadow-hover:10px 10px 0 var(--ink);
-  --title-shadow:3px 3px 0 var(--c2);
-  --font-display:Futura,"Century Gothic","Trebuchet MS",sans-serif;
-  --font-body:"Avenir Next","Segoe UI",sans-serif;
-  --dw:800; --case:uppercase; --track:.01em;
-  --tilt:-1deg;
-  --ease:cubic-bezier(.34,1.56,.64,1);
-  --muted:var(--ink);
-  --line:color-mix(in srgb,var(--ink) 14%,transparent);
-  --pill:min(var(--radius),999px);
-}
 /* =========================================================
    BASE
    ========================================================= */
 *{box-sizing:border-box;margin:0;padding:0}
-body{
-  font-family:var(--font-body);color:var(--ink);background-color:var(--bg);
-  line-height:1.55;min-height:100vh;overflow-x:hidden;
-  transition:background-color .8s ease,color .8s ease;
-}
 /* =========================================================
    BACKGROUND BLOBS (live, always moving)
    ========================================================= */
@@ -169,7 +148,7 @@ body{
 /* =========================================================
    MODULE · QUESTIONS BANK  — nav chip, subjects, practice
    ========================================================= */
-:root{--ok:#2fbf71;--bad:#f2385a;--qs:1}
+:root{--qs:1}
 /* =========================================================
    SUBJECTS GRID
    ========================================================= */
