@@ -102,9 +102,6 @@ h2{font-size:clamp(1.8rem,5vw,2.8rem);text-shadow:var(--title-shadow)}
 .how ol{margin:0;padding-left:20px;font-size:.98rem}
 .how li{margin:6px 0}
 .how li::marker{font-family:var(--font-display);color:var(--c1);font-weight:800}
-.notebox{border:var(--bw) dashed var(--ink);background:color-mix(in srgb,var(--c2) 25%,var(--surface));border-radius:var(--radius);padding:14px 18px;margin-bottom:22px;font-size:.9rem}
-.notebox h4{font-family:var(--font-display);text-transform:uppercase;letter-spacing:.14em;font-size:.78rem;font-weight:700;color:var(--ink);margin-bottom:6px}
-.notebox p{margin:5px 0}
 .btn-start{display:inline-flex;align-items:center;gap:.5em;cursor:pointer;text-decoration:none;font-family:var(--font-display);font-weight:var(--dw);text-transform:var(--case);letter-spacing:.03em;background:var(--c1);color:var(--ink);border:var(--bw) solid var(--ink);border-radius:var(--pill);padding:.75em 1.3em;box-shadow:4px 4px 0 var(--ink);font-size:.95rem;transition:transform .25s var(--ease),box-shadow .25s var(--ease)}
 .btn-start:hover{transform:translate(-2px,-2px) rotate(-2deg);box-shadow:7px 7px 0 var(--ink)}
 .btn-start:active{transform:translate(3px,3px);box-shadow:0 0 0 var(--ink)}
@@ -246,7 +243,6 @@ h2{font-size:clamp(1.8rem,5vw,2.8rem);text-shadow:var(--title-shadow)}
         <li><b>GRID</b> jumps anywhere. Finish to get your score card with a subject-wise breakdown.</li>
       </ol>
     </div>
-    <div id="notesBox"></div>
     <button class="btn-start" id="startBtn">START PAPER &rarr;</button>
     <div class="smap" id="smap"></div>
   </div>
@@ -321,10 +317,6 @@ var chips = '<span class="chip">' + N + ' QUESTIONS</span>' +
 if(defects) chips += '<span class="chip warn">' + defects + ' RECALL DEFECTS</span>';
 $("introChips").innerHTML = chips;
 $("smap").innerHTML = subjOrder.map(function(s){ return '<span>' + s + ' <b>' + subjSet[s] + '</b></span>'; }).join("");
-if(DATA.notes && DATA.notes.length){
-  $("notesBox").innerHTML = '<div class="notebox"><h4>SOURCE NOTES</h4>' +
-    DATA.notes.map(function(n){ return '<p>' + n + '</p>'; }).join("") + '</div>';
-}
 
 function show(id){
   ["intro","quiz","summary"].forEach(function(x){ $(x).hidden = (x !== id); });
