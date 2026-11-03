@@ -52,6 +52,27 @@
       "k": 202.5
     },
     {
+      "t": "June 2025",
+      "d": "140 MCQs, verified key + distractor analysis",
+      "c": "Past Papers & Answer Keys",
+      "f": "standalone-htmls-june-2025-answer-key.html",
+      "k": 111.4
+    },
+    {
+      "t": "December 2025",
+      "d": "200 MCQs, key + explanations",
+      "c": "Past Papers & Answer Keys",
+      "f": "standalone-htmls-dec-2025-answer-key.html",
+      "k": 153.5
+    },
+    {
+      "t": "Dec 2025 Recalled",
+      "d": "187 MCQs, original recall set",
+      "c": "Past Papers & Answer Keys",
+      "f": "standalone-htmls-dec-2025-recalled-key.html",
+      "k": 87.8
+    },
+    {
       "t": "May 2026",
       "d": "200 MCQs, key + explanations",
       "c": "Past Papers & Answer Keys",
@@ -60,7 +81,7 @@
     },
     {
       "t": "Prediction Exam 2026",
-      "d": "Full sitting \u00b7 14 subjects \u00b7 key + explanations",
+      "d": "Full sitting · 14 subjects · key + explanations",
       "c": "Past Papers & Answer Keys",
       "f": "medcore-prediction-exam.html",
       "k": 135.2
@@ -74,7 +95,7 @@
     },
     {
       "t": "Pattern Analysis",
-      "d": "Four papers decoded \u00b7 recurring patterns",
+      "d": "Four papers decoded · recurring patterns",
       "c": "Exam Intelligence & Strategy",
       "f": "medcore-pattern-analysis.html",
       "k": 19.6
@@ -95,7 +116,7 @@
     },
     {
       "t": "Magic Table",
-      "d": "Licensing thresholds \u00b7 memorise once",
+      "d": "Licensing thresholds · memorise once",
       "c": "Quick Reference",
       "f": "standalone-htmls-magic-table-medical-licensing.html",
       "k": 207.2
@@ -186,21 +207,21 @@
     },
     {
       "t": "MedCORE Question Bank",
-      "d": "Test series + main bank merged \u00b7 six subject groups",
+      "d": "Test series + main bank merged · six subject groups",
       "c": "Mocks & Drills",
       "f": "medcore-question-bank.html",
       "k": 5301.1
     },
     {
       "t": "Fresh Mock Bank",
-      "d": "NRE Prep fresh mock sets \u00b7 practice sets",
+      "d": "NRE Prep fresh mock sets · practice sets",
       "c": "Mocks & Drills",
       "f": "medcore-fresh-mock-bank.html",
       "k": 531.2
     },
     {
       "t": "Repeat Offenders",
-      "d": "The NRE recall vault \u2014 questions that keep coming back",
+      "d": "The NRE recall vault — questions that keep coming back",
       "c": "Quick Reference",
       "f": "nre-recall-sheets-repeat-offenders.html",
       "k": 53.6
