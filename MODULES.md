@@ -8,7 +8,7 @@
 > `site/index.html` + `site/library.html` strips `.html`) · multi-file modules are read
 > folder-wise. Claims that could not be reproduced were dropped, not kept.
 > **Terminology (owner's rule): every file of the hub is a MODULE.**
-> The hub = **33 modules** grouped into **7 sections**, served behind a 5-page shell.
+> The hub = **36 modules** grouped into **7 sections**, served behind a 5-page shell.
 > Every change to a module is proposed to the owner first — nothing moves without approval.
 
 ## The hub at a glance
@@ -19,13 +19,13 @@
 auth and stats chrome. `site/functions/resources/[[file]].js` gates every `/resources/*` path
 behind a session (visitors bounce to `/login?next=…`), so no module URL answers unauthenticated.
 
-**The 33 modules** below are grouped by their section. Their design state: modules wear the *earlier* Theme-2026 passes (font trio, tokens, radius, equalizers where noted) — **the Studyverse restyle of all 33 modules is the planned next phase** and awaits the owner's go.
+**The 36 modules** below are grouped by their section. Their design state: modules wear the *earlier* Theme-2026 passes (font trio, tokens, radius, equalizers where noted) — **the Studyverse restyle of all 36 modules is the planned next phase** and awaits the owner's go.
 
 | # | Section | Modules |
 |---|---------|---------|
 | — | **Core Books** | M01, M02, M03, M04, M05 |
 | — | **Mocks & Drills** | M06 |
-| — | **Past Papers & Answer Keys** | M07, M12, M13, M14 |
+| — | **Past Papers & Answer Keys** | M07, M08, M11, M12, M13, M14, Dec 2025 Recalled |
 | — | **Exam Intelligence & Strategy** | M15, M16, M17, M18, M19, M20 |
 | — | **Quick Reference** | M21, M22, M23, M24, M25, M26 |
 | — | **Frameworks & Interactive** | M27 |
@@ -110,6 +110,36 @@ behind a session (visitors bounce to `/login?next=…`), so no module URL answer
 - **Design passes so far:** fonts:2026 trio; mlx-live toggle; has light block; color-scheme meta.
 - **⚠ Notes:** Had a self-hosted @font-face (IBM Plex Mono base64) — removed during de-Plexing.
 
+### M08 · June 2025
+
+- **File:** `site/resources/standalone-htmls-june-2025-answer-key.html`, 474 lines — live at `/resources/standalone-htmls-june-2025-answer-key`
+- **What it is:** Verified key + distractor analysis.
+- **Inside:** 0 top-level headings; first ones: flat document. Data: embedded `var DATA` bank · 141 question entries.
+- **Interface:** self-scoring full-paper engine — start screen → question screen → summary with answer grid, live tally + track percentage, MCQ length-equalizer (mlx-eq), print stylesheet, 2 inline SVGs. No saved state, no keyboard shortcuts.
+- **Mode system:** kit engine (`studyverse.js`, keys `mx-mode`/`mx-lock`) — page CSS is kit tokens only, no hex.
+- **Design passes so far:** converted to the Studyverse kit; dark mode and the theme ride the kit.
+- **⚠ Notes:** **Restored to the shelf and tracked in git on 3 Nov 2026** (owner order) after the same-day removal — `337e00e` re-added the card, `c0671b8` tracked the file.
+
+### M11 · December 2025
+
+- **File:** `site/resources/standalone-htmls-dec-2025-answer-key.html`, 478 lines — live at `/resources/standalone-htmls-dec-2025-answer-key`
+- **What it is:** Corrected key — the full paper with answers and explanations.
+- **Inside:** 0 top-level headings; first ones: flat document. Data: embedded `var DATA` bank · 201 question entries.
+- **Interface:** same self-scoring engine as M08 (start → questions → summary with answer grid, tally, mlx-eq), print stylesheet, 2 inline SVGs. No saved state, no keyboard shortcuts.
+- **Mode system:** kit engine (`studyverse.js`, keys `mx-mode`/`mx-lock`) — kit tokens only, no hex.
+- **Design passes so far:** converted to the Studyverse kit; dark mode and the theme ride the kit.
+- **⚠ Notes:** **Restored to the shelf and tracked in git on 3 Nov 2026** (owner order) — `337e00e` re-added the card, `c0671b8` tracked the file.
+
+### Dec 2025 Recalled
+
+- **File:** `site/resources/standalone-htmls-dec-2025-recalled-key.html`, 478 lines — live at `/resources/standalone-htmls-dec-2025-recalled-key`
+- **What it is:** The original December 2025 recall set — the paper as first recalled, before the corrected key above. Both are kept: the recall set is what the exam actually served, the corrected key is what the answers should have been.
+- **Inside:** 0 top-level headings; first ones: flat document. Data: embedded `var DATA` bank · 188 question entries.
+- **Interface:** same self-scoring engine, print stylesheet, 2 inline SVGs. No saved state, no keyboard shortcuts.
+- **Mode system:** kit engine (`studyverse.js`, keys `mx-mode`/`mx-lock`) — kit tokens only, no hex.
+- **Design passes so far:** converted to the Studyverse kit; **re-added to the shelf and tracked in git on 3 Nov 2026** — `337e00e`, `c0671b8`.
+- **⚠ Notes:** Unnumbered on purpose — it arrived after the M-numbers were assigned, and renumbering the section would break every reference in the journal.
+
 ### M12 · May 2026
 
 - **File:** `site/resources/standalone-htmls-may-2026-mcq-breakdown.html`, 522 lines — live at `/resources/standalone-htmls-may-2026-mcq-breakdown`
@@ -131,13 +161,9 @@ behind a session (visitors bounce to `/login?next=…`), so no module URL answer
 
 ### M14 · Prediction Exam · Key
 
-- **File:** `site/resources/medcore-prediction-exam-answer-key.html`, 500 lines — live at `/resources/medcore-prediction-exam-answer-key`
-- **What it is:** Same paper, full key.
-- **Inside:** 0 top-level headings; first ones: flat document. Data: embedded `var DATA` bank · ~200 question entries.
-- **Interface:** answer-hiding quiz engine (reveal on click), sticky headers/bars, keyboard shortcuts, persists state in localStorage, print stylesheet, 0 inline SVGs.
-- **Mode system:** none · rules:1 pref:2.
-- **Design passes so far:** fonts:2026 trio; mlx-eq MCQ equalizer; mlx-live toggle; has light block; color-scheme meta.
-- **⚠ Notes:** Same 200 questions as the exam (duplicate set) — MCQ equalizer applied.
+- **File:** **none — merged into M13.** The standalone `medcore-prediction-exam-answer-key.html` was deleted in `b912130` ("Library: merge Prediction Exam 2026 + Key into one card (key already baked in)").
+- **What it is:** Same paper, full key — now the same file as M13, which carries the key inline.
+- **⚠ Notes:** Row kept so the M-numbering stays stable and the historical reference does not dangle. There is no M14 file on disk and no shelf card for it — the shelf lists **Prediction Exam 2026** once (M13).
 
 ---
 
@@ -392,6 +418,12 @@ twins for each other.
   `51c2b29`. Pick one before editing either.
 - **`standalone-htmls-medical-quick-reference-dark.html` / `-light.html`**, 1,058 lines each — the two
   tone variants **M23**'s combined page switches between (`SRC` map, line 60).
+- **`standalone-htmls-june-2024-answer-key.html`** (478 lines · 148 questions) and
+  **`standalone-htmls-dec-2024-answer-key.html`** (478 lines · 172 questions) — the June 2024 and
+  December 2024 self-scoring keys, same engine as M08/M11. **Restored to disk by the owner on
+  3 Nov 2026** (same-day removal reversed) and tracked in git, but deliberately **left off the
+  shelf** — no catalog entry, so the library does not show them. The full paper content lives in
+  `medcore-past-paper-hub-practice/` (the realtime practice module) either way.
 
 The **M01** and **M06** folders are *not* in this list: those are catalogued modules. The catalog
 keeps their `.html` name and the shell's `href()` strips the extension, so the link lands on the
