@@ -55,7 +55,7 @@
   <!-- ============ PRACTICE ============ -->
   <section id="practice" hidden>
     <div class="ptop">
-      <div class="ptitle"><a class="back" href="#/" aria-label="Back to subjects">‹</a><div><p class="eyebrow" id="pSub">Practice mode</p><h2 id="pName">Subject</h2></div></div>
+      <div class="ptitle"><a class="back" href="#/" aria-label="Back to subjects">‹</a><div><p class="crumbline"><a href="#/">Prediction Exam</a><span class="sep">→</span></p><h2 id="pName">Subject</h2></div></div>
     </div>
 
     <div class="card toolbar">
@@ -148,3 +148,9 @@
 <script src="/resources/medcore-past-paper-hub-practice/app.js"></script>
 </body>
 </html>
+/* breadcrumb path — page name lives on the page (owner ruling) */
+.crumbline{display:flex;align-items:center;gap:9px;margin:0 0 8px;font-family:var(--font-mono);font-weight:700;font-size:8pt;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.crumbline a{color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line)}
+.crumbline a:hover{color:var(--ink);border-color:var(--ink)}
+.crumbline .sep{color:var(--line)}
+

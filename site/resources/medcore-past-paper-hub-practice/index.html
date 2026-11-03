@@ -83,7 +83,7 @@
       <div class="ptitle">
         <a class="back" href="#/" aria-label="Back to papers">‹</a>
         <div>
-          <p class="eyebrow" id="pSub">Recalled paper · realtime practice</p>
+          <p class="crumbline"><a href="#/">Past Papers</a><span class="sep">→</span></p>
           <h2 id="pName">Subject set</h2>
         </div>
       </div>
@@ -158,12 +158,14 @@
     <p class="foot-tag">A genuinely great study resource — curated with discipline, and kept current and exact.</p>
   </div>
   <nav class="foot-links" aria-label="Footer">
-    <a href="/">Home</a><a href="/library">Library</a><a href="/about">About</a><a href="/faq">FAQ</a> <a href="/login" id="footAuth">Sign in</a> </nav>
+    <a href="/">Home</a><a href="/library">Library</a><a href="/about">About</a> <a href="/login" id="footAuth">Sign in</a>
+  </nav>
   <div class="foot-legal">
     <span>© 2026 MedCoreX. All rights reserved. · Developed by AHMDZAFR</span>
     <span>read · learn · repeat</span>
   </div>
 </div></footer>
+
 <!--/FOOTER-->
 
 <!-- full breakdown -->
@@ -197,3 +199,9 @@
 <script src="/auth-nav.js" defer></script>
 </body>
 </html>
+/* breadcrumb path — page name lives on the page (owner ruling) */
+.crumbline{display:flex;align-items:center;gap:9px;margin:0 0 8px;font-family:var(--font-mono);font-weight:700;font-size:8pt;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.crumbline a{color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line)}
+.crumbline a:hover{color:var(--ink);border-color:var(--ink)}
+.crumbline .sep{color:var(--line)}
+

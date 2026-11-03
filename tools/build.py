@@ -26,7 +26,6 @@ PAGES = {
     "index.html":   {"v": "site", "active": "/",        "f": "site"},
     "library.html": {"v": "site", "active": "/library", "f": "site"},
     "about.html":   {"v": "site", "active": "/about",   "f": "site"},
-    "faq.html":     {"v": "site", "active": "/faq",     "f": "site"},
     "stats.html":   {"v": "site", "active": "/stats",   "f": "site"},
     "login.html":   {"v": "site", "active": None,       "f": "site"},
     "signup.html":  {"v": "site", "active": None,       "f": "site"},

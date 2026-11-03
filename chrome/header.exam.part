@@ -1,0 +1,13 @@
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="/"><span class="logo-mark"><svg viewBox="0 0 24 24" style="width:1.15em;height:1.15em" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M12 4.2v16.3"/><path d="M12 5.6c-3 0-3 2.3 0 2.3s3 2.3 0 2.3-3 2.3 0 2.3 3 2.3 0 2.3"/><circle cx="12" cy="3.3" r="1.35" fill="currentColor" stroke="none"/></svg></span>MedCoreX</a>
+    <nav class="links" aria-label="Main">
+      <a href="/">Home</a>
+      <a href="/library">Library</a>
+      <a href="#/" id="navExam" aria-current="page">Prediction Exam</a>
+      <a href="/resources/medcore-past-paper-hub-practice/">Past Papers</a>
+      <a href="/stats">Stats</a> <a href="/login" id="navAuth">Sign in</a>
+    </nav>
+    <div class="engine" title="Theme engine" data-sv-engine></div>
+  </div>
+</header>
