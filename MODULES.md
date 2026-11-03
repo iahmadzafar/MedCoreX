@@ -151,13 +151,13 @@ behind a session (visitors bounce to `/login?next=…`), so no module URL answer
 
 ### M13 · Prediction Exam 2026
 
-- **File:** `site/resources/medcore-prediction-exam.html`, 523 lines — live at `/resources/medcore-prediction-exam`
-- **What it is:** Full sitting · 14 subjects.
-- **Inside:** 0 top-level headings; first ones: flat document. Data: embedded `var DATA` bank · ~200 question entries.
-- **Interface:** answer-hiding quiz engine (reveal on click), sticky headers/bars, keyboard shortcuts, persists state in localStorage, print stylesheet, 3 inline SVGs.
-- **Mode system:** none · rules:1 pref:2.
-- **Design passes so far:** fonts:2026 trio; mlx-eq MCQ equalizer; mlx-live toggle; has light block; color-scheme meta.
-- **⚠ Notes:** MCQ length-equalizer applied (mlx-eq) — options clamp to 2 lines pre-reveal.
+- **File:** four-file module `site/resources/medcore-prediction-exam/` — `index.html` 153 · `style.css` 145 · `app.js` 264 · `data.js` 5 — live at `/resources/medcore-prediction-exam` (extensionless: the catalog link strips `.html` and lands on the folder's `index.html`).
+- **What it is:** Full sitting · 14 subjects · 200 MCQs, authored prediction with key, rule and trap on every question.
+- **Inside:** home-page shell — hero with the exam monitor (200 MCQs · 14 subjects · 4 per question · 0 defects), marquee, "how it works" card, subject map, then the paper itself. Data: `data.js` holds `DATA.qs` — 200 entries of {subj, label, stem, opts[4], c, rule, trap, inf}.
+- **Interface:** three screens (intro → paper → score card) plus a question-grid modal. Click an option: instant verdict, correct answer revealed, rule + trap shown, AI-inferred badge where the key was inferred. Subject-wise score card, RETRY PAPER / REVIEW MISSED / GRID, progress track, live tally, MCQ length-equalizer (options clamp to 2 lines pre-reveal, with a `+` expander). Keyboard: `A–D` / `1–4` answer, `←` `→` move, `Enter` next, `Esc` closes the grid. Print stylesheet.
+- **Mode system:** kit engine (`studyverse.js`, `data-sv-engine` chip, keys `mx-mode`/`mx-lock`) — page CSS is kit tokens only, no hex.
+- **Design passes so far:** **rebuilt from the ground up in the home theme on 3 Nov 2026** — own `style.css`, home hero + exam monitor + footer, rewritten `app.js` (scoped IIFE, escaped output); the old single-file build was deleted and `/resources/medcore-prediction-exam.html` now 302s to the module (`site/_redirects`).
+- **⚠ Notes:** 0 recall defects in this paper (every question has a verified key), so the defect path exists but never fires here. No saved state — the paper is a single sitting, not a resumable bank.
 
 ### M14 · Prediction Exam · Key
 
@@ -411,7 +411,7 @@ twins for each other.
   questions carry a written layer (`rule`/`trap`/`fix`/`note`); the other 361 show an honest
   "no reasoning layer recorded" note rather than an empty box.
 - **`medcore-prediction-exam-practice.html`**, 148 lines — realtime practice hub, no inbound links.
-- **`medcore-prediction-exam-restyled.html`**, 487 lines — the “Paper view” target of the page above.
+- **`medcore-prediction-exam-restyled.html`**, 479 lines — the “Paper view” target of the page above. **Superseded by M13 on 3 Nov 2026**: the exam itself was rebuilt in the home theme as a folder module (`site/resources/medcore-prediction-exam/`), so the old single-file “restyled” build now sits behind it — same paper, older surface. Retire it or port it; do not keep editing both.
 - **`medcore-recall-sheets-repeat-offenders.html`**, 813 lines — unreferenced twin of **M26**:
   same `<title>` (“Repeat Offenders — NRE recall vault”), different bytes (M26's `nre-…` file is
   873 lines and is the one `index.html`, `library.html` and the catalog link). Both arrived in merge
