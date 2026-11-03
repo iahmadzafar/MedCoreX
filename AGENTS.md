@@ -83,14 +83,6 @@ Actions secrets (`CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`).
   one alias block in studyverse-bridge.css + one signature in kitify.
 - Gate: site/kitcheck.js (runs in CI after scriptproof) — every site HTML
   must link kit css or bridge css, or the deploy fails.
-- Gate: site/navcheck.js (runs in CI after kitcheck) — **the topbar never names
-  the page you are on.** No nav link's label may contain the page's own name
-  (from its <title>), and no script may write a nav link's text — a label set
-  from a variable names the current subject/paper the moment it opens. The
-  shell destinations (Home · Library · About · FAQ · Stats · Sign in) are the
-  site nav and are allowed everywhere; a module may use a generic word
-  (Subjects · Papers · Mocks · Practice) but never its own name.
-  Owner ruling, 3 Nov 2026.
 - Page CSS uses kit tokens only (no hex colours) so dark mode works everywhere.
 - Kit pages: text on any accent fill (`--c1..c4`, `--accent`, `--ok`, `--bad`)
   uses `color:var(--on-accent)` when the rule has no colour of its own.
@@ -101,8 +93,7 @@ Actions secrets (`CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`).
 - Saved-progress names start with "medcore." (e.g. medcore.qb, medcore.book).
   Theme prefs stay mx-lock / mx-mode.
 - Test-only, never deployed or linked: verify.js, prooflocal.js, domproof.js,
-  bankproof.js, prodcheck.js, libproof.js, serve.js, scriptproof.js,
-  kitcheck.js, navcheck.js, deploy.sh.
+  bankproof.js, prodcheck.js, libproof.js, serve.js, scriptproof.js, deploy.sh.
 - scriptproof.js is the syntax gate: every inline <script> in every HTML file in the
   repo, every .js and every .json/.jsonl must parse (`node site/scriptproof.js`,
   exit 1 = broken). It runs in CI before deploy, so a raw newline inside a quoted

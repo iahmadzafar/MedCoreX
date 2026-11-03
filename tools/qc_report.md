@@ -1,55 +1,55 @@
 # MCQ Quality Check Report — MedCoreX Question Bank
 
-Generated: 2026-11-03T02:06:20.613Z
+Generated: 2026-11-03T02:29:07.836Z
 
 ## Scope
-- Subjects: medicine (1752), surgery (815), eye-ent (338), obgyn (384), paeds (350), basic (535)
-- Total questions: 4174
-- Unique stems: 4174 (exact dup: 0)
-- Total issues: 2990
+- Subjects: medicine (1745), surgery (805), eye-ent (335), obgyn (382), paeds (340), basic (526)
+- Total questions: 4133
+- Unique stems: 4133 (exact dup: 0)
+- Total issues: 2867
 
 ## Layer completeness
-- Full (all 6 layers): 2765
-- Concept only: 1210
+- Full (all 6 layers): 2787
+- Concept only: 1147
 - Partial: 199
 
 ## Severity counts
-- low: 264
+- low: 263
 - high: 37
-- medium: 2689
+- medium: 2567
 
 ## Issue counts by check
-- NO_OTHERS: 1443
-- CONCEPT_ONLY: 1210
+- NO_OTHERS: 1380
+- CONCEPT_ONLY: 1147
 - PARTIAL_LAYERS: 199
-- NO_QUESTION_MARK: 62
+- NO_QUESTION_MARK: 61
 - BAD_OPTION_COUNT: 27
 - STEM_TOO_SHORT: 15
-- ANSWER_SKEW: 11
+- ANSWER_SKEW: 15
 - ANSWER_LEAK: 10
 - EMPTY_OTHER: 10
 - STEM_VERY_LONG: 2
 - OTHERS_COUNT: 1
 
 ## Answer distribution (all subjects)
-- A: 941 (22.5%)
-- B: 1056 (25.3%)
-- C: 932 (22.3%)
-- D: 890 (21.3%)
-- E: 355 (8.5%)
+- A: 952 (23.0%)
+- B: 1032 (25.0%)
+- C: 912 (22.1%)
+- D: 904 (21.9%)
+- E: 333 (8.1%)
 
 ## Option count distribution
 - 3 options: 27
-- 4 options: 2462
-- 5 options: 1685
+- 4 options: 2422
+- 5 options: 1684
 
 ## Subject counts
-- medicine: 1752
-- surgery: 815
-- eye-ent: 338
-- obgyn: 384
-- paeds: 350
-- basic: 535
+- medicine: 1745
+- surgery: 805
+- eye-ent: 335
+- obgyn: 382
+- paeds: 340
+- basic: 526
 
 ## Sample issues (first 60)
 ### [low] STEM_VERY_LONG — medicine #2
@@ -161,7 +161,7 @@ Detail: missing others
 Detail: missing others
 
 ### [medium] NO_OTHERS — medicine #1251
-> A 35-year-old man has a well-defined, hypopigmented, scaly plaque on the trunk with a &#x27;spider web&#x27; pattern on Wood&#x27;s lamp exa
+> A 35-year-old man has a well-defined, hypopigmented, scaly plaque on the trunk with a 'spider web' pattern on Wood's lamp examination. Most 
 Detail: missing others
 
 ### [medium] NO_OTHERS — medicine #1252

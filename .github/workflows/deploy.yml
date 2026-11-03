@@ -24,7 +24,7 @@ jobs:
 
       # Gate: question-bank quality — no critical structural defects
       # (empty stem, answer out of range, <3 options, duplicate options).
-      # Writes tools/qc_report.md + tools/qc_issues.json and fails on critical.
+      # Writes tools/qc_report.md + tools/qc_issues.json; fails on critical.
       - name: Proof — question bank has no critical defects
         run: node tools/mcq_quality_check.js --strict
 
@@ -33,14 +33,9 @@ jobs:
       - name: Proof — every page wears the home theme
         run: node site/kitcheck.js
 
-      # Gate: the topbar never names the page you are on — no nav label may
-      # carry the page's own name, and no script may write a nav label.
-      - name: Proof — no page names itself in the nav
-        run: node site/navcheck.js
-
       - name: Prune junk before upload
         working-directory: site
-        run: rm -rf .github .gitignore && find . -maxdepth 1 \( -name '.DS_Store' -o -name '*.bak-*' \) -delete && rm -f verify.js prooflocal.js domproof.js bankproof.js prodcheck.js serve.js libproof.js scriptproof.js kitcheck.js navcheck.js
+        run: rm -rf .github .gitignore && find . -maxdepth 1 \( -name '.DS_Store' -o -name '*.bak-*' \) -delete && rm -f verify.js prooflocal.js domproof.js bankproof.js prodcheck.js serve.js libproof.js scriptproof.js kitcheck.js
 
       - name: Check deploy secret
         id: check

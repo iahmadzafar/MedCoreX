@@ -1,0 +1,301 @@
+[
+ {
+  "stem": "In a randomised trial, a new antiplatelet drug reduces the absolute risk of stroke from 6% in the placebo group to 2% in the treatment group over 5 years. What is the number needed to treat (NNT) to prevent one stroke?",
+  "discriminator": "NNT = 1 / absolute risk reduction. ARR = 6% − 2% = 4% = 0.04, so NNT = 1/0.04 = 25.",
+  "trap": "Using relative risk reduction (67%) or the raw risk difference (4) instead of the reciprocal.",
+  "hook": "NNT = 1/ARR. ARR 4% → NNT 25.",
+  "rule": "NNT = 1 / (control risk − treatment risk). Round up to the nearest whole patient.",
+  "highyield": "Absolute risk reduction = 6% − 2% = 4%. NNT = 1/0.04 = 25 patients must be treated to prevent one stroke over 5 years. NNH uses the same formula for harm.",
+  "others": {
+   "D": "33 would be the NNT if ARR were 3%.",
+   "B": "20 would be the NNT if ARR were 5%.",
+   "A": "4 is the ARR itself in percentage points, not the NNT."
+  }
+ },
+ {
+  "stem": "A new anticoagulant is compared to standard therapy in 10,000 patients with atrial fibrillation. The incidence of major bleeding in the new drug group is 3.5% compared to 1.5% in the standard therapy group. What is the number needed to harm (NNH) for major bleeding with the new drug?",
+  "discriminator": "NNH = 1 / absolute risk increase. ARI = 3.5% − 1.5% = 2.0% = 0.02, so NNH = 1/0.02 = 50.",
+  "trap": "Using NNT logic (1/0.02 gives 50 but thinking it is a benefit) or misreading the difference as 0.5%.",
+  "hook": "NNH = 1/ARI. ARI 2% → NNH 50.",
+  "rule": "NNH = 1 / (treatment harm risk − control harm risk).",
+  "highyield": "ARI = 3.5% − 1.5% = 2%. NNH = 1/0.02 = 50: one extra major bleed for every 50 patients switched to the new anticoagulant.",
+  "others": {
+   "B": "20 would be the NNH if ARI were 5%.",
+   "A": "2 would be the NNH if ARI were 50%.",
+   "D": "200 would be the NNH if ARI were 0.5%."
+  }
+ },
+ {
+  "stem": "In a cohort study, the incidence of coronary heart disease among smokers is 28 per 1000 person-years and among non-smokers is 8 per 1000 person-years. What is the attributable risk (also called risk difference) of coronary heart disease due to smoking?",
+  "discriminator": "Attributable risk = risk in exposed − risk in unexposed = 28 − 8 = 20 per 1000 person-years.",
+  "trap": "Dividing to get the relative risk (28/8 = 3.5) instead of subtracting.",
+  "hook": "AR = exposed − unexposed = 28 − 8 = 20/1000.",
+  "rule": "Attributable risk (risk difference) = I_exposed − I_unexposed. It measures the excess risk caused by the exposure.",
+  "highyield": "Attributable risk = 28 − 8 = 20 per 1000 person-years, the excess CHD incidence attributable to smoking. The 3.5 value is the relative risk.",
+  "others": {
+   "B": "8 is the risk in the unexposed group.",
+   "A": "3.5 is the relative risk, not the risk difference.",
+   "D": "28 is the risk in the exposed group."
+  }
+ },
+ {
+  "stem": "A screening test for diabetes has 80% sensitivity and 90% specificity. It is used in a population where the prevalence of undiagnosed diabetes is 5%. If 2000 people are screened, how many true positives will be detected?",
+  "discriminator": "True positives = prevalence × population × sensitivity = 0.05 × 2000 × 0.80 = 80.",
+  "trap": "Using specificity (0.90) instead of sensitivity, or forgetting to apply prevalence first.",
+  "hook": "TP = N × prev × sens = 2000 × 0.05 × 0.80 = 80.",
+  "rule": "True positives = (number screened) × (prevalence) × (sensitivity).",
+  "highyield": "5% of 2000 = 100 people have diabetes. Sensitivity 80% detects 80 of them (true positives). The remaining 20 are false negatives.",
+  "others": {
+   "D": "160 would be TP if sensitivity were applied to all 2000 without prevalence.",
+   "C": "100 is the number of true cases, not the number detected.",
+   "A": "20 is the number of false negatives."
+  }
+ },
+ {
+  "stem": "An ecological study finds a strong positive correlation (r = 0.85) between per capita sugar consumption and diabetes prevalence across 30 countries. The study concludes that reducing individual sugar intake prevents diabetes. Which of the following is the most important critical flaw in this conclusion?",
+  "discriminator": "Ecological fallacy: group-level (country-level) associations cannot be assumed to hold at the individual level.",
+  "trap": "Confusing this with confounding or selection bias; the flaw is the level-of-analysis error.",
+  "hook": "Ecological study = group-level correlation ≠ individual-level causation (ecological fallacy).",
+  "rule": "The ecological fallacy is inferring individual risk from aggregate (group) data.",
+  "highyield": "An ecological correlation across countries is vulnerable to the ecological fallacy — country-level sugar intake correlating with country-level diabetes does not prove that individuals who eat more sugar develop diabetes. Confounders (obesity, activity, genetics) also differ between countries.",
+  "others": {
+   "D": "Confounding is possible but the defining flaw of ecological data is the level-of-analysis error.",
+   "C": "Information bias concerns measurement error, not the group-to-individual inference.",
+   "A": "Selection bias concerns who enters the study, not the level of analysis."
+  }
+ },
+ {
+  "stem": "A new screening programme for ovarian cancer is introduced. Five years later, the 5-year survival rate among screen-detected cases is significantly higher than among clinically detected cases from before the programme started. However, the overall mortality rate from ovarian cancer in the population has not changed. Which bias best explains this discrepancy?",
+  "discriminator": "Lead-time bias: screening advances the time of diagnosis without changing the time of death, inflating measured survival.",
+  "trap": "Attributing the unchanged mortality to length-time bias; length-time bias explains better prognosis of detected cases, but the unchanged population mortality with longer survival is the signature of lead-time bias.",
+  "hook": "Screening + longer survival + unchanged mortality = lead-time bias.",
+  "rule": "Lead-time bias = earlier diagnosis lengthens the measured survival interval without actually delaying death.",
+  "highyield": "If screening diagnoses cancer earlier but mortality is unchanged, the apparent survival gain is lead-time bias — the clock starts earlier, death occurs at the same time. True benefit would require falling mortality.",
+  "others": {
+   "A": "Selection bias would affect who is screened, not the survival-without-mortality-change pattern.",
+   "D": "Information bias is misclassification, not this pattern.",
+   "C": "Length-time bias explains why screen-detected cases have better prognosis (indolent tumours), but the unchanged mortality is the key lead-time clue."
+  }
+ },
+ {
+  "stem": "A mammography screening programme reports that screen-detected breast cancers have a 98% 5-year survival rate, whereas interval cancers (those presenting between screening rounds) have only a 60% 5-year survival rate. Screening advocates cite this as evidence of effectiveness. However, critics argue that screening preferentially detects slower-growing, less aggressive tumours. Which bias is being described?",
+  "discriminator": "Length-time bias: screening preferentially detects indolent, slow-progressing disease with better prognosis.",
+  "trap": "Choosing lead-time bias; lead-time explains unchanged mortality, whereas here the difference is tumour biology (indolent vs aggressive).",
+  "hook": "Screening finds the slow tumours → inflated survival for screen-detected cases = length-time bias.",
+  "rule": "Length-time bias = screening preferentially detects long-duration (indolent) disease, biasing survival upward.",
+  "highyield": "Screening preferentially detects slow-growing tumours (long sojourn time), which have inherently better prognosis, so screen-detected cases appear to survive longer. Interval cancers are the aggressive ones that progress between rounds. This inflates survival without proving mortality benefit.",
+  "others": {
+   "C": "Selection bias concerns who participates, not tumour growth rate.",
+   "D": "Recall bias concerns misreported exposure, not survival.",
+   "A": "Lead-time bias concerns earlier diagnosis timing, not the indolent-vs-aggressive distinction."
+  }
+ },
+ {
+  "stem": "In a clinical trial, the null hypothesis states that there is no difference in outcome between the treatment and placebo groups. The investigators obtain a p-value of 0.03 and conclude that the treatment is effective. If the null hypothesis is actually true, what type of error have the investigators made?",
+  "discriminator": "Rejecting a true null hypothesis is a Type I error (α error).",
+  "trap": "Calling it a Type II error (that is failing to reject a false null).",
+  "hook": "Type I = false positive = rejected a true null. p<0.05 with true null = Type I.",
+  "rule": "Type I error (α) = rejecting H0 when it is true (false positive). Type II (β) = failing to reject H0 when it is false.",
+  "highyield": "With a true null hypothesis, declaring significance (p = 0.03 < 0.05) and concluding the treatment works is a Type I error — a false positive. The probability of this error is the α level (5%).",
+  "others": {
+   "C": "p < 0.05 does not guarantee the null is false; it only means the data are unlikely under H0.",
+   "B": "Type II error is failing to detect a real effect, the opposite scenario.",
+   "D": "Power relates to Type II error, not to wrongly rejecting a true null."
+  }
+ },
+ {
+  "stem": "A pilot study of 30 patients tests a new intervention for stroke rehabilitation. The study finds no statistically significant difference compared to standard care (p = 0.24). The authors conclude the intervention is no better than standard care. However, the confidence interval for the effect is very wide, and the point estimate suggests a potentially clinically meaningful benefit. Which of the following is the most important limitation of this study's conclusion?",
+  "discriminator": "Type II error — the study lacked power (small n) to detect a true difference.",
+  "trap": "Choosing Type I error (that is falsely rejecting a true null, the opposite).",
+  "hook": "Small sample + wide CI + non-significant but promising point estimate = underpowered (Type II risk).",
+  "rule": "A non-significant result in an underpowered study may reflect a Type II error (false negative) rather than true equivalence.",
+  "highyield": "With only 30 patients, the study is underpowered: a wide confidence interval crossing the null with a clinically meaningful point estimate suggests the trial may have missed a real benefit (Type II error). Absence of significance ≠ absence of effect.",
+  "others": {
+   "A": "Type I error is falsely rejecting a true null; here the null was not rejected.",
+   "C": "Confounding would bias the estimate, but the wide CI points to imprecision from small sample size.",
+   "D": "Selection bias concerns representativeness, not the precision of the effect estimate."
+  }
+ },
+ {
+  "stem": "Which of the following is NOT one of the WHO Wilson-Jungner criteria for implementing a screening programme?",
+  "discriminator": "The criteria require an accepted, effective treatment and adequate facilities — no criterion demands 100% sensitivity and specificity.",
+  "trap": "Thinking a perfect test is required; Wilson-Jungner requires a simple, safe, acceptable, and reasonably sensitive/specific test, not a perfect one.",
+  "hook": "Wilson-Jungner = important problem + accepted treatment + detectable preclinical phase + simple safe test — not a perfect test.",
+  "rule": "Wilson-Jungner screening criteria: important health problem, accepted treatment, facilities for diagnosis/treatment, recognizable latent/early stage, suitable simple acceptable test, natural history understood, agreed policy on whom to treat, cost-effective — no 100% accuracy requirement.",
+  "highyield": "The Wilson-Jungner criteria (1968) do not require a test with 100% sensitivity and specificity. They require a simple, safe, acceptable, and reasonably accurate test, plus an accepted treatment and evidence that early treatment improves outcomes.",
+  "others": {
+   "D": "Available diagnosis and treatment facilities is a criterion.",
+   "A": "The condition must be an important health problem is a criterion.",
+   "B": "An accepted treatment for the condition is a criterion."
+  }
+ },
+ {
+  "stem": "A new biomarker for ovarian cancer has an area under the ROC curve (AUC) of 0.52. Which of the following best describes this test's discrimination ability?",
+  "discriminator": "AUC 0.5 = no discrimination (coin flip); 0.52 is barely above chance.",
+  "trap": "Calling AUC ~0.5 'fair' or 'good'; only AUC ≥0.7 is acceptable, ≥0.8 excellent.",
+  "hook": "AUC 0.5 = chance. 0.52 ≈ useless.",
+  "rule": "AUC interpretation: 0.5 no discrimination, 0.6–0.7 poor, 0.7–0.8 acceptable, 0.8–0.9 excellent, >0.9 outstanding.",
+  "highyield": "An AUC of 0.52 means the test discriminates only marginally better than random guessing (AUC 0.5). Clinically useless for individual-level prediction.",
+  "others": {
+   "B": "AUC ≥0.7 would be needed to correctly classify most patients.",
+   "A": "Near-perfect discrimination requires AUC close to 1.0.",
+   "C": "Fair/moderate value requires AUC around 0.7–0.8."
+  }
+ },
+ {
+  "stem": "A diagnostic test for a disease has 90% sensitivity and 80% specificity. Which of the following is the positive likelihood ratio (LR+)?",
+  "discriminator": "LR+ = sensitivity / (1 − specificity) = 0.90 / (1 − 0.80) = 0.90 / 0.20 = 4.5.",
+  "trap": "Dividing specificity by sensitivity (0.80/0.90 = 0.89) or computing LR− instead.",
+  "hook": "LR+ = sens/(1−spec) = 0.90/0.20 = 4.5.",
+  "rule": "LR+ = sensitivity / (1 − specificity). LR− = (1 − sensitivity) / specificity.",
+  "highyield": "LR+ = 0.90/(1−0.80) = 0.90/0.20 = 4.5. A positive result multiplies the pre-test odds by 4.5. LR− = 0.10/0.80 = 0.125.",
+  "others": {
+   "B": "0.90 is the sensitivity.",
+   "A": "0.10 is 1 − sensitivity, used for LR−.",
+   "C": "1.13 is sensitivity/specificity (0.90/0.80), not the LR+ formula."
+  }
+ },
+ {
+  "stem": "In epidemiology, which of the following equations correctly describes the relationship between prevalence (P), incidence (I), and average disease duration (D)?",
+  "discriminator": "P = I × D (the prevalence-incidence-duration relationship).",
+  "trap": "Using addition or division; for a stable population prevalence ≈ incidence × average duration.",
+  "hook": "P = I × D.",
+  "rule": "Prevalence ≈ incidence × average duration when the disease is rare and the population is stable.",
+  "highyield": "The classic relationship is prevalence = incidence × average duration (P = I × D). Longer duration raises prevalence even if incidence is unchanged.",
+  "others": {
+   "B": "Subtraction is not the relationship.",
+   "A": "Addition is not the relationship.",
+   "D": "Division is not the relationship."
+  }
+ },
+ {
+  "stem": "A case-control study investigating the association between a dietary factor and pancreatic cancer reports an odds ratio of 3.5. Pancreatic cancer has an incidence of approximately 13 per 100,000 person-years (very rare). Which statement best applies?",
+  "discriminator": "For rare diseases (incidence <10%), the odds ratio approximates the relative risk.",
+  "trap": "Thinking the OR always overestimates RR; that only holds for common diseases.",
+  "hook": "Rare disease + case-control OR ≈ RR.",
+  "rule": "When disease incidence is rare (<10%), OR ≈ RR. Case-control studies estimate the OR.",
+  "highyield": "Because pancreatic cancer is rare (13/100,000), the odds ratio of 3.5 is a good approximation of the relative risk, so the OR can be interpreted as RR in this setting.",
+  "others": {
+   "D": "The OR does not systematically underestimate RR for rare diseases.",
+   "B": "OR overestimates RR mainly for common outcomes, not rare ones.",
+   "C": "Case-control studies are designed to estimate odds ratios; the result is valid."
+  }
+ },
+ {
+  "stem": "To study the association between statin use and liver toxicity, investigators identify 150 patients with elevated liver enzymes (cases) and 300 patients with normal liver enzymes (controls). They review medical records to determine past statin exposure. Which study design is this?",
+  "discriminator": "Sampling by outcome (cases vs controls) then looking back at exposure = case-control study.",
+  "trap": "Calling it a cohort study (that would start with exposure and follow forward).",
+  "hook": "Start from outcome, look back at exposure = case-control.",
+  "rule": "Case-control: select by disease status, assess exposure retrospectively. Measures odds ratio.",
+  "highyield": "Patients are selected by outcome (elevated liver enzymes = cases) and exposure (statin use) is ascertained retrospectively from records — the defining feature of a case-control study.",
+  "others": {
+   "A": "A prospective cohort would start with statin use and follow for liver toxicity.",
+   "D": "Cross-sectional measures exposure and outcome at the same time.",
+   "B": "An RCT would randomise statin assignment."
+  }
+ },
+ {
+  "stem": "A pharmaceutical company tests a new antihypertensive drug. 200 patients are randomly assigned to receive either the new drug or a placebo. Blood pressure is measured after 12 weeks. The investigators and patients are blinded to treatment allocation. Which study design is described?",
+  "discriminator": "Randomised allocation + placebo + double-blinding = randomised controlled trial (double-blind RCT).",
+  "trap": "Calling it a cohort study (no randomisation) or an observational study.",
+  "hook": "Randomise + placebo + double-blind = RCT.",
+  "rule": "An RCT randomly assigns participants to intervention or control; double-blinding means both participants and investigators are masked.",
+  "highyield": "Random allocation to drug vs placebo with both parties blinded is a double-blind randomised controlled trial — the gold standard for efficacy.",
+  "others": {
+   "A": "A prospective cohort has no randomisation or placebo.",
+   "B": "Cross-sectional measures at one time point with no intervention.",
+   "C": "A case-control samples by outcome, not by randomised exposure."
+  }
+ },
+ {
+  "stem": "A survey is conducted in a rural community to determine the prevalence of hypertension and its association with salt intake. All participants have their blood pressure measured and complete a dietary questionnaire on the same day. Which study design is used?",
+  "discriminator": "Exposure and outcome measured simultaneously in a sample at one point = cross-sectional study.",
+  "trap": "Calling it a cohort (no follow-up) or case-control (not sampled by outcome).",
+  "hook": "Snapshot: exposure + outcome same day = cross-sectional.",
+  "rule": "Cross-sectional studies measure exposure and outcome at a single time point; they estimate prevalence and prevalence ratios, not incidence or causality.",
+  "highyield": "Measuring BP and salt intake together at one time point in a community sample is a cross-sectional (prevalence) study. It cannot establish temporal sequence or causation.",
+  "others": {
+   "C": "An RCT requires randomised intervention.",
+   "B": "A case-control would select hypertensive cases and normotensive controls.",
+   "A": "A cohort would follow salt intake forward to incident hypertension."
+  }
+ },
+ {
+  "stem": "A research team recruits 5000 smokers and 5000 non-smokers and follows them for 15 years to compare the incidence of lung cancer. Which study design is being used, and what is the correct measure of association?",
+  "discriminator": "Grouped by exposure (smoking) and followed forward to incident disease = cohort study; measure = relative risk.",
+  "trap": "Choosing case-control (that samples by outcome) or odds ratio (used in case-control/rare disease).",
+  "hook": "Exposure → outcome, forward = cohort; RR is the measure.",
+  "rule": "Cohort studies classify by exposure and follow forward; they estimate incidence and relative risk.",
+  "highyield": "Recruiting by exposure status (smokers vs non-smokers) and following for incident lung cancer is a cohort study. The measure of association is relative risk (incidence ratio).",
+  "others": {
+   "D": "Cross-sectional measures at one time point and gives prevalence ratios.",
+   "A": "Case-control samples by outcome and yields an odds ratio.",
+   "C": "An RCT requires randomised assignment to an intervention."
+  }
+ },
+ {
+  "stem": "A 45-year-old woman presents with shortness of breath. A D-dimer test is ordered, which has 96% sensitivity for pulmonary embolism. The result is negative. Which of the following statements best applies to this scenario?",
+  "discriminator": "A highly sensitive test that is negative rules out the disease (SnNOUT).",
+  "trap": "Thinking D-dimer is 100% specific (it is not) or that a negative is unreliable (NPV is high when disease is ruled out by a sensitive test).",
+  "hook": "SnNOUT: sensitive test + negative = rule out.",
+  "rule": "High sensitivity + negative result → low probability of disease (SnNOUT: Sensitive Negative rules OUT).",
+  "highyield": "With 96% sensitivity, a negative D-dimer has a high negative predictive value and effectively rules out pulmonary embolism (SnNOUT). A positive D-dimer is non-specific and needs imaging.",
+  "others": {
+   "B": "D-dimer is sensitive but not 100% specific.",
+   "C": "A positive D-dimer is less useful because specificity is low.",
+   "D": "A negative result on a sensitive test has high NPV, so it is reliable for ruling out."
+  }
+ },
+ {
+  "stem": "A 60-year-old man presents with neurological symptoms suspicious for multiple sclerosis. An MRI of the brain and spine is ordered. MRI has 94% specificity for multiple sclerosis. The scan shows characteristic demyelinating lesions. Which of the following is the best interpretation?",
+  "discriminator": "A highly specific test that is positive rules in the disease (SpPIN).",
+  "trap": "Thinking high specificity means it rules out; specificity governs ruling IN, sensitivity governs ruling OUT.",
+  "hook": "SpPIN: specific test + positive = rule in.",
+  "rule": "High specificity + positive result → high probability of disease (SpPIN: Specific Positive rules IN).",
+  "highyield": "With 94% specificity, a positive MRI with characteristic lesions effectively rules in multiple sclerosis (SpPIN). A negative MRI would not exclude MS (sensitivity is the rule-out property).",
+  "others": {
+   "C": "High specificity does not rule out disease; that is sensitivity's job.",
+   "B": "A positive on a specific test is a true positive, not a false positive.",
+   "D": "A negative MRI is less informative because specificity, not sensitivity, is high."
+  }
+ },
+ {
+  "stem": "A 40-year-old woman with a history of recurrent C diff diarrhoea is treated with metronidazole. She drinks a glass of wine at dinner and within minutes develops facial flushing, nausea, vomiting, and palpitations. What is the most likely explanation?",
+  "discriminator": "Metronidazole inhibits aldehyde dehydrogenase → acetaldehyde accumulation → disulfiram-like reaction with alcohol.",
+  "trap": "Attributing symptoms to C diff toxin or anaphylaxis; the timing with alcohol is the clue.",
+  "hook": "Metronidazole + alcohol = disulfiram-like reaction (ALDH inhibition, acetaldehyde build-up).",
+  "rule": "Metronidazole (and tinidazole, nitrofurantoin, certain cephalosporins) inhibit aldehyde dehydrogenase; alcohol causes acetaldehyde accumulation → flushing, nausea, tachycardia.",
+  "highyield": "Metronidazole blocks aldehyde dehydrogenase, so alcohol leads to acetaldehyde accumulation producing the disulfiram-like reaction: flushing, nausea, vomiting, palpitations within minutes of drinking.",
+  "others": {
+   "D": "QT prolongation would cause arrhythmia, not this alcohol-triggered flushing pattern.",
+   "C": "C diff toxin does not cause immediate alcohol-triggered symptoms.",
+   "A": "Anaphylaxis would feature urticaria, angioedema, and hypotension, not isolated flushing."
+  }
+ },
+ {
+  "stem": "A 32-year-old man with HIV (CD4 80 cells/mm³, not on ART) presents with cryptococcal meningitis. Induction therapy is started with amphotericin B deoxycholate and flucytosine. On day 3, he develops fever (39.5°C), rigors, hypotension, and hypokalemia (K+ 3.0 mEq/L). What is the best explanation?",
+  "discriminator": "Early fever/rigors during amphotericin infusion plus renal potassium wasting = infusion-related reaction with amphotericin-induced tubular K+ loss.",
+  "trap": "Calling it IRIS (would be later and after immune reconstitution) or flucytosine marrow suppression (causes cytopenias, not acute hypotension + hypokalemia).",
+  "hook": "Day-3 amphotericin fever + hypokalemia = infusion reaction + renal K+ wasting.",
+  "rule": "Amphotericin B commonly causes infusion-related fever/rigors and renal tubular acidosis with hypokalemia.",
+  "highyield": "Amphotericin B deoxycholate classically causes an acute infusion-related reaction (fever, rigors, hypotension) and nephrotoxicity with renal potassium wasting, producing hypokalemia by day 3 of therapy.",
+  "others": {
+   "C": "Cryptococcal IRIS occurs after starting ART with immune recovery, not on day 3 of induction.",
+   "D": "Disseminated MAC would present with chronic symptoms, not acute infusion reactions.",
+   "A": "Flucytosine causes bone-marrow suppression (cytopenias), not acute hypotension with hypokalemia."
+  }
+ },
+ {
+  "stem": "A 35-year-old woman on an SSRI (escitalopram) for depression is prescribed linezolid for vancomycin-resistant Enterococcus (VRE) osteomyelitis. Twelve hours after the first dose, she develops hyperthermia (39.8°C), rigidity, hyperreflexia, clonus, and autonomic instability. What is the most likely diagnosis?",
+  "discriminator": "Linezolid is a weak MAO inhibitor; combining with an SSRI causes serotonin syndrome (hyperthermia, rigidity, hyperreflexia, clonus, autonomic instability).",
+  "trap": "Calling it NMS (would have lead-pipe rigidity, hyporeflexia, and dopamine-antagonist exposure) or malignant hyperthermia (triggered by anaesthesia).",
+  "hook": "SSRI + linezolid (MAO-I) + neuromuscular signs = serotonin syndrome.",
+  "rule": "Serotonin syndrome triad: neuromuscular excitation (clonus, hyperreflexia, rigidity) + autonomic instability + altered mental state, classically after serotonergic drug combination.",
+  "highyield": "Linezolid inhibits monoamine oxidase; with an SSRI this precipitates serotonin syndrome, presenting within hours with hyperthermia, inducible/clonic jerks, hyperreflexia, rigidity, and autonomic instability. Stop both drugs and give cyproheptadine if severe.",
+  "others": {
+   "A": "NMS features lead-pipe rigidity, hyporeflexia, and follows dopamine antagonists.",
+   "C": "Malignant hyperthermia is triggered by volatile anaesthetics/ succinylcholine.",
+   "D": "Sepsis would not present with clonus and hyperreflexia this rapidly."
+  }
+ }
+]

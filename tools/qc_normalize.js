@@ -62,7 +62,7 @@ for(const subj of data){
     if(isIndexEcho(q)){ removedIndexEcho++; continue; }
     if(isBroken(q)){ removedBroken++; continue; }
     if((q.options||[]).length<3){ removedBroken++; continue; }
-    const key=(q.q||'').trim().toLowerCase().replace(/\s+/g,' ').slice(0,120);
+    const key=decodeEnt(stripCtrl(q.q||'')).trim().toLowerCase().replace(/\s+/g,' ').slice(0,120);
     if(seen.has(key)){ removedDup++; continue; }
     seen.add(key);
     const before=JSON.stringify(q);

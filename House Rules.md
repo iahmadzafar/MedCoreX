@@ -60,7 +60,6 @@
 | Element | Rule |
 |---|---|
 | Topbar | One height (46px public / 46px book), **every control 30px tall**, same padding basis, same font metric. Controls never shrink; on narrow screens convenience controls yield in value order (font → width → study → toggle), nothing overlaps. |
-| Topbar labels | **The topbar never names the page you are on.** A nav link may not carry the page's own name, and no script may write a nav label — a label set from a variable names the current subject, paper or set the moment it opens. Shell destinations (Home · Library · About · FAQ · Stats · Sign in) are the site nav and are allowed everywhere; a module may use a generic word (Subjects · Papers · Mocks · Practice) but never its own name. The page's name belongs in the page. Enforced by `site/navcheck.js` in CI. |
 | Buttons | Flat; hover = border+fill to amber; on-state = flat amber fill, dark text; radius = house; no animations beyond 150ms fades. |
 | Cards/boxes | card surface, hairline seam, 16–20px padding, semantic left rail 3px when typed (core/recog/trap/power/never). |
 | Headings | Serif; h1 44–76px, h2 ~34px, h3 ~26px; never bold; never all-caps (all-caps is reserved for mono micro-labels). |

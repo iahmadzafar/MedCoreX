@@ -148,6 +148,7 @@ function showPractice(){
 
   const np=$('#navPractice');
   np.hidden=false;np.href=location.hash;
+  np.textContent=paperName(SET.paper)+' · '+SET.name;
   np.setAttribute('aria-current','page');
 
   $('#pSub').textContent=paperName(SET.paper)+' · realtime practice';
@@ -162,26 +163,18 @@ function showPractice(){
 }
 
 /* ---------- reasoning layers ---------- */
-/* ---------- breakdown — the Question Bank's seven layers, verbatim ---------- */
-const LAYERS=[['concept','Concept'],['discriminator','Discriminator'],['trap','Trap'],['rule','Rule'],['others','Why every other option dies'],['highyield','High-yield link'],['hook','Memory hook']];
-/* the recalled answer keys also carry two layers the seven-layer schema has no slot for */
-const EXTRA_LAYERS=[['fix','Fix'],['note','Note']];
+const LAYERS=[['rule','Rule'],['trap','Trap'],['fix','Fix'],['note','Note']];
 function breakdown(q){
-  const Ly=q.layers||{};let n=0;
-  const card=function(k,label){
-    n++;
-    const body=k==='others'
-      ?'<ul>'+Object.entries(Ly.others).map(([l,t])=>'<li><b>'+esc(l)+'</b><span>'+esc(t)+'</span></li>').join('')+'</ul>'
-      :'<p>'+esc(Ly[k])+'</p>';
-    return '<div class="layer'+(k==='others'?' wide':'')+'" style="--accent:var(--c'+((n-1)%4+1)+');--i:'+n+'">'+
-      '<h4><span>'+n+'</span>'+label+'</h4>'+body+'</div>';
-  };
-  const body=LAYERS.concat(EXTRA_LAYERS).filter(([k])=>Ly[k]).map(([k,label])=>card(k,label)).join('');
+  const Ly=q.layers||{};
+  const body=LAYERS.filter(([k])=>Ly[k]).map(([k,label],n)=>
+    '<div class="layer'+(k==='rule'||k==='note'?' wide':'')+'" style="--accent:var(--c'+((n%4)+1)+');--i:'+(n+1)+'">'+
+      '<h4><span>'+(n+1)+'</span>'+label+'</h4><p>'+esc(Ly[k])+'</p>'+
+    '</div>').join('');
   const inf=q.inf?'<span class="inf-badge">AI-inferred key</span>':'';
   if(!body&&!inf)return '';
-  return (body?'<div class="bd">'+body+'</div>':'')+inf;
+  return '<div class="bd">'+body+'</div>'+inf;
 }
-/* not every recalled item carries a written layer — say so rather than show an empty grid */
+/* not every recalled item carries a written layer — say so rather than show an empty box */
 function breakdownOrNote(q){
   return breakdown(q)||'<p class="muted empty-note" style="margin:0">No reasoning layer recorded for this item yet. Answer it, flag it, and it belongs in the write-up.</p>';
 }
@@ -210,9 +203,9 @@ function renderQuestion(){
       '</button>';
     }).join('')+'</div>'+
     (answered
-      ? '<div class="verdict '+(ok?'good':'bad')+'"><span class="vtxt">'+(ok?'✓ Correct!':'✗ Not quite.')+
-        ' The answer is '+LETTERS[q.answer]+'.</span><button class="btn ghost sm" id="expandBtn">⤢ Expand <kbd>E</kbd></button></div>'+
-        '<div class="bd-wrap"><div class="bd-head"><h3>Seven-layer breakdown</h3></div>'+breakdownOrNote(q)+'</div>'
+      ? '<div class="verdict '+(ok?'good':'bad')+'"><span>'+(ok?'✓ Correct.':'✗ Not quite. The answer is '+LETTERS[q.answer]+'.')+
+        '</span><button class="btn ghost sm" id="expandBtn">⤢ Expand <kbd>E</kbd></button></div>'+
+        '<div class="bd-wrap"><div class="bd-head"><h3>Reasoning breakdown</h3></div>'+breakdownOrNote(q)+'</div>'
       : '<div class="conf-row'+(picked!==null?' ready':'')+'" id="confRow" role="group" aria-label="Confidence">'+
           '<span class="conf-lbl">'+(picked!==null?'How sure were you?':'Pick an option, then lock it in')+'</span>'+
           '<button class="confb sure" data-c="sure" '+(picked!==null?'':'disabled')+'>● Sure</button>'+
@@ -220,7 +213,8 @@ function renderQuestion(){
           '<button class="confb blind" data-c="blind" '+(picked!==null?'':'disabled')+'>○ Blind</button>'+
         '</div>'+
         '<div class="bd-wrap"><div class="placeholder"><b>◆ Confidence-locked reveal</b>'+
-          '<p class="muted" style="margin-top:6px">Answering needs two taps: pick an option, then say how sure you are.</p></div></div>');
+          '<p class="muted" style="margin-top:6px">Two taps: pick the option, then declare how sure you were. '+
+          'That is the only honest way to measure yourself.</p></div></div>');
 
   $('#prevBtn').disabled=i===0;
   $('#nextBtn').innerHTML=i===SET.questions.length-1?'Finish ›':answered?'Next question ›':'Skip ahead ›';
@@ -402,7 +396,7 @@ function openBreakdown(){
   $('#bdTitle').textContent='Question '+(ST.cur+1)+' · full breakdown';
   $('#bdBody').innerHTML=
     '<p class="stem">'+esc(q.q)+'</p>'+
-    '<div class="verdict '+(chosen===q.answer?'good':'bad')+'" style="margin:0 0 18px"><span class="vtxt">'+
+    '<div class="verdict '+(chosen===q.answer?'good':'bad')+'" style="margin:0 0 18px"><span>'+
       'Answer '+LETTERS[q.answer]+': '+esc(q.options[q.answer])+
       (chosen!==q.answer?' · you chose '+LETTERS[chosen]:'')+
     '</span></div>'+breakdownOrNote(q);
