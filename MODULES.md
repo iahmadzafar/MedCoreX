@@ -8,7 +8,7 @@
 > `site/index.html` + `site/library.html` strips `.html`) · multi-file modules are read
 > folder-wise. Claims that could not be reproduced were dropped, not kept.
 > **Terminology (owner's rule): every file of the hub is a MODULE.**
-> The hub = **37 modules** grouped into **7 sections**, served behind a 5-page shell.
+> The hub = **33 modules** grouped into **7 sections**, served behind a 5-page shell.
 > Every change to a module is proposed to the owner first — nothing moves without approval.
 
 ## The hub at a glance
@@ -19,13 +19,13 @@
 auth and stats chrome. `site/functions/resources/[[file]].js` gates every `/resources/*` path
 behind a session (visitors bounce to `/login?next=…`), so no module URL answers unauthenticated.
 
-**The 37 modules** below are grouped by their section. Their design state: modules wear the *earlier* Theme-2026 passes (font trio, tokens, radius, equalizers where noted) — **the Studyverse restyle of all 37 modules is the planned next phase** and awaits the owner's go.
+**The 33 modules** below are grouped by their section. Their design state: modules wear the *earlier* Theme-2026 passes (font trio, tokens, radius, equalizers where noted) — **the Studyverse restyle of all 33 modules is the planned next phase** and awaits the owner's go.
 
 | # | Section | Modules |
 |---|---------|---------|
 | — | **Core Books** | M01, M02, M03, M04, M05 |
 | — | **Mocks & Drills** | M06 |
-| — | **Past Papers & Answer Keys** | M07, M08, M09, M10, M11, M12, M13, M14 |
+| — | **Past Papers & Answer Keys** | M07, M12, M13, M14 |
 | — | **Exam Intelligence & Strategy** | M15, M16, M17, M18, M19, M20 |
 | — | **Quick Reference** | M21, M22, M23, M24, M25, M26 |
 | — | **Frameworks & Interactive** | M27 |
@@ -109,42 +109,6 @@ behind a session (visitors bounce to `/login?next=…`), so no module URL answer
 - **Mode system:** none · rules:1 pref:1.
 - **Design passes so far:** fonts:2026 trio; mlx-live toggle; has light block; color-scheme meta.
 - **⚠ Notes:** Had a self-hosted @font-face (IBM Plex Mono base64) — removed during de-Plexing.
-
-### M08 · June 2025
-
-- **File:** `site/resources/standalone-htmls-june-2025-answer-key.html`, 522 lines — live at `/resources/standalone-htmls-june-2025-answer-key`
-- **What it is:** Verified key + distractor analysis.
-- **Inside:** 0 top-level headings; first ones: flat document. Data: embedded `var DATA` bank · ~140 question entries.
-- **Interface:** answer-hiding quiz engine (reveal on click), sticky headers/bars, keyboard shortcuts, persists state in localStorage, print stylesheet, 3 inline SVGs.
-- **Mode system:** none · rules:1 pref:2.
-- **Design passes so far:** fonts:2026 trio; mlx-eq MCQ equalizer; mlx-live toggle; has light block; color-scheme meta.
-
-### M09 · June 2024
-
-- **File:** `site/resources/standalone-htmls-june-2024-answer-key.html`, 525 lines — live at `/resources/standalone-htmls-june-2024-answer-key`
-- **What it is:** Self-scoring.
-- **Inside:** 0 top-level headings; first ones: flat document. Data: embedded `var DATA` bank · ~147 question entries.
-- **Interface:** answer-hiding quiz engine (reveal on click), sticky headers/bars, keyboard shortcuts, persists state in localStorage, print stylesheet, 3 inline SVGs.
-- **Mode system:** none · rules:1 pref:2.
-- **Design passes so far:** fonts:2026 trio; mlx-eq MCQ equalizer; mlx-live toggle; has light block; color-scheme meta.
-
-### M10 · December 2024
-
-- **File:** `site/resources/standalone-htmls-dec-2024-answer-key.html`, 525 lines — live at `/resources/standalone-htmls-dec-2024-answer-key`
-- **What it is:** Self-scoring.
-- **Inside:** 0 top-level headings; first ones: flat document. Data: embedded `var DATA` bank · ~171 question entries.
-- **Interface:** answer-hiding quiz engine (reveal on click), sticky headers/bars, keyboard shortcuts, persists state in localStorage, print stylesheet, 3 inline SVGs.
-- **Mode system:** none · rules:1 pref:2.
-- **Design passes so far:** fonts:2026 trio; mlx-eq MCQ equalizer; mlx-live toggle; has light block; color-scheme meta.
-
-### M11 · December 2025
-
-- **File:** `site/resources/standalone-htmls-dec-2025-answer-key.html`, 525 lines — live at `/resources/standalone-htmls-dec-2025-answer-key`
-- **What it is:** Corrected key.
-- **Inside:** 0 top-level headings; first ones: flat document. Data: embedded `var DATA` bank · ~187 question entries.
-- **Interface:** answer-hiding quiz engine (reveal on click), sticky headers/bars, keyboard shortcuts, persists state in localStorage, print stylesheet, 3 inline SVGs.
-- **Mode system:** none · rules:1 pref:2.
-- **Design passes so far:** fonts:2026 trio; mlx-eq MCQ equalizer; mlx-live toggle; has light block; color-scheme meta.
 
 ### M12 · May 2026
 
