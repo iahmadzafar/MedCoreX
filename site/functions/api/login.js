@@ -38,7 +38,7 @@ export async function onRequestPost({ request, env }) {
   const password = body.password || '';
   const key = failKey(request, email);
 
-  if (!email || !password) return bad('Email and password are required.');
+  if (!email || !password) return bad('Login and password are required.');
 
   const cur = await hole(env, key);
   if (cur.fails >= BASE_FAILS) {
@@ -52,14 +52,14 @@ export async function onRequestPost({ request, env }) {
   }
 
   const t0 = Date.now();
-  const u = await env.medcore_db.prepare('SELECT id,email,username,pass_hash,salt FROM users WHERE email=?').bind(email).first();
+  const u = await env.medcore_db.prepare('SELECT id,email,username,pass_hash,salt FROM users WHERE email=? OR username=?').bind(email,email).first();
   let h = null;
   if (u) h = await hashPassword(password, u.salt);
   const ok = !!u && !!h && h === u.pass_hash;
 
   if (!ok) {
     await recordFail(env, key, cur.fails + 1);
-    return bad('Incorrect email or password.', 401);
+    return bad('Incorrect login details.', 401);
   }
 
   await clearFail(env, key);
