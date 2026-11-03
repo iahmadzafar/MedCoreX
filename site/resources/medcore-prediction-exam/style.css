@@ -5,6 +5,10 @@
    No hex here — the engine owns the palette and remixes it.
    ============================================================ */
 
+/* the hidden attribute must win over any author display rule below
+   (.modal{display:grid} would otherwise keep the grid modal open) */
+[hidden]{display:none!important}
+
 /* ═══ EXAM MONITOR (hero art — the home page's vitals, retitled) ═══ */
 .vitals{position:absolute;inset:6% 2% 8% 4%;background:var(--surface);border:var(--bw) solid var(--ink);border-radius:var(--radius);box-shadow:var(--shadow);transform:rotate(-1.6deg);display:flex;flex-direction:column;padding:14px 16px;gap:8px;transition:background .8s}
 .vitals .v-head{display:flex;justify-content:space-between;align-items:center;gap:8px;font-family:var(--font-mono);font-size:clamp(.58rem,1.7cqi,.72rem);font-weight:700;letter-spacing:.08em;color:var(--muted);white-space:nowrap;overflow:hidden}
