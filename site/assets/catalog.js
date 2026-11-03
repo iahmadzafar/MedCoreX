@@ -9,7 +9,6 @@ const CATS=["Core Books","Mocks & Drills","Past Papers & Answer Keys","Exam Inte
 const HUES={'Core Books':'var(--c1)','Mocks & Drills':'var(--c3)','Past Papers & Answer Keys':'var(--c2)','Exam Intelligence & Strategy':'var(--c4)','Quick Reference':'var(--c1)','Frameworks & Interactive':'var(--c3)','MedCORE Systems':'var(--c2)'}
 const Items=[
 
-{t:"MedCORE Study Book",d:"Every system, one volume",c:"Core Books",f:"medcore-production-master-html-medcore-master-book.html",k:9306.5},
 {t:"MCQ Architecture",d:"How the exam actually sets questions",c:"Core Books",f:"standalone-htmls-800-plus-mcq-architecture.html",k:525.9},
 {t:"Forge Cards",d:"100 high-yield cards",c:"Core Books",f:"standalone-htmls-forge-master.html",k:1181.4},
 {t:"Memory Master",d:"Recall-first core file",c:"Core Books",f:"medcore-memory-master-core.html",k:510},

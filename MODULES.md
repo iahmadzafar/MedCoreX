@@ -8,7 +8,7 @@
 > `site/index.html` + `site/library.html` strips `.html`) · multi-file modules are read
 > folder-wise. Claims that could not be reproduced were dropped, not kept.
 > **Terminology (owner's rule): every file of the hub is a MODULE.**
-> The hub = **36 modules** grouped into **7 sections**, served behind a 5-page shell.
+> The hub = **35 modules** grouped into **7 sections**, served behind a 5-page shell.
 > Every change to a module is proposed to the owner first — nothing moves without approval.
 
 ## The hub at a glance
@@ -19,11 +19,11 @@
 auth and stats chrome. `site/functions/resources/[[file]].js` gates every `/resources/*` path
 behind a session (visitors bounce to `/login?next=…`), so no module URL answers unauthenticated.
 
-**The 36 modules** below are grouped by their section. Their design state: modules wear the *earlier* Theme-2026 passes (font trio, tokens, radius, equalizers where noted) — **the Studyverse restyle of all 36 modules is the planned next phase** and awaits the owner's go.
+**The 35 modules** below are grouped by their section. Their design state: modules wear the *earlier* Theme-2026 passes (font trio, tokens, radius, equalizers where noted) — **the Studyverse restyle of all 35 modules is the planned next phase** and awaits the owner's go.
 
 | # | Section | Modules |
 |---|---------|---------|
-| — | **Core Books** | M01, M02, M03, M04, M05 |
+| — | **Core Books** | M02, M03, M04, M05 |
 | — | **Mocks & Drills** | M06 |
 | — | **Past Papers & Answer Keys** | M07, M08, M11, M12, M13, M14, Dec 2025 Recalled |
 | — | **Exam Intelligence & Strategy** | M15, M16, M17, M18, M19, M20 |
@@ -35,15 +35,10 @@ behind a session (visitors bounce to `/login?next=…`), so no module URL answer
 
 ## Section · Core Books
 
-### M01 · MedCORE Study Book
-
-- **File:** four-file module `site/resources/medcore-production-master-html-medcore-master-book/` — `index.html` 73 · `app.js` 171 · `data.js` 3 · `style.css` 92 (339 total) — live at `/resources/medcore-production-master-html-medcore-master-book` (extensionless: that is what the catalog link opens). The same-named `.html` file beside it, 1,447 lines, is the old single-file build, still served at the `.html` URL.
-- **What it is:** Every system, one volume.
-- **Inside:** 1 top-level heading; first ones: “Chapters, recalls &amp; the drills inside them.”. Data: `data.js` holds `BOOK` — 15 parts · 95 chapters, quizzes inline (`class="q"` × 2,271, option buttons × 11,330); 1 JSON.parse() load.
-- **Interface:** live search/filter, expand/collapse-all, sticky top bar, persists state in localStorage (`medcore.book`), 929 inline SVGs — all inside the stored chapter HTML in `data.js`, 0 in the shell itself; no print stylesheet, no keyboard shortcuts. Kit hero cover (mega title, sticker, shapes, marquee of the 15 parts, stat cards, CTA row) + kit nav with engine chips; mobile drawer burger lives in the nav.
-- **Mode system:** kit engine (`studyverse.js`, keys `mx-mode`/`mx-lock`) — no bespoke theme code since the 2026-10-29 conversion.
-- **Design passes so far:** 2026-10-29 full kit conversion (tokens only, zero hex outside print `:root`; part identity = colour: 15 parts cycle `--c1..c4`, inherited by subcats/quizzes/tables/nav dots/cover chips, `ac-ink` mix keeps accent labels legible in every theme; kit `.opt` language on all 2,271 MCQs, 11,330 option buttons); crumb-back nav fix; counts corrected (footer 95 topics/2,271 MCQs); color-scheme meta.
-- **⚠ Notes:** The rows above describe the **module**, which is what readers land on. The 1,447-line `.html` build is the older reference copy — 16 top-level headings, 640 `<details>` (95 chapter + 527 recall + 15 nav), 1,029 inline SVGs, print stylesheet, keyboard shortcuts, but no localStorage of its own.
+> **M01 · MedCORE Study Book — RETIRED 3 Nov 2026.** The page, its four-file module
+> (`site/resources/medcore-production-master-html-medcore-master-book/`) and its catalogue
+> entry were deleted at the owner's instruction. The number **M01 is not reused** — module IDs
+> are permanent labels, so the gap is intentional and does not mean a module is missing.
 
 ### M02 · MCQ Architecture
 

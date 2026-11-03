@@ -10,13 +10,6 @@
   ],
   "items": [
     {
-      "t": "MedCORE Study Book",
-      "d": "Every system, one volume",
-      "c": "Core Books",
-      "f": "medcore-production-master-html-medcore-master-book.html",
-      "k": 9306.5
-    },
-    {
       "t": "MCQ Architecture",
       "d": "How the exam actually sets questions",
       "c": "Core Books",
