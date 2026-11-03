@@ -1,12 +1,12 @@
 # MCQ Quality Check Report — MedCoreX Question Bank
 
-Generated: 2026-11-03T03:17:18.260Z
+Generated: 2026-11-03T03:25:06.718Z
 
 ## Scope
 - Subjects: medicine (1745), surgery (805), eye-ent (335), obgyn (382), paeds (340), basic (526)
 - Total questions: 4133
 - Unique stems: 4133 (exact dup: 0)
-- Total issues: 2769
+- Total issues: 2527
 
 ## Layer completeness
 - Full (all 6 layers): 2787
@@ -14,18 +14,11 @@ Generated: 2026-11-03T03:17:18.260Z
 - Partial: 199
 
 ## Severity counts
-- low: 202
-- medium: 2567
+- medium: 2527
 
 ## Issue counts by check
 - NO_OTHERS: 1380
 - CONCEPT_ONLY: 1147
-- PARTIAL_LAYERS: 199
-- STEM_TOO_SHORT: 15
-- ANSWER_SKEW: 15
-- EMPTY_OTHER: 10
-- STEM_VERY_LONG: 2
-- OTHERS_COUNT: 1
 
 ## Answer distribution (all subjects)
 - A: 952 (23.0%)
@@ -47,10 +40,6 @@ Generated: 2026-11-03T03:17:18.260Z
 - basic: 526
 
 ## Sample issues (first 60)
-### [low] STEM_VERY_LONG — medicine #2
-> A 65-year-old male dies suddenly from a massive myocardial infarction. Autopsy reveals a pale, wedge-shaped area in the posterolateral wall 
-Detail: len 619
-
 ### [medium] NO_OTHERS — medicine #1240
 > A 35-year-old HIV-positive man presents with multiple painless, dark purplish-violaceous plaques on his trunk and arms. Lesions appeared ove
 Detail: missing others
@@ -78,10 +67,6 @@ Detail: missing others
 ### [medium] NO_OTHERS — medicine #1246
 > A 28-year-old man develops a generalised maculopapular rash with fever and eosinophilia 10 days after starting amoxicillin for a urinary tra
 Detail: missing others
-
-### [low] OTHERS_COUNT — medicine #1247
-> A 27-year-old fair-skinned woman has a pigmented lesion on her back that has increased in size, changed shape and become darker over 3 month
-Detail: others=0 expected 3
 
 ### [medium] NO_OTHERS — medicine #1248
 > A 26-year-old woman presents with a raised, firm, red-brown lesion at the site of a surgical incision made 5 months ago. The lesion has exte
@@ -122,10 +107,6 @@ Detail: only concept layer present
 ### [medium] NO_OTHERS — medicine #1256
 > A 65-year-old patient presents with progressive memory loss, visual deficit, and cerebral cortex atrophy on CT, along with behavioral change
 Detail: missing others
-
-### [medium] STEM_TOO_SHORT — medicine #1257
-> Most common site of osteogenic sarcoma?
-Detail: len 39
 
 ### [medium] CONCEPT_ONLY — medicine #1257
 > Most common site of osteogenic sarcoma?
@@ -286,4 +267,16 @@ Detail: only concept layer present
 ### [medium] NO_OTHERS — medicine #1276
 > What is the likely diagnosis for a 10-year-old boy with fever, inability to open his mouth, seizures, and a history of a road traffic accide
 Detail: missing others
+
+### [medium] CONCEPT_ONLY — medicine #1277
+> Thrush?
+Detail: only concept layer present
+
+### [medium] NO_OTHERS — medicine #1277
+> Thrush?
+Detail: missing others
+
+### [medium] CONCEPT_ONLY — medicine #1278
+> Abducent nerve innervates?
+Detail: only concept layer present
 

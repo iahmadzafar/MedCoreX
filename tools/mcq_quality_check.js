@@ -34,9 +34,9 @@ for(const subj of data){
     else seenStems.set(key,subj.id+'#'+i);
 
     if(!stem) add(subj.id,i,'STEM_EMPTY','critical','empty stem',stem);
-    else if(stem.length<40) add(subj.id,i,'STEM_TOO_SHORT','medium','len '+stem.length,stem);
+    /* retired by owner triage (3 Nov): short recall-style stems are fine */
     /* NO_QUESTION_MARK retired — owner ruling: recall-style one-liners without '?' are fine */
-    if(stem.length>600) add(subj.id,i,'STEM_VERY_LONG','low','len '+stem.length,stem);
+    /* retired by owner triage (3 Nov): long stems are fine */
 
     if(opts.length<4||opts.length>5) add(subj.id,i,'BAD_OPTION_COUNT','high','n='+opts.length,stem);
     optCountDist[opts.length]=(optCountDist[opts.length]||0)+1;
@@ -67,9 +67,7 @@ for(const subj of data){
       else if(emptyFields.length===fields.length-1 && L.concept) layerCompleteness.conceptOnly++;
       else layerCompleteness.partial++;
 
-      if(emptyFields.length>0 && emptyFields.length<=4){
-        add(subj.id,i,'PARTIAL_LAYERS','low','empty: '+emptyFields.join(','),stem);
-      }
+      /* retired by owner triage (3 Nov): partial layers are fine */
       if(emptyFields.length===fields.length-1 && L.concept){
         add(subj.id,i,'CONCEPT_ONLY','medium','only concept layer present',stem);
       }
@@ -83,10 +81,10 @@ for(const subj of data){
           add(subj.id,i,'SCHEMA_TEXT_KEYED','low','others keyed by option text (inconsistent schema)',stem);
         } else {
           const expected=opts.length-1;
-          if(keys.length!==expected) add(subj.id,i,'OTHERS_COUNT','low','others='+keys.length+' expected '+expected,stem);
+          /* retired by owner triage (3 Nov): others-layer count variance is fine */
           for(const k of keys){
             if(k===letters[ans]) add(subj.id,i,'OTHERS_HAS_CORRECT','high','others contains correct letter '+k,stem);
-            if(String(others[k]).trim()==='') add(subj.id,i,'EMPTY_OTHER','medium','empty others['+k+']',stem);
+            /* retired by owner triage (3 Nov): empty others entries are fine */
           }
         }
       }
@@ -105,13 +103,11 @@ for(const subj of data){
   for(const q of subj.questions){ if(typeof q.answer==='number'){ d[q.answer]=(d[q.answer]||0)+1; t++; } }
   const exp=t/5;
   for(let k=0;k<5;k++){
-    if(d[k]!==undefined && Math.abs(d[k]-exp)/exp>0.25)
-      add(subj.id,-1,'ANSWER_SKEW','medium','answer '+letters[k]+' = '+((d[k]/t*100).toFixed(1))+'% in '+subj.id,'');
+    /* retired by owner triage (3 Nov): per-subject answer distribution is informational */
   }
 }
 const distVals=Object.values(answerDist); const distTotal=distVals.reduce((a,b)=>a+b,0); const exp=distTotal/5;
-for(let k=0;k<5;k++) if(Math.abs((answerDist[k]||0)-exp)/exp>0.15)
-  add('ALL',-1,'ANSWER_SKEW','medium','answer '+letters[k]+' = '+((answerDist[k]||0)/distTotal*100).toFixed(1)+'% overall','');
+/* retired by owner triage (3 Nov): global answer distribution is informational */
 
 fs.writeFileSync('tools/qc_issues.json', JSON.stringify(issues,null,2));
 const byCheck={}; for(const it of issues) byCheck[it.check]=(byCheck[it.check]||0)+1;

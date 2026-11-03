@@ -1,14 +1,6 @@
 [
   {
     "subject": "medicine",
-    "idx": 2,
-    "check": "STEM_VERY_LONG",
-    "severity": "low",
-    "detail": "len 619",
-    "stem": "A 65-year-old male dies suddenly from a massive myocardial infarction. Autopsy reveals a pale, wedge-shaped area in the posterolateral wall "
-  },
-  {
-    "subject": "medicine",
     "idx": 1240,
     "check": "NO_OTHERS",
     "severity": "medium",
@@ -62,14 +54,6 @@
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 28-year-old man develops a generalised maculopapular rash with fever and eosinophilia 10 days after starting amoxicillin for a urinary tra"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1247,
-    "check": "OTHERS_COUNT",
-    "severity": "low",
-    "detail": "others=0 expected 3",
-    "stem": "A 27-year-old fair-skinned woman has a pigmented lesion on her back that has increased in size, changed shape and become darker over 3 month"
   },
   {
     "subject": "medicine",
@@ -154,14 +138,6 @@
   {
     "subject": "medicine",
     "idx": 1257,
-    "check": "STEM_TOO_SHORT",
-    "severity": "medium",
-    "detail": "len 39",
-    "stem": "Most common site of osteogenic sarcoma?"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1257,
     "check": "CONCEPT_ONLY",
     "severity": "medium",
     "detail": "only concept layer present",
@@ -482,14 +458,6 @@
   {
     "subject": "medicine",
     "idx": 1277,
-    "check": "STEM_TOO_SHORT",
-    "severity": "medium",
-    "detail": "len 7",
-    "stem": "Thrush?"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1277,
     "check": "CONCEPT_ONLY",
     "severity": "medium",
     "detail": "only concept layer present",
@@ -502,14 +470,6 @@
     "severity": "medium",
     "detail": "missing others",
     "stem": "Thrush?"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1278,
-    "check": "STEM_TOO_SHORT",
-    "severity": "medium",
-    "detail": "len 26",
-    "stem": "Abducent nerve innervates?"
   },
   {
     "subject": "medicine",
@@ -542,14 +502,6 @@
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 50-year-old female presented in OPD with positive history of breast carcinoma. USG shows lump in breast. Further investigation?"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1280,
-    "check": "STEM_TOO_SHORT",
-    "severity": "medium",
-    "detail": "len 21",
-    "stem": "Test for Thalassemia?"
   },
   {
     "subject": "medicine",
@@ -1050,14 +1002,6 @@
   {
     "subject": "medicine",
     "idx": 1311,
-    "check": "STEM_TOO_SHORT",
-    "severity": "medium",
-    "detail": "len 37",
-    "stem": "Antisnake venom administration route?"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1311,
     "check": "CONCEPT_ONLY",
     "severity": "medium",
     "detail": "only concept layer present",
@@ -1070,14 +1014,6 @@
     "severity": "medium",
     "detail": "missing others",
     "stem": "Antisnake venom administration route?"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1312,
-    "check": "STEM_TOO_SHORT",
-    "severity": "medium",
-    "detail": "len 35",
-    "stem": "BMI is calculated with the help of?"
   },
   {
     "subject": "medicine",
@@ -1146,14 +1082,6 @@
   {
     "subject": "medicine",
     "idx": 1316,
-    "check": "STEM_TOO_SHORT",
-    "severity": "medium",
-    "detail": "len 34",
-    "stem": "Screening of disease is a part of?"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1316,
     "check": "CONCEPT_ONLY",
     "severity": "medium",
     "detail": "only concept layer present",
@@ -1182,14 +1110,6 @@
     "severity": "medium",
     "detail": "missing others",
     "stem": "Which of the following organisms is responsible for causing infective endocarditis after skin infection?"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1318,
-    "check": "STEM_TOO_SHORT",
-    "severity": "medium",
-    "detail": "len 36",
-    "stem": "What is affected in Horner syndrome?"
   },
   {
     "subject": "medicine",
@@ -1254,14 +1174,6 @@
     "severity": "medium",
     "detail": "missing others",
     "stem": "COPD patient with postherpetic neuralgia for 3 months. Had herpes zoster involving the right posterior thorax in a T7 distribution, treated "
-  },
-  {
-    "subject": "medicine",
-    "idx": 1322,
-    "check": "STEM_TOO_SHORT",
-    "severity": "medium",
-    "detail": "len 34",
-    "stem": "Fluid of choice in gastric lavage?"
   },
   {
     "subject": "medicine",
@@ -2114,14 +2026,6 @@
   {
     "subject": "medicine",
     "idx": 1375,
-    "check": "STEM_TOO_SHORT",
-    "severity": "medium",
-    "detail": "len 24",
-    "stem": "After criminal abortion:"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1375,
     "check": "CONCEPT_ONLY",
     "severity": "medium",
     "detail": "only concept layer present",
@@ -2230,14 +2134,6 @@
     "severity": "medium",
     "detail": "missing others",
     "stem": "An elderly male patient complains of bilateral knee pain with mild joint stiffness in the morning. The pain increases with movement and decr"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1382,
-    "check": "STEM_TOO_SHORT",
-    "severity": "medium",
-    "detail": "len 37",
-    "stem": "Blood transfusion will increase what?"
   },
   {
     "subject": "medicine",
@@ -4510,14 +4406,6 @@
     "severity": "medium",
     "detail": "missing others",
     "stem": "A10 : A 29-year-old man comes to the emergency department with chest pain that began 2 hours after using cocaine at a party. He is agitated,"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1524,
-    "check": "STEM_VERY_LONG",
-    "severity": "low",
-    "detail": "len 648",
-    "stem": "A11 : A 58-year-old man comes to the emergency department 3 hours after the sudden onset of crushing substernal chest pain that radiates to "
   },
   {
     "subject": "medicine",
@@ -7226,26 +7114,10 @@
   {
     "subject": "medicine",
     "idx": 1693,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 58-year-old man with diabetes and hypertension presents to the emergency department with crushing chest pain radiating to the left arm for"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1693,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 58-year-old man with diabetes and hypertension presents to the emergency department with crushing chest pain radiating to the left arm for"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1694,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 22-year-old university student presents with a 3-day history of worsening breathlessness, wheeze, and cough. She uses salbutamol inhaler f"
   },
   {
     "subject": "medicine",
@@ -7258,26 +7130,10 @@
   {
     "subject": "medicine",
     "idx": 1695,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 45-year-old chronic alcoholic presents with haematemesis and melaena. On examination, his pulse is 110 bpm, blood pressure is 95/60 mmHg, "
-  },
-  {
-    "subject": "medicine",
-    "idx": 1695,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 45-year-old chronic alcoholic presents with haematemesis and melaena. On examination, his pulse is 110 bpm, blood pressure is 95/60 mmHg, "
-  },
-  {
-    "subject": "medicine",
-    "idx": 1696,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 30-year-old man presents with generalised oedema for 2 weeks. Urinalysis shows 4+ proteinuria with no blood. Serum albumin is 15 g/L, chol"
   },
   {
     "subject": "medicine",
@@ -7290,26 +7146,10 @@
   {
     "subject": "medicine",
     "idx": 1697,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 16-year-old known Type 1 diabetic is brought to the ER unconscious. His mother reports he has been unwell with vomiting for 2 days and sto"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1697,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 16-year-old known Type 1 diabetic is brought to the ER unconscious. His mother reports he has been unwell with vomiting for 2 days and sto"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1698,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 68-year-old hypertensive man is brought in by ambulance with acute right-sided weakness and slurred speech. Symptoms started 2 hours ago. "
   },
   {
     "subject": "medicine",
@@ -7322,26 +7162,10 @@
   {
     "subject": "medicine",
     "idx": 1699,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 72-year-old man with hypertension presents with palpitations and dyspnoea on exertion for 2 days. ECG shows atrial fibrillation with a ven"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1699,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 72-year-old man with hypertension presents with palpitations and dyspnoea on exertion for 2 days. ECG shows atrial fibrillation with a ven"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1700,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 55-year-old man with decompensated cirrhosis presents with distended abdomen and shifting dullness. Serum albumin is 22 g/L and SAAG is >1"
   },
   {
     "subject": "medicine",
@@ -7354,26 +7178,10 @@
   {
     "subject": "medicine",
     "idx": 1701,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 30-year-old man presents with fever, night sweats, weight loss, and cough with haemoptysis for 4 weeks. CXR shows a cavitary lesion in the"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1701,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 30-year-old man presents with fever, night sweats, weight loss, and cough with haemoptysis for 4 weeks. CXR shows a cavitary lesion in the"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1702,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 45-year-old woman presents with symmetrical small joint pain and stiffness in both hands for 3 months. Morning stiffness lasts >1 hour. Ex"
   },
   {
     "subject": "medicine",
@@ -7386,26 +7194,10 @@
   {
     "subject": "medicine",
     "idx": 1703,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 28-year-old woman presents with low mood, anhedonia, poor concentration, early morning waking, and feelings of worthlessness for 6 weeks. "
-  },
-  {
-    "subject": "medicine",
-    "idx": 1703,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 28-year-old woman presents with low mood, anhedonia, poor concentration, early morning waking, and feelings of worthlessness for 6 weeks. "
-  },
-  {
-    "subject": "medicine",
-    "idx": 1704,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 32-year-old woman presents with weight loss, palpitations, heat intolerance, tremor, and exophthalmos. Serum TSH is <0.01 mIU/L, free T4 i"
   },
   {
     "subject": "medicine",
@@ -7418,26 +7210,10 @@
   {
     "subject": "medicine",
     "idx": 1705,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 60-year-old vegetarian man presents with progressive fatigue, glossitis, and paraesthesiae in his hands and feet. Hb is 72 g/L, MCV 115 fL"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1705,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 60-year-old vegetarian man presents with progressive fatigue, glossitis, and paraesthesiae in his hands and feet. Hb is 72 g/L, MCV 115 fL"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1706,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 65-year-old man presents with progressive dyspnoea and a dry cough for 18 months. He has no smoking history. Fine bibasal late-inspiratory"
   },
   {
     "subject": "medicine",
@@ -7450,26 +7226,10 @@
   {
     "subject": "medicine",
     "idx": 1707,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 55-year-old smoker presents with dyspnoea and dullness at the right base. Thoracentesis yields exudative fluid (protein 45 g/L, LDH 380), "
-  },
-  {
-    "subject": "medicine",
-    "idx": 1707,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 55-year-old smoker presents with dyspnoea and dullness at the right base. Thoracentesis yields exudative fluid (protein 45 g/L, LDH 380), "
-  },
-  {
-    "subject": "medicine",
-    "idx": 1708,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 40-year-old obese man presents with retrosternal burning after meals worsened by lying down, and a sour taste on waking. Symptoms improve "
   },
   {
     "subject": "medicine",
@@ -7482,26 +7242,10 @@
   {
     "subject": "medicine",
     "idx": 1709,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 28-year-old man presents with bloody diarrhoea, tenesmus, and abdominal cramping for 6 weeks. Colonoscopy shows continuous mucosal inflamm"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1709,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 28-year-old man presents with bloody diarrhoea, tenesmus, and abdominal cramping for 6 weeks. Colonoscopy shows continuous mucosal inflamm"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1710,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 45-year-old woman develops fever, rash, and eosinophilia 10 days after starting an antibiotic for a UTI. Creatinine rises from 80 to 250 µ"
   },
   {
     "subject": "medicine",
@@ -7514,26 +7258,10 @@
   {
     "subject": "medicine",
     "idx": 1711,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 60-year-old man with CKD stage 4 presents with ECG showing peaked T waves, loss of P wave, and widened QRS. Serum K+ is 7.2 mmol/L. What i"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1711,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 60-year-old man with CKD stage 4 presents with ECG showing peaked T waves, loss of P wave, and widened QRS. Serum K+ is 7.2 mmol/L. What i"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1712,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 50-year-old man with diabetes and hypertension has TC 7.2, LDL 4.8, HDL 0.9, TG 3.2 mmol/L. His 10-year CV risk is >20%. What is first-lin"
   },
   {
     "subject": "medicine",
@@ -7546,26 +7274,10 @@
   {
     "subject": "medicine",
     "idx": 1713,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 55-year-old man with 15-year history of poorly controlled type 2 DM has UACR 180 mg/g and eGFR 55 mL/min. BP is 140/88 mmHg. Which antihyp"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1713,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 55-year-old man with 15-year history of poorly controlled type 2 DM has UACR 180 mg/g and eGFR 55 mL/min. BP is 140/88 mmHg. Which antihyp"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1714,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 4-year-old girl presents with pallor, fever, bruising, and bone pain for 2 weeks. Hepatosplenomegaly and cervical lymphadenopathy are pres"
   },
   {
     "subject": "medicine",
@@ -7578,26 +7290,10 @@
   {
     "subject": "medicine",
     "idx": 1715,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 60-year-old man with metastatic prostate cancer presents with bleeding from venipuncture sites, petechiae, and haematuria. PT 18s, aPTT 48"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1715,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 60-year-old man with metastatic prostate cancer presents with bleeding from venipuncture sites, petechiae, and haematuria. PT 18s, aPTT 48"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1716,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 68-year-old man presents with progressive resting tremor (pill-rolling), bradykinesia, cogwheel rigidity, and gait instability over 2 year"
   },
   {
     "subject": "medicine",
@@ -7610,26 +7306,10 @@
   {
     "subject": "medicine",
     "idx": 1717,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 35-year-old man has well-demarcated erythematous plaques with silvery scales on elbows, knees, and scalp. He reports nail pitting and occa"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1717,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 35-year-old man has well-demarcated erythematous plaques with silvery scales on elbows, knees, and scalp. He reports nail pitting and occa"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1718,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 22-year-old man has been hearing voices commenting on his behaviour for 1 month. He believes the FBI is following him and has become socia"
   },
   {
     "subject": "medicine",
@@ -7642,26 +7322,10 @@
   {
     "subject": "medicine",
     "idx": 1719,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 72-year-old man presents with exertional chest pain, syncope while mowing the lawn, and progressive dyspnoea over 6 months. On exam, carot"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1719,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 72-year-old man presents with exertional chest pain, syncope while mowing the lawn, and progressive dyspnoea over 6 months. On exam, carot"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1720,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 45-year-old IV drug user presents with fever of 3 weeks, weight loss, and a new regurgitant murmur. Blood cultures grow Staphylococcus aur"
   },
   {
     "subject": "medicine",
@@ -7674,26 +7338,10 @@
   {
     "subject": "medicine",
     "idx": 1721,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 32-year-old man presents with sudden-onset sharp retrosternal chest pain that worsens on lying flat and improves when sitting forward. He "
-  },
-  {
-    "subject": "medicine",
-    "idx": 1721,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 32-year-old man presents with sudden-onset sharp retrosternal chest pain that worsens on lying flat and improves when sitting forward. He "
-  },
-  {
-    "subject": "medicine",
-    "idx": 1722,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 66-year-old man with 40-pack-year smoking history and known COPD presents with increased dyspnoea, purulent sputum, and fever for 3 days. "
   },
   {
     "subject": "medicine",
@@ -7706,26 +7354,10 @@
   {
     "subject": "medicine",
     "idx": 1723,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 55-year-old woman who underwent total hip replacement 10 days ago presents with sudden-onset pleuritic chest pain, dyspnoea, and haemoptys"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1723,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 55-year-old woman who underwent total hip replacement 10 days ago presents with sudden-onset pleuritic chest pain, dyspnoea, and haemoptys"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1724,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 35-year-old man from a rural area presents with high-grade fever, right upper quadrant pain, and weight loss for 2 weeks. He has no jaundi"
   },
   {
     "subject": "medicine",
@@ -7738,26 +7370,10 @@
   {
     "subject": "medicine",
     "idx": 1725,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 45-year-old man with chronic alcohol use presents with epigastric pain radiating to the back, steatorrhoea, and weight loss. CT abdomen sh"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1725,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 45-year-old man with chronic alcohol use presents with epigastric pain radiating to the back, steatorrhoea, and weight loss. CT abdomen sh"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1726,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 30-year-old premenopausal woman presents with fatigue, pallor, and brittle nails. Hb 8.5 g/dL, MCV 72 fL, MCH 24 pg, ferritin 6 ng/mL. Per"
   },
   {
     "subject": "medicine",
@@ -7770,26 +7386,10 @@
   {
     "subject": "medicine",
     "idx": 1727,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 28-year-old woman presents with recurrent unilateral throbbing headaches lasting 8-12 hours, associated with photophobia, phonophobia, and"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1727,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 28-year-old woman presents with recurrent unilateral throbbing headaches lasting 8-12 hours, associated with photophobia, phonophobia, and"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1728,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 65-year-old woman presents with gradual-onset pain and stiffness in both knees, worse with activity and relieved by rest. Morning stiffnes"
   },
   {
     "subject": "medicine",
@@ -7802,26 +7402,10 @@
   {
     "subject": "medicine",
     "idx": 1729,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 50-year-old man with hypertension (on thiazide) presents with acute-onset severe pain, swelling, and erythema of the right first metatarso"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1729,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 50-year-old man with hypertension (on thiazide) presents with acute-onset severe pain, swelling, and erythema of the right first metatarso"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1730,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 22-year-old college student presents with 7 days of stepwise rising fever, malaise, and constipation. On exam, he is febrile (39.5 C), has"
   },
   {
     "subject": "medicine",
@@ -7834,26 +7418,10 @@
   {
     "subject": "medicine",
     "idx": 1731,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 30-year-old man returns from Nigeria 1 week ago and presents with fever, confusion, and seizures for 1 day. On exam: GCS 10/15, pallor, ja"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1731,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 30-year-old man returns from Nigeria 1 week ago and presents with fever, confusion, and seizures for 1 day. On exam: GCS 10/15, pallor, ja"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1732,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 12-year-old girl presents with fever, polyarthritis migrating from knees to ankles, erythema marginatum on the trunk, and a new pansystoli"
   },
   {
     "subject": "medicine",
@@ -7866,26 +7434,10 @@
   {
     "subject": "medicine",
     "idx": 1733,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 30-year-old man presents with sharp retrosternal chest pain that worsens on lying supine and improves when he leans forward. He has a low-"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1733,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 30-year-old man presents with sharp retrosternal chest pain that worsens on lying supine and improves when he leans forward. He has a low-"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1734,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 55-year-old woman with a history of childhood measles pneumonia presents with copious purulent sputum production, recurrent chest infectio"
   },
   {
     "subject": "medicine",
@@ -7898,26 +7450,10 @@
   {
     "subject": "medicine",
     "idx": 1735,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 65-year-old woman on the ward 5 days post-hip replacement surgery develops sudden onset dyspnoea and pleuritic chest pain. HR 110, BP 100/"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1735,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 65-year-old woman on the ward 5 days post-hip replacement surgery develops sudden onset dyspnoea and pleuritic chest pain. HR 110, BP 100/"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1736,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 45-year-old man with a 15-year history of heavy alcohol use presents with jaundice, tender hepatomegaly, and mild ascites. Lab: AST 180 U/"
   },
   {
     "subject": "medicine",
@@ -7930,26 +7466,10 @@
   {
     "subject": "medicine",
     "idx": 1737,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "An 8-year-old boy presents with oliguria, cola-coloured urine, periorbital oedema, and hypertension (130/85). He had impetigo 2 weeks ago. U"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1737,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "An 8-year-old boy presents with oliguria, cola-coloured urine, periorbital oedema, and hypertension (130/85). He had impetigo 2 weeks ago. U"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1738,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 35-year-old woman presents with weight gain, central obesity, purple striae on the abdomen, easy bruising, and proximal myopathy. Blood pr"
   },
   {
     "subject": "medicine",
@@ -7962,26 +7482,10 @@
   {
     "subject": "medicine",
     "idx": 1739,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 60-year-old man with small cell lung carcinoma presents with nausea, headache, and confusion. Serum sodium is 118 mEq/L, serum osmolality "
-  },
-  {
-    "subject": "medicine",
-    "idx": 1739,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 60-year-old man with small cell lung carcinoma presents with nausea, headache, and confusion. Serum sodium is 118 mEq/L, serum osmolality "
-  },
-  {
-    "subject": "medicine",
-    "idx": 1740,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 3-year-old boy of African descent presents with painful swelling of both hands and feet, low-grade fever, and irritability. Hb 7.0 g/dL, b"
   },
   {
     "subject": "medicine",
@@ -7994,26 +7498,10 @@
   {
     "subject": "medicine",
     "idx": 1741,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 70-year-old man presents with back pain, fatigue, and recurrent infections. Hb 9.5 g/dL, serum creatinine 2.0 mg/dL, calcium 11.5 mg/dL. X"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1741,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 70-year-old man presents with back pain, fatigue, and recurrent infections. Hb 9.5 g/dL, serum creatinine 2.0 mg/dL, calcium 11.5 mg/dL. X"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1742,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 35-year-old woman complains of fluctuating double vision and drooping eyelids that worsen toward the evening. She has difficulty climbing "
   },
   {
     "subject": "medicine",
@@ -8026,14 +7514,6 @@
   {
     "subject": "medicine",
     "idx": 1743,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 45-year-old man presents with ascending symmetrical weakness of both legs starting 3 days ago, progressing to involve the arms. He had a d"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1743,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
@@ -8042,34 +7522,10 @@
   {
     "subject": "medicine",
     "idx": 1744,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 55-year-old man wakes up with excruciating pain, swelling, and redness over the first metatarsophalangeal joint of his right foot. He has "
-  },
-  {
-    "subject": "medicine",
-    "idx": 1744,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 55-year-old man wakes up with excruciating pain, swelling, and redness over the first metatarsophalangeal joint of his right foot. He has "
-  },
-  {
-    "subject": "surgery",
-    "idx": 284,
-    "check": "STEM_TOO_SHORT",
-    "severity": "medium",
-    "detail": "len 33",
-    "stem": "What is the antidote for heparin?"
-  },
-  {
-    "subject": "surgery",
-    "idx": 344,
-    "check": "STEM_TOO_SHORT",
-    "severity": "medium",
-    "detail": "len 32",
-    "stem": "Which pair is correctly matched?"
   },
   {
     "subject": "surgery",
@@ -9862,14 +9318,6 @@
     "severity": "medium",
     "detail": "missing others",
     "stem": "Which of the following is NOT a component of Virchow triad for venous thrombosis?"
-  },
-  {
-    "subject": "surgery",
-    "idx": 631,
-    "check": "STEM_TOO_SHORT",
-    "severity": "medium",
-    "detail": "len 16",
-    "stem": "What is D-dimer?"
   },
   {
     "subject": "surgery",
@@ -11890,26 +11338,10 @@
   {
     "subject": "surgery",
     "idx": 757,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 30-year-old man is brought to the emergency department after a high-speed road traffic accident. On primary survey, airway is patent, resp"
-  },
-  {
-    "subject": "surgery",
-    "idx": 757,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 30-year-old man is brought to the emergency department after a high-speed road traffic accident. On primary survey, airway is patent, resp"
-  },
-  {
-    "subject": "surgery",
-    "idx": 758,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 20-year-old male presents with periumbilical pain that has migrated to the right iliac fossa over 12 hours, associated with nausea, vomiti"
   },
   {
     "subject": "surgery",
@@ -11922,26 +11354,10 @@
   {
     "subject": "surgery",
     "idx": 759,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 65-year-old woman presents with a painful lump in her right groin that appeared suddenly 6 hours ago. The lump is below and lateral to the"
-  },
-  {
-    "subject": "surgery",
-    "idx": 759,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 65-year-old woman presents with a painful lump in her right groin that appeared suddenly 6 hours ago. The lump is below and lateral to the"
-  },
-  {
-    "subject": "surgery",
-    "idx": 760,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 14-year-old boy presents with sudden-onset severe right scrotal pain that started during sleep 3 hours ago. He has nausea and vomiting. Ex"
   },
   {
     "subject": "surgery",
@@ -11954,26 +11370,10 @@
   {
     "subject": "surgery",
     "idx": 761,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 50-year-old man presents with sudden, severe, generalised abdominal pain. He has a history of NSAID use for knee pain. Examination shows a"
-  },
-  {
-    "subject": "surgery",
-    "idx": 761,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 50-year-old man presents with sudden, severe, generalised abdominal pain. He has a history of NSAID use for knee pain. Examination shows a"
-  },
-  {
-    "subject": "surgery",
-    "idx": 762,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 70-year-old woman falls on an outstretched hand. She has pain, swelling, and deformity at the wrist. X-ray shows a Colles' fracture (dorsa"
   },
   {
     "subject": "surgery",
@@ -11986,26 +11386,10 @@
   {
     "subject": "surgery",
     "idx": 763,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 65-year-old diabetic smoker undergoes a below-knee amputation. After 5 days, the wound edges are separated, there is serous drainage, and "
-  },
-  {
-    "subject": "surgery",
-    "idx": 763,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 65-year-old diabetic smoker undergoes a below-knee amputation. After 5 days, the wound edges are separated, there is serous drainage, and "
-  },
-  {
-    "subject": "surgery",
-    "idx": 764,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 50-year-old woman presents with a slowly enlarging neck mass over 5 years. Examination shows a firm, nodular thyroid gland with no cervica"
   },
   {
     "subject": "surgery",
@@ -12018,26 +11402,10 @@
   {
     "subject": "surgery",
     "idx": 765,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 45-year-old obese woman presents with acute right upper quadrant pain, fever, and vomiting for 24 hours. Murphy's sign is positive. WBC is"
-  },
-  {
-    "subject": "surgery",
-    "idx": 765,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 45-year-old obese woman presents with acute right upper quadrant pain, fever, and vomiting for 24 hours. Murphy's sign is positive. WBC is"
-  },
-  {
-    "subject": "surgery",
-    "idx": 766,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 68-year-old man presents with urinary hesitancy, weak stream, nocturia (3-4 times), and sensation of incomplete bladder emptying. Digital "
   },
   {
     "subject": "surgery",
@@ -12050,26 +11418,10 @@
   {
     "subject": "surgery",
     "idx": 767,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "An 80-year-old woman falls at home and presents with a shortened, externally rotated left leg. She is unable to bear weight. X-ray shows a d"
-  },
-  {
-    "subject": "surgery",
-    "idx": 767,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "An 80-year-old woman falls at home and presents with a shortened, externally rotated left leg. She is unable to bear weight. X-ray shows a d"
-  },
-  {
-    "subject": "surgery",
-    "idx": 768,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 30-year-old man sustains burns to both upper limbs (anterior), the entire anterior trunk, and the anterior left lower limb. Using the rule"
   },
   {
     "subject": "surgery",
@@ -12082,26 +11434,10 @@
   {
     "subject": "surgery",
     "idx": 769,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 25-year-old man has a stab wound to the left chest. He is tachycardic with decreased breath sounds and dullness on the left. Chest drain i"
-  },
-  {
-    "subject": "surgery",
-    "idx": 769,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 25-year-old man has a stab wound to the left chest. He is tachycardic with decreased breath sounds and dullness on the left. Chest drain i"
-  },
-  {
-    "subject": "surgery",
-    "idx": 770,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 65-year-old diabetic smoker has right calf claudication after walking 100 m, relieved by rest. Right dorsalis pedis pulse is absent. ABI i"
   },
   {
     "subject": "surgery",
@@ -12114,26 +11450,10 @@
   {
     "subject": "surgery",
     "idx": 771,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 20-year-old woman has a painless, fluctuant swelling at the anterior border of the lower third of SCM. It transilluminates. No skin change"
-  },
-  {
-    "subject": "surgery",
-    "idx": 771,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 20-year-old woman has a painless, fluctuant swelling at the anterior border of the lower third of SCM. It transilluminates. No skin change"
-  },
-  {
-    "subject": "surgery",
-    "idx": 772,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 50-year-old woman has a painless hard lump in the upper outer quadrant. Mammogram shows a spiculated mass with microcalcifications. Core b"
   },
   {
     "subject": "surgery",
@@ -12146,26 +11466,10 @@
   {
     "subject": "surgery",
     "idx": 773,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 70-year-old man presents with painless jaundice, dark urine, pale stools, and weight loss. Gallbladder is palpable (Courvoisier sign). CT "
-  },
-  {
-    "subject": "surgery",
-    "idx": 773,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 70-year-old man presents with painless jaundice, dark urine, pale stools, and weight loss. Gallbladder is palpable (Courvoisier sign). CT "
-  },
-  {
-    "subject": "surgery",
-    "idx": 774,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 55-year-old obese woman has a reducible bulge at a previous midline laparotomy scar from 2 years ago. It causes mild discomfort and increa"
   },
   {
     "subject": "surgery",
@@ -12178,26 +11482,10 @@
   {
     "subject": "surgery",
     "idx": 775,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 70-year-old man has PSA 12 ng/mL. DRE shows a hard irregular nodule on the right lobe. Biopsy confirms adenocarcinoma, Gleason 7 (3+4). Wh"
-  },
-  {
-    "subject": "surgery",
-    "idx": 775,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 70-year-old man has PSA 12 ng/mL. DRE shows a hard irregular nodule on the right lobe. Biopsy confirms adenocarcinoma, Gleason 7 (3+4). Wh"
-  },
-  {
-    "subject": "surgery",
-    "idx": 776,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 35-year-old man has sudden severe right flank pain radiating to groin with nausea and vomiting. Urinalysis shows haematuria. CT KUB shows "
   },
   {
     "subject": "surgery",
@@ -12210,26 +11498,10 @@
   {
     "subject": "surgery",
     "idx": 777,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 2-day-old term neonate has bilious vomiting, abdominal distension, and failed to pass meconium in the first 24 hours. Contrast enema shows"
-  },
-  {
-    "subject": "surgery",
-    "idx": 777,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 2-day-old term neonate has bilious vomiting, abdominal distension, and failed to pass meconium in the first 24 hours. Contrast enema shows"
-  },
-  {
-    "subject": "surgery",
-    "idx": 778,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 30-year-old man has a closed tibial shaft fracture and was casted. 6 hours later, he has increasing pain despite elevation and analgesia. "
   },
   {
     "subject": "surgery",
@@ -12242,26 +11514,10 @@
   {
     "subject": "surgery",
     "idx": 779,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 45-year-old woman has tortuous dilated veins on her left leg causing aching after prolonged standing. Trendelenburg test shows retrograde "
-  },
-  {
-    "subject": "surgery",
-    "idx": 779,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 45-year-old woman has tortuous dilated veins on her left leg causing aching after prolonged standing. Trendelenburg test shows retrograde "
-  },
-  {
-    "subject": "surgery",
-    "idx": 780,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 60-year-old obese woman has heartburn, regurgitation, and dysphagia. Barium swallow shows the GOJ and a portion of the stomach herniated i"
   },
   {
     "subject": "surgery",
@@ -12274,26 +11530,10 @@
   {
     "subject": "surgery",
     "idx": 781,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 55-year-old woman presents with a painless, hard, irregular lump in the upper outer quadrant of the left breast detected 2 months ago. On "
-  },
-  {
-    "subject": "surgery",
-    "idx": 781,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 55-year-old woman presents with a painless, hard, irregular lump in the upper outer quadrant of the left breast detected 2 months ago. On "
-  },
-  {
-    "subject": "surgery",
-    "idx": 782,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 65-year-old man presents with altered bowel habits, passage of dark red blood mixed with stool, and unintentional weight loss over 4 month"
   },
   {
     "subject": "surgery",
@@ -12306,26 +11546,10 @@
   {
     "subject": "surgery",
     "idx": 783,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 60-year-old man with no prior abdominal surgery presents with colicky abdominal pain, abdominal distension, absolute constipation, and bil"
-  },
-  {
-    "subject": "surgery",
-    "idx": 783,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 60-year-old man with no prior abdominal surgery presents with colicky abdominal pain, abdominal distension, absolute constipation, and bil"
-  },
-  {
-    "subject": "surgery",
-    "idx": 784,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 40-year-old man with chronic constipation presents with bright red blood per rectum on wiping and a prolapsing mass that reduces spontaneo"
   },
   {
     "subject": "surgery",
@@ -12338,26 +11562,10 @@
   {
     "subject": "surgery",
     "idx": 785,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 30-year-old woman presents with severe tearing pain during defaecation and bright red blood on toilet paper for 3 weeks. She is so afraid "
-  },
-  {
-    "subject": "surgery",
-    "idx": 785,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 30-year-old woman presents with severe tearing pain during defaecation and bright red blood on toilet paper for 3 weeks. She is so afraid "
-  },
-  {
-    "subject": "surgery",
-    "idx": 786,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 45-year-old woman who works as a school teacher presents with dilated, tortuous leg veins for several years. She complains of aching, heav"
   },
   {
     "subject": "surgery",
@@ -12370,26 +11578,10 @@
   {
     "subject": "surgery",
     "idx": 787,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 55-year-old man who is 3 days post-operative after total knee replacement develops acute swelling, warmth, and tenderness of the left calf"
-  },
-  {
-    "subject": "surgery",
-    "idx": 787,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 55-year-old man who is 3 days post-operative after total knee replacement develops acute swelling, warmth, and tenderness of the left calf"
-  },
-  {
-    "subject": "surgery",
-    "idx": 788,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 42-year-old woman who works as a data entry operator presents with numbness and tingling in the thumb, index, and middle fingers of the ri"
   },
   {
     "subject": "surgery",
@@ -12402,26 +11594,10 @@
   {
     "subject": "surgery",
     "idx": 789,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 32-year-old woman presents with sudden-onset inability to close her right eye and deviation of her mouth to the left side, developing over"
-  },
-  {
-    "subject": "surgery",
-    "idx": 789,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 32-year-old woman presents with sudden-onset inability to close her right eye and deviation of her mouth to the left side, developing over"
-  },
-  {
-    "subject": "surgery",
-    "idx": 790,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 58-year-old man presents with a slow-growing, painless, firm lump in front of the left ear for 2 years. On exam, the lump is in the paroti"
   },
   {
     "subject": "surgery",
@@ -12434,26 +11610,10 @@
   {
     "subject": "surgery",
     "idx": 791,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 60-year-old man with a 30-year history of gastro-oesophageal reflux disease presents with progressive dysphagia, first to solids then to l"
-  },
-  {
-    "subject": "surgery",
-    "idx": 791,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 60-year-old man with a 30-year history of gastro-oesophageal reflux disease presents with progressive dysphagia, first to solids then to l"
-  },
-  {
-    "subject": "surgery",
-    "idx": 792,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 35-year-old woman presents with a thyroid nodule discovered incidentally on ultrasound. She is euthyroid. Ultrasound shows a 2.5 cm hypoec"
   },
   {
     "subject": "surgery",
@@ -12466,26 +11626,10 @@
   {
     "subject": "surgery",
     "idx": 793,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 40-year-old woman presents with progressive dysphagia for both solids and liquids, regurgitation of undigested food, and weight loss. Bari"
-  },
-  {
-    "subject": "surgery",
-    "idx": 793,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 40-year-old woman presents with progressive dysphagia for both solids and liquids, regurgitation of undigested food, and weight loss. Bari"
-  },
-  {
-    "subject": "surgery",
-    "idx": 794,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 60-year-old man presents with epigastric discomfort, early satiety, and unintentional weight loss of 10 kg over 3 months. He is pale. Uppe"
   },
   {
     "subject": "surgery",
@@ -12498,26 +11642,10 @@
   {
     "subject": "surgery",
     "idx": 795,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 70-year-old presents with altered bowel habits, ribbon-like stools, and fresh bleeding per rectum. Colonoscopy reveals a constricting lesi"
-  },
-  {
-    "subject": "surgery",
-    "idx": 795,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 70-year-old presents with altered bowel habits, ribbon-like stools, and fresh bleeding per rectum. Colonoscopy reveals a constricting lesi"
-  },
-  {
-    "subject": "surgery",
-    "idx": 796,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 55-year-old woman discovers a painless, hard, irregular mass in the upper outer quadrant of her left breast. There is peau d'orange and ni"
   },
   {
     "subject": "surgery",
@@ -12530,26 +11658,10 @@
   {
     "subject": "surgery",
     "idx": 797,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 35-year-old man from a tropical region presents with high fever, right upper quadrant pain, and tender hepatomegaly. He is not jaundiced. "
-  },
-  {
-    "subject": "surgery",
-    "idx": 797,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 35-year-old man from a tropical region presents with high fever, right upper quadrant pain, and tender hepatomegaly. He is not jaundiced. "
-  },
-  {
-    "subject": "surgery",
-    "idx": 798,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 40-year-old man presents with perianal discharge and recurrent swelling near the anus. Examination reveals an external opening 3 cm from t"
   },
   {
     "subject": "surgery",
@@ -12562,26 +11674,10 @@
   {
     "subject": "surgery",
     "idx": 799,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 2-year-old boy presents with a reducible groin swelling that appears during crying. It descends into the scrotum. On examination, the swel"
-  },
-  {
-    "subject": "surgery",
-    "idx": 799,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 2-year-old boy presents with a reducible groin swelling that appears during crying. It descends into the scrotum. On examination, the swel"
-  },
-  {
-    "subject": "surgery",
-    "idx": 800,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 60-year-old man presents with painless gross haematuria, a palpable flank mass, and weight loss. CT reveals a solid enhancing mass in the "
   },
   {
     "subject": "surgery",
@@ -12594,26 +11690,10 @@
   {
     "subject": "surgery",
     "idx": 801,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 65-year-old smoker presents with calf pain that occurs after walking two blocks and resolves after 5 minutes of rest. Pulses in the affect"
-  },
-  {
-    "subject": "surgery",
-    "idx": 801,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 65-year-old smoker presents with calf pain that occurs after walking two blocks and resolves after 5 minutes of rest. Pulses in the affect"
-  },
-  {
-    "subject": "surgery",
-    "idx": 802,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 25-year-old man sustains a closed fracture of the tibial shaft in a road traffic accident. Twelve hours later, he has severe pain out of p"
   },
   {
     "subject": "surgery",
@@ -12626,14 +11706,6 @@
   {
     "subject": "surgery",
     "idx": 803,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 5-year-old boy presents with an acutely swollen, warm, and painful right knee. He refuses to bear weight and cries with any movement. Temp"
-  },
-  {
-    "subject": "surgery",
-    "idx": 803,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
@@ -12642,98 +11714,10 @@
   {
     "subject": "surgery",
     "idx": 804,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 50-year-old woman presents with a painless, slow-growing, mobile swelling in front of her left ear. It feels firm and lobulated. Facial ne"
-  },
-  {
-    "subject": "surgery",
-    "idx": 804,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 50-year-old woman presents with a painless, slow-growing, mobile swelling in front of her left ear. It feels firm and lobulated. Facial ne"
-  },
-  {
-    "subject": "eye-ent",
-    "idx": 163,
-    "check": "EMPTY_OTHER",
-    "severity": "medium",
-    "detail": "empty others[A]",
-    "stem": "A passenger develops ear pain and fullness during aircraft descent. Otoscopy shows a retracted, congested tympanic membrane with a middle-ea"
-  },
-  {
-    "subject": "eye-ent",
-    "idx": 164,
-    "check": "EMPTY_OTHER",
-    "severity": "medium",
-    "detail": "empty others[C]",
-    "stem": "A 35-year-old has a long history of chronic, often offensive ear discharge and progressive conductive hearing loss. Otoscopy shows retractio"
-  },
-  {
-    "subject": "eye-ent",
-    "idx": 165,
-    "check": "EMPTY_OTHER",
-    "severity": "medium",
-    "detail": "empty others[C]",
-    "stem": "A 75-year-old reports slowly progressive difficulty hearing in both ears, especially in noisy environments, with normal ears on otoscopy. Pu"
-  },
-  {
-    "subject": "eye-ent",
-    "idx": 168,
-    "check": "EMPTY_OTHER",
-    "severity": "medium",
-    "detail": "empty others[B]",
-    "stem": "A 3-year-old has a persistent, unilateral, foul-smelling, blood-stained nasal discharge from the right nostril for 2 weeks. What is the most"
-  },
-  {
-    "subject": "eye-ent",
-    "idx": 169,
-    "check": "EMPTY_OTHER",
-    "severity": "medium",
-    "detail": "empty others[D]",
-    "stem": "A patient has a 'double worsening' of cold symptoms: nasal congestion and purulent discharge that TRANSIENTLY improved then worsened, with f"
-  },
-  {
-    "subject": "eye-ent",
-    "idx": 170,
-    "check": "EMPTY_OTHER",
-    "severity": "medium",
-    "detail": "empty others[D]",
-    "stem": "A 25-year-old has seasonal sneezing, itchy watery eyes and clear rhinorrhoea. Which is first-line maintenance treatment for allergic rhiniti"
-  },
-  {
-    "subject": "eye-ent",
-    "idx": 173,
-    "check": "EMPTY_OTHER",
-    "severity": "medium",
-    "detail": "empty others[B]",
-    "stem": "A 45-year-old of East Asian origin presents with a painless neck mass and unilateral conductive hearing loss from a middle-ear effusion on t"
-  },
-  {
-    "subject": "eye-ent",
-    "idx": 175,
-    "check": "EMPTY_OTHER",
-    "severity": "medium",
-    "detail": "empty others[B]",
-    "stem": "A 25-year-old has severe unilateral sore throat, 'hot potato' voice, trismus, and deviation of the soft palate with the uvula pushed to the "
-  },
-  {
-    "subject": "eye-ent",
-    "idx": 178,
-    "check": "EMPTY_OTHER",
-    "severity": "medium",
-    "detail": "empty others[C]",
-    "stem": "A 45-year-old develops sudden onset of inability to close the right eye, drooping of the right corner of the mouth and forehead flattening o"
-  },
-  {
-    "subject": "eye-ent",
-    "idx": 179,
-    "check": "EMPTY_OTHER",
-    "severity": "medium",
-    "detail": "empty others[C]",
-    "stem": "A 50-year-old awakens with sudden hearing loss in one ear (no vertigo, no ear pain). Audiometry shows moderate unilateral sensorineural hear"
   },
   {
     "subject": "eye-ent",
@@ -14874,26 +13858,10 @@
   {
     "subject": "eye-ent",
     "idx": 323,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 60-year-old woman presents with sudden onset severe right eye pain, headache, nausea, and blurred vision after attending a dimly lit event"
-  },
-  {
-    "subject": "eye-ent",
-    "idx": 323,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 60-year-old woman presents with sudden onset severe right eye pain, headache, nausea, and blurred vision after attending a dimly lit event"
-  },
-  {
-    "subject": "eye-ent",
-    "idx": 324,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 3-year-old child presents with fever (39.2°C), right ear pain, irritability, and reduced appetite for 2 days. Otoscopy shows a bulging, er"
   },
   {
     "subject": "eye-ent",
@@ -14906,26 +13874,10 @@
   {
     "subject": "eye-ent",
     "idx": 325,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 20-year-old man presents with severe sore throat, fever, and muffled voice (hot potato voice) for 3 days. He has trismus and difficulty sw"
-  },
-  {
-    "subject": "eye-ent",
-    "idx": 325,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 20-year-old man presents with severe sore throat, fever, and muffled voice (hot potato voice) for 3 days. He has trismus and difficulty sw"
-  },
-  {
-    "subject": "eye-ent",
-    "idx": 326,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 55-year-old man with 20-year history of diabetes has fundoscopy showing microaneurysms, dot-blot haemorrhages, hard exudates, and cotton-w"
   },
   {
     "subject": "eye-ent",
@@ -14938,26 +13890,10 @@
   {
     "subject": "eye-ent",
     "idx": 327,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 6-year-old has chronic mouth breathing, snoring, and recurrent otitis media with effusion (glue ear). TM is dull and retracted. Nasal endo"
-  },
-  {
-    "subject": "eye-ent",
-    "idx": 327,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 6-year-old has chronic mouth breathing, snoring, and recurrent otitis media with effusion (glue ear). TM is dull and retracted. Nasal endo"
-  },
-  {
-    "subject": "eye-ent",
-    "idx": 328,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 40-year-old woman presents with recurrent episodes of vertigo lasting 30 minutes, tinnitus, and a sensation of fullness in her left ear. A"
   },
   {
     "subject": "eye-ent",
@@ -14970,26 +13906,10 @@
   {
     "subject": "eye-ent",
     "idx": 329,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 55-year-old man with type 2 diabetes for 15 years presents for routine eye examination. His HbA1c is 9.5%. Fundoscopy reveals dot-blot hae"
-  },
-  {
-    "subject": "eye-ent",
-    "idx": 329,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 55-year-old man with type 2 diabetes for 15 years presents for routine eye examination. His HbA1c is 9.5%. Fundoscopy reveals dot-blot hae"
-  },
-  {
-    "subject": "eye-ent",
-    "idx": 330,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 12-year-old boy presents with persistent purulent, foul-smelling ear discharge from the left ear for 3 months, with hearing loss. On otosc"
   },
   {
     "subject": "eye-ent",
@@ -15002,26 +13922,10 @@
   {
     "subject": "eye-ent",
     "idx": 331,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 60-year-old man with a 40-pack-year smoking history presents with hoarseness of voice for 3 months and now develops odynophagia and referr"
-  },
-  {
-    "subject": "eye-ent",
-    "idx": 331,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 60-year-old man with a 40-pack-year smoking history presents with hoarseness of voice for 3 months and now develops odynophagia and referr"
-  },
-  {
-    "subject": "eye-ent",
-    "idx": 332,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 45-year-old myopic man presents with sudden onset of flashes of light in his right eye followed by a 'curtain' coming across his vision. O"
   },
   {
     "subject": "eye-ent",
@@ -15034,26 +13938,10 @@
   {
     "subject": "eye-ent",
     "idx": 333,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 35-year-old woman presents with long-standing purulent ear discharge and hearing loss in the left ear. Examination reveals a retracted tym"
-  },
-  {
-    "subject": "eye-ent",
-    "idx": 333,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 35-year-old woman presents with long-standing purulent ear discharge and hearing loss in the left ear. Examination reveals a retracted tym"
-  },
-  {
-    "subject": "eye-ent",
-    "idx": 334,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 60-year-old heavy smoker presents with progressive hoarseness of voice for 4 months. Laryngoscopy reveals an irregular growth on the vocal"
   },
   {
     "subject": "eye-ent",
@@ -15222,14 +14110,6 @@
     "severity": "medium",
     "detail": "missing others",
     "stem": "Contraception of choice for a married woman with 1 child?"
-  },
-  {
-    "subject": "obgyn",
-    "idx": 204,
-    "check": "STEM_TOO_SHORT",
-    "severity": "medium",
-    "detail": "len 30",
-    "stem": "The fetal period extends from?"
   },
   {
     "subject": "obgyn",
@@ -17826,26 +16706,10 @@
   {
     "subject": "obgyn",
     "idx": 366,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 32-year-old G3P2 at 34 weeks gestation presents with sudden painless vaginal bleeding. She is haemodynamically stable. The uterus is soft "
-  },
-  {
-    "subject": "obgyn",
-    "idx": 366,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 32-year-old G3P2 at 34 weeks gestation presents with sudden painless vaginal bleeding. She is haemodynamically stable. The uterus is soft "
-  },
-  {
-    "subject": "obgyn",
-    "idx": 367,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 28-year-old woman presents with 8 weeks of amenorrhoea, lower abdominal pain, and mild vaginal spotting. Her serum β-hCG is 3,500 IU/L. Tr"
   },
   {
     "subject": "obgyn",
@@ -17858,26 +16722,10 @@
   {
     "subject": "obgyn",
     "idx": 368,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 25-year-old G1P0 at 39 weeks gestation presents with regular, painful contractions. On examination, cervical dilatation is 4 cm and 100% e"
-  },
-  {
-    "subject": "obgyn",
-    "idx": 368,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 25-year-old G1P0 at 39 weeks gestation presents with regular, painful contractions. On examination, cervical dilatation is 4 cm and 100% e"
-  },
-  {
-    "subject": "obgyn",
-    "idx": 369,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 35-year-old woman presents with heavy, prolonged menstrual bleeding and pelvic pressure for 6 months. Ultrasound shows a 6 cm intramural f"
   },
   {
     "subject": "obgyn",
@@ -17890,26 +16738,10 @@
   {
     "subject": "obgyn",
     "idx": 370,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "During delivery of a 4.2 kg infant, the head delivers but retracts against the perineum (turtle sign). Gentle downward traction fails to del"
-  },
-  {
-    "subject": "obgyn",
-    "idx": 370,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "During delivery of a 4.2 kg infant, the head delivers but retracts against the perineum (turtle sign). Gentle downward traction fails to del"
-  },
-  {
-    "subject": "obgyn",
-    "idx": 371,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 28-year-old G1P0 at 20 weeks with monochorionic diamniotic twins has rapidly increasing abdominal girth. US shows polyhydramnios in one sa"
   },
   {
     "subject": "obgyn",
@@ -17922,26 +16754,10 @@
   {
     "subject": "obgyn",
     "idx": 372,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 30-year-old woman at 10 weeks has vaginal bleeding and mild cramping. Cervical os is closed. US shows a gestational sac with fetal pole an"
-  },
-  {
-    "subject": "obgyn",
-    "idx": 372,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 30-year-old woman at 10 weeks has vaginal bleeding and mild cramping. Cervical os is closed. US shows a gestational sac with fetal pole an"
-  },
-  {
-    "subject": "obgyn",
-    "idx": 373,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 17-year-old has never menstruated. Tanner stage 5. Pelvic US shows absent uterus with normal ovaries. Karyotype is 46,XX. What is the diag"
   },
   {
     "subject": "obgyn",
@@ -17954,26 +16770,10 @@
   {
     "subject": "obgyn",
     "idx": 374,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 28-year-old primigravida at 34 weeks gestation presents with headache, visual blurring, and epigastric pain. BP is 160/110 mmHg, urine pro"
-  },
-  {
-    "subject": "obgyn",
-    "idx": 374,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 28-year-old primigravida at 34 weeks gestation presents with headache, visual blurring, and epigastric pain. BP is 160/110 mmHg, urine pro"
-  },
-  {
-    "subject": "obgyn",
-    "idx": 375,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 32-year-old woman at 12 weeks gestation presents with vaginal bleeding and lower abdominal cramps. On speculum exam, the cervical os is op"
   },
   {
     "subject": "obgyn",
@@ -17986,26 +16786,10 @@
   {
     "subject": "obgyn",
     "idx": 376,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 30-year-old nulligravida presents with severe cyclical pelvic pain that starts a few days before menstruation and continues during her per"
-  },
-  {
-    "subject": "obgyn",
-    "idx": 376,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 30-year-old nulligravida presents with severe cyclical pelvic pain that starts a few days before menstruation and continues during her per"
-  },
-  {
-    "subject": "obgyn",
-    "idx": 377,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 35-year-old woman undergoes routine cervical cancer screening. Her Pap smear result is reported as: 'High-grade squamous intraepithelial l"
   },
   {
     "subject": "obgyn",
@@ -18018,26 +16802,10 @@
   {
     "subject": "obgyn",
     "idx": 378,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 30-year-old primigravida at 32 weeks gestation presents with sudden onset of severe abdominal pain and vaginal bleeding. The uterus is ten"
-  },
-  {
-    "subject": "obgyn",
-    "idx": 378,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 30-year-old primigravida at 32 weeks gestation presents with sudden onset of severe abdominal pain and vaginal bleeding. The uterus is ten"
-  },
-  {
-    "subject": "obgyn",
-    "idx": 379,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 25-year-old woman presents with vaginal bleeding at 14 weeks of pregnancy. The uterus is larger than expected for gestational age. No feta"
   },
   {
     "subject": "obgyn",
@@ -18050,26 +16818,10 @@
   {
     "subject": "obgyn",
     "idx": 380,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 28-year-old primigravida has been in active labour for 18 hours. Contractions are strong but infrequent. The presenting part is not engage"
-  },
-  {
-    "subject": "obgyn",
-    "idx": 380,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 28-year-old primigravida has been in active labour for 18 hours. Contractions are strong but infrequent. The presenting part is not engage"
-  },
-  {
-    "subject": "obgyn",
-    "idx": 381,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 30-year-old woman presents with chronic lower abdominal pain and a palpable pelvic mass. Ultrasound shows a complex adnexal cyst with echo"
   },
   {
     "subject": "obgyn",
@@ -19490,26 +18242,10 @@
   {
     "subject": "paeds",
     "idx": 328,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A full-term newborn is delivered after an uncomplicated pregnancy but fails to cry at birth. The heart rate is 80 bpm and the baby is limp w"
-  },
-  {
-    "subject": "paeds",
-    "idx": 328,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A full-term newborn is delivered after an uncomplicated pregnancy but fails to cry at birth. The heart rate is 80 bpm and the baby is limp w"
-  },
-  {
-    "subject": "paeds",
-    "idx": 329,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A mother brings her 9-month-old child for a routine check-up. She is concerned that the child cannot stand independently. On examination, th"
   },
   {
     "subject": "paeds",
@@ -19522,26 +18258,10 @@
   {
     "subject": "paeds",
     "idx": 330,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 2-year-old child is brought with generalised pitting oedema, irritability, and a characteristic 'flaky paint' dermatosis. His weight is be"
-  },
-  {
-    "subject": "paeds",
-    "idx": 330,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 2-year-old child is brought with generalised pitting oedema, irritability, and a characteristic 'flaky paint' dermatosis. His weight is be"
-  },
-  {
-    "subject": "paeds",
-    "idx": 331,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 6-week-old term infant is brought for first immunisations. Which vaccines should be given according to Pakistan EPI schedule?"
   },
   {
     "subject": "paeds",
@@ -19554,26 +18274,10 @@
   {
     "subject": "paeds",
     "idx": 332,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 3-year-old unvaccinated child has high fever, cough, coryza, and conjunctivitis (3 Cs). Bluish-white spots are seen on the buccal mucosa. "
-  },
-  {
-    "subject": "paeds",
-    "idx": 332,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 3-year-old unvaccinated child has high fever, cough, coryza, and conjunctivitis (3 Cs). Bluish-white spots are seen on the buccal mucosa. "
-  },
-  {
-    "subject": "paeds",
-    "idx": 333,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 6-month-old infant presents with coryza, cough, and respiratory difficulty. Examination shows nasal flaring, intercostal retractions, and "
   },
   {
     "subject": "paeds",
@@ -19586,26 +18290,10 @@
   {
     "subject": "paeds",
     "idx": 334,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 14-month-old boy presents with a generalised tonic-clonic seizure lasting 3 minutes during a febrile illness. His rectal temperature is 39"
-  },
-  {
-    "subject": "paeds",
-    "idx": 334,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 14-month-old boy presents with a generalised tonic-clonic seizure lasting 3 minutes during a febrile illness. His rectal temperature is 39"
-  },
-  {
-    "subject": "paeds",
-    "idx": 335,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 6-week-old infant presents with poor feeding, tachypnoea, and failure to thrive. On exam, there is a harsh holosystolic murmur at the left"
   },
   {
     "subject": "paeds",
@@ -19618,26 +18306,10 @@
   {
     "subject": "paeds",
     "idx": 336,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 3-year-old boy presents with periorbital and bilateral lower limb oedema for 1 week. Urinalysis shows 4+ protein. Serum albumin is 1.8 g/d"
-  },
-  {
-    "subject": "paeds",
-    "idx": 336,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 3-year-old boy presents with periorbital and bilateral lower limb oedema for 1 week. Urinalysis shows 4+ protein. Serum albumin is 1.8 g/d"
-  },
-  {
-    "subject": "paeds",
-    "idx": 337,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A term newborn develops jaundice at 18 hours of life. Total bilirubin is 14 mg/dL with direct bilirubin 1.2 mg/dL. The baby is lethargic wit"
   },
   {
     "subject": "paeds",
@@ -19650,26 +18322,10 @@
   {
     "subject": "paeds",
     "idx": 338,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 2-year-old presents with cough, fever 39°C, and rapid breathing. RR 55/min, chest indrawing present. Oxygen saturation 92%. CXR shows a de"
-  },
-  {
-    "subject": "paeds",
-    "idx": 338,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 2-year-old presents with cough, fever 39°C, and rapid breathing. RR 55/min, chest indrawing present. Oxygen saturation 92%. CXR shows a de"
-  },
-  {
-    "subject": "paeds",
-    "idx": 339,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 3-year-old girl presents with fever (38.5°C), dysuria, and frequency. Urine dipstick shows positive nitrites and leukocyte esterase. Urine"
   },
   {
     "subject": "paeds",
@@ -21090,26 +19746,10 @@
   {
     "subject": "basic",
     "idx": 467,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 40-year-old man of Mediterranean descent is incidentally found to have Hb of 102 g/L on routine blood work. His MCV is 64 fL, RBC count is"
-  },
-  {
-    "subject": "basic",
-    "idx": 467,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 40-year-old man of Mediterranean descent is incidentally found to have Hb of 102 g/L on routine blood work. His MCV is 64 fL, RBC count is"
-  },
-  {
-    "subject": "basic",
-    "idx": 468,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 25-year-old man sustains a deep laceration to his forearm. Three days later, the wound is red, swollen, warm, and produces purulent discha"
   },
   {
     "subject": "basic",
@@ -21122,26 +19762,10 @@
   {
     "subject": "basic",
     "idx": 469,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 22-year-old man presents with inability to abduct his shoulder after a fall onto his outstretched hand. Examination shows loss of sensatio"
-  },
-  {
-    "subject": "basic",
-    "idx": 469,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 22-year-old man presents with inability to abduct his shoulder after a fall onto his outstretched hand. Examination shows loss of sensatio"
-  },
-  {
-    "subject": "basic",
-    "idx": 470,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "During an inguinal hernia repair, the surgeon identifies the deep inguinal ring. Which of the following structures forms the deep (internal)"
   },
   {
     "subject": "basic",
@@ -21154,26 +19778,10 @@
   {
     "subject": "basic",
     "idx": 471,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 40-year-old man undergoes echocardiography for a heart murmur. The cardiologist notes a loud S1, an opening snap, and a low-pitched mid-di"
-  },
-  {
-    "subject": "basic",
-    "idx": 471,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 40-year-old man undergoes echocardiography for a heart murmur. The cardiologist notes a loud S1, an opening snap, and a low-pitched mid-di"
-  },
-  {
-    "subject": "basic",
-    "idx": 472,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 55-year-old man with chronic kidney disease presents with Kussmaul breathing, lethargy, and nausea. His ABG shows pH 7.28, PaCO₂ 24 mmHg, "
   },
   {
     "subject": "basic",
@@ -21186,26 +19794,10 @@
   {
     "subject": "basic",
     "idx": 473,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 65-year-old diabetic woman is admitted with a community-acquired pneumonia. She has a productive cough with purulent sputum, fever of 39°C"
-  },
-  {
-    "subject": "basic",
-    "idx": 473,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 65-year-old diabetic woman is admitted with a community-acquired pneumonia. She has a productive cough with purulent sputum, fever of 39°C"
-  },
-  {
-    "subject": "basic",
-    "idx": 474,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 40-year-old chronic alcoholic presents with bilateral lower limb weakness, numbness, and difficulty walking. Examination shows glove-and-s"
   },
   {
     "subject": "basic",
@@ -21218,26 +19810,10 @@
   {
     "subject": "basic",
     "idx": 475,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A new screening test for diabetes is evaluated in a population where the prevalence of diabetes is 8%. The test has a sensitivity of 90% and"
-  },
-  {
-    "subject": "basic",
-    "idx": 475,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A new screening test for diabetes is evaluated in a population where the prevalence of diabetes is 8%. The test has a sensitivity of 90% and"
-  },
-  {
-    "subject": "basic",
-    "idx": 476,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A body is found in an air-conditioned room (24°C). Rigor mortis is present in the jaw and upper limbs but not in the lower limbs. Lividity i"
   },
   {
     "subject": "basic",
@@ -21250,26 +19826,10 @@
   {
     "subject": "basic",
     "idx": 477,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 60-year-old man with a 30-pack-year smoking history presents with weight loss, cough, and haemoptysis. CXR shows a 4 cm lung mass. Biopsy "
-  },
-  {
-    "subject": "basic",
-    "idx": 477,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 60-year-old man with a 30-pack-year smoking history presents with weight loss, cough, and haemoptysis. CXR shows a 4 cm lung mass. Biopsy "
-  },
-  {
-    "subject": "basic",
-    "idx": 478,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 40-year-old man sustains a posterior hip dislocation in a road traffic accident. He presents with foot drop, inability to flex the knee, a"
   },
   {
     "subject": "basic",
@@ -21282,26 +19842,10 @@
   {
     "subject": "basic",
     "idx": 479,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 55-year-old woman with acute DVT is started on IV unfractionated heparin and oral warfarin simultaneously. After 3 days, her INR is 2.3. W"
-  },
-  {
-    "subject": "basic",
-    "idx": 479,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 55-year-old woman with acute DVT is started on IV unfractionated heparin and oral warfarin simultaneously. After 3 days, her INR is 2.3. W"
-  },
-  {
-    "subject": "basic",
-    "idx": 480,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A researcher wants to determine whether smoking is associated with lung cancer. She selects 100 patients with lung cancer and 100 healthy co"
   },
   {
     "subject": "basic",
@@ -21314,26 +19858,10 @@
   {
     "subject": "basic",
     "idx": 481,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 65-year-old smoker has haemoptysis and weight loss. CT shows a central lung mass. Biopsy shows nests of small round blue cells with hyperc"
-  },
-  {
-    "subject": "basic",
-    "idx": 481,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 65-year-old smoker has haemoptysis and weight loss. CT shows a central lung mass. Biopsy shows nests of small round blue cells with hyperc"
-  },
-  {
-    "subject": "basic",
-    "idx": 482,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 50-year-old man has fatigue, weight loss, and splenomegaly. Hb 105, WBC 120 (all stages of myeloid maturation), platelets 550. LAP score i"
   },
   {
     "subject": "basic",
@@ -21346,26 +19874,10 @@
   {
     "subject": "basic",
     "idx": 483,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A breast biopsy shows cells with pleomorphism, hyperchromatic nuclei, increased mitotic activity, and loss of architecture. The basement mem"
-  },
-  {
-    "subject": "basic",
-    "idx": 483,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A breast biopsy shows cells with pleomorphism, hyperchromatic nuclei, increased mitotic activity, and loss of architecture. The basement mem"
-  },
-  {
-    "subject": "basic",
-    "idx": 484,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A newborn is diagnosed with Tetralogy of Fallot. Which embryological defect underlies this condition?"
   },
   {
     "subject": "basic",
@@ -21378,26 +19890,10 @@
   {
     "subject": "basic",
     "idx": 485,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 45-year-old woman cannot close her left eye or mouth. Left angle of mouth droops. Taste is lost on the anterior 2/3 of tongue. Bell reflex"
-  },
-  {
-    "subject": "basic",
-    "idx": 485,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 45-year-old woman cannot close her left eye or mouth. Left angle of mouth droops. Taste is lost on the anterior 2/3 of tongue. Bell reflex"
-  },
-  {
-    "subject": "basic",
-    "idx": 486,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 30-year-old woman has pain/paraesthesiae in her right hand, worse with carrying bags. Thenar wasting and medial forearm sensory loss. Adso"
   },
   {
     "subject": "basic",
@@ -21410,26 +19906,10 @@
   {
     "subject": "basic",
     "idx": 487,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A patient takes furosemide for heart failure. Where does it act?"
-  },
-  {
-    "subject": "basic",
-    "idx": 487,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A patient takes furosemide for heart failure. Where does it act?"
-  },
-  {
-    "subject": "basic",
-    "idx": 488,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 60-year-old man with SCLC has hyponatraemia (Na 118). He is euvolemic. Urine osmolality 450 mOsm/kg, urine Na 60 mmol/L. Normal thyroid an"
   },
   {
     "subject": "basic",
@@ -21442,26 +19922,10 @@
   {
     "subject": "basic",
     "idx": 489,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A COPD patient with chronic CO2 retention (PaCO2 60 mmHg) is given high-flow oxygen (10 L/min). He becomes drowsy and hypoventilates. What i"
-  },
-  {
-    "subject": "basic",
-    "idx": 489,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A COPD patient with chronic CO2 retention (PaCO2 60 mmHg) is given high-flow oxygen (10 L/min). He becomes drowsy and hypoventilates. What i"
-  },
-  {
-    "subject": "basic",
-    "idx": 490,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 45-year-old asthmatic uses salbutamol >3 times/week and wakes with symptoms 2 nights/week. What does this indicate and what is the next st"
   },
   {
     "subject": "basic",
@@ -21474,26 +19938,10 @@
   {
     "subject": "basic",
     "idx": 491,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 70-year-old man on warfarin for AF presents with intracerebral haemorrhage. INR is 6.8. What is the immediate reversal?"
-  },
-  {
-    "subject": "basic",
-    "idx": 491,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 70-year-old man on warfarin for AF presents with intracerebral haemorrhage. INR is 6.8. What is the immediate reversal?"
-  },
-  {
-    "subject": "basic",
-    "idx": 492,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 30-year-old woman has recurrent episodes of severe abdominal pain, vomiting, and hallucinations. Urine turns dark red on light exposure. U"
   },
   {
     "subject": "basic",
@@ -21506,26 +19954,10 @@
   {
     "subject": "basic",
     "idx": 493,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A researcher compares mean systolic BP between two independent groups (treatment vs placebo). Data are normally distributed. Which statistic"
-  },
-  {
-    "subject": "basic",
-    "idx": 493,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A researcher compares mean systolic BP between two independent groups (treatment vs placebo). Data are normally distributed. Which statistic"
-  },
-  {
-    "subject": "basic",
-    "idx": 494,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A diarrhoea outbreak in a village: attack rate among those who drank from a specific hand pump is 45% vs 5% in those who did not. What is th"
   },
   {
     "subject": "basic",
@@ -21538,26 +19970,10 @@
   {
     "subject": "basic",
     "idx": 495,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 35-year-old farmer presents with excessive salivation, lacrimation, urination, defecation, muscle fasciculations, and pin-point pupils. He"
-  },
-  {
-    "subject": "basic",
-    "idx": 495,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 35-year-old farmer presents with excessive salivation, lacrimation, urination, defecation, muscle fasciculations, and pin-point pupils. He"
-  },
-  {
-    "subject": "basic",
-    "idx": 496,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 60-year-old man presents with easy bruising, fatigue, and recurrent infections over 4 weeks. Hb 7.2 g/dL, WBC 45,000/µL with 30% blasts, p"
   },
   {
     "subject": "basic",
@@ -21570,26 +19986,10 @@
   {
     "subject": "basic",
     "idx": 497,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 28-year-old man presents with painless, firm, rubbery supraclavicular lymphadenopathy for 6 weeks. He also reports night sweats, weight lo"
-  },
-  {
-    "subject": "basic",
-    "idx": 497,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 28-year-old man presents with painless, firm, rubbery supraclavicular lymphadenopathy for 6 weeks. He also reports night sweats, weight lo"
-  },
-  {
-    "subject": "basic",
-    "idx": 498,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 35-year-old man presents with oral thrush, weight loss, and chronic diarrhoea for 2 months. He has a history of multiple sexual partners. "
   },
   {
     "subject": "basic",
@@ -21602,26 +20002,10 @@
   {
     "subject": "basic",
     "idx": 499,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "During a femoral hernia repair surgery, a surgeon needs to identify the boundaries of the femoral triangle to avoid injuring the neurovascul"
-  },
-  {
-    "subject": "basic",
-    "idx": 499,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "During a femoral hernia repair surgery, a surgeon needs to identify the boundaries of the femoral triangle to avoid injuring the neurovascul"
-  },
-  {
-    "subject": "basic",
-    "idx": 500,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 65-year-old man presents with sudden-onset weakness of the right upper and lower limbs and aphasia. CT head shows a left middle cerebral a"
   },
   {
     "subject": "basic",
@@ -21634,26 +20018,10 @@
   {
     "subject": "basic",
     "idx": 501,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 22-year-old motorcyclist is involved in a road traffic accident with his arm forcefully pulled downwards and away from his body. He presen"
-  },
-  {
-    "subject": "basic",
-    "idx": 501,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 22-year-old motorcyclist is involved in a road traffic accident with his arm forcefully pulled downwards and away from his body. He presen"
-  },
-  {
-    "subject": "basic",
-    "idx": 502,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 50-year-old man with aortic stenosis undergoes cardiac catheterisation. During which phase of the cardiac cycle is coronary blood flow to "
   },
   {
     "subject": "basic",
@@ -21666,26 +20034,10 @@
   {
     "subject": "basic",
     "idx": 503,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 30-year-old man donates a kidney. After nephrectomy, his remaining kidney increases its glomerular filtration rate by 40% over 6 months. W"
-  },
-  {
-    "subject": "basic",
-    "idx": 503,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 30-year-old man donates a kidney. After nephrectomy, his remaining kidney increases its glomerular filtration rate by 40% over 6 months. W"
-  },
-  {
-    "subject": "basic",
-    "idx": 504,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 58-year-old man with COPD has chronic respiratory acidosis (pH 7.33, PaCO2 55 mmHg). His haemoglobin-oxygen dissociation curve is shifted."
   },
   {
     "subject": "basic",
@@ -21698,26 +20050,10 @@
   {
     "subject": "basic",
     "idx": 505,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 65-year-old man with decompensated heart failure presents with severe peripheral oedema, pulmonary oedema, and oliguria. IV furosemide 40 "
-  },
-  {
-    "subject": "basic",
-    "idx": 505,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 65-year-old man with decompensated heart failure presents with severe peripheral oedema, pulmonary oedema, and oliguria. IV furosemide 40 "
-  },
-  {
-    "subject": "basic",
-    "idx": 506,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 60-year-old woman with rheumatoid arthritis uses ibuprofen regularly for pain. She develops epigastric pain and melena. Upper GI endoscopy"
   },
   {
     "subject": "basic",
@@ -21730,26 +20066,10 @@
   {
     "subject": "basic",
     "idx": 507,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 6-month-old infant presents with fasting hypoglycaemia, hepatomegaly, and growth retardation. On examination, the liver is markedly enlarg"
-  },
-  {
-    "subject": "basic",
-    "idx": 507,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 6-month-old infant presents with fasting hypoglycaemia, hepatomegaly, and growth retardation. On examination, the liver is markedly enlarg"
-  },
-  {
-    "subject": "basic",
-    "idx": 508,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A researcher wants to determine if smoking during pregnancy is associated with low birth weight. She recruits 500 pregnant women — 200 smoke"
   },
   {
     "subject": "basic",
@@ -21762,26 +20082,10 @@
   {
     "subject": "basic",
     "idx": 509,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A pharmaceutical company develops a new drug for hypertension. In a phase III trial, 1000 patients are randomly assigned to receive either t"
-  },
-  {
-    "subject": "basic",
-    "idx": 509,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A pharmaceutical company develops a new drug for hypertension. In a phase III trial, 1000 patients are randomly assigned to receive either t"
-  },
-  {
-    "subject": "basic",
-    "idx": 510,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 35-year-old man is found dead with a ligature mark around the neck. The ligature mark is situated above the thyroid cartilage, is oblique "
   },
   {
     "subject": "basic",
@@ -21794,26 +20098,10 @@
   {
     "subject": "basic",
     "idx": 511,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A biopsy from a patient with suspected tuberculosis of the lung shows a structure composed of epithelioid cells, Langhans giant cells, and c"
-  },
-  {
-    "subject": "basic",
-    "idx": 511,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A biopsy from a patient with suspected tuberculosis of the lung shows a structure composed of epithelioid cells, Langhans giant cells, and c"
-  },
-  {
-    "subject": "basic",
-    "idx": 512,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 50-year-old man presents with fatigue, splenomegaly, and leucocytosis (WBC 120,000/µL). Differential shows neutrophils, metamyelocytes, my"
   },
   {
     "subject": "basic",
@@ -21826,26 +20114,10 @@
   {
     "subject": "basic",
     "idx": 513,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 45-year-old man with chronic hepatitis B develops a liver mass. Serum AFP is markedly elevated. Which primary liver tumour is most closely"
-  },
-  {
-    "subject": "basic",
-    "idx": 513,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 45-year-old man with chronic hepatitis B develops a liver mass. Serum AFP is markedly elevated. Which primary liver tumour is most closely"
-  },
-  {
-    "subject": "basic",
-    "idx": 514,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 65-year-old man presents with a sudden severe headache and neck stiffness. CT shows subarachnoid haemorrhage. A ruptured aneurysm at the a"
   },
   {
     "subject": "basic",
@@ -21858,26 +20130,10 @@
   {
     "subject": "basic",
     "idx": 515,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 20-year-old footballer twists his knee during a tackle and hears a 'pop'. He has immediate swelling and a positive anterior drawer test. W"
-  },
-  {
-    "subject": "basic",
-    "idx": 515,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 20-year-old footballer twists his knee during a tackle and hears a 'pop'. He has immediate swelling and a positive anterior drawer test. W"
-  },
-  {
-    "subject": "basic",
-    "idx": 516,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 45-year-old woman presents with cough, dyspnoea, and superior vena cava syndrome. CT reveals a large mass in the anterior mediastinum. Whi"
   },
   {
     "subject": "basic",
@@ -21890,26 +20146,10 @@
   {
     "subject": "basic",
     "idx": 517,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "The ability of the kidney to excrete concentrated urine depends on a medullary osmotic gradient. Which structure is primarily responsible fo"
-  },
-  {
-    "subject": "basic",
-    "idx": 517,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "The ability of the kidney to excrete concentrated urine depends on a medullary osmotic gradient. Which structure is primarily responsible fo"
-  },
-  {
-    "subject": "basic",
-    "idx": 518,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A patient with a gastrinoma (Zollinger-Ellison syndrome) has massive gastric acid secretion. Which cell type is directly stimulated by gastr"
   },
   {
     "subject": "basic",
@@ -21922,26 +20162,10 @@
   {
     "subject": "basic",
     "idx": 519,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A patient on long-term exogenous corticosteroids develops features of Cushing's syndrome. Administration of ACTH does not increase cortisol "
-  },
-  {
-    "subject": "basic",
-    "idx": 519,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A patient on long-term exogenous corticosteroids develops features of Cushing's syndrome. Administration of ACTH does not increase cortisol "
-  },
-  {
-    "subject": "basic",
-    "idx": 520,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 65-year-old man with osteoarthritis and a history of peptic ulcer disease needs pain management. Which of the following is the mechanism o"
   },
   {
     "subject": "basic",
@@ -21954,26 +20178,10 @@
   {
     "subject": "basic",
     "idx": 521,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 30-year-old man is started on carbamazepine for newly diagnosed focal epilepsy. Two weeks later he develops a rash, fever, and cervical ly"
-  },
-  {
-    "subject": "basic",
-    "idx": 521,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 30-year-old man is started on carbamazepine for newly diagnosed focal epilepsy. Two weeks later he develops a rash, fever, and cervical ly"
-  },
-  {
-    "subject": "basic",
-    "idx": 522,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A 10-year-old boy develops acute haemolytic anaemia after being treated for a urinary tract infection with sulfamethoxazole-trimethoprim. Bl"
   },
   {
     "subject": "basic",
@@ -21986,26 +20194,10 @@
   {
     "subject": "basic",
     "idx": 523,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A researcher follows 5,000 smokers and 5,000 non-smokers for 10 years to compare the incidence of lung cancer between the groups. Which stud"
-  },
-  {
-    "subject": "basic",
-    "idx": 523,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A researcher follows 5,000 smokers and 5,000 non-smokers for 10 years to compare the incidence of lung cancer between the groups. Which stud"
-  },
-  {
-    "subject": "basic",
-    "idx": 524,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "According to the WHO Expanded Programme on Immunisation (EPI) schedule, at what age should the third dose of the pentavalent vaccine (DTP-He"
   },
   {
     "subject": "basic",
@@ -22018,137 +20210,9 @@
   {
     "subject": "basic",
     "idx": 525,
-    "check": "PARTIAL_LAYERS",
-    "severity": "low",
-    "detail": "empty: discriminator,highyield",
-    "stem": "A body is discovered in a temperate climate. Rigor mortis is fully established in all muscle groups. The body shows greenish discolouration "
-  },
-  {
-    "subject": "basic",
-    "idx": 525,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
     "stem": "A body is discovered in a temperate climate. Rigor mortis is fully established in all muscle groups. The body shows greenish discolouration "
-  },
-  {
-    "subject": "medicine",
-    "idx": -1,
-    "check": "ANSWER_SKEW",
-    "severity": "medium",
-    "detail": "answer E = 9.7% in medicine",
-    "stem": ""
-  },
-  {
-    "subject": "surgery",
-    "idx": -1,
-    "check": "ANSWER_SKEW",
-    "severity": "medium",
-    "detail": "answer B = 26.0% in surgery",
-    "stem": ""
-  },
-  {
-    "subject": "surgery",
-    "idx": -1,
-    "check": "ANSWER_SKEW",
-    "severity": "medium",
-    "detail": "answer E = 10.1% in surgery",
-    "stem": ""
-  },
-  {
-    "subject": "eye-ent",
-    "idx": -1,
-    "check": "ANSWER_SKEW",
-    "severity": "medium",
-    "detail": "answer A = 27.8% in eye-ent",
-    "stem": ""
-  },
-  {
-    "subject": "eye-ent",
-    "idx": -1,
-    "check": "ANSWER_SKEW",
-    "severity": "medium",
-    "detail": "answer B = 25.1% in eye-ent",
-    "stem": ""
-  },
-  {
-    "subject": "eye-ent",
-    "idx": -1,
-    "check": "ANSWER_SKEW",
-    "severity": "medium",
-    "detail": "answer E = 4.5% in eye-ent",
-    "stem": ""
-  },
-  {
-    "subject": "obgyn",
-    "idx": -1,
-    "check": "ANSWER_SKEW",
-    "severity": "medium",
-    "detail": "answer B = 28.0% in obgyn",
-    "stem": ""
-  },
-  {
-    "subject": "obgyn",
-    "idx": -1,
-    "check": "ANSWER_SKEW",
-    "severity": "medium",
-    "detail": "answer E = 4.5% in obgyn",
-    "stem": ""
-  },
-  {
-    "subject": "paeds",
-    "idx": -1,
-    "check": "ANSWER_SKEW",
-    "severity": "medium",
-    "detail": "answer D = 25.3% in paeds",
-    "stem": ""
-  },
-  {
-    "subject": "paeds",
-    "idx": -1,
-    "check": "ANSWER_SKEW",
-    "severity": "medium",
-    "detail": "answer E = 8.2% in paeds",
-    "stem": ""
-  },
-  {
-    "subject": "basic",
-    "idx": -1,
-    "check": "ANSWER_SKEW",
-    "severity": "medium",
-    "detail": "answer B = 25.5% in basic",
-    "stem": ""
-  },
-  {
-    "subject": "basic",
-    "idx": -1,
-    "check": "ANSWER_SKEW",
-    "severity": "medium",
-    "detail": "answer E = 4.4% in basic",
-    "stem": ""
-  },
-  {
-    "subject": "ALL",
-    "idx": -1,
-    "check": "ANSWER_SKEW",
-    "severity": "medium",
-    "detail": "answer A = 23.0% overall",
-    "stem": ""
-  },
-  {
-    "subject": "ALL",
-    "idx": -1,
-    "check": "ANSWER_SKEW",
-    "severity": "medium",
-    "detail": "answer B = 25.0% overall",
-    "stem": ""
-  },
-  {
-    "subject": "ALL",
-    "idx": -1,
-    "check": "ANSWER_SKEW",
-    "severity": "medium",
-    "detail": "answer E = 8.1% overall",
-    "stem": ""
   }
 ]
