@@ -26,8 +26,8 @@ PAGES = {
 
 def render(active):
     """Current chrome, with the per-page active nav item applied."""
-    header = (CHROME / "header.html").read_text(encoding="utf-8")
-    footer = (CHROME / "footer.html").read_text(encoding="utf-8")
+    header = (CHROME / "header.part").read_text(encoding="utf-8")
+    footer = (CHROME / "footer.part").read_text(encoding="utf-8")
     if active:
         needle = f'<a href="{active}"'
         assert needle in header, f"active link {active} not in header chrome"
