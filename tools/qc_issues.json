@@ -121,14 +121,6 @@
   },
   {
     "subject": "medicine",
-    "idx": 1035,
-    "check": "ANSWER_LEAK",
-    "severity": "high",
-    "detail": "correct option text in stem",
-    "stem": "A patient with acanthosis nigricans has biopsy showing thickened stratum spinosum. Which histopathology term describes this thickening?"
-  },
-  {
-    "subject": "medicine",
     "idx": 1240,
     "check": "NO_OTHERS",
     "severity": "medium",
@@ -358,14 +350,6 @@
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 26-year-old man with hepatitis, jaundice, and dark urine. Which enzyme rise indicates hepatocellular damage/necrosis?"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1262,
-    "check": "BAD_OPTION_COUNT",
-    "severity": "high",
-    "detail": "n=3",
-    "stem": "Cause of splitting of the 2nd heart sound during inspiration?"
   },
   {
     "subject": "medicine",
@@ -642,14 +626,6 @@
   {
     "subject": "medicine",
     "idx": 1278,
-    "check": "BAD_OPTION_COUNT",
-    "severity": "high",
-    "detail": "n=3",
-    "stem": "Abducent nerve innervates?"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1278,
     "check": "CONCEPT_ONLY",
     "severity": "medium",
     "detail": "only concept layer present",
@@ -690,14 +666,6 @@
   {
     "subject": "medicine",
     "idx": 1280,
-    "check": "BAD_OPTION_COUNT",
-    "severity": "high",
-    "detail": "n=3",
-    "stem": "Test for Thalassemia?"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1280,
     "check": "CONCEPT_ONLY",
     "severity": "medium",
     "detail": "only concept layer present",
@@ -918,14 +886,6 @@
     "severity": "medium",
     "detail": "missing others",
     "stem": "A schoolboy diagnosed with a parasitic worm infection is prescribed medication by his doctor that targets nicotinic acetylcholine receptors "
-  },
-  {
-    "subject": "medicine",
-    "idx": 1294,
-    "check": "BAD_OPTION_COUNT",
-    "severity": "high",
-    "detail": "n=3",
-    "stem": "The exemplary disease, characterized by granulomas resulting from infection that must always be ruled out when granulomas are identified, is"
   },
   {
     "subject": "medicine",
@@ -1018,14 +978,6 @@
   {
     "subject": "medicine",
     "idx": 1299,
-    "check": "BAD_OPTION_COUNT",
-    "severity": "high",
-    "detail": "n=3",
-    "stem": "Patient presented in ER, hyperventilating and carpopedal spasms in both hands, injection calcium gluconate given and asked to breathe in bag"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1299,
     "check": "CONCEPT_ONLY",
     "severity": "medium",
     "detail": "only concept layer present",
@@ -1198,14 +1150,6 @@
     "severity": "medium",
     "detail": "missing others",
     "stem": "After prolonged active hepatitis C, a 50-year-old patient developed ascites and esophageal varices. These complications are secondary to?"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1310,
-    "check": "BAD_OPTION_COUNT",
-    "severity": "high",
-    "detail": "n=3",
-    "stem": "A malformation of the hand or foot resulting in fusion of two or more digits?"
   },
   {
     "subject": "medicine",
@@ -1229,14 +1173,6 @@
     "check": "STEM_TOO_SHORT",
     "severity": "medium",
     "detail": "len 37",
-    "stem": "Antisnake venom administration route?"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1311,
-    "check": "BAD_OPTION_COUNT",
-    "severity": "high",
-    "detail": "n=3",
     "stem": "Antisnake venom administration route?"
   },
   {
@@ -2250,14 +2186,6 @@
   {
     "subject": "medicine",
     "idx": 1372,
-    "check": "BAD_OPTION_COUNT",
-    "severity": "high",
-    "detail": "n=3",
-    "stem": "A 30-year-old patient presents with passing 4 to 5 loose stools per day containing mucus, associated with lower abdominal pain and disturbed"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1372,
     "check": "CONCEPT_ONLY",
     "severity": "medium",
     "detail": "only concept layer present",
@@ -2322,14 +2250,6 @@
   {
     "subject": "medicine",
     "idx": 1375,
-    "check": "BAD_OPTION_COUNT",
-    "severity": "high",
-    "detail": "n=3",
-    "stem": "After criminal abortion:"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1375,
     "check": "CONCEPT_ONLY",
     "severity": "medium",
     "detail": "only concept layer present",
@@ -2382,14 +2302,6 @@
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 30-year-old woman visits your clinic with a 2-month history of pain in both her hands. Which characteristic symptom in her clinical histor"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1378,
-    "check": "BAD_OPTION_COUNT",
-    "severity": "high",
-    "detail": "n=3",
-    "stem": "A 30-year-old man presents to the outpatient clinic with a 2-week history of worsening bilateral lower limb swelling. He has no significant "
   },
   {
     "subject": "medicine",
@@ -2466,14 +2378,6 @@
   {
     "subject": "medicine",
     "idx": 1382,
-    "check": "BAD_OPTION_COUNT",
-    "severity": "high",
-    "detail": "n=3",
-    "stem": "Blood transfusion will increase what?"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1382,
     "check": "CONCEPT_ONLY",
     "severity": "medium",
     "detail": "only concept layer present",
@@ -2534,14 +2438,6 @@
     "severity": "medium",
     "detail": "missing others",
     "stem": "Most characteristic feature of sebaceous cyst:"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1385,
-    "check": "BAD_OPTION_COUNT",
-    "severity": "high",
-    "detail": "n=3",
-    "stem": "In an RTA patient, which of the following shows dehydration?"
   },
   {
     "subject": "medicine",
@@ -2658,14 +2554,6 @@
   {
     "subject": "medicine",
     "idx": 1392,
-    "check": "BAD_OPTION_COUNT",
-    "severity": "high",
-    "detail": "n=3",
-    "stem": "A 62-year-old man with severe urosepsis is admitted to the intensive care unit with fever, confusion, and a blood pressure of 80/40 mmHg. Hi"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1392,
     "check": "CONCEPT_ONLY",
     "severity": "medium",
     "detail": "only concept layer present",
@@ -2678,14 +2566,6 @@
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 62-year-old man with severe urosepsis is admitted to the intensive care unit with fever, confusion, and a blood pressure of 80/40 mmHg. Hi"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1393,
-    "check": "BAD_OPTION_COUNT",
-    "severity": "high",
-    "detail": "n=3",
-    "stem": "A 35 Year Old Female patient presents with pulsatile mass in abdomen. Other examination was normal. What is most lethal risk complication?"
   },
   {
     "subject": "medicine",
@@ -4750,14 +4630,6 @@
     "severity": "medium",
     "detail": "missing others",
     "stem": "A8 : A 55-year-old man with newly diagnosed HFrEF (ejection fraction 30%) is being started on guideline-directed medical therapy. He is euvo"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1522,
-    "check": "BAD_OPTION_COUNT",
-    "severity": "high",
-    "detail": "n=3",
-    "stem": "A9 : A 60-year-old woman admitted with acute decompensated heart failure and significant pulmonary congestion is started on metoprolol on th"
   },
   {
     "subject": "medicine",
@@ -4850,14 +4722,6 @@
   {
     "subject": "medicine",
     "idx": 1527,
-    "check": "ANSWER_LEAK",
-    "severity": "high",
-    "detail": "correct option text in stem",
-    "stem": "A15 : A 66-year-old man is diagnosed with an anterior STEMI at a rural facility. Primary PCI is unavailable, and transfer to a PCI-capable c"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1527,
     "check": "CONCEPT_ONLY",
     "severity": "medium",
     "detail": "only concept layer present",
@@ -5738,18 +5602,10 @@
   {
     "subject": "medicine",
     "idx": 1582,
-    "check": "ANSWER_LEAK",
-    "severity": "high",
-    "detail": "correct option text in stem",
-    "stem": "A25 : A 35-year-old woman on oral contraceptives develops symmetric brown-grey patches on her forehead and cheeks. Which factor is a recogni"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1582,
     "check": "CONCEPT_ONLY",
     "severity": "medium",
     "detail": "only concept layer present",
-    "stem": "A25 : A 35-year-old woman on oral contraceptives develops symmetric brown-grey patches on her forehead and cheeks. Which factor is a recogni"
+    "stem": "A25 : A 35-year-old woman develops symmetric brown-grey patches on her forehead and cheeks. Which factor is a recognised trigger for this co"
   },
   {
     "subject": "medicine",
@@ -5757,7 +5613,7 @@
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
-    "stem": "A25 : A 35-year-old woman on oral contraceptives develops symmetric brown-grey patches on her forehead and cheeks. Which factor is a recogni"
+    "stem": "A25 : A 35-year-old woman develops symmetric brown-grey patches on her forehead and cheeks. Which factor is a recognised trigger for this co"
   },
   {
     "subject": "medicine",
@@ -8546,14 +8402,6 @@
   {
     "subject": "surgery",
     "idx": 528,
-    "check": "BAD_OPTION_COUNT",
-    "severity": "high",
-    "detail": "n=3",
-    "stem": "A patient succumbed to a sudden embolic event. Post-death, his family reported a history of compound hip bone fracture. His likely cause of "
-  },
-  {
-    "subject": "surgery",
-    "idx": 528,
     "check": "CONCEPT_ONLY",
     "severity": "medium",
     "detail": "only concept layer present",
@@ -8730,14 +8578,6 @@
   {
     "subject": "surgery",
     "idx": 539,
-    "check": "BAD_OPTION_COUNT",
-    "severity": "high",
-    "detail": "n=3",
-    "stem": "A 60-year-old man with a history of alcohol misuse presents to the emergency department with severe, constant epigastric pain radiating to t"
-  },
-  {
-    "subject": "surgery",
-    "idx": 539,
     "check": "CONCEPT_ONLY",
     "severity": "medium",
     "detail": "only concept layer present",
@@ -8802,14 +8642,6 @@
   {
     "subject": "surgery",
     "idx": 542,
-    "check": "BAD_OPTION_COUNT",
-    "severity": "high",
-    "detail": "n=3",
-    "stem": "A patient presented with a burn involving head, neck, chest front, and abdominal front. What is the % of surface area?"
-  },
-  {
-    "subject": "surgery",
-    "idx": 542,
     "check": "CONCEPT_ONLY",
     "severity": "medium",
     "detail": "only concept layer present",
@@ -8822,14 +8654,6 @@
     "severity": "medium",
     "detail": "missing others",
     "stem": "A patient presented with a burn involving head, neck, chest front, and abdominal front. What is the % of surface area?"
-  },
-  {
-    "subject": "surgery",
-    "idx": 543,
-    "check": "BAD_OPTION_COUNT",
-    "severity": "high",
-    "detail": "n=3",
-    "stem": "According to the Parkland formula, when giving fluid to a burn patient, which parameter should be measured during fluid intake?"
   },
   {
     "subject": "surgery",
@@ -8882,14 +8706,6 @@
   {
     "subject": "surgery",
     "idx": 546,
-    "check": "BAD_OPTION_COUNT",
-    "severity": "high",
-    "detail": "n=3",
-    "stem": "30 YO presents post operative with acute retention of urine after prostate surgery with absolute NIL urine output. Attempts to pass a urinar"
-  },
-  {
-    "subject": "surgery",
-    "idx": 546,
     "check": "CONCEPT_ONLY",
     "severity": "medium",
     "detail": "only concept layer present",
@@ -8918,14 +8734,6 @@
     "severity": "medium",
     "detail": "missing others",
     "stem": "A patient underwent cholecystectomy for gallstones. Post-surgery, the removed stones were observed to be black in color. What type of stones"
-  },
-  {
-    "subject": "surgery",
-    "idx": 548,
-    "check": "BAD_OPTION_COUNT",
-    "severity": "high",
-    "detail": "n=3",
-    "stem": "50 y/o patient present with complaint of hesitancy and poor stream for 3 months. Patient was treated for gonococcal infection some time ago."
   },
   {
     "subject": "surgery",
@@ -13081,14 +12889,6 @@
   },
   {
     "subject": "eye-ent",
-    "idx": 84,
-    "check": "ANSWER_LEAK",
-    "severity": "high",
-    "detail": "correct option text in stem",
-    "stem": "A 30-year-old female with known multiple sclerosis presents with subacute blurred vision and pain on moving her left eye. Examination reveal"
-  },
-  {
-    "subject": "eye-ent",
     "idx": 95,
     "check": "NO_QUESTION_MARK",
     "severity": "low",
@@ -13266,18 +13066,10 @@
   {
     "subject": "eye-ent",
     "idx": 191,
-    "check": "ANSWER_LEAK",
-    "severity": "high",
-    "detail": "correct option text in stem",
-    "stem": "A patient has had a right-sided conductive hearing loss for 3 weeks after being struck on the ear. Otoscopy shows a perforation of the tympa"
-  },
-  {
-    "subject": "eye-ent",
-    "idx": 191,
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
-    "stem": "A patient has had a right-sided conductive hearing loss for 3 weeks after being struck on the ear. Otoscopy shows a perforation of the tympa"
+    "stem": "A patient has had a right-sided conductive hearing loss for 3 weeks after being struck on the ear, with blood-stained discharge on that side"
   },
   {
     "subject": "eye-ent",
@@ -15521,14 +15313,6 @@
   },
   {
     "subject": "obgyn",
-    "idx": 109,
-    "check": "ANSWER_LEAK",
-    "severity": "high",
-    "detail": "correct option text in stem",
-    "stem": "A 35-year-old woman on oral contraceptives develops symmetric brown-grey patches on her forehead and cheeks. Which factor is a recognised tr"
-  },
-  {
-    "subject": "obgyn",
     "idx": 194,
     "check": "CONCEPT_ONLY",
     "severity": "medium",
@@ -15654,14 +15438,6 @@
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 20-year-old obese girl presented in gynae clinic with complain of irregular menstrual cycle for one year followed by amenorrhoea of 3 mont"
-  },
-  {
-    "subject": "obgyn",
-    "idx": 202,
-    "check": "BAD_OPTION_COUNT",
-    "severity": "high",
-    "detail": "n=3",
-    "stem": "What is the ideal weight gain during pregnancy for a patient with a height of 154 cm and a pre-pregnancy weight of 78 kg?"
   },
   {
     "subject": "obgyn",
@@ -15862,14 +15638,6 @@
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 30-week pregnant woman presents with weakness and dizziness. She was prescribed iron and calcium supplements during her first trimester wh"
-  },
-  {
-    "subject": "obgyn",
-    "idx": 214,
-    "check": "BAD_OPTION_COUNT",
-    "severity": "high",
-    "detail": "n=3",
-    "stem": "Pt hx of dm and htn on acei and insulin wants to get pregnant. High HbA1c in investigations. What's the best advice to give regarding her dm"
   },
   {
     "subject": "obgyn",
@@ -18074,18 +17842,10 @@
   {
     "subject": "obgyn",
     "idx": 351,
-    "check": "ANSWER_LEAK",
-    "severity": "high",
-    "detail": "correct option text in stem",
-    "stem": "A32 : A 45-year-old woman has had postcoital bleeding for 3 months and has not been screened in 8 years. What is the MOST common presenting "
-  },
-  {
-    "subject": "obgyn",
-    "idx": 351,
     "check": "CONCEPT_ONLY",
     "severity": "medium",
     "detail": "only concept layer present",
-    "stem": "A32 : A 45-year-old woman has had postcoital bleeding for 3 months and has not been screened in 8 years. What is the MOST common presenting "
+    "stem": "A32 : A 45-year-old woman has had abnormal vaginal bleeding for 3 months and has not been screened in 8 years. What is the MOST common prese"
   },
   {
     "subject": "obgyn",
@@ -18093,7 +17853,7 @@
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
-    "stem": "A32 : A 45-year-old woman has had postcoital bleeding for 3 months and has not been screened in 8 years. What is the MOST common presenting "
+    "stem": "A32 : A 45-year-old woman has had abnormal vaginal bleeding for 3 months and has not been screened in 8 years. What is the MOST common prese"
   },
   {
     "subject": "obgyn",
@@ -18625,14 +18385,6 @@
   },
   {
     "subject": "paeds",
-    "idx": 142,
-    "check": "ANSWER_LEAK",
-    "severity": "high",
-    "detail": "correct option text in stem",
-    "stem": "A 6-month-old infant is brought to the paediatric clinic for a well-baby visit. The mother reports the baby can roll from front to back, rea"
-  },
-  {
-    "subject": "paeds",
     "idx": 227,
     "check": "NO_QUESTION_MARK",
     "severity": "low",
@@ -18722,14 +18474,6 @@
   {
     "subject": "paeds",
     "idx": 245,
-    "check": "BAD_OPTION_COUNT",
-    "severity": "high",
-    "detail": "n=3",
-    "stem": "Child for Leukemia diseases admitted for chemotherapy, developed chicken pox. Preferred treatment of complicated chickenpox is?"
-  },
-  {
-    "subject": "paeds",
-    "idx": 245,
     "check": "CONCEPT_ONLY",
     "severity": "medium",
     "detail": "only concept layer present",
@@ -18770,14 +18514,6 @@
   {
     "subject": "paeds",
     "idx": 247,
-    "check": "BAD_OPTION_COUNT",
-    "severity": "high",
-    "detail": "n=3",
-    "stem": "What is the compression rate for neonate resuscitation?"
-  },
-  {
-    "subject": "paeds",
-    "idx": 247,
     "check": "CONCEPT_ONLY",
     "severity": "medium",
     "detail": "only concept layer present",
@@ -18822,14 +18558,6 @@
     "severity": "medium",
     "detail": "missing others",
     "stem": "The diet of a child suffering from Maple Syrup Urine Disease should be low in which amino acid content?"
-  },
-  {
-    "subject": "paeds",
-    "idx": 250,
-    "check": "BAD_OPTION_COUNT",
-    "severity": "high",
-    "detail": "n=3",
-    "stem": "An 18-month-old child presented to ER with history of watery diarrhea for 5 days. Management?"
   },
   {
     "subject": "paeds",
@@ -19957,15 +19685,7 @@
     "check": "NO_QUESTION_MARK",
     "severity": "low",
     "detail": "no ?",
-    "stem": "A42 : A 2-year-old develops jaundice and dark urine after eating fava beans; smear shows bite cells and Heinz bodies. The most likely trigge"
-  },
-  {
-    "subject": "paeds",
-    "idx": 319,
-    "check": "ANSWER_LEAK",
-    "severity": "high",
-    "detail": "correct option text in stem",
-    "stem": "A42 : A 2-year-old develops jaundice and dark urine after eating fava beans; smear shows bite cells and Heinz bodies. The most likely trigge"
+    "stem": "A42 : A 2-year-old develops jaundice and dark urine; smear shows bite cells and Heinz bodies. The most likely trigger is:"
   },
   {
     "subject": "paeds",
@@ -19973,7 +19693,7 @@
     "check": "CONCEPT_ONLY",
     "severity": "medium",
     "detail": "only concept layer present",
-    "stem": "A42 : A 2-year-old develops jaundice and dark urine after eating fava beans; smear shows bite cells and Heinz bodies. The most likely trigge"
+    "stem": "A42 : A 2-year-old develops jaundice and dark urine; smear shows bite cells and Heinz bodies. The most likely trigger is:"
   },
   {
     "subject": "paeds",
@@ -19981,7 +19701,7 @@
     "check": "NO_OTHERS",
     "severity": "medium",
     "detail": "missing others",
-    "stem": "A42 : A 2-year-old develops jaundice and dark urine after eating fava beans; smear shows bite cells and Heinz bodies. The most likely trigge"
+    "stem": "A42 : A 2-year-old develops jaundice and dark urine; smear shows bite cells and Heinz bodies. The most likely trigger is:"
   },
   {
     "subject": "paeds",
@@ -20417,14 +20137,6 @@
   },
   {
     "subject": "basic",
-    "idx": 322,
-    "check": "ANSWER_LEAK",
-    "severity": "high",
-    "detail": "correct option text in stem",
-    "stem": "A skin abscess contains pus with abundant neutrophils after 24 hours. Which cell type predominates in acute inflammation?"
-  },
-  {
-    "subject": "basic",
     "idx": 356,
     "check": "CONCEPT_ONLY",
     "severity": "medium",
@@ -20822,14 +20534,6 @@
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 60-year-old man with type 1 diabetes mellitus who is treated with insulin therapy presents to the emergency department with diaphoresis, c"
-  },
-  {
-    "subject": "basic",
-    "idx": 381,
-    "check": "BAD_OPTION_COUNT",
-    "severity": "high",
-    "detail": "n=3",
-    "stem": "H. Pylori on clarithro and azithro for 10 days. Symptoms are the same what to do?"
   },
   {
     "subject": "basic",

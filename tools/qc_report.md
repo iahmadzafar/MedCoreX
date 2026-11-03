@@ -1,12 +1,12 @@
 # MCQ Quality Check Report — MedCoreX Question Bank
 
-Generated: 2026-11-03T02:29:07.836Z
+Generated: 2026-11-03T03:04:49.269Z
 
 ## Scope
 - Subjects: medicine (1745), surgery (805), eye-ent (335), obgyn (382), paeds (340), basic (526)
 - Total questions: 4133
 - Unique stems: 4133 (exact dup: 0)
-- Total issues: 2867
+- Total issues: 2830
 
 ## Layer completeness
 - Full (all 6 layers): 2787
@@ -15,7 +15,6 @@ Generated: 2026-11-03T02:29:07.836Z
 
 ## Severity counts
 - low: 263
-- high: 37
 - medium: 2567
 
 ## Issue counts by check
@@ -23,10 +22,8 @@ Generated: 2026-11-03T02:29:07.836Z
 - CONCEPT_ONLY: 1147
 - PARTIAL_LAYERS: 199
 - NO_QUESTION_MARK: 61
-- BAD_OPTION_COUNT: 27
 - STEM_TOO_SHORT: 15
 - ANSWER_SKEW: 15
-- ANSWER_LEAK: 10
 - EMPTY_OTHER: 10
 - STEM_VERY_LONG: 2
 - OTHERS_COUNT: 1
@@ -39,8 +36,7 @@ Generated: 2026-11-03T02:29:07.836Z
 - E: 333 (8.1%)
 
 ## Option count distribution
-- 3 options: 27
-- 4 options: 2422
+- 4 options: 2449
 - 5 options: 1684
 
 ## Subject counts
@@ -111,10 +107,6 @@ Detail: no ?
 ### [low] NO_QUESTION_MARK — medicine #1011
 > A 60-year-old hypertensive diabetic man wakes with isolated right hemiparesis involving face, arm and leg equally. There are NO cortical sig
 Detail: no ?
-
-### [high] ANSWER_LEAK — medicine #1035
-> A patient with acanthosis nigricans has biopsy showing thickened stratum spinosum. Which histopathology term describes this thickening?
-Detail: correct option text in stem
 
 ### [medium] NO_OTHERS — medicine #1240
 > A 35-year-old HIV-positive man presents with multiple painless, dark purplish-violaceous plaques on his trunk and arms. Lesions appeared ove
@@ -232,10 +224,6 @@ Detail: only concept layer present
 > A 26-year-old man with hepatitis, jaundice, and dark urine. Which enzyme rise indicates hepatocellular damage/necrosis?
 Detail: missing others
 
-### [high] BAD_OPTION_COUNT — medicine #1262
-> Cause of splitting of the 2nd heart sound during inspiration?
-Detail: n=3
-
 ### [medium] CONCEPT_ONLY — medicine #1262
 > Cause of splitting of the 2nd heart sound during inspiration?
 Detail: only concept layer present
@@ -290,5 +278,13 @@ Detail: only concept layer present
 
 ### [medium] NO_OTHERS — medicine #1268
 > A 4-year-old boy is brought in an emergency; he has been bitten by a stray dog on his left arm. The dog ran away after biting. Examination s
+Detail: missing others
+
+### [medium] CONCEPT_ONLY — medicine #1269
+> A 70-year-old man presented with epigastric pain, hematemesis and tarry black stools (melena) for one day. Past history of episodic epigastr
+Detail: only concept layer present
+
+### [medium] NO_OTHERS — medicine #1269
+> A 70-year-old man presented with epigastric pain, hematemesis and tarry black stools (melena) for one day. Past history of episodic epigastr
 Detail: missing others
 
