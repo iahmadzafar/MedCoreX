@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="light dark">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MedCoreX — a private study library</title>
+<meta name="description" content="Seven categories, one standard. A curated library of books, drills, recalled papers and exam intelligence.">
+<meta name="robots" content="index, follow">
+<link rel="stylesheet" href="/assets/studyverse.css">
+<style>
+/* ═══ PAGE: home — catalogue tabs, rules, quote (kit carries the rest) ═══ */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.panels{margin-top:4px}
+.panel{display:none}
+.panel.active{display:block}
+.grp-note{font-family:var(--font-display);text-transform:uppercase;letter-spacing:.1em;font-size:.8rem;font-weight:700;color:var(--muted);margin-bottom:14px}
+.faqitem{border:var(--bw) solid var(--ink);border-radius:var(--radius);background:var(--surface);box-shadow:var(--shadow);margin-bottom:14px;transition:transform .3s var(--ease),box-shadow .3s var(--ease),background .8s}
+.faqitem:hover{transform:translate(-3px,-3px);box-shadow:var(--shadow-hover)}
+.faqitem summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;padding:16px 18px}
+.faqitem summary::-webkit-details-marker{display:none}
+.faqitem .rt{flex:1;min-width:0}
+.faqitem .t{font-family:var(--font-display);font-weight:var(--dw);text-transform:var(--case);font-size:1.05rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.faqitem .d{color:var(--muted);font-size:.9rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.faqitem .chev{width:26px;height:26px;border:2px solid var(--ink);border-radius:50%;display:grid;place-items:center;background:var(--c3);transition:transform .25s var(--ease)}
+.faqitem[open] .chev{transform:rotate(90deg)}
+.faqitem .body{display:flex;gap:12px;align-items:center;padding:0 18px 16px;flex-wrap:wrap}
+.nores{font-weight:700;color:var(--muted);padding:20px;display:none}
+.toolbar{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:18px}
+.toolbar .field{flex:1 1 260px}
+.resume{display:none;align-items:center;gap:8px;text-decoration:none;font-weight:800;border:2px solid var(--ink);border-radius:999px;padding:.55em 1em;background:var(--c4);transition:transform .2s var(--ease)}
+.resume.on{display:inline-flex}
+.resume:hover{transform:translateY(-2px) rotate(-2deg)}
+.rules{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
+.rule .num{font-family:var(--font-display);font-weight:var(--dw);font-size:.9rem;letter-spacing:.14em;background:var(--c2);border:2px solid var(--ink);border-radius:999px;display:inline-block;padding:.2em .8em;margin-bottom:12px}
+.rule h3{font-size:1.35rem;margin-bottom:8px}
+.rule p{color:var(--muted);font-size:.98rem}
+.quote{margin:44px auto 0;max-width:760px;text-align:center;border:var(--bw) solid var(--ink);border-radius:var(--radius);box-shadow:var(--shadow);padding:34px 24px;background:var(--surface)}
+.quote p{font-family:var(--font-display);font-weight:var(--dw);text-transform:var(--case);font-size:clamp(1.2rem,3vw,1.9rem);line-height:1.25;margin:0}
+.quote .qs{font-size:.85rem;font-weight:700;color:var(--muted);margin-top:14px}
+.vitals{position:absolute;inset:6% 2% 8% 4%;background:var(--surface);border:var(--bw) solid var(--ink);border-radius:var(--radius);box-shadow:var(--shadow);transform:rotate(-1.6deg);display:flex;flex-direction:column;padding:14px 16px;gap:8px;transition:background .8s}
+.vitals .v-head{display:flex;justify-content:space-between;align-items:center;gap:8px;font-family:var(--font-mono);font-size:clamp(.58rem,1.7cqi,.72rem);font-weight:700;letter-spacing:.08em;color:var(--muted);white-space:nowrap;overflow:hidden}
+.vitals .v-head b{display:flex;align-items:center;gap:7px;color:var(--ink)}
+.vitals .beat{width:10px;height:10px;border-radius:50%;background:var(--c1);animation:beat 1s ease-in-out infinite}
+.vitals .v-body{flex:1;display:flex;gap:12px;min-height:0}
+.vitals .waves{flex:1;display:flex;flex-direction:column;gap:4px;min-width:0}
+.vitals .wave{width:100%;display:block;flex:1 1 0}
+.vitals .wave.ecg{flex-grow:56}
+.vitals .wave.ecg path{stroke:var(--c1);stroke-dasharray:.16 1;animation:sweep 2.4s linear infinite}
+.vitals .wave.pleth{flex-grow:30}
+.vitals .wave.pleth path{stroke:var(--c3);stroke-dasharray:.16 1;animation:sweep 2.4s linear infinite}
+.vitals .wave.resp{flex-grow:20}
+.vitals .wave.resp path{stroke:var(--c2);stroke-dasharray:.16 1;animation:sweep 4.2s linear infinite}
+.vitals .nums{flex:0 0 auto;min-width:88px;display:flex;flex-direction:column;justify-content:space-between;border-left:2px solid var(--line);padding-left:12px}
+.vitals .v b{display:block;font-family:var(--font-display);font-weight:var(--dw);font-size:clamp(.95rem,.55rem + 2.4cqi,1.45rem);line-height:1;font-variant-numeric:tabular-nums;white-space:nowrap}
+.vitals .v>b+span{display:block;font-family:var(--font-mono);font-size:.58rem;letter-spacing:.1em;color:var(--muted);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.vitals .v.hr b{color:var(--c1)}
+.vitals .v.spo2 b{color:var(--c3)}
+.vitals .v.rr b{color:var(--c2)}
+.vitals .v b i{font-style:normal;font-size:.6em;color:var(--muted);margin-left:3px}
+.vitals .v-foot{display:flex;justify-content:space-between;gap:10px;font-family:var(--font-mono);font-size:clamp(.54rem,1.6cqi,.66rem);letter-spacing:.14em;color:var(--muted);white-space:nowrap;overflow:hidden}
+.hero-art{container-type:inline-size}
+@container (max-width:430px){
+  .vitals .v-head b{display:none}
+  .vitals .v>b+span{font-size:.5rem;letter-spacing:.04em}
+  .vitals .nums{min-width:78px;padding-left:8px}
+  .vitals .v-foot span:last-child{display:none}
+}
+@container (max-width:350px){
+  .vitals .wave.resp{display:none}
+  .vitals .nums{min-width:70px}
+}
+@keyframes beat{0%,100%{transform:scale(1)}18%{transform:scale(1.35)}36%{transform:scale(1)}54%{transform:scale(1.22)}72%{transform:scale(1)}}
+@keyframes sweep{to{stroke-dashoffset:-1.16}}
+.resume,.rule .num,.faqitem .chev{color:var(--on-accent)}
+@media (max-width:900px){.rules{grid-template-columns:1fr}}
+@media print{.faqitem,.quote{box-shadow:none;break-inside:avoid}}
+</style>
+<script src="/assets/studyverse.js"></script>
+<script src="/assets/catalog.js"></script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="/"><span class="logo-mark"><svg viewBox="0 0 24 24" style="width:1.15em;height:1.15em" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M12 4.2v16.3"/><path d="M12 5.6c-3 0-3 2.3 0 2.3s3 2.3 0 2.3-3 2.3 0 2.3 3 2.3 0 2.3"/><circle cx="12" cy="3.3" r="1.35" fill="currentColor" stroke="none"/></svg></span>MedCoreX</a>
+    <nav class="links" aria-label="Main">
+      <a href="/" aria-current="page">Home</a>
+      <a href="/library">Library</a>
+      <a href="/about">About</a>
+      <a href="/faq">FAQ</a> <a href="/stats">Stats</a> <a href="/login" id="navAuth">Sign in</a>
+    </nav>
+    <div class="engine" title="Theme engine" data-sv-engine></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <div class="rv">
+      <p class="eyebrow">Private study library · seven categories</p>
+      <h1 class="mega">Everything<br>the <span class="w2">exam</span> asks.<br>Nothing it <span class="w4">doesn't.</span></h1>
+      <p class="lede">Books, drills, recalled papers and exam intelligence — <span class="hl">cut to exactly what the exam demands</span>, kept current, kept exact. Nothing decorative. Pick a category, open a file, and get to work.</p>
+      <div class="row"><a class="btn" href="/library">Open the library →</a><a class="btn alt" href="#standard">The standard</a></div>
+    </div>
+    <div class="hero-art rv" aria-hidden="true">
+      <div class="vitals">
+        <div class="v-head"><span>MedCoreX · MONITOR</span><b><i class="beat"></i>BED 01 · STUDY MODE</b></div>
+        <div class="v-body">
+          <div class="waves">
+            <svg class="wave ecg" viewBox="0 0 300 60" preserveAspectRatio="none"><path pathLength="1" d="M0 40h58l8-24 8 42 8-30 6 12h44l8-24 8 42 8-30 6 12h138" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg class="wave pleth" viewBox="0 0 300 60" preserveAspectRatio="none"><path pathLength="1" d="M0 46h10c12 0 16-38 30-38s10 14 18 20c6 4 8 10 16 10s14-8 22-8s10 10 20 12s16 4 34 4c12 0 16-38 30-38s10 14 18 20c6 4 8 10 16 10s14-8 22-8s10 10 20 12s16 4 34 4" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg class="wave resp" viewBox="0 0 300 44" preserveAspectRatio="none"><path pathLength="1" d="M0 26q19 0 37-14t37 14t37-14t37 14t37-14t37 14t37-14t37 14" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="nums">
+            <div class="v hr"><b id="bpm">72</b><span>HR · BPM</span></div>
+            <div class="v spo2"><b id="spo2">98</b><span>SpO₂ · %</span></div>
+            <div class="v rr"><b id="rr">16</b><span>RESP · /MIN</span></div>
+            <div class="v temp"><b>36.8</b><span>TEMP · °C</span></div>
+            <div class="v nibp"><b>118/76<i>(90)</i></b><span>NIBP · MMHG</span></div>
+          </div>
+        </div>
+        <div class="v-foot"><span>SINUS RHYTHM · SpO₂ OK</span><span>NIBP AUTO · 5 MIN</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee rv"><div class="track" id="tips"></div></div>
+
+  <section class="section-head rv">
+    <div><p class="eyebrow">The catalogue</p><h2>Seven categories, tabbed</h2></div>
+    <p class="muted">Everything is one click away — or use the full portal view in the library.</p>
+  </section>
+  <div class="toolbar rv">
+    <a class="resume" id="resume" href=""><span><svg viewBox="0 0 24 24" width="14" height="14" fill="#000" aria-hidden="true" style="vertical-align:-2px"><path d="M8 5v14l11-7z"/></svg></span><b id="resumeT"></b></a>
+    <input class="field" id="q" type="search" placeholder="Filter — title, topic…" aria-label="Filter this list" autocomplete="off">
+  </div>
+  <div class="tabs rv" id="tablist" role="tablist" aria-label="Categories"></div>
+  <div class="panels rv" id="panels"></div>
+
+  <section class="section-head rv" id="standard" style="margin-top:52px">
+    <div><p class="eyebrow">The standard</p><h2>Three rules, no exceptions</h2></div>
+  </section>
+  <div class="rules">
+    <div class="card hov rule rv" style="--i:0"><div class="num">Rule 01</div><h3>No syllabus, no session</h3><p>Every study block maps to an official syllabus line. If you can't point to the line, you don't study it — no memory, no side quests, no probably-relevant.</p></div>
+    <div class="card hov rule rv" style="--i:1"><div class="num">Rule 02</div><h3>Questions before comfort</h3><p>Pages don't count. Only questions attempted count — end a day without MCQs done and the day didn't happen. Reading prepares; answering is the practice.</p></div>
+    <div class="card hov rule rv" style="--i:2"><div class="num">Rule 03</div><h3>Every miss gets written</h3><p>No wrong answer dies in the review. The discriminator you missed goes into the error log in your own words — or the question returns and takes the mark.</p></div>
+  </div>
+
+  <figure class="quote rv">
+    <blockquote><p>You don't pass on what you read.<br>You pass on what you can answer<br>when the clock is running.</p></blockquote>
+    <figcaption class="qs">— the house standard</figcaption>
+  </figure>
+</main>
+
+<footer class="foot"><div class="wrap foot-in">
+  <div>
+    <div class="logo" style="font-size:1.2rem"><span class="logo-mark" style="width:30px;height:30px;font-size:.8rem"><svg viewBox="0 0 24 24" style="width:1.15em;height:1.15em" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M12 4.2v16.3"/><path d="M12 5.6c-3 0-3 2.3 0 2.3s3 2.3 0 2.3-3 2.3 0 2.3 3 2.3 0 2.3"/><circle cx="12" cy="3.3" r="1.35" fill="currentColor" stroke="none"/></svg></span>MedCoreX</div>
+    <p class="foot-tag">A genuinely great study resource — curated with discipline, and kept current and exact.</p>
+  </div>
+  <nav class="foot-links" aria-label="Footer">
+    <a href="/library">Library</a><a href="/about">About</a><a href="/faq">FAQ</a> <a href="/login" id="footAuth">Sign in</a> </nav>
+  <div class="foot-legal">
+    <span>© 2026 MedCoreX. All rights reserved. · Developed by AHMDZAFR</span>
+    <span>read · learn · repeat</span>
+  </div>
+</div></footer>
+
+<script>
+
+/* ═══ HOME: ticker + catalogue tabs ═══ */
+const TIPS=['Teach it to learn it','25 minutes on, 5 minutes off','Sleep is a study tool','Test yourself before you feel ready','Spaced repetition beats cramming','Mix up your topics','Hydrate, then concentrate','Explain why, not just what','Small daily wins add up'];
+document.getElementById('tips').innerHTML=[...TIPS,...TIPS].map(t=>`<span>${t}</span>`).join('');
+SV.countUp(document.getElementById('bpm'),72);
+SV.countUp(document.getElementById('spo2'),98);
+SV.countUp(document.getElementById('rr'),16);
+
+function esc(s){return String(s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];})}
+function slugify(c){return c.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'')}
+function href(it){return '/resources/'+encodeURIComponent(it.f.replace(/\.html$/i,''))}
+const tablist=document.getElementById('tablist'), panels=document.getElementById('panels');
+let tabs=[],panelsByCat={};
+CATS.forEach((cat,ci)=>{
+  const hue=HUES[cat];
+  const items=Items.filter(it=>it.c===cat);
+  const b=document.createElement('span');
+  b.className='chip';b.setAttribute('role','tab');b.tabIndex=0;
+  b.setAttribute('aria-selected',ci===0?'true':'false');
+  b.innerHTML=esc(cat)+'<a class="shelfgo" href="/library#'+slugify(cat)+'" aria-label="Open '+esc(cat)+' in the library">↗</a>';
+  b.addEventListener('click',e=>{if(e.target.closest('a'))return;select(ci)});
+  b.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();select(ci)}});
+  tablist.appendChild(b);tabs.push(b);
+  const p=document.createElement('section');
+  p.className='panel';p.setAttribute('role','tabpanel');
+  p.style.setProperty('--hue',hue);
+  if(ci!==0)p.hidden=true;
+  p.innerHTML='<p class="grp-note">'+esc(cat)+'</p>';
+  items.forEach((it,i)=>{
+    const d=document.createElement('details');
+    d.className='faqitem';d.style.setProperty('--hue',hue);
+    d.innerHTML='<summary><span class="rt"><span class="t">'+esc(it.t)+'</span><span class="d">'+esc(it.d||'')+'</span></span>'+
+      '<span class="chev"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></span></summary>'+
+      '<div class="body"><span style="flex:1;color:var(--muted);font-size:.93rem">'+esc(it.d||'')+'</span><a class="btn alt" style="font-size:.8rem;padding:.5em 1em" href="'+href(it)+'">Open ↗</a></div>';
+    p.appendChild(d);
+  });
+  panels.appendChild(p);panelsByCat[cat]=p;
+});
+let cur=0,SK='mx-shelf';
+function select(ci,save){
+  cur=ci;
+  tabs.forEach((b,bi)=>b.setAttribute('aria-selected',bi===ci?'true':'false'));
+  CATS.forEach((cat,ci2)=>panelsByCat[cat].hidden=ci2!==ci);
+  if(save!==false){try{localStorage.setItem(SK,CATS[ci])}catch(e){}}
+}
+try{const s=localStorage.getItem(SK);const i=CATS.indexOf(s);if(i>=0)select(i,false)}catch(e){}
+tablist.addEventListener('keydown',e=>{
+  let d=0;
+  if(e.key==='ArrowRight')d=1;else if(e.key==='ArrowLeft')d=-1;else return;
+  e.preventDefault();
+  const n=(cur+d+tabs.length)%tabs.length;tabs[n].focus();select(n);
+});
+const q=document.getElementById('q');
+q.addEventListener('input',()=>{
+  const term=q.value.trim().toLowerCase();let shown=0;
+  panels.querySelectorAll('.faqitem').forEach(d=>{
+    const hit=!term||(d.textContent||'').toLowerCase().indexOf(term)>=0;
+    d.style.display=hit?'':'none';if(hit)shown++;
+  });
+  let emp=panels.querySelector('.nores');
+  if(!shown){if(!emp){emp=document.createElement('p');emp.className='nores';emp.textContent='Nothing matches. Try a shorter word.';emp.style.display='block';panels.appendChild(emp);}}
+  else if(emp)emp.remove();
+});
+const a=document.getElementById('resume'),t=document.getElementById('resumeT');
+try{
+  const L=JSON.parse(localStorage.getItem('mx-last')||'[]');
+  if(L.length&&t){a.href='/resources/'+encodeURIComponent(L[0].f);t.textContent='Continue — '+L[0].t;a.classList.add('on');}
+}catch(e){}
+</script>
+<script src="/medcore-sync.js" defer></script>
+<script src="/auth-nav.js" defer></script>
+</body>
+</html>
