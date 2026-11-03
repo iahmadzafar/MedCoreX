@@ -23,11 +23,32 @@ def base_id(fname):
     b = b.strip()
     return re.sub(r"[^a-z0-9]+", "-", b.lower()).strip("-")
 
+# Entries renamed on the basis of TOPICS only (dominant clinical content per set),
+# not the broad subject/specialty. Each set spans multiple sub-topics, so these are
+# the representative topic names; adjust here if a different label is preferred.
+TOPIC_MAP = {
+    "diabetes": "Diabetes Mellitus",
+    "ent": "Otology & Ear Disorders",
+    "electrolytes": "Electrolyte & Acid-Base Disorders",
+    "endocrine": "Thyroid & Endocrine Disorders",
+    "endocrinesurgery": "Endocrine Surgery",
+    "gi-emergencies": "Upper GI Bleeding & Oesophageal Disorders",
+    "haematology": "Haemolytic Anaemia & Blood Disorders",
+    "hepatology": "Hepatic Encephalopathy & Liver Disease",
+    "neuro": "Subarachnoid Haemorrhage & Stroke",
+    "nutrition-malabsorption": "Malabsorption Syndromes",
+    "oncology-genpath": "Neoplasia & Cellular Adaptation",
+    "ophthalmology": "Retinal & External Eye Disease",
+    "psych": "Schizophrenia & Psychotic Disorders",
+    "renal": "Acute Kidney Injury & Renal Disease",
+    "urology": "Renal Stones & Urological Emergencies",
+}
+
 def build(fname):
     s = open(fname, encoding="utf-8").read()
     d = json.loads(re.search(r"const DATA = (\{.*?\});", s, re.S).group(1))
     sid = base_id(os.path.basename(fname))
-    name = (d.get("subject") or "Practice Set").split(" (")[0]
+    name = TOPIC_MAP.get(sid) or (d.get("subject") or "Practice Set").split(" (")[0]
     qs = []
     for q in d.get("questions", []):
         opts = sorted((q.get("options") or []), key=lambda o: o.get("letter", "A"))
