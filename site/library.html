@@ -8,8 +8,10 @@
 <meta name="robots" content="index, follow">
 <link rel="stylesheet" href="/assets/studyverse.css">
 <style>
-/* shelves that hold a single file are links, not portals */
-a.chip,a.card{text-decoration:none;color:inherit}
+/* footer pinned to the end of the page */
+html,body{min-height:100vh}
+body{display:flex;flex-direction:column}
+main.wrap{flex:1}
 /* reveal */
 .portal{display:none;padding-bottom:80px}
 .portal.active{display:block}
