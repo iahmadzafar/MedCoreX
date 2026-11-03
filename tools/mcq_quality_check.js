@@ -35,7 +35,7 @@ for(const subj of data){
 
     if(!stem) add(subj.id,i,'STEM_EMPTY','critical','empty stem',stem);
     else if(stem.length<40) add(subj.id,i,'STEM_TOO_SHORT','medium','len '+stem.length,stem);
-    if(!stem.includes('?')) add(subj.id,i,'NO_QUESTION_MARK','low','no ?',stem);
+    /* NO_QUESTION_MARK retired — owner ruling: recall-style one-liners without '?' are fine */
     if(stem.length>600) add(subj.id,i,'STEM_VERY_LONG','low','len '+stem.length,stem);
 
     if(opts.length<4||opts.length>5) add(subj.id,i,'BAD_OPTION_COUNT','high','n='+opts.length,stem);

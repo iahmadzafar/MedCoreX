@@ -9,118 +9,6 @@
   },
   {
     "subject": "medicine",
-    "idx": 145,
-    "check": "NO_QUESTION_MARK",
-    "severity": "low",
-    "detail": "no ?",
-    "stem": "All of the following cranial nerves run in the lateral wall of the cavernous sinus EXCEPT:"
-  },
-  {
-    "subject": "medicine",
-    "idx": 148,
-    "check": "NO_QUESTION_MARK",
-    "severity": "low",
-    "detail": "no ?",
-    "stem": "The normal filtration fraction (GFR ÷ renal plasma flow) is approximately:"
-  },
-  {
-    "subject": "medicine",
-    "idx": 149,
-    "check": "NO_QUESTION_MARK",
-    "severity": "low",
-    "detail": "no ?",
-    "stem": "The typical resting membrane potential of a neuron is closest to:"
-  },
-  {
-    "subject": "medicine",
-    "idx": 151,
-    "check": "NO_QUESTION_MARK",
-    "severity": "low",
-    "detail": "no ?",
-    "stem": "In skeletal muscle excitation-contraction coupling, calcium ions required for contraction are primarily released from the:"
-  },
-  {
-    "subject": "medicine",
-    "idx": 153,
-    "check": "NO_QUESTION_MARK",
-    "severity": "low",
-    "detail": "no ?",
-    "stem": "In a patient with complete heart block, intermittent prominent a-waves (cannon a-waves) are seen in the JVP. These occur because the:"
-  },
-  {
-    "subject": "medicine",
-    "idx": 155,
-    "check": "NO_QUESTION_MARK",
-    "severity": "low",
-    "detail": "no ?",
-    "stem": "A 65-year-old man with long-standing hypertension presents with progressive dyspnoea. Cardiac auscultation reveals a low-pitched extra sound"
-  },
-  {
-    "subject": "medicine",
-    "idx": 157,
-    "check": "NO_QUESTION_MARK",
-    "severity": "low",
-    "detail": "no ?",
-    "stem": "A 70-year-old woman weighing 60 kg has a serum creatinine of 1.2 mg/dL. Using the Cockcroft-Gault formula, her estimated creatinine clearanc"
-  },
-  {
-    "subject": "medicine",
-    "idx": 158,
-    "check": "NO_QUESTION_MARK",
-    "severity": "low",
-    "detail": "no ?",
-    "stem": "The sliding filament theory of skeletal muscle contraction involves a specific sequence of molecular events. Arrange the following steps in "
-  },
-  {
-    "subject": "medicine",
-    "idx": 165,
-    "check": "NO_QUESTION_MARK",
-    "severity": "low",
-    "detail": "no ?",
-    "stem": "A study finds that alcohol consumption is associated with an increased risk of lung cancer. However, when stratified by smoking status, the "
-  },
-  {
-    "subject": "medicine",
-    "idx": 246,
-    "check": "NO_QUESTION_MARK",
-    "severity": "low",
-    "detail": "no ?",
-    "stem": "The Frank-Starling mechanism describes the direct relationship between:"
-  },
-  {
-    "subject": "medicine",
-    "idx": 249,
-    "check": "NO_QUESTION_MARK",
-    "severity": "low",
-    "detail": "no ?",
-    "stem": "A leftward shift of the oxyhaemoglobin dissociation curve would be caused by:"
-  },
-  {
-    "subject": "medicine",
-    "idx": 644,
-    "check": "NO_QUESTION_MARK",
-    "severity": "low",
-    "detail": "no ?",
-    "stem": "A 30-year-old man undergoes diagnostic thoracentesis for a pleural effusion. To avoid injury to the intercostal neurovascular bundle, the ne"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1004,
-    "check": "NO_QUESTION_MARK",
-    "severity": "low",
-    "detail": "no ?",
-    "stem": "A 32-year-old man has severe, strictly unilateral, tearing and nasal-stuffy headache around the same eye, occurring in clusters every night "
-  },
-  {
-    "subject": "medicine",
-    "idx": 1011,
-    "check": "NO_QUESTION_MARK",
-    "severity": "low",
-    "detail": "no ?",
-    "stem": "A 60-year-old hypertensive diabetic man wakes with isolated right hemiparesis involving face, arm and leg equally. There are NO cortical sig"
-  },
-  {
-    "subject": "medicine",
     "idx": 1240,
     "check": "NO_OTHERS",
     "severity": "medium",
@@ -966,14 +854,6 @@
     "severity": "medium",
     "detail": "missing others",
     "stem": "Man was in an accident, hand injured, no sound heard on left lung, on thoracocentesis air gushed out of left lung due to?"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1299,
-    "check": "NO_QUESTION_MARK",
-    "severity": "low",
-    "detail": "no ?",
-    "stem": "Patient presented in ER, hyperventilating and carpopedal spasms in both hands, injection calcium gluconate given and asked to breathe in bag"
   },
   {
     "subject": "medicine",
@@ -2242,14 +2122,6 @@
   {
     "subject": "medicine",
     "idx": 1375,
-    "check": "NO_QUESTION_MARK",
-    "severity": "low",
-    "detail": "no ?",
-    "stem": "After criminal abortion:"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1375,
     "check": "CONCEPT_ONLY",
     "severity": "medium",
     "detail": "only concept layer present",
@@ -2262,14 +2134,6 @@
     "severity": "medium",
     "detail": "missing others",
     "stem": "After criminal abortion:"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1376,
-    "check": "NO_QUESTION_MARK",
-    "severity": "low",
-    "detail": "no ?",
-    "stem": "The snake venom of viper usually kills victims if he is not given the anti-venom. Major effect is:"
   },
   {
     "subject": "medicine",
@@ -2394,14 +2258,6 @@
   {
     "subject": "medicine",
     "idx": 1383,
-    "check": "NO_QUESTION_MARK",
-    "severity": "low",
-    "detail": "no ?",
-    "stem": "A coal miner presents with a complaint of cough and SOB. On X-ray, hilar lymph nodes are enlarged and are jet black. Cause of jet black colo"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1383,
     "check": "CONCEPT_ONLY",
     "severity": "medium",
     "detail": "only concept layer present",
@@ -2414,14 +2270,6 @@
     "severity": "medium",
     "detail": "missing others",
     "stem": "A coal miner presents with a complaint of cough and SOB. On X-ray, hilar lymph nodes are enlarged and are jet black. Cause of jet black colo"
-  },
-  {
-    "subject": "medicine",
-    "idx": 1384,
-    "check": "NO_QUESTION_MARK",
-    "severity": "low",
-    "detail": "no ?",
-    "stem": "Most characteristic feature of sebaceous cyst:"
   },
   {
     "subject": "medicine",
@@ -8209,30 +8057,6 @@
   },
   {
     "subject": "surgery",
-    "idx": 110,
-    "check": "NO_QUESTION_MARK",
-    "severity": "low",
-    "detail": "no ?",
-    "stem": "Peau d'orange appearance of the breast is caused by:"
-  },
-  {
-    "subject": "surgery",
-    "idx": 135,
-    "check": "NO_QUESTION_MARK",
-    "severity": "low",
-    "detail": "no ?",
-    "stem": "A fracture that fails to heal within the expected time period (usually 6-9 months) is called:"
-  },
-  {
-    "subject": "surgery",
-    "idx": 228,
-    "check": "NO_QUESTION_MARK",
-    "severity": "low",
-    "detail": "no ?",
-    "stem": "Chronic exertional compartment syndrome differs from acute compartment syndrome in that:"
-  },
-  {
-    "subject": "surgery",
     "idx": 284,
     "check": "STEM_TOO_SHORT",
     "severity": "medium",
@@ -8249,14 +8073,6 @@
   },
   {
     "subject": "surgery",
-    "idx": 444,
-    "check": "NO_QUESTION_MARK",
-    "severity": "low",
-    "detail": "no ?",
-    "stem": "A 30-year-old man with a cervical spinal cord injury suddenly develops a severe headache, sweating, and a blood pressure of 200/110 mmHg. Th"
-  },
-  {
-    "subject": "surgery",
     "idx": 519,
     "check": "CONCEPT_ONLY",
     "severity": "medium",
@@ -8594,14 +8410,6 @@
   {
     "subject": "surgery",
     "idx": 540,
-    "check": "NO_QUESTION_MARK",
-    "severity": "low",
-    "detail": "no ?",
-    "stem": "Patient presents with a non-healing ulcer for 10 years on foot after burn injury. Diagnosis of Marjolin ulcer was made. Treatment:"
-  },
-  {
-    "subject": "surgery",
-    "idx": 540,
     "check": "CONCEPT_ONLY",
     "severity": "medium",
     "detail": "only concept layer present",
@@ -8614,14 +8422,6 @@
     "severity": "medium",
     "detail": "missing others",
     "stem": "Patient presents with a non-healing ulcer for 10 years on foot after burn injury. Diagnosis of Marjolin ulcer was made. Treatment:"
-  },
-  {
-    "subject": "surgery",
-    "idx": 541,
-    "check": "NO_QUESTION_MARK",
-    "severity": "low",
-    "detail": "no ?",
-    "stem": "Most important part of examination in the patient of bone fracture:"
   },
   {
     "subject": "surgery",
@@ -9650,14 +9450,6 @@
   {
     "subject": "surgery",
     "idx": 605,
-    "check": "NO_QUESTION_MARK",
-    "severity": "low",
-    "detail": "no ?",
-    "stem": "30-year-old man sudden severe epigastric pain 8 hours ago. Diffuse tenderness, guarding, rigidity. T38.8°C, WBC 18,000. CXR free air. At thi"
-  },
-  {
-    "subject": "surgery",
-    "idx": 605,
     "check": "CONCEPT_ONLY",
     "severity": "medium",
     "detail": "only concept layer present",
@@ -9846,14 +9638,6 @@
     "severity": "medium",
     "detail": "missing others",
     "stem": "Which histological feature is characteristic of ductal carcinoma in situ (DCIS)?"
-  },
-  {
-    "subject": "surgery",
-    "idx": 617,
-    "check": "NO_QUESTION_MARK",
-    "severity": "low",
-    "detail": "no ?",
-    "stem": "In early breast cancer (T1-T2, N0) with a clinically negative axilla, the preferred axillary staging procedure is:"
   },
   {
     "subject": "surgery",
@@ -10154,14 +9938,6 @@
   {
     "subject": "surgery",
     "idx": 635,
-    "check": "NO_QUESTION_MARK",
-    "severity": "low",
-    "detail": "no ?",
-    "stem": "The therapeutic INR target for a patient with a mechanical mitral valve on warfarin is:"
-  },
-  {
-    "subject": "surgery",
-    "idx": 635,
     "check": "CONCEPT_ONLY",
     "severity": "medium",
     "detail": "only concept layer present",
@@ -12878,22 +12654,6 @@
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 50-year-old woman presents with a painless, slow-growing, mobile swelling in front of her left ear. It feels firm and lobulated. Facial ne"
-  },
-  {
-    "subject": "eye-ent",
-    "idx": 24,
-    "check": "NO_QUESTION_MARK",
-    "severity": "low",
-    "detail": "no ?",
-    "stem": "A 3-year-old presents with barking cough, inspiratory stridor, low-grade fever. Neck X-ray shows steeple sign."
-  },
-  {
-    "subject": "eye-ent",
-    "idx": 95,
-    "check": "NO_QUESTION_MARK",
-    "severity": "low",
-    "detail": "no ?",
-    "stem": "A 30-year-old presents after an alkali splash to the eye with conjunctival blanching and corneal haze. The single most urgent immediate step"
   },
   {
     "subject": "eye-ent",
@@ -15305,14 +15065,6 @@
   },
   {
     "subject": "obgyn",
-    "idx": 10,
-    "check": "NO_QUESTION_MARK",
-    "severity": "low",
-    "detail": "no ?",
-    "stem": "A 24-week pregnant woman presents with acute severe RLQ pain and vaginal spotting. Tachycardic, hypotensive. US shows empty uterus."
-  },
-  {
-    "subject": "obgyn",
     "idx": 194,
     "check": "CONCEPT_ONLY",
     "severity": "medium",
@@ -16826,14 +16578,6 @@
   {
     "subject": "obgyn",
     "idx": 288,
-    "check": "NO_QUESTION_MARK",
-    "severity": "low",
-    "detail": "no ?",
-    "stem": "A13 : A child with congenital syphilis is noted to have sensorineural deafness, interstitial keratitis, and peg-shaped incisors. This conste"
-  },
-  {
-    "subject": "obgyn",
-    "idx": 288,
     "check": "CONCEPT_ONLY",
     "severity": "medium",
     "detail": "only concept layer present",
@@ -18337,62 +18081,6 @@
   },
   {
     "subject": "paeds",
-    "idx": 1,
-    "check": "NO_QUESTION_MARK",
-    "severity": "low",
-    "detail": "no ?",
-    "stem": "A 3-year-old child presents with acute watery diarrhea for 3 days. On examination, the child is lethargic, has very sunken eyes, dry mucous "
-  },
-  {
-    "subject": "paeds",
-    "idx": 76,
-    "check": "NO_QUESTION_MARK",
-    "severity": "low",
-    "detail": "no ?",
-    "stem": "A 6-month-old presents with fever of 39.2°C and a generalized tonic-clonic seizure lasting 2 minutes. The child is now alert and playful. LP"
-  },
-  {
-    "subject": "paeds",
-    "idx": 77,
-    "check": "NO_QUESTION_MARK",
-    "severity": "low",
-    "detail": "no ?",
-    "stem": "A 2-year-old presents with vomiting, abdominal pain, melena. Abdominal X-ray shows radiopaque material in the stomach."
-  },
-  {
-    "subject": "paeds",
-    "idx": 78,
-    "check": "NO_QUESTION_MARK",
-    "severity": "low",
-    "detail": "no ?",
-    "stem": "A primigravida at 36 weeks presents with BP 160/110, proteinuria 3+, headache, epigastric pain. Platelets 80,000, AST/ALT elevated."
-  },
-  {
-    "subject": "paeds",
-    "idx": 79,
-    "check": "NO_QUESTION_MARK",
-    "severity": "low",
-    "detail": "no ?",
-    "stem": "An Rh-negative mother delivers an Rh-positive baby. Kleihauer test is negative."
-  },
-  {
-    "subject": "paeds",
-    "idx": 104,
-    "check": "NO_QUESTION_MARK",
-    "severity": "low",
-    "detail": "no ?",
-    "stem": "A 15 kg child is admitted with severe dehydration (10% deficit). After the initial 20 mL/kg IV bolus, the child is hemodynamically stable. U"
-  },
-  {
-    "subject": "paeds",
-    "idx": 227,
-    "check": "NO_QUESTION_MARK",
-    "severity": "low",
-    "detail": "no ?",
-    "stem": "A 4-day-old term neonate develops bilious vomiting and failure to pass meconium. Abdominal radiograph shows dilated bowel loops with few air"
-  },
-  {
-    "subject": "paeds",
     "idx": 240,
     "check": "CONCEPT_ONLY",
     "severity": "medium",
@@ -18486,14 +18174,6 @@
     "severity": "medium",
     "detail": "missing others",
     "stem": "Child for Leukemia diseases admitted for chemotherapy, developed chicken pox. Preferred treatment of complicated chickenpox is?"
-  },
-  {
-    "subject": "paeds",
-    "idx": 246,
-    "check": "NO_QUESTION_MARK",
-    "severity": "low",
-    "detail": "no ?",
-    "stem": "A mother presents her 3-year-old son to the pediatrician due to concerns about his heart as she senses it's not normal."
   },
   {
     "subject": "paeds",
@@ -18766,14 +18446,6 @@
     "severity": "medium",
     "detail": "missing others",
     "stem": "A mother brings her child to the clinic, reporting episodes where the child stares blankly at objects for a few seconds, seemingly unrespons"
-  },
-  {
-    "subject": "paeds",
-    "idx": 263,
-    "check": "NO_QUESTION_MARK",
-    "severity": "low",
-    "detail": "no ?",
-    "stem": "Common cause of acute hepatitis in children exhibits gastro symptoms only after eating at vendor living in a poor country with poor hygiene "
   },
   {
     "subject": "paeds",
@@ -19530,14 +19202,6 @@
   {
     "subject": "paeds",
     "idx": 310,
-    "check": "NO_QUESTION_MARK",
-    "severity": "low",
-    "detail": "no ?",
-    "stem": "A33 : A child with a small VSD has a loud holosystolic murmur, while a child with a large VSD has a softer murmur. This paradox occurs becau"
-  },
-  {
-    "subject": "paeds",
-    "idx": 310,
     "check": "CONCEPT_ONLY",
     "severity": "medium",
     "detail": "only concept layer present",
@@ -19682,14 +19346,6 @@
   {
     "subject": "paeds",
     "idx": 319,
-    "check": "NO_QUESTION_MARK",
-    "severity": "low",
-    "detail": "no ?",
-    "stem": "A42 : A 2-year-old develops jaundice and dark urine; smear shows bite cells and Heinz bodies. The most likely trigger is:"
-  },
-  {
-    "subject": "paeds",
-    "idx": 319,
     "check": "CONCEPT_ONLY",
     "severity": "medium",
     "detail": "only concept layer present",
@@ -19702,14 +19358,6 @@
     "severity": "medium",
     "detail": "missing others",
     "stem": "A42 : A 2-year-old develops jaundice and dark urine; smear shows bite cells and Heinz bodies. The most likely trigger is:"
-  },
-  {
-    "subject": "paeds",
-    "idx": 320,
-    "check": "NO_QUESTION_MARK",
-    "severity": "low",
-    "detail": "no ?",
-    "stem": "A43 : A 4-year-old with severe gastroenteritis has concentrated urine (Na <20 mEq/L), a BUN/Cr ratio >20:1, and improves with fluid resuscit"
   },
   {
     "subject": "paeds",
@@ -19778,14 +19426,6 @@
   {
     "subject": "paeds",
     "idx": 324,
-    "check": "NO_QUESTION_MARK",
-    "severity": "low",
-    "detail": "no ?",
-    "stem": "A47 : Newborn screening for congenital hypothyroidism is performed by:"
-  },
-  {
-    "subject": "paeds",
-    "idx": 324,
     "check": "CONCEPT_ONLY",
     "severity": "medium",
     "detail": "only concept layer present",
@@ -19802,14 +19442,6 @@
   {
     "subject": "paeds",
     "idx": 325,
-    "check": "NO_QUESTION_MARK",
-    "severity": "low",
-    "detail": "no ?",
-    "stem": "A48 : A 9-year-old has low growth velocity, delayed bone age, normal parents, and no systemic illness. This pattern is most consistent with:"
-  },
-  {
-    "subject": "paeds",
-    "idx": 325,
     "check": "CONCEPT_ONLY",
     "severity": "medium",
     "detail": "only concept layer present",
@@ -19826,14 +19458,6 @@
   {
     "subject": "paeds",
     "idx": 326,
-    "check": "NO_QUESTION_MARK",
-    "severity": "low",
-    "detail": "no ?",
-    "stem": "A49 : A 2-year-old has failure to thrive. The most appropriate initial approach is:"
-  },
-  {
-    "subject": "paeds",
-    "idx": 326,
     "check": "CONCEPT_ONLY",
     "severity": "medium",
     "detail": "only concept layer present",
@@ -19846,14 +19470,6 @@
     "severity": "medium",
     "detail": "missing others",
     "stem": "A49 : A 2-year-old has failure to thrive. The most appropriate initial approach is:"
-  },
-  {
-    "subject": "paeds",
-    "idx": 327,
-    "check": "NO_QUESTION_MARK",
-    "severity": "low",
-    "detail": "no ?",
-    "stem": "A50 : On cardiac exam a child has a widely split S2 that does not change with inspiration. This is pathognomonic of:"
   },
   {
     "subject": "paeds",
@@ -20062,78 +19678,6 @@
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 3-year-old girl presents with fever (38.5°C), dysuria, and frequency. Urine dipstick shows positive nitrites and leukocyte esterase. Urine"
-  },
-  {
-    "subject": "basic",
-    "idx": 6,
-    "check": "NO_QUESTION_MARK",
-    "severity": "low",
-    "detail": "no ?",
-    "stem": "In organophosphate poisoning, pralidoxime (2-PAM) must be administered within a specific time window to be effective. This is because:"
-  },
-  {
-    "subject": "basic",
-    "idx": 8,
-    "check": "NO_QUESTION_MARK",
-    "severity": "low",
-    "detail": "no ?",
-    "stem": "In cyanide poisoning, sodium nitrite is administered before sodium thiosulfate. The therapeutic purpose of sodium nitrite is to:"
-  },
-  {
-    "subject": "basic",
-    "idx": 72,
-    "check": "NO_QUESTION_MARK",
-    "severity": "low",
-    "detail": "no ?",
-    "stem": "The therapeutic index (TI) of a drug is defined as:"
-  },
-  {
-    "subject": "basic",
-    "idx": 89,
-    "check": "NO_QUESTION_MARK",
-    "severity": "low",
-    "detail": "no ?",
-    "stem": "All of the following are contents of the cubital fossa EXCEPT:"
-  },
-  {
-    "subject": "basic",
-    "idx": 109,
-    "check": "NO_QUESTION_MARK",
-    "severity": "low",
-    "detail": "no ?",
-    "stem": "A 19-year-old woman presents 6 hours after ingesting 15 g of paracetamol (acetaminophen). Serum APAP level plots above the treatment line on"
-  },
-  {
-    "subject": "basic",
-    "idx": 111,
-    "check": "NO_QUESTION_MARK",
-    "severity": "low",
-    "detail": "no ?",
-    "stem": "In tricyclic antidepressant (TCA) overdose, physostigmine is contraindicated primarily because it can cause:"
-  },
-  {
-    "subject": "basic",
-    "idx": 205,
-    "check": "NO_QUESTION_MARK",
-    "severity": "low",
-    "detail": "no ?",
-    "stem": "A 25-year-old medical student, after an overnight fast, develops symptoms and is found to have a blood glucose of 45 mg/dL. A glucagon stimu"
-  },
-  {
-    "subject": "basic",
-    "idx": 221,
-    "check": "NO_QUESTION_MARK",
-    "severity": "low",
-    "detail": "no ?",
-    "stem": "Insecticide-treated bed nets are the cornerstone of malaria vector control in endemic regions because the principal vector:"
-  },
-  {
-    "subject": "basic",
-    "idx": 234,
-    "check": "NO_QUESTION_MARK",
-    "severity": "low",
-    "detail": "no ?",
-    "stem": "In a nutrition survey of children aged 6-59 months, a child has a weight-for-height Z-score of -3.4 and bilateral pitting edema. According t"
   },
   {
     "subject": "basic",
@@ -20762,14 +20306,6 @@
   {
     "subject": "basic",
     "idx": 395,
-    "check": "NO_QUESTION_MARK",
-    "severity": "low",
-    "detail": "no ?",
-    "stem": "Shortly after a barbeque, medical students of a medical college came back to their rooms and most of them (62 out of 74 students) experience"
-  },
-  {
-    "subject": "basic",
-    "idx": 395,
     "check": "CONCEPT_ONLY",
     "severity": "medium",
     "detail": "only concept layer present",
@@ -21042,14 +20578,6 @@
   {
     "subject": "basic",
     "idx": 412,
-    "check": "NO_QUESTION_MARK",
-    "severity": "low",
-    "detail": "no ?",
-    "stem": "At the motor end plate, binding of acetylcholine to nicotinic receptors directly causes:"
-  },
-  {
-    "subject": "basic",
-    "idx": 412,
     "check": "CONCEPT_ONLY",
     "severity": "medium",
     "detail": "only concept layer present",
@@ -21258,14 +20786,6 @@
   {
     "subject": "basic",
     "idx": 428,
-    "check": "NO_QUESTION_MARK",
-    "severity": "low",
-    "detail": "no ?",
-    "stem": "Atropine is used in the management of bradycardia and as a pre-anesthetic medication. Its mechanism of action is:"
-  },
-  {
-    "subject": "basic",
-    "idx": 428,
     "check": "CONCEPT_ONLY",
     "severity": "medium",
     "detail": "only concept layer present",
@@ -21390,14 +20910,6 @@
     "severity": "medium",
     "detail": "missing others",
     "stem": "A 35-year-old man develops chorea, cognitive decline, and psychiatric disturbances. His father died at age 60 with similar symptoms. His gra"
-  },
-  {
-    "subject": "basic",
-    "idx": 436,
-    "check": "NO_QUESTION_MARK",
-    "severity": "low",
-    "detail": "no ?",
-    "stem": "A new screening test for hepatitis C has 95% sensitivity and 90% specificity. When the test is used in a population with 1% disease prevalen"
   },
   {
     "subject": "basic",

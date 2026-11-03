@@ -1,12 +1,12 @@
 # MCQ Quality Check Report — MedCoreX Question Bank
 
-Generated: 2026-11-03T03:04:49.269Z
+Generated: 2026-11-03T03:17:18.260Z
 
 ## Scope
 - Subjects: medicine (1745), surgery (805), eye-ent (335), obgyn (382), paeds (340), basic (526)
 - Total questions: 4133
 - Unique stems: 4133 (exact dup: 0)
-- Total issues: 2830
+- Total issues: 2769
 
 ## Layer completeness
 - Full (all 6 layers): 2787
@@ -14,14 +14,13 @@ Generated: 2026-11-03T03:04:49.269Z
 - Partial: 199
 
 ## Severity counts
-- low: 263
+- low: 202
 - medium: 2567
 
 ## Issue counts by check
 - NO_OTHERS: 1380
 - CONCEPT_ONLY: 1147
 - PARTIAL_LAYERS: 199
-- NO_QUESTION_MARK: 61
 - STEM_TOO_SHORT: 15
 - ANSWER_SKEW: 15
 - EMPTY_OTHER: 10
@@ -51,62 +50,6 @@ Generated: 2026-11-03T03:04:49.269Z
 ### [low] STEM_VERY_LONG — medicine #2
 > A 65-year-old male dies suddenly from a massive myocardial infarction. Autopsy reveals a pale, wedge-shaped area in the posterolateral wall 
 Detail: len 619
-
-### [low] NO_QUESTION_MARK — medicine #145
-> All of the following cranial nerves run in the lateral wall of the cavernous sinus EXCEPT:
-Detail: no ?
-
-### [low] NO_QUESTION_MARK — medicine #148
-> The normal filtration fraction (GFR ÷ renal plasma flow) is approximately:
-Detail: no ?
-
-### [low] NO_QUESTION_MARK — medicine #149
-> The typical resting membrane potential of a neuron is closest to:
-Detail: no ?
-
-### [low] NO_QUESTION_MARK — medicine #151
-> In skeletal muscle excitation-contraction coupling, calcium ions required for contraction are primarily released from the:
-Detail: no ?
-
-### [low] NO_QUESTION_MARK — medicine #153
-> In a patient with complete heart block, intermittent prominent a-waves (cannon a-waves) are seen in the JVP. These occur because the:
-Detail: no ?
-
-### [low] NO_QUESTION_MARK — medicine #155
-> A 65-year-old man with long-standing hypertension presents with progressive dyspnoea. Cardiac auscultation reveals a low-pitched extra sound
-Detail: no ?
-
-### [low] NO_QUESTION_MARK — medicine #157
-> A 70-year-old woman weighing 60 kg has a serum creatinine of 1.2 mg/dL. Using the Cockcroft-Gault formula, her estimated creatinine clearanc
-Detail: no ?
-
-### [low] NO_QUESTION_MARK — medicine #158
-> The sliding filament theory of skeletal muscle contraction involves a specific sequence of molecular events. Arrange the following steps in 
-Detail: no ?
-
-### [low] NO_QUESTION_MARK — medicine #165
-> A study finds that alcohol consumption is associated with an increased risk of lung cancer. However, when stratified by smoking status, the 
-Detail: no ?
-
-### [low] NO_QUESTION_MARK — medicine #246
-> The Frank-Starling mechanism describes the direct relationship between:
-Detail: no ?
-
-### [low] NO_QUESTION_MARK — medicine #249
-> A leftward shift of the oxyhaemoglobin dissociation curve would be caused by:
-Detail: no ?
-
-### [low] NO_QUESTION_MARK — medicine #644
-> A 30-year-old man undergoes diagnostic thoracentesis for a pleural effusion. To avoid injury to the intercostal neurovascular bundle, the ne
-Detail: no ?
-
-### [low] NO_QUESTION_MARK — medicine #1004
-> A 32-year-old man has severe, strictly unilateral, tearing and nasal-stuffy headache around the same eye, occurring in clusters every night 
-Detail: no ?
-
-### [low] NO_QUESTION_MARK — medicine #1011
-> A 60-year-old hypertensive diabetic man wakes with isolated right hemiparesis involving face, arm and leg equally. There are NO cortical sig
-Detail: no ?
 
 ### [medium] NO_OTHERS — medicine #1240
 > A 35-year-old HIV-positive man presents with multiple painless, dark purplish-violaceous plaques on his trunk and arms. Lesions appeared ove
@@ -286,5 +229,61 @@ Detail: only concept layer present
 
 ### [medium] NO_OTHERS — medicine #1269
 > A 70-year-old man presented with epigastric pain, hematemesis and tarry black stools (melena) for one day. Past history of episodic epigastr
+Detail: missing others
+
+### [medium] CONCEPT_ONLY — medicine #1270
+> What sign indicates gas gangrene, a disease caused by Clostridium perfringens that leads to widespread necrosis?
+Detail: only concept layer present
+
+### [medium] NO_OTHERS — medicine #1270
+> What sign indicates gas gangrene, a disease caused by Clostridium perfringens that leads to widespread necrosis?
+Detail: missing others
+
+### [medium] CONCEPT_ONLY — medicine #1271
+> What is a fundamental characteristic of Conversion Disorder?
+Detail: only concept layer present
+
+### [medium] NO_OTHERS — medicine #1271
+> What is a fundamental characteristic of Conversion Disorder?
+Detail: missing others
+
+### [medium] CONCEPT_ONLY — medicine #1272
+> A 6-month-old girl has been experiencing distress, crying, abdominal distension, and passing redcurrant jelly stool for 24 hours. The girl a
+Detail: only concept layer present
+
+### [medium] NO_OTHERS — medicine #1272
+> A 6-month-old girl has been experiencing distress, crying, abdominal distension, and passing redcurrant jelly stool for 24 hours. The girl a
+Detail: missing others
+
+### [medium] CONCEPT_ONLY — medicine #1273
+> A 22-year-old male presents following a motor vehicle accident. He localizes pain, opens his eyes only to pain, and uses inappropriate words
+Detail: only concept layer present
+
+### [medium] NO_OTHERS — medicine #1273
+> A 22-year-old male presents following a motor vehicle accident. He localizes pain, opens his eyes only to pain, and uses inappropriate words
+Detail: missing others
+
+### [medium] CONCEPT_ONLY — medicine #1274
+> Upon arriving at the emergency department, a young male is presenting with a stab wound located in his left hypochondrium. He exhibits signi
+Detail: only concept layer present
+
+### [medium] NO_OTHERS — medicine #1274
+> Upon arriving at the emergency department, a young male is presenting with a stab wound located in his left hypochondrium. He exhibits signi
+Detail: missing others
+
+### [medium] CONCEPT_ONLY — medicine #1275
+> A 1-year-old female baby with pallor and poor growth, who is not breastfeeding properly and is mainly on goat milk, presents with tachycardi
+Detail: only concept layer present
+
+### [medium] NO_OTHERS — medicine #1275
+> A 1-year-old female baby with pallor and poor growth, who is not breastfeeding properly and is mainly on goat milk, presents with tachycardi
+Detail: missing others
+
+### [medium] CONCEPT_ONLY — medicine #1276
+> What is the likely diagnosis for a 10-year-old boy with fever, inability to open his mouth, seizures, and a history of a road traffic accide
+Detail: only concept layer present
+
+### [medium] NO_OTHERS — medicine #1276
+> What is the likely diagnosis for a 10-year-old boy with fever, inability to open his mouth, seizures, and a history of a road traffic accide
 Detail: missing others
 
