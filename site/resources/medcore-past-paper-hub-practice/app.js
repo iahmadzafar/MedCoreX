@@ -148,7 +148,6 @@ function showPractice(){
 
   const np=$('#navPractice');
   np.hidden=false;np.href=location.hash;
-  np.textContent=paperName(SET.paper)+' · '+SET.name;
   np.setAttribute('aria-current','page');
 
   $('#pSub').textContent=paperName(SET.paper)+' · realtime practice';
