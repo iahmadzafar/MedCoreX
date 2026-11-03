@@ -1,16 +1,19 @@
 #!/usr/bin/env python3
 """MedCoreX chrome builder — the nav bar, footer, auth slots and theme engine
-mount exist ONCE, in site/chrome/ *. This tool stitches them into every page
+mount exist ONCE, in chrome/*.part. This tool stitches them into every page
 between the <!--NAV-->/<!--/NAV--> and <!--FOOTER-->/<!--/FOOTER--> regions.
 
 Law: pages never hand-edit their chrome regions. Per-page differences are
-options declared here (which nav item is active), not forks of the markup.
+options declared in PAGES (which nav item is active, which header variant,
+which footer variant) — variants, not forks.
 
+Header variants: site · slim (account) · magic · qb · fresh · papers · pred
+Footer variants: site (auth slot) · noauth (account)
 Usage:
-  python3 tools/build.py          # fill/refresh chrome regions on every page
-  python3 tools/build.py check    # verify all pages are up to date (CI-safe)
+  python3 tools/build.py          # fill/refresh chrome regions
+  python3 tools/build.py check    # verify every page is up to date (CI-safe)
 """
-import pathlib, sys, re
+import pathlib, sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SITE = ROOT / "site"
@@ -18,57 +21,101 @@ CHROME = ROOT / "chrome"
 NAV_S, NAV_E = "<!--NAV-->", "<!--/NAV-->"
 F_S, F_E = "<!--FOOTER-->", "<!--/FOOTER-->"
 
-# page file -> active nav href (None = no active item)
+# page file -> {variant, active(href or None), footer(footer-variant or None = page has no footer)}
 PAGES = {
-    "index.html": "/",
-    "library.html": "/library",
+    "index.html":   {"v": "site", "active": "/",        "f": "site"},
+    "library.html": {"v": "site", "active": "/library", "f": "site"},
+    "about.html":   {"v": "site", "active": "/about",   "f": "site"},
+    "faq.html":     {"v": "site", "active": "/faq",     "f": "site"},
+    "stats.html":   {"v": "site", "active": "/stats",   "f": "site"},
+    "login.html":   {"v": "site", "active": None,       "f": "site"},
+    "signup.html":  {"v": "site", "active": None,       "f": "site"},
+    "404.html":     {"v": "site", "active": "/library", "f": "site"},
+    "account.html": {"v": "slim", "active": None,       "f": "noauth"},
+    "admin/keyhole.html": {"v": "site", "active": None, "f": "site"},
+    "resources/medcore-production-master-html-medcore-master-book/index.html":
+                    {"v": "site", "active": None,       "f": "site"},
+    "resources/standalone-htmls-case-ladder-interactive.html":
+                    {"v": "site", "active": None,       "f": "site"},
+    "resources/standalone-htmls-magic-table-medical-licensing.html":
+                    {"v": "magic", "active": None,      "f": "site"},
+    "resources/medcore-question-bank/index.html":
+                    {"v": "qb",    "active": None,      "f": None},
+    "resources/medcore-fresh-mock-bank/index.html":
+                    {"v": "fresh", "active": None,      "f": "site"},
+    "resources/medcore-past-paper-hub-practice/index.html":
+                    {"v": "papers","active": None,      "f": "site"},
+    "resources/medcore-prediction-exam-practice.html":
+                    {"v": "pred",  "active": None,      "f": None},
 }
 
-def render(active):
-    """Current chrome, with the per-page active nav item applied."""
-    header = (CHROME / "header.part").read_text(encoding="utf-8")
-    footer = (CHROME / "footer.part").read_text(encoding="utf-8")
+def render(active, variant, fvariant):
+    header = (CHROME / f"header.{variant}.part").read_text(encoding="utf-8")
+    footer = (CHROME / f"footer.{fvariant}.part").read_text(encoding="utf-8") if fvariant else None
     if active:
         needle = f'<a href="{active}"'
-        assert needle in header, f"active link {active} not in header chrome"
+        assert needle in header, f"active link {active} not in header.{variant}.part"
         header = header.replace(needle, needle + ' aria-current="page"', 1)
     return header, footer
 
-def page_report(name, active, mode):
+def page_report(name, cfg, mode):
     p = SITE / name
     s = p.read_text(encoding="utf-8")
+    healed = False
+    # self-heal: a collision-flushed file loses its markers but keeps the
+    # standard blocks — re-wrap so the build converges without manual rescue
+    if -1 in (s.find(NAV_S), s.find(NAV_E)):
+        ha = s.find('<header class="nav">')
+        if ha == -1:
+            return "NAV region missing (no standard header either)", True
+        hb = s.find('</header>') + len('</header>')
+        s = s[:ha] + NAV_S + s[ha:hb] + NAV_E + s[hb:]
+        healed = True
+    if cfg["f"] is not None and -1 in (s.find(F_S), s.find(F_E)):
+        fc = s.find('<footer class="foot">')
+        if fc == -1:
+            return "FOOTER region missing (no standard footer either)", True
+        fd = s.rfind('</footer>') + len('</footer>')
+        s = s[:fc] + F_S + s[fc:fd] + F_E + s[fd:]
+        healed = True
     a, b = s.find(NAV_S), s.find(NAV_E)
-    c, d = s.find(F_S), s.find(F_E)
-    if -1 in (a, b, c, d) or not a < b < c < d:
-        return f"MISSING REGIONS", False
-    h, foot = render(active)
-    want_nav, want_foot = "\n" + h + "\n", "\n" + foot + "\n"
-    cur_nav = s[a + len(NAV_S):b]
-    cur_foot = s[c + len(F_S):d]
-    drift = cur_nav != want_nav or cur_foot != want_foot
+    h, foot = render(cfg["active"], cfg["v"], cfg["f"])
+    want_nav = "\n" + h + "\n"
+    drift = False
+    if a + len(NAV_S) >= b or s[a + len(NAV_S):b] != want_nav:
+        drift = True
+    if foot is not None:
+        want_foot = "\n" + foot + "\n"
+        c, d = s.find(F_S), s.find(F_E)
+        if -1 in (c, d):
+            return "FOOTER region missing", True
+        if s[c + len(F_S):d] != want_foot:
+            drift = True
     if mode == "check":
-        return ("UP TO DATE" if not drift else "OUT OF DATE — run build"), drift
-    if not drift:
-        return "kept", False
-    out = s[:c + len(F_S)] + want_foot + s[d:]     # footer first (later in doc)
+        if healed: drift = True
+        return ("UP TO DATE" if not drift else "OUT OF DATE — run build"), drift or healed
+    if foot is not None:
+        out = s[:c + len(F_S)] + want_foot + s[d:]
+    else:
+        out = s
     a, b = out.find(NAV_S), out.find(NAV_E)
-    out = out[:a + len(NAV_S)] + want_nav + out[b:]  # then nav (earlier) — indices still valid
+    out = out[:a + len(NAV_S)] + want_nav + out[b:]
     p.write_text(out, encoding="utf-8")
-    return "regenerated", False
+    return ("healed + regenerated" if healed else "regenerated"), False
 
 def main():
     mode = sys.argv[1] if len(sys.argv) > 1 else "build"
     if mode not in ("build", "check"):
         print(__doc__); return 2
     lines, fail = [], False
-    for name, active in PAGES.items():
-        msg, bad = page_report(name, active, mode)
+    for name, cfg in PAGES.items():
+        msg, bad = page_report(name, cfg, mode)
         lines.append(f"  {name}: {msg}")
         fail = fail or bad
     print(("chrome check" if mode == "check" else "chrome build") + ":")
     print("\n".join(lines))
-    if mode == "check" and fail:
-        print("  ✗ drift — chrome regions were hand-edited. Run build to regenerate.")
+    if fail:
+        print("  ✗ problems found" + (" — run build" if mode == "check" else ""))
         return 1
     return 0
 
