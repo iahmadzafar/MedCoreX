@@ -27,21 +27,21 @@ def base_id(fname):
 # not the broad subject/specialty. Each set spans multiple sub-topics, so these are
 # the representative topic names; adjust here if a different label is preferred.
 TOPIC_MAP = {
-    "diabetes": "Diabetes Mellitus",
-    "ent": "Otology & Ear Disorders",
-    "electrolytes": "Electrolyte & Acid-Base Disorders",
-    "endocrine": "Thyroid & Endocrine Disorders",
-    "endocrinesurgery": "Endocrine Surgery",
-    "gi-emergencies": "Upper GI Bleeding & Oesophageal Disorders",
-    "haematology": "Haemolytic Anaemia & Blood Disorders",
-    "hepatology": "Hepatic Encephalopathy & Liver Disease",
-    "neuro": "Subarachnoid Haemorrhage & Stroke",
+    "diabetes": "MODY — Maturity-Onset Diabetes of the Young",
+    "ent": "Meniere's Disease",
+    "electrolytes": "Hyponatremia — Hypovolemic & Cerebral Salt Wasting",
+    "endocrine": "Subacute Thyroiditis (de Quervain)",
+    "endocrinesurgery": "Thyroglossal Duct Cyst & Sistrunk Resection",
+    "gi-emergencies": "Upper GI Bleeding — Variceal vs Non-Variceal",
+    "haematology": "Autoimmune Haemolytic Anaemia",
+    "hepatology": "Hepatic Encephalopathy",
+    "neuro": "Subarachnoid Haemorrhage — LP for Xanthochromia",
     "nutrition-malabsorption": "Malabsorption Syndromes",
-    "oncology-genpath": "Neoplasia & Cellular Adaptation",
-    "ophthalmology": "Retinal & External Eye Disease",
-    "psych": "Schizophrenia & Psychotic Disorders",
-    "renal": "Acute Kidney Injury & Renal Disease",
-    "urology": "Renal Stones & Urological Emergencies",
+    "oncology-genpath": "Metaplasia — Barrett's Oesophagus",
+    "ophthalmology": "Vernal Keratoconjunctivitis",
+    "psych": "Schizophrenia — Persecutory Delusions",
+    "renal": "Acute Interstitial Nephritis",
+    "urology": "Renal Stones — Calcium Oxalate Nephrolithiasis",
 }
 
 def build(fname):

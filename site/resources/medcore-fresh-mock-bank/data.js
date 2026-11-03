@@ -2,7 +2,7 @@
 const SUBJECTS = [
   {
     "id": "diabetes",
-    "name": "Diabetes Mellitus",
+    "name": "MODY — Maturity-Onset Diabetes of the Young",
     "questions": [
       {
         "q": "A 19-year-old non-obese woman with a strong family history of diabetes (autosomal dominant) presents with mild hyperglycaemia. She is not ketosis-prone and her C-peptide is normal. Which feature best fits maturity-onset diabetes of the young (MODY)?",
@@ -583,7 +583,7 @@ const SUBJECTS = [
   },
   {
     "id": "ent",
-    "name": "Otology & Ear Disorders",
+    "name": "Meniere's Disease",
     "questions": [
       {
         "q": "A 45-year-old has recurrent episodes of vertigo lasting 30-40 minutes, fluctuating sensorineural hearing loss, tinnitus and a sense of aural fullness in one ear. Between episodes he is well. Dix-Hallpike and neurological examination are normal. Diagnosis?",
@@ -1164,7 +1164,7 @@ const SUBJECTS = [
   },
   {
     "id": "electrolytes",
-    "name": "Electrolyte & Acid-Base Disorders",
+    "name": "Hyponatremia — Hypovolemic & Cerebral Salt Wasting",
     "questions": [
       {
         "q": "A 70-year-old woman on a thiazide diuretic for hypertension presents with confusion. Serum sodium is 122 mmol/L. She is clinically volume-depleted. Which mechanism best explains the hyponatremia?",
@@ -1745,7 +1745,7 @@ const SUBJECTS = [
   },
   {
     "id": "endocrine",
-    "name": "Thyroid & Endocrine Disorders",
+    "name": "Subacute Thyroiditis (de Quervain)",
     "questions": [
       {
         "q": "A 40-year-old woman presents with a 1-week history of severe anterior neck pain radiating to the ear, fever, and transient palpitations. The thyroid is tender and firm. She recently had a viral upper respiratory infection. What is the most likely diagnosis?",
@@ -2326,7 +2326,7 @@ const SUBJECTS = [
   },
   {
     "id": "endocrinesurgery",
-    "name": "Endocrine Surgery",
+    "name": "Thyroglossal Duct Cyst & Sistrunk Resection",
     "questions": [
       {
         "q": "A 6-year-old child has a midline neck swelling that moves upward on protrusion of the tongue and on swallowing. It is non-tender and cystic. What is the diagnosis and management?",
@@ -2907,7 +2907,7 @@ const SUBJECTS = [
   },
   {
     "id": "gi-emergencies",
-    "name": "Upper GI Bleeding & Oesophageal Disorders",
+    "name": "Upper GI Bleeding — Variceal vs Non-Variceal",
     "questions": [
       {
         "q": "A 42-year-old woman reports progressive difficulty swallowing both liquids and solids for 2 years, with regurgitation of undigested food and a 4 kg weight loss. Barium swallow shows a smooth tapered 'bird-beak' narrowing at the gastro-oesophageal junction. What is the most appropriate definitive management?",
@@ -3488,7 +3488,7 @@ const SUBJECTS = [
   },
   {
     "id": "haematology",
-    "name": "Haemolytic Anaemia & Blood Disorders",
+    "name": "Autoimmune Haemolytic Anaemia",
     "questions": [
       {
         "q": "A 45-year-old with fatigue and jaundice has laboratory evidence of haemolysis and a positive direct Coombs (antiglobulin) test. This immune haemolytic anaemia is best classified under which type of hypersensitivity reaction?",
@@ -4069,7 +4069,7 @@ const SUBJECTS = [
   },
   {
     "id": "hepatology",
-    "name": "Hepatic Encephalopathy & Liver Disease",
+    "name": "Hepatic Encephalopathy",
     "questions": [
       {
         "q": "A 55-year-old man with cirrhosis presents with confusion and asterixis. Serum ammonia is elevated. In the liver, ammonia is detoxified by combining with which molecule to form glutamine?",
@@ -4650,7 +4650,7 @@ const SUBJECTS = [
   },
   {
     "id": "neuro",
-    "name": "Subarachnoid Haemorrhage & Stroke",
+    "name": "Subarachnoid Haemorrhage — LP for Xanthochromia",
     "questions": [
       {
         "q": "A 45-year-old woman presents with the 'worst headache of her life' of sudden onset 4 hours ago, vomiting and neck stiffness. Non-contrast CT brain is normal. What is the next best step?",
@@ -5812,7 +5812,7 @@ const SUBJECTS = [
   },
   {
     "id": "oncology-genpath",
-    "name": "Neoplasia & Cellular Adaptation",
+    "name": "Metaplasia — Barrett's Oesophagus",
     "questions": [
       {
         "q": "Chronic acid reflux in Barrett's oesophagus causes the normal squamous epithelium to be replaced by columnar (intestinal-type) epithelium. This transformation is best described as?",
@@ -6393,7 +6393,7 @@ const SUBJECTS = [
   },
   {
     "id": "ophthalmology",
-    "name": "Retinal & External Eye Disease",
+    "name": "Vernal Keratoconjunctivitis",
     "questions": [
       {
         "q": "A 12-year-old boy has recurrent seasonal eye itching and redness, worse in summer, with conjunctival hyperaemia, cobblestone papillae on the upper tarsal conjunctiva, punctate epithelial erosions on fluorescein, and pain on eye movement. Visual acuity is 6/6. Diagnosis?",
@@ -6974,7 +6974,7 @@ const SUBJECTS = [
   },
   {
     "id": "psych",
-    "name": "Schizophrenia & Psychotic Disorders",
+    "name": "Schizophrenia — Persecutory Delusions",
     "questions": [
       {
         "q": "A 15-year-old boy tells his teacher that 'the teacher is trying to kill me' and repeats that classmates are secretly plotting to attack him. He is convinced of this despite evidence to the contrary. He has no prominent depressed or manic mood. What is the most likely diagnosis?",
@@ -7555,7 +7555,7 @@ const SUBJECTS = [
   },
   {
     "id": "renal",
-    "name": "Acute Kidney Injury & Renal Disease",
+    "name": "Acute Interstitial Nephritis",
     "questions": [
       {
         "q": "A 60-year-old woman develops fever, a maculopapular rash, and rising creatinine 10 days after starting a new antibiotic. Urine shows WBC casts and peripheral blood shows eosinophilia. What is the most likely diagnosis?",
@@ -8136,7 +8136,7 @@ const SUBJECTS = [
   },
   {
     "id": "urology",
-    "name": "Renal Stones & Urological Emergencies",
+    "name": "Renal Stones — Calcium Oxalate Nephrolithiasis",
     "questions": [
       {
         "q": "A 45-year-old man presents with his first renal colic. Non-contrast CT shows a radio-opaque stone in the left renal pelvis. Which is the most common composition of such stones?",
