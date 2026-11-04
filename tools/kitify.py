@@ -30,6 +30,7 @@ REPO = Path(__file__).resolve().parent.parent
 
 FAMILIES = {  # family signature table — one line per page, new family = new block in studyverse-bridge.css
     "medcore-cheat-card.html":                                    "zephyr",
+    "grand-mock-five-layer-breakdowns.html":                      "zephyr",
     "standalone-htmls-forge-master.html":                          "zephyr",
     "qbank-logic-first-high-yield-logic-first-high-yield-bank.html": "zephyr",
     "medcore-recall-sheets-repeat-offenders.html":                  "zephyr",
