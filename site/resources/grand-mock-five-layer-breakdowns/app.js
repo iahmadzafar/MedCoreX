@@ -72,13 +72,12 @@ function breakdown(q){
 }
 
 /* ---------- one question ---------- */
-function renderQ(){
-  const i=st.cur,q=S.questions[i],a=st.ans[i],done=a!==undefined,ok=done&&a===q.answer,flag=st.flags.includes(i);
+function renderQ(){  const i=st.cur,q=S.questions[i],a=st.ans[i],done=a!==undefined,ok=done&&a===q.answer,flag=st.flags.includes(i);
   const ready=sel!==null;
   $('#qcard').innerHTML=`
     <div class="qhead"><span class="qno">Question ${i+1} <span class="muted" style="font-size:.8em">of ${S.questions.length}</span></span>
       <button class="flag" id="flagBtn" aria-pressed="${flag}">⚑ ${flag?'Flagged':'Flag'}</button></div>
-    <p class="stem">${q.q}</p>
+    <p class="stem">${q.stem}</p>
     <div class="opts" role="group" aria-label="Answer options">${q.options.map((o,j)=>{
       let cls='';if(done){if(j===q.answer)cls='correct';else if(j===a)cls='wrong';else cls='dim'}else if(j===sel)cls='sel';
       return `<button class="opt ${cls}" data-a="${j}" ${done?'disabled':''} aria-label="Option ${L[j]}: ${o}"><span class="let">${L[j]}</span><span>${o}</span>${done&&j===q.answer?'<span class="mark">✓</span>':done&&j===a?'<span class="mark">✗</span>':`<span class="key">${j+1}</span>`}</button>`}).join('')}</div>
@@ -199,7 +198,7 @@ function runSearch(){
   hits=[];
   for(let i=0;i<S.questions.length;i++){
     const q=S.questions[i];
-    if(q.q.toLowerCase().includes(term)||q.options.some(o=>o.toLowerCase().includes(term)))hits.push(i);
+    if(q.stem.toLowerCase().includes(term)||q.options.some(o=>o.toLowerCase().includes(term)))hits.push(i);
   }
   searchCount.hidden=false;hi=-1;
   searchCount.textContent=hits.length?`${hits.length} hit${hits.length>1?'s':''} · Enter ↕`:'no hits';
@@ -222,7 +221,7 @@ function openBd(){
   const q=S.questions[st.cur],a=st.ans[st.cur];
   if(a===undefined){SV.toast('Answer the question first');return}
   $('#bdTitle').textContent=`Question ${st.cur+1} · full breakdown`;
-  $('#bdBody').innerHTML=`<p class="stem">${q.q}</p><div class="verdict ${a===q.answer?'good':'bad'}" style="margin:0 0 18px"><span class="vtxt">Answer ${L[q.answer]}: ${q.options[q.answer]}${a!==q.answer?` · you chose ${L[a]}`:''}</span></div>${breakdown(q)}`;
+  $('#bdBody').innerHTML=`<p class="stem">${q.stem}</p><div class="verdict ${a===q.answer?'good':'bad'}" style="margin:0 0 18px"><span class="vtxt">Answer ${L[q.answer]}: ${q.options[q.answer]}${a!==q.answer?` · you chose ${L[a]}`:''}</span></div>${breakdown(q)}`;
   $('#bdPrev').disabled=st.cur===0;
   if(!bdDlg.open)bdDlg.showModal();
 }
