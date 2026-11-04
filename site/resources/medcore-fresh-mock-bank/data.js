@@ -466,7 +466,7 @@ const SUBJECTS = [
           "Cholesteatoma",
           "Acute mastoiditis"
         ],
-        "answer": 2,
+        "answer": 1,
         "layers": {
           "concept": "Otitic barotrauma - ear pain/fullness on descent, retracted congested TM",
           "discriminator": "Pain/fullness on airplane descent + retracted congested TM + effusion = barotrauma (Eustachian tube can't equilibrate)",
