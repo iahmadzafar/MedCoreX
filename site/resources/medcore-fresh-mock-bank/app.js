@@ -35,8 +35,7 @@ addEventListener('hashchange',route);
    ========================================================= */
 $('#tips').innerHTML=[...TIPS,...TIPS].map(t=>`<span>${t}</span>`).join('');
 function showHome(){
-  $('#practice').hidden=true;$('#home').hidden=false;$('#navPractice').hidden=true;
-  $('#navHome').setAttribute('aria-current','page');
+  $('#practice').hidden=true;$('#home').hidden=false;
   let g=0,r=0,time=0;
   SUBJECTS.forEach(s=>{const t=tally(s,stOf(s.id));g+=t.g;r+=t.r;time+=stOf(s.id).time});
   SV.countUp($('#stAnswered'),g+r);SV.countUp($('#stAcc'),g+r?Math.round(g/(g+r)*100):0,'%');SV.countUp($('#stBest'),P.best);SV.countUp($('#stTime'),Math.round(time/60));
@@ -56,10 +55,6 @@ $('#subjGrid').onclick=e=>{const b=e.target.closest('[data-go]');if(b)location.h
    ========================================================= */
 function showPractice(){
   $('#home').hidden=true;$('#practice').hidden=false;
-  $('#navHome').removeAttribute('aria-current');
-  /* keep the topbar one row on both home and practice — the subject is already
-     shown in #pName; don't repeat the long subject name in the nav and force a
-     second row. */
   $('#pName').textContent=S.name;
   streak=0;sel=null;
   st.cur=Math.min(st.cur,S.questions.length-1);
