@@ -67,8 +67,8 @@ function showPractice(){
   renderQ();renderScore();renderRail();
 }
 
-/* ---------- seven-layer breakdown ---------- */
-const LAYERS=[['concept','Concept'],['discriminator','Discriminator'],['trap','Trap'],['rule','Rule'],['others','Why every other option dies'],['highyield','High-yield link'],['hook','Memory hook']];
+/* ---------- five-layer breakdown ---------- */
+const LAYERS=[['concept','Concept'],['discriminator','Discriminator'],['trap','Trap'],['rule','Rule'],['others','Why every other option dies']];
 function breakdown(q){
   const Ly=q.layers||{};let n=0;
   return `<div class="bd">${LAYERS.filter(([k])=>Ly[k]).map(([k,label])=>{n++;
@@ -88,14 +88,14 @@ function renderQ(){
       let cls='';if(done){if(j===q.answer)cls='correct';else if(j===a)cls='wrong';else cls='dim'}else if(j===sel)cls='sel';
       return `<button class="opt ${cls}" data-a="${j}" ${done?'disabled':''} aria-label="Option ${L[j]}: ${o}"><span class="let">${L[j]}</span><span>${o}</span>${done&&j===q.answer?'<span class="mark">✓</span>':done&&j===a?'<span class="mark">✗</span>':`<span class="key">${j+1}</span>`}</button>`}).join('')}</div>
     ${done?`<div class="verdict ${ok?'good':'bad'}"><span class="vtxt">${ok?'✓ Correct!':'✗ Not quite.'} The answer is ${L[q.answer]}.</span><button class="btn ghost sm" id="expandBtn">⤢ Expand <kbd>E</kbd></button></div>
-      <div class="bd-wrap"><div class="bd-head"><h3>Seven-layer breakdown</h3></div>${breakdown(q)}</div>`
+      <div class="bd-wrap"><div class="bd-head"><h3>Five-layer breakdown</h3></div>${breakdown(q)}</div>`
     :`<div class="conf-row${ready?' ready':''}" id="confRow" role="group" aria-label="Confidence">
         <span class="conf-lbl">${ready?'How sure were you?':'Pick an option, then lock it in'}</span>
         <button class="confb sure" data-c="sure" ${ready?'':'disabled'}>● Sure</button>
         <button class="confb guess" data-c="guess" ${ready?'':'disabled'}>◐ Guess</button>
         <button class="confb blind" data-c="blind" ${ready?'':'disabled'}>○ Blind</button>
       </div>
-      <div class="bd-wrap"><div class="placeholder"><b>◆ Confidence-locked reveal</b><p class="muted" style="margin-top:6px">Answering needs two taps: pick an option, then say how sure you are. The seven-layer breakdown lands after the lock-in.</p></div></div>`}`;
+      <div class="bd-wrap"><div class="placeholder"><b>◆ Confidence-locked reveal</b><p class="muted" style="margin-top:6px">Answering needs two taps: pick an option, then say how sure you are. The five-layer breakdown lands after the lock-in.</p></div></div>`}`;
   $('#prevBtn').disabled=i===0;
   $('#nextBtn').innerHTML=i===S.questions.length-1?'Finish ›':done?'Next question ›':'Skip ahead ›';
 }

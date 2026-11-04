@@ -65,8 +65,6 @@ def build(fname):
         add("discriminator", q.get("discriminator"))
         add("trap", q.get("trapType"))
         add("rule", q.get("correctRule"))
-        add("highyield", q.get("reviseTopic") or q.get("syllabusTopic") or q.get("testedConcept"))
-        add("hook", q.get("futureAlert") or q.get("whyCorrect"))
         distr = {}
         for k, v in (q.get("distractors") or {}).items():
             if v: distr[k] = decode(v)

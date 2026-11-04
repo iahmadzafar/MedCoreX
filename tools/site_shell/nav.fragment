@@ -4,7 +4,7 @@
     <nav class="links" aria-label="Main">
       <a href="/"{{HOME}}>Home</a>
       <a href="/library"{{LIBRARY}}>Library</a>
-      <a href="/about"{{ABOUT}}>About</a>
+      <a href="{{SECTION_HREF}}">{{SECTION_LABEL}}</a>
       <a href="/stats"{{STATS}}>Stats</a> <a href="/login" id="navAuth">Sign in</a>
     </nav>
     <div class="engine" title="Theme engine" data-sv-engine></div>

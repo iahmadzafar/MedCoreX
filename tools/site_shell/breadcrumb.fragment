@@ -1,0 +1,5 @@
+<nav class="crumbline" aria-label="Breadcrumb">
+  <a href="/library#{{PORTAL_ID}}">{{PARENT_LABEL}}</a>
+  <span aria-hidden="true">/</span>
+  <span aria-current="page">{{MODULE_LABEL}}</span>
+</nav>
