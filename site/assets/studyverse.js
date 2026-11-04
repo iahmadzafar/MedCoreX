@@ -20,7 +20,8 @@ const IC={
  unlock:'<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10.5" width="16" height="10.5" rx="2.4"/><path d="M7.6 10.5V7a4.4 4.4 0 0 1 8.6-1.4"/></svg>',
  dice:'<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round" aria-hidden="true"><rect x="3.8" y="3.8" width="16.4" height="16.4" rx="3.8"/><circle cx="8.5" cy="8.5" r="1.35" fill="currentColor" stroke="none"/><circle cx="15.5" cy="8.5" r="1.35" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.35" fill="currentColor" stroke="none"/><circle cx="8.5" cy="15.5" r="1.35" fill="currentColor" stroke="none"/><circle cx="15.5" cy="15.5" r="1.35" fill="currentColor" stroke="none"/></svg>',
  up:'<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 14 6-6 6 6"/></svg>',
- down:'<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 10 6 6 6-6"/></svg>'
+ down:'<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 10 6 6 6-6"/></svg>',
+  burger:'<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>',
 };
 
 /* ── engine (verbatim from index.html) ── */
@@ -177,7 +178,7 @@ function fillChips(){
   });
 }
 /* Library hover menu in the nav — the shelves, one hover away (catbar's job, moved to the kit) */
-const SHELVES=[['Core Books','core-books'],['Mocks & Drills','mocks-drills'],['Past Papers & Answer Keys','past-papers-answer-keys'],['Exam Intelligence & Strategy','exam-intelligence-strategy'],['Quick Reference','quick-reference'],['Frameworks & Interactive','frameworks-interactive'],['MedCORE Systems','medcore-systems']];
+const SHELVES=[['Core Books','core-books'],['Mocks & Drills','mocks-drills'],['Past Papers','past-papers-answer-keys'],['Exam Intelligence & Strategy','exam-intelligence-strategy'],['Quick Reference','quick-reference'],['Frameworks & Interactive','frameworks-interactive'],['MedCORE Systems','medcore-systems']];
 function buildNavMenu(){
   const a=document.querySelector('.links a[href="/library"]');
   if(!a||a.parentNode.classList.contains('navdrop'))return;
@@ -203,7 +204,7 @@ function buildNavToggle(){
     };
   }
   if(!document.getElementById('navShow')){
-    document.body.insertAdjacentHTML('beforeend','<button class="nav-show" id="navShow" type="button" aria-label="Show topbar">'+IC.down+'<span>Show topbar</span></button>');
+    document.body.insertAdjacentHTML('beforeend','<button class="nav-show" id="navShow" type="button" aria-label="Show topbar">'+IC.burger+'</button>');
     document.getElementById('navShow').onclick=function(){
       applyNav(true);
       try{localStorage.setItem('medcore.nav','on');}catch(e){}
