@@ -85,7 +85,7 @@ const SUBJECTS = [
         }
       },
       {
-        "q": "A 55-year-old diabetic develops sudden severe unilateral periorbital pain with ptosis, a dilated non-reactive pupil, and an inability to move the eye upward or inward. Which feature points to a diabetic mononeuritis rather than a posterior communicating artery aneurysm?",
+        "q": "A 55-year-old diabetic develops sudden severe unilateral periorbital pain with ptosis, a normal-sized reactive pupil, and an inability to move the eye upward or inward. Which feature points to a diabetic mononeuritis rather than a posterior communicating artery aneurysm?",
         "options": [
           "The pupil is always dilated and fixed in diabetic palsy",
           "Pupil-sparing is typical of diabetic CN III palsy (sparse parasympathetic fibres spared)",
@@ -418,7 +418,7 @@ const SUBJECTS = [
           "Vestibular schwannoma",
           "Labyrinthitis"
         ],
-        "answer": 3,
+        "answer": 1,
         "layers": {
           "concept": "Meniere's disease - episodic vertigo + fluctuating SNHL + tinnitus + aural fullness",
           "discriminator": "Episodic vertigo (minutes to hours) + fluctuating SNHL/tinnitus/aural fullness = Meniere's; normal Dix-Hallpike excludes BPPV",
@@ -450,7 +450,7 @@ const SUBJECTS = [
           "Mastoiditis; IV antibiotics",
           "Furunculosis of the pinna; incision and drainage"
         ],
-        "answer": 3,
+        "answer": 1,
         "layers": {
           "concept": "Acute otitis externa - tender pinna/canal, normal TM; topical drops + dry ear",
           "discriminator": "Ear pain with pinna/canal tenderness, edematous canal, normal TM, no fever = otitis externa; treat topical drops + dry care",
@@ -482,7 +482,7 @@ const SUBJECTS = [
           "It is managed with topical antibiotics alone",
           "It is a pre-cancerous lesion of the ear canal skin"
         ],
-        "answer": 2,
+        "answer": 1,
         "layers": {
           "concept": "Cholesteatoma - erosive keratinising lesion; surgical treatment",
           "discriminator": "Chronic offensive discharge + pearly keratin in pars flaccida retraction/Marginal perforation = cholesteatoma; erosive, needs surgery",
@@ -498,7 +498,7 @@ const SUBJECTS = [
           "Acoustic neuroma",
           "Noise-induced hearing loss"
         ],
-        "answer": 3,
+        "answer": 1,
         "layers": {
           "concept": "Presbycusis - age-related symmetric high-frequency SNHL",
           "discriminator": "Bilateral high-frequency SNHL + old age + normal otoscopy = presbycusis",
@@ -546,7 +546,7 @@ const SUBJECTS = [
           "Antrochoanal polyp; surgical excision",
           "Allergic rhinitis; antihistamines"
         ],
-        "answer": 0,
+        "answer": 1,
         "layers": {
           "concept": "Nasal foreign body - unilateral foul-smelling/blood-stained discharge in a child",
           "discriminator": "Unilateral foul-smelling, blood-stained nasal discharge in a child = retained nasal foreign body; remove under visualization",
@@ -562,7 +562,7 @@ const SUBJECTS = [
           "Isolated sneezing and itchy eyes",
           "Normal sense of smell"
         ],
-        "answer": 2,
+        "answer": 1,
         "layers": {
           "concept": "Acute bacterial rhinosinusitis - 'double worsening' / persistence criteria",
           "discriminator": "Purulent discharge + facial pain + double worsening or >10 days = bacterial rhinosinusitis; antibiotics",
@@ -578,7 +578,7 @@ const SUBJECTS = [
           "Routine hospital admission for every patient",
           "Start broad-spectrum IV antibiotics prophylactically"
         ],
-        "answer": 3,
+        "answer": 1,
         "layers": {
           "concept": "Epistaxis management - anterior packing/pressure + cautery, first aid",
           "discriminator": "Anterior Little's area bleed: sit forward, pinch nose 10-20 min, then cauterize/coagulate visible point; avoid re-trauma",
@@ -594,7 +594,7 @@ const SUBJECTS = [
           "Long-term oral corticosteroids",
           "Topical decongestants used daily"
         ],
-        "answer": 0,
+        "answer": 1,
         "layers": {
           "concept": "Allergic rhinitis - first-line intranasal corticosteroid",
           "discriminator": "Seasonal allergic rhinoconjunctivitis = first-line intranasal corticosteroid (more effective than antihistamines alone for congestion)",
@@ -610,7 +610,7 @@ const SUBJECTS = [
           "It is caused by an untreated allergy; give antihistamines",
           "It is a septal fracture that always needs immediate open reduction"
         ],
-        "answer": 1,
+        "answer": 0,
         "layers": {
           "concept": "Septal hematoma - can cause saddle nose via cartilage necrosis; evacuate promptly",
           "discriminator": "Post-trauma septal hematoma, if undrained, causes avascular necrosis/cartilage resorption -> saddle nose; treat by I&D + splint",
@@ -642,7 +642,7 @@ const SUBJECTS = [
           "Chest X-ray only",
           "Thyroid function tests"
         ],
-        "answer": 3,
+        "answer": 0,
         "layers": {
           "concept": "Nasopharyngeal carcinoma - unilateral OME + neck mass in endemic patient; nasopharyngeal biopsy",
           "discriminator": "Unilateral serous OME + neck mass + blood-stained nasal discharge in an East Asian adult = NPC; nasopharyngoscopy + biopsy",
@@ -674,7 +674,7 @@ const SUBJECTS = [
           "Retropharyngeal abscess; immediate intubation",
           "Glossitis; mouthwash"
         ],
-        "answer": 2,
+        "answer": 1,
         "layers": {
           "concept": "Peritonsillar abscess - trismus + uvula deviation; aspiration/I+D + antibiotics",
           "discriminator": "Unilateral severe sore throat + trismus + soft palate/uvula deviation = quinsy; ENT drainage + antibiotics",
@@ -738,7 +738,7 @@ const SUBJECTS = [
           "To avoid tonsillectomy in adulthood",
           "It is not needed because it is a virus"
         ],
-        "answer": 2,
+        "answer": 0,
         "layers": {
           "concept": "GAS tonsillitis - antibiotics to prevent rheumatic fever",
           "discriminator": "GAS + exudative tonsillitis/adenopathy = treat antibiotics to prevent acute rheumatic fever and local suppuration",
@@ -763,14 +763,14 @@ const SUBJECTS = [
         }
       },
       {
-        "q": "A 40-year-old has recurrent painful swelling of the right cheek that worsens at mealtimes. The swelling resolves between meals and a painful mass is felt in Wharton's duct. Which gland and management?",
+        "q": "A 40-year-old has recurrent painful swelling below the right jaw (submandibular region) that worsens at mealtimes. The swelling resolves between meals and a painful mass is felt in Wharton's duct. Which gland and management?",
         "options": [
           "Parotid; total parotidectomy",
           "Submandibular gland; sialolithiasis - manage with sialogogues, massage, or ductal removal/ectomy if recurrent",
           "Sublingual; antibiotics only",
           "Parotid; radiotherapy"
         ],
-        "answer": 3,
+        "answer": 1,
         "layers": {
           "concept": "Sialolithiasis - submandibular stone, worse at meals; sialogogues/removal",
           "discriminator": "Painful glandular swelling worse at mealtimes + ductal mass = sialolithiasis; most common in submandibular gland",
@@ -786,7 +786,7 @@ const SUBJECTS = [
           "Ramsay Hunt syndrome; acyclovir",
           "Acoustic neuroma; surgery"
         ],
-        "answer": 0,
+        "answer": 1,
         "layers": {
           "concept": "Bell's palsy - sudden lower motor neuron facial palsy; oral corticosteroids",
           "discriminator": "Acute unilateral facial weakness sparing no zone (forehead involved) without other deficit = Bell's palsy (LMN); oral prednisolone",
@@ -802,7 +802,7 @@ const SUBJECTS = [
           "Reassurance and review in 6 months",
           "Mastoid surgery immediately"
         ],
-        "answer": 2,
+        "answer": 0,
         "layers": {
           "concept": "Sudden sensorineural hearing loss - urgent oral corticosteroid",
           "discriminator": "Sudden unilateral SNHL = otologic emergency; prompt oral corticosteroids + urgent ENT/audiologic assessment",
@@ -833,7 +833,7 @@ const SUBJECTS = [
         }
       },
       {
-        "q": "A 55-year-old man develops hyponatremia 4 days after a subarachnoid haemorrhage. He is clinically volume-depleted with low urine sodium. Which diagnosis is most likely?",
+        "q": "A 55-year-old man develops hyponatremia 4 days after a subarachnoid haemorrhage. He is clinically volume-depleted with a high urine sodium. Which diagnosis is most likely?",
         "options": [
           "SIADH",
           "Hypothyroidism",
@@ -897,7 +897,7 @@ const SUBJECTS = [
         }
       },
       {
-        "q": "A 2-month-old infant exclusively on formula with inadequate water intake presents with lethargy and a serum sodium of 160 mmol/L. Urine osmolality is low. What is the most likely mechanism?",
+        "q": "A 2-month-old infant exclusively on formula with inadequate water intake presents with lethargy and a serum sodium of 160 mmol/L. Urine osmolality is high (concentrated). What is the most likely mechanism?",
         "options": [
           "Extrarenal free-water loss (insensible/insufficient intake)",
           "Diabetes insipidus",
