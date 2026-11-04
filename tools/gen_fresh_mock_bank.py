@@ -42,6 +42,7 @@ TOPIC_MAP = {
     "psych": "Schizophrenia — Persecutory Delusions",
     "renal": "Acute Interstitial Nephritis",
     "urology": "Renal Stones — Calcium Oxalate Nephrolithiasis",
+    "pe-dvt": "Acute Pulmonary Embolism & DVT",
 }
 
 def build(fname):
@@ -73,7 +74,7 @@ def build(fname):
         qs.append({"q": decode(q.get("stem")), "options": texts, "answer": ans_idx, "layers": layers})
     return {"id": sid, "name": name, "questions": qs}
 
-flat = [build(f) for f in sorted(glob.glob(os.path.join(SRC, "*.html")))]
+flat = [build(f) for f in sorted(glob.glob(os.path.join(SRC, "*.html"))) if os.path.basename(f) != "25MCQs — 400 Practice.html"]
 out = "/* MedCORE Fresh Mock Bank · data — generated from the NRE Prep 25MCQs fresh mock sets */\nconst SUBJECTS = " + json.dumps(flat, indent=2, ensure_ascii=False) + ";\n\nconst TIPS = " + json.dumps(TIPS, indent=2, ensure_ascii=False) + ";\n"
 os.makedirs(os.path.dirname(OUT), exist_ok=True)
 open(OUT, "w", encoding="utf-8").write(out)

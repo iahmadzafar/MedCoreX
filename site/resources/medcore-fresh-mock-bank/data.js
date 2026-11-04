@@ -6973,6 +6973,587 @@ const SUBJECTS = [
     ]
   },
   {
+    "id": "pe-dvt",
+    "name": "Acute Pulmonary Embolism & DVT",
+    "questions": [
+      {
+        "q": "A 68-year-old woman develops sudden dyspnoea and right pleuritic chest pain 4 days after total hip replacement. Heart rate 108/min, blood pressure 118/72 mmHg, SpO2 91%, and there is unilateral thigh swelling. Wells score is 7. What is the most appropriate next step?",
+        "options": [
+          "CT pulmonary angiography",
+          "D-dimer testing",
+          "Start empiric aspirin and discharge",
+          "Arrange compression ultrasound of the calf only"
+        ],
+        "answer": 0,
+        "layers": {
+          "concept": "High pre-test probability for PE: go straight to CTPA",
+          "discriminator": "High Wells score overrides a D-dimer pathway; image now",
+          "trap": "Using D-dimer in the wrong pre-test probability band",
+          "rule": "High Wells probability → CTPA immediately",
+          "highyield": "Pulmonary embolism — CTPA and Wells",
+          "hook": "High pre-test probability means CTPA comes before D-dimer, particularly after surgery and with unilateral leg swelling.",
+          "others": {
+            "B": "A D-dimer is not exclusionary in high-risk PE",
+            "C": "Thromboaspirin does not treat established PE",
+            "D": "Calf ultrasound does not safely exclude pulmonary embolism"
+          }
+        }
+      },
+      {
+        "q": "A 36-year-old woman with a fast and strong pulse at 88/min, no dyspnoea alteration, no unilateral leg swelling, no prior PE or DVT, no haemoptysis, and no recent surgery or estrogen therapy. Wells score is 0. Which is the safest next step under the PERC rule?",
+        "options": [
+          "No further venous thromboembolism testing",
+          "CT pulmonary angiography",
+          "D-dimer testing",
+          "Start anticoagulation"
+        ],
+        "answer": 0,
+        "layers": {
+          "concept": "Low-risk PE can be excluded clinically with PERC",
+          "discriminator": "No PERC criteria met means no further VTE testing is required",
+          "trap": "Applying PERC to a non-low-risk patient",
+          "rule": "Low clinical suspicion + all PERC criteria absent → no testing",
+          "highyield": "Pulmonary embolism — PERC rule",
+          "hook": "PERC is a rule-out for low-risk patients, not a rule-out for all dyspnoeic patients.",
+          "others": {
+            "B": "Imaging is reserved for higher risk or positive criteria",
+            "C": "D-dimer is not needed when PERC negative and pre-test low",
+            "D": "No evidence supports empiric anticoagulation"
+          }
+        }
+      },
+      {
+        "q": "A 50-year-old man has moderate symptoms and an intermediate pre-test probability of pulmonary embolism. His highly sensitive D-dimer is undetectable. What is the best interpretation?",
+        "options": [
+          "PE is effectively excluded",
+          "PE is confirmed",
+          "D-dimer is less sensitive in this group",
+          "Proceed to CTPA regardless of D-dimer"
+        ],
+        "answer": 0,
+        "layers": {
+          "concept": "A negative highly sensitive D-dimer excludes PE in low/intermediate risk",
+          "discriminator": "A negative highly sensitive D-dimer rules out PE when the pre-test probability is not high",
+          "trap": "Treating a non-specific test as rule-in",
+          "rule": "Non-high risk + negative D-dimer → excluded",
+          "highyield": "Pulmonary embolism — D-dimer",
+          "hook": "D-dimer rules out only in low/intermediate risk; it never proves PE.",
+          "others": {
+            "B": "D-dimer is not diagnostic",
+            "C": "Highly sensitive D-dimer remains usable",
+            "D": "Imaging is only needed if D-dimer is positive"
+          }
+        }
+      },
+      {
+        "q": "A 47-year-old woman with a low pre-test probability has a positive D-dimer after a recent infection. What is the correct next step?",
+        "options": [
+          "CT pulmonary angiography",
+          "Exclude PE because D-dimer is not specific",
+          "Repeat D-dimer",
+          "Commence heparin without imaging"
+        ],
+        "answer": 0,
+        "layers": {
+          "concept": "A positive D-dimer requires imaging, not dismissal",
+          "discriminator": "D-dimer can be high after infection; a positive result still needs CTPA",
+          "trap": "Ignoring a positive D-dimer because it is non-specific",
+          "rule": "Low/intermediate risk + positive D-dimer → CTPA",
+          "highyield": "Pulmonary embolism — D-dimer",
+          "hook": "A positive D-dimer is a trigger for imaging, not evidence of PE but never to be ignored.",
+          "others": {
+            "B": "D-dimer negativity excludes, not positivity",
+            "C": "Repeating wastes time",
+            "D": "Imaging precedes anticoagulation unless diagnostic delay is unsafe"
+          }
+        }
+      },
+      {
+        "q": "A 31-year-old pregnant woman at 32 weeks develops pleuritic chest pain and shortness of breath. Heart rate 106/min, respiratory rate 24/min. What is the most appropriate initial imaging strategy?",
+        "options": [
+          "Bilateral lower limb compression ultrasound",
+          "CT pulmonary angiography immediately",
+          "D-dimer alone",
+          "Chest X-ray is contraindicated in pregnancy"
+        ],
+        "answer": 0,
+        "layers": {
+          "concept": "Pregnancy suspected PE: duplex first",
+          "discriminator": "A positive leg duplex in pregnancy confirms VTE and avoids chest irradiation",
+          "trap": "Jumping directly to CTPA without looking for DVT",
+          "rule": "Suspected PE in pregnancy → bilateral compression ultrasound first",
+          "highyield": "Pulmonary embolism — pregnancy",
+          "hook": "If duplex is negative but PE remains suspected, CTPA or V/Q is justified based on local expertise and chest X-ray.",
+          "others": {
+            "B": "CTPA is second-line if duplex negative or unavailable",
+            "C": "D-dimer can be unreliable in pregnancy",
+            "D": "Chest X-ray is safe and guides V/Q vs CTPA"
+          }
+        }
+      },
+      {
+        "q": "A 34-year-old pregnant woman at 28 weeks is found to have an acute proximal DVT. She is otherwise stable. Which anticoagulant is preferred?",
+        "options": [
+          "Low-molecular-weight heparin",
+          "Warfarin",
+          "Apixaban",
+          "Aspirin"
+        ],
+        "answer": 0,
+        "layers": {
+          "concept": "Pregnancy VTE: LMWH is anticoagulant of choice",
+          "discriminator": "LMWH crosses the placenta poorly and is safe and monitored in pregnancy",
+          "trap": "Using warfarin because INR is measurable",
+          "rule": "Pregnancy DVT/PE → LMWH, avoid warfarin and DOACs",
+          "highyield": "DVT — pregnancy",
+          "hook": "LMWH is continued for the duration of pregnancy and at least 6 weeks postpartum.",
+          "others": {
+            "B": "Warfarin teratogenicity and fetal haemorrhage risk",
+            "C": "DOACs are not recommended in pregnancy",
+            "D": "Aspirin is not adequate anticoagulation for DVT"
+          }
+        }
+      },
+      {
+        "q": "A 62-year-old man with active gastrointestinal carcinoma and new proximal DVT has platelets of 54 and a glomerular filtration rate of 22 mL/min. Which initial anticoagulant is most appropriate?",
+        "options": [
+          "Low-molecular-weight heparin",
+          "Warfarin alone",
+          "Aspirin",
+          "Therapeutic unfractionated heparin intravenously"
+        ],
+        "answer": 0,
+        "layers": {
+          "concept": "Cancer-associated VTE with renal impairment/thrombocytopenia: LMWH",
+          "discriminator": "LMWH offers flexible, reversible dosing without INR monitoring",
+          "trap": "Using warfarin because cancer-associated VTE requires anticoagulation",
+          "rule": "Cancer VTE + renal impairment/thrombocytopenia → LMWH",
+          "highyield": "Cancer-associated thrombosis",
+          "hook": "In active cancer without severe renal/platelet issues, DOACs are also acceptable alternatives, but this profile favours LMWH.",
+          "others": {
+            "B": "Warfarin needs overlap and INR stability and is less effective in active cancer",
+            "C": "Aspirin does not treat DVT",
+            "D": "IV UFH reserved for severe instability/renal failure needing short half-life"
+          }
+        }
+      },
+      {
+        "q": "A 58-year-old man with PE suddenly becomes hypotensive with syncope and systolic pressure of 78 mmHg. CT shows large pulmonary emboli and marked right ventricular dilatation. No contraindication to thrombolysis. What is the most appropriate immediate treatment?",
+        "options": [
+          "Systemic thrombolysis with alteplase",
+          "Low-dose aspirin alone",
+          "Anticoagulation alone and observation",
+          "Urgent inferior vena cava filter only"
+        ],
+        "answer": 0,
+        "layers": {
+          "concept": "High-risk PE with haemodynamic instability requires thrombolysis",
+          "discriminator": "Hypotension is the defining feature of massive PE",
+          "trap": "Calling all large PEs massive PE",
+          "rule": "PE + hypotension → immediate thrombolysis if eligible",
+          "highyield": "Massive PE — thrombolysis",
+          "hook": "Massive PE means shock or sustained hypotension, not simply saddle or large clot burden.",
+          "others": {
+            "B": "Aspirin is not adequate VTE treatment",
+            "C": "Observation risks cardiovascular collapse",
+            "D": "IVC filter does not remove embolus"
+          }
+        }
+      },
+      {
+        "q": "A 44-year-old woman is normotensive with chest pain, raised troponin and echocardiographic RV dysfunction on CT. She has no hypotension or shock. What is the optimal initial management?",
+        "options": [
+          "Anticoagulation without thrombolysis",
+          "Immediate systemic thrombolysis",
+          "Catheter embolectomy now",
+          "Start long-term warfarin without anticoagulant bridge"
+        ],
+        "answer": 0,
+        "layers": {
+          "concept": "Intermediate-risk/submassive PE: anticoagulation, not routine thrombolysis",
+          "discriminator": "Normotension defines intermediate, not massive, PE",
+          "trap": "Overcalling submassive PE as massive",
+          "rule": "Normotensive RV-strained PE → anticoagulation, close monitoring",
+          "highyield": "Submassive PE — management",
+          "hook": "Treat PE with thrombolysis only if hypotensive/shocked or failing anticoagulation with impending arrest.",
+          "others": {
+            "B": "No proven benefit and bleeding risk",
+            "C": "Catheter therapy reserved for selected/failing cases",
+            "D": "Warfarin needs overlap"
+          }
+        }
+      },
+      {
+        "q": "A 70-year-old man with DVT has eGFR 15 mL/min. Which anticoagulant strategy is most appropriate initially?",
+        "options": [
+          "Low-molecular-weight heparin",
+          "Standard dose apixaban",
+          "Standard dose rivaroxaban",
+          "Aspirin"
+        ],
+        "answer": 0,
+        "layers": {
+          "concept": "Severe renal failure and DVT: LMWH",
+          "discriminator": "Severe renal impairment precludes standard DOAC dosing",
+          "trap": "Assuming all DOACs are safe at any renal function",
+          "rule": "eGFR severe → LMWH preferred initially",
+          "highyield": "DOAC dosing — renal impairment",
+          "hook": "Check renal function before choosing a DOAC; severe CKD mandates LMWH or specialist-guided treatment.",
+          "others": {
+            "B": "Standard DOAC dose not recommended at eGFR 15",
+            "C": "Rivaroxaban also limited by renal function",
+            "D": "Aspirin is not adequate treatment"
+          }
+        }
+      },
+      {
+        "q": "A 52-year-old woman with her first spontaneous, unprovoked proximal DVT is otherwise healthy with low bleeding risk. What duration of anticoagulation is recommended before reassessment?",
+        "options": [
+          "At least 3 months, then reassess",
+          "Exactly 2 weeks",
+          "Aspirin for 12 months",
+          "Anticoagulation for 1 month only"
+        ],
+        "answer": 0,
+        "layers": {
+          "concept": "Unprovoked proximal DVT minimum duration",
+          "discriminator": "Unprovoked VTE requires at least 3 months, not a brief course",
+          "trap": "Stopping too early after symptoms resolve",
+          "rule": "Unprovoked proximal DVT → at least 3 months, then reassess",
+          "highyield": "DVT — duration of therapy",
+          "hook": "Unprovoked VTE warrants review after 3 months and consideration of indefinite therapy if recurrence risk outweighs bleeding risk.",
+          "others": {
+            "B": "2 weeks is grossly inadequate",
+            "C": "Aspirin is not adequate VTE treatment",
+            "D": "1 month is insufficient"
+          }
+        }
+      },
+      {
+        "q": "A 64-year-old woman with metastatic gastrointestinal cancer and recurrent vomiting develops proximal DVT. Which anticoagulant is most appropriate initially?",
+        "options": [
+          "Low-molecular-weight heparin",
+          "Warfarin alone",
+          "Standard rivaroxaban",
+          "No anticoagulation because of cancer"
+        ],
+        "answer": 0,
+        "layers": {
+          "concept": "Cancer VTE with unreliable absorption: LMWH",
+          "discriminator": "LMWH bypasses gastrointestinal absorption",
+          "trap": "Assuming all cancer VTE can take rivaroxaban",
+          "rule": "Cancer VTE + vomiting/malabsorption → LMWH",
+          "highyield": "Cancer-associated thrombosis — anticoagulation route",
+          "hook": "Do not use oral anticoagulants if oral route/adherence is unreliable; parenteral LMWH or LMWH-based strategy is preferred.",
+          "others": {
+            "B": "Warfarin requires oral absorption and overlap",
+            "C": "Rivaroxaban absorption and adherence unstable",
+            "D": "Cancer is indication, not exclusion"
+          }
+        }
+      },
+      {
+        "q": "A 55-year-old man with suspected PE has severe iodinated contrast allergy. Chest X-ray is normal. Which imaging test should be used?",
+        "options": [
+          "Lung ventilation-perfusion scan",
+          "CT pulmonary angiography with contrast",
+          "D-dimer only",
+          "Cardiac magnetic resonance"
+        ],
+        "answer": 0,
+        "layers": {
+          "concept": "Contrast allergy: V/Q is the alternative",
+          "discriminator": "V/Q provides CTPA information without iodinated contrast",
+          "trap": "Using CTPA despite contrast contraindication",
+          "rule": "Contrast contraindication/CKD + normal CXR → V/Q",
+          "highyield": "Pulmonary embolism — V/Q scan",
+          "hook": "V/Q is especially useful in pregnancy and young women to reduce chest irradiation and in contrast allergy/CKD.",
+          "others": {
+            "B": "CTPA requires contrast",
+            "C": "D-dimer is not definitive",
+            "D": "MRI is not first-line acute PE imaging"
+          }
+        }
+      },
+      {
+        "q": "A 38-year-old woman has high clinical suspicion of PE. CT pulmonary angiography is reported negative. She remains severely dyspnoeic with persistent tachycardia. What is the most appropriate further step?",
+        "options": [
+          "Arrange proximal lower limb ultrasound or V/Q scan",
+          "Reassure her completely and discharge",
+          "Repeat D-dimer only",
+          "Start aspirin"
+        ],
+        "answer": 0,
+        "layers": {
+          "concept": "Negative CTPA with high suspicion can still need imaging",
+          "discriminator": "Do not falsely clear PE when clinical probability remains high and CTPA result is negative",
+          "trap": "Overreliance on a CT report despite persistent high suspicion",
+          "rule": "High suspicion + negative CTPA → proximal duplex or V/Q",
+          "highyield": "Pulmonary embolism — negative CTPA workup",
+          "hook": "Discordance between imaging and clinical assessment should trigger further evaluation, not automatic discharge.",
+          "others": {
+            "B": "Premature discharge unsafe",
+            "C": "D-dimer cannot adjudicate this",
+            "D": "Aspirin is not treatment"
+          }
+        }
+      },
+      {
+        "q": "A 65-year-old man 5 days after major surgery has a D-dimer of 12 times the upper limit and no other symptoms. He is clinically well. What is the best interpretation?",
+        "options": [
+          "D-dimer is non-specific and does not diagnose VTE",
+          "PE is confirmed",
+          "DVT is confirmed",
+          "Start indefinite anticoagulation now"
+        ],
+        "answer": 0,
+        "layers": {
+          "concept": "D-dimer is non-specific in post-op patients",
+          "discriminator": "D-dimer is a rule-out test, not a rule-in test",
+          "trap": "Treating a high D-dimer as proof of PE",
+          "rule": "D-dimer excludes only, never confirms",
+          "highyield": "Pulmonary embolism — D-dimer specificity",
+          "hook": "D-dimer is not diagnostic; use it to exclude in the right pre-test group and image if positive.",
+          "others": {
+            "B": "D-dimer cannot confirm PE",
+            "C": "D-dimer cannot confirm DVT",
+            "D": "Massive intervention needs diagnosis"
+          }
+        }
+      },
+      {
+        "q": "A 42-year-old woman with an isolated calf DVT on duplex is asymptomatic and has no severe symptoms/risk factors. What is appropriate?",
+        "options": [
+          "Repeat compression ultrasound in about 1–2 weeks",
+          "Immediate 6 months anticoagulation for all calf DVTs",
+          "Thrombolysis",
+          "IVC filter"
+        ],
+        "answer": 0,
+        "layers": {
+          "concept": "Low-risk distal DVT: surveillance",
+          "discriminator": "Asymptomatic isolated distal DVTs can be followed with repeat duplex",
+          "trap": "Over-treating all DVTs alike",
+          "rule": "Asymptomatic/low-risk distal DVT → repeat duplex in 1–2 weeks",
+          "highyield": "Distal DVT — surveillance",
+          "hook": "If symptoms worsen, DVT extends into proximal veins, or risk rises, anticoagulate.",
+          "others": {
+            "B": "All DVTs do not need 6 months",
+            "C": "No indication for thrombolysis",
+            "D": "IVC filter not used for calf DVT"
+          }
+        }
+      },
+      {
+        "q": "A 66-year-old man has recurrent PE despite therapeutic rivaroxaban and good adherence. What is the most useful next investigation?",
+        "options": [
+          "Test for antiphospholipid syndrome and look for occult cancer",
+          "Switch to aspirin",
+          "Stop anticoagulation",
+          "Assume normal recurrence"
+        ],
+        "answer": 0,
+        "layers": {
+          "concept": "Recurrent VTE on therapy: look for cause",
+          "discriminator": "Recurrent VTE on therapeutic anticoagulation suggests an underlying prothrombotic state",
+          "trap": "Accepting anticoagulant failure without investigation",
+          "rule": "Recurrent VTE on anticoagulation → investigate APS/occult cancer",
+          "highyield": "Recurrent VTE — work-up",
+          "hook": "Also check adherence; do not attribute recurrence automatically to drug failure.",
+          "others": {
+            "B": "Aspirin not adequate",
+            "C": "Stopping unsafe",
+            "D": "Recurrence is not normal under therapy"
+          }
+        }
+      },
+      {
+        "q": "A 60-year-old man develops a DVT after a long-haul flight and has haemoptysis. PE is diagnosed by CTPA and he is stable. What is the correct interpretation of haemoptysis?",
+        "options": [
+          "It is a feature of PE and not a contraindication to anticoagulation",
+          "It proves bronchiectasis",
+          "It means thrombolysis is mandatory",
+          "It forbids all anticoagulation"
+        ],
+        "answer": 0,
+        "layers": {
+          "concept": "Haemoptysis in PE does not preclude anticoagulation",
+          "discriminator": "Haemoptysis is included in Wells and is usually compatible with anticoagulation",
+          "trap": "Seeing blood in sputum as no-anticoagulation",
+          "rule": "Haemoptysis in PE is not absolute anticoagulation contraindication",
+          "highyield": "Pulmonary embolism — haemoptysis",
+          "hook": "Assess bleeding severity, use anticoagulation unless contraindxixated; severe or unstable bleeding changes management.",
+          "others": {
+            "B": "No alternative diagnosis without evaluation",
+            "C": "Haemoptysis does not mandate thrombolysis",
+            "D": "Stable haemoptysis does not forbid anticoagulation"
+          }
+        }
+      },
+      {
+        "q": "A 58-year-old man with DVT has a platelet count of 8 and severe heparin-induced thrombocytopenia. He needs VTE treatment. Which is most appropriate?",
+        "options": [
+          "A non-heparin anticoagulant such as fondaparinux or direct thrombin inhibitor",
+          "Low-molecular-weight heparin",
+          "Unfractionated heparin",
+          "Aspirin"
+        ],
+        "answer": 0,
+        "layers": {
+          "concept": "HIT excludes all heparins",
+          "discriminator": "Fondaparinux or direct thrombin inhibitors avoid heparin immune response",
+          "trap": "Using LMWH because it is less antigenic",
+          "rule": "HIT → stop all heparin, use non-heparin anticoagulant",
+          "highyield": "HIT — anticoagulation choice",
+          "hook": "HIT is antibody-mediated and LMWH can cross-react; avoid all heparin.",
+          "others": {
+            "B": "LMWH cross-reacts",
+            "C": "UFH causes HIT",
+            "D": "Aspirin is inadequate"
+          }
+        }
+      },
+      {
+        "q": "A 49-year-old man has a DVT while taking warfarin for AF. His INR is 1.3 and he reports intermittent adherence. What is the immediate priority?",
+        "options": [
+          "Restore stable anticoagulation and review adherence",
+          "Add aspirin only",
+          "Stop warfarin permanently",
+          "No further treatment"
+        ],
+        "answer": 0,
+        "layers": {
+          "concept": "Clot on warfarin: adherence and intensity",
+          "discriminator": "Subtherapeutic INR explains clot under warfarin",
+          "trap": "Attributing all VTE to drug resistance",
+          "rule": "DVT on warfarin with INR 1.3 → restore therapeutic anticoagulation",
+          "highyield": "Warfarin — therapeutic range",
+          "hook": "Always assess INR, adherence and drug interactions before changing permanent agents.",
+          "others": {
+            "B": "Aspirin does not treat DVT",
+            "C": "Stopping unsafe",
+            "D": "No treatment is dangerous"
+          }
+        }
+      },
+      {
+        "q": "A 29-year-old pregnant woman at 34 weeks has suspected PE. Her leg ultrasound is negative. Chest X-ray is normal. Which imaging test is preferred?",
+        "options": [
+          "Ventilation-perfusion scan",
+          "CT pulmonary angiography now without further consideration",
+          "MRI pelvis",
+          "No further imaging"
+        ],
+        "answer": 0,
+        "layers": {
+          "concept": "Pregnancy: V/Q preferred with normal CXR",
+          "discriminator": "V/Q reduces maternal breast irradiation when CXR normal",
+          "trap": "Routine CTPA irrespective of CXR/duplex",
+          "rule": "Pregnancy + negative duplex + normal CXR → V/Q preferred",
+          "highyield": "Pulmonary embolism — pregnancy imaging",
+          "hook": "CTPA is acceptable when V/Q unavailable and CXR abnormal; discuss with radiology.",
+          "others": {
+            "B": "CTPA may be second choice with CXR abnormal",
+            "C": "MRI pelvis not appropriate",
+            "D": "Needs further exclusion"
+          }
+        }
+      },
+      {
+        "q": "A 55-year-old woman has a saddle pulmonary embolism but is normotensive with stable oxygenation. CTA and echocardiography are reviewed. What is the correct management?",
+        "options": [
+          "Anticoagulation with close monitoring",
+          "Immediate thrombolysis because it is saddle",
+          "Embolectomy for all saddle emboli",
+          "No treatment because blood pressure is normal"
+        ],
+        "answer": 0,
+        "layers": {
+          "concept": "Saddle embolism is not itself massive PE",
+          "discriminator": "Saddle describes clot location, not haemodynamic category",
+          "trap": "Equating saddle embolism with massive PE",
+          "rule": "Saddle PE with stability → anticoagulation",
+          "highyield": "Pulmonary embolism — saddle embolus",
+          "hook": "Treat by haemodynamics: hypotension/shock determines thrombolysis, not the clot name.",
+          "others": {
+            "B": "Massive PE requires instability",
+            "C": "Embolectomy only selected cases",
+            "D": "Untreated PE dangerous"
+          }
+        }
+      },
+      {
+        "q": "A 61-year-old man with PE is hypotensive and in shock. He has a recent intracranial haemorrhage and thrombolysis is contraindicated. What is the most appropriate rescue strategy?",
+        "options": [
+          "Catheter-directed therapy or surgical embolectomy",
+          "Continue anticoagulation alone",
+          "Low-dose aspirin",
+          "No treatment"
+        ],
+        "answer": 0,
+        "layers": {
+          "concept": "Contraindication to lysis in shock: mechanical rescue",
+          "discriminator": "Contraindication to fibrinolysis does not preclude rescue embolectomy",
+          "trap": "No thrombolysis means no active treatment",
+          "rule": "Shock + lysis contraindicated → catheter/surgical embolectomy",
+          "highyield": "Massive PE — thrombolysis contraindication",
+          "hook": "Massive PE with contraindication to lysis → urgent mechanical intervention with a multidisciplinary team.",
+          "others": {
+            "B": "Anticoagulation alone cannot rescue shocked PE",
+            "C": "Aspirin inadequate",
+            "D": "No treatment fatal"
+          }
+        }
+      },
+      {
+        "q": "A 28-year-old woman develops DVT during pregnancy. What is the minimum duration of therapeutic anticoagulation?",
+        "options": [
+          "Throughout pregnancy plus at least 6 weeks postpartum, for a minimum of 3 months",
+          "Until delivery only",
+          "For exactly 2 weeks",
+          "Until the 28-week scan only"
+        ],
+        "answer": 0,
+        "layers": {
+          "concept": "Pregnancy VTE duration",
+          "discriminator": "Postpartum period remains high-risk",
+          "trap": "Treating only while visibly symptomatic",
+          "rule": "Pregnancy VTE → LMWH throughout + ≥6 weeks postpartum",
+          "highyield": "Pregnancy VTE — duration",
+          "hook": "If VTE is diagnosed close to delivery, postpartum duration extends accordingly.",
+          "others": {
+            "B": "Delivery does not eliminate risk",
+            "C": "Too short",
+            "D": "Inadequate"
+          }
+        }
+      },
+      {
+        "q": "A 45-year-old man with a PICC develops arm swelling and pain. Duplex shows upper limb DVT. What is the most appropriate immediate step while the central line is still required?",
+        "options": [
+          "Start anticoagulation and leave/remove the line based on need and infection risk",
+          "Immediately remove all central lines in every DVT",
+          "Aspirin alone",
+          "No treatment because upper limb DVT is always benign"
+        ],
+        "answer": 0,
+        "layers": {
+          "concept": "Upper limb DVT: anticoagulate and individualise line decisions",
+          "discriminator": "Upper limb DVT needs anticoagulation, and line removal depends on infection and need",
+          "trap": "Upper limb DVT thought harmless",
+          "rule": "Upper limb DVT → anticoagulate; line decision individualised",
+          "highyield": "Upper limb DVT — treatment",
+          "hook": "Upper limb DVT is not automatically benign; it can embolise and symptoms matter.",
+          "others": {
+            "B": "Not every line must be removed if functioning and uninfected",
+            "C": "Aspirin inadequate",
+            "D": "Can cause complications"
+          }
+        }
+      }
+    ]
+  },
+  {
     "id": "psych",
     "name": "Schizophrenia — Persecutory Delusions",
     "questions": [
