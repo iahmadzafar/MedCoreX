@@ -38,7 +38,7 @@ PAGES = {
     "site/signup.html": (None, "/about", "About", None),
     "site/stats.html": ("/stats", "/about", "About", None),
     "site/resources/medcore-question-bank/index.html": (None, "/library#mocks-drills", "Mocks & Drills", ("Mocks & Drills", "MedCORE Question Bank")),
-    "site/resources/medcore-fresh-mock-bank/index.html": (None, "/library#mocks-drills", "Mocks & Drills", ("Mocks & Drills", "25 MCQs Quiz")),
+    "site/resources/grand-mock-five-layer-breakdowns/index.html": (None, "/library#mocks-drills", "Mocks & Drills", ("Mocks & Drills", "Grand Mock Five Layer Breakdowns")),
 }
 AREA_CURRENT = ' aria-current="page"'
 
