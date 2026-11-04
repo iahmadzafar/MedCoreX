@@ -119,7 +119,9 @@ def main():
     # tail question markers shift by the section-1 growth
     tail_nums = [int(x) for x in re.findall(r"\[(\d{1,5})\]", tail)]
     # old section-1 size: from its header line "… BANK \'97 5,299 MCQs (…)"
-    mq = re.search(r"QUESTION BANK \\\'97 ([\d,]+) MCQs", head)
+    # old section-1 size: parse "5,499 MCQs" inside the SECTION 1 line chunk
+    i1m = head.find("SECTION 1 ")
+    mq = re.search(r"([\d,]+) MCQs", head[i1m:i1m + 260]) if i1m >= 0 else None
     if not mq:
         sys.exit("cannot read old Section-1 size from export header")
     old_qb = int(mq.group(1).replace(",", ""))
