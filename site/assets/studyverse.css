@@ -25,10 +25,10 @@ button,input,select,textarea{font:inherit;color:inherit}
 ::selection{background:var(--c2)}
 kbd{font-family:var(--font-display);border:2px solid var(--ink);border-radius:6px;padding:0 .4em;background:var(--surface);font-size:.85em}
 h1,h2,h3,.display{font-family:var(--font-display);font-weight:var(--dw);text-transform:var(--case);letter-spacing:var(--track);line-height:1}
-.crumbline{display:flex;gap:10px;align-items:center;width:min(1180px,calc(100% - 40px));margin:0 auto;padding:12px 0;border-bottom:2px solid var(--line);font-family:var(--font-mono);font-size:.72rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-.crumbline a{color:var(--ink);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:2px}
-.crumbline span[aria-current=page]{color:var(--muted)}
-@media print{.crumbline{display:none}}
+nav.crumbline{display:flex;gap:10px;align-items:center;width:min(1180px,calc(100% - 40px));margin:0 auto;padding:12px 0;border-bottom:2px solid var(--line);font-family:var(--font-mono);font-size:.85rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+nav.crumbline a{color:var(--ink);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:2px}
+nav.crumbline span[aria-current=page]{color:var(--muted)}
+@media print{nav.crumbline{display:none}}
 h2{font-size:clamp(2rem,5vw,3.4rem);text-shadow:var(--title-shadow)}
 h3{font-size:1.25rem}
 .eyebrow{font-family:var(--font-display);text-transform:uppercase;letter-spacing:.14em;font-size:.78rem;font-weight:700}
