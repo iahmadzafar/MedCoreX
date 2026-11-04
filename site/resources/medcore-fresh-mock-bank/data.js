@@ -1,4 +1,4 @@
-/* MedCORE Fresh Mock Bank · data — generated from the NRE Prep 25MCQs fresh mock sets */
+/* MedCORE Fresh Mock Bank · data — generated from the NRE Prep 400 MCQs fresh mock sets */
 const SUBJECTS = [
   {
     "id": "diabetes",

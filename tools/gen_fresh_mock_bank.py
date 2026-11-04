@@ -2,7 +2,7 @@
 """Generate site/resources/medcore-fresh-mock-bank/data.js from the NRE Prep 25MCQs fresh mock sets."""
 import json, re, glob, os
 
-SRC = "/Users/ahmdzafr/Library/Mobile Documents/com~apple~CloudDocs/NRE Prep/25MCQs"
+SRC = "/Users/ahmdzafr/Library/Mobile Documents/com~apple~CloudDocs/NRE Prep/400 MCQs"
 OUT = "/Users/ahmdzafr/Documents/MedCoreX/site/resources/medcore-fresh-mock-bank/data.js"
 
 TIPS = [
@@ -66,7 +66,7 @@ def build(fname):
     return {"id": sid, "name": name, "questions": qs}
 
 flat = [build(f) for f in sorted(glob.glob(os.path.join(SRC, "*.html"))) if os.path.basename(f) != "25MCQs — 400 Practice.html"]
-out = "/* MedCORE Fresh Mock Bank · data — generated from the NRE Prep 25MCQs fresh mock sets */\nconst SUBJECTS = " + json.dumps(flat, indent=2, ensure_ascii=False) + ";\n\nconst TIPS = " + json.dumps(TIPS, indent=2, ensure_ascii=False) + ";\n"
+out = "/* MedCORE Fresh Mock Bank · data — generated from the NRE Prep 400 MCQs fresh mock sets */\nconst SUBJECTS = " + json.dumps(flat, indent=2, ensure_ascii=False) + ";\n\nconst TIPS = " + json.dumps(TIPS, indent=2, ensure_ascii=False) + ";\n"
 os.makedirs(os.path.dirname(OUT), exist_ok=True)
 open(OUT, "w", encoding="utf-8").write(out)
 
