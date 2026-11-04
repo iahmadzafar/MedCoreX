@@ -142,7 +142,8 @@ CATS.forEach(c=>{
   const s=document.createElement('section');
   s.className='portal';s.id=slug(c);
   const items=Items.filter(it=>it.c===c);
-  s.innerHTML='<div class="section-head rv"><div><p class="eyebrow">Portal · '+esc(c)+'</p><h2>'+esc(c)+'</h2></div>'+
+  const plabel = c === 'Past Papers & Answer Keys' ? 'Past Papers' : c;
+  s.innerHTML='<div class="section-head rv"><div><p class="eyebrow">Portal · '+esc(plabel)+'</p><h2>'+esc(plabel)+'</h2></div>'+
     '<p class="muted">'+esc(BLURB[c])+'</p><a class="chip" href="#portals">← All categories</a></div>'+
     '<div class="toolbar rv"><input class="field search" type="search" placeholder="Search this portal…" aria-label="Search files">'+
     '<button class="chip saved" aria-pressed="false">★ Saved only</button></div>'+
