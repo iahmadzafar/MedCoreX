@@ -27,7 +27,7 @@ const IC={
 const rand=(a,b)=>Math.random()*(b-a)+a;
 const pick=a=>a[Math.floor(Math.random()*a.length)];
 const hsl=(h,s,l)=>`hsl(${Math.round((h%360+360)%360)} ${Math.round(s)}% ${Math.round(l)}%)`;
-const SCHEMES={Triadic:[0,120,240,60],Complementary:[0,180,30,210],Split:[0,150,210,45],Analogous:[0,32,64,-32],Tetradic:[0,90,180,270],Candy:[0,300,60,200]};
+const SCHEMES={Triadic:[0,120,240,60],Complementary:[0,180,30,210],Split:[0,150,210,45],Analogous:[0,32,64,-32],Tetradic:[0,90,180,270],Candy:[0,300,60,200],Monochromatic:[0,18,36,54],SplitComplement:[0,150,210,330],Vibrant:[0,60,120,240],Sunset:[0,25,50,200],Ocean:[0,180,200,225],Forest:[0,120,240,150],Pastel:[0,30,60,90],Retro:[0,300,240,60],Electric:[0,60,120,180],Neon:[0,90,210,300]};
 const DISPLAY=[
  {f:'Futura,"Century Gothic","Trebuchet MS",sans-serif',w:800,c:'uppercase',t:'.01em'},
  {f:'Rockwell,"Roboto Slab",Georgia,serif',w:800,c:'none',t:'-.01em'},
@@ -41,11 +41,11 @@ const DISPLAY=[
  {f:'"Cooper Black","Bookman Old Style",Georgia,serif',w:900,c:'none',t:'-.01em'}];
 const BODY=['"Avenir Next","Segoe UI",sans-serif','"Gill Sans","Gill Sans MT",sans-serif','Optima,Candara,sans-serif','Georgia,"Times New Roman",serif','Menlo,Consolas,monospace','Baskerville,"Hoefler Text",Georgia,serif','"Trebuchet MS",Verdana,sans-serif'];
 const SHADOWS=[
- ['6px 6px 0 var(--ink)','10px 10px 0 var(--ink)'],
- ['6px 6px 0 var(--c4)','10px 10px 0 var(--c1)'],
- ['4px 4px 0 var(--c2),8px 8px 0 var(--ink)','6px 6px 0 var(--c2),12px 8px 0 var(--ink)'],
- ['0 14px 30px -12px color-mix(in srgb,var(--c4) 70%,transparent)','0 22px 40px -12px color-mix(in srgb,var(--c1) 70%,transparent)'],
- ['-6px 6px 0 var(--c3)','-10px 10px 0 var(--ink)']];
+ ['3px 3px 0 var(--ink)','6px 6px 0 var(--ink)'],
+ ['3px 3px 0 var(--c4)','6px 6px 0 var(--c1)'],
+ ['2px 2px 0 var(--c2),5px 5px 0 var(--ink)','3px 3px 0 var(--c2),7px 5px 0 var(--ink)'],
+ ['0 10px 24px -10px color-mix(in srgb,var(--c4) 70%,transparent)','0 16px 32px -10px color-mix(in srgb,var(--c1) 70%,transparent)'],
+ ['-3px 3px 0 var(--c3)','-6px 6px 0 var(--ink)']];
 const ADJ=['Electric','Bubblegum','Cosmic','Retro','Sour','Velvet','Jazzy','Turbo','Lemon','Neon','Groovy','Fizzy','Disco','Cherry','Tropical','Glitter','Mango','Pixel'];
 const NOUN=['Notebook','Riot','Library','Sundae','Lab','Arcade','Atlas','Mixtape','Garden','Comet','Parade','Studio','Lagoon','Cassette','Carnival','Orbit'];
 function makeTheme(){
@@ -59,10 +59,10 @@ function makeTheme(){
     '--ink':hsl(h+200,rand(35,60),rand(9,15)),
     '--font-display':d.f,'--dw':d.w,'--case':d.c,'--track':d.t,
     '--font-body':pick(BODY),
-    '--radius':pick(['0px','8px','16px','26px','34px']),
-    '--bw':pick(['2px','3px','4px']),
+    '--radius':pick(['0px','6px','10px','16px','22px']),
+    '--bw':pick(['1px','2px','3px']),
     '--shadow':sh[0],'--shadow-hover':sh[1],
-    '--title-shadow':pick(['3px 3px 0 var(--c2)','4px 4px 0 var(--c3)','none','-3px 3px 0 var(--c1)']),
+    '--title-shadow':pick(['2px 2px 0 var(--c2)','3px 3px 0 var(--c3)','none','-2px 2px 0 var(--c1)']),
     '--tilt':pick(['0deg','-1deg','1.2deg','-2deg'])},
     pattern:pick(['dots','grid','stripes','checks','waves','plain'])};
 }

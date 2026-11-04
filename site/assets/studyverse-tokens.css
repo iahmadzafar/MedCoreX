@@ -20,10 +20,10 @@ html[data-theme=dark]{--on-accent:#0d0d0d}
 :root{
   --bg:#fff4e0; --surface:#fffdf8; --ink:#1d1433;
   --c1:#ff6b9a; --c2:#ffd34d; --c3:#4cc9d8; --c4:#9b7bff;
-  --radius:18px; --bw:3px;
-  --shadow:6px 6px 0 var(--ink);
-  --shadow-hover:10px 10px 0 var(--ink);
-  --title-shadow:3px 3px 0 var(--c2);
+  --radius:14px; --bw:2px;
+  --shadow:4px 4px 0 var(--ink);
+  --shadow-hover:7px 7px 0 var(--ink);
+  --title-shadow:2px 2px 0 var(--c2);
   --font-display:Futura,"Century Gothic","Trebuchet MS",sans-serif;
   --font-body:"Avenir Next","Segoe UI",sans-serif;
   --font-mono:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;

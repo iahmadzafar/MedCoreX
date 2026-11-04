@@ -34,10 +34,10 @@
   --ok:#2fbf71!important; --bad:#f2385a!important;
   --good:var(--ok)!important; --green:var(--ok)!important;
   --red:var(--bad)!important; --never:var(--bad)!important; --warn:var(--c2)!important;
-  --radius:18px!important; --bw:3px!important; --pill:min(var(--radius),999px)!important;
+  --radius:14px!important; --bw:2px!important; --pill:min(var(--radius),999px)!important;
   --r:var(--radius)!important; --r-card:var(--radius)!important; --r-chip:999px!important;
-  --shadow:6px 6px 0 var(--ink)!important; --shadow-hover:10px 10px 0 var(--ink)!important;
-  --title-shadow:3px 3px 0 var(--c2)!important;
+  --shadow:4px 4px 0 var(--ink)!important; --shadow-hover:7px 7px 0 var(--ink)!important;
+  --title-shadow:2px 2px 0 var(--c2)!important;
   --tilt:-1deg!important; --ease:cubic-bezier(.34,1.56,.64,1)!important;
   --card:var(--surface)!important;
   --head:var(--ink)!important; --head-ink:var(--bg)!important;

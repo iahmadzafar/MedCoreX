@@ -83,7 +83,7 @@ h3{font-size:1.25rem}
 .burger:active{transform:scale(.86);box-shadow:1px 1px 0 var(--ink)}
 .burger[aria-expanded=true]{background:var(--c2)}
 .burger::after{content:"";position:absolute;inset:-6px;border-radius:16px}
-.burger:focus-visible{outline:3px solid var(--c4);outline-offset:2px}
+.burger:focus-visible{outline:2px solid var(--c4);outline-offset:2px}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--font-display);font-weight:var(--dw);font-size:1.35rem;text-transform:none}
 .logo-mark{width:38px;height:38px;background:var(--c1);border:var(--bw) solid var(--ink);border-radius:42% 58% 63% 37%/45% 41% 59% 55%;animation:morph 6s ease-in-out infinite alternate;display:grid;place-items:center;font-size:1rem}
 .links{display:flex;gap:6px;flex-wrap:wrap}
@@ -105,14 +105,14 @@ h3{font-size:1.25rem}
 .icon-btn::after,.nav-tog::after{content:"";position:absolute;inset:-4px;border-radius:11px}
 .icon-btn:hover{transform:rotate(180deg) scale(1.1)}
 .icon-btn:active{transform:scale(.86)}
-.icon-btn:focus-visible,.nav-tog:focus-visible{outline:3px solid var(--c4);outline-offset:2px}
+.icon-btn:focus-visible,.nav-tog:focus-visible{outline:2px solid var(--c4);outline-offset:2px}
 .icon-btn[aria-pressed=true]{background:var(--c4)}
 /* topbar hide/show — chevron lives in the engine cluster, restore pill appears when hidden */
 .nav-tog{position:relative;width:30px;height:30px;padding:0;border-radius:50%;border:2px solid var(--ink);background:var(--surface);color:var(--ink);cursor:pointer;display:grid;place-items:center;transition:background .2s,transform .25s var(--ease)}
 .nav-tog:hover{background:var(--c4);transform:translateY(-2px)}
 .nav-tog:active{transform:scale(.86)}
 .nav-tog[aria-expanded=false]{background:var(--c4)}
-.nav-show{position:fixed;right:16px;bottom:16px;z-index:60;display:none;align-items:center;gap:7px;padding:.6em 1.05em;border:2px solid var(--ink);border-radius:var(--pill);background:var(--surface);box-shadow:var(--shadow);color:var(--ink);font-family:var(--font-display);font-weight:var(--dw);font-size:.8rem;letter-spacing:.03em;text-transform:var(--case);cursor:pointer;transition:background .2s,transform .25s var(--ease)}
+.nav-show{position:fixed;left:16px;top:16px;z-index:60;display:none;align-items:center;gap:7px;padding:.6em 1.05em;border:2px solid var(--ink);border-radius:var(--pill);background:var(--surface);box-shadow:var(--shadow);color:var(--ink);font-family:var(--font-display);font-weight:var(--dw);font-size:.8rem;letter-spacing:.03em;text-transform:var(--case);cursor:pointer;transition:background .2s,transform .25s var(--ease)}
 .nav-show:hover{background:var(--c2);transform:translateY(-2px)}
 body.nav-off .nav{display:none}
 body.nav-off .nav-show{display:inline-flex}
