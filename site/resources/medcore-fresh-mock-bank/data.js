@@ -2,7 +2,7 @@
 const SUBJECTS = [
   {
     "id": "diabetes",
-    "name": "MODY — Maturity-Onset Diabetes of the Young",
+    "name": "Diabetes Mellitus & Complications",
     "questions": [
       {
         "q": "A 19-year-old non-obese woman with a strong family history of diabetes (autosomal dominant) presents with mild hyperglycaemia. She is not ketosis-prone and her C-peptide is normal. Which feature best fits maturity-onset diabetes of the young (MODY)?",
@@ -17,12 +17,7 @@ const SUBJECTS = [
           "concept": "MODY — young, lean, AD inheritance, sulfonylurea-responsive",
           "discriminator": "Young lean diabetic + autosomal dominant family history + C-peptide intact = MODY (not T1/T2)",
           "trap": "Clinical Mimic — MODY (young, lean, AD, C-peptide+) vs type 1 (autoimmune) / type 2 (obese)",
-          "rule": "MODY: young, lean, autosomal dominant, C-peptide positive; often sulfonylurea-responsive (HNF1A)",
-          "others": {
-            "A": "Obesity/insulin resistance suggests type 2 diabetes, not the typical MODY profile.",
-            "B": "Autoantibodies and ketoacidosis suggest type 1 diabetes, not MODY.",
-            "D": "Exocrine insufficiency suggests type 3c (pancreatogenic) diabetes."
-          }
+          "rule": "MODY: young, lean, autosomal dominant, C-peptide positive; often sulfonylurea-responsive (HNF1A)"
         }
       },
       {
@@ -38,12 +33,7 @@ const SUBJECTS = [
           "concept": "Gestational diabetes — OGTT thresholds (fasting ≥92, 1h ≥180, 2h ≥153)",
           "discriminator": "Pregnancy OGTT meeting ANY threshold (92/180/153) = GDM → diet, insulin if targets unmet",
           "trap": "Population-specific — GDM OGTT thresholds (92/180/153), screen 24-28w",
-          "rule": "Gestational diabetes: 75g OGTT (fasting ≥92, 1h ≥180, 2h ≥153); diet ± insulin; postpartum test",
-          "others": {
-            "A": "Meeting a threshold diagnoses GDM; this is not normal tolerance.",
-            "B": "Pre-existing diabetes is diagnosed by elevated glucose BEFORE pregnancy, not a GDM OGTT.",
-            "C": "These values meet diagnostic thresholds, not just 'impaired' — treatment is indicated."
-          }
+          "rule": "Gestational diabetes: 75g OGTT (fasting ≥92, 1h ≥180, 2h ≥153); diet ± insulin; postpartum test"
         }
       },
       {
@@ -59,12 +49,7 @@ const SUBJECTS = [
           "concept": "LADA — adult T2 phenotype but autoimmune (GAD+), progresses to insulin",
           "discriminator": "Adult 'T2DM' phenotype + GAD antibodies + early insulin requirement = LADA (slow autoimmune)",
           "trap": "Classification trap — LADA (autoimmune, GAD+) vs type 2 (antibody-negative) vs MODY",
-          "rule": "LADA: adult-onset autoimmune diabetes (GAD+), T2-like onset, progresses to insulin; not MODY",
-          "others": {
-            "A": "Typical type 2 lacks autoantibodies and rarely needs insulin so soon without obesity.",
-            "B": "MODY is monogenic and antibody-negative with dominant family history.",
-            "D": "Type 3c follows pancreatic disease and shows exocrine insufficiency."
-          }
+          "rule": "LADA: adult-onset autoimmune diabetes (GAD+), T2-like onset, progresses to insulin; not MODY"
         }
       },
       {
@@ -80,12 +65,7 @@ const SUBJECTS = [
           "concept": "Diabetic retinopathy — proliferative stage: neovascularisation → panretinal laser",
           "discriminator": "Neovascularisation/vitreous haemorrhage = proliferative diabetic retinopathy → panretinal laser",
           "trap": "One-word discriminator — neovascularisation = proliferative → panretinal laser",
-          "rule": "Proliferative diabetic retinopathy: neovascularisation → panretinal photocoagulation; screen annually",
-          "others": {
-            "A": "Antibiotics do not treat neovascular retinopathy.",
-            "B": "Cataract surgery addresses lens opacity, not proliferative retinopathy.",
-            "C": "Observation risks irreversible blindness from tractional detachment."
-          }
+          "rule": "Proliferative diabetic retinopathy: neovascularisation → panretinal photocoagulation; screen annually"
         }
       },
       {
@@ -101,12 +81,7 @@ const SUBJECTS = [
           "concept": "Diabetic peripheral neuropathy — symmetric stocking sensory loss, reduced reflexes",
           "discriminator": "Symmetric stocking sensory loss + absent ankle jerks + preserved power = distal symmetric neuropathy",
           "trap": "Clinical Mimic — symmetric stocking neuropathy (DM) vs B12 deficiency vs GBS",
-          "rule": "Distal symmetric sensorimotor neuropathy: stocking loss + absent ankle jerks; foot care prevents ulcers",
-          "others": {
-            "B": "Mononeuritis causes asymmetric, often painful single-nerve deficits.",
-            "C": "GBS is acute ascending weakness with areflexia, not a chronic stocking sensory loss.",
-            "D": "Myasthenia causes fatigable weakness, not sensory loss."
-          }
+          "rule": "Distal symmetric sensorimotor neuropathy: stocking loss + absent ankle jerks; foot care prevents ulcers"
         }
       },
       {
@@ -122,12 +97,7 @@ const SUBJECTS = [
           "concept": "Diabetic CN III palsy — pupil-sparing, painful, ischemic (vs aneurysm which fixes pupil)",
           "discriminator": "Painful CN III palsy WITH pupil-sparing = diabetic ischemic mononeuritis; aneurysm fixes the pupil",
           "trap": "Clinical Mimic — diabetic CN III palsy (pupil-sparing) vs aneurysm (fixed dilated pupil)",
-          "rule": "Diabetic CN III palsy: painful, pupil-sparing (ischaemic); aneurysm = fixed dilated pupil (emergency)",
-          "others": {
-            "A": "Diabetic palsy spares the pupil; a fixed dilated pupil suggests aneurysm, not diabetes.",
-            "C": "Diabetic CN III palsy is typically painful, not painless.",
-            "D": "It is usually unilateral, not bilateral."
-          }
+          "rule": "Diabetic CN III palsy: painful, pupil-sparing (ischaemic); aneurysm = fixed dilated pupil (emergency)"
         }
       },
       {
@@ -143,12 +113,7 @@ const SUBJECTS = [
           "concept": "Diabetic gastroparesis — autonomic neuropathy, delayed gastric emptying",
           "discriminator": "Nausea/vomiting undigested food + normal endoscopy + DM = gastroparesis (vagal neuropathy)",
           "trap": "Clinical Mimic — gastroparesis (autonomic neuropathy) vs mechanical obstruction/PUD",
-          "rule": "Diabetic gastroparesis: vagal autonomic neuropathy → delayed emptying; normal endoscopy; prokinetics",
-          "others": {
-            "A": "PUD would show a lesion on endoscopy, which was normal here.",
-            "C": "Mechanical obstruction would show a luminal block on scope/imaging.",
-            "D": "Pancreatic insufficiency causes steatorrhea, not vomiting of undigested food."
-          }
+          "rule": "Diabetic gastroparesis: vagal autonomic neuropathy → delayed emptying; normal endoscopy; prokinetics"
         }
       },
       {
@@ -164,12 +129,7 @@ const SUBJECTS = [
           "concept": "Charcot neuroarthropathy — painless red swollen foot, rocker-bottom, offloading",
           "discriminator": "Neuropathic foot + warm/swollen + rocker-bottom + fractures = Charcot (not infection)",
           "trap": "Clinical Mimic — Charcot (neuropathic, no trauma, rocker-bottom) vs cellulitis/DVT",
-          "rule": "Charcot foot: neuropathic, warm/swollen, rocker-bottom deformity; strict offloading (not antibiotics)",
-          "others": {
-            "A": "Cellulitis causes warmth/swelling but with fever/leukocytosis and no bony fragmentation.",
-            "B": "DVT causes swelling but not the rocker-bottom deformity or fractures.",
-            "D": "Gout is acutely painful with urate crystals, not a painless neuropathic collapse."
-          }
+          "rule": "Charcot foot: neuropathic, warm/swollen, rocker-bottom deformity; strict offloading (not antibiotics)"
         }
       },
       {
@@ -185,12 +145,7 @@ const SUBJECTS = [
           "concept": "Diabetic foot ulcer — neuropathic (warm, pulses) vs ischaemic (cool, absent pulses)",
           "discriminator": "Painless + warm + palpable pulses = neuropathic ulcer; painful + cool + absent pulses = ischaemic",
           "trap": "Opposite — neuropathic (warm, pulses present) vs ischaemic (cold, pulses absent)",
-          "rule": "Neuropathic foot ulcer: painless, warm, palpable pulses; ischaemic: painful, cool, absent pulses (PAD)",
-          "others": {
-            "A": "Infection is a complication, not the primary classification of these ulcers.",
-            "B": "Venous ulcers occur in the gaiter area with oedema/varicosities, not this picture.",
-            "C": "The attributions are reversed — the painless warm one is neuropathic, not arterial."
-          }
+          "rule": "Neuropathic foot ulcer: painless, warm, palpable pulses; ischaemic: painful, cool, absent pulses (PAD)"
         }
       },
       {
@@ -206,12 +161,7 @@ const SUBJECTS = [
           "concept": "Type 3c diabetes — pancreatic disease (chronic pancreatitis/CF) + exocrine insufficiency",
           "discriminator": "Diabetes + steatorrhoea + low faecal elastase = type 3c (pancreatogenic), not T1/T2",
           "trap": "Clinical Mimic — type 3c (DM + steatorrhoea/exocrine failure) vs type 1/2",
-          "rule": "Type 3c diabetes: pancreatic disease + exocrine insufficiency (steatorrhoea, low elastase); needs insulin",
-          "others": {
-            "B": "Type 1 lacks exocrine pancreatic insufficiency and steatorrhoea.",
-            "C": "Type 2 is not associated with steatorrhoea or low faecal elastase.",
-            "D": "MODY is monogenic and not accompanied by exocrine failure."
-          }
+          "rule": "Type 3c diabetes: pancreatic disease + exocrine insufficiency (steatorrhoea, low elastase); needs insulin"
         }
       },
       {
@@ -227,12 +177,7 @@ const SUBJECTS = [
           "concept": "Steroid-induced diabetes — glucocorticoids raise glucose (hepatic output, insulin resistance)",
           "discriminator": "New hyperglycaemia after starting glucocorticoids = steroid-induced diabetes",
           "trap": "Clinical Mimic — hyperglycemia after starting steroids (steroid diabetes) vs new-onset T1/T2",
-          "rule": "Glucocorticoids → hepatic glucose output + insulin resistance → steroid-induced diabetes; monitor glucose",
-          "others": {
-            "A": "Type 1 would not be temporally linked to steroid initiation.",
-            "C": "New type 2 is possible but the steroid trigger here is the key link.",
-            "D": "Phaeochromocytoma causes episodic hypertension/sweating, not steroid-linked hyperglycaemia."
-          }
+          "rule": "Glucocorticoids → hepatic glucose output + insulin resistance → steroid-induced diabetes; monitor glucose"
         }
       },
       {
@@ -248,12 +193,7 @@ const SUBJECTS = [
           "concept": "Perioperative diabetes — hold metformin, use IV insulin sliding scale",
           "discriminator": "Periop: hold metformin (fasting/contrast/ischaemia → lactic acidosis), use IV insulin",
           "trap": "Treatment misdirection — continuing metformin/sulfonylurea perioperatively (hypo/lactic acidosis)",
-          "rule": "Perioperative: hold metformin (lactic acidosis risk) + sulfonylurea (hypo); IV insulin infusion",
-          "others": {
-            "B": "Continuing metformin perioperatively risks lactic acidosis with fasting/contrast.",
-            "C": "Stopping insulin in an insulin-dependent patient causes DKA/HHS.",
-            "D": "Doubling sulfonylurea pre-op risks severe hypoglycaemia with nil-by-mouth."
-          }
+          "rule": "Perioperative: hold metformin (lactic acidosis risk) + sulfonylurea (hypo); IV insulin infusion"
         }
       },
       {
@@ -269,12 +209,7 @@ const SUBJECTS = [
           "concept": "Prediabetes — IFG (fasting 100-125) / IGT (2h 140-199); lifestyle first",
           "discriminator": "Fasting 110 (IFG) + 2h 150 (IGT) + HbA1c 5.9% = prediabetes → lifestyle, not metformin yet",
           "trap": "Unit/Number — IFG 100-125, IGT 2h 140-199, HbA1c 5.7-6.4% = prediabetes",
-          "rule": "Prediabetes: IFG (100-125), IGT (2h 140-199), HbA1c 5.7-6.4%; lifestyle modification first-line",
-          "others": {
-            "A": "These values are below diabetes thresholds; metformin is not first-line for prediabetes generally.",
-            "B": "Prediabetes warrants lifestyle intervention to prevent progression.",
-            "C": "GDM is pregnancy-specific; this is an OGTT in a non-pregnant adult."
-          }
+          "rule": "Prediabetes: IFG (100-125), IGT (2h 140-199), HbA1c 5.7-6.4%; lifestyle modification first-line"
         }
       },
       {
@@ -290,12 +225,7 @@ const SUBJECTS = [
           "concept": "Diabetes technology — CGM for hypoglycaemia unawareness / nocturnal hypo",
           "discriminator": "Recurrent asymptomatic (nocturnal) hypoglycaemia → CGM with alerts improves safety",
           "trap": "Treatment ladder — CGM (hypo unawareness) > fingersticks; never stop insulin",
-          "rule": "CGM: real-time glucose + trend alarms; key for hypoglycaemia unawareness/nocturnal lows",
-          "others": {
-            "A": "Intermittent fingersticks miss nocturnal and asymptomatic episodes/trends.",
-            "C": "Stopping insulin in type 1 is fatal (DKA).",
-            "D": "Once-daily long-acting alone does not cover meals in type 1."
-          }
+          "rule": "CGM: real-time glucose + trend alarms; key for hypoglycaemia unawareness/nocturnal lows"
         }
       },
       {
@@ -311,12 +241,7 @@ const SUBJECTS = [
           "concept": "GLP-1 receptor agonists — weight loss, GI side effects, CV benefit",
           "discriminator": "GLP-1 RA: weight loss + GI (nausea) side effects + CV/renal benefit; low hypo risk",
           "trap": "Treatment ladder — GLP-1 RA for obesity/T2DM: weight loss + nausea, low hypo risk",
-          "rule": "GLP-1 RA: glucose-dependent insulin release + satiety → weight loss; GI nausea; CV/renal benefit",
-          "others": {
-            "B": "They cause weight LOSS and rarely hypoglycaemia as monotherapy.",
-            "C": "They do not increase insulin requirement; they improve glycaemia.",
-            "D": "Hepatotoxicity is not a characteristic GLP-1 adverse effect."
-          }
+          "rule": "GLP-1 RA: glucose-dependent insulin release + satiety → weight loss; GI nausea; CV/renal benefit"
         }
       },
       {
@@ -332,12 +257,7 @@ const SUBJECTS = [
           "concept": "Metformin adverse effect — long-term B12 malabsorption/deficiency",
           "discriminator": "Chronic metformin → reduced B12 absorption → deficiency (neuropathy, macrocytic anaemia)",
           "trap": "Severity under-recognition — chronic metformin → B12 deficiency (neuropathy mimic)",
-          "rule": "Chronic metformin: B12 malabsorption → deficiency (anaemia/neuropathy); check B12 periodically",
-          "others": {
-            "B": "Metformin lowers, not raises, B12 levels over time.",
-            "C": "The temporal association and mechanism implicate metformin.",
-            "D": "Macrocytic anaemia points to B12/folate, not iron deficiency (which is microcytic)."
-          }
+          "rule": "Chronic metformin: B12 malabsorption → deficiency (anaemia/neuropathy); check B12 periodically"
         }
       },
       {
@@ -353,12 +273,7 @@ const SUBJECTS = [
           "concept": "Diabetes + CVD risk — statin for primary prevention in most T2DM",
           "discriminator": "T2DM is a CVD risk equivalent — statin indicated for primary prevention (not LDL alone)",
           "trap": "Treatment misdirection — withholding statin in diabetes awaiting LDL threshold/event",
-          "rule": "Diabetes: statin for primary CVD prevention (risk equivalent); LDL target reduction, not treat-only-if-high",
-          "others": {
-            "A": "Diabetes lowers the threshold; statin is indicated regardless of a single LDL cut-off.",
-            "B": "Fibrates are not first-line for diabetic dyslipidaemia primary prevention.",
-            "D": "Primary prevention means treating before an event occurs."
-          }
+          "rule": "Diabetes: statin for primary CVD prevention (risk equivalent); LDL target reduction, not treat-only-if-high"
         }
       },
       {
@@ -374,12 +289,7 @@ const SUBJECTS = [
           "concept": "Diabetic nephropathy — annual albuminuria screening (ACR) for early detection",
           "discriminator": "Annual urine albumin:creatinine ratio screens for microalbuminuria before creatinine rises",
           "trap": "One-word discriminator — annual ACR (microalbuminuria) screening, dipstick misses early",
-          "rule": "Diabetic nephropathy: annual ACR (albumin:creatinine) + eGFR; ACEi for microalbuminuria (renoprotection)",
-          "others": {
-            "B": "Waiting for dipstick-positive proteinuria misses the reversible microalbuminuria window.",
-            "C": "Annual, not 5-yearly, screening is recommended.",
-            "D": "Biopsy is not a screening tool for uncomplicated diabetic nephropathy."
-          }
+          "rule": "Diabetic nephropathy: annual ACR (albumin:creatinine) + eGFR; ACEi for microalbuminuria (renoprotection)"
         }
       },
       {
@@ -395,12 +305,7 @@ const SUBJECTS = [
           "concept": "Diabetes in the elderly — de-intensify to avoid hypoglycaemia/falls",
           "discriminator": "Frail elderly + sulfonylurea hypo/falls = de-intensify (avoid hypo); relaxed targets",
           "trap": "Treatment misdirection — intensifying/tight targets in frail elderly (hypo/falls harm)",
-          "rule": "Elderly/frail diabetes: de-intensify, relaxed HbA1c (~8%), avoid sulfonylurea/insulin-induced hypo",
-          "others": {
-            "A": "Intensifying increases hypoglycaemia risk in a patient who already had a hypo.",
-            "B": "Adding a sulfonylurea worsens hypoglycaemia risk.",
-            "D": "HbA1c <6% is harmful in frail elders due to hypoglycaemia."
-          }
+          "rule": "Elderly/frail diabetes: de-intensify, relaxed HbA1c (~8%), avoid sulfonylurea/insulin-induced hypo"
         }
       },
       {
@@ -416,12 +321,7 @@ const SUBJECTS = [
           "concept": "Diabetic amyotrophy — painful asymmetric proximal thigh weakness/wasting",
           "discriminator": "Painful asymmetric thigh weakness/wasting in DM = diabetic amyotrophy (radiculoplexus)",
           "trap": "Clinical Mimic — diabetic amyotrophy (asymmetric proximal) vs stroke/PM/cord",
-          "rule": "Diabetic amyotrophy: subacute painful asymmetric proximal leg weakness/wasting; improves with control",
-          "others": {
-            "A": "Stroke is acute with focal deficits, not progressive asymmetric thigh wasting.",
-            "C": "Polymyositis is symmetric proximal myopathy with elevated CK, not asymmetric neuropathy.",
-            "D": "Cord compression gives a sensory level and long-tract signs, not this pattern."
-          }
+          "rule": "Diabetic amyotrophy: subacute painful asymmetric proximal leg weakness/wasting; improves with control"
         }
       },
       {
@@ -437,12 +337,7 @@ const SUBJECTS = [
           "concept": "Emphysematous pyelonephritis — gas-forming infection in diabetic kidney",
           "discriminator": "Diabetic + flank pain + gas in renal parenchyma on CT = emphysematous pyelonephritis (emergency)",
           "trap": "Severity under-recognition — gas on renal CT in diabetic = emphysematous pyelonephritis (emergency)",
-          "rule": "Emphysematous pyelonephritis: diabetic, gas-forming renal infection on CT; emergency drainage + antibiotics",
-          "others": {
-            "A": "Simple cystitis has no gas or parenchymal destruction on imaging.",
-            "B": "A stone without infection would not show gas or systemic toxicity.",
-            "C": "This is not a mild, orally treatable pyelonephritis given gas formation."
-          }
+          "rule": "Emphysematous pyelonephritis: diabetic, gas-forming renal infection on CT; emergency drainage + antibiotics"
         }
       },
       {
@@ -458,12 +353,7 @@ const SUBJECTS = [
           "concept": "Insulin initiation — start basal (long-acting) for fasting hyperglycaemia",
           "discriminator": "Persistently high fasting glucose on orals → add once-daily basal (glargine) first",
           "trap": "Treatment ladder — start basal (glargine) for fasting hyperglycaemia, not MDI first",
-          "rule": "Insulin start: once-daily basal (long-acting) for fasting hyperglycaemia; prandial added later",
-          "others": {
-            "A": "Prandial-only without basal leaves fasting glucose uncontrolled.",
-            "B": "Immediate biphasic MDI is more complex than needed as a first step.",
-            "C": "IV insulin is inpatient/acute, not an outpatient initiation."
-          }
+          "rule": "Insulin start: once-daily basal (long-acting) for fasting hyperglycaemia; prandial added later"
         }
       },
       {
@@ -479,12 +369,7 @@ const SUBJECTS = [
           "concept": "Dawn phenomenon — morning hyperglycemia WITHOUT nocturnal hypoglycemia",
           "discriminator": "Normal 3am glucose + high morning glucose = dawn phenomenon (cortisol/GH surge), not Somogyi",
           "trap": "Opposite — dawn (no nocturnal hypo) vs Somogyi (nocturnal hypo → rebound high)",
-          "rule": "Dawn phenomenon: AM hyperglycaemia with normal 3am glucose (hormonal surge); Somogyi has nocturnal hypo",
-          "others": {
-            "B": "Somogyi requires a nocturnal hypo, which is absent here (3am glucose normal).",
-            "C": "The pattern is physiologically explained; CGM is not 'incorrect'.",
-            "D": "Pump is not the immediate implication; basal adjustment is first."
-          }
+          "rule": "Dawn phenomenon: AM hyperglycaemia with normal 3am glucose (hormonal surge); Somogyi has nocturnal hypo"
         }
       },
       {
@@ -500,12 +385,7 @@ const SUBJECTS = [
           "concept": "Diabetic dermopathy — asymptomatic atrophic pigmented shin plaques",
           "discriminator": "Atrophic pigmented round plaques on shins in DM = diabetic dermopathy (shin spots)",
           "trap": "Clinical Mimic — diabetic dermopathy (shin spots) vs necrobiosis lipoidica vs infection",
-          "rule": "Diabetic dermopathy: asymptomatic atrophic pigmented shin plaques (benign); necrobiosis lipoidica is ulcerating/yellow",
-          "others": {
-            "A": "Necrobiosis lipoidica is fewer, yellow, telangiectatic, often ulcerating — not these multiple brown spots.",
-            "C": "Cellulitis is erythematous, tender, warm, and acute — not chronic atrophic plaques.",
-            "D": "Pyoderma gangrenosum is a painful ulcer with undermined edges, not atrophic pigmentation."
-          }
+          "rule": "Diabetic dermopathy: asymptomatic atrophic pigmented shin plaques (benign); necrobiosis lipoidica is ulcerating/yellow"
         }
       },
       {
@@ -521,19 +401,14 @@ const SUBJECTS = [
           "concept": "Pre-existing diabetes in pregnancy — tighten glycemia pre-conception to cut malformations",
           "discriminator": "Pre-existing DM + pregnancy: congenital malformation risk tracks glycaemic control → tighten pre-conception",
           "trap": "Severity under-recognition — congenital malformation risk is glycaemic-control dependent",
-          "rule": "Pre-existing diabetes + pregnancy: congenital malformation risk ∝ glycaemic control; tighten before conception",
-          "others": {
-            "A": "Stopping insulin in type 1 causes DKA and harms the fetus.",
-            "B": "Oral hypoglycaemics are not first-line in type 1 pregnancy.",
-            "D": "Aspirin is adjunctive; glycaemic control is the key malformation-preventing step."
-          }
+          "rule": "Pre-existing diabetes + pregnancy: congenital malformation risk ∝ glycaemic control; tighten before conception"
         }
       }
     ]
   },
   {
     "id": "ent",
-    "name": "Meniere's Disease",
+    "name": "ENT",
     "questions": [
       {
         "q": "A 45-year-old has recurrent episodes of vertigo lasting 30-40 minutes, fluctuating sensorineural hearing loss, tinnitus and a sense of aural fullness in one ear. Between episodes he is well. Dix-Hallpike and neurological examination are normal. Diagnosis?",
@@ -548,12 +423,7 @@ const SUBJECTS = [
           "concept": "Meniere's disease - episodic vertigo + fluctuating SNHL + tinnitus + aural fullness",
           "discriminator": "Episodic vertigo (minutes to hours) + fluctuating SNHL/tinnitus/aural fullness = Meniere's; normal Dix-Hallpike excludes BPPV",
           "trap": "Choosing BPPV because Dix-Hallpike is mentioned - but negative Dix-Hallpike plus fullness/fluctuating HL favours Meniere",
-          "rule": "Meniere's: recurrent vertigo (20min-hours) + fluctuating SNHL + tinnitus + fullness; negative Dix-Hallpike; salt restriction/diuretics, betahistine.",
-          "others": {
-            "A": "BPPV gives brief (seconds) positional vertigo with a positive Dix-Hallpike",
-            "C": "vestibular schwannoma gives progressive unilateral SNHL with poor speech discrimination, not episodic attacks with fullness",
-            "D": "labyrinthitis is a single acute prolonged vertigo with hearing loss, not recurring attacks"
-          }
+          "rule": "Meniere's: recurrent vertigo (20min-hours) + fluctuating SNHL + tinnitus + fullness; negative Dix-Hallpike; salt restriction/diuretics, betahistine."
         }
       },
       {
@@ -569,12 +439,7 @@ const SUBJECTS = [
           "concept": "Acute otitis media - bulging TM; first-line amoxicillin",
           "discriminator": "Fever + ear pain + bulging erythematous TM = AOM; treat with amoxicillin (plus analgesia); topical drops have no trans-tympanic role",
           "trap": "Prescribing topical drops for a bulging intact TM (they cannot penetrate)",
-          "rule": "AOM: bulging hyperaemic TM + fever/pain; treat oral amoxicillin + analgesia. Refer for myringotomy only if complications (facial palsy, mastoiditis).",
-          "others": {
-            "B": "myringotomy is reserved for complications, not first-line routine AOM",
-            "C": "topical drops do not act through an intact bulging TM",
-            "D": "many need antibiotics; watchful waiting is not appropriate in all despite the age being modest"
-          }
+          "rule": "AOM: bulging hyperaemic TM + fever/pain; treat oral amoxicillin + analgesia. Refer for myringotomy only if complications (facial palsy, mastoiditis)."
         }
       },
       {
@@ -590,12 +455,7 @@ const SUBJECTS = [
           "concept": "Acute otitis externa - tender pinna/canal, normal TM; topical drops + dry ear",
           "discriminator": "Ear pain with pinna/canal tenderness, edematous canal, normal TM, no fever = otitis externa; treat topical drops + dry care",
           "trap": "Calling it otitis media - the key discriminator is pinna/canal tenderness with a normal TM",
-          "rule": "AOE: otalgia worsened by pinna traction, edematous canal, normal TM; treat topical antibiotic/antiseptic drops + dry care.",
-          "others": {
-            "A": "otitis media has a bulging TM and usually fever, not canal tenderness with normal TM",
-            "C": "mastoiditis has postauricular swelling/erythema and protrusion of the pinna",
-            "D": "acute furunculosis is a localized abscess; the picture here is diffuse canal inflammation"
-          }
+          "rule": "AOE: otalgia worsened by pinna traction, edematous canal, normal TM; treat topical antibiotic/antiseptic drops + dry care."
         }
       },
       {
@@ -611,12 +471,7 @@ const SUBJECTS = [
           "concept": "Otitic barotrauma - ear pain/fullness on descent, retracted congested TM",
           "discriminator": "Pain/fullness on airplane descent + retracted congested TM + effusion = barotrauma (Eustachian tube can't equilibrate)",
           "trap": "Confusing barotrauma with AOM or OME - the airplane-descent trigger and retracted congested TM are key",
-          "rule": "Barotrauma: pain/fullness on descent, retracted congested TM, effusion; decongestants + autoinflation to equalize pressure.",
-          "others": {
-            "A": "OME is usually painless and chronic (glue ear) without the acute descent trigger",
-            "C": "cholesteatoma gives chronic discharge/keratin, not acute pain on descent",
-            "D": "mastoiditis adds postauricular swelling, fever and pinna protrusion"
-          }
+          "rule": "Barotrauma: pain/fullness on descent, retracted congested TM, effusion; decongestants + autoinflation to equalize pressure."
         }
       },
       {
@@ -632,12 +487,7 @@ const SUBJECTS = [
           "concept": "Cholesteatoma - erosive keratinising lesion; surgical treatment",
           "discriminator": "Chronic offensive discharge + pearly keratin in pars flaccida retraction/Marginal perforation = cholesteatoma; erosive, needs surgery",
           "trap": "Treating cholesteatoma with drops only - it is erosive and needs surgery",
-          "rule": "Cholesteatoma: keratinising squamous epithelium eroding bone/ossicles; offensive discharge + progressive HL; needs surgical excision, not just drops.",
-          "others": {
-            "A": "cholesteatoma is not self-limiting; it erodes bone and needs surgery",
-            "C": "topical antibiotics do not remove the keratin sac or stop erosion",
-            "D": "it is not cancer of canal skin; it is a locally destructive keratin lesion"
-          }
+          "rule": "Cholesteatoma: keratinising squamous epithelium eroding bone/ossicles; offensive discharge + progressive HL; needs surgical excision, not just drops."
         }
       },
       {
@@ -653,12 +503,7 @@ const SUBJECTS = [
           "concept": "Presbycusis - age-related symmetric high-frequency SNHL",
           "discriminator": "Bilateral high-frequency SNHL + old age + normal otoscopy = presbycusis",
           "trap": "Confusing presbycusis with noise-induced HL (4 kHz dip) or otosclerosis (conductive)",
-          "rule": "Presbycusis: age-related symmetric high-frequency SNHL; hearing aids. Differentiate from noise dip (4 kHz, younger) and otosclerosis (conductive).",
-          "others": {
-            "A": "otosclerosis causes conductive loss with a Carhart notch and normal SNHL",
-            "C": "acoustic neuroma causes asymmetric unilateral SNHL with poor discrimination",
-            "D": "noise-induced loss classically shows a dipped 4 kHz notch, not symmetric old-age high-tone loss"
-          }
+          "rule": "Presbycusis: age-related symmetric high-frequency SNHL; hearing aids. Differentiate from noise dip (4 kHz, younger) and otosclerosis (conductive)."
         }
       },
       {
@@ -674,12 +519,7 @@ const SUBJECTS = [
           "concept": "Tuning fork - Weber to affected side in conductive loss; Rinne negative",
           "discriminator": "Weber lateralizes to the LEFT + Rinne negative on LEFT = LEFT conductive loss (e.g. otosclerosis, OME)",
           "trap": "Confusing conductive and sensorineural tuning-fork results",
-          "rule": "Conductive loss: Weber lateralizes to the affected ear, Rinne negative there. Sensorineural: Weber to the better ear, Rinne positive. Apply to interpret sidedness.",
-          "others": {
-            "B": "a right SNHL would lateralize Weber to the LEFT (good) ear but keep Rinne positive on the right, not negative",
-            "C": "left SNHL would keep Rinne positive on the left, not negative",
-            "D": "normal ears give central Weber and bilateral positive Rinne"
-          }
+          "rule": "Conductive loss: Weber lateralizes to the affected ear, Rinne negative there. Sensorineural: Weber to the better ear, Rinne positive. Apply to interpret sidedness."
         }
       },
       {
@@ -695,12 +535,7 @@ const SUBJECTS = [
           "concept": "CSOM - safe vs unsafe (marginal/attic perforation)",
           "discriminator": "Attic/marginal perforation + foul discharge = unsafe CSOM (cholesteatoma risk); needs surgery, not just drops",
           "trap": "Treating an unsafe (marginal/attic) ear as safe with drops only",
-          "rule": "Central tubotympanic perforation = safe ear. Attic/marginal perforation = unsafe (cholesteatoma, complications); needs mastoid surgery.",
-          "others": {
-            "A": "an attic/marginal perforation is unsafe, not safe, and drops are not curative alone",
-            "C": "malignant OE is external canal disease with severe pain and canal granulation, different",
-            "D": "unsafe CSOM does not resolve with simple oral antibiotics"
-          }
+          "rule": "Central tubotympanic perforation = safe ear. Attic/marginal perforation = unsafe (cholesteatoma, complications); needs mastoid surgery."
         }
       },
       {
@@ -716,12 +551,7 @@ const SUBJECTS = [
           "concept": "Nasal foreign body - unilateral foul-smelling/blood-stained discharge in a child",
           "discriminator": "Unilateral foul-smelling, blood-stained nasal discharge in a child = retained nasal foreign body; remove under visualization",
           "trap": "Diagnosing sinusitis or polyp - the unilateral, foul, blood-stained discharge in a child is a foreign body until proven otherwise",
-          "rule": "Child with persistent unilateral foul/blood-stained rhinorrhoea = nasal foreign body till proven otherwise; remove carefully under visualization (risk of aspiration).",
-          "others": {
-            "A": "sinusitis is usually bilateral and purulent, not a unilateral blood-stained smell",
-            "C": "an antrochoanal polyp is unilateral but non-foul and non-bleeding discharge with a visible mass",
-            "D": "allergic rhinitis is bilateral, watery and itchy, not a unilateral foul discharge"
-          }
+          "rule": "Child with persistent unilateral foul/blood-stained rhinorrhoea = nasal foreign body till proven otherwise; remove carefully under visualization (risk of aspiration)."
         }
       },
       {
@@ -737,12 +567,7 @@ const SUBJECTS = [
           "concept": "Acute bacterial rhinosinusitis - 'double worsening' / persistence criteria",
           "discriminator": "Purulent discharge + facial pain + double worsening or >10 days = bacterial rhinosinusitis; antibiotics",
           "trap": "Treating all colds with antibiotics - use the double-worsening/persistence criteria for bacterial infection",
-          "rule": "Bacterial rhinosinusitis: double worsening, >10 days, purulence + facial pain; antibiotics. Viral: clear/watery, improves in ~1 week.",
-          "others": {
-            "A": "clear watery discharge suggests viral or allergic, not bacterial",
-            "C": "sneezing and itchy eyes point to allergy, not bacterial infection",
-            "D": "preserved smell is not a criterion for bacterial sinusitis"
-          }
+          "rule": "Bacterial rhinosinusitis: double worsening, >10 days, purulence + facial pain; antibiotics. Viral: clear/watery, improves in ~1 week."
         }
       },
       {
@@ -758,12 +583,7 @@ const SUBJECTS = [
           "concept": "Epistaxis management - anterior packing/pressure + cautery, first aid",
           "discriminator": "Anterior Little's area bleed: sit forward, pinch nose 10-20 min, then cauterize/coagulate visible point; avoid re-trauma",
           "trap": "Jumping to posterior packing/admission for a controllable anterior bleed",
-          "rule": "Anterior epistaxis: sit forward, pinch cartilaginous nose 10-20 min, cauterize visible point (silver nitrate); posterior packing/admission if uncontrolled.",
-          "others": {
-            "A": "posterior packing is only for uncontrolled posterior bleeds, not routine first aid",
-            "C": "most anterior bleeds are managed as outpatient, not routine admission",
-            "D": "prophylactic IV antibiotics are not indicated for a controlled anterior bleed"
-          }
+          "rule": "Anterior epistaxis: sit forward, pinch cartilaginous nose 10-20 min, cauterize visible point (silver nitrate); posterior packing/admission if uncontrolled."
         }
       },
       {
@@ -779,12 +599,7 @@ const SUBJECTS = [
           "concept": "Allergic rhinitis - first-line intranasal corticosteroid",
           "discriminator": "Seasonal allergic rhinoconjunctivitis = first-line intranasal corticosteroid (more effective than antihistamines alone for congestion)",
           "trap": "Using daily topical decongestants (rebound) or long-term oral steroids; forget the INCS first line",
-          "rule": "Allergic rhinitis: first-line intranasal corticosteroid; antihistamines for itch/sneeze. Avoid daily decongestants (rebound) and long-term oral steroids.",
-          "others": {
-            "A": "antihistamines alone are less effective for congestion than a nasal steroid",
-            "C": "long-term oral steroids carry systemic side effects; not first line",
-            "D": "daily topical decongestants cause rhinitis medicamentosa (rebound)"
-          }
+          "rule": "Allergic rhinitis: first-line intranasal corticosteroid; antihistamines for itch/sneeze. Avoid daily decongestants (rebound) and long-term oral steroids."
         }
       },
       {
@@ -800,12 +615,7 @@ const SUBJECTS = [
           "concept": "Septal hematoma - can cause saddle nose via cartilage necrosis; evacuate promptly",
           "discriminator": "Post-trauma septal hematoma, if undrained, causes avascular necrosis/cartilage resorption -> saddle nose; treat by I&D + splint",
           "trap": "Treating a septal hematoma conservatively or confusing it with allergy/fracture",
-          "rule": "Septal hematoma: urgent I&D + splint to prevent avascular necrosis and saddle nose deformity. Differentiate from fracture and allergy.",
-          "others": {
-            "A": "correct - but it IS the answer; the others mislabel the cause",
-            "C": "allergy does not cause septal hematoma or saddle nose",
-            "D": "this is a hematoma needing drainage, not open fracture reduction"
-          }
+          "rule": "Septal hematoma: urgent I&D + splint to prevent avascular necrosis and saddle nose deformity. Differentiate from fracture and allergy."
         }
       },
       {
@@ -821,12 +631,7 @@ const SUBJECTS = [
           "concept": "Orbital cellulitis - complication of sinusitis; urgent IV antibiotics + CT",
           "discriminator": "Sinusitis + proptosis + painful/restricted eye movement + fever = orbital cellulitis (postseptal); urgent IV abx + CT",
           "trap": "Treating orbital cellulitis as preseptal (outpatient oral antibiotics)",
-          "rule": "Orbital cellulitis: proptosis, painful ophthalmoplegia, fever after sinusitis -> urgent IV antibiotics + CT (exclude abscess).",
-          "others": {
-            "A": "preseptal cellulitis has eyelid swelling only, with normal eye movements and vision",
-            "C": "allergic oedema is bilateral, itchy and without fever or proptosis",
-            "D": "cavernous sinus thrombosis adds bilateral orbital signs, cranial neuropathies and meningism, and is diagnosed clinically/imaging"
-          }
+          "rule": "Orbital cellulitis: proptosis, painful ophthalmoplegia, fever after sinusitis -> urgent IV antibiotics + CT (exclude abscess)."
         }
       },
       {
@@ -842,12 +647,7 @@ const SUBJECTS = [
           "concept": "Nasopharyngeal carcinoma - unilateral OME + neck mass in endemic patient; nasopharyngeal biopsy",
           "discriminator": "Unilateral serous OME + neck mass + blood-stained nasal discharge in an East Asian adult = NPC; nasopharyngoscopy + biopsy",
           "trap": "Biopsying the neck node or ultrasound only - confirm via endoscopic nasopharyngeal biopsy",
-          "rule": "NPC (EBV, endemic): painless neck node + unilateral serous OME + blood-stained nasal discharge; diagnosis by nasopharyngoscopy + biopsy.",
-          "others": {
-            "B": "neck ultrasound does not diagnose the primary nasopharyngeal lesion",
-            "C": "a chest X-ray is not the diagnostic test for NPC",
-            "D": "thyroid function is irrelevant to this presentation"
-          }
+          "rule": "NPC (EBV, endemic): painless neck node + unilateral serous OME + blood-stained nasal discharge; diagnosis by nasopharyngoscopy + biopsy."
         }
       },
       {
@@ -863,12 +663,7 @@ const SUBJECTS = [
           "concept": "Epiglottitis - airway first; do not examine the throat",
           "discriminator": "Fever + drooling + tripod + muffled voice = epiglottitis; airway priority, minimal stimulation",
           "trap": "Trying to examine the throat or swab - precipitates obstruction; airway first",
-          "rule": "Epiglottitis: tripod posture, drooling, muffled voice -> protect airway immediately; avoid throat examination/agitation. Hib vaccination reduces incidence.",
-          "others": {
-            "A": "throat examination can worsen obstruction and should be avoided",
-            "C": "oral antibiotics alone are inadequate; the airway is the priority",
-            "D": "a throat swab delays management of an airway emergency"
-          }
+          "rule": "Epiglottitis: tripod posture, drooling, muffled voice -> protect airway immediately; avoid throat examination/agitation. Hib vaccination reduces incidence."
         }
       },
       {
@@ -884,12 +679,7 @@ const SUBJECTS = [
           "concept": "Peritonsillar abscess - trismus + uvula deviation; aspiration/I+D + antibiotics",
           "discriminator": "Unilateral severe sore throat + trismus + soft palate/uvula deviation = quinsy; ENT drainage + antibiotics",
           "trap": "Treating a quinsy as simple tonsillitis with antibiotics alone",
-          "rule": "Quinsy: severe unilateral sore throat, trismus, uvula deviation -> ENT aspiration/incision + antibiotics + analgesia.",
-          "others": {
-            "A": "tonsillitis is symmetric without trismus or uvular deviation and does not need drainage",
-            "C": "retropharyngeal abscess is predominantly seen in younger children and causes neck stiffness/dysphagia rather than trismus",
-            "D": "glossitis is tongue inflammation, not a peritonsillar collection"
-          }
+          "rule": "Quinsy: severe unilateral sore throat, trismus, uvula deviation -> ENT aspiration/incision + antibiotics + analgesia."
         }
       },
       {
@@ -905,12 +695,7 @@ const SUBJECTS = [
           "concept": "Laryngeal carcinoma - hoarseness >3 weeks in a smoker warrants specialist evaluation",
           "discriminator": "Persistent hoarseness >3 weeks (esp. smoker) = laryngeal carcinoma until proven otherwise; direct laryngoscopy +/- biopsy",
           "trap": "Reassuring persistent hoarseness in a smoker as simple laryngitis",
-          "rule": "Persistent hoarseness >3 weeks, especially in a smoker, needs direct laryngoscopy to exclude laryngeal carcinoma.",
-          "others": {
-            "A": "persistent hoarseness in a smoker is not simply viral laryngitis",
-            "C": "steroids do not diagnose or treat laryngeal cancer",
-            "D": "voice rest alone is inadequate without excluding malignancy"
-          }
+          "rule": "Persistent hoarseness >3 weeks, especially in a smoker, needs direct laryngoscopy to exclude laryngeal carcinoma."
         }
       },
       {
@@ -926,12 +711,7 @@ const SUBJECTS = [
           "concept": "Vocal cord paralysis - recurrent laryngeal nerve injury in thyroid surgery",
           "discriminator": "Thyroid surgery + hoarse/breathy voice = recurrent laryngeal nerve injury (vocal cord paralysis)",
           "trap": "Attributing post-thyroid hoarseness to the wrong cranial nerve",
-          "rule": "Recurrent laryngeal nerve injury (thyroid surgery) -> vocal cord paralysis, hoarse/breathy voice; key consent point in thyroidectomy.",
-          "others": {
-            "B": "hypoglossal injury causes tongue deviation, not hoarseness",
-            "C": "facial nerve injury causes facial weakness",
-            "D": "trigeminal injury affects jaw muscles and facial sensation, not the voice"
-          }
+          "rule": "Recurrent laryngeal nerve injury (thyroid surgery) -> vocal cord paralysis, hoarse/breathy voice; key consent point in thyroidectomy."
         }
       },
       {
@@ -947,12 +727,7 @@ const SUBJECTS = [
           "concept": "Croup - barking cough + stridor, not toxic; dexamethasone",
           "discriminator": "Barking cough + low-grade fever + non-toxic, no drooling = croup; dexamethasone (nebulized adrenaline if severe)",
           "trap": "Confusing croup with epiglottitis - the toxic drooling child is epiglottitis, the barking cough is croup",
-          "rule": "Croup: barking cough, low-grade fever, stridor, non-toxic -> dexamethasone (+ nebulized adrenaline if severe). Distinguish from epiglottitis (toxic, drooling).",
-          "others": {
-            "A": "epiglottitis has high fever, drooling and toxicity, unlike this non-toxic barking-cough child",
-            "C": "foreign body aspiration has sudden onset +/- choking and feeding, not a barking cough",
-            "D": "bacterial tracheitis is more toxic with a high fever and thick secretions"
-          }
+          "rule": "Croup: barking cough, low-grade fever, stridor, non-toxic -> dexamethasone (+ nebulized adrenaline if severe). Distinguish from epiglottitis (toxic, drooling)."
         }
       },
       {
@@ -968,12 +743,7 @@ const SUBJECTS = [
           "concept": "GAS tonsillitis - antibiotics to prevent rheumatic fever",
           "discriminator": "GAS + exudative tonsillitis/adenopathy = treat antibiotics to prevent acute rheumatic fever and local suppuration",
           "trap": "Thinking antibiotics are only for symptom duration, not rheumatic-fever prevention",
-          "rule": "Treat GAS tonsillitis (positive rapid test, exudates, tender nodes, no cough) with antibiotics to prevent acute rheumatic fever and quinsy.",
-          "others": {
-            "B": "antibiotics do not treat or prevent viral spread",
-            "C": "antibiotics are not given to prevent adult tonsillectomy",
-            "D": "the positive GAS test indicates bacteria, not a virus"
-          }
+          "rule": "Treat GAS tonsillitis (positive rapid test, exudates, tender nodes, no cough) with antibiotics to prevent acute rheumatic fever and quinsy."
         }
       },
       {
@@ -989,12 +759,7 @@ const SUBJECTS = [
           "concept": "Oropharyngeal candidiasis - steroid inhaler + white curd-like plaques",
           "discriminator": "White curd-like removable plaques + steroid inhaler usage = oral candidiasis; antifungal",
           "trap": "Confusing removable curd-like plaques with adherent lesions (leukoplakia/hairy leukoplakia)",
-          "rule": "Oral candidiasis: white curd-like removable plaques (steroid use, immunocompromise) -> antifungal. Distinguish from adherent leukoplakia.",
-          "others": {
-            "B": "herpes pharyngitis has vesicles/ulcers, not curd-like plaques",
-            "C": "hairy leukoplakia is a non-removable, corrugated white lesion of the tongue edge in immunocompromise",
-            "D": "leukoedema is a benign gray-white haze of the buccal mucosa, not curd-like plaques"
-          }
+          "rule": "Oral candidiasis: white curd-like removable plaques (steroid use, immunocompromise) -> antifungal. Distinguish from adherent leukoplakia."
         }
       },
       {
@@ -1010,12 +775,7 @@ const SUBJECTS = [
           "concept": "Sialolithiasis - submandibular stone, worse at meals; sialogogues/removal",
           "discriminator": "Painful glandular swelling worse at mealtimes + ductal mass = sialolithiasis; most common in submandibular gland",
           "trap": "Assuming parotid or giving antibiotics for a ductal stone",
-          "rule": "Sialolithiasis: submandibular stone causing pain/swelling with meals; sialogogues/hydration/massage; surgical removal if recurrent.",
-          "others": {
-            "A": "this is submandibular sialolithiasis; parotidectomy is inappropriate",
-            "C": "sublingual is less common and antibiotics do not remove a stone",
-            "D": "radiotherapy is not used for a benign ductal stone"
-          }
+          "rule": "Sialolithiasis: submandibular stone causing pain/swelling with meals; sialogogues/hydration/massage; surgical removal if recurrent."
         }
       },
       {
@@ -1031,12 +791,7 @@ const SUBJECTS = [
           "concept": "Bell's palsy - sudden lower motor neuron facial palsy; oral corticosteroids",
           "discriminator": "Acute unilateral facial weakness sparing no zone (forehead involved) without other deficit = Bell's palsy (LMN); oral prednisolone",
           "trap": "Calling a fore-head-involving LMN palsy a stroke (UMN would spare the forehead)",
-          "rule": "Bell's palsy: acute LMN facial palsy (forehead involved) -> oral prednisolone + eye protection. Stroke (UMN) spares the forehead.",
-          "others": {
-            "A": "stroke is upper motor neuron and spares the forehead; there is no focal hemiparesis here",
-            "C": "Ramsay Hunt syndrome has herpetic vesicles in the ear/mouth",
-            "D": "acoustic neuroma causes SNHL and slow progressive palsy, not acute onset"
-          }
+          "rule": "Bell's palsy: acute LMN facial palsy (forehead involved) -> oral prednisolone + eye protection. Stroke (UMN) spares the forehead."
         }
       },
       {
@@ -1052,19 +807,14 @@ const SUBJECTS = [
           "concept": "Sudden sensorineural hearing loss - urgent oral corticosteroid",
           "discriminator": "Sudden unilateral SNHL = otologic emergency; prompt oral corticosteroids + urgent ENT/audiologic assessment",
           "trap": "Treating sudden SNHL as an infection or delaying reassurance",
-          "rule": "Sudden SNHL (<72h): prompt oral corticosteroid (improve recovery) + urgent ENT/audiogram; exclude acoustic neuroma.",
-          "others": {
-            "B": "topical drops act on the external/middle ear, not sensorineural loss",
-            "C": "delaying reassurance risks permanent hearing loss",
-            "D": "mastoid surgery is not first-line for sudden SNHL"
-          }
+          "rule": "Sudden SNHL (<72h): prompt oral corticosteroid (improve recovery) + urgent ENT/audiogram; exclude acoustic neuroma."
         }
       }
     ]
   },
   {
     "id": "electrolytes",
-    "name": "Hyponatremia — Hypovolemic & Cerebral Salt Wasting",
+    "name": "Electrolytes & Acid-Base",
     "questions": [
       {
         "q": "A 70-year-old woman on a thiazide diuretic for hypertension presents with confusion. Serum sodium is 122 mmol/L. She is clinically volume-depleted. Which mechanism best explains the hyponatremia?",
@@ -1079,12 +829,7 @@ const SUBJECTS = [
           "concept": "Hypovolemic hyponatremia — thiazide causes Na loss and volume depletion",
           "discriminator": "Thiazide + volume depletion + low U Na = hypovolemic hyponatremia (not SIADH, which is euvolemic)",
           "trap": "Clinical Mimic — thiazide hyponatremia (hypovolemic) vs SIADH (euvolemic, high U Na)",
-          "rule": "Thiazide hyponatremia = volume depletion; SIADH = euvolemic with high urine Na",
-          "others": {
-            "A": "SIADH is euvolemic with inappropriately high urine sodium (>20-30).",
-            "B": "Cerebral salt wasting also causes volume depletion but follows SAH, not diuretics.",
-            "D": "Adrenal insufficiency causes hyponatremia with hyperkalemia, not isolated thiazide use."
-          }
+          "rule": "Thiazide hyponatremia = volume depletion; SIADH = euvolemic with high urine Na"
         }
       },
       {
@@ -1100,12 +845,7 @@ const SUBJECTS = [
           "concept": "Cerebral salt wasting — SAH + hyponatremia + volume depletion",
           "discriminator": "SAH + hyponatremia + VOLUME DEPLETION = cerebral salt wasting (vs SIADH which is euvolemic)",
           "trap": "Opposite — CSW (hypovolemic) vs SIADH (euvolemic)",
-          "rule": "CSW = natriuresis after CNS injury with volume depletion; SIADH is euvolemic",
-          "others": {
-            "A": "SIADH is euvolemic with concentrated urine, not volume-depleted.",
-            "B": "Hypothyroidism causes mild hyponatremia but not acute after SAH.",
-            "C": "Diabetes insipidus causes hypernatremia, not hyponatremia."
-          }
+          "rule": "CSW = natriuresis after CNS injury with volume depletion; SIADH is euvolemic"
         }
       },
       {
@@ -1121,12 +861,7 @@ const SUBJECTS = [
           "concept": "Pseudohyponatremia — lab artifact in hyperlipidemia/hyperproteinemia",
           "discriminator": "Marked lipid/protein elevation dilutes Na in the sample → pseudohyponatremia (measured low, true normal)",
           "trap": "One-word discriminator — pseudohyponatremia (artifact, true Na normal)",
-          "rule": "Pseudohyponatremia = lab artifact from lipids/protein; true Na is normal (direct ISE)",
-          "others": {
-            "B": "True hyponatremia would be confirmed by direct ISE, which was normal here.",
-            "C": "SIADH would show true low sodium with concentrated urine.",
-            "D": "Hyperglycemia causes translocational (true) hyponatremia with high glucose."
-          }
+          "rule": "Pseudohyponatremia = lab artifact from lipids/protein; true Na is normal (direct ISE)"
         }
       },
       {
@@ -1142,12 +877,7 @@ const SUBJECTS = [
           "concept": "Central vs nephrogenic DI — desmopressin causes concentration in central DI",
           "discriminator": "Desmopressin → urine concentration = CENTRAL DI (kidney responds); no response = nephrogenic",
           "trap": "Opposite — central DI (responds to DDAVP) vs nephrogenic (no response)",
-          "rule": "Central DI responds to desmopressin (urine concentrates); nephrogenic does not",
-          "others": {
-            "A": "Nephrogenic DI shows no rise in urine osmolality after desmopressin.",
-            "C": "Psychogenic polydipsia concentrates urine with water deprivation alone.",
-            "D": "SIADH causes hyponatremia with concentrated urine, not polyuria + hypernatremia."
-          }
+          "rule": "Central DI responds to desmopressin (urine concentrates); nephrogenic does not"
         }
       },
       {
@@ -1163,12 +893,7 @@ const SUBJECTS = [
           "concept": "Osmotic demyelination syndrome — over-rapid Na correction",
           "discriminator": "Chronic hyponatremia + rapid overcorrection + delayed dysarthria/locked-in = osmotic demyelination",
           "trap": "Severity under-recognition — rapid correction of chronic hyponatremia",
-          "rule": "Over-rapid correction of chronic hyponatremia → osmotic demyelination (correct slowly, ~6 mmol/L/24h)",
-          "others": {
-            "B": "Wernicke causes ophthalmoplegia/ataxia/confusion, not locked-in after Na correction.",
-            "C": "Ischemic stroke is not temporally linked to Na correction.",
-            "D": "Hypoglycemia is not the mechanism; it is osmotic injury from Na shifts."
-          }
+          "rule": "Over-rapid correction of chronic hyponatremia → osmotic demyelination (correct slowly, ~6 mmol/L/24h)"
         }
       },
       {
@@ -1184,12 +909,7 @@ const SUBJECTS = [
           "concept": "Hypernatremia — free-water deficit from inadequate intake / insensible loss",
           "discriminator": "Infant + hypernatremia + inadequate water intake = free-water deficit (not DI, which is ADH-related)",
           "trap": "Clinical Mimic — hypernatremia from water deficit vs DI (urine osmolality discriminates)",
-          "rule": "Infant hypernatremia = free-water deficit (inadequate intake); DI shows persistent dilute urine",
-          "others": {
-            "B": "DI shows persistently dilute urine despite hypernatremia and no response to water deficit.",
-            "C": "Hyperaldosteronism causes hypertension and hypokalemia, not isolated infant hypernatremia.",
-            "D": "Salt poisoning causes hypernatremia but with high urine sodium, not low osmolality."
-          }
+          "rule": "Infant hypernatremia = free-water deficit (inadequate intake); DI shows persistent dilute urine"
         }
       },
       {
@@ -1205,12 +925,7 @@ const SUBJECTS = [
           "concept": "Hypokalemia — multifactorial (renal + GI loss + alkalosis shift)",
           "discriminator": "Diuretic + vomiting + alkalosis = combined renal/GI K loss plus intracellular shift",
           "trap": "Treatment misdirection — replacing K without addressing the cause",
-          "rule": "Hypokalemia = renal loss (diuretics) + GI loss (vomiting) + shift (alkalosis/insulin)",
-          "others": {
-            "A": "Dietary deficiency alone rarely causes severe hypokalemia this rapidly.",
-            "B": "Insulin shift is one factor; the dominant losses here are renal and GI.",
-            "C": "Magnesium excess does not cause hypokalemia; magnesium DEFICIENCY is associated."
-          }
+          "rule": "Hypokalemia = renal loss (diuretics) + GI loss (vomiting) + shift (alkalosis/insulin)"
         }
       },
       {
@@ -1226,12 +941,7 @@ const SUBJECTS = [
           "concept": "Hypokalemic periodic paralysis — episodic weakness after carbs/exercise",
           "discriminator": "Episodic flaccid weakness + low K after carbohydrate load/exercise = hypokalemic periodic paralysis",
           "trap": "Clinical Mimic — periodic paralysis (episodic, normal between) vs GBS (ascending, persistent)",
-          "rule": "Hypokalemic periodic paralysis = episodic weakness after carbs/exercise + low K",
-          "others": {
-            "A": "GBS is ascending, persistent, with areflexia and elevated CSF protein.",
-            "C": "Myasthenia causes fatigable weakness, not episodic with low potassium.",
-            "D": "Polymyositis is chronic proximal weakness with myalgia and raised CK."
-          }
+          "rule": "Hypokalemic periodic paralysis = episodic weakness after carbs/exercise + low K"
         }
       },
       {
@@ -1247,12 +957,7 @@ const SUBJECTS = [
           "concept": "Hyperkalemia ECG progression — peaked T → widened QRS → sine wave",
           "discriminator": "HyperK ECG: peaked T → prolonged PR → widened QRS → sine wave (pre-arrest)",
           "trap": "Severity under-recognition — QRS widening = pre-arrest in hyperkalemia",
-          "rule": "HyperK ECG: peaked T → widened QRS → sine wave; QRS widening is pre-arrest",
-          "others": {
-            "A": "QT shortening is not the hallmark; QRS widening is the dangerous sign.",
-            "B": "ST elevation suggests infarction, not hyperkalemia.",
-            "D": "T-wave inversion is ischaemic, not hyperkalemic (which shows peaked T)."
-          }
+          "rule": "HyperK ECG: peaked T → widened QRS → sine wave; QRS widening is pre-arrest"
         }
       },
       {
@@ -1268,12 +973,7 @@ const SUBJECTS = [
           "concept": "Pseudohyperkalemia — artifact from hemolysis or prolonged tourniquet/fist clenching",
           "discriminator": "Asymptomatic 'hyperkalemia' + normal ECG + normal repeat = pseudohyperkalemia (artifact)",
           "trap": "One-word discriminator — pseudohyperkalemia (artifact, asymptomatic)",
-          "rule": "Pseudohyperkalemia = artifact (hemolysis/fist clench); true hyperK is rarely asymptomatic at 6.9",
-          "others": {
-            "A": "A value that normalises with technique change is artifact, not a resolved true state.",
-            "B": "Calibration error would affect other electrolytes, not just K.",
-            "C": "Medication shift would not resolve simply with a better draw technique."
-          }
+          "rule": "Pseudohyperkalemia = artifact (hemolysis/fist clench); true hyperK is rarely asymptomatic at 6.9"
         }
       },
       {
@@ -1289,12 +989,7 @@ const SUBJECTS = [
           "concept": "Hyperkalemia — calcium first for cardiac membrane stabilisation when ECG changes present",
           "discriminator": "Any hyperK ECG change (even peaked T) → IV calcium FIRST for cardioprotection, then shift agents",
           "trap": "Treatment ladder — calcium (cardioprotection) before shift/removal",
-          "rule": "HyperK + ECG changes: calcium FIRST (cardioprotect), then shift (insulin/salbutamol), then remove",
-          "others": {
-            "A": "Insulin/dextrose shifts K but does not stabilise the myocardium; calcium comes first.",
-            "C": "Resins remove K slowly (hours); not immediate for ECG changes.",
-            "D": "Observation is dangerous with peaked T waves present."
-          }
+          "rule": "HyperK + ECG changes: calcium FIRST (cardioprotect), then shift (insulin/salbutamol), then remove"
         }
       },
       {
@@ -1310,12 +1005,7 @@ const SUBJECTS = [
           "concept": "Hypercalcemia of malignancy — suppressed PTH (PTHrP), vs primary HPT (high PTH)",
           "discriminator": "Hypercalcemia + LOW/normal PTH = malignancy (PTHrP) or vitamin D; HIGH PTH = primary HPT",
           "trap": "Opposite — malignancy (low PTH) vs primary HPT (high PTH) for hypercalcemia",
-          "rule": "Hypercalcemia: low PTH = malignancy (PTHrP)/vit D; high PTH = primary HPT",
-          "others": {
-            "B": "Primary HPT has high or inappropriately normal PTH, not suppressed.",
-            "C": "Vitamin D intoxication suppresses PTH but is associated with high calcitriol, not weight loss/bone pain typical here.",
-            "D": "Sarcoidosis causes hypercalcemia via calcitriol with suppressed PTH, but the weight loss/bone pain pattern points to malignancy."
-          }
+          "rule": "Hypercalcemia: low PTH = malignancy (PTHrP)/vit D; high PTH = primary HPT"
         }
       },
       {
@@ -1331,12 +1021,7 @@ const SUBJECTS = [
           "concept": "Hypocalcemia — hypomagnesemia causes refractory hypocalcemia",
           "discriminator": "Low Mg → impaired PTH secretion/action → calcium replacement fails until Mg corrected",
           "trap": "Treatment misdirection — calcium without magnesium in refractory hypocalcemia",
-          "rule": "Hypomagnesemia → impaired PTH secretion/action → refractory hypocalcemia (replace Mg)",
-          "others": {
-            "B": "Vitamin D deficiency would not specifically cause refractoriness to IV calcium.",
-            "C": "Pseudohypoparathyroidism has high PTH with low calcium, not low magnesium.",
-            "D": "Hungry bone syndrome follows parathyroid surgery, not alcohol + low Mg."
-          }
+          "rule": "Hypomagnesemia → impaired PTH secretion/action → refractory hypocalcemia (replace Mg)"
         }
       },
       {
@@ -1352,12 +1037,7 @@ const SUBJECTS = [
           "concept": "Hypomagnesemia — causes (alcohol, diuretics, diarrhoea, TPN, aminoglycosides)",
           "discriminator": "Hypomagnesemia causes: alcohol, loop/thiazide diuretics, diarrhoea, TPN, aminoglycosides, PPI",
           "trap": "Clinical Mimic — Mg loss causes vs conditions that raise or spare Mg",
-          "rule": "Hypomagnesemia: alcohol, loop/thiazide diuretics, diarrhoea, TPN, aminoglycosides, PPI",
-          "others": {
-            "A": "Primary HPT causes hypercalcemia, not hypomagnesemia.",
-            "B": "Hypothyroidism is not a cause of hypomagnesemia.",
-            "D": "Spironolactone (potassium-sparing) does not typically cause Mg loss; loops do."
-          }
+          "rule": "Hypomagnesemia: alcohol, loop/thiazide diuretics, diarrhoea, TPN, aminoglycosides, PPI"
         }
       },
       {
@@ -1373,12 +1053,7 @@ const SUBJECTS = [
           "concept": "Magnesium sulfate — eclampsia / pre-eclampsia seizure prophylaxis",
           "discriminator": "Pre-eclampsia/eclampsia seizures → IV magnesium sulfate (not calcium)",
           "trap": "Treatment ladder — magnesium sulfate for eclampsia; calcium is the ANTIDOTE",
-          "rule": "Eclampsia seizures → IV magnesium sulfate; calcium gluconate is the antidote for Mg toxicity",
-          "others": {
-            "A": "Calcium gluconate reverses magnesium toxicity, not treats eclampsia seizures.",
-            "B": "Oral magnesium oxide is a laxative/supplement, not acute therapy.",
-            "C": "Potassium chloride does not treat eclampsia."
-          }
+          "rule": "Eclampsia seizures → IV magnesium sulfate; calcium gluconate is the antidote for Mg toxicity"
         }
       },
       {
@@ -1394,12 +1069,7 @@ const SUBJECTS = [
           "concept": "CKD-MBD — hyperphosphatemia + low calcitriol → secondary hyperparathyroidism",
           "discriminator": "CKD: high PO4 + low calcitriol → low Ca → PTH rises = secondary hyperparathyroidism",
           "trap": "Opposite — secondary HPT (high turnover) vs adynamic bone disease (low turnover)",
-          "rule": "CKD: hyperphosphatemia + low calcitriol → secondary hyperparathyroidism/renal osteodystrophy",
-          "others": {
-            "A": "Parathyroid hormone is HIGH (secondary), not low, in early CKD-MBD.",
-            "C": "Vitamin D is LOW in CKD, not excess.",
-            "D": "Adynamic bone disease is low-turnover from over-treatment, not the typical high-turnover state."
-          }
+          "rule": "CKD: hyperphosphatemia + low calcitriol → secondary hyperparathyroidism/renal osteodystrophy"
         }
       },
       {
@@ -1415,12 +1085,7 @@ const SUBJECTS = [
           "concept": "Type 1 distal RTA — normal AG acidosis + hypokalemia + stones/nephrocalcinosis",
           "discriminator": "Normal AG metabolic acidosis + hypokalemia + calcium stones = distal (type 1) RTA",
           "trap": "Opposite — distal RTA (hypoK) vs type 4 RTA (hyperK)",
-          "rule": "Distal (type 1) RTA = normal AG acidosis + hypokalemia + calcium stones",
-          "others": {
-            "A": "Type 2 RTA has bicarbonate wasting and Fanconi findings, not primarily stones.",
-            "B": "Type 4 RTA has hyperkalemia, not hypokalemia.",
-            "D": "Chronic diarrhea causes normal AG acidosis but with high urine ammonium, not stones."
-          }
+          "rule": "Distal (type 1) RTA = normal AG acidosis + hypokalemia + calcium stones"
         }
       },
       {
@@ -1436,12 +1101,7 @@ const SUBJECTS = [
           "concept": "Fanconi syndrome — proximal tubular dysfunction (type 2 RTA + glycosuria/phosphaturia/aminoaciduria)",
           "discriminator": "Generalized proximal tubule loss (glucose/phosphate/amino acids/bicarbonate) = Fanconi syndrome",
           "trap": "Clinical Mimic — Fanconi (proximal, generalized) vs distal RTA (isolated acidification)",
-          "rule": "Fanconi = proximal tubulopathy: bicarbonaturia + glycosuria + phosphaturia + aminoaciduria",
-          "others": {
-            "A": "Distal RTA is an isolated acidification defect without glycosuria/aminoaciduria.",
-            "C": "Bartter syndrome causes hypokalemic alkalosis with normal calcium, not Fanconi features.",
-            "D": "Gitelman syndrome causes hypokalemic metabolic alkalosis, not proximal losses."
-          }
+          "rule": "Fanconi = proximal tubulopathy: bicarbonaturia + glycosuria + phosphaturia + aminoaciduria"
         }
       },
       {
@@ -1457,12 +1117,7 @@ const SUBJECTS = [
           "concept": "Type 4 RTA — hyperkalemic distal RTA from hypoaldosteronism",
           "discriminator": "Normal AG acidosis + HYPERkalemia = type 4 RTA (aldosterone deficiency/resistance)",
           "trap": "Opposite — type 4 RTA (hyperK) vs types 1/2 (hypoK)",
-          "rule": "Type 4 RTA = normal AG acidosis + hyperkalemia (aldosterone defect); types 1/2 are hypokalemic",
-          "others": {
-            "A": "Diarrhea causes normal AG acidosis but with hypokalemia, not hyperkalemia.",
-            "B": "Salicylate causes a high anion-gap (and respiratory) acidosis.",
-            "D": "Methanol causes high AG acidosis with an osmolal gap."
-          }
+          "rule": "Type 4 RTA = normal AG acidosis + hyperkalemia (aldosterone defect); types 1/2 are hypokalemic"
         }
       },
       {
@@ -1478,12 +1133,7 @@ const SUBJECTS = [
           "concept": "Lactic acidosis — type A from hypoperfusion/shock (MUDPILES 'L')",
           "discriminator": "Shock + high AG acidosis + high lactate = type A lactic acidosis (hypoperfusion)",
           "trap": "Severity under-recognition — lactate as perfusion marker in shock",
-          "rule": "Type A lactic acidosis = hypoperfusion/shock (treat perfusion); type B = metformin/toxins",
-          "others": {
-            "A": "Metformin causes type B lactic acidosis, not shock-driven type A.",
-            "B": "Ketoacidosis has ketones; lactate here is the driver.",
-            "C": "Methanol causes high AG acidosis with an osmolal gap and ocular toxicity."
-          }
+          "rule": "Type A lactic acidosis = hypoperfusion/shock (treat perfusion); type B = metformin/toxins"
         }
       },
       {
@@ -1499,12 +1149,7 @@ const SUBJECTS = [
           "concept": "Mixed acid-base disorder — DKA (high AG acidosis) + vomiting (metabolic alkalosis)",
           "discriminator": "High AG + low HCO3 that is LESS low than expected + vomiting = mixed high-AG acidosis + alkalosis",
           "trap": "Classification trap — mixed disorder (two metabolic processes)",
-          "rule": "Mixed disorder: high-AG acidosis (DKA) + metabolic alkalosis (vomiting) raises HCO3 above expected",
-          "others": {
-            "A": "Pure DKA would drive HCO3 much lower than 18 for this pH/AG.",
-            "B": "Metabolic alkalosis alone would raise pH and HCO3, not lower them.",
-            "D": "Respiratory acidosis would raise PaCO2, not explain the high anion gap."
-          }
+          "rule": "Mixed disorder: high-AG acidosis (DKA) + metabolic alkalosis (vomiting) raises HCO3 above expected"
         }
       },
       {
@@ -1520,12 +1165,7 @@ const SUBJECTS = [
           "concept": "Normal AG acidosis — positive urine anion gap = RTA (low NH4 excretion); negative = diarrhea",
           "discriminator": "Normal AG acidosis: POSITIVE urine anion gap = RTA; NEGATIVE (high NH4) = GI/diarrhea loss",
           "trap": "One-word discriminator — urine anion gap (positive = RTA, negative = GI loss)",
-          "rule": "Urine anion gap: positive = RTA (low NH4); negative = diarrhea/GI bicarbonate loss",
-          "others": {
-            "B": "Diarrhea yields a NEGATIVE urine anion gap (high urinary NH4).",
-            "C": "Salicylate causes high AG (and respiratory) acidosis.",
-            "D": "Methanol causes high AG acidosis with osmolal gap."
-          }
+          "rule": "Urine anion gap: positive = RTA (low NH4); negative = diarrhea/GI bicarbonate loss"
         }
       },
       {
@@ -1541,12 +1181,7 @@ const SUBJECTS = [
           "concept": "Alcoholic ketoacidosis — high AG acidosis, ketones + lactate, euglycemic",
           "discriminator": "Alcoholic + high AG acidosis + ketones + elevated lactate + NORMAL glucose = alcoholic ketoacidosis",
           "trap": "Clinical Mimic — alcoholic ketoacidosis (euglycemic) vs DKA (hyperglycemic)",
-          "rule": "Alcoholic ketoacidosis: high AG acidosis + ketones + lactate + NORMAL glucose (vs DKA hyperglycemia)",
-          "others": {
-            "B": "DKA is hyperglycemic; this patient is euglycemic.",
-            "C": "Lactate alone does not explain the ketonuria.",
-            "D": "Salicylate causes high AG with a respiratory alkalosis component."
-          }
+          "rule": "Alcoholic ketoacidosis: high AG acidosis + ketones + lactate + NORMAL glucose (vs DKA hyperglycemia)"
         }
       },
       {
@@ -1562,12 +1197,7 @@ const SUBJECTS = [
           "concept": "Isotonic saline distribution — stays in ECF, no ICF shift, sodium concentration unchanged",
           "discriminator": "Isotonic fluid expands ECF only; no osmotic gradient so ICF unchanged; [Na] stays same",
           "trap": "Opposite — isotonic (ECF only, [Na] unchanged) vs free water (ICF expands) vs hypertonic (raises [Na])",
-          "rule": "Isotonic saline stays in ECF (no ICF shift); plasma [Na] unchanged",
-          "others": {
-            "A": "ICF does not increase and sodium concentration does not fall with isotonic fluid.",
-            "C": "Free water (not isotonic saline) expands ICF.",
-            "D": "Hypertonic saline raises [Na] and expands ECF; this is isotonic."
-          }
+          "rule": "Isotonic saline stays in ECF (no ICF shift); plasma [Na] unchanged"
         }
       },
       {
@@ -1583,19 +1213,14 @@ const SUBJECTS = [
           "concept": "Digoxin toxicity — hyperkalemia is a marker; treat with Digoxin-Fab, avoid calcium",
           "discriminator": "Digoxin toxicity hyperkalemia = give Digoxin-Fab; AVOID calcium (risk of 'stone heart')",
           "trap": "Treatment misdirection — giving calcium in digoxin toxicity (harmful)",
-          "rule": "Digoxin toxicity hyperkalemia → Digoxin-Fab; avoid calcium (risk of 'stone heart')",
-          "others": {
-            "A": "Calcium is avoided in digoxin toxicity due to arrhythmia risk.",
-            "B": "Insulin/dextrose may be used but Fab is definitive; calcium is the key avoided agent.",
-            "C": "Potassium would worsen toxicity; it is already elevated."
-          }
+          "rule": "Digoxin toxicity hyperkalemia → Digoxin-Fab; avoid calcium (risk of 'stone heart')"
         }
       }
     ]
   },
   {
     "id": "endocrine",
-    "name": "Subacute Thyroiditis (de Quervain)",
+    "name": "Endocrinology",
     "questions": [
       {
         "q": "A 40-year-old woman presents with a 1-week history of severe anterior neck pain radiating to the ear, fever, and transient palpitations. The thyroid is tender and firm. She recently had a viral upper respiratory infection. What is the most likely diagnosis?",
@@ -1610,12 +1235,7 @@ const SUBJECTS = [
           "concept": "Subacute thyroiditis — painful thyroid after viral illness, transient thyrotoxicosis",
           "discriminator": "PAINFUL thyroid + fever + post-viral + transient thyrotoxicosis = de Quervain (subacute) thyroiditis",
           "trap": "Clinical Mimic — painful thyroid (de Quervain) vs painless (Graves/Hashimoto)",
-          "rule": "De Quervain (subacute) thyroiditis: painful tender thyroid + viral prodrome + transient thyrotoxicosis; NSAIDs/steroids",
-          "others": {
-            "B": "Graves causes a painless diffuse goitre with bruit, not pain/fever.",
-            "C": "Hashimoto is painless with hypothyroidism, not acute pain/fever.",
-            "D": "Acute bacterial thyroiditis is rare and toxic, not self-limited post-viral."
-          }
+          "rule": "De Quervain (subacute) thyroiditis: painful tender thyroid + viral prodrome + transient thyrotoxicosis; NSAIDs/steroids"
         }
       },
       {
@@ -1631,12 +1251,7 @@ const SUBJECTS = [
           "concept": "Amiodarone thyroid — type 2 = destructive thyroiditis (low uptake), steroids",
           "discriminator": "Amiodarone + thyrotoxicosis + LOW RAI uptake = type 2 (destructive); type 1 (high uptake) = iodine excess",
           "trap": "Opposite — type 1 (high uptake, antithyroid) vs type 2 (low uptake, steroids)",
-          "rule": "Amiodarone thyroid: type 2 = destructive (low uptake) → steroids; type 1 = iodine excess (high uptake) → antithyroid",
-          "others": {
-            "A": "Type 1 shows HIGH uptake and is treated with antithyroid drugs, not steroids.",
-            "B": "Graves would show diffuse high uptake and TSAb, not amiodarone exposure.",
-            "D": "Subacute (de Quervain) thyroiditis is post-viral, not drug-induced."
-          }
+          "rule": "Amiodarone thyroid: type 2 = destructive (low uptake) → steroids; type 1 = iodine excess (high uptake) → antithyroid"
         }
       },
       {
@@ -1652,12 +1267,7 @@ const SUBJECTS = [
           "concept": "Thyroid eye disease — smoking worsens; steroids/decompression for severe",
           "discriminator": "Graves exophthalmos + smoking + severe eye involvement = thyroid eye disease → steroids/decompression",
           "trap": "Severity under-recognition — exophthalmos needs steroids/decompression, not just thyroxine",
-          "rule": "Thyroid eye disease: smoking worsens; severe (optic compression) → steroids/orbital decompression",
-          "others": {
-            "A": "Hypothyroidism does not drive orbitopathy; euthyroidism is the goal, not suppression.",
-            "C": "Radioiodine can actually transiently worsen eye disease; it does not cure it.",
-            "D": "Levothyroxine does not treat the inflammatory orbitopathy."
-          }
+          "rule": "Thyroid eye disease: smoking worsens; severe (optic compression) → steroids/orbital decompression"
         }
       },
       {
@@ -1673,12 +1283,7 @@ const SUBJECTS = [
           "concept": "Subclinical hypothyroidism — observe unless TSH>10 or symptoms/antibodies",
           "discriminator": "Elevated TSH + normal T4 + asymptomatic = subclinical hypothyroidism → observe unless TSH>10",
           "trap": "Treatment misdirection — overtreating mild/subclinical hypothyroidism",
-          "rule": "Subclinical hypothyroidism: treat if TSH>10 or symptomatic/TPO+; otherwise observe",
-          "others": {
-            "A": "Routine immediate high-dose thyroxine is not indicated for asymptomatic mild elevation.",
-            "B": "Urgent scan is not needed for stable subclinical disease.",
-            "C": "Antithyroid drugs are for hyperthyroidism, not hypothyroidism."
-          }
+          "rule": "Subclinical hypothyroidism: treat if TSH>10 or symptomatic/TPO+; otherwise observe"
         }
       },
       {
@@ -1694,12 +1299,7 @@ const SUBJECTS = [
           "concept": "Toxic multinodular goitre — elderly, nodular goitre, no exophthalmos; radioiodine",
           "discriminator": "Elderly + nodular goitre + thyrotoxicosis WITHOUT exophthalmos = toxic MNG (vs Graves)",
           "trap": "Clinical Mimic — TMG (nodular, no exophthalmos) vs Graves (diffuse + exophthalmos)",
-          "rule": "Toxic MNG: elderly + nodular goitre + thyrotoxicosis, NO exophthalmos; treat with radioiodine",
-          "others": {
-            "A": "Graves has exophthalmos and a diffuse goitre; TMG is nodular without eye signs.",
-            "B": "This is thyrotoxic, not thyroiditis; observation is insufficient.",
-            "C": "There is no suggestion of malignancy; urgent cancer surgery is wrong."
-          }
+          "rule": "Toxic MNG: elderly + nodular goitre + thyrotoxicosis, NO exophthalmos; treat with radioiodine"
         }
       },
       {
@@ -1715,12 +1315,7 @@ const SUBJECTS = [
           "concept": "Differentiated thyroid Ca — thyroglobulin as tumour marker (undetectable = no disease)",
           "discriminator": "Post-thyroidectomy: undetectable thyroglobulin (+ negative antibodies) = no residual disease",
           "trap": "One-word discriminator — thyroglobulin = differentiated thyroid Ca tumour marker",
-          "rule": "Differentiated thyroid Ca: thyroglobulin = tumour marker; undetectable (no Ab) = no recurrence",
-          "others": {
-            "A": "Undetectable thyroglobulin argues against recurrence, not for it.",
-            "B": "Thyroglobulin is a tumour marker, not a measure of thyroxine adequacy (TSH is).",
-            "D": "No evidence of disease does not warrant repeat surgery."
-          }
+          "rule": "Differentiated thyroid Ca: thyroglobulin = tumour marker; undetectable (no Ab) = no recurrence"
         }
       },
       {
@@ -1736,12 +1331,7 @@ const SUBJECTS = [
           "concept": "21-hydroxylase deficiency CAH — salt-wasting + virilization + hypoNa/hyperK",
           "discriminator": "Female infant + ambiguous genitalia + salt-wasting crisis (hypoNa/hyperK) = 21-OH deficiency CAH",
           "trap": "Clinical Mimic — CAH (salt-wasting + virilization) vs other causes of ambiguous genitalia",
-          "rule": "21-OH deficiency CAH: ambiguous genitalia + salt-wasting crisis (hypoNa/hyperK) + ↑17-OH progesterone",
-          "others": {
-            "A": "Primary hyperaldosteronism causes hypertension with hypokalaemia, not salt-wasting or virilization.",
-            "B": "Adrenal hypoplasia presents with adrenal insufficiency but not virilization.",
-            "C": "Turner syndrome has streak gonads and lymphedema, not virilization or salt-wasting."
-          }
+          "rule": "21-OH deficiency CAH: ambiguous genitalia + salt-wasting crisis (hypoNa/hyperK) + ↑17-OH progesterone"
         }
       },
       {
@@ -1757,12 +1347,7 @@ const SUBJECTS = [
           "concept": "Primary vs secondary adrenal insufficiency — hyperkalaemia + pigmentation only in PRIMARY",
           "discriminator": "Adrenal insufficiency WITHOUT hyperkalaemia/pigmentation = secondary (pituitary); primary has both",
           "trap": "Opposite — primary (hyperK + pigmentation) vs secondary (normoK, no pigmentation)",
-          "rule": "Primary AI: low cortisol + low aldosterone → hypoNa + hyperK + pigmentation. Secondary: cortisol only → hypoNa, normal K, no pigment",
-          "others": {
-            "A": "Primary disease would show hyperkalaemia and pigmentation, neither present here.",
-            "C": "Hyperkalaemia occurs in primary, not secondary, adrenal insufficiency.",
-            "D": "Pigmentation is a feature of primary (ACTH excess), not secondary."
-          }
+          "rule": "Primary AI: low cortisol + low aldosterone → hypoNa + hyperK + pigmentation. Secondary: cortisol only → hypoNa, normal K, no pigment"
         }
       },
       {
@@ -1778,12 +1363,7 @@ const SUBJECTS = [
           "concept": "Nelson syndrome — pituitary tumour enlargement after bilateral adrenalectomy for Cushing",
           "discriminator": "Bilateral adrenalectomy for Cushing + enlarging pituitary mass + visual loss = Nelson syndrome",
           "trap": "Severity under-recognition — post-bilateral-adrenalectomy pituitary tumour = Nelson",
-          "rule": "Nelson syndrome: pituitary macroadenoma after bilateral adrenalectomy for Cushing (loss of feedback)",
-          "others": {
-            "A": "Apoplexy is acute haemorrhage/infarction, not a slowly enlarging mass years later.",
-            "B": "Craniopharyngioma is a distinct calcified suprasellar tumour, not post-adrenalectomy.",
-            "D": "Metastatic lung cancer would not have this surgical history."
-          }
+          "rule": "Nelson syndrome: pituitary macroadenoma after bilateral adrenalectomy for Cushing (loss of feedback)"
         }
       },
       {
@@ -1799,12 +1379,7 @@ const SUBJECTS = [
           "concept": "Adrenal incidentaloma — exclude hormonal hyperfunction before considering surgery",
           "discriminator": "Incidental adrenal mass → biochemical workup (Cushing/pheo/Conn) before surgery",
           "trap": "Treatment misdirection — operating on an incidentaloma without endocrine workup",
-          "rule": "Adrenal incidentaloma: exclude Cushing/pheochromocytoma/Conn biochemically before surgery; most observed",
-          "others": {
-            "A": "Immediate adrenalectomy without ruling out pheochromocytoma is dangerous (catecholamine crisis).",
-            "B": "Observation without endocrine testing misses functioning tumours.",
-            "D": "Chemotherapy is not indicated for a benign incidentaloma."
-          }
+          "rule": "Adrenal incidentaloma: exclude Cushing/pheochromocytoma/Conn biochemically before surgery; most observed"
         }
       },
       {
@@ -1820,12 +1395,7 @@ const SUBJECTS = [
           "concept": "Acromegaly — IGF-1 screening; GH excess from pituitary adenoma",
           "discriminator": "Coarse features + enlarging hands/feet + glucose intolerance = acromegaly → check IGF-1 first",
           "trap": "Clinical Mimic — acromegaly (coarse features, enlarging ring/shoe size) vs normal ageing",
-          "rule": "Acromegaly: GH adenoma → screen with IGF-1 (stable), confirm with OGTT GH suppression",
-          "others": {
-            "A": "Random GH is pulsatile and unreliable for screening; IGF-1 is preferred.",
-            "C": "MRI is done after biochemical confirmation, not as first screening.",
-            "D": "OGTT is confirmatory, not the initial screen; IGF-1 comes first."
-          }
+          "rule": "Acromegaly: GH adenoma → screen with IGF-1 (stable), confirm with OGTT GH suppression"
         }
       },
       {
@@ -1841,12 +1411,7 @@ const SUBJECTS = [
           "concept": "Pituitary apoplexy — acute haemorrhage/infarction; steroids + urgent decompression",
           "discriminator": "Pituitary macroadenoma + sudden HA + visual loss + hypotension/hypoglycaemia = apoplexy (emergency)",
           "trap": "Severity under-recognition — apoplexy = sudden HA + visual loss + adrenal crisis",
-          "rule": "Pituitary apoplexy: acute HA + visual loss + cortisol-deficiency shock → IV steroids + urgent decompression",
-          "others": {
-            "B": "This is an endocrine emergency, not migraine; observation is fatal.",
-            "C": "SAH causes thunderclap headache but not the endocrine/visual-field profile of apoplexy.",
-            "D": "No action is dangerous; apoplexy is life-threatening."
-          }
+          "rule": "Pituitary apoplexy: acute HA + visual loss + cortisol-deficiency shock → IV steroids + urgent decompression"
         }
       },
       {
@@ -1862,12 +1427,7 @@ const SUBJECTS = [
           "concept": "Craniopharyngioma — child, calcified suprasellar mass, bitemporal hemianopia",
           "discriminator": "Child + calcified suprasellar mass + bitemporal hemianopia + growth failure = craniopharyngioma",
           "trap": "Clinical Mimic — craniopharyngioma (calcified suprasellar, child) vs pituitary adenoma",
-          "rule": "Craniopharyngioma: child + calcified suprasellar mass + bitemporal hemianopia + hormone deficits",
-          "others": {
-            "A": "Pituitary adenomas are rarely calcified and usually present in adults, not with this mass in a child.",
-            "B": "Meningiomas are extra-axial and uncommon in children, and less often calcified suprasellar.",
-            "C": "Optic nerve glioma causes unilateral vision loss, not bitemporal hemianopia with a calcified mass."
-          }
+          "rule": "Craniopharyngioma: child + calcified suprasellar mass + bitemporal hemianopia + hormone deficits"
         }
       },
       {
@@ -1883,12 +1443,7 @@ const SUBJECTS = [
           "concept": "Drug-induced hyperprolactinemia — antipsychotics/D2 blockers before prolactinoma",
           "discriminator": "Hyperprolactinemia on antipsychotic/metoclopramide = drug-induced; review drug before imaging",
           "trap": "Treatment misdirection — assuming prolactinoma without checking drug causes",
-          "rule": "Drug-induced hyperprolactinemia: antipsychotics/metoclopramide (D2 blockade); review drug before prolactinoma workup",
-          "others": {
-            "B": "Surgery is for prolactinoma, not drug-induced hyperprolactinemia; the drug should be reviewed first.",
-            "C": "Hypothyroidism can raise prolactin mildly but not typically with galactorrhoea on an antipsychotic.",
-            "D": "Pregnancy is one cause but not the only one; drugs are a key consideration here."
-          }
+          "rule": "Drug-induced hyperprolactinemia: antipsychotics/metoclopramide (D2 blockade); review drug before prolactinoma workup"
         }
       },
       {
@@ -1904,12 +1459,7 @@ const SUBJECTS = [
           "concept": "Lymphocytic hypophysitis — postpartum pituitary mass with DI",
           "discriminator": "Postpartum woman + pituitary mass + diabetes insipidus = lymphocytic (autoimmune) hypophysitis",
           "trap": "Clinical Mimic — lymphocytic hypophysitis (postpartum + DI) vs pituitary adenoma",
-          "rule": "Lymphocytic hypophysitis: postpartum/late-pregnancy pituitary mass + DI; steroids first-line",
-          "others": {
-            "A": "Craniopharyngioma is calcified and not typically postpartum or associated with lymphocytic infiltration.",
-            "C": "A macroadenoma can compress but DI and postpartum onset favour hypophysitis.",
-            "D": "Metastasis would have a known primary and does not have this postpartum pattern."
-          }
+          "rule": "Lymphocytic hypophysitis: postpartum/late-pregnancy pituitary mass + DI; steroids first-line"
         }
       },
       {
@@ -1925,12 +1475,7 @@ const SUBJECTS = [
           "concept": "Growth hormone deficiency — proportionate short stature + reduced growth velocity + delayed bone age",
           "discriminator": "Child: short stature + low growth velocity + delayed bone age + normal proportions = GH deficiency",
           "trap": "Clinical Mimic — GH deficiency (proportionate, low velocity) vs achondroplasia/Turner/constitutional",
-          "rule": "GH deficiency: proportionate short stature + reduced growth velocity + delayed bone age; stim test confirms",
-          "others": {
-            "B": "Achondroplasia causes disproportionate (rhizomelic) shortening, not proportionate stature.",
-            "C": "Turner syndrome has webbing, streak gonads, and specific features, not isolated GH deficiency.",
-            "D": "Constitutional delay has a family history and normal/late catch-up, not necessarily low velocity."
-          }
+          "rule": "GH deficiency: proportionate short stature + reduced growth velocity + delayed bone age; stim test confirms"
         }
       },
       {
@@ -1946,12 +1491,7 @@ const SUBJECTS = [
           "concept": "Stalk effect — hyperprolactinemia from interrupted dopamine (stalk compression)",
           "discriminator": "No adenoma but high prolactin + stalk compression = stalk effect (lost dopamine inhibition)",
           "trap": "Classification trap — stalk effect (no adenoma) vs prolactinoma (mass)",
-          "rule": "Stalk effect: stalk compression interrupts hypothalamic dopamine → hyperprolactinemia without prolactinoma",
-          "others": {
-            "A": "A prolactinoma would be a visible enhancing mass, not an empty sella.",
-            "B": "Hypothyroidism raises prolactin via TRH but would show low free T4/high TSH.",
-            "D": "Renal failure can raise prolactin but is not suggested by the empty sella here."
-          }
+          "rule": "Stalk effect: stalk compression interrupts hypothalamic dopamine → hyperprolactinemia without prolactinoma"
         }
       },
       {
@@ -1967,12 +1507,7 @@ const SUBJECTS = [
           "concept": "Insulinoma — endogenous hyperinsulinaemic fasting hypoglycaemia (Whipple triad)",
           "discriminator": "Fasting hypoglycaemia + HIGH insulin + C-peptide = insulinoma (endogenous); low C-peptide = factitious",
           "trap": "Severity under-recognition — fasting hypoglycaemia + high insulin/C-peptide = insulinoma",
-          "rule": "Insulinoma: fasting hypoglycaemia + inappropriately high insulin + C-peptide (Whipple triad); surgery",
-          "others": {
-            "A": "Factitious (exogenous insulin) has HIGH insulin but LOW C-peptide — opposite here.",
-            "B": "Addison causes hypoglycaemia but with low insulin and cortisol deficiency.",
-            "C": "Reactive hypoglycaemia is postprandial, not fasting, and insulin would be appropriately low."
-          }
+          "rule": "Insulinoma: fasting hypoglycaemia + inappropriately high insulin + C-peptide (Whipple triad); surgery"
         }
       },
       {
@@ -1988,12 +1523,7 @@ const SUBJECTS = [
           "concept": "Paget disease — elevated ALP, normal Ca/PO4, 'cotton-wool' bone on X-ray",
           "discriminator": "Bone pain + high ALP + normal Ca/PO4 + cotton-wool bone = Paget disease",
           "trap": "One-word discriminator — elevated ALP + normal Ca/PO4 + cotton-wool bone = Paget",
-          "rule": "Paget disease: high ALP, normal Ca/PO4, cortical thickening/cotton-wool bone; bisphosphonates",
-          "others": {
-            "B": "Osteomalacia shows low Ca/PO4 (or low-normal) with high ALP, not the cotton-wool pattern.",
-            "C": "Osteoporosis has normal Ca/PO4/ALP; it is loss of bone density, not remodelling.",
-            "D": "Myeloma causes lytic lesions and CRAB features, not cotton-wool cortical thickening."
-          }
+          "rule": "Paget disease: high ALP, normal Ca/PO4, cortical thickening/cotton-wool bone; bisphosphonates"
         }
       },
       {
@@ -2009,12 +1539,7 @@ const SUBJECTS = [
           "concept": "Postmenopausal osteoporosis — bisphosphonate first-line for fracture prevention",
           "discriminator": "Postmenopausal osteoporosis (T-score ≤-2.5 + fragility fracture) → bisphosphonate first-line",
           "trap": "Treatment ladder — bisphosphonate first-line (not calcium/vit D alone)",
-          "rule": "Postmenopausal osteoporosis (T≤-2.5 or fragility fracture): bisphosphonate first-line + Ca/vit D",
-          "others": {
-            "A": "Calcium alone does not reduce fracture risk sufficiently in established osteoporosis.",
-            "C": "Thyroid hormone is not a treatment for osteoporosis.",
-            "D": "Vitamin D alone is insufficient; bisphosphonate is first-line for established disease."
-          }
+          "rule": "Postmenopausal osteoporosis (T≤-2.5 or fragility fracture): bisphosphonate first-line + Ca/vit D"
         }
       },
       {
@@ -2030,12 +1555,7 @@ const SUBJECTS = [
           "concept": "FHH — benign familial hypercalcemia with LOW urine calcium (not primary HPT)",
           "discriminator": "Asymptomatic hypercalcemia + low urine Ca + family history + no complications = FHH (benign)",
           "trap": "Clinical Mimic — FHH (low urine Ca, benign) vs primary HPT (high urine Ca, operative)",
-          "rule": "FHH: benign familial hypercalcemia, low urine Ca/creatinine ratio; no surgery (vs primary HPT)",
-          "others": {
-            "A": "Primary HPT has high urine calcium and benefits from surgery if indicated.",
-            "B": "Malignancy (PTHrP) has suppressed PTH and systemic illness, not a benign family history.",
-            "D": "Sarcoidosis causes hypercalcemia via calcitriol, with respiratory/GI symptoms."
-          }
+          "rule": "FHH: benign familial hypercalcemia, low urine Ca/creatinine ratio; no surgery (vs primary HPT)"
         }
       },
       {
@@ -2051,12 +1571,7 @@ const SUBJECTS = [
           "concept": "MEN1 — parathyroid + pituitary + pancreatic (3 Ps)",
           "discriminator": "Parathyroid + pituitary + pancreatic tumours = MEN1 (vs MEN2 = thyroid/pheo/parathyroid)",
           "trap": "Classification trap — MEN1 (parathyroid+pituitary+pancreas) vs MEN2 (thyroid+pheo+parathyroid)",
-          "rule": "MEN1 = parathyroid + pituitary + pancreatic (3 Ps); MEN2 = medullary thyroid Ca + pheochromocytoma",
-          "others": {
-            "B": "MEN2A has medullary thyroid carcinoma + pheochromocytoma + parathyroid, not pituitary/pancreatic.",
-            "C": "MEN2B adds mucosal neuromas and marfanoid habitus, not this triad.",
-            "D": "von Hippel-Lindau involves CNS/retinal haemangioblastoma and renal/pancreatic cysts, not these."
-          }
+          "rule": "MEN1 = parathyroid + pituitary + pancreatic (3 Ps); MEN2 = medullary thyroid Ca + pheochromocytoma"
         }
       },
       {
@@ -2072,12 +1587,7 @@ const SUBJECTS = [
           "concept": "Thyroid nodule — suspicious sonographic features warrant FNA",
           "discriminator": "Nodule with microcalcification/irregular margin/hypoechoic/taller-than-wide = suspicious → FNA",
           "trap": "One-word discriminator — microcalcification/irregular margin/taller-than-wide = suspicious nodule → FNA",
-          "rule": "Thyroid nodule: microcalcification + irregular margin + taller-than-wide = suspicious → FNA biopsy",
-          "others": {
-            "A": "Suspicious features require tissue diagnosis, not just surveillance.",
-            "B": "Operating without FNA risks removing a benign nodule unnecessarily.",
-            "C": "Radioiodine is for hyperthyroidism/ablation, not a solid suspicious nodule."
-          }
+          "rule": "Thyroid nodule: microcalcification + irregular margin + taller-than-wide = suspicious → FNA biopsy"
         }
       },
       {
@@ -2093,12 +1603,7 @@ const SUBJECTS = [
           "concept": "Non-thyroidal illness — low T3, normal TSH/fT4 in acute illness; do not treat",
           "discriminator": "Acute severe illness + low T3 + normal TSH/T4 + euthyroid = euthyroid sick syndrome",
           "trap": "Clinical Mimic — euthyroid sick (low T3, normal TSH) vs true hypothyroidism",
-          "rule": "Euthyroid sick syndrome: low T3, normal TSH/fT4 in severe illness; recovers; no thyroid treatment",
-          "others": {
-            "A": "Primary hypothyroidism would show high TSH and low T4, not this pattern.",
-            "C": "Central hypothyroidism would show low T4 with inappropriately normal/low TSH.",
-            "D": "Hyperthyroidism would show suppressed TSH and high T4/T3."
-          }
+          "rule": "Euthyroid sick syndrome: low T3, normal TSH/fT4 in severe illness; recovers; no thyroid treatment"
         }
       },
       {
@@ -2114,19 +1619,14 @@ const SUBJECTS = [
           "concept": "Thyrotoxic periodic paralysis — hyperthyroidism → hypokalaemic paralysis (Asian males)",
           "discriminator": "Hyperthyroid + acute hypokalaemic weakness (Asian male) = thyrotoxic periodic paralysis",
           "trap": "Clinical Mimic — thyrotoxic periodic paralysis (hyperthyroid) vs familial hypokalemic PP",
-          "rule": "Thyrotoxic periodic paralysis: hyperthyroidism (Graves, Asian males) → hypokalaemic weakness; treat thyroid",
-          "others": {
-            "B": "Familial hypokalemic PP occurs without hyperthyroidism and often with a family history/triggers.",
-            "C": "Hyperkalemic PP has high (not low) potassium during attacks.",
-            "D": "Myasthenia causes fatigable weakness with normal potassium and ocular/bulbar involvement."
-          }
+          "rule": "Thyrotoxic periodic paralysis: hyperthyroidism (Graves, Asian males) → hypokalaemic weakness; treat thyroid"
         }
       }
     ]
   },
   {
     "id": "endocrinesurgery",
-    "name": "Thyroglossal Duct Cyst & Sistrunk Resection",
+    "name": "Endocrine Surgery",
     "questions": [
       {
         "q": "A 6-year-old child has a midline neck swelling that moves upward on protrusion of the tongue and on swallowing. It is non-tender and cystic. What is the diagnosis and management?",
@@ -2141,12 +1641,7 @@ const SUBJECTS = [
           "concept": "Thyroglossal duct cyst — midline, moves on tongue protrusion; Sistrunk resection",
           "discriminator": "Midline neck cyst moving on tongue protrusion = thyroglossal duct cyst → Sistrunk (tract + hyoid)",
           "trap": "Clinical Mimic — thyroglossal (midline, moves on protrusion) vs branchial (lateral)",
-          "rule": "Thyroglossal duct cyst: midline, moves on tongue protrusion; Sistrunk = excise cyst + tract + hyoid",
-          "others": {
-            "A": "Branchial cleft cysts are lateral and do not move on tongue protrusion.",
-            "B": "A thyroid nodule is in the thyroid gland, not a midline suprahyoid cyst.",
-            "D": "Lymphadenopathy is discrete, firm nodes, not a cystic midline mass."
-          }
+          "rule": "Thyroglossal duct cyst: midline, moves on tongue protrusion; Sistrunk = excise cyst + tract + hyoid"
         }
       },
       {
@@ -2162,12 +1657,7 @@ const SUBJECTS = [
           "concept": "Branchial cleft cyst — lateral neck (anterior triangle), no movement on protrusion",
           "discriminator": "Lateral neck cyst anterior to SCM, no tongue-protrusion movement = branchial cleft cyst",
           "trap": "Clinical Mimic — branchial (lateral) vs thyroglossal (midline, moves on protrusion)",
-          "rule": "Branchial cleft cyst: lateral neck (anterior triangle), no movement on tongue protrusion; excision",
-          "others": {
-            "A": "A thyroglossal cyst is midline and moves on tongue protrusion.",
-            "B": "A thyroid adenoma is a thyroid-gland nodule, not a lateral cervical cyst.",
-            "D": "Carotid body tumours are at the carotid bifurcation, not simple lateral cysts."
-          }
+          "rule": "Branchial cleft cyst: lateral neck (anterior triangle), no movement on tongue protrusion; excision"
         }
       },
       {
@@ -2183,12 +1673,7 @@ const SUBJECTS = [
           "concept": "External laryngeal nerve injury — loss of pitch/high notes (not hoarseness); RLN = hoarseness",
           "discriminator": "Loss of pitch/high-note control (not hoarseness) = external laryngeal nerve (SLN external) injury",
           "trap": "Opposite — external laryngeal (pitch loss) vs RLN (hoarseness/breathiness)",
-          "rule": "External laryngeal (SLN external) injury: loss of pitch/high-note control, no hoarseness; RLN = hoarseness",
-          "others": {
-            "A": "RLN injury causes hoarseness/breathiness and a paramedian cord, not just pitch loss.",
-            "B": "Vagus injury would cause more widespread deficits including RLN palsy.",
-            "C": "Hypoglossal injury causes tongue deviation, not vocal pitch change."
-          }
+          "rule": "External laryngeal (SLN external) injury: loss of pitch/high-note control, no hoarseness; RLN = hoarseness"
         }
       },
       {
@@ -2204,12 +1689,7 @@ const SUBJECTS = [
           "concept": "Bilateral RLN injury — airway emergency (bilateral cord fixation) → tracheostomy",
           "discriminator": "Bilateral RLN injury → both cords paramedian → airway obstruction → urgent airway (tracheostomy)",
           "trap": "Severity under-recognition — bilateral RLN = airway emergency (tracheostomy), not just hoarseness",
-          "rule": "Bilateral RLN injury: both cords paramedian → airway obstruction → urgent tracheostomy/intubation",
-          "others": {
-            "A": "Hypocalcaemia causes tetany/laryngospasm later, not immediate bilateral cord fixation.",
-            "C": "Hematoma causes compression; the described bilateral cord finding points to RLN, not hematoma.",
-            "D": "Unilateral injury causes hoarseness only; this is bilateral and emergent."
-          }
+          "rule": "Bilateral RLN injury: both cords paramedian → airway obstruction → urgent tracheostomy/intubation"
         }
       },
       {
@@ -2225,12 +1705,7 @@ const SUBJECTS = [
           "concept": "Papillary thyroid Ca — total thyroidectomy + central compartment dissection for ≥1 cm / nodal disease",
           "discriminator": "Papillary Ca ≥1 cm or with central nodes → total thyroidectomy + central neck dissection",
           "trap": "Treatment ladder — total thyroidectomy + central dissection (not lobectomy) for larger/nodal papillary Ca",
-          "rule": "Papillary thyroid Ca: total thyroidectomy + central neck dissection for tumours ≥1cm or nodal disease",
-          "others": {
-            "A": "Lobectomy alone is for small, low-risk, uninodular intrathyroidal cancers only.",
-            "B": "Radioiodine is adjuvant AFTER thyroidectomy, not a substitute for resection.",
-            "D": "External beam radiotherapy is not first-line for differentiated thyroid cancer."
-          }
+          "rule": "Papillary thyroid Ca: total thyroidectomy + central neck dissection for tumours ≥1cm or nodal disease"
         }
       },
       {
@@ -2246,12 +1721,7 @@ const SUBJECTS = [
           "concept": "Differentiated thyroid Ca — adjuvant radioiodine after thyroidectomy",
           "discriminator": "Post-thyroidectomy for higher-risk differentiated Ca (size/extension) → RAI ablation",
           "trap": "Treatment ladder — RAI ablation after thyroidectomy for higher-risk differentiated Ca",
-          "rule": "Adjuvant RAI after thyroidectomy for intermediate/high-risk differentiated thyroid Ca (size/ETE/nodes)",
-          "others": {
-            "A": "External beam RT is reserved for unresectable or anaplastic disease.",
-            "B": "Chemotherapy is not used for differentiated thyroid cancer.",
-            "C": "Higher-risk features here warrant RAI, not observation."
-          }
+          "rule": "Adjuvant RAI after thyroidectomy for intermediate/high-risk differentiated thyroid Ca (size/ETE/nodes)"
         }
       },
       {
@@ -2267,12 +1737,7 @@ const SUBJECTS = [
           "concept": "Thyroid lymphoma — rapid enlargement in Hashimoto; excisional biopsy + chemo/RT",
           "discriminator": "Rapid painful thyroid enlargement in Hashimoto + lymphoid cells = primary thyroid lymphoma",
           "trap": "Clinical Mimic — thyroid lymphoma (rapid in Hashimoto) vs anaplastic Ca vs nodular goitre",
-          "rule": "Thyroid lymphoma: rapid enlargement in Hashimoto; excisional biopsy; chemo/radiotherapy (not thyroidectomy)",
-          "others": {
-            "B": "Anaplastic carcinoma is treated surgically if resectable but is a different histology (not lymphoid).",
-            "C": "Medullary carcinoma is calcitonin-secreting and grows slowly, not a rapid lymphoid proliferation.",
-            "D": "A rapidly enlarging painful mass is not a benign goitre to observe."
-          }
+          "rule": "Thyroid lymphoma: rapid enlargement in Hashimoto; excisional biopsy; chemo/radiotherapy (not thyroidectomy)"
         }
       },
       {
@@ -2288,12 +1753,7 @@ const SUBJECTS = [
           "concept": "Reoperative thyroid surgery — higher RLN and parathyroid injury risk",
           "discriminator": "Reoperative neck surgery → scarred distorted planes → higher RLN/parathyroid injury",
           "trap": "Severity under-recognition — reoperative thyroid = higher RLN/parathyroid injury (plan accordingly)",
-          "rule": "Reoperative thyroid/parathyroid: scarred planes → higher RLN + parathyroid injury; use monitoring",
-          "others": {
-            "B": "Carotid injury is not the characteristic incremental risk of reoperative thyroid surgery.",
-            "C": "Tracheal perforation is rare and not the main concern.",
-            "D": "Chyle leak is a thoracic duct issue, not typical in thyroid reoperation."
-          }
+          "rule": "Reoperative thyroid/parathyroid: scarred planes → higher RLN + parathyroid injury; use monitoring"
         }
       },
       {
@@ -2309,12 +1769,7 @@ const SUBJECTS = [
           "concept": "Graves surgery — must be euthyroid pre-op (ATD + beta-blocker ± iodine) to prevent storm",
           "discriminator": "Graves thyroidectomy needs euthyroid prep (ATD, beta-blocker, sometimes Lugol) to avoid storm",
           "trap": "Treatment ladder — euthyroid prep (ATD + beta-blocker ± iodine) before Graves thyroidectomy",
-          "rule": "Graves surgery indicated for compressive/malignant/failed-medical; must be euthyroid pre-op (avoid storm)",
-          "others": {
-            "A": "Operating on an unprepared hyperthyroid gland risks fatal thyroid storm.",
-            "C": "Levothyroxine would worsen thyrotoxicosis pre-operatively.",
-            "D": "Steroids alone do not achieve euthyroidism; ATD + beta-blocker are key."
-          }
+          "rule": "Graves surgery indicated for compressive/malignant/failed-medical; must be euthyroid pre-op (avoid storm)"
         }
       },
       {
@@ -2330,12 +1785,7 @@ const SUBJECTS = [
           "concept": "Parathyroid adenoma — solitary > MIP; hyperplasia needs 3.5-gland/subtotal",
           "discriminator": "Single adenoma on localization = minimally invasive parathyroidectomy; 4-gland disease = different",
           "trap": "Clinical Mimic — solitary adenoma (MIP) vs 4-gland hyperplasia (subtotal/total)",
-          "rule": "Solitary parathyroid adenoma: MIP; 4-gland hyperplasia: subtotal/total + autotransplant; carcinoma: en bloc",
-          "others": {
-            "B": "Four-gland hyperplasia needs subtotal/total, not a single-gland approach.",
-            "C": "Carcinoma is hard, invasive, with very high Ca — not a simple single adenoma.",
-            "D": "The lesion is parathyroid, not thyroid."
-          }
+          "rule": "Solitary parathyroid adenoma: MIP; 4-gland hyperplasia: subtotal/total + autotransplant; carcinoma: en bloc"
         }
       },
       {
@@ -2351,12 +1801,7 @@ const SUBJECTS = [
           "concept": "Tertiary hyperparathyroidism — CKD-driven parathyroid hyperplasia becomes autonomous",
           "discriminator": "CKD + refractory high PTH/high Ca = tertiary HPT (autonomous hyperplasia); surgery if severe",
           "trap": "Clinical Mimic — tertiary (CKD, autonomous hyperplasia) vs primary (adenoma) HPT",
-          "rule": "Tertiary HPT: CKD → parathyroid hyperplasia becomes autonomous; surgery if refractory/pre-transplant",
-          "others": {
-            "A": "Primary HPT is an adenoma, not CKD-driven hyperplasia.",
-            "C": "Vitamin D toxicity causes hypercalcaemia but not high PTH and not in this CKD context.",
-            "D": "Sarcoidosis causes hypercalcaemia via calcitriol, with low PTH."
-          }
+          "rule": "Tertiary HPT: CKD → parathyroid hyperplasia becomes autonomous; surgery if refractory/pre-transplant"
         }
       },
       {
@@ -2372,12 +1817,7 @@ const SUBJECTS = [
           "concept": "Parathyroid crisis — severe symptomatic hypercalcaemia → urgent parathyroidectomy after stabilisation",
           "discriminator": "Symptomatic severe hyperCa from HPT = parathyroid crisis → urgent parathyroidectomy (after resuscitation)",
           "trap": "Severity under-recognition — severe symptomatic hyperCa in HPT = parathyroid crisis (urgent surgery)",
-          "rule": "Parathyroid crisis: severe symptomatic HPT hyperCa → stabilise (fluids/bisphosphonate) then urgent parathyroidectomy",
-          "others": {
-            "A": "Observation is dangerous in a hypercalcaemic crisis.",
-            "C": "Bisphosphonates stabilise but do not remove the diseased gland; surgery is definitive.",
-            "D": "The parathyroid, not the thyroid, is the source."
-          }
+          "rule": "Parathyroid crisis: severe symptomatic HPT hyperCa → stabilise (fluids/bisphosphonate) then urgent parathyroidectomy"
         }
       },
       {
@@ -2393,12 +1833,7 @@ const SUBJECTS = [
           "concept": "Inferior thyroid artery — supplies inferior parathyroids; ligate laterally to preserve them",
           "discriminator": "Inferior thyroid artery gives branches to inferior parathyroids; ligate distal/lateral to avoid devascularising them",
           "trap": "One-word discriminator — inferior thyroid artery supplies inferior parathyroids (ligate lateral)",
-          "rule": "Inferior thyroid artery supplies inferior parathyroids; ligate laterally to preserve parathyroid viability",
-          "others": {
-            "A": "The artery does not supply the RLN; the nerve lies in relation to it but is neural, not perfused by it.",
-            "B": "The superior thyroid artery also supplies the thyroid; the inferior is not sole.",
-            "C": "It is an arterial supply, not venous drainage, to the parathyroids."
-          }
+          "rule": "Inferior thyroid artery supplies inferior parathyroids; ligate laterally to preserve parathyroid viability"
         }
       },
       {
@@ -2414,12 +1849,7 @@ const SUBJECTS = [
           "concept": "Adrenal incidentaloma — resect if >4 cm or functioning; else observe",
           "discriminator": "Incidental adrenal mass >4 cm (or any functioning) → resection for malignancy risk",
           "trap": "Treatment ladder — adrenalectomy if >4 cm or functioning; observe if small/benign",
-          "rule": "Adrenal incidentaloma: resect if >4 cm or functioning (malignancy risk); else observe",
-          "others": {
-            "B": "A 5 cm mass is not simply 'benign' without resection given size-based malignancy risk.",
-            "C": "Follow-up imaging is needed; complete neglect risks missing malignancy.",
-            "D": "Chemotherapy is not first-line for a localized adrenal mass."
-          }
+          "rule": "Adrenal incidentaloma: resect if >4 cm or functioning (malignancy risk); else observe"
         }
       },
       {
@@ -2435,12 +1865,7 @@ const SUBJECTS = [
           "concept": "Adrenalectomy — laparoscopic approach for Conn/pheo/Ca after optimisation",
           "discriminator": "Benign adrenal tumours (Conn, pheo, cortisol) → laparoscopic adrenalectomy (minimally invasive)",
           "trap": "Treatment ladder — laparoscopic adrenalectomy for Conn/pheo/cortisol tumours (optimise first)",
-          "rule": "Adrenal tumour (Conn/pheo/cortisol): laparoscopic adrenalectomy; alpha-block first if phaeochromocytoma",
-          "others": {
-            "A": "Open laparotomy is reserved for large/malignant/invasive lesions, not routine benign tumours.",
-            "B": "Partial nephrectomy is for renal, not adrenal, pathology.",
-            "C": "Percutaneous ablation is not standard for functional adrenal adenomas."
-          }
+          "rule": "Adrenal tumour (Conn/pheo/cortisol): laparoscopic adrenalectomy; alpha-block first if phaeochromocytoma"
         }
       },
       {
@@ -2456,12 +1881,7 @@ const SUBJECTS = [
           "concept": "Transsphenoidal pituitary surgery — CSF leak (rhinorrhoea) is a key complication",
           "discriminator": "Clear rhinorrhoea after transsphenoidal surgery = CSF leak → bed rest/positioning, may need repair",
           "trap": "Severity under-recognition — clear rhinorrhoea post-TSS = CSF leak (meningitis risk)",
-          "rule": "Transsphenoidal pituitary surgery: CSF leak → watery rhinorrhoea; bed-up, lumbar drain, repair if persistent",
-          "others": {
-            "A": "Clear rhinorrhoea is not normal oedema; it indicates a leak.",
-            "B": "Meningitis can be a CONSEQUENCE of an unrecognised leak, not the primary event here.",
-            "C": "Tumour bleeding would cause worsening mass effect/haemorrhage, not clear rhinorrhoea."
-          }
+          "rule": "Transsphenoidal pituitary surgery: CSF leak → watery rhinorrhoea; bed-up, lumbar drain, repair if persistent"
         }
       },
       {
@@ -2477,12 +1897,7 @@ const SUBJECTS = [
           "concept": "Cushing disease — BIPSS confirms pituitary source before transsphenoidal surgery",
           "discriminator": "Pituitary MRI normal in Cushing → BIPSS (central:peripheral ACTH gradient) confirms pituitary source",
           "trap": "Classification trap — BIPSS confirms pituitary (Cushing disease) vs ectopic ACTH before TSS",
-          "rule": "Cushing disease: BIPSS (central:peripheral ACTH gradient) confirms pituitary source before transsphenoidal surgery",
-          "others": {
-            "B": "Low-dose dexamethasone suppression screens for Cushing, not localises the source.",
-            "C": "24h UFC confirms hypercortisolism, not the pituitary vs ectopic distinction.",
-            "D": "Plasma metanephrines screen for phaeochromocytoma, not ACTH source."
-          }
+          "rule": "Cushing disease: BIPSS (central:peripheral ACTH gradient) confirms pituitary source before transsphenoidal surgery"
         }
       },
       {
@@ -2498,12 +1913,7 @@ const SUBJECTS = [
           "concept": "Primary HPT — sestamibi (+US) localises adenoma before parathyroidectomy",
           "discriminator": "Pre-parathyroidectomy localisation = sestamibi scan ± neck ultrasound to find the adenoma",
           "trap": "One-word discriminator — sestamibi (+US) localises parathyroid adenoma pre-op",
-          "rule": "Primary HPT: sestamibi scan ± neck US localises the adenoma pre-operatively (guides MIP)",
-          "others": {
-            "B": "CT chest is not used to localise parathyroid adenomas in primary HPT.",
-            "C": "PET is not the standard localising modality for parathyroid disease.",
-            "D": "MRI brain is irrelevant to parathyroid localisation."
-          }
+          "rule": "Primary HPT: sestamibi scan ± neck US localises the adenoma pre-operatively (guides MIP)"
         }
       },
       {
@@ -2519,12 +1929,7 @@ const SUBJECTS = [
           "concept": "Pre-thyroidectomy iodine (Lugol) — reduces vascularity/hormone release",
           "discriminator": "Pre-op Lugol iodine in Graves → reduces gland vascularity and hormone leak at surgery",
           "trap": "Treatment misdirection — pre-op Lugol iodine = reduce vascularity (not RAI/thyroxine)",
-          "rule": "Pre-op Lugol iodine in Graves: reduces thyroid vascularity/hormone release for safer thyroidectomy",
-          "others": {
-            "A": "Radioiodine ablation is a different therapy, not the pre-surgical iodine preparation.",
-            "B": "Iodine does not treat Graves orbitopathy.",
-            "C": "It is not thyroid hormone replacement."
-          }
+          "rule": "Pre-op Lugol iodine in Graves: reduces thyroid vascularity/hormone release for safer thyroidectomy"
         }
       },
       {
@@ -2540,12 +1945,7 @@ const SUBJECTS = [
           "concept": "Post-thyroidectomy hypocalcaemia — transient (ischaemia/stunning) vs permanent (excised)",
           "discriminator": "Early transient hypoCa (recovers) = parathyroid ischaemia/stunning; permanent = gland excised/infarcted",
           "trap": "Opposite — transient (ischaemia/stunning, recovers) vs permanent (gland lost) hypocalcaemia",
-          "rule": "Post-thyroidectomy hypoCa: transient (ischaemia/stunning) recovers; permanent = gland excised/infarcted",
-          "others": {
-            "A": "Surgeon identity does not explain the transient-vs-permanent biology.",
-            "B": "Pathology (Graves vs cancer) does not determine transient vs permanent hypocalcaemia.",
-            "D": "Vitamin D deficiency may contribute but does not explain the post-op temporal pattern."
-          }
+          "rule": "Post-thyroidectomy hypoCa: transient (ischaemia/stunning) recovers; permanent = gland excised/infarcted"
         }
       },
       {
@@ -2561,12 +1961,7 @@ const SUBJECTS = [
           "concept": "Thyroid storm — prevented by operating only in euthyroid state (storm prophylaxis)",
           "discriminator": "Thyroid storm prevention = euthyroid at surgery (ATD + beta-blocker + iodine prep)",
           "trap": "Severity under-recognition — operate only euthyroid to prevent thyroid storm",
-          "rule": "Thyroid storm prevention: thyroidectomy only when euthyroid (ATD+beta-blocker+iodine prep); never uncontrolled",
-          "others": {
-            "A": "Antibiotics do not prevent storm.",
-            "C": "Steroids alone do not achieve euthyroidism or prevent storm.",
-            "D": "Operating on an uncontrolled gland is the precipitant, not prevention."
-          }
+          "rule": "Thyroid storm prevention: thyroidectomy only when euthyroid (ATD+beta-blocker+iodine prep); never uncontrolled"
         }
       },
       {
@@ -2582,12 +1977,7 @@ const SUBJECTS = [
           "concept": "Parathyroid autotransplantation — preserves function; forearm site allows re-exploration",
           "discriminator": "Autotransplant parathyroid into forearm = preserve function + accessible if graft hyperfunctions",
           "trap": "Treatment ladder — autotransplant parathyroid (forearm) to preserve function + easy access",
-          "rule": "Parathyroid autotransplant (forearm): preserves function; superficial site allows re-exploration if recurrent",
-          "others": {
-            "A": "It preserves parathyroid, not thyroid, function.",
-            "B": "It does not mark or protect the RLN.",
-            "D": "Chyle leak is unrelated to parathyroid autotransplantation."
-          }
+          "rule": "Parathyroid autotransplant (forearm): preserves function; superficial site allows re-exploration if recurrent"
         }
       },
       {
@@ -2603,12 +1993,7 @@ const SUBJECTS = [
           "concept": "Substernal goitre — compressive mediastinal extension; surgery indicated",
           "discriminator": "Goitre extending retrosternally with compressive symptoms = substernal goitre → surgery",
           "trap": "Clinical Mimic — substernal goitre (compressive, below sternal notch) vs thymoma/lymphoma",
-          "rule": "Substernal goitre: thyroid extending retrosternally with compressive symptoms → thyroidectomy",
-          "others": {
-            "A": "Thymoma arises in the thymus (anterior mediastinum) without a thyroid origin.",
-            "B": "Lymphoma would show lymphoid histology, not thyroid tissue.",
-            "D": "A compressive substernal goitre is not observed; it requires surgery."
-          }
+          "rule": "Substernal goitre: thyroid extending retrosternally with compressive symptoms → thyroidectomy"
         }
       },
       {
@@ -2624,12 +2009,7 @@ const SUBJECTS = [
           "concept": "Non-toxic MNG — surgery for compressive symptoms (dysphagia/tracheal deviation)",
           "discriminator": "Non-toxic MNG with compressive symptoms (dysphagia/tracheal deviation) → thyroidectomy",
           "trap": "Treatment ladder — non-toxic MNG with compression → thyroidectomy (not just observe/RAI)",
-          "rule": "Non-toxic MNG: operate for compressive symptoms (dysphagia/tracheal deviation); RAI for toxic; no long-term suppression",
-          "others": {
-            "B": "Radioiodine is preferred for TOXIC MNG; compressive non-toxic goitre needs surgery.",
-            "C": "Observation is wrong with compressive symptoms.",
-            "D": "Long-term suppressive thyroxine is ineffective and risky in MNG."
-          }
+          "rule": "Non-toxic MNG: operate for compressive symptoms (dysphagia/tracheal deviation); RAI for toxic; no long-term suppression"
         }
       },
       {
@@ -2645,19 +2025,14 @@ const SUBJECTS = [
           "concept": "Parathyroid carcinoma — hard fixed invasive mass + very high Ca/PTH → en bloc resection",
           "discriminator": "Hard fixed invasive parathyroid mass + severe hyperCa/PTH = carcinoma → en bloc resection",
           "trap": "Clinical Mimic — parathyroid carcinoma (hard/fixed/invasive, very high Ca) vs benign adenoma",
-          "rule": "Parathyroid carcinoma: hard fixed invasive mass + severe hyperCa/PTH → en bloc resection + ipsilateral lobe",
-          "others": {
-            "A": "A benign adenoma is soft/mobile and treated with MIP, not en bloc for cancer.",
-            "C": "Medullary thyroid carcinoma secretes calcitonin and arises from thyroid C-cells.",
-            "D": "A thyroid adenoma does not cause PTH-driven hypercalcaemia."
-          }
+          "rule": "Parathyroid carcinoma: hard fixed invasive mass + severe hyperCa/PTH → en bloc resection + ipsilateral lobe"
         }
       }
     ]
   },
   {
     "id": "gi-emergencies",
-    "name": "Upper GI Bleeding — Variceal vs Non-Variceal",
+    "name": "GI Emergencies",
     "questions": [
       {
         "q": "A 42-year-old woman reports progressive difficulty swallowing both liquids and solids for 2 years, with regurgitation of undigested food and a 4 kg weight loss. Barium swallow shows a smooth tapered 'bird-beak' narrowing at the gastro-oesophageal junction. What is the most appropriate definitive management?",
@@ -2672,12 +2047,7 @@ const SUBJECTS = [
           "concept": "Achalasia — definitive management (myotomy vs botox)",
           "discriminator": "Dysphagia to BOTH liquids and solids + bird-beak on barium = achalasia; definitive = pneumatic dilation or Heller myotomy",
           "trap": "Treatment ladder — botox as definitive when it is only temporary",
-          "rule": "Achalasia = bird-beak + liquids>solids → pneumatic dilation or Heller myotomy (botox is temporary)",
-          "others": {
-            "A": "Botulinum toxin relieves symptoms only temporarily (~6 months) and is reserved for elderly/frail patients who cannot tolerate definitive therapy.",
-            "B": "A PPI trial treats reflux, not achalasia; the bird-beak appearance is not reflux.",
-            "D": "Oesophagectomy is for carcinoma; achalasia is a benign motility disorder managed by myotomy."
-          }
+          "rule": "Achalasia = bird-beak + liquids>solids → pneumatic dilation or Heller myotomy (botox is temporary)"
         }
       },
       {
@@ -2693,12 +2063,7 @@ const SUBJECTS = [
           "concept": "Oesophageal carcinoma — solids-then-liquids dysphagia",
           "discriminator": "Progressive dysphagia starting with SOLIDS then liquids + weight loss + smoking = mechanical obstruction = carcinoma",
           "trap": "Opposite — solids-then-liquids (carcinoma) vs liquids-then-solids (achalasia)",
-          "rule": "Solids-then-liquids dysphagia + weight loss = carcinoma; liquids-from-start = achalasia",
-          "others": {
-            "A": "Achalasia causes dysphagia to liquids and solids from onset (not solids-first) and shows a bird-beak, not an irregular stricture.",
-            "C": "A peptic stricture follows long-standing reflux and is less likely with a smoking/alcohol history and rapid weight loss.",
-            "D": "Plummer-Vinson syndrome (web + iron deficiency anaemia + glossitis) causes intermittent solid-food dysphagia in iron-deficient women."
-          }
+          "rule": "Solids-then-liquids dysphagia + weight loss = carcinoma; liquids-from-start = achalasia"
         }
       },
       {
@@ -2714,12 +2079,7 @@ const SUBJECTS = [
           "concept": "Oesophageal varices — first-line treatment of acute haemorrhage",
           "discriminator": "Cirrhosis + haematemesis + distal oesophageal varices → endoscopic band ligation is first-line",
           "trap": "Treatment misdirection — sclerotherapy/octreotide over banding",
-          "rule": "Acute variceal bleed → endoscopic band ligation first-line; TIPS is rescue",
-          "others": {
-            "A": "Sclerotherapy is now second-line — banding has better outcomes and fewer complications.",
-            "C": "Octreotide reduces portal pressure as a pharmacologic adjunct but is not the primary intervention.",
-            "D": "TIPS is reserved for refractory or recurrent bleeding after endoscopic therapy fails."
-          }
+          "rule": "Acute variceal bleed → endoscopic band ligation first-line; TIPS is rescue"
         }
       },
       {
@@ -2735,12 +2095,7 @@ const SUBJECTS = [
           "concept": "Mallory-Weiss tear — mucosal tear after retching",
           "discriminator": "Haematemesis AFTER repeated forceful vomiting, in a stable patient = Mallory-Weiss mucosal tear",
           "trap": "Clinical Mimic — Mallory-Weiss (mucosal) vs Boerhaave (transmural)",
-          "rule": "Post-vomiting haematemesis (stable) = Mallory-Weiss; full-thickness rupture with emphysema = Boerhaave",
-          "others": {
-            "A": "Boerhaave is a transmural oesophageal rupture presenting with severe chest pain, subcutaneous emphysema, and sepsis — not isolated haematemesis.",
-            "B": "Varices occur with portal hypertension/cirrhosis; there is no liver history and vomiting is the trigger.",
-            "C": "Peptic ulcer bleeding is not classically preceded by forceful vomiting."
-          }
+          "rule": "Post-vomiting haematemesis (stable) = Mallory-Weiss; full-thickness rupture with emphysema = Boerhaave"
         }
       },
       {
@@ -2756,12 +2111,7 @@ const SUBJECTS = [
           "concept": "Boerhaave syndrome — diagnosis with water-soluble contrast",
           "discriminator": "Violent vomiting + chest pain + subcutaneous emphysema = oesophageal rupture → water-soluble (Gastrografin) contrast, NOT barium",
           "trap": "Investigation hierarchy — barium (contraindicated) vs water-soluble contrast",
-          "rule": "Boerhaave = post-emetic transmural rupture → water-soluble contrast (barium contraindicated)",
-          "others": {
-            "A": "Barium leaking into the mediastinum causes chemical mediastinitis and is contraindicated in suspected rupture.",
-            "B": "ECG/troponins evaluate for MI but do not diagnose oesophageal rupture; the emphysema is the key finding.",
-            "D": "A plain CXR may show pneumomediastinum but reassurance is wrong — this is a surgical emergency."
-          }
+          "rule": "Boerhaave = post-emetic transmural rupture → water-soluble contrast (barium contraindicated)"
         }
       },
       {
@@ -2777,12 +2127,7 @@ const SUBJECTS = [
           "concept": "Perforated peptic ulcer — definitive surgical management",
           "discriminator": "Sudden pain + board-like rigidity + free air under diaphragm = perforation → laparotomy (NEVER endoscopy or PPI alone)",
           "trap": "Partial Truth — PPI correct for PUD but not definitive for perforation",
-          "rule": "Pneumoperitoneum + peritonitis → resuscitate then laparotomy (barium/endoscopy contraindicated)",
-          "others": {
-            "B": "IV PPI treats the ulcer but does not close the perforation; surgery is definitive.",
-            "C": "Endoscopy is contraindicated when perforation is suspected — air insufflation worsens the leak.",
-            "D": "Nasogastric decompression is adjunctive; observation alone allows peritonitis to progress."
-          }
+          "rule": "Pneumoperitoneum + peritonitis → resuscitate then laparotomy (barium/endoscopy contraindicated)"
         }
       },
       {
@@ -2798,12 +2143,7 @@ const SUBJECTS = [
           "concept": "Duodenal ulcer pain — relieved by food, nocturnal",
           "discriminator": "Duodenal ulcer pain is relieved by food and recurs at night; gastric ulcer pain is worsened by food",
           "trap": "Opposite — duodenal (relieved by food) vs gastric (worsened by food)",
-          "rule": "Duodenal ulcer pain relieved by food; gastric ulcer pain worsened by food",
-          "others": {
-            "B": "Pain worsened by food is the gastric ulcer pattern, not duodenal.",
-            "C": "Retrosternal burning after meals describes GERD, not PUD.",
-            "D": "RUQ pain after fatty meals suggests biliary colic, not PUD."
-          }
+          "rule": "Duodenal ulcer pain relieved by food; gastric ulcer pain worsened by food"
         }
       },
       {
@@ -2819,12 +2159,7 @@ const SUBJECTS = [
           "concept": "Upper GI bleed — endoscopy is diagnostic AND therapeutic",
           "discriminator": "Stable upper GI bleed after resuscitation → early endoscopy (diagnostic + therapeutic), always first",
           "trap": "Priority inversion — imaging before endoscopy",
-          "rule": "Endoscopy is both diagnostic and therapeutic in UGIB — always first",
-          "others": {
-            "A": "Barium meal is obsolete and cannot provide haemostasis; it also obscures future endoscopy.",
-            "C": "CT angiography is for massive ongoing bleeding or after failed endoscopy, not first-line in a stable patient.",
-            "D": "Observation alone risks re-bleeding; the source must be identified and treated endoscopically."
-          }
+          "rule": "Endoscopy is both diagnostic and therapeutic in UGIB — always first"
         }
       },
       {
@@ -2840,12 +2175,7 @@ const SUBJECTS = [
           "concept": "Ascending cholangitis — Charcot triad → antibiotics + urgent ERCP",
           "discriminator": "RUQ pain + fever + jaundice = Charcot triad = ascending cholangitis → antibiotics + urgent biliary decompression (ERCP)",
           "trap": "Clinical Mimic — Charcot triad vs Murphy's sign (cholecystitis)",
-          "rule": "Charcot triad = ascending cholangitis → antibiotics + urgent ERCP (add hypotension/AMS = Reynolds pentad)",
-          "others": {
-            "A": "Cholecystectomy is delayed until after the acute cholangitis resolves; urgent drainage comes first.",
-            "B": "Observation without drainage lets septic cholangitis progress — mortality is high.",
-            "D": "Liver biopsy is not indicated and is dangerous in biliary obstruction."
-          }
+          "rule": "Charcot triad = ascending cholangitis → antibiotics + urgent ERCP (add hypotension/AMS = Reynolds pentad)"
         }
       },
       {
@@ -2861,12 +2191,7 @@ const SUBJECTS = [
           "concept": "Emphysematous cholecystitis — gas in GB wall in a diabetic → urgent surgery",
           "discriminator": "Diabetic + gas within gallbladder wall = emphysematous cholecystitis → urgent cholecystectomy",
           "trap": "Severity under-recognition — downgrading a necrotising infection in a diabetic",
-          "rule": "Gas in GB wall (diabetic) = emphysematous cholecystitis → urgent cholecystectomy",
-          "others": {
-            "A": "Oral outpatient antibiotics are inadequate for a necrotising gallbladder infection.",
-            "B": "Delaying surgery 6 weeks risks perforation and sepsis.",
-            "C": "Observation is unsafe — emphysematous cholecystitis has high morbidity without urgent surgery."
-          }
+          "rule": "Gas in GB wall (diabetic) = emphysematous cholecystitis → urgent cholecystectomy"
         }
       },
       {
@@ -2882,12 +2207,7 @@ const SUBJECTS = [
           "concept": "Gallstone ileus — Rigler's triad",
           "discriminator": "SBO + pneumobilia + ectopic calcified gallstone (Rigler's triad) = gallstone ileus",
           "trap": "Pattern recognition — Rigler's triad overlooked as simple adhesions",
-          "rule": "Rigler's triad (SBO + pneumobilia + ectopic gallstone) = gallstone ileus",
-          "others": {
-            "A": "Adhesions are the most common cause of SBO but do not produce pneumobilia or an ectopic stone.",
-            "C": "Sigmoid volvulus gives a dilated loop with a 'coffee bean' sign, not pneumobilia.",
-            "D": "Caecal carcinoma causes obstruction but without pneumobilia or a migratory stone."
-          }
+          "rule": "Rigler's triad (SBO + pneumobilia + ectopic gallstone) = gallstone ileus"
         }
       },
       {
@@ -2903,12 +2223,7 @@ const SUBJECTS = [
           "concept": "Meckel's diverticulum — rule of 2s, painless PR bleed in a child",
           "discriminator": "Painless PR bleeding in a young child = Meckel's (rule of 2s: 2% population, 2 feet from ileocaecal valve, 2 inches, anti-mesenteric)",
           "trap": "Clinical Mimic — Meckel's (painless) vs intussusception (painful, currant-jelly)",
-          "rule": "Meckel's = painless PR bleed in a child, anti-mesenteric, rule of 2s",
-          "others": {
-            "A": "Intussusception presents with intermittent colicky abdominal pain, 'currant jelly' stool, and a sausage-shaped mass.",
-            "B": "Juvenile polyps cause bleeding but are less common than Meckel's for significant painless bleeding with anaemia.",
-            "D": "Ulcerative colitis causes bloody diarrhoea with cramps, not isolated painless bleeding."
-          }
+          "rule": "Meckel's = painless PR bleed in a child, anti-mesenteric, rule of 2s"
         }
       },
       {
@@ -2924,12 +2239,7 @@ const SUBJECTS = [
           "concept": "Acute mesenteric ischaemia — AF + pain out of proportion",
           "discriminator": "AF + severe pain out of proportion to exam + raised lactate = acute mesenteric ischaemia (SMA embolism)",
           "trap": "Severity under-recognition — 'pain out of proportion' is the giveaway",
-          "rule": "Pain out of proportion + AF + lactic acidosis = acute mesenteric ischaemia",
-          "others": {
-            "B": "Pancreatitis causes epigastric pain radiating to the back with raised lipase/amylase, not disproportionate diffuse pain.",
-            "C": "Perforation gives peritonism (rigid, rebound) and free air, not a near-normal abdomen.",
-            "D": "Renal colic is loin-to-groin with haematuria, not diffuse severe pain with lactic acidosis."
-          }
+          "rule": "Pain out of proportion + AF + lactic acidosis = acute mesenteric ischaemia"
         }
       },
       {
@@ -2945,12 +2255,7 @@ const SUBJECTS = [
           "concept": "Intussusception — air enema reduction in a stable infant",
           "discriminator": "Infant + colicky pain + currant-jelly stool + sausage mass = intussusception → air enema reduction (if stable, no peritonitis)",
           "trap": "Age-appropriate differential — adult appendicitis reflex in an infant",
-          "rule": "Intussusception (stable) → air/contrast enema reduction; laparotomy if peritonitis/perforation",
-          "others": {
-            "A": "Laparotomy is reserved for failed enema reduction, peritonitis, or perforation.",
-            "B": "Antibiotics do not reduce the intussusception and are not first-line.",
-            "D": "Observation is unsafe — unreduced intussusception causes bowel ischaemia."
-          }
+          "rule": "Intussusception (stable) → air/contrast enema reduction; laparotomy if peritonitis/perforation"
         }
       },
       {
@@ -2966,12 +2271,7 @@ const SUBJECTS = [
           "concept": "Strangulated femoral hernia — urgent surgery",
           "discriminator": "Irreducible tender groin lump + obstruction + erythema = strangulated femoral hernia → urgent surgery",
           "trap": "Severity under-recognition — treating strangulation as a reducible hernia",
-          "rule": "Femoral hernia = below/lateral to pubic tubercle; irreducible + tender + obstruction = strangulated → urgent surgery",
-          "others": {
-            "A": "Manual reduction of a strangulated hernia can reduce necrotic bowel into the abdomen — contraindicated.",
-            "B": "Elective repair delays life-saving surgery for strangulation.",
-            "C": "Antibiotics do not address the ischaemic bowel; surgery is urgent."
-          }
+          "rule": "Femoral hernia = below/lateral to pubic tubercle; irreducible + tender + obstruction = strangulated → urgent surgery"
         }
       },
       {
@@ -2987,12 +2287,7 @@ const SUBJECTS = [
           "concept": "Diverticulosis — painless bleeding in the elderly",
           "discriminator": "Painless large-volume PR bleed in an elderly patient = diverticulosis (no fever, no LIF pain)",
           "trap": "Clinical Mimic — diverticulosis (painless bleed) vs diverticulitis (inflamed)",
-          "rule": "Diverticulosis = painless bleeding; diverticulitis = fever + LIF pain",
-          "others": {
-            "A": "Diverticulitis presents with fever and left lower quadrant pain, not painless bleeding.",
-            "B": "Carcinoma typically causes chronic occult bleeding/weight loss, not acute painless large-volume bleed.",
-            "D": "Haemorrhoids cause small-volume bright blood on wiping, not large-volume bleed."
-          }
+          "rule": "Diverticulosis = painless bleeding; diverticulitis = fever + LIF pain"
         }
       },
       {
@@ -3008,12 +2303,7 @@ const SUBJECTS = [
           "concept": "Acute diverticulitis — CT diagnosis (barium/colonoscopy contraindicated)",
           "discriminator": "Fever + LIF pain → diverticulitis → CT (barium enema and colonoscopy contraindicated in acute phase)",
           "trap": "\"What NOT to do\" — barium enema in acute diverticulitis",
-          "rule": "Acute diverticulitis → CT; barium enema and colonoscopy are contraindicated acutely",
-          "others": {
-            "B": "Barium enema risks perforation in acute inflammation and is contraindicated.",
-            "C": "Colonoscopy risks perforation during acute diverticulitis; it is deferred 6-8 weeks.",
-            "D": "Ultrasound is less sensitive than CT for diverticulitis and its complications."
-          }
+          "rule": "Acute diverticulitis → CT; barium enema and colonoscopy are contraindicated acutely"
         }
       },
       {
@@ -3029,12 +2319,7 @@ const SUBJECTS = [
           "concept": "Ischaemic colitis — watershed splenic flexure, non-occlusive",
           "discriminator": "Elderly + sudden LIF pain + bloody diarrhoea + splenic flexure (watershed) thickening = ischaemic colitis",
           "trap": "Clinical Mimic — ischaemic colitis vs acute mesenteric ischaemia",
-          "rule": "Ischaemic colitis = watershed splenic flexure, pain then bloody diarrhoea, usually self-limited",
-          "others": {
-            "A": "Acute mesenteric ischaemia is occlusive (AF/embolus) with pain out of proportion, not primarily bloody diarrhoea at the splenic flexure.",
-            "B": "Ulcerative colitis is a chronic relapsing disorder in younger patients with continuous rectal involvement.",
-            "C": "Infectious colitis usually has a clear infectious prodrome and lacks watershed distribution."
-          }
+          "rule": "Ischaemic colitis = watershed splenic flexure, pain then bloody diarrhoea, usually self-limited"
         }
       },
       {
@@ -3050,12 +2335,7 @@ const SUBJECTS = [
           "concept": "Sigmoid volvulus — coffee-bean sign → endoscopic detorsion",
           "discriminator": "Elderly + massive distension + coffee-bean sign = sigmoid volvulus → endoscopic detorsion first (if no peritonitis)",
           "trap": "Investigation hierarchy — sigmoidoscopy (therapeutic) vs barium",
-          "rule": "Coffee-bean sign = sigmoid volvulus → endoscopic detorsion first (laparotomy if gangrene/peritonitis)",
-          "others": {
-            "B": "Laparotomy is reserved for failed detorsion, peritonitis, or gangrenous bowel.",
-            "C": "Barium enema is contraindicated in obstruction/possible perforation.",
-            "D": "Observation allows bowel ischaemia to progress; detorsion is urgent."
-          }
+          "rule": "Coffee-bean sign = sigmoid volvulus → endoscopic detorsion first (laparotomy if gangrene/peritonitis)"
         }
       },
       {
@@ -3071,12 +2351,7 @@ const SUBJECTS = [
           "concept": "Anal fissure — tearing pain + fresh blood on wiping",
           "discriminator": "Tearing pain on defecation + fresh blood on paper = anal fissure (haemorrhoids are painless)",
           "trap": "Clinical Mimic — anal fissure (painful) vs haemorrhoids (painless)",
-          "rule": "Anal fissure = tearing pain + fresh bleeding; haemorrhoids = painless bleeding",
-          "others": {
-            "A": "Internal haemorrhoids cause painless bleeding, not tearing pain.",
-            "B": "Anal fistula presents with recurrent purulent discharge and a history of abscess, not sharp pain with bleeding.",
-            "C": "Carcinoma causes occult bleeding/change in bowel habit, not acute painful defecation in a young woman."
-          }
+          "rule": "Anal fissure = tearing pain + fresh bleeding; haemorrhoids = painless bleeding"
         }
       },
       {
@@ -3092,12 +2367,7 @@ const SUBJECTS = [
           "concept": "Haemorrhoids — grading of internal haemorrhoids",
           "discriminator": "Painless bleeding + prolapse that reduces spontaneously = second-degree internal haemorrhoids",
           "trap": "Opposite — internal (painless) vs external (painful) haemorrhoids",
-          "rule": "Internal haemorrhoids = painless (above dentate line); external = painful when thrombosed",
-          "others": {
-            "A": "External haemorrhoids are below the dentate line and painful, especially when thrombosed.",
-            "C": "Third-degree internal haemorrhoids require manual reduction — this one reduces spontaneously.",
-            "D": "Anal fissure causes tearing pain during defecation, not painless bleeding."
-          }
+          "rule": "Internal haemorrhoids = painless (above dentate line); external = painful when thrombosed"
         }
       },
       {
@@ -3113,12 +2383,7 @@ const SUBJECTS = [
           "concept": "Perianal abscess — incision and drainage",
           "discriminator": "Fluctuant perianal swelling + fever = abscess → incision and drainage (antibiotics alone fail)",
           "trap": "Treatment misdirection — antibiotics instead of drainage",
-          "rule": "Perianal abscess → incision and drainage; recurrent abscess → look for fistula",
-          "others": {
-            "A": "Antibiotics alone cannot penetrate an abscess cavity; drainage is mandatory.",
-            "C": "Topical antibiotics are ineffective for a deep abscess.",
-            "D": "Warm compresses alone will not resolve a fluctuant abscess."
-          }
+          "rule": "Perianal abscess → incision and drainage; recurrent abscess → look for fistula"
         }
       },
       {
@@ -3134,12 +2399,7 @@ const SUBJECTS = [
           "concept": "Angiodysplasia — right-colon vascular ectasia (Heyde syndrome)",
           "discriminator": "Elderly + aortic stenosis + recurrent painless bleed + normal colonoscopy = angiodysplasia (often right colon)",
           "trap": "Clinical Mimic — angiodysplasia (right colon, subtle) vs diverticulosis (left, brisk)",
-          "rule": "Angiodysplasia = right colon, intermittent painless bleed, linked to aortic stenosis (Heyde)",
-          "others": {
-            "B": "Diverticulosis bleeds are typically larger-volume and originate from the left colon.",
-            "C": "Carcinoma causes occult bleeding with weight loss/altered habit, and is usually seen on colonoscopy.",
-            "D": "Haemorrhoids cause small-volume bright blood on wiping, not recurrent anaemia."
-          }
+          "rule": "Angiodysplasia = right colon, intermittent painless bleed, linked to aortic stenosis (Heyde)"
         }
       },
       {
@@ -3155,12 +2415,7 @@ const SUBJECTS = [
           "concept": "Pseudomembranous colitis — C. difficile → oral vancomycin",
           "discriminator": "Post-antibiotic watery diarrhoea + pseudomembranes = C. difficile → oral vancomycin (or fidaxomicin)",
           "trap": "Guideline Version — metronidazole reflex when vancomycin is now first-line",
-          "rule": "C. difficile colitis → stop offending antibiotic + oral vancomycin/fidaxomicin (avoid loperamide)",
-          "others": {
-            "B": "IV ceftriaxone is a broad-spectrum antibiotic that would worsen C. difficile colitis.",
-            "C": "Loperamide is contraindicated — it can precipitate toxic megacolon.",
-            "D": "Adding another antibiotic (amoxicillin-clavulanate) worsens the infection; the offending agent must be stopped."
-          }
+          "rule": "C. difficile colitis → stop offending antibiotic + oral vancomycin/fidaxomicin (avoid loperamide)"
         }
       },
       {
@@ -3176,19 +2431,14 @@ const SUBJECTS = [
           "concept": "Toxic megacolon — complication of UC",
           "discriminator": "UC + fever + tachycardia + colonic dilatation >6 cm = toxic megacolon → IV steroids + resuscitation + surgical review",
           "trap": "Severity under-recognition — 'just diarrhoea' downgrade in a UC patient",
-          "rule": "Toxic megacolon (UC) → resuscitate + IV steroids + early colectomy if no response",
-          "others": {
-            "A": "Loperamide is contraindicated — it worsens dilatation and perforation risk.",
-            "B": "Mesalazine and discharge are inadequate for a life-threatening complication.",
-            "C": "Barium enema risks perforation in a dilated inflamed colon."
-          }
+          "rule": "Toxic megacolon (UC) → resuscitate + IV steroids + early colectomy if no response"
         }
       }
     ]
   },
   {
     "id": "haematology",
-    "name": "Autoimmune Haemolytic Anaemia",
+    "name": "Haematology",
     "questions": [
       {
         "q": "A 45-year-old with fatigue and jaundice has laboratory evidence of haemolysis and a positive direct Coombs (antiglobulin) test. This immune haemolytic anaemia is best classified under which type of hypersensitivity reaction?",
@@ -3203,12 +2453,7 @@ const SUBJECTS = [
           "concept": "Autoimmune haemolytic anaemia - Type II hypersensitivity (Coombs positive)",
           "discriminator": "Positive Coombs test + haemolysis = antibody against self RBCs = Type II cytotoxic hypersensitivity",
           "trap": "Assigning AIHA to immune complex (III) or cell-mediated (IV) hypersensitivity",
-          "rule": "AIHA (positive Coombs) is a Type II antibody-mediated hypersensitivity with extravascular haemolysis.",
-          "others": {
-            "B": "Type I is mediated by IgE/mast cells (anaphylaxis, allergy), not anti-RBC antibodies",
-            "C": "Type III is immune-complex mediated (e.g. serum sickness), not directed at self RBC antigens",
-            "D": "Type IV is delayed T-cell mediated (e.g. TB, contact dermatitis), not antibody-mediated haemolysis"
-          }
+          "rule": "AIHA (positive Coombs) is a Type II antibody-mediated hypersensitivity with extravascular haemolysis."
         }
       },
       {
@@ -3224,12 +2469,7 @@ const SUBJECTS = [
           "concept": "Neonatal hyperbilirubinaemia - haemolysis gives unconjugated (indirect) rise",
           "discriminator": "Haemolysis (e.g. Rh/ABO) raises unconjugated bilirubin (pre-hepatic); a high reticulocyte count would support it",
           "trap": "Choosing conjugated bilirubin or low reticulocytes - haemolysis is unconjugated with reticulocytosis",
-          "rule": "Haemolytic jaundice raises unconjugated (indirect) bilirubin with reticulocytosis; conjugated hyperbilirubinaemia is hepatic/cholestatic.",
-          "others": {
-            "A": "haemolysis raises (not lowers) the reticulocyte count",
-            "C": "a negative Coombs does not confirm haemolysis; unconjugated bilirubin and reticulocytosis do",
-            "D": "conjugated (direct) hyperbilirubinaemia suggests cholestasis or hepatic disease, not pre-hepatic haemolysis"
-          }
+          "rule": "Haemolytic jaundice raises unconjugated (indirect) bilirubin with reticulocytosis; conjugated hyperbilirubinaemia is hepatic/cholestatic."
         }
       },
       {
@@ -3245,12 +2485,7 @@ const SUBJECTS = [
           "concept": "TTP - most common cause of death is intracranial haemorrhage",
           "discriminator": "TTP: intracranial haemorrhage is the most common cause of death (thrombocytopenia + microangiopathy)",
           "trap": "Attributing TTP death to cardiac emboli - intracranial bleed is the leading cause",
-          "rule": "TTP (MAHA, thrombocytopenia, neuro/renal signs): intracranial haemorrhage is the main cause of death; plasma exchange is definitive.",
-          "others": {
-            "B": "cardiac ischaemia is not the leading cause of death in TTP",
-            "C": "pulmonary embolism is not the typical fatal event",
-            "D": "hepatic failure is not the main cause of death in TTP"
-          }
+          "rule": "TTP (MAHA, thrombocytopenia, neuro/renal signs): intracranial haemorrhage is the main cause of death; plasma exchange is definitive."
         }
       },
       {
@@ -3266,12 +2501,7 @@ const SUBJECTS = [
           "concept": "Thalassaemia major - iron overload cardiomyopathy from repeated transfusions",
           "discriminator": "Transfused thalassaemia major + oedema/dyspnoea = iron-overload dilated cardiomyopathy (ferritin/LIC)",
           "trap": "Blaming renal or hepatic causes - cardiac iron overload is the classic lethal complication",
-          "rule": "Transfusion iron overload in thalassaemia causes dilated cardiomyopathy (HF); use iron chelation to prevent organ damage.",
-          "others": {
-            "A": "chronic renal failure is not the typical cause of the heart failure here",
-            "C": "cirrhosis does not cause exertional dyspnoea and oedema primarily as a cardiac complication",
-            "D": "pulmonary embolism is not the expected process with transfusion history"
-          }
+          "rule": "Transfusion iron overload in thalassaemia causes dilated cardiomyopathy (HF); use iron chelation to prevent organ damage."
         }
       },
       {
@@ -3287,12 +2517,7 @@ const SUBJECTS = [
           "concept": "Septic shock + DIC - fever, leucopenia, coagulopathy",
           "discriminator": "Source of sepsis + hypotension/confusion + low WBC + prolonged PT = septic shock with DIC",
           "trap": "Reading the prolonged PT/INR as an isolated liver problem or missing DIC in sepsis",
-          "rule": "DIC complicates sepsis: prolonged PT/aPTT, thrombocytopenia, low fibrinogen, high D-dimer; treat the underlying sepsis.",
-          "others": {
-            "A": "uncomplicated UTI does not cause shock, leucopenia and coagulopathy",
-            "C": "cardiogenic shock has a raised JVP/pulmonary oedema and does not explain the coagulopathy",
-            "D": "massive PE causes acute right-heart strain, not leucopenia with prolonged PT"
-          }
+          "rule": "DIC complicates sepsis: prolonged PT/aPTT, thrombocytopenia, low fibrinogen, high D-dimer; treat the underlying sepsis."
         }
       },
       {
@@ -3308,12 +2533,7 @@ const SUBJECTS = [
           "concept": "Folate deficiency - goat's milk (low folate) causes macrocytic anaemia in infants",
           "discriminator": "Goat's milk is low in folate; macrocytic anaemia (MCV 106) in an infant = folate deficiency",
           "trap": "Choosing B12 or iron - goat's milk causes folate deficiency and MCV is high (macrocytic)",
-          "rule": "Goat's milk is folate-poor; an exclusively goat's-milk-fed infant gets megaloblastic (folate-deficiency) anaemia - macrocytic.",
-          "others": {
-            "A": "iron deficiency is microcytic (low MCV), not macrocytic at 106 fL",
-            "C": "B12 deficiency is macrocytic but is not the classic goat's-milk cause (folate is)",
-            "D": "vitamin C deficiency causes scurvy, not this macrocytic picture"
-          }
+          "rule": "Goat's milk is folate-poor; an exclusively goat's-milk-fed infant gets megaloblastic (folate-deficiency) anaemia - macrocytic."
         }
       },
       {
@@ -3329,12 +2549,7 @@ const SUBJECTS = [
           "concept": "Iron deficiency anaemia - microcytic, low ferritin, high TIBC",
           "discriminator": "Microcytic (MCV 70) + low ferritin + high TIBC = iron deficiency (ferritin is diagnostic if low)",
           "trap": "Choosing thalassaemia minor - ferritin 8 (low) and high TIBC confirm iron deficiency, not thalassaemia",
-          "rule": "Iron deficiency: microcytic, low ferritin, low iron, high TIBC. Ferritin is the discriminator vs thalassaemia minor.",
-          "others": {
-            "B": "thalassaemia minor has microcytosis but normal/high ferritin and often only mild anaemia",
-            "C": "sickle cell anaemia is normocytic with sickling on crisis, not this iron profile",
-            "D": "B12 deficiency is macrocytic (high MCV), not microcytic"
-          }
+          "rule": "Iron deficiency: microcytic, low ferritin, low iron, high TIBC. Ferritin is the discriminator vs thalassaemia minor."
         }
       },
       {
@@ -3350,12 +2565,7 @@ const SUBJECTS = [
           "concept": "Acute myeloid leukaemia - Auer rods + MPO positive + gum infiltration",
           "discriminator": "Blasts + Auer rods + MPO positive = AML; gum hyperplasia is classic for monocytic AML",
           "trap": "Choosing CLL/ALL - Auer rods + MPO positivity are specific for myeloid (AML)",
-          "rule": "AML: myeloblasts with Auer rods, MPO positive, gum/skin infiltration, older adults; M4/M5 monocytic. Distinct from ALL and CML.",
-          "others": {
-            "A": "CLL is a mature lymphocytic leukaemia of older adults without blasts/Auer rods",
-            "B": "ALL is MPO negative, PAS positive, common in children",
-            "C": "CML has a chronic phase with basophilia and the BCR-ABL fusion, not gum-infiltrating blasts with Auer rods"
-          }
+          "rule": "AML: myeloblasts with Auer rods, MPO positive, gum/skin infiltration, older adults; M4/M5 monocytic. Distinct from ALL and CML."
         }
       },
       {
@@ -3371,12 +2581,7 @@ const SUBJECTS = [
           "concept": "Anaemia of chronic disease - low iron but normal/high ferritin (functional block)",
           "discriminator": "Chronic illness + low serum iron + normal/high ferritin = anaemia of chronic disease (hepcidin blocks iron release)",
           "trap": "Calling it iron deficiency - the normal/high ferritin with chronic illness favours ACD",
-          "rule": "ACD: low iron, normal/high ferritin (hepcidin blocks store release), normocytic, in inflammation/malignancy. Ferritin distinguishes from iron deficiency.",
-          "others": {
-            "A": "iron deficiency has LOW ferritin, unlike the normal/high ferritin here",
-            "C": "B12 deficiency is macrocytic with neurological signs, not this profile",
-            "D": "haemolytic anaemia shows reticulocytosis and raised LDH/bilirubin"
-          }
+          "rule": "ACD: low iron, normal/high ferritin (hepcidin blocks store release), normocytic, in inflammation/malignancy. Ferritin distinguishes from iron deficiency."
         }
       },
       {
@@ -3392,12 +2597,7 @@ const SUBJECTS = [
           "concept": "Warfarin overdose - vitamin K antidote",
           "discriminator": "Warfarin (vitamin K antagonist) reversal = vitamin K; protamine reverses heparin",
           "trap": "Using protamine (which reverses heparin, not warfarin)",
-          "rule": "Warfarin (vitamin K antagonist) is reversed with vitamin K (PCC if life-threatening); protamine reverses heparin.",
-          "others": {
-            "B": "protamine sulphate reverses heparin (unfractionated), not warfarin",
-            "C": "desmopressin (DDAVP) is used in VWD/platelet function disorders, not to reverse warfarin",
-            "D": "platelet transfusion does not correct vitamin K-dependent factor deficiency"
-          }
+          "rule": "Warfarin (vitamin K antagonist) is reversed with vitamin K (PCC if life-threatening); protamine reverses heparin."
         }
       },
       {
@@ -3413,12 +2613,7 @@ const SUBJECTS = [
           "concept": "B12 deficiency - macrocytic + glossitis + neuropathy (subacute combined degeneration)",
           "discriminator": "Macrocytosis + glossitis + peripheral neuropathy/gait = B12 deficiency (also causes neurological signs)",
           "trap": "Choosing iron (microcytic) - macrocytosis with neuropathy clearly indicates B12, not iron",
-          "rule": "B12 deficiency: macrocytic (MCV high), hypersegmented neutrophils, glossitis, neuropathy/SCD; treat with B12 - folate alone would not correct neurology.",
-          "others": {
-            "A": "iron deficiency is microcytic without neuropathy or hypersegmentation",
-            "C": "thalassaemia minor is microcytic and mild",
-            "D": "ACD is normocytic with low iron but high/normal ferritin and no neuropathy"
-          }
+          "rule": "B12 deficiency: macrocytic (MCV high), hypersegmented neutrophils, glossitis, neuropathy/SCD; treat with B12 - folate alone would not correct neurology."
         }
       },
       {
@@ -3434,12 +2629,7 @@ const SUBJECTS = [
           "concept": "Chronic myeloid leukaemia - Philadelphia chromosome (t9;22 BCR-ABL), massive splenomegaly",
           "discriminator": "High WBC + left shift + basophilia + splenomegaly + Philadelphia chromosome = CML (BCR-ABL)",
           "trap": "Confusing CML (chronic, Ph+, splenomegaly) with AML (acute blasts) or CLL (mature lymphocytosis)",
-          "rule": "CML: t(9;22) BCR-ABL (Philadelphia), leucocytosis with basophilia, splenomegaly; treat with TKI (imatinib).",
-          "others": {
-            "A": "AML has circulating blasts with Auer rods and marrow failure, not a chronic left shift with splenomegaly",
-            "C": "CLL shows a mature lymphocytosis with smudge cells in older adults, not basophilia/Ph chromosome",
-            "D": "myelofibrosis has teardrop cells and a dry tap with an enlarged spleen but is Ph negative"
-          }
+          "rule": "CML: t(9;22) BCR-ABL (Philadelphia), leucocytosis with basophilia, splenomegaly; treat with TKI (imatinib)."
         }
       },
       {
@@ -3455,12 +2645,7 @@ const SUBJECTS = [
           "concept": "Hereditary spherocytosis - spherocytes, splenomegaly, gallstones; splenectomy if severe",
           "discriminator": "Spherocytes + splenomegaly + gallstones + raised MCHC = hereditary spherocytosis; splenectomy for severe disease",
           "trap": "Confusing spherocytosis (membrane, Coombs negative) with AIHA (Coombs positive) or G6PD (trigger-related)",
-          "rule": "Hereditary spherocytosis: spherocytes, splenomegaly, gallstones, raised MCHC, negative Coombs; splenectomy for severe disease.",
-          "others": {
-            "A": "iron deficiency is microcytic with low ferritin, not spherocytes",
-            "C": "G6PD deficiency gives episodic haemolysis with Heinz bodies, not persistent spherocytosis/gallstones",
-            "D": "sickle cell shows sickling on Hb electrophoresis, not spherocytes"
-          }
+          "rule": "Hereditary spherocytosis: spherocytes, splenomegaly, gallstones, raised MCHC, negative Coombs; splenectomy for severe disease."
         }
       },
       {
@@ -3476,12 +2661,7 @@ const SUBJECTS = [
           "concept": "Sickle cell vaso-occlusive crisis - analgesia, hydration, oxygen",
           "discriminator": "Painful crisis in sickle cell = analgesia, hydration, oxygen; transfusion only for specific complications (e.g. stroke, chest syndrome)",
           "trap": "Transfusing all crises - reserved for complications (chest syndrome, stroke, splenic sequestration)",
-          "rule": "Vaso-occlusive crisis: analgesia, hydration, oxygen, treat infection/trigger. Transfuse only for complications (acute chest syndrome, stroke, sequestration).",
-          "others": {
-            "B": "transfusion is not needed for every crisis, only for complications",
-            "C": "antibiotics alone do not relieve the pain of a vaso-occlusive crisis",
-            "D": "splenectomy is not the treatment for an acute painful crisis"
-          }
+          "rule": "Vaso-occlusive crisis: analgesia, hydration, oxygen, treat infection/trigger. Transfuse only for complications (acute chest syndrome, stroke, sequestration)."
         }
       },
       {
@@ -3497,12 +2677,7 @@ const SUBJECTS = [
           "concept": "Aplastic anaemia - pancytopenia + hypocellular marrow",
           "discriminator": "Pancytopenia with a HYPOCELLULAR marrow (no blasts/fibrosis) = aplastic anaemia",
           "trap": "Choosing AML (which would show blasts) - the hypocellular empty marrow without blasts is aplastic anaemia",
-          "rule": "Aplastic anaemia: pancytopenia, hypocellular marrow without blasts/fibrosis; immunosuppression or transplant.",
-          "others": {
-            "B": "AML shows blasts and a hypercellular marrow, not an empty hypocellular marrow",
-            "C": "myeloma shows plasma cells and an M-protein, not pancytopenia with an empty marrow",
-            "D": "iron deficiency is not pancytopenic and has an iron-deficient (not hypocellular) picture"
-          }
+          "rule": "Aplastic anaemia: pancytopenia, hypocellular marrow without blasts/fibrosis; immunosuppression or transplant."
         }
       },
       {
@@ -3518,12 +2693,7 @@ const SUBJECTS = [
           "concept": "G6PD deficiency - X-linked, oxidative haemolysis after fava/primaquine, Heinz bodies",
           "discriminator": "Triggers (fava beans, oxidant drugs) + acute haemolysis + Heinz bodies = G6PD deficiency (X-linked)",
           "trap": "Confusing G6PD (trigger-related X-linked) with spherocytosis (membrane) or AIHA (Coombs positive)",
-          "rule": "G6PD deficiency: X-linked, acute oxidative haemolysis with fava/oxidant drugs, Heinz bodies; avoid triggers, supportive care.",
-          "others": {
-            "B": "spherocytosis causes persistent spherocytes and gallstones, not trigger-related Heinz bodies",
-            "C": "AIHA is Coombs positive without the drug/fava trigger pattern",
-            "D": "thalassaemia major is a transfusion-dependent chronic microcytic anaemia"
-          }
+          "rule": "G6PD deficiency: X-linked, acute oxidative haemolysis with fava/oxidant drugs, Heinz bodies; avoid triggers, supportive care."
         }
       },
       {
@@ -3539,12 +2709,7 @@ const SUBJECTS = [
           "concept": "Haemophilia A - factor VIII deficiency, X-linked recessive, joint bleeds",
           "discriminator": "Recurrent haemarthroses + maternal lineage = haemophilia A (factor VIII, X-linked recessive)",
           "trap": "Choosing factor IX (haemophilia B) or VWD - factor VIII with X-linked pattern is haemophilia A",
-          "rule": "Haemophilia A: X-linked factor VIII deficiency, haemarthroses; replace factor VIII. Haemophilia B = factor IX.",
-          "others": {
-            "B": "factor IX deficiency is haemophilia B; it is still X-linked, not autosomal dominant",
-            "C": "VWD is autosomal, affects mucocutaneous bleeding (not deep joints), and is not X-linked",
-            "D": "vitamin K-dependent factor deficiency differs and is not X-linked recessive joint bleeding"
-          }
+          "rule": "Haemophilia A: X-linked factor VIII deficiency, haemarthroses; replace factor VIII. Haemophilia B = factor IX."
         }
       },
       {
@@ -3560,12 +2725,7 @@ const SUBJECTS = [
           "concept": "Immune thrombocytopenia - isolated thrombocytopenia; first-line steroids",
           "discriminator": "Isolated severe thrombocytopenia, normal film, no splenomegaly = ITP; first-line corticosteroids",
           "trap": "Choosing TTP or leukaemia - isolated thrombocytopenia without anaemia, schistocytes or blasts favours ITP",
-          "rule": "ITP: isolated thrombocytopenia, normal film, no splenomegaly; first-line corticosteroids (IVIg if severe).",
-          "others": {
-            "B": "TTP has microangiopathic haemolytic anaemia with schistocytes and fever/neuro/renal signs",
-            "C": "leukaemia shows blasts/pancytopenia and organ infiltration",
-            "D": "vitamin K deficiency causes coagulopathy (prolonged PT), not isolated low platelets"
-          }
+          "rule": "ITP: isolated thrombocytopenia, normal film, no splenomegaly; first-line corticosteroids (IVIg if severe)."
         }
       },
       {
@@ -3581,12 +2741,7 @@ const SUBJECTS = [
           "concept": "Polycythaemia vera - JAK2V617F, aquagenic pruritus, high Hct with normal SpO2",
           "discriminator": "Erythrocytosis + aquagenic pruritus + normal SpO2 = polycythaemia vera (JAK2 mutation)",
           "trap": "Confusing PV (primary, JAK2, normal SpO2) with secondary polycythaemia (low SpO2/high EPO)",
-          "rule": "PV: high Hct with normal SpO2, aquagenic pruritus, JAK2 V617F; venesection + aspirin (+ cytoreduction).",
-          "others": {
-            "A": "secondary polycythaemia follows chronic hypoxia (low SpO2) with high EPO",
-            "C": "lung-disease hypoxia causes secondary polycythaemia with low SpO2, not PV",
-            "D": "iron deficiency is microcytic and does not raise the haematocrit with pruritus"
-          }
+          "rule": "PV: high Hct with normal SpO2, aquagenic pruritus, JAK2 V617F; venesection + aspirin (+ cytoreduction)."
         }
       },
       {
@@ -3602,12 +2757,7 @@ const SUBJECTS = [
           "concept": "Chronic lymphocytic leukaemia - mature lymphocytosis + smudge cells in elderly",
           "discriminator": "Elderly + high mature lymphocyte count + smudge cells = CLL",
           "trap": "Confusing CLL (mature lymphocytosis, elderly) with ALL (blasts, children) or hairy cell (pancytopenia + hairy cells)",
-          "rule": "CLL: mature lymphocytosis with smudge cells in the elderly, lymphadenopathy; treat if symptomatic/cytopenic.",
-          "others": {
-            "B": "ALL is a childhood blast-cell acute leukaemia, not an elderly mature lymphocytosis",
-            "C": "hairy cell leukaemia often has pancytopenia and hairy cytoplasmic projections",
-            "D": "follicular lymphoma is primarily nodal lymphoma, not a marked peripheral lymphocytosis with smudge cells"
-          }
+          "rule": "CLL: mature lymphocytosis with smudge cells in the elderly, lymphadenopathy; treat if symptomatic/cytopenic."
         }
       },
       {
@@ -3623,12 +2773,7 @@ const SUBJECTS = [
           "concept": "DIC - consumption coagulopathy; treat the cause + supportive products",
           "discriminator": "Placental abruption + bleeding + low fibrinogen/platelets + high D-dimer = DIC; treat cause + supportive",
           "trap": "Treating DIC as a single-factor deficiency - it is a consumption process needing cause control + products",
-          "rule": "DIC: consumption of factors/platelets after tissue-factor release (abruption, sepsis); low fibrinogen, high D-dimer; treat cause + blood products.",
-          "others": {
-            "B": "haemophilia is a single-factor (VIII/IX) deficiency, not a consumption coagulopathy with low fibrinogen",
-            "C": "ITP gives isolated thrombocytopenia without prolonged PT or low fibrinogen",
-            "D": "vitamin K deficiency gives prolonged PT but not thrombocytopenia or low fibrinogen"
-          }
+          "rule": "DIC: consumption of factors/platelets after tissue-factor release (abruption, sepsis); low fibrinogen, high D-dimer; treat cause + blood products."
         }
       },
       {
@@ -3644,12 +2789,7 @@ const SUBJECTS = [
           "concept": "Multiple myeloma - CRAB (hypercalcaemia, renal, anaemia, bone) + monoclonal paraprotein + rouleaux",
           "discriminator": "Bone pain/fractures + anaemia + renal failure + hypercalcaemia + monoclonal protein + rouleaux = myeloma (CRAB)",
           "trap": "Choosing metastatic malignancy - the paraprotein + rouleaux + renocrania distinctive of myeloma",
-          "rule": "Myeloma: CRAB + monoclonal paraprotein + rouleaux; marrow plasma cells; manage with antimyeloma therapy and hypercalcaemia.",
-          "others": {
-            "B": "CLL is a mature lymphocytosis with smudge cells, not lytic bone lesions and an M-spike",
-            "C": "metastatic prostate cancer gives blastic (not lytic) lesions and a high PSA, not a paraprotein",
-            "D": "polycythaemia vera raises the haematocrit, not a paraprotein with lytic lesions"
-          }
+          "rule": "Myeloma: CRAB + monoclonal paraprotein + rouleaux; marrow plasma cells; manage with antimyeloma therapy and hypercalcaemia."
         }
       },
       {
@@ -3665,12 +2805,7 @@ const SUBJECTS = [
           "concept": "Vitamin K deficiency - prolonged PT (factor VII first) in malabsorption",
           "discriminator": "Malabsorption/antibiotics + prolonged PT + normal platelets = vitamin K deficiency (factors II, VII, IX, X)",
           "trap": "Blaming factor VIII/VWD (which prolong aPTT more) - vitamin K deficiency prolongs PT",
-          "rule": "Vitamin K deficiency (malabsorption/antibiotics/liver) prolongs PT via factors II, VII, IX, X; treat with vitamin K.",
-          "others": {
-            "B": "factor VIII deficiency (haemophilia A) prolongs aPTT, not mainly the PT",
-            "C": "VWD affects platelet adhesion with normal aPTT/PT in mild cases",
-            "D": "thrombocytopenia reduces platelet count, but the platelet count is normal here"
-          }
+          "rule": "Vitamin K deficiency (malabsorption/antibiotics/liver) prolongs PT via factors II, VII, IX, X; treat with vitamin K."
         }
       },
       {
@@ -3686,12 +2821,7 @@ const SUBJECTS = [
           "concept": "Megaloblastic anaemia - hypersegmented neutrophils + macro-ovalocytes",
           "discriminator": "Hypersegmented neutrophils + macrocytosis = megaloblastic (B12/folate) anaemia",
           "trap": "Choosing microcytic or hemolytic film changes - hypersegmented neutrophils are specific for megaloblastic anaemia",
-          "rule": "Megaloblastic film: macro-ovalocytes and hypersegmented neutrophils; MCV elevated. Seen in B12/folate deficiency.",
-          "others": {
-            "B": "microcytes and target cells suggest iron deficiency or thalassaemia, not megaloblastic change",
-            "C": "spherocytes suggest spherocytosis/AIHA",
-            "D": "sickle cells suggest sickle cell disease"
-          }
+          "rule": "Megaloblastic film: macro-ovalocytes and hypersegmented neutrophils; MCV elevated. Seen in B12/folate deficiency."
         }
       },
       {
@@ -3707,19 +2837,14 @@ const SUBJECTS = [
           "concept": "Acute haemolytic transfusion reaction - STOP transfusion immediately, keep line, manage reaction",
           "discriminator": "Fever/back pain/dark urine during transfusion = haemolytic reaction; stop the blood, keep IV access, manage supportively",
           "trap": "Slowing or continuing the transfusion - the unit must be stopped immediately",
-          "rule": "Suspected haemolytic transfusion reaction: stop the transfusion, keep IV access, support BP/renal function, and investigate.",
-          "others": {
-            "B": "continuing or slowing the transfusion risks worsening haemolysis and DIC",
-            "C": "paracetamol alone does not address a potential haemolytic reaction",
-            "D": "the line should be kept open with saline while the unit is stopped"
-          }
+          "rule": "Suspected haemolytic transfusion reaction: stop the transfusion, keep IV access, support BP/renal function, and investigate."
         }
       }
     ]
   },
   {
     "id": "hepatology",
-    "name": "Hepatic Encephalopathy",
+    "name": "Hepatology",
     "questions": [
       {
         "q": "A 55-year-old man with cirrhosis presents with confusion and asterixis. Serum ammonia is elevated. In the liver, ammonia is detoxified by combining with which molecule to form glutamine?",
@@ -3734,12 +2859,7 @@ const SUBJECTS = [
           "concept": "Hepatic encephalopathy — ammonia detoxification via glutamine synthetase",
           "discriminator": "Ammonia + glutamate → glutamine (glutamine synthetase) is the liver's detoxification pathway",
           "trap": "Synonym Swap — glutamate vs glutamine vs aspartate",
-          "rule": "NH3 detoxified to glutamine via glutamine synthetase (glutamate is the acceptor)",
-          "others": {
-            "A": "Aspartate feeds the urea cycle (with citrulline → argininosuccinate), not glutamine formation.",
-            "B": "Alanine carries ammonia from muscle to liver (glucose-alanine cycle), not the acceptor for glutamine.",
-            "D": "Pyruvate is not the nitrogen acceptor for ammonia detoxification."
-          }
+          "rule": "NH3 detoxified to glutamine via glutamine synthetase (glutamate is the acceptor)"
         }
       },
       {
@@ -3755,12 +2875,7 @@ const SUBJECTS = [
           "concept": "Spontaneous bacterial peritonitis — PMN >250 → cefotaxime + albumin",
           "discriminator": "Ascites + fever + PMN >250 cells/mm³ = SBP → cefotaxime + IV albumin (prevents hepatorenal syndrome)",
           "trap": "Unit/Number — PMN >250 threshold + albumin add-on missed",
-          "rule": "SBP = ascitic PMN >250 → cefotaxime + IV albumin (albumin prevents HRS)",
-          "others": {
-            "A": "Oral ciprofloxacin is for SBP prophylaxis in high-risk patients, not treatment of active infection.",
-            "B": "Diuretics do not treat infection; they may worsen renal hypoperfusion.",
-            "C": "Observation lets the infection progress; SBP has high mortality if untreated."
-          }
+          "rule": "SBP = ascitic PMN >250 → cefotaxime + IV albumin (albumin prevents HRS)"
         }
       },
       {
@@ -3776,12 +2891,7 @@ const SUBJECTS = [
           "concept": "Hepatorenal syndrome — functional renal failure in cirrhosis",
           "discriminator": "Cirrhosis + progressive creatinine rise + low urine Na (<10) + bland sediment + no shock = hepatorenal syndrome (type 1)",
           "trap": "Clinical Mimic — HRS vs prerenal failure vs ATN (urine Na discriminates)",
-          "rule": "HRS = functional AKI in cirrhosis, urine Na <10, bland sediment → terlipressin + albumin",
-          "others": {
-            "B": "ATN shows granular/muddy casts and urine Na >20, usually after a nephrotoxic or ischaemic insult.",
-            "C": "Pre-renal failure responds to volume expansion; HRS persists despite adequate filling.",
-            "D": "IgA nephropathy presents with haematuria and proteinuria, not bland sediment with low urine sodium."
-          }
+          "rule": "HRS = functional AKI in cirrhosis, urine Na <10, bland sediment → terlipressin + albumin"
         }
       },
       {
@@ -3797,12 +2907,7 @@ const SUBJECTS = [
           "concept": "Ascites — first-line medical management",
           "discriminator": "New uncomplicated ascites → sodium restriction + spironolactone (aldosterone antagonist) first",
           "trap": "Treatment ladder — invasive paracentesis/TIPS over first-line diuretics",
-          "rule": "Ascites first-line = sodium restriction + spironolactone (add furosemide if inadequate)",
-          "others": {
-            "A": "Large-volume paracentesis is for tense or refractory ascites, not first-line in mild ascites.",
-            "B": "TIPS is reserved for refractory ascites or recurrent variceal bleed.",
-            "C": "Furosemide alone is less effective; spironolactone is the preferred initial diuretic in cirrhosis."
-          }
+          "rule": "Ascites first-line = sodium restriction + spironolactone (add furosemide if inadequate)"
         }
       },
       {
@@ -3818,12 +2923,7 @@ const SUBJECTS = [
           "concept": "Vitamin K deficiency in chronic liver disease",
           "discriminator": "Prolonged PT in chronic liver disease → vitamin K (fat-soluble vitamin needed for factors II, VII, IX, X)",
           "trap": "Opposite — vitamin K vs other vitamins for coagulopathy",
-          "rule": "Vitamin K corrects PT prolongation from factor II/VII/IX/X deficiency in CLD",
-          "others": {
-            "A": "Folic acid treats macrocytic anaemia, not the coagulation defect.",
-            "B": "Vitamin B12 deficiency causes macrocytic anaemia and neuropathy, not PT prolongation.",
-            "C": "Vitamin C deficiency causes scurvy, not coagulopathy."
-          }
+          "rule": "Vitamin K corrects PT prolongation from factor II/VII/IX/X deficiency in CLD"
         }
       },
       {
@@ -3839,12 +2939,7 @@ const SUBJECTS = [
           "concept": "Hepatocellular carcinoma — surveillance in cirrhosis",
           "discriminator": "Cirrhosis (HBV) → 6-monthly ultrasound + AFP for HCC surveillance",
           "trap": "Unit/Number — 6-monthly interval + US over CT/MRI for screening",
-          "rule": "HCC surveillance in cirrhosis = 6-monthly ultrasound (+AFP)",
-          "others": {
-            "A": "Annual CT is not the surveillance standard and CT is a diagnostic, not screening, tool.",
-            "B": "MRI is diagnostic (not screening) and too costly for routine surveillance.",
-            "D": "The standard interval is 6-monthly, not annual; AFP may be added."
-          }
+          "rule": "HCC surveillance in cirrhosis = 6-monthly ultrasound (+AFP)"
         }
       },
       {
@@ -3860,12 +2955,7 @@ const SUBJECTS = [
           "concept": "Budd-Chiari syndrome — hepatic vein thrombosis",
           "discriminator": "Ascites + hepatomegaly + hepatic vein thrombosis = Budd-Chiari syndrome (outflow obstruction)",
           "trap": "Clinical Mimic — Budd-Chiari vs portal vein thrombosis vs cardiac ascites",
-          "rule": "Budd-Chiari = hepatic vein outflow obstruction → ascites + hepatomegaly → anticoagulate",
-          "others": {
-            "A": "Portal vein thrombosis affects the portal vein, not hepatic veins, and classically follows cirrhosis or abdominal sepsis.",
-            "C": "Alcoholic cirrhosis is chronic and painless hepatomegaly with stigmata of chronic liver disease, not acute hepatic vein thrombosis.",
-            "D": "Right heart failure causes congestive hepatopathy but not isolated hepatic vein thrombosis on Doppler."
-          }
+          "rule": "Budd-Chiari = hepatic vein outflow obstruction → ascites + hepatomegaly → anticoagulate"
         }
       },
       {
@@ -3881,12 +2971,7 @@ const SUBJECTS = [
           "concept": "Alcoholic hepatitis — Maddrey DF >32 → corticosteroids",
           "discriminator": "Alcoholic hepatitis + Maddrey DF >32 (severe) → prednisolone (reduces mortality)",
           "trap": "Unit/Number — Maddrey >32 threshold for steroids",
-          "rule": "Severe alcoholic hepatitis (Maddrey >32) → prednisolone; screen for infection/bleed first",
-          "others": {
-            "A": "Pentoxifylline is not recommended; it does not reduce mortality.",
-            "B": "Severe alcoholic hepatitis (DF >32) warrants treatment, not observation.",
-            "C": "Transplant requires a period of abstinence and is not the immediate step."
-          }
+          "rule": "Severe alcoholic hepatitis (Maddrey >32) → prednisolone; screen for infection/bleed first"
         }
       },
       {
@@ -3902,12 +2987,7 @@ const SUBJECTS = [
           "concept": "Hepatitis A — most common acute hepatitis in children",
           "discriminator": "Hepatitis A is the most common cause of acute viral hepatitis in children (fecal-oral spread)",
           "trap": "Overthinking — obvious answer (Hep A) second-guessed toward B/C",
-          "rule": "Hepatitis A = most common acute viral hepatitis in children, fecal-oral, no carrier state",
-          "others": {
-            "A": "Hepatitis B is less common in children and is blood/vertical transmission.",
-            "C": "Hepatitis C is blood-borne and uncommon in children.",
-            "D": "Hepatitis D requires co-infection with hepatitis B and is rare."
-          }
+          "rule": "Hepatitis A = most common acute viral hepatitis in children, fecal-oral, no carrier state"
         }
       },
       {
@@ -3923,12 +3003,7 @@ const SUBJECTS = [
           "concept": "Hepatitis B — vertical transmission prevention",
           "discriminator": "HBsAg+ mother → HBIG + first vaccine dose within 12-24 hours of birth",
           "trap": "Unit/Number — timing (12-24h) is the discriminator",
-          "rule": "Hep B vertical: HBIG + first vaccine dose within 12-24h of birth",
-          "others": {
-            "B": "Breastfeeding is not contraindicated once the infant receives HBIG and vaccine.",
-            "C": "Caesarean delivery does not reduce HBV transmission.",
-            "D": "Delaying vaccination increases the risk of perinatal infection."
-          }
+          "rule": "Hep B vertical: HBIG + first vaccine dose within 12-24h of birth"
         }
       },
       {
@@ -3944,12 +3019,7 @@ const SUBJECTS = [
           "concept": "Hepatitis B serology — chronic infection profile",
           "discriminator": "HBsAg+ + anti-HBc IgG+ + anti-HBs− = chronic infection (HBsAg persists >6 months)",
           "trap": "Synonym Swap — chronic vs resolved vs vaccinated serology",
-          "rule": "Chronic HBV = HBsAg+ (>6mo), anti-HBc IgG+, anti-HBs−",
-          "others": {
-            "A": "Vaccination produces anti-HBs alone (no HBsAg or anti-HBc).",
-            "B": "Acute infection shows anti-HBc IgM positive, not IgG, with HBsAg.",
-            "D": "Resolved infection is HBsAg negative with anti-HBs and anti-HBc IgG positive."
-          }
+          "rule": "Chronic HBV = HBsAg+ (>6mo), anti-HBc IgG+, anti-HBs−"
         }
       },
       {
@@ -3965,12 +3035,7 @@ const SUBJECTS = [
           "concept": "Hepatitis E — fulminant hepatitis in pregnancy",
           "discriminator": "Pregnancy + acute hepatitis (fecal-oral, travel) = hepatitis E → highest mortality in 3rd trimester",
           "trap": "Clinical Mimic — Hep E vs Hep A (pregnancy severity discriminates)",
-          "rule": "Hepatitis E = fulminant hepatitis in pregnancy (3rd trimester), high mortality",
-          "others": {
-            "B": "Hepatitis A is self-limited and does not show the pregnancy-specific fulminant course of hepatitis E.",
-            "C": "Hepatitis B is blood-borne and not the classic pregnancy-associated fulminant virus.",
-            "D": "Hepatitis C is blood-borne and rarely fulminant acutely."
-          }
+          "rule": "Hepatitis E = fulminant hepatitis in pregnancy (3rd trimester), high mortality"
         }
       },
       {
@@ -3986,12 +3051,7 @@ const SUBJECTS = [
           "concept": "Fulminant hepatic failure — paracetamol antidote",
           "discriminator": "Paracetamol overdose + hepatic failure = N-acetylcysteine (replenishes glutathione)",
           "trap": "Priority inversion — charcoal over NAC (charcoal only within 1h, NAC is the antidote)",
-          "rule": "Paracetamol hepatotoxicity → N-acetylcysteine (glutathione repletion)",
-          "others": {
-            "A": "Flumazenil is the benzodiazepine antidote, not for paracetamol.",
-            "B": "Vitamin K does not reverse paracetamol-induced hepatocyte necrosis.",
-            "D": "Activated charcoal is only useful within ~1 hour of ingestion; at 24h the antidote is needed."
-          }
+          "rule": "Paracetamol hepatotoxicity → N-acetylcysteine (glutathione repletion)"
         }
       },
       {
@@ -4007,12 +3067,7 @@ const SUBJECTS = [
           "concept": "Hereditary hemochromatosis — phlebotomy",
           "discriminator": "Diabetes + skin pigmentation + raised transferrin saturation (>45%) = hemochromatosis → phlebotomy",
           "trap": "Clinical Mimic — hemochromatosis vs secondary iron overload / diabetes",
-          "rule": "Hemochromatosis = transferrin saturation >45% + iron overload → phlebotomy",
-          "others": {
-            "A": "Iron supplementation would worsen iron overload — contraindicated.",
-            "C": "Deferoxamine (chelation) is used when phlebotomy is not tolerated (e.g. anaemia), not first-line here.",
-            "D": "Corticosteroids do not treat iron overload."
-          }
+          "rule": "Hemochromatosis = transferrin saturation >45% + iron overload → phlebotomy"
         }
       },
       {
@@ -4028,12 +3083,7 @@ const SUBJECTS = [
           "concept": "Wilson disease — copper chelation with penicillamine",
           "discriminator": "Adolescent + tremor + Kayser-Fleischer rings + low ceruloplasmin = Wilson disease → penicillamine",
           "trap": "Clinical Mimic — Wilson vs hemochromatosis (copper vs iron overload)",
-          "rule": "Wilson = KF rings + low ceruloplasmin → copper chelation (penicillamine/trientine)",
-          "others": {
-            "A": "Deferoxamine chelates iron (haemochromatosis), not copper.",
-            "B": "A gluten-free diet treats coeliac disease, not Wilson disease.",
-            "D": "Cholestyramine binds bile acids (pruritus), not copper."
-          }
+          "rule": "Wilson = KF rings + low ceruloplasmin → copper chelation (penicillamine/trientine)"
         }
       },
       {
@@ -4049,12 +3099,7 @@ const SUBJECTS = [
           "concept": "Alpha-1 antitrypsin deficiency — PAS+ globules, basal emphysema",
           "discriminator": "Non-smoker + basal emphysema + PAS-positive diastase-resistant globules = alpha-1 antitrypsin deficiency",
           "trap": "Clinical Mimic — alpha-1 vs smoking-related COPD (basal vs apical emphysema)",
-          "rule": "Alpha-1 antitrypsin deficiency = basal emphysema + PAS+ diastase-resistant hepatic globules",
-          "others": {
-            "A": "Smoking-related emphysema is apical and occurs in smokers, without the hepatic globules.",
-            "B": "Cystic fibrosis causes bronchiectasis and pancreatic insufficiency, not basal emphysema with hepatic globules.",
-            "C": "NAFLD shows steatosis (fat), not PAS-positive diastase-resistant globules."
-          }
+          "rule": "Alpha-1 antitrypsin deficiency = basal emphysema + PAS+ diastase-resistant hepatic globules"
         }
       },
       {
@@ -4070,12 +3115,7 @@ const SUBJECTS = [
           "concept": "Gilbert syndrome — benign unconjugated hyperbilirubinemia",
           "discriminator": "Isolated unconjugated hyperbilirubinemia + normal Hb/reticulocytes/LFTs = Gilbert syndrome (benign)",
           "trap": "Opposite — benign Gilbert vs worrying haemolysis/obstruction",
-          "rule": "Gilbert = isolated unconjugated hyperbilirubinemia with normal Hb/reticulocytes/LFTs",
-          "others": {
-            "A": "Haemolysis would show anaemia and raised reticulocytes, which are normal here.",
-            "C": "Dubin-Johnson causes conjugated hyperbilirubinemia, not unconjugated.",
-            "D": "Obstructive jaundice raises conjugated bilirubin and alkaline phosphatase."
-          }
+          "rule": "Gilbert = isolated unconjugated hyperbilirubinemia with normal Hb/reticulocytes/LFTs"
         }
       },
       {
@@ -4091,12 +3131,7 @@ const SUBJECTS = [
           "concept": "Primary biliary cholangitis — AMA positive → UDCA",
           "discriminator": "Middle-aged woman + pruritus + raised ALP + AMA+ = PBC → ursodeoxycholic acid",
           "trap": "Clinical Mimic — PBC (AMA+, cholestatic) vs autoimmune hepatitis (ASMA+, hepatocellular)",
-          "rule": "PBC = pruritus + raised ALP + AMA+ → ursodeoxycholic acid",
-          "others": {
-            "B": "Prednisolone treats autoimmune hepatitis, not first-line for PBC.",
-            "C": "Penicillamine chelates copper in Wilson disease.",
-            "D": "Cholecystectomy treats gallstones, not PBC."
-          }
+          "rule": "PBC = pruritus + raised ALP + AMA+ → ursodeoxycholic acid"
         }
       },
       {
@@ -4112,12 +3147,7 @@ const SUBJECTS = [
           "concept": "Autoimmune hepatitis — anti-SMA+ → corticosteroids",
           "discriminator": "Young female + hepatocellular injury + elevated IgG + anti-SMA = autoimmune hepatitis → corticosteroids",
           "trap": "Age-appropriate differential — AIH vs viral hepatitis in a young woman",
-          "rule": "Autoimmune hepatitis = young woman + hepatocellular pattern + anti-SMA → corticosteroids",
-          "others": {
-            "A": "Ursodeoxycholic acid treats PBC/PSC, not autoimmune hepatitis.",
-            "B": "Interferon is used in chronic hepatitis B/C, not AIH.",
-            "D": "Alcohol abstinence does not treat autoimmune hepatitis."
-          }
+          "rule": "Autoimmune hepatitis = young woman + hepatocellular pattern + anti-SMA → corticosteroids"
         }
       },
       {
@@ -4133,12 +3163,7 @@ const SUBJECTS = [
           "concept": "Chronic pancreatitis — exocrine insufficiency (lipase → steatorrhoea)",
           "discriminator": "Steatorrhoea in chronic pancreatitis = lipase deficiency (fat maldigestion)",
           "trap": "One-word discriminator — lipase (fat) vs amylase (starch) vs trypsin (protein)",
-          "rule": "Chronic pancreatitis steatorrhoea = lipase deficiency (fat maldigestion appears first)",
-          "others": {
-            "B": "Amylase digests starch; its deficiency causes carbohydrate maldigestion, not primarily steatorrhoea.",
-            "C": "Trypsin digests protein; deficiency causes creatorrhoea, not steatorrhoea.",
-            "D": "Chymotrypsin also digests protein, not fat."
-          }
+          "rule": "Chronic pancreatitis steatorrhoea = lipase deficiency (fat maldigestion appears first)"
         }
       },
       {
@@ -4154,12 +3179,7 @@ const SUBJECTS = [
           "concept": "Pancreatic pseudocyst — 4-6 weeks after pancreatitis",
           "discriminator": "Epigastric mass 4-6 weeks after acute pancreatitis = pancreatic pseudocyst (walled-off fluid)",
           "trap": "Unit/Number — 4-6 week timing distinguishes pseudocyst from acute fluid collection",
-          "rule": "Pseudocyst = walled-off collection 4-6 weeks after pancreatitis; drain only if symptomatic/large",
-          "others": {
-            "B": "A pancreatic abscess is infected (fever, leukocytosis), not a bland 6-week collection.",
-            "C": "Adenocarcinoma is a solid progressive mass, not a post-pancreatitis cyst.",
-            "D": "Pancreatic ascites is free peritoneal fluid, not a discrete epigastric mass."
-          }
+          "rule": "Pseudocyst = walled-off collection 4-6 weeks after pancreatitis; drain only if symptomatic/large"
         }
       },
       {
@@ -4175,12 +3195,7 @@ const SUBJECTS = [
           "concept": "Courvoisier's law — painless jaundice + palpable gallbladder",
           "discriminator": "Painless jaundice + palpable gallbladder = malignant obstruction (pancreatic head), NOT stones",
           "trap": "Opposite — painless (malignant) vs painful (stones) jaundice with a palpable GB",
-          "rule": "Courvoisier's law: painless jaundice + palpable GB = malignant obstruction",
-          "others": {
-            "A": "Choledocholithiasis causes painful jaundice with a non-distensible (not palpable) gallbladder.",
-            "B": "Acute cholecystitis presents with pain, fever, and a positive Murphy's sign, not painless jaundice.",
-            "C": "Hepatocellular carcinoma does not classically cause a palpable gallbladder with painless jaundice."
-          }
+          "rule": "Courvoisier's law: painless jaundice + palpable GB = malignant obstruction"
         }
       },
       {
@@ -4196,12 +3211,7 @@ const SUBJECTS = [
           "concept": "Amoebic liver abscess — metronidazole + aspiration if large",
           "discriminator": "Single large (6 cm) liver abscess in a young man = amoebic → metronidazole + aspiration",
           "trap": "Treatment misdirection — laparotomy over percutaneous aspiration",
-          "rule": "Amoebic liver abscess: metronidazole ± aspiration (if >5cm or threatening rupture)",
-          "others": {
-            "A": "Laparotomy is reserved for rupture or failed aspiration, not first-line for an uncomplicated abscess.",
-            "C": "Antibiotics alone are inadequate for a large abscess — it needs drainage.",
-            "D": "Cholecystectomy treats gallbladder disease, not a liver abscess."
-          }
+          "rule": "Amoebic liver abscess: metronidazole ± aspiration (if >5cm or threatening rupture)"
         }
       },
       {
@@ -4217,12 +3227,7 @@ const SUBJECTS = [
           "concept": "Liver biochemistry — cholestatic vs hepatocellular pattern",
           "discriminator": "Marked ALP elevation with near-normal aminotransferases = cholestatic (biliary) pattern",
           "trap": "Pattern recognition — cholestatic (ALP) vs hepatocellular (AST/ALT)",
-          "rule": "Cholestatic = ALP/GGT predominant; hepatocellular = AST/ALT predominant",
-          "others": {
-            "B": "A hepatocellular pattern would show markedly raised AST/ALT, which are near-normal here.",
-            "C": "Isolated unconjugated hyperbilirubinemia is a bilirubin (not enzyme) finding.",
-            "D": "An ALP of 900 U/L is grossly abnormal, not normal."
-          }
+          "rule": "Cholestatic = ALP/GGT predominant; hepatocellular = AST/ALT predominant"
         }
       },
       {
@@ -4238,19 +3243,14 @@ const SUBJECTS = [
           "concept": "Primary sclerosing cholangitis — UC + beaded strictures",
           "discriminator": "UC + cholestatic enzymes + multifocal beaded strictures on MRCP = primary sclerosing cholangitis",
           "trap": "Clinical Mimic — PSC (beaded strictures, UC) vs PBC (AMA+, no strictures)",
-          "rule": "PSC = UC association + multifocal beaded bile duct strictures (ALP raised, AMA negative)",
-          "others": {
-            "A": "Primary biliary cholangitis is AMA-positive, occurs in middle-aged women, and lacks bile duct strictures.",
-            "C": "Choledocholithiasis causes stones with dilatation, not multifocal beaded strictures.",
-            "D": "Autoimmune hepatitis shows a hepatocellular pattern with anti-SMA, not cholestatic strictures."
-          }
+          "rule": "PSC = UC association + multifocal beaded bile duct strictures (ALP raised, AMA negative)"
         }
       }
     ]
   },
   {
     "id": "neuro",
-    "name": "Subarachnoid Haemorrhage — LP for Xanthochromia",
+    "name": "Neurology",
     "questions": [
       {
         "q": "A 45-year-old woman presents with the 'worst headache of her life' of sudden onset 4 hours ago, vomiting and neck stiffness. Non-contrast CT brain is normal. What is the next best step?",
@@ -4265,12 +3265,7 @@ const SUBJECTS = [
           "concept": "Subarachnoid haemorrhage: normal CT does NOT exclude it — proceed to LP",
           "discriminator": "Thunderclap headache + normal CT = still rule out SAH with LP",
           "trap": "False reassurance from a 'normal' CT",
-          "rule": "Any thunderclap headache; if CT is negative, do an LP looking for xanthochromia before excluding SAH.",
-          "others": {
-            "B": "discharge is unsafe — a normal CT does not rule out SAH and rebleed risk is high",
-            "C": "MRI is not the urgent next step; LP is the diagnostic test for xanthochromia (bilirubin) after a negative CT",
-            "D": "nimodipine is given after SAH is confirmed to prevent vasospasm, not as a diagnostic/empiric step before LP"
-          }
+          "rule": "Any thunderclap headache; if CT is negative, do an LP looking for xanthochromia before excluding SAH."
         }
       },
       {
@@ -4286,12 +3281,7 @@ const SUBJECTS = [
           "concept": "Cerebral venous sinus thrombosis (CVST) recognition",
           "discriminator": "Young woman on OCP/postpartum + venous infarct/haemorrhage + papilloedema",
           "trap": "Attributing haemorrhagic infarct to arterial hypertension or tumour",
-          "rule": "In a young woman with headache+papilloedema+seizure on OCP/postpartum and a haemorrhagic infarct, suspect CVST; anticoagulate after excluding haemorrhage.",
-          "others": {
-            "B": "SAH is thunderclap with blood in subarachnoid spaces, not a venous territorial haemorrhagic infarct with papilloedema",
-            "C": "hypertensive ICH is typically basal ganglia without the OCP/postpartum prothrombotic context or papilloedema",
-            "D": "a tumour with haemorrhagic degeneration would show a mass lesion, not a venous-territory haemorrhagic infarct"
-          }
+          "rule": "In a young woman with headache+papilloedema+seizure on OCP/postpartum and a haemorrhagic infarct, suspect CVST; anticoagulate after excluding haemorrhage."
         }
       },
       {
@@ -4307,12 +3297,7 @@ const SUBJECTS = [
           "concept": "Middle cerebral artery occlusion syndrome localisation",
           "discriminator": "Aphasia = dominant hemisphere = LEFT MCA; contralateral hemiparesis+hemisensory+hemianopia",
           "trap": "Choosing the side of the lesion by the motor deficit instead of by the speech",
-          "rule": "Aphasia + contralateral hemiparesis/hemisensory/hemianopia = dominant (left) MCA occlusion; the side is named by the SPEECH, not the weak limb.",
-          "others": {
-            "A": "right MCA would cause left-sided weakness and is usually non-dominant (no aphasia)",
-            "B": "basilar occlusion causes bilateral signs, coma or locked-in, not unilateral hemiparesis with aphasia",
-            "C": "PCA causes visual field defect and visual agnosia but not the dense motor/aphasic syndrome"
-          }
+          "rule": "Aphasia + contralateral hemiparesis/hemisensory/hemianopia = dominant (left) MCA occlusion; the side is named by the SPEECH, not the weak limb."
         }
       },
       {
@@ -4328,12 +3313,7 @@ const SUBJECTS = [
           "concept": "Lacunar stroke recognition (pure motor, small vessel)",
           "discriminator": "Absence of cortical signs despite dense hemiparesis = subcortical lacunar infarct",
           "trap": "Assuming any hemiparesis is a large-vessel/cortical stroke",
-          "rule": "Absence of cortical signs (aphasia/neglect/hemianopia) with a pure motor or sensory deficit = lacunar small-vessel infarct, not large-artery or embolic.",
-          "others": {
-            "B": "large-artery atherothrombosis causes cortical syndromes or watershed, not an isolated pure motor lacunar pattern",
-            "C": "cardioembolic strokes are typically cortical and sudden with multiple territories, not a single deep pure-motor lacune",
-            "D": "watershed infarcts occur between ACA/MCA/PCA territories in hypoperfusion, giving proximal-arm/proximal-leg weakness, not this pattern"
-          }
+          "rule": "Absence of cortical signs (aphasia/neglect/hemianopia) with a pure motor or sensory deficit = lacunar small-vessel infarct, not large-artery or embolic."
         }
       },
       {
@@ -4349,12 +3329,7 @@ const SUBJECTS = [
           "concept": "BP threshold for IV thrombolysis in ischaemic stroke",
           "discriminator": "SBP must be ≤185 mmHg and DBP ≤110 mmHg before alteplase",
           "trap": "Lowering BP too aggressively (elevated BP may be protective); or giving tPA at an unsafe high BP",
-          "rule": "Before IV tPA, BP must be SBP ≤185 and DBP ≤110; lower gently with labetalol/nicardipine if needed, and do not over-lower to normotensive range.",
-          "others": {
-            "A": "giving tPA with SBP 190/115 risks symptomatic intracranial haemorrhage; BP must be controlled first",
-            "B": "aggressively lowering BP to <120/80 is harmful (loss of cerebral autoregulation/perfusion) — only lower to ≤185/110",
-            "D": "if BP is lowered to threshold within the window thrombolysis can proceed; it is not an absolute permanent contraindication"
-          }
+          "rule": "Before IV tPA, BP must be SBP ≤185 and DBP ≤110; lower gently with labetalol/nicardipine if needed, and do not over-lower to normotensive range."
         }
       },
       {
@@ -4370,12 +3345,7 @@ const SUBJECTS = [
           "concept": "Cerebellar haemorrhage — surgical decompression for mass effect",
           "discriminator": "Cerebellar bleed + drowsiness/hydrocephalus = surgical emergency",
           "trap": "Treating a haemorrhage 'medically' as if it were ischaemic, or awaiting resolution",
-          "rule": "Cerebellar haemorrhage with hydrocephalus, mass effect or reduced consciousness needs urgent posterior fossa decompression; do not delay with observation.",
-          "others": {
-            "A": "observation risks rapid brainstem compression/herniation once hydrocephalus or drowsiness appears",
-            "B": "thrombolysis is for ischaemic stroke and is absolutely contraindicated in haemorrhage",
-            "D": "steroids do not relieve acute posterior fossa mass effect from haemorrhage and delay definitive surgery"
-          }
+          "rule": "Cerebellar haemorrhage with hydrocephalus, mass effect or reduced consciousness needs urgent posterior fossa decompression; do not delay with observation."
         }
       },
       {
@@ -4391,12 +3361,7 @@ const SUBJECTS = [
           "concept": "Locked-in syndrome — preserved vertical eye movement + intact consciousness",
           "discriminator": "Intact consciousness + voluntary vertical eye movement only = locked-in",
           "trap": "Calling a conscious, locking-in patient 'vegetative' or 'comatose'",
-          "rule": "Preserved conscious awareness with only vertical eye movement = locked-in syndrome (ventral pons), NOT vegetative state, coma or brain death.",
-          "others": {
-            "A": "vegetative state has no awareness — the patient here responds meaningfully to command with vertical gaze",
-            "B": "brain death requires absent brainstem reflexes including no eye movement; here vertical eye movement is intact",
-            "C": "bilateral hemispheric coma would not have intact voluntary vertical eye movements and awareness"
-          }
+          "rule": "Preserved conscious awareness with only vertical eye movement = locked-in syndrome (ventral pons), NOT vegetative state, coma or brain death."
         }
       },
       {
@@ -4412,12 +3377,7 @@ const SUBJECTS = [
           "concept": "Brainstem death — clinical criteria (coma + absent brainstem reflexes + apnoea)",
           "discriminator": "Absence of ALL brainstem reflexes + apnoea = brainstem death (plus established cause, no sedatives/hypothermia)",
           "trap": "Ticking off coma and a single reflex as 'brain death'",
-          "rule": "Brainstem death requires: no reversible cause, deep coma, absent ALL brainstem reflexes, and a positive apnoea test.",
-          "others": {
-            "A": "preserved pupillary response and spontaneous breathing means brainstem function is intact — excludes brain death",
-            "C": "vegetative state retains brainstem reflexes and breathing — does NOT equate to brain death",
-            "D": "decerebrate posturing implies preserved brainstem pathways — incompatible with brainstem death"
-          }
+          "rule": "Brainstem death requires: no reversible cause, deep coma, absent ALL brainstem reflexes, and a positive apnoea test."
         }
       },
       {
@@ -4433,12 +3393,7 @@ const SUBJECTS = [
           "concept": "Second-line agent for status epilepticus — levetiracetam in hepatic impairment",
           "discriminator": "Cirrhosis (hepatic impairment) + status = prefer levetiracetam (not hepatically metabolised)",
           "trap": "Reaching for phenytoin/valproate automatically without considering hepatic status",
-          "rule": "After benzodiazepine failure in status epilepticus, use levetiracetam when hepatic impairment exists; phenytoin/fosphenytoin and valproate are less ideal in cirrhosis.",
-          "others": {
-            "A": "phenytoin is hepatically metabolised and protein-bound — less preferred in cirrhosis",
-            "B": "fosphenytoin is a phenytoin prodrug, still hepatically handled and protein-bound — not the best hepatic-impa irment choice",
-            "C": "valproate is hepatically metabolised and can worsen hepatic dysfunction — avoid in cirrhosis"
-          }
+          "rule": "After benzodiazepine failure in status epilepticus, use levetiracetam when hepatic impairment exists; phenytoin/fosphenytoin and valproate are less ideal in cirrhosis."
         }
       },
       {
@@ -4454,12 +3409,7 @@ const SUBJECTS = [
           "concept": "First unprovoked seizure — high recurrence risk (epileptiform EEG, abnormal exam) justifies AED",
           "discriminator": "Epileptiform EEG + abnormal neuro exam = high recurrence risk -> treat",
           "trap": "Withholding treatment after any single seizure, or treating every single seizure automatically",
-          "rule": "Start an AED after a first unprovoked seizure when recurrence risk is high — epileptiform EEG, abnormal neurologic exam, structural lesion, or remote symptomatic cause.",
-          "others": {
-            "B": "a single unprovoked seizure with normal MRI/low-risk features may not require lifelong AED — not the strongest indication",
-            "C": "a normal EEG reduces recurrence risk and does not by itself justify treatment",
-            "D": "absence of provoking factors alone does not mandate treatment without high-risk markers"
-          }
+          "rule": "Start an AED after a first unprovoked seizure when recurrence risk is high — epileptiform EEG, abnormal neurologic exam, structural lesion, or remote symptomatic cause."
         }
       },
       {
@@ -4475,12 +3425,7 @@ const SUBJECTS = [
           "concept": "Juvenile myoclonic epilepsy — first-line AED avoiding valproate in a girl",
           "discriminator": "JME is photosensitive/myoclonic-on-awakening; avoid valproate in a female of reproductive age",
           "trap": "Choosing valproate (the classic JME drug) without weighing teratogenicity",
-          "rule": "JME (myoclonic jerks on awakening, often photosensitive) is valproate-responsive, but in a female of reproductive age use lamotrigine/levetiracetam first-line.",
-          "others": {
-            "A": "valproate is effective but teratogenic — avoid as first-line in a female of reproductive age",
-            "B": "ethosuximide is specific for typical absence seizures, not JME with myoclonic+generalised seizures",
-            "D": "carbamazepine can WORSEN myoclonic and absence seizures — not appropriate for JME"
-          }
+          "rule": "JME (myoclonic jerks on awakening, often photosensitive) is valproate-responsive, but in a female of reproductive age use lamotrigine/levetiracetam first-line."
         }
       },
       {
@@ -4496,12 +3441,7 @@ const SUBJECTS = [
           "concept": "Typical absence epilepsy — ethosuximide first-line",
           "discriminator": "Brief staring + 3 Hz spike-and-wave = absence; ethosuximide is first-line",
           "trap": "Treating absence seizures with carbamazepine/phenytoin (which can exacerbate them)",
-          "rule": "Brief staring with 3 Hz spike-and-wave = typical absence; ethosuximide is first-line (carbamazepine can worsen it).",
-          "others": {
-            "B": "carbamazepine can exacerbate absence and myoclonic seizures — inappropriate first-line",
-            "C": "phenytoin is ineffective for typical absence and may worsen it",
-            "D": "phenobarbital is not first-line for absence and is less effective with more adverse effects"
-          }
+          "rule": "Brief staring with 3 Hz spike-and-wave = typical absence; ethosuximide is first-line (carbamazepine can worsen it)."
         }
       },
       {
@@ -4517,12 +3457,7 @@ const SUBJECTS = [
           "concept": "Syncope vs seizure — post-ictal confusion and recovery distinguish them",
           "discriminator": "Rapid alert recovery without post-ictal confusion = syncope (not seizure)",
           "trap": "Judging by the brief twitching alone rather than the return-to-baseline phase",
-          "rule": "Rapid full recovery without post-ictal confusion favours syncope; prolonged confusion, lateral tongue-biting and true automatisms favour seizure.",
-          "others": {
-            "B": "lateral tongue biting is a strong seizure marker — argues AGAINST syncope",
-            "C": "prolonged post-ictal confusion/drowsiness is characteristic of a seizure, not syncope",
-            "D": "urinary incontinence can occur in both syncope and seizure and does not discriminate"
-          }
+          "rule": "Rapid full recovery without post-ictal confusion favours syncope; prolonged confusion, lateral tongue-biting and true automatisms favour seizure."
         }
       },
       {
@@ -4538,12 +3473,7 @@ const SUBJECTS = [
           "concept": "Cluster headache — acute attack treatment (high-flow O2 + SC sumatriptan)",
           "discriminator": "Unilateral periorbital pain + autonomic features + restlessness = cluster; high-flow O2 + SC sumatriptan",
           "trap": "Treating cluster like migraine (dark quiet room) or using oral analgesics that are too slow",
-          "rule": "Acute cluster attacks are treated with high-flow oxygen and subcutaneous sumatriptan; sufferers are restless, unlike the migraineur who lies still.",
-          "others": {
-            "A": "cluster patients are restless and analgesics/rest are ineffective — this is migraine behaviour, not cluster",
-            "C": "propranolol is a migraine prophylactic and of no use for an acute cluster attack",
-            "D": "carbamazepine treats trigeminal neuralgia, not cluster headache"
-          }
+          "rule": "Acute cluster attacks are treated with high-flow oxygen and subcutaneous sumatriptan; sufferers are restless, unlike the migraineur who lies still."
         }
       },
       {
@@ -4559,12 +3489,7 @@ const SUBJECTS = [
           "concept": "Medication-overuse headache — recognition and withdrawal",
           "discriminator": "Daily headache + >10–15 abortive/analgesic days/month = medication overuse; stop the culprit drug",
           "trap": "Adding preventives and continuing overuse, or panicking about tumour without alarm features",
-          "rule": "Daily headache with acute analgesic/abortive use >10–15 days/month is medication-overuse headache; management is withdrawal of the overused drug plus prevention.",
-          "others": {
-            "A": "starts preventives but does not address the overuse — withdrawal of the culprit drug is the essential first step",
-            "B": "no red flags (progressive strict unilaterality, weight loss, fever) are present to mandate urgent neuroimaging",
-            "C": "increasing analgesic frequency is the opposite of the correct management and will worsen the cycle"
-          }
+          "rule": "Daily headache with acute analgesic/abortive use >10–15 days/month is medication-overuse headache; management is withdrawal of the overused drug plus prevention."
         }
       },
       {
@@ -4580,12 +3505,7 @@ const SUBJECTS = [
           "concept": "Giant cell arteritis — urgent steroids before biopsy to prevent blindness",
           "discriminator": "New headache in elderly + jaw claudication + high ESR = GCA; treat immediately to save vision",
           "trap": "Waiting for biopsy confirmation and allowing irreversible blindness; or dismissing as tension headache",
-          "rule": "New headache in the elderly + jaw claudication + high ESR = GCA: start high-dose steroids immediately to prevent blindness; biopsy is confirmatory and need not delay treatment.",
-          "others": {
-            "A": "waiting for the biopsy result would delay treatment several days and risks irreversible blindness in GCA",
-            "C": "analgesics risk permanent visual loss in a patient with classic GCA and a markedly raised ESR",
-            "D": "scalp tenderness and jaw claudication with raised ESR are GCA, not cellulitis"
-          }
+          "rule": "New headache in the elderly + jaw claudication + high ESR = GCA: start high-dose steroids immediately to prevent blindness; biopsy is confirmatory and need not delay treatment."
         }
       },
       {
@@ -4601,12 +3521,7 @@ const SUBJECTS = [
           "concept": "Migraine prophylaxis — sodium valproate is teratogenic, avoid in reproductive-age women",
           "discriminator": "Reproductive-age woman planning pregnancy: avoid valproate (teratogenic neural-tube defects)",
           "trap": "Choosing valproate for its efficacy without weighing teratogenicity against reproductive plans",
-          "rule": "For migraine prophylaxis in a reproductive-age woman, avoid sodium valproate (teratogenic); prefer propranolol, amitriptyline or topiramate.",
-          "others": {
-            "A": "propranolol is a well-tolerated migraine prophylactic and appropriate here",
-            "B": "amitriptyline is an appropriate non-teratogenic prophylactic",
-            "C": "topiramate is appropriate (though avoid in pregnancy for different reasons; of the four, valproate is clearly least appropriate here)"
-          }
+          "rule": "For migraine prophylaxis in a reproductive-age woman, avoid sodium valproate (teratogenic); prefer propranolol, amitriptyline or topiramate."
         }
       },
       {
@@ -4622,12 +3537,7 @@ const SUBJECTS = [
           "concept": "Trigeminal neuralgia — carbamazepine first-line",
           "discriminator": "Lancinating paroxysmal pain + trigger zones + normal sensation = trigeminal neuralgia; carbamazepine",
           "trap": "Treating paroxysmal lancinating facial pain with NSAIDs or amitriptyline",
-          "rule": "Paroxysmal lancinating facial pain with trigger zones and normal sensation = trigeminal neuralgia; first-line is carbamazepine.",
-          "others": {
-            "A": "NSAIDs are ineffective against paroxysmal lancinating trigeminal neuralgia and are not first-line",
-            "C": "amitriptyline is for neuropathic pain/NB-like pain and not first-line for trigeminal neuralgia lancinating attacks",
-            "D": "phenytoin is not first-line for trigeminal neuralgia, though sometimes used adjunctively"
-          }
+          "rule": "Paroxysmal lancinating facial pain with trigger zones and normal sensation = trigeminal neuralgia; first-line is carbamazepine."
         }
       },
       {
@@ -4643,12 +3553,7 @@ const SUBJECTS = [
           "concept": "Bell's palsy — early oral corticosteroids + eye protection",
           "discriminator": "Whole-face (upper+lower) peripheral facial palsy = Bell's; treat with steroids within 72 h",
           "trap": "Treating facial weakness as stroke, or withholding steroids",
-          "rule": "Whole-face peripheral facial palsy (forehead involved) = Bell's: oral corticosteroids within 72 h + eye protection (no routine antivirals unless definite herpes).",
-          "others": {
-            "A": "no acute ischaemic stroke features/thrombolysis indication here — weakness is peripheral and whole-face",
-            "C": "no seizure activity to treat",
-            "D": "withholding steroids leaves a worse outcome; corticosteroids should be started within 72 h"
-          }
+          "rule": "Whole-face peripheral facial palsy (forehead involved) = Bell's: oral corticosteroids within 72 h + eye protection (no routine antivirals unless definite herpes)."
         }
       },
       {
@@ -4664,12 +3569,7 @@ const SUBJECTS = [
           "concept": "UMN vs LMN facial palsy — forehead sparing in central lesions",
           "discriminator": "Central (cortical) facial palsy spares forehead (bilateral upper-face innervation); peripheral affects all face",
           "trap": "Reversing the rule and calling forehead involvement 'central'",
-          "rule": "Central (UMN) facial palsy spares the forehead; peripheral (LMN/Bell's) palsy weakens whole face including forehead.",
-          "others": {
-            "A": "opposite; a central lesion spares (not loses) forehead movement",
-            "B": "loss of taste occurs in proximal peripheral (chorda tympani) involvement, not central palsies",
-            "C": "opposite; peripheral palsy weakens the whole face including forehead"
-          }
+          "rule": "Central (UMN) facial palsy spares the forehead; peripheral (LMN/Bell's) palsy weakens whole face including forehead."
         }
       },
       {
@@ -4685,12 +3585,7 @@ const SUBJECTS = [
           "concept": "Psychogenic non-epileptic seizures (PNES) recognition",
           "discriminator": "Asynchronous/ pelvic-thrusting ictus, eyes shut, crying, normal lactate, no post-ictal phase = PNES",
           "trap": "Labeling psychogenic events as epilepsy and giving antiepileptics",
-          "rule": "Asynchronous movements, closed eyes, ictal crying, and normal post-ictal lactate/awareness suggest PNES; confirm with video-EEG rather than treating as epilepsy.",
-          "others": {
-            "A": "a genuine generalised seizure would raise lactate, show post-ictal confusion and not have this pattern",
-            "B": "focal impaired-awareness seizure has automatisms and a post-ictal phase, not ictal crying with normal lactate",
-            "D": "absence seizures are brief staring without motor thrashing or ictal crying"
-          }
+          "rule": "Asynchronous movements, closed eyes, ictal crying, and normal post-ictal lactate/awareness suggest PNES; confirm with video-EEG rather than treating as epilepsy."
         }
       },
       {
@@ -4706,12 +3601,7 @@ const SUBJECTS = [
           "concept": "Meningioma — extra-axial dural-based tumour with psammoma bodies",
           "discriminator": "Extra-axial dural-based mass + psammoma bodies + headache/seizures = meningioma",
           "trap": "Choosing glioblastoma (intra-axial) or metastasis on the basis of headache + seizures without noting the extra-axial dural base",
-          "rule": "An extra-axial, dural-based enhancing mass with psammoma bodies is a meningioma (benign); headaches and seizures are classic presentations.",
-          "others": {
-            "A": "glioblastoma is intra-axial, poorly marginated, necrotic and diffusely infiltrating — not dural-based with psammoma bodies",
-            "C": "metastatic carcinoma is intra-axial and multiple, without a dural-based psammoma pattern",
-            "D": "schwannoma arises from the nerve sheath (e.g. vestibulocochlear), not the dura, and is CPA-based rather than a dural convexity mass"
-          }
+          "rule": "An extra-axial, dural-based enhancing mass with psammoma bodies is a meningioma (benign); headaches and seizures are classic presentations."
         }
       },
       {
@@ -4727,12 +3617,7 @@ const SUBJECTS = [
           "concept": "Lateral medullary (Wallenberg) syndrome — ipsilateral face + contralateral body pain/temp loss",
           "discriminator": "Vertigo+ipsilateral Horner+ataxia+ipsilateral face and contralateral body pain/temp loss = lateral medullary",
           "trap": "Naming the side by the CONTRALATERAL body pain rather than by the Horner/face signs",
-          "rule": "Lateral medullary (PICA) infarct: ipsilateral Horner, ataxia, face pain/temp loss + contralateral body pain/temp loss — localise to the side of the Horner/face signs.",
-          "others": {
-            "A": "pain/temp loss on the right face + left body means the lesion is on the RIGHT side; left would give left face + right body",
-            "B": "medial midbrain (Weber) causes CN III palsy + contralateral hemiparesis, not this crossed sensory/Horner pattern",
-            "D": "cerebellar haemorrhage gives acute ataxia and may compress, but not the classic crossed sensory loss and Horner that define Wallenberg"
-          }
+          "rule": "Lateral medullary (PICA) infarct: ipsilateral Horner, ataxia, face pain/temp loss + contralateral body pain/temp loss — localise to the side of the Horner/face signs."
         }
       },
       {
@@ -4748,12 +3633,7 @@ const SUBJECTS = [
           "concept": "Epilepsy in pregnancy — continue least-teratogenic AED + folic acid",
           "discriminator": "Avoid valproate in pregnancy; continue safest AED (levetiracetam) with folic acid and monitoring",
           "trap": "Stopping AEDs in pregnancy (risk of seizures) or switching to valproate",
-          "rule": "In pregnancy continue the least teratogenic AED (e.g. levetiracetam/lamotrigine) with folic acid; avoid valproate because of major teratogenicity.",
-          "others": {
-            "A": "stopping AEDs risks uncontrolled seizures that endanger both mother and fetus",
-            "B": "valproate is highly teratogenic (neural-tube defects, cognitive effects) and must be avoided in pregnancy",
-            "D": "withholding therapy until a seizure occurs is unsafe because a first seizure in pregnancy carries significant risk"
-          }
+          "rule": "In pregnancy continue the least teratogenic AED (e.g. levetiracetam/lamotrigine) with folic acid; avoid valproate because of major teratogenicity."
         }
       },
       {
@@ -4769,19 +3649,14 @@ const SUBJECTS = [
           "concept": "Refractory status epilepticus — anaesthetic agents with continuous EEG in ICU",
           "discriminator": "Failure of benzodiazepine + second-line agent = refractory SE; needs anaesthesia + EEG",
           "trap": "Escalating only with more oral drugs, or stopping treatment",
-          "rule": "Benzodiazepine + second-line failure defines refractory status epilepticus: use IV anaesthetic infusion (propofol/midazolam/barbiturate) with continuous EEG monitoring in ICU.",
-          "others": {
-            "B": "further oral drugs cannot control refractory electrographic seizures and escalation to anaesthesia/ICU is required",
-            "C": "stopping treatment is dangerous — ongoing electrographic seizures cause neuronal injury",
-            "D": "aspirin has no role in status epilepticus and would not address ongoing seizure activity"
-          }
+          "rule": "Benzodiazepine + second-line failure defines refractory status epilepticus: use IV anaesthetic infusion (propofol/midazolam/barbiturate) with continuous EEG monitoring in ICU."
         }
       }
     ]
   },
   {
     "id": "nutrition-malabsorption",
-    "name": "Malabsorption Syndromes",
+    "name": "Nutrition & Malabsorption",
     "questions": [
       {
         "q": "A 45-year-old woman presents with chronic diarrhoea, weight loss, and steatorrhoea. To distinguish small-intestinal mucosal disease from pancreatic insufficiency, which test result would be most informative?",
@@ -4796,12 +3671,7 @@ const SUBJECTS = [
           "concept": "Malabsorption workup — D-xylose test distinguishes mucosal vs pancreatic",
           "discriminator": "D-xylose is absorbed intact by jejunal mucosa without pancreatic enzymes → low urinary D-xylose = mucosal disease",
           "trap": "Investigation hierarchy — choosing the wrong test to localise malabsorption",
-          "rule": "D-xylose low = mucosal disease; normal D-xylose + steatorrhoea = pancreatic insufficiency",
-          "others": {
-            "A": "Serum lipase reflects pancreatic inflammation, not mucosal vs pancreatic malabsorption.",
-            "B": "Normal D-xylose with low faecal elastase points TO pancreatic insufficiency, not away from it.",
-            "D": "The faecal osmotic gap distinguishes osmotic vs secretory diarrhoea, not the site of malabsorption."
-          }
+          "rule": "D-xylose low = mucosal disease; normal D-xylose + steatorrhoea = pancreatic insufficiency"
         }
       },
       {
@@ -4817,12 +3687,7 @@ const SUBJECTS = [
           "concept": "Faecal osmotic gap — osmotic vs secretory diarrhoea",
           "discriminator": "Osmotic gap = 290 − 2(Na+K) = 290 − 2(40+30) = 150 (>50) → osmotic diarrhoea",
           "trap": "Unit/Number — the >50 osmotic gap threshold and the 2(Na+K) formula",
-          "rule": "Faecal osmotic gap = 290 − 2(Na+K); >50 osmotic, <50 secretory",
-          "others": {
-            "B": "Secretory diarrhoea has an osmotic gap <50 mmol/L.",
-            "C": "Inflammatory diarrhoea shows blood/leukocytes, not a high osmotic gap.",
-            "D": "Fatty diarrhoea (steatorrhoea) is defined by faecal fat, not the osmotic gap."
-          }
+          "rule": "Faecal osmotic gap = 290 − 2(Na+K); >50 osmotic, <50 secretory"
         }
       },
       {
@@ -4838,12 +3703,7 @@ const SUBJECTS = [
           "concept": "Whipple disease — Tropheryma whipplei, PAS+ macrophages → prolonged antibiotics",
           "discriminator": "Arthralgia + diarrhoea + PAS+ macrophages = Whipple disease → prolonged antibiotics (ceftriaxone then TMP-SMX)",
           "trap": "Treatment misdirection — short antibiotic course vs prolonged therapy",
-          "rule": "Whipple = arthralgia + diarrhoea + PAS+ macrophages → prolonged antibiotics",
-          "others": {
-            "A": "A 7-day metronidazole course is inadequate — Whipple requires prolonged therapy to prevent relapse.",
-            "B": "Glucocorticoids do not treat the infection.",
-            "C": "A gluten-free diet treats coeliac disease, not Whipple disease."
-          }
+          "rule": "Whipple = arthralgia + diarrhoea + PAS+ macrophages → prolonged antibiotics"
         }
       },
       {
@@ -4859,12 +3719,7 @@ const SUBJECTS = [
           "concept": "Small intestinal bacterial overgrowth — blind loop syndrome",
           "discriminator": "Post-gastrectomy stasis + steatorrhoea + B12 deficiency + early H2 peak = bacterial overgrowth (blind loop)",
           "trap": "Clinical Mimic — SIBO vs coeliac (surgical history + B12 deficiency discriminate)",
-          "rule": "Blind loop → bacterial overgrowth → bile salt deconjugation (steatorrhoea) + B12 deficiency",
-          "others": {
-            "A": "Coeliac is not related to gastric surgery and typically causes iron deficiency, not B12 deficiency.",
-            "C": "Chronic pancreatitis causes steatorrhoea but not macrocytic B12 deficiency.",
-            "D": "Whipple disease is not classically associated with prior gastric surgery."
-          }
+          "rule": "Blind loop → bacterial overgrowth → bile salt deconjugation (steatorrhoea) + B12 deficiency"
         }
       },
       {
@@ -4880,12 +3735,7 @@ const SUBJECTS = [
           "concept": "Lactose intolerance — hydrogen breath test",
           "discriminator": "Milk-triggered bloating/diarrhoea in an adult = lactase deficiency → hydrogen breath test",
           "trap": "Clinical Mimic — lactose intolerance vs coeliac (test choice discriminates)",
-          "rule": "Lactose intolerance → hydrogen breath test; treat with lactose avoidance/lactase",
-          "others": {
-            "A": "Anti-tTG is for coeliac disease; lactose intolerance does not involve autoantibodies.",
-            "B": "Stool culture is for infectious diarrhoea, not lactose intolerance.",
-            "D": "Colonoscopy is unnecessary; lactose intolerance is diagnosed by breath testing."
-          }
+          "rule": "Lactose intolerance → hydrogen breath test; treat with lactose avoidance/lactase"
         }
       },
       {
@@ -4901,12 +3751,7 @@ const SUBJECTS = [
           "concept": "Ileal resection — B12 and bile salt malabsorption",
           "discriminator": "Terminal ileum absorbs B12 and bile salts → resection causes B12 deficiency + bile salt malabsorption",
           "trap": "Opposite — ileal (B12/bile salt) vs duodenal/jejunal (iron/folate) malabsorption",
-          "rule": "Ileal resection → B12 deficiency + bile salt malabsorption (cholestyramine for diarrhoea)",
-          "others": {
-            "A": "Iron (duodenum) and folate (jejunum) are absorbed proximally, not in the ileum.",
-            "C": "Vitamin C and zinc are not ileum-specific.",
-            "D": "Vitamin D and calcium absorption are not primarily ileal."
-          }
+          "rule": "Ileal resection → B12 deficiency + bile salt malabsorption (cholestyramine for diarrhoea)"
         }
       },
       {
@@ -4922,12 +3767,7 @@ const SUBJECTS = [
           "concept": "Dumping syndrome — late phase (reactive hypoglycaemia)",
           "discriminator": "Post-gastrectomy symptoms 1-3 hours after meals = late dumping → reactive hypoglycaemia (excessive insulin)",
           "trap": "Opposite — late (hypoglycaemia) vs early (fluid shift) dumping",
-          "rule": "Early dumping = fluid shift (10-30 min); late dumping = reactive hypoglycaemia (1-3h)",
-          "others": {
-            "B": "Rapid fluid shift causes EARLY dumping (10-30 min), not late.",
-            "C": "Delayed gastric emptying would not cause post-prandial hypoglycaemia.",
-            "D": "Bile salt malabsorption causes diarrhoea, not post-prandial hypoglycaemia."
-          }
+          "rule": "Early dumping = fluid shift (10-30 min); late dumping = reactive hypoglycaemia (1-3h)"
         }
       },
       {
@@ -4943,12 +3783,7 @@ const SUBJECTS = [
           "concept": "Pernicious anemia — lifelong parenteral B12",
           "discriminator": "Pernicious anaemia = loss of intrinsic factor → lifelong IM B12 (oral absorption blocked)",
           "trap": "Treatment misdirection — oral/folate over parenteral B12",
-          "rule": "Pernicious anaemia → lifelong IM B12 (parenteral), not oral folate",
-          "others": {
-            "A": "Oral B12 relies on intrinsic factor-mediated absorption, which is absent in pernicious anaemia.",
-            "C": "Iron treats iron deficiency anaemia, not B12 deficiency.",
-            "D": "Folate does not treat B12 deficiency and may worsen neurological damage if given alone."
-          }
+          "rule": "Pernicious anaemia → lifelong IM B12 (parenteral), not oral folate"
         }
       },
       {
@@ -4964,12 +3799,7 @@ const SUBJECTS = [
           "concept": "Dermatitis herpetiformis — dapsone for skin lesions",
           "discriminator": "Pruritic vesicles (elbows/knees/buttocks) + coeliac = dermatitis herpetiformis → dapsone + gluten-free diet",
           "trap": "Treatment misdirection — steroids over dapsone",
-          "rule": "Dermatitis herpetiformis → dapsone (skin) + gluten-free diet (disease)",
-          "others": {
-            "A": "Prednisolone is not first-line for dermatitis herpetiformis; dapsone is.",
-            "B": "Antihistamines relieve pruritus but do not clear the lesions.",
-            "C": "Methotrexate is not the treatment for dermatitis herpetiformis."
-          }
+          "rule": "Dermatitis herpetiformis → dapsone (skin) + gluten-free diet (disease)"
         }
       },
       {
@@ -4985,12 +3815,7 @@ const SUBJECTS = [
           "concept": "Tropical sprue — tetracycline + folate",
           "discriminator": "Post-travel chronic diarrhoea + steatorrhoea + megaloblastic anaemia = tropical sprue → tetracycline + folate",
           "trap": "Treatment ladder — gluten-free diet (coeliac) reflex applied to tropical sprue",
-          "rule": "Tropical sprue → tetracycline + folate (responds to antibiotics, unlike coeliac)",
-          "others": {
-            "A": "A gluten-free diet treats coeliac disease, not tropical sprue.",
-            "B": "Ciprofloxacin alone without folate does not fully correct the deficiencies.",
-            "D": "B12 injection alone is incomplete; folate and tetracycline are needed."
-          }
+          "rule": "Tropical sprue → tetracycline + folate (responds to antibiotics, unlike coeliac)"
         }
       },
       {
@@ -5006,12 +3831,7 @@ const SUBJECTS = [
           "concept": "Post-gastrectomy — iron deficiency anaemia",
           "discriminator": "Post-gastrectomy microcytic hypochromic anaemia = iron deficiency (reduced acid + bypassed duodenum)",
           "trap": "Opposite — microcytic (iron) vs macrocytic (B12) post-gastrectomy anaemia",
-          "rule": "Post-gastrectomy microcytic anaemia = iron deficiency; macrocytic = B12 deficiency",
-          "others": {
-            "B": "B12 deficiency causes macrocytic anaemia with hypersegmented neutrophils.",
-            "C": "Folate deficiency also causes macrocytic anaemia.",
-            "D": "Haemolysis would show reticulocytosis and raised bilirubin, not a microcytic film."
-          }
+          "rule": "Post-gastrectomy microcytic anaemia = iron deficiency; macrocytic = B12 deficiency"
         }
       },
       {
@@ -5027,12 +3847,7 @@ const SUBJECTS = [
           "concept": "Coeliac disease — IgA deficiency causes false-negative anti-tTG",
           "discriminator": "Negative anti-tTG IgA + suspected coeliac → check total IgA (IgA deficiency causes false negatives)",
           "trap": "One-word discriminator — IgA deficiency behind a negative anti-tTG",
-          "rule": "IgA deficiency → false-negative anti-tTG IgA → check total IgA, use IgG serology",
-          "others": {
-            "A": "Anti-gliadin antibody is outdated and less specific than anti-tTG.",
-            "B": "Vitamin B12 does not explain a negative anti-tTG.",
-            "C": "Faecal elastase tests pancreatic function, not coeliac serology."
-          }
+          "rule": "IgA deficiency → false-negative anti-tTG IgA → check total IgA, use IgG serology"
         }
       },
       {
@@ -5048,12 +3863,7 @@ const SUBJECTS = [
           "concept": "Zinc deficiency — acrodermatitis enteropathica pattern",
           "discriminator": "Periorificial + acral rash + diarrhoea + failure to thrive in infancy = zinc deficiency",
           "trap": "Clinical Mimic — zinc (periorificial rash) vs other micronutrient deficiencies",
-          "rule": "Zinc deficiency = periorificial/acral rash + diarrhoea + failure to thrive → zinc supplementation",
-          "others": {
-            "A": "Iron deficiency causes pallor and microcytic anaemia, not periorificial dermatitis.",
-            "B": "Vitamin A deficiency causes night blindness and xerophthalmia, not periorificial rash.",
-            "C": "Vitamin D deficiency causes rickets (bony changes), not dermatitis."
-          }
+          "rule": "Zinc deficiency = periorificial/acral rash + diarrhoea + failure to thrive → zinc supplementation"
         }
       },
       {
@@ -5069,12 +3879,7 @@ const SUBJECTS = [
           "concept": "Iodine deficiency — goitre and cretinism",
           "discriminator": "Maternal iodine deficiency → congenital hypothyroidism (cretinism) and goitre",
           "trap": "Opposite — iodine (thyroid) vs other micronutrient birth defects",
-          "rule": "Iodine deficiency → goitre + cretinism (congenital hypothyroidism), preventable with iodised salt",
-          "others": {
-            "B": "Rickets is vitamin D/calcium deficiency.",
-            "C": "Neural tube defects are folate deficiency.",
-            "D": "Scurvy is vitamin C deficiency."
-          }
+          "rule": "Iodine deficiency → goitre + cretinism (congenital hypothyroidism), preventable with iodised salt"
         }
       },
       {
@@ -5090,12 +3895,7 @@ const SUBJECTS = [
           "concept": "Refeeding syndrome — hypophosphataemia",
           "discriminator": "Rapid refeeding after starvation → insulin surge → intracellular shift → hypophosphataemia → arrhythmia",
           "trap": "Severity under-recognition — refeeding complication missed after starting feeds",
-          "rule": "Refeeding syndrome = hypophosphataemia (and low K/Mg) after rapid refeeding → slow, monitored refeeding",
-          "others": {
-            "A": "Refeeding causes hypokalaemia (intracellular shift), not hyperkalaemia.",
-            "B": "Hypernatraemia is not the classic refeeding disturbance.",
-            "C": "Refeeding causes hypomagnesaemia, not hypermagnesaemia."
-          }
+          "rule": "Refeeding syndrome = hypophosphataemia (and low K/Mg) after rapid refeeding → slow, monitored refeeding"
         }
       },
       {
@@ -5111,12 +3911,7 @@ const SUBJECTS = [
           "concept": "Wernicke encephalopathy — thiamine before glucose",
           "discriminator": "Give thiamine BEFORE glucose in suspected Wernicke (glucose metabolism consumes thiamine, worsening the encephalopathy)",
           "trap": "Priority inversion — glucose before thiamine",
-          "rule": "Wernicke (confusion+ataxia+ophthalmoplegia) → IV thiamine before glucose",
-          "others": {
-            "B": "Glucose without thiamine precipitates Wernicke encephalopathy.",
-            "C": "Naloxone reverses opioid toxicity, not thiamine deficiency.",
-            "D": "Flumazenil reverses benzodiazepines, not thiamine deficiency."
-          }
+          "rule": "Wernicke (confusion+ataxia+ophthalmoplegia) → IV thiamine before glucose"
         }
       },
       {
@@ -5132,12 +3927,7 @@ const SUBJECTS = [
           "concept": "Vitamin A deficiency — xerophthalmia progressing to keratomalacia",
           "discriminator": "Night blindness + xerophthalmia = vitamin A deficiency → keratomalacia → corneal ulceration/blindness",
           "trap": "Severity under-recognition — night blindness downgraded without eye exam",
-          "rule": "Vitamin A deficiency: night blindness → xerophthalmia → keratomalacia → blindness",
-          "others": {
-            "B": "Retinal detachment is not the classic vitamin A complication.",
-            "C": "Optic neuritis is inflammatory, not nutritional.",
-            "D": "Glaucoma is an intraocular pressure disorder, not vitamin A deficiency."
-          }
+          "rule": "Vitamin A deficiency: night blindness → xerophthalmia → keratomalacia → blindness"
         }
       },
       {
@@ -5153,12 +3943,7 @@ const SUBJECTS = [
           "concept": "Kwashiorkor — protein deficiency with oedema",
           "discriminator": "Oedema + flaky-paint dermatosis + depigmented hair = kwashiorkor (protein deficiency with adequate calories)",
           "trap": "Clinical Mimic — kwashiorkor (oedema) vs marasmus (wasting)",
-          "rule": "Kwashiorkor = protein deficiency → oedema + fatty liver + flaky paint (marasmus = wasting, no oedema)",
-          "others": {
-            "A": "Marasmus is total calorie deficiency with severe wasting and no oedema.",
-            "C": "Rickets is vitamin D deficiency with bony deformities.",
-            "D": "Scurvy is vitamin C deficiency with bleeding gums and perifollicular haemorrhage."
-          }
+          "rule": "Kwashiorkor = protein deficiency → oedema + fatty liver + flaky paint (marasmus = wasting, no oedema)"
         }
       },
       {
@@ -5174,12 +3959,7 @@ const SUBJECTS = [
           "concept": "Marasmus — total calorie deficiency without oedema",
           "discriminator": "Severe wasting + no oedema = marasmus (total calorie deficiency)",
           "trap": "Clinical Mimic — marasmus (no oedema) vs kwashiorkor (oedema)",
-          "rule": "Marasmus = total calorie deficiency → severe wasting, no oedema",
-          "others": {
-            "A": "Kwashiorkor has oedema and a flaky-paint dermatosis.",
-            "B": "Refeeding syndrome is a complication of treatment, not a diagnosis.",
-            "D": "Anorexia nervosa is a behavioural disorder in older children/adolescents."
-          }
+          "rule": "Marasmus = total calorie deficiency → severe wasting, no oedema"
         }
       },
       {
@@ -5195,12 +3975,7 @@ const SUBJECTS = [
           "concept": "Vitamin B12 deficiency — subacute combined degeneration of the cord",
           "discriminator": "Sensory (vibration/proprioception) loss + upper motor neuron signs = subacute combined degeneration = B12 deficiency",
           "trap": "Clinical Mimic — B12 (neurological) vs folate (no neuro)",
-          "rule": "B12 deficiency → subacute combined degeneration (dorsal columns + corticospinal); folate has no neuro",
-          "others": {
-            "B": "Folate deficiency causes megaloblastic anaemia without neurological features.",
-            "C": "Iron deficiency causes microcytic anaemia and pica, not cord degeneration.",
-            "D": "Vitamin E deficiency causes spinocerebellar ataxia, usually with malabsorption."
-          }
+          "rule": "B12 deficiency → subacute combined degeneration (dorsal columns + corticospinal); folate has no neuro"
         }
       },
       {
@@ -5216,12 +3991,7 @@ const SUBJECTS = [
           "concept": "Nutritional assessment — prealbumin vs albumin",
           "discriminator": "Prealbumin has a short half-life (~2 days) → reflects recent nutritional change better than albumin",
           "trap": "Unit/Number — half-life (prealbumin 2 days vs albumin 20 days)",
-          "rule": "Prealbumin (t½ ~2 days) reflects short-term nutrition; albumin (t½ ~20 days) is confounded by inflammation",
-          "others": {
-            "A": "Albumin has a long half-life and falls with inflammation, not reflecting acute nutritional change.",
-            "B": "Ferritin reflects iron stores, not general nutrition.",
-            "C": "Transferrin is affected by iron status and has a longer half-life than prealbumin."
-          }
+          "rule": "Prealbumin (t½ ~2 days) reflects short-term nutrition; albumin (t½ ~20 days) is confounded by inflammation"
         }
       },
       {
@@ -5237,12 +4007,7 @@ const SUBJECTS = [
           "concept": "Total parenteral nutrition — catheter-related line sepsis",
           "discriminator": "TPN + fever/rigors + central line = catheter-related bloodstream infection",
           "trap": "Clinical Mimic — line sepsis vs metabolic TPN complications",
-          "rule": "TPN fever/rigors = catheter-related infection → remove line + blood cultures",
-          "others": {
-            "A": "Refeeding syndrome causes hypophosphataemia/arrhythmia, not fever.",
-            "C": "Cholestatic injury presents with jaundice/raised ALP, not fever.",
-            "D": "Hyperglycaemia causes osmotic symptoms, not rigors."
-          }
+          "rule": "TPN fever/rigors = catheter-related infection → remove line + blood cultures"
         }
       },
       {
@@ -5258,12 +4023,7 @@ const SUBJECTS = [
           "concept": "Nutrition support — enteral preferred over parenteral",
           "discriminator": "Enteral preferred when the gut works — preserves mucosal integrity, fewer complications",
           "trap": "Treatment ladder — parenteral over enteral when the gut is functional",
-          "rule": "Enteral > parenteral when GI tract is functional (preserves gut integrity, fewer complications)",
-          "others": {
-            "A": "Parenteral nutrition is not more reliable and carries more complications.",
-            "C": "Parenteral nutrition does not avoid aspiration and has line-related risks.",
-            "D": "Enteral nutrition still requires a tube/access; the reason is gut integrity, not access."
-          }
+          "rule": "Enteral > parenteral when GI tract is functional (preserves gut integrity, fewer complications)"
         }
       },
       {
@@ -5279,12 +4039,7 @@ const SUBJECTS = [
           "concept": "Chronic pancreatitis — pancreatic enzyme replacement for steatorrhoea",
           "discriminator": "Chronic pancreatitis steatorrhoea → pancreatic enzyme replacement (lipase) with meals",
           "trap": "Treatment misdirection — diet alone over enzyme replacement",
-          "rule": "Pancreatic steatorrhoea → pancreatic enzyme replacement (lipase) with meals",
-          "others": {
-            "A": "A low-fat diet alone does not correct the enzyme deficiency.",
-            "B": "Ursodeoxycholic acid treats PBC/PSC, not pancreatic insufficiency.",
-            "D": "Octreotide suppresses pancreatic secretion and is not treatment for insufficiency."
-          }
+          "rule": "Pancreatic steatorrhoea → pancreatic enzyme replacement (lipase) with meals"
         }
       },
       {
@@ -5300,19 +4055,14 @@ const SUBJECTS = [
           "concept": "Refractory coeliac disease — enteropathy-associated T-cell lymphoma",
           "discriminator": "Persistent villous atrophy despite strict gluten-free diet = refractory coeliac → suspect T-cell lymphoma",
           "trap": "Severity under-recognition — non-response to GFD dismissed as dietary lapse",
-          "rule": "Coeliac unresponsive to gluten-free diet → consider enteropathy-associated T-cell lymphoma",
-          "others": {
-            "A": "Pancreatic adenocarcinoma is not a complication of coeliac disease.",
-            "B": "Ulcerative colitis is a separate IBD, not a coeliac complication.",
-            "D": "Crohn disease is not caused by coeliac disease."
-          }
+          "rule": "Coeliac unresponsive to gluten-free diet → consider enteropathy-associated T-cell lymphoma"
         }
       }
     ]
   },
   {
     "id": "oncology-genpath",
-    "name": "Metaplasia — Barrett's Oesophagus",
+    "name": "Oncology",
     "questions": [
       {
         "q": "Chronic acid reflux in Barrett's oesophagus causes the normal squamous epithelium to be replaced by columnar (intestinal-type) epithelium. This transformation is best described as?",
@@ -5327,12 +4077,7 @@ const SUBJECTS = [
           "concept": "Metaplasia - reversible change of one differentiated cell type to another (Barrett's)",
           "discriminator": "Squamous -> columnar change in response to chronic reflux = metaplasia (a reversible change in differentiation)",
           "trap": "Confusing metaplasia (cell type change) with hyperplasia (increase in cell NUMBER) or hypertrophy (cell SIZE)",
-          "rule": "Metaplasia = reversible change of cell type (e.g. Barrett's squamous->columnar); can proceed to dysplasia/carcinoma.",
-          "others": {
-            "A": "hyperplasia is an increase in cell NUMBER of the same type, not a change in cell type",
-            "C": "hypertrophy is an increase in cell SIZE of the same type",
-            "D": "atrophy is a decrease in cell/organ size"
-          }
+          "rule": "Metaplasia = reversible change of cell type (e.g. Barrett's squamous->columnar); can proceed to dysplasia/carcinoma."
         }
       },
       {
@@ -5348,12 +4093,7 @@ const SUBJECTS = [
           "concept": "Hypertrophy vs hyperplasia - differentiated cells (muscle) hypertrophy; labile cells (prostate) hyperplase",
           "discriminator": "Smooth muscle (permanent cells) can only hypertrophy; prostate epithelial cells can hyperplase",
           "trap": "Thinking all organs enlarge by the same mechanism - permanent cells (muscle) hypertrophy, labile cells (prostate) hyperplase",
-          "rule": "Permanent cells (muscle) only hypertrophy; labile cells (prostate epithelium) hyperplase. Know which tissue can divide.",
-          "others": {
-            "B": "smooth muscle is a permanent cell that cannot hyperplase; the uterus mostly hypertrophies",
-            "C": "the uterus enlarges by hypertrophy, not hyperplasia; there is no metaplasia in the prostate",
-            "D": "the prostate enlarges by hyperplasia (proliferation of epithelium), not pure hypertrophy"
-          }
+          "rule": "Permanent cells (muscle) only hypertrophy; labile cells (prostate epithelium) hyperplase. Know which tissue can divide."
         }
       },
       {
@@ -5369,12 +4109,7 @@ const SUBJECTS = [
           "concept": "Anaplasia - lack of differentiation, a hallmark of malignancy",
           "discriminator": "Pleomorphism + hyperchromasia + high N:C ratio + mitoses = anaplasia (malignant loss of differentiation)",
           "trap": "Calling dysplastic features anaplasia - anaplasia is full loss of differentiation seen in malignancy",
-          "rule": "Anaplasia = lack of differentiation (pleomorphism, hyperchromasia, high N:C ratio) - a hallmark of malignancy.",
-          "others": {
-            "A": "metaplasia is a change in cell type, not a loss of differentiation",
-            "C": "dysplasia is a disordered architectural change that is pre-malignant but not full anaplasia",
-            "D": "hyperplasia is an increase in cell number of differentiated cells"
-          }
+          "rule": "Anaplasia = lack of differentiation (pleomorphism, hyperchromasia, high N:C ratio) - a hallmark of malignancy."
         }
       },
       {
@@ -5390,12 +4125,7 @@ const SUBJECTS = [
           "concept": "Carcinoma in situ - full-thickness dysplasia without basement-membrane invasion",
           "discriminator": "Full-thickness epithelial atypia, no basement-membrane invasion = carcinoma in situ (pre-invasive)",
           "trap": "Calling full-thickness non-invasive change 'invasive cancer' - no basement-membrane invasion means CIS",
-          "rule": "CIS = full-thickness dysplasia without basement-membrane invasion (e.g. cervical CIN 3). Pre-invasive; excision cures.",
-          "others": {
-            "A": "invasive carcinoma breaches the basement membrane and invades the stroma",
-            "C": "metaplasia is a benign cell-type change, not full-thickness nuclear atypia",
-            "D": "atrophy is a reduction in cell size/number, not dysplastic change"
-          }
+          "rule": "CIS = full-thickness dysplasia without basement-membrane invasion (e.g. cervical CIN 3). Pre-invasive; excision cures."
         }
       },
       {
@@ -5411,12 +4141,7 @@ const SUBJECTS = [
           "concept": "Coagulative necrosis - ischaemic cell death in solid organs (MI) with inflammation",
           "discriminator": "Recent MI: cell swelling, loss of nuclei, eosinophilia + acute inflammation = coagulative necrosis (ischaemia)",
           "trap": "Calling ischaemic MI necrosis 'liquefactive' (brain) or 'caseous' (TB)",
-          "rule": "Coagulative necrosis = ischaemic death in solid organs (MI) preserving architecture with acute inflammation; distinguish from liquefactive/caseous/fat.",
-          "others": {
-            "A": "apoptosis is programmed single-cell death without inflammation, not sheets of necrotic cells with neutrophils",
-            "C": "liquefactive necrosis (turns to pus/slurry) is seen in brain ischaemia and abscesses",
-            "D": "caseous necrosis is the cheesy necrosis of tuberculosis"
-          }
+          "rule": "Coagulative necrosis = ischaemic death in solid organs (MI) preserving architecture with acute inflammation; distinguish from liquefactive/caseous/fat."
         }
       },
       {
@@ -5432,12 +4157,7 @@ const SUBJECTS = [
           "concept": "Rb tumour suppressor - loss of function allows cancer; hereditary retinoblastoma",
           "discriminator": "Hereditary bilateral retinoblastoma = loss of Rb tumour suppressor (Knudson two-hit); Rb restrains cell cycle",
           "trap": "Confusing a loss-of-function gatekeeper (tumour suppressor) with a gain-of-function oncogene",
-          "rule": "Tumour suppressors (Rb, p53) restrain growth; loss of function promotes cancer. Oncogenes gain function to drive proliferation.",
-          "others": {
-            "A": "MYC is an oncogene (gain of function), not the gene causing hereditary retinoblastoma",
-            "C": "RAS is an oncogene, not a tumour suppressor; it does not cause retinoblastoma",
-            "D": "BCR-ABL is the oncogenic fusion in CML, not the Rb retinoblastoma gene"
-          }
+          "rule": "Tumour suppressors (Rb, p53) restrain growth; loss of function promotes cancer. Oncogenes gain function to drive proliferation."
         }
       },
       {
@@ -5453,12 +4173,7 @@ const SUBJECTS = [
           "concept": "HER2/neu oncogene - gain of function (amplification) drives breast cancer",
           "discriminator": "HER2/neu amplification in breast cancer = activated oncogene (gain of function); targeted by trastuzumab",
           "trap": "Mixing up which genes gain vs lose function",
-          "rule": "Oncogenes (HER2/neu, RAS, MYC, BCR-ABL) drive cancer by gain of function; tumour suppressors (Rb, p53) by loss of function.",
-          "others": {
-            "B": "Rb is a tumour suppressor, not the HER2 oncogene, and acts by loss of function",
-            "C": "BCR-ABL is an oncogenic fusion in CML; the question is about a receptor tyrosine kinase targeted by trastuzumab (HER2)",
-            "D": "p53 is a tumour suppressor acting by loss of function, not the HER2 gain-of-function oncogene"
-          }
+          "rule": "Oncogenes (HER2/neu, RAS, MYC, BCR-ABL) drive cancer by gain of function; tumour suppressors (Rb, p53) by loss of function."
         }
       },
       {
@@ -5474,12 +4189,7 @@ const SUBJECTS = [
           "concept": "Staging (TNM) vs grading - anatomic extent vs differentiation",
           "discriminator": "TNM = stage (tumour, node, metastasis anatomic extent); grade = histologic differentiation (well/moderate/poor)",
           "trap": "Using grade and stage interchangeably - grade = differentiation, stage = extent",
-          "rule": "TNM = anatomic stage (tumour, node, metastasis); grade = histologic differentiation. Know the distinction for prognosis.",
-          "others": {
-            "B": "TNM does not describe histologic differentiation; that is grading",
-            "C": "TNM describes tumour depth and nodes, not only metastasis",
-            "D": "grading and staging are distinct concepts"
-          }
+          "rule": "TNM = anatomic stage (tumour, node, metastasis); grade = histologic differentiation. Know the distinction for prognosis."
         }
       },
       {
@@ -5495,12 +4205,7 @@ const SUBJECTS = [
           "concept": "Tumour markers - AFP for hepatocellular carcinoma; markers are non-specific, not diagnostic alone",
           "discriminator": "AFP raised in hepatocellular carcinoma; tumour markers support but do not alone diagnose cancer",
           "trap": "Treating a tumour marker as diagnostic in isolation or assigning the wrong marker",
-          "rule": "AFP = hepatocellular carcinoma; CEA = colorectal; PSA = prostate. Markers are non-specific and corroborate, never replace biopsy.",
-          "others": {
-            "B": "AFP is associated with hepatocellular carcinoma, not colorectal cancer (that is CEA)",
-            "C": "tumour markers cannot definitively diagnose cancer; tissue diagnosis is required",
-            "D": "CEA is the colorectal marker, not the hepatocellular carcinoma marker"
-          }
+          "rule": "AFP = hepatocellular carcinoma; CEA = colorectal; PSA = prostate. Markers are non-specific and corroborate, never replace biopsy."
         }
       },
       {
@@ -5516,12 +4221,7 @@ const SUBJECTS = [
           "concept": "Portal vein spread of bowel cancer to the liver; sentinel node concept",
           "discriminator": "Colorectal cancer metastasizes to the liver via the portal vein; sentinel node is the first draining node for staging",
           "trap": "Confusing the portal route with pulmonary/systemic spread, or misusing sentinel-node biopsy as therapy",
-          "rule": "Colorectal cancer spreads to liver via the portal vein. Sentinel node = first regional node draining the tumour, used for staging.",
-          "others": {
-            "B": "colorectal cancer reaches the liver via the portal vein (to liver first), not the pulmonary artery",
-            "C": "tumours spread by both lymphatics and blood, not lymph only",
-            "D": "a sentinel node is for staging, not debulking the largest deposit"
-          }
+          "rule": "Colorectal cancer spreads to liver via the portal vein. Sentinel node = first regional node draining the tumour, used for staging."
         }
       },
       {
@@ -5537,12 +4237,7 @@ const SUBJECTS = [
           "concept": "Kaposi sarcoma - HIV-associated vascular tumour (HHV-8), pigmented plaques/nodules",
           "discriminator": "AIDS + dark pigmented/nodular skin lesions = Kaposi sarcoma (HHV-8/vascular tumour)",
           "trap": "Calling pigmented nodules melanoma - in an AIDS patient the classic lesion is Kaposi sarcoma (HHV-8)",
-          "rule": "Kaposi sarcoma: HHV-8 vascular tumour in HIV/AIDS (pigmented plaques/nodules); treat with ART (+ local/systemic Tx).",
-          "others": {
-            "A": "melanoma is a melanocytic lesion without the HIV/HHV-8 association and typical bluish vascular nodules",
-            "C": "bacillary angiomatosis is a Bartonella skin lesion, usually without the classic HIV-KS plaque evolution",
-            "D": "basal cell carcinoma is a pearly telangiectatic nodule, not a pigmented bluish vascular tumour"
-          }
+          "rule": "Kaposi sarcoma: HHV-8 vascular tumour in HIV/AIDS (pigmented plaques/nodules); treat with ART (+ local/systemic Tx)."
         }
       },
       {
@@ -5558,12 +4253,7 @@ const SUBJECTS = [
           "concept": "Intraductal papilloma - bloody nipple discharge without a palpable lump",
           "discriminator": "Spontaneous blood-stained nipple discharge, no lump = intraductal papilloma (benign papillary duct lesion)",
           "trap": "Assuming any bloody nipple discharge is cancer - with no lump it is most likely a benign intraductal papilloma",
-          "rule": "Spontaneous blood-stained nipple discharge without a lump = intraductal papilloma (benign); exclude ductal carcinoma in situ.",
-          "others": {
-            "B": "DCIS usually has an associated microcalcification/mass rather than isolated bloody discharge without a lesion",
-            "C": "Paget's disease causes an eczematous scaly nipple-areola lesion, not solitary bloody discharge",
-            "D": "fibrocystic disease gives lumpiness/cyclical pain, not isolated spontaneous bloody discharge"
-          }
+          "rule": "Spontaneous blood-stained nipple discharge without a lump = intraductal papilloma (benign); exclude ductal carcinoma in situ."
         }
       },
       {
@@ -5579,12 +4269,7 @@ const SUBJECTS = [
           "concept": "Medullary thyroid carcinoma - MEN 2A, C-cell origin, calcitonin (causes diarrhoea)",
           "discriminator": "MEN 2A + thyroid lump + diarrhoea = medullary carcinoma (C cells, calcitonin); RET mutation",
           "trap": "Choosing papillary (the common thyroid cancer) - the MEN 2A + diarrhoea + C-cell pattern indicates medullary",
-          "rule": "Medullary thyroid carcinoma: C-cell/calcitonin origin, MEN 2A/2B, diarrhoea; total thyroidectomy, calcitonin marker, RET testing.",
-          "others": {
-            "A": "papillary carcinoma is the most common thyroid cancer but is not MEN 2-associated and does not cause diarrhoea",
-            "C": "follicular carcinoma spreads haematogenously to bone but is not the MEN 2 diarrhoea-associated tumour",
-            "D": "anaplastic carcinoma is a rapidly fatal undifferentiated tumour of the elderly, unrelated to MEN 2A"
-          }
+          "rule": "Medullary thyroid carcinoma: C-cell/calcitonin origin, MEN 2A/2B, diarrhoea; total thyroidectomy, calcitonin marker, RET testing."
         }
       },
       {
@@ -5600,12 +4285,7 @@ const SUBJECTS = [
           "concept": "Wilms tumour - most common intra-abdominal solid organ tumour of childhood (nephroblastoma)",
           "discriminator": "Child + renal mass + abdominal mass = Wilms tumour (nephroblastoma), most common childhood renal/intra-abdominal solid tumour",
           "trap": "Choosing neuroblastoma (adrenal, rosettes) vs Wilms (renal, triphasic) - the renal mass in a young child favours Wilms",
-          "rule": "Wilms tumour (nephroblastoma): most common intra-abdominal solid organ tumour of childhood; triphasic histology; treat with surgery + chemo.",
-          "others": {
-            "B": "neuroblastoma arises in the adrenal/paraspinal ganglia with rosettes and is more common in infants (<2)",
-            "C": "rhabdomyosarcoma is a soft-tissue sarcoma, not a kidney mass with bilateral presentation pattern",
-            "D": "hepatoblastoma is a liver tumour, not a renal intra-abdominal mass"
-          }
+          "rule": "Wilms tumour (nephroblastoma): most common intra-abdominal solid organ tumour of childhood; triphasic histology; treat with surgery + chemo."
         }
       },
       {
@@ -5621,12 +4301,7 @@ const SUBJECTS = [
           "concept": "Phyllodes tumour - large fibroepithelial tumour with stromal overgrowth (cystosarcoma phyllodes)",
           "discriminator": "Large rapidly growing fibroepithelial breast tumour with stromal overgrowth = phyllodes (cystosarcoma phyllodes)",
           "trap": "Calling a large fibroepithelial tumour a fibroadenoma - phyllodes is distinguished by size, rapid growth and stromal overgrowth",
-          "rule": "Phyllodes (cystosarcoma phyllodes): large fibroepithelial tumour with stromal overgrowth; excise with margins (spreads by blood, not lymph).",
-          "others": {
-            "A": "fibroadenoma is small, well-circumscribed, and does not show pronounced stromal overgrowth or rapid large growth",
-            "C": "invasive ductal carcinoma commonly involves nodes and shows epithelial (not prominent stromal) malignancy",
-            "D": "Paget's disease affects the nipple-areola skin, not a large stromal breast lump"
-          }
+          "rule": "Phyllodes (cystosarcoma phyllodes): large fibroepithelial tumour with stromal overgrowth; excise with margins (spreads by blood, not lymph)."
         }
       },
       {
@@ -5642,12 +4317,7 @@ const SUBJECTS = [
           "concept": "Mondor's disease - superficial thrombophlebitis of breast/chest wall veins",
           "discriminator": "Tender cord-like vein on the breast/chest wall = Mondor's disease (superficial thrombophlebitis)",
           "trap": "Attributing the cord to infection (actinomycosis/lymphangitis) when it is venous thrombophlebitis",
-          "rule": "Mondor's disease = superficial thrombophlebitis of breast/chest wall veins; self-limiting, benign.",
-          "others": {
-            "A": "actinomycosis is a chronic suppurative fungal-like infection, not a superficial venous cord",
-            "B": "duct ectasia is dilation of ducts, not a visible subcutaneous venous cord",
-            "C": "lymphangitis is lymphatic inflammation, typically with red streaks, not a thrombosed vein"
-          }
+          "rule": "Mondor's disease = superficial thrombophlebitis of breast/chest wall veins; self-limiting, benign."
         }
       },
       {
@@ -5663,12 +4333,7 @@ const SUBJECTS = [
           "concept": "Villous adenoma - highest malignant potential of colorectal polyps",
           "discriminator": "Villous adenomas carry the highest risk of malignant transformation among colorectal polyps (adenoma-carcinoma sequence)",
           "trap": "Choosing a benign polyp type - villous (not hamartomatous/inflammatory) adenoma has the highest cancer risk",
-          "rule": "Villous adenoma has the highest malignant potential; adenomas progress to carcinoma (adenoma-carcinoma sequence). Hamartomatous/inflammatory polyps are low risk.",
-          "others": {
-            "A": "hamartomatous polyps (e.g. Peutz-Jeghers) are low malignant risk",
-            "B": "inflammatory pseudopolyps in IBD are not premalignant themselves",
-            "C": "tubular adenoma has lower malignant potential than villous adenoma"
-          }
+          "rule": "Villous adenoma has the highest malignant potential; adenomas progress to carcinoma (adenoma-carcinoma sequence). Hamartomatous/inflammatory polyps are low risk."
         }
       },
       {
@@ -5684,12 +4349,7 @@ const SUBJECTS = [
           "concept": "Meningioma - benign extra-axial meningeal tumour with psammoma bodies",
           "discriminator": "Extra-axial meningeal tumour + psammoma bodies = meningioma (generally benign, female predominance)",
           "trap": "Calling a psammoma-body meningioma a glioma or metastasis - extra-axial location + psammoma bodies localize it",
-          "rule": "Meningioma: benign extra-axial meningeal tumour (female predominance) with psammoma bodies; surgical excision.",
-          "others": {
-            "B": "metastatic carcinoma is usually intra-axial/multifocal and does not classically show psammoma bodies as the primary pattern",
-            "C": "schwannoma arises from nerve sheaths (e.g. acoustic neuroma), not the meninges, and shows Antoni A/B patterns",
-            "D": "glioblastoma is a highly malignant intra-axial astrocytoma, not an extra-axial psammoma-body tumour"
-          }
+          "rule": "Meningioma: benign extra-axial meningeal tumour (female predominance) with psammoma bodies; surgical excision."
         }
       },
       {
@@ -5705,12 +4365,7 @@ const SUBJECTS = [
           "concept": "Small cell lung cancer - ectopic ACTH causing Cushing's/hypokalaemic alkalosis",
           "discriminator": "Smoker + central mass + Cushing's/hypokalaemic alkalosis = small cell carcinoma with ectopic ACTH (paraneoplastic)",
           "trap": "Assigning hypercalcaemia to small cell - ACTH (Cushing's) is small cell; PTHrP (hypercalcaemia) is squamous cell",
-          "rule": "Small cell lung cancer -> ectopic ACTH (Cushing's/hypokalaemia) and ADH (hyponatraemia). Squamous cell -> PTHrP (hypercalcaemia).",
-          "others": {
-            "A": "squamous cell carcinoma causes PTHrP hypercalcaemia, not the ACTH-driven Cushing's/hypokalaemia",
-            "C": "small cell (not adenocarcinoma) is the classic source of ectopic ACTH here",
-            "D": "small cell produces ACTH (and ADH), not primarily PTHrP"
-          }
+          "rule": "Small cell lung cancer -> ectopic ACTH (Cushing's/hypokalaemia) and ADH (hyponatraemia). Squamous cell -> PTHrP (hypercalcaemia)."
         }
       },
       {
@@ -5726,12 +4381,7 @@ const SUBJECTS = [
           "concept": "Pancreatic head adenocarcinoma - painless obstructive jaundice + Courvoisier sign",
           "discriminator": "Painless jaundice + Courvoisier (palpable gallbladder) + weight loss + pancreatic head mass = adenocarcinoma",
           "trap": "Choosing gallstones (painful jaundice, no Courvoisier) - painless jaundice + palpable GB + head mass indicates pancreatic cancer",
-          "rule": "Pancreatic head adenocarcinoma: painless obstructive jaundice, Courvoisier sign, weight loss; poor prognosis. CA 19-9 may be raised.",
-          "others": {
-            "B": "chronic pancreatitis causes pain (not painless jaundice) and lacks a malignant head mass/Courvoisier sign",
-            "C": "choledocholithiasis gives painful jaundice and does not produce painless jaundice with a palpable gallbladder",
-            "D": "hepatocellular carcinoma is a liver tumour with raised AFP, not a pancreatic head biliary obstruction"
-          }
+          "rule": "Pancreatic head adenocarcinoma: painless obstructive jaundice, Courvoisier sign, weight loss; poor prognosis. CA 19-9 may be raised."
         }
       },
       {
@@ -5747,12 +4397,7 @@ const SUBJECTS = [
           "concept": "Hepatocellular carcinoma - cirrhosis/HBV + markedly raised AFP + vascular liver mass",
           "discriminator": "Cirrhosis/HBV + very high AFP + vascular mass = hepatocellular carcinoma (surveillance via AFP/ultrasound)",
           "trap": "Calling the AFP-poor mass a metastasis/benign lesion - marked AFP + vascular mass in cirrhosis = HCC",
-          "rule": "HCC: cirrhosis (HBV/HCV/NASH) + markedly raised AFP + vascular liver mass; surveil high-risk patients with ultrasound + AFP.",
-          "others": {
-            "B": "metastatic colorectal cancer raises CEA, not the very high AFP typical of HCC",
-            "C": "hepatic adenoma is benign, non-vascular-washout, and does not markedly raise AFP",
-            "D": "haemangioma is benign and AFP is normal, unlike the sharply elevated AFP here"
-          }
+          "rule": "HCC: cirrhosis (HBV/HCV/NASH) + markedly raised AFP + vascular liver mass; surveil high-risk patients with ultrasound + AFP."
         }
       },
       {
@@ -5768,12 +4413,7 @@ const SUBJECTS = [
           "concept": "Invasive ductal carcinoma - most common breast cancer; ER/PR status guides therapy",
           "discriminator": "Hard fixed breast lump + stromal invasion + ER+ = invasive ductal carcinoma; receptor status drives anti-oestrogen therapy",
           "trap": "Confusing invasive ductal carcinoma with DCIS (non-invasive) or benign lesions (fibroadenoma)",
-          "rule": "IDC = most common invasive breast cancer; ER/PR+ -> endocrine therapy, HER2+ -> trastuzumab. Stromal invasion distinguishes it from DCIS.",
-          "others": {
-            "B": "phyllodes tumour is fibroepithelial with stromal (not epithelial duct) overgrowth, not ER+ invasive ductal cancer",
-            "C": "ductal carcinoma in situ is non-invasive (confined to ducts without stromal invasion)",
-            "D": "fibroadenoma is a benign, mobile, well-circumscribed lump, not a fixed skin-invading carcinoma"
-          }
+          "rule": "IDC = most common invasive breast cancer; ER/PR+ -> endocrine therapy, HER2+ -> trastuzumab. Stromal invasion distinguishes it from DCIS."
         }
       },
       {
@@ -5789,12 +4429,7 @@ const SUBJECTS = [
           "concept": "Adenoma-carcinoma sequence - stepwise genetic progression in colorectal cancer",
           "discriminator": "Apple-core colon cancer arises from adenomatous polyps via the adenoma-carcinoma sequence (APC, KRAS, p53 mutations)",
           "trap": "Ignoring the polyp-to-cancer progression - colorectal cancer arises via the adenoma-carcinoma sequence",
-          "rule": "Colorectal cancer develops from adenomas via the adenoma-carcinoma sequence (APC, KRAS, p53); colonoscopic polypectomy prevents it.",
-          "others": {
-            "B": "colorectal cancer does not arise directly from normal glands; it progresses through a polyp (adenoma) stage",
-            "C": "hamartomas are not the usual precursor of colorectal adenocarcinoma",
-            "D": "although some are inherited (FAP/HNPCC), most colorectal cancer is sporadic with stepwise (not single-hit) progression"
-          }
+          "rule": "Colorectal cancer develops from adenomas via the adenoma-carcinoma sequence (APC, KRAS, p53); colonoscopic polypectomy prevents it."
         }
       },
       {
@@ -5810,12 +4445,7 @@ const SUBJECTS = [
           "concept": "HPV oncogenesis - E6/E7 inactivate p53 (E6) and Rb (E7)",
           "discriminator": "High-risk HPV (16/18) drives cervical cancer via E6 (p53 degradation) and E7 (Rb inactivation)",
           "trap": "Wrongly attributing HPV to hormone/growth-receptor mechanisms - E6/E7 inactivation of p53/Rb is the key",
-          "rule": "High-risk HPV E6/E7 inactivate p53 and Rb -> cervical carcinogenesis; screening (cytology/HPV) + vaccination prevent.",
-          "others": {
-            "B": "HPV does not stimulate thyroid growth; this is not the cervical mechanism",
-            "C": "HPV does not encode HER2; that is an ERBB2 oncogene in breast cancer",
-            "D": "HPV does not directly mutate RAS; it acts via E6/E7 on p53/Rb"
-          }
+          "rule": "High-risk HPV E6/E7 inactivate p53 and Rb -> cervical carcinogenesis; screening (cytology/HPV) + vaccination prevent."
         }
       },
       {
@@ -5831,19 +4461,14 @@ const SUBJECTS = [
           "concept": "Prostate cancer - osteoblastic bone metastases, raised PSA, cord-compression risk",
           "discriminator": "Prostate cancer + back pain + raised PSA + hot spots = osteoblastic metastases; exclude cord compression",
           "trap": "Calling prostate bone lesions osteolytic or dismissing PSA - they are sclerotic with a high PSA",
-          "rule": "Prostate cancer -> osteoblastic bone metastases + raised PSA; new back pain -> exclude spinal cord compression (radiotherapy/ADT).",
-          "others": {
-            "B": "prostate bone metastases are osteoblastic (sclerotic), not purely osteolytic, and PSA is raised",
-            "C": "bone is a very common site for prostate cancer metastasis",
-            "D": "PSA is specific to prostate cancer, not a breast marker"
-          }
+          "rule": "Prostate cancer -> osteoblastic bone metastases + raised PSA; new back pain -> exclude spinal cord compression (radiotherapy/ADT)."
         }
       }
     ]
   },
   {
     "id": "ophthalmology",
-    "name": "Vernal Keratoconjunctivitis",
+    "name": "Ophthalmology",
     "questions": [
       {
         "q": "A 12-year-old boy has recurrent seasonal eye itching and redness, worse in summer, with conjunctival hyperaemia, cobblestone papillae on the upper tarsal conjunctiva, punctate epithelial erosions on fluorescein, and pain on eye movement. Visual acuity is 6/6. Diagnosis?",
@@ -5858,12 +4483,7 @@ const SUBJECTS = [
           "concept": "Vernal keratoconjunctivitis - cobblestone papillae + seasonal, VA preserved",
           "discriminator": "Cobblestone (giant) papillae on upper tarsus + seasonal itch + preserved VA = vernal KC",
           "trap": "Mistaking cobblestone papillae for infective conjunctivitis or keratitis",
-          "rule": "Vernal KC: cobblestone papillae on upper tarsus, seasonal, itching, preserved VA; mast-cell stabilisers/antihistamines + topical steroids for flares.",
-          "others": {
-            "A": "bacterial keratitis causes a painful corneal ulcer with epithelial defect, not tarsal cobblestone papillae and preserved VA",
-            "B": "bacterial conjunctivitis is purulent discharge without giant tarsal papillae or seasonal pattern",
-            "C": "viral conjunctivitis is watery with follicular reaction, not giant cobblestone papillae"
-          }
+          "rule": "Vernal KC: cobblestone papillae on upper tarsus, seasonal, itching, preserved VA; mast-cell stabilisers/antihistamines + topical steroids for flares."
         }
       },
       {
@@ -5879,12 +4499,7 @@ const SUBJECTS = [
           "concept": "Diabetic tractional retinal detachment - vitrectomy",
           "discriminator": "Fibrovascular traction + vitreous haemorrhage causing RD in PDR = vitrectomy",
           "trap": "Treating established tractional RD with laser or anti-VEGF alone",
-          "rule": "Tractional RD in PDR needs pars plana vitrectomy; PRP and anti-VEGF are adjuncts, not definitive once detached.",
-          "others": {
-            "A": "PRP treats ischaemic PDR but does not relieve an established tractional detachment",
-            "C": "anti-VEGF is adjunctive and can transiently worsen traction; it does not repair the detachment",
-            "D": "observation risks permanent vision loss once tractional detachment is present"
-          }
+          "rule": "Tractional RD in PDR needs pars plana vitrectomy; PRP and anti-VEGF are adjuncts, not definitive once detached."
         }
       },
       {
@@ -5900,12 +4515,7 @@ const SUBJECTS = [
           "concept": "Chemical eye injury - immediate copious irrigation is the priority",
           "discriminator": "Any chemical eye injury: irrigate copiously FIRST, before anything else (even before pH)",
           "trap": "Delaying irrigation to measure pH or instil drops first",
-          "rule": "For any chemical eye injury, irrigate copiously and immediately; do not delay for pH testing or topical medications.",
-          "others": {
-            "B": "antibiotic drops are secondary; irrigation must come first to limit tissue necrosis",
-            "C": "a cycloplegic is comfort care and not the urgent sight-saving step",
-            "D": "measuring pH must not delay irrigation - start water/saline immediately"
-          }
+          "rule": "For any chemical eye injury, irrigate copiously and immediately; do not delay for pH testing or topical medications."
         }
       },
       {
@@ -5921,12 +4531,7 @@ const SUBJECTS = [
           "concept": "Acute angle-closure glaucoma - IV mannitol for rapid osmotic IOP reduction",
           "discriminator": "Severe AACG with very high IOP -> IV mannitol (osmotic agent) for rapid reduction",
           "trap": "Relying on topical/oral agents alone when IOP is dangerously high",
-          "rule": "In AACG with dangerously high IOP, give IV mannitol for rapid osmotic reduction; definitive treatment is laser peripheral iridotomy after pressure control.",
-          "others": {
-            "A": "oral acetazolamide is useful but slower and less effective than IV mannitol when IOP is severely elevated",
-            "C": "topical timolol lowers aqueous production but is insufficient alone in a severe acute attack",
-            "D": "oral glycerin is an alternative osmotic agent but IV mannitol is the acute in-hospital choice"
-          }
+          "rule": "In AACG with dangerously high IOP, give IV mannitol for rapid osmotic reduction; definitive treatment is laser peripheral iridotomy after pressure control."
         }
       },
       {
@@ -5942,12 +4547,7 @@ const SUBJECTS = [
           "concept": "Pilocarpine - direct miotic (muscarinic agonist) in AACG",
           "discriminator": "Pilocarpine is a direct-acting miotic: contracts ciliary muscle (opens angle) and sphincter (miosis), breaking the pupillary block",
           "trap": "Confusing pilocarpine with a beta-blocker or sympathomimetic",
-          "rule": "Pilocarpine is a direct muscarinic agonist; in AACG it constricts the pupil and contracts the ciliary muscle to open the angle. (Avoid in uveitis.)",
-          "others": {
-            "A": "beta-2 agonists are not used in glaucoma; timolol is a beta-blocker reducing aqueous production",
-            "C": "alpha-1 agonists (phenylephrine) DILATE the pupil and would worsen AACG",
-            "D": "acetazolamide is the carbonic anhydrase inhibitor; pilocarpine is the miotic"
-          }
+          "rule": "Pilocarpine is a direct muscarinic agonist; in AACG it constricts the pupil and contracts the ciliary muscle to open the angle. (Avoid in uveitis.)"
         }
       },
       {
@@ -5963,12 +4563,7 @@ const SUBJECTS = [
           "concept": "Traumatic hyphema - bed rest, elevation, shield, avoid anticoagulants",
           "discriminator": "Hyphema: rest + head-up + shield + avoid aspirin/NSAID (re-bleed risk); never paracentesis routinely",
           "trap": "Doing a chamber paracentesis or giving anticoagulants",
-          "rule": "Traumatic hyphema: bed rest, head elevation, eye shield, avoid aspirin/NSAIDs; watch for re-bleed (raises IOP). Do not give anticoagulants.",
-          "others": {
-            "A": "routine paracentesis is not indicated and risks worsening; conservative care is mainstay",
-            "C": "steroids are not first-line for hyphema and can raise pressure; the issue is re-bleed prevention",
-            "D": "anticoagulants would promote re-bleeding and are contraindicated"
-          }
+          "rule": "Traumatic hyphema: bed rest, head elevation, eye shield, avoid aspirin/NSAIDs; watch for re-bleed (raises IOP). Do not give anticoagulants."
         }
       },
       {
@@ -5984,12 +4579,7 @@ const SUBJECTS = [
           "concept": "Central retinal vein occlusion - 'blood and thunder' fundus",
           "discriminator": "Sudden painless loss + dilated tortuous veins + flame haemorrhages + disc oedema = CRVO",
           "trap": "Confusing CRVO (venous, haemorrhagic) with CRAO (pale retina, cherry-red spot)",
-          "rule": "CRVO: sudden painless loss with dilated tortuous veins, flame haemorrhages, cotton-wool spots and disc oedema; manage vascular risk factors and macular oedema.",
-          "others": {
-            "A": "CRAO shows a pale retina with a cherry-red macula, not widespread haemorrhages",
-            "C": "vitreous haemorrhage obscures the fundus (no clear vessels) rather than showing venous congestion",
-            "D": "retinal detachment shows a demarcation line/tear, not a haemorrhagic venous pattern"
-          }
+          "rule": "CRVO: sudden painless loss with dilated tortuous veins, flame haemorrhages, cotton-wool spots and disc oedema; manage vascular risk factors and macular oedema."
         }
       },
       {
@@ -6005,12 +4595,7 @@ const SUBJECTS = [
           "concept": "Sudden vision loss - optic neuritis is painful; the others are painless",
           "discriminator": "Painless monocular loss = CRAO/CRVO/vitreous haemorrhage/RD; optic neuritis adds pain on eye movement",
           "trap": "Including optic neuritis in the painless differential",
-          "rule": "Painless sudden monocular loss: CRAO, CRVO, vitreous haemorrhage, retinal detachment. Optic neuritis presents with pain on eye movement.",
-          "others": {
-            "A": "CRAO is classically sudden and painless",
-            "B": "CRVO is sudden and painless",
-            "C": "rhegmatogenous RD is painless (flashes/floaters then curtain"
-          }
+          "rule": "Painless sudden monocular loss: CRAO, CRVO, vitreous haemorrhage, retinal detachment. Optic neuritis presents with pain on eye movement."
         }
       },
       {
@@ -6026,12 +4611,7 @@ const SUBJECTS = [
           "concept": "Vitreous haemorrhage - sudden floaters + obscured fundus, absent red reflex",
           "discriminator": "Sudden floaters + veiled vision + absent red reflex/fundus view = vitreous haemorrhage",
           "trap": "Assuming a normal fundus when the red reflex is absent",
-          "rule": "Vitreous haemorrhage: sudden floaters, dark veil, absent red reflex, fundus not seen; urgent scan to rule out retinal tear/detachment.",
-          "others": {
-            "A": "CRAO shows a pale retina with cherry-red spot, not an obscured vitreous",
-            "C": "anterior uveitis has a visible inflamed anterior segment, not an absent red reflex from blood",
-            "D": "AACG has a mid-dilated fixed pupil and high pressure, not floaters with lost red reflex"
-          }
+          "rule": "Vitreous haemorrhage: sudden floaters, dark veil, absent red reflex, fundus not seen; urgent scan to rule out retinal tear/detachment."
         }
       },
       {
@@ -6047,12 +4627,7 @@ const SUBJECTS = [
           "concept": "Rhegmatogenous retinal detachment - flashes + floaters + curtain",
           "discriminator": "Flashes + floaters + curtain in a myope = rhegmatogenous RD until proven otherwise; urgent",
           "trap": "Dismissing flashes/floaters as benign without excluding a tear/detachment",
-          "rule": "Flashes + floaters + a curtaining shadow, especially in a myope, indicates rhegmatogenous RD; urgent ophthalmology review (surgery: scleral buckle/vitrectomy).",
-          "others": {
-            "A": "delaying risks irreversible macula-off detachment and permanent loss",
-            "C": "antibiotics are irrelevant; there is no infection",
-            "D": "glasses do not address an acute retinal detachment"
-          }
+          "rule": "Flashes + floaters + a curtaining shadow, especially in a myope, indicates rhegmatogenous RD; urgent ophthalmology review (surgery: scleral buckle/vitrectomy)."
         }
       },
       {
@@ -6068,12 +4643,7 @@ const SUBJECTS = [
           "concept": "Retinitis pigmentosa - night blindness + tunnel vision + bone spicules",
           "discriminator": "Night blindness + tunnel (ring) vision + bone-spicule pigment + attenuated vessels = RP",
           "trap": "Confusing RP (peripheral, night) with macular (central) diseases",
-          "rule": "RP: early night blindness, tunnel vision, bone-spicule pigment, attenuated vessels, waxy disc; inherited rod-cone dystrophy.",
-          "others": {
-            "A": "AMD causes central (not peripheral/night) loss and drusen, not bone spicules",
-            "C": "central serous causes a central serous detachment, not night blindness or spicules",
-            "D": "diabetic retinopathy has microaneurysms/haemorrhages, not bone-spicule pigment"
-          }
+          "rule": "RP: early night blindness, tunnel vision, bone-spicule pigment, attenuated vessels, waxy disc; inherited rod-cone dystrophy."
         }
       },
       {
@@ -6089,12 +4659,7 @@ const SUBJECTS = [
           "concept": "Age-related macular degeneration - Amsler grid for home monitoring",
           "discriminator": "Central distortion in an elderly patient -> suspect AMD; Amsler grid monitors for conversion/wet AMD",
           "trap": "Using tonometry or colour testing as the AMD monitoring tool",
-          "rule": "AMD: central loss/distortion; Amsler grid is the home monitoring tool for wet conversion, treated with intravitreal anti-VEGF.",
-          "others": {
-            "B": "tonometry measures IOP for glaucoma, not AMD activity",
-            "C": "colour testing is not the practical home monitor for AMD conversion",
-            "D": "fluorescein angiography is clinic-based, not a home tool"
-          }
+          "rule": "AMD: central loss/distortion; Amsler grid is the home monitoring tool for wet conversion, treated with intravitreal anti-VEGF."
         }
       },
       {
@@ -6110,12 +4675,7 @@ const SUBJECTS = [
           "concept": "Wet (neovascular) AMD - anti-VEGF; dry AMD is atrophic/drusen",
           "discriminator": "New subretinal fluid/neovascular membrane + rapid loss = wet AMD -> anti-VEGF",
           "trap": "Treating wet AMD as dry (vitamins only) or with antibiotics",
-          "rule": "Wet AMD (neovascular, subretinal fluid/haemorrhage, rapid loss) is treated with intravitreal anti-VEGF; dry AMD is atrophic with drusen.",
-          "others": {
-            "A": "antioxidants are for dry AMD; this patient has neovascular (wet) disease needing anti-VEGF",
-            "C": "antibiotics have no role in AMD",
-            "D": "dry AMD does not get urgent laser; wet AMD gets anti-VEGF, not routine laser"
-          }
+          "rule": "Wet AMD (neovascular, subretinal fluid/haemorrhage, rapid loss) is treated with intravitreal anti-VEGF; dry AMD is atrophic with drusen."
         }
       },
       {
@@ -6131,12 +4691,7 @@ const SUBJECTS = [
           "concept": "Congenital nasolacrimal duct obstruction - massage + observe",
           "discriminator": "Neonatal watery eye without mass/redness = congenital NLDO; conservative first (massage), resolves <1y",
           "trap": "Operating or probing immediately in an uncomplicated neonate",
-          "rule": "Congenital NLDO: lacrimal massage and observation; most resolve by age 1. Probing if persistent beyond 12 months.",
-          "others": {
-            "A": "immediate DCR is far too aggressive for a self-limiting neonatal obstruction",
-            "C": "chronic antibiotics are not indicated without infection",
-            "D": "antihistamines do not treat a mechanical duct obstruction"
-          }
+          "rule": "Congenital NLDO: lacrimal massage and observation; most resolve by age 1. Probing if persistent beyond 12 months."
         }
       },
       {
@@ -6152,12 +4707,7 @@ const SUBJECTS = [
           "concept": "Episcleritis vs scleritis - phenylephrine blanching distinguishes them",
           "discriminator": "Blanching injected vessels + mild = episcleritis; non-blanching violaceous + severe pain/vision loss = scleritis",
           "trap": "Equating the two or missing the systemic association of scleritis",
-          "rule": "Episcleritis: blanching vessels, mild, self-limited. Scleritis: violaceous non-blanching, severe pain, vision threat, systemic disease (RA); needs systemic therapy.",
-          "others": {
-            "A": "episcleritis is benign and does not need immunosuppression",
-            "C": "the mild blanching case is episcleritis, not scleritis",
-            "D": "scleritis is not benign and requires systemic treatment, not just lubricants"
-          }
+          "rule": "Episcleritis: blanching vessels, mild, self-limited. Scleritis: violaceous non-blanching, severe pain, vision threat, systemic disease (RA); needs systemic therapy."
         }
       },
       {
@@ -6173,12 +4723,7 @@ const SUBJECTS = [
           "concept": "Anterior uveitis complication - posterior synechiae; cycloplegic prevents",
           "discriminator": "Recurrent/untreated iritis -> posterior synechiae (pupil fixed/irregular); cycloplegics prevent by dilating and resting the iris",
           "trap": "Forgetting the cycloplegic in anterior uveitis (steroids alone risk synechiae)",
-          "rule": "Anterior uveitis: treat inflammation with steroids AND a cycloplegic to prevent posterior synechiae (iris-lens adhesions causing a fixed irregular pupil).",
-          "others": {
-            "A": "cataract is not the acute complication described; the fixed irregular pupil is synechiae",
-            "C": "retinal detachment is not the mechanism here",
-            "D": "miotics would worsen synechiae risk; cycloplegics (dilators) are used"
-          }
+          "rule": "Anterior uveitis: treat inflammation with steroids AND a cycloplegic to prevent posterior synechiae (iris-lens adhesions causing a fixed irregular pupil)."
         }
       },
       {
@@ -6194,12 +4739,7 @@ const SUBJECTS = [
           "concept": "Congenital cataract - urgent treatment to prevent deprivation amblyopia",
           "discriminator": "Dense congenital cataract -> urgent surgery (within weeks) to avoid irreversible deprivation amblyopia",
           "trap": "Delaying treatment of a dense congenital cataract",
-          "rule": "Dense congenital cataract: treat promptly (surgery within weeks) to prevent irreversible deprivation amblyopia; investigate TORCH/galactosaemia.",
-          "others": {
-            "A": "delaying causes permanent amblyopia; infant cataracts are not benign if dense",
-            "C": "antibiotics do not treat a lens opacity",
-            "D": "glasses alone will not clear a dense lens opacity and delay critical treatment"
-          }
+          "rule": "Dense congenital cataract: treat promptly (surgery within weeks) to prevent irreversible deprivation amblyopia; investigate TORCH/galactosaemia."
         }
       },
       {
@@ -6215,12 +4755,7 @@ const SUBJECTS = [
           "concept": "Acute angle-closure glaucoma - laser peripheral iridotomy is definitive",
           "discriminator": "Definitive AACG treatment = laser peripheral iridotomy (after pressure control) to bypass the pupillary block",
           "trap": "Stopping at medical control without definitive iridotomy",
-          "rule": "After medical control of AACG, perform laser peripheral iridotomy; the fellow eye is also at risk and is typically treated prophylactically.",
-          "others": {
-            "A": "antibiotics do not prevent angle closure",
-            "C": "cataract surgery may help but iridotomy is the definitive angle-closure procedure",
-            "D": "chronic diuretics are not the definitive preventive treatment"
-          }
+          "rule": "After medical control of AACG, perform laser peripheral iridotomy; the fellow eye is also at risk and is typically treated prophylactically."
         }
       },
       {
@@ -6236,12 +4771,7 @@ const SUBJECTS = [
           "concept": "Toxoplasma chorioretinitis - 'headlight in fog' necrotizing focus + old scar",
           "discriminator": "Focal necrotizing retinitis + overlying vitritis + old scar = toxoplasma; treat with pyrimethamine/sulfadiazine",
           "trap": "Confusing toxoplasma (focal, old scar) with CMV (perivascular, no old scar, immunocompromised)",
-          "rule": "Toxoplasma chorioretinitis: focal necrosis with vitritis ('headlight in fog') next to an old scar; treat with pyrimethamine + sulfadiazine + folinic acid.",
-          "others": {
-            "A": "CMV retinitis occurs in immunocompromised hosts, is perivascular ('tomato ketchup'), and lacks an old toxoplasma scar",
-            "C": "APMPPE is multifocal placoid and not necrotizing with a single old scar",
-            "D": "syphilitic retinitis has a different picture and is not 'headlight in fog' with a solitary old scar"
-          }
+          "rule": "Toxoplasma chorioretinitis: focal necrosis with vitritis ('headlight in fog') next to an old scar; treat with pyrimethamine + sulfadiazine + folinic acid."
         }
       },
       {
@@ -6257,12 +4787,7 @@ const SUBJECTS = [
           "concept": "Orbital cellulitis vs preseptal - proptosis/EOM restriction/vision loss = orbital, urgent",
           "discriminator": "Proptosis + painful EOM restriction + decreased vision = orbital cellulitis -> urgent IV abx + CT",
           "trap": "Treating orbital cellulitis as simple preseptal (outpatient oral antibiotics)",
-          "rule": "Orbital cellulitis: proptosis, painful restricted eye movement, decreased vision, toxicity -> urgent IV antibiotics + CT. Preseptal: lid only, oral antibiotics.",
-          "others": {
-            "A": "oral outpatient care is for preseptal; this child has orbital signs needing admission",
-            "C": "allergic oedema is bilateral, itchy, and lacks infection signs/EOM restriction",
-            "D": "a chalazion is a painless lid lump, not acute swelling with proposis"
-          }
+          "rule": "Orbital cellulitis: proptosis, painful restricted eye movement, decreased vision, toxicity -> urgent IV antibiotics + CT. Preseptal: lid only, oral antibiotics."
         }
       },
       {
@@ -6278,12 +4803,7 @@ const SUBJECTS = [
           "concept": "Herpes zoster ophthalmicus - Hutchinson sign; urgent antiviral + eye review",
           "discriminator": "Vesicular rash on nose tip (nasociliary involvement) + eye signs = HZO; urgent antiviral + ophth review",
           "trap": "Treating as simple dermatitis or using steroids without antiviral cover",
-          "rule": "HZO: vesicular rash in V1 distribution, Hutchinson sign (nasal tip) predicts eye involvement; urgent oral antiviral + ophthalmology assessment.",
-          "others": {
-            "A": "antibiotics do not treat VZV; this needs antiviral therapy",
-            "C": "antihistamines do not treat viral infection or prevent ocular complications",
-            "D": "topical steroids alone risk worsening; systemic antiviral is required"
-          }
+          "rule": "HZO: vesicular rash in V1 distribution, Hutchinson sign (nasal tip) predicts eye involvement; urgent oral antiviral + ophthalmology assessment."
         }
       },
       {
@@ -6299,12 +4819,7 @@ const SUBJECTS = [
           "concept": "Pterygium vs pinguecula - pterygium grows onto cornea (UV-related)",
           "discriminator": "Fibrovascular wing from limbus ONTO cornea = pterygium (UV); pinguecula stays on conjunctiva",
           "trap": "Confusing pterygium (corneal involvement) with pinguecula (conjunctival only)",
-          "rule": "Pterygium: fibrovascular tissue growing from the limbus onto the cornea (UV exposure); monitor/excise if approaching the visual axis. Pinguecula: limbal conjunctival deposit, no corneal spread.",
-          "others": {
-            "A": "pinguecula is a non-vascular yellow nodule that does not extend onto the cornea",
-            "C": "melanoma is typically pigmented and not a classical triangular limbal wing",
-            "D": "pinguicula is not a term for cataract; the distinction is pterygium vs pinguecula"
-          }
+          "rule": "Pterygium: fibrovascular tissue growing from the limbus onto the cornea (UV exposure); monitor/excise if approaching the visual axis. Pinguecula: limbal conjunctival deposit, no corneal spread."
         }
       },
       {
@@ -6320,12 +4835,7 @@ const SUBJECTS = [
           "concept": "Entropion vs ectropion - entropion = lid inward, lashes scratch cornea",
           "discriminator": "Inward-turning lid with lashes on cornea = entropion; risk of corneal abrasion/ulcer",
           "trap": "Confusing entropion (inward) with ectropion (outward)",
-          "rule": "Entropion: eyelid turns inward, lashes abrade the cornea (ulcer risk); needs correction to protect the eye. Ectropion: outward, causes epiphora/exposure.",
-          "others": {
-            "A": "ectropion is outward eversion with tearing/exposure, not inward lashes on cornea",
-            "C": "blepharospasm is involuntary lid squeezing, not a structural inversion",
-            "D": "ptosis is lid drooping, not inversion"
-          }
+          "rule": "Entropion: eyelid turns inward, lashes abrade the cornea (ulcer risk); needs correction to protect the eye. Ectropion: outward, causes epiphora/exposure."
         }
       },
       {
@@ -6341,12 +4851,7 @@ const SUBJECTS = [
           "concept": "Dacryocystitis - medial canthal swelling/discharge; infected NLDO",
           "discriminator": "Tender medial canthal swelling + purulent reflux from punctum, quiet eye = dacryocystitis (infected NLDO)",
           "trap": "Confusing dacryocystitis with preseptal/orbital cellulitis",
-          "rule": "Dacryocystitis: tender medial canthal swelling with purulent reflux from the punctum; warm compresses, massage, oral antibiotics; probing if recurrent. Distinguish from cellulitis (diffuse lid/orbital involvement).",
-          "others": {
-            "A": "preseptal cellulitis is diffuse lid erythema/swelling without a focal sac and punctal reflux",
-            "C": "orbital cellulitis has proposis/EOM restriction, not a focal medial canthal sac",
-            "D": "conjunctivitis has a diffusely red eye, not a focal canthal swelling"
-          }
+          "rule": "Dacryocystitis: tender medial canthal swelling with purulent reflux from the punctum; warm compresses, massage, oral antibiotics; probing if recurrent. Distinguish from cellulitis (diffuse lid/orbital involvement)."
         }
       },
       {
@@ -6362,12 +4867,7 @@ const SUBJECTS = [
           "concept": "NAION - painless altitudinal loss + disc oedema/haemorrhages in hypertensive/diabetic elderly",
           "discriminator": "Painless altitudinal VF defect + disc oedema with haemorrhages in vascular patient = NAION",
           "trap": "Confusing AION (disc oedema + haemorrhages) with papilloedema (disc oedema, no haemorrhages, bilateral, with headache)",
-          "rule": "NAION: sudden painless vision loss, RAPD, altitudinal defect, pale oedematous disc with splinter haemorrhages in a vascular patient. No proven treatment; address vascular risk factors.",
-          "others": {
-            "A": "papilloedema has no haemorrhages, is usually bilateral, and is associated with raised ICP symptoms",
-            "C": "optic neuritis typically affects younger patients with pain on eye movement and central/color desaturation",
-            "D": "retinal artery occlusion shows a cherry-red spot and box-carring of retinal arteries, not disc oedema"
-          }
+          "rule": "NAION: sudden painless vision loss, RAPD, altitudinal defect, pale oedematous disc with splinter haemorrhages in a vascular patient. No proven treatment; address vascular risk factors."
         }
       }
     ]
@@ -6389,12 +4889,7 @@ const SUBJECTS = [
           "concept": "High pre-test probability for PE: go straight to CTPA",
           "discriminator": "High Wells score overrides a D-dimer pathway; image now",
           "trap": "Using D-dimer in the wrong pre-test probability band",
-          "rule": "High Wells probability → CTPA immediately",
-          "others": {
-            "B": "A D-dimer is not exclusionary in high-risk PE",
-            "C": "Thromboaspirin does not treat established PE",
-            "D": "Calf ultrasound does not safely exclude pulmonary embolism"
-          }
+          "rule": "High Wells probability → CTPA immediately"
         }
       },
       {
@@ -6410,12 +4905,7 @@ const SUBJECTS = [
           "concept": "Low-risk PE can be excluded clinically with PERC",
           "discriminator": "No PERC criteria met means no further VTE testing is required",
           "trap": "Applying PERC to a non-low-risk patient",
-          "rule": "Low clinical suspicion + all PERC criteria absent → no testing",
-          "others": {
-            "B": "Imaging is reserved for higher risk or positive criteria",
-            "C": "D-dimer is not needed when PERC negative and pre-test low",
-            "D": "No evidence supports empiric anticoagulation"
-          }
+          "rule": "Low clinical suspicion + all PERC criteria absent → no testing"
         }
       },
       {
@@ -6431,12 +4921,7 @@ const SUBJECTS = [
           "concept": "A negative highly sensitive D-dimer excludes PE in low/intermediate risk",
           "discriminator": "A negative highly sensitive D-dimer rules out PE when the pre-test probability is not high",
           "trap": "Treating a non-specific test as rule-in",
-          "rule": "Non-high risk + negative D-dimer → excluded",
-          "others": {
-            "B": "D-dimer is not diagnostic",
-            "C": "Highly sensitive D-dimer remains usable",
-            "D": "Imaging is only needed if D-dimer is positive"
-          }
+          "rule": "Non-high risk + negative D-dimer → excluded"
         }
       },
       {
@@ -6452,12 +4937,7 @@ const SUBJECTS = [
           "concept": "A positive D-dimer requires imaging, not dismissal",
           "discriminator": "D-dimer can be high after infection; a positive result still needs CTPA",
           "trap": "Ignoring a positive D-dimer because it is non-specific",
-          "rule": "Low/intermediate risk + positive D-dimer → CTPA",
-          "others": {
-            "B": "D-dimer negativity excludes, not positivity",
-            "C": "Repeating wastes time",
-            "D": "Imaging precedes anticoagulation unless diagnostic delay is unsafe"
-          }
+          "rule": "Low/intermediate risk + positive D-dimer → CTPA"
         }
       },
       {
@@ -6473,12 +4953,7 @@ const SUBJECTS = [
           "concept": "Pregnancy suspected PE: duplex first",
           "discriminator": "A positive leg duplex in pregnancy confirms VTE and avoids chest irradiation",
           "trap": "Jumping directly to CTPA without looking for DVT",
-          "rule": "Suspected PE in pregnancy → bilateral compression ultrasound first",
-          "others": {
-            "B": "CTPA is second-line if duplex negative or unavailable",
-            "C": "D-dimer can be unreliable in pregnancy",
-            "D": "Chest X-ray is safe and guides V/Q vs CTPA"
-          }
+          "rule": "Suspected PE in pregnancy → bilateral compression ultrasound first"
         }
       },
       {
@@ -6494,12 +4969,7 @@ const SUBJECTS = [
           "concept": "Pregnancy VTE: LMWH is anticoagulant of choice",
           "discriminator": "LMWH crosses the placenta poorly and is safe and monitored in pregnancy",
           "trap": "Using warfarin because INR is measurable",
-          "rule": "Pregnancy DVT/PE → LMWH, avoid warfarin and DOACs",
-          "others": {
-            "B": "Warfarin teratogenicity and fetal haemorrhage risk",
-            "C": "DOACs are not recommended in pregnancy",
-            "D": "Aspirin is not adequate anticoagulation for DVT"
-          }
+          "rule": "Pregnancy DVT/PE → LMWH, avoid warfarin and DOACs"
         }
       },
       {
@@ -6515,12 +4985,7 @@ const SUBJECTS = [
           "concept": "Cancer-associated VTE with renal impairment/thrombocytopenia: LMWH",
           "discriminator": "LMWH offers flexible, reversible dosing without INR monitoring",
           "trap": "Using warfarin because cancer-associated VTE requires anticoagulation",
-          "rule": "Cancer VTE + renal impairment/thrombocytopenia → LMWH",
-          "others": {
-            "B": "Warfarin needs overlap and INR stability and is less effective in active cancer",
-            "C": "Aspirin does not treat DVT",
-            "D": "IV UFH reserved for severe instability/renal failure needing short half-life"
-          }
+          "rule": "Cancer VTE + renal impairment/thrombocytopenia → LMWH"
         }
       },
       {
@@ -6536,12 +5001,7 @@ const SUBJECTS = [
           "concept": "High-risk PE with haemodynamic instability requires thrombolysis",
           "discriminator": "Hypotension is the defining feature of massive PE",
           "trap": "Calling all large PEs massive PE",
-          "rule": "PE + hypotension → immediate thrombolysis if eligible",
-          "others": {
-            "B": "Aspirin is not adequate VTE treatment",
-            "C": "Observation risks cardiovascular collapse",
-            "D": "IVC filter does not remove embolus"
-          }
+          "rule": "PE + hypotension → immediate thrombolysis if eligible"
         }
       },
       {
@@ -6557,12 +5017,7 @@ const SUBJECTS = [
           "concept": "Intermediate-risk/submassive PE: anticoagulation, not routine thrombolysis",
           "discriminator": "Normotension defines intermediate, not massive, PE",
           "trap": "Overcalling submassive PE as massive",
-          "rule": "Normotensive RV-strained PE → anticoagulation, close monitoring",
-          "others": {
-            "B": "No proven benefit and bleeding risk",
-            "C": "Catheter therapy reserved for selected/failing cases",
-            "D": "Warfarin needs overlap"
-          }
+          "rule": "Normotensive RV-strained PE → anticoagulation, close monitoring"
         }
       },
       {
@@ -6578,12 +5033,7 @@ const SUBJECTS = [
           "concept": "Severe renal failure and DVT: LMWH",
           "discriminator": "Severe renal impairment precludes standard DOAC dosing",
           "trap": "Assuming all DOACs are safe at any renal function",
-          "rule": "eGFR severe → LMWH preferred initially",
-          "others": {
-            "B": "Standard DOAC dose not recommended at eGFR 15",
-            "C": "Rivaroxaban also limited by renal function",
-            "D": "Aspirin is not adequate treatment"
-          }
+          "rule": "eGFR severe → LMWH preferred initially"
         }
       },
       {
@@ -6599,12 +5049,7 @@ const SUBJECTS = [
           "concept": "Unprovoked proximal DVT minimum duration",
           "discriminator": "Unprovoked VTE requires at least 3 months, not a brief course",
           "trap": "Stopping too early after symptoms resolve",
-          "rule": "Unprovoked proximal DVT → at least 3 months, then reassess",
-          "others": {
-            "B": "2 weeks is grossly inadequate",
-            "C": "Aspirin is not adequate VTE treatment",
-            "D": "1 month is insufficient"
-          }
+          "rule": "Unprovoked proximal DVT → at least 3 months, then reassess"
         }
       },
       {
@@ -6620,12 +5065,7 @@ const SUBJECTS = [
           "concept": "Cancer VTE with unreliable absorption: LMWH",
           "discriminator": "LMWH bypasses gastrointestinal absorption",
           "trap": "Assuming all cancer VTE can take rivaroxaban",
-          "rule": "Cancer VTE + vomiting/malabsorption → LMWH",
-          "others": {
-            "B": "Warfarin requires oral absorption and overlap",
-            "C": "Rivaroxaban absorption and adherence unstable",
-            "D": "Cancer is indication, not exclusion"
-          }
+          "rule": "Cancer VTE + vomiting/malabsorption → LMWH"
         }
       },
       {
@@ -6641,12 +5081,7 @@ const SUBJECTS = [
           "concept": "Contrast allergy: V/Q is the alternative",
           "discriminator": "V/Q provides CTPA information without iodinated contrast",
           "trap": "Using CTPA despite contrast contraindication",
-          "rule": "Contrast contraindication/CKD + normal CXR → V/Q",
-          "others": {
-            "B": "CTPA requires contrast",
-            "C": "D-dimer is not definitive",
-            "D": "MRI is not first-line acute PE imaging"
-          }
+          "rule": "Contrast contraindication/CKD + normal CXR → V/Q"
         }
       },
       {
@@ -6662,12 +5097,7 @@ const SUBJECTS = [
           "concept": "Negative CTPA with high suspicion can still need imaging",
           "discriminator": "Do not falsely clear PE when clinical probability remains high and CTPA result is negative",
           "trap": "Overreliance on a CT report despite persistent high suspicion",
-          "rule": "High suspicion + negative CTPA → proximal duplex or V/Q",
-          "others": {
-            "B": "Premature discharge unsafe",
-            "C": "D-dimer cannot adjudicate this",
-            "D": "Aspirin is not treatment"
-          }
+          "rule": "High suspicion + negative CTPA → proximal duplex or V/Q"
         }
       },
       {
@@ -6683,12 +5113,7 @@ const SUBJECTS = [
           "concept": "D-dimer is non-specific in post-op patients",
           "discriminator": "D-dimer is a rule-out test, not a rule-in test",
           "trap": "Treating a high D-dimer as proof of PE",
-          "rule": "D-dimer excludes only, never confirms",
-          "others": {
-            "B": "D-dimer cannot confirm PE",
-            "C": "D-dimer cannot confirm DVT",
-            "D": "Massive intervention needs diagnosis"
-          }
+          "rule": "D-dimer excludes only, never confirms"
         }
       },
       {
@@ -6704,12 +5129,7 @@ const SUBJECTS = [
           "concept": "Low-risk distal DVT: surveillance",
           "discriminator": "Asymptomatic isolated distal DVTs can be followed with repeat duplex",
           "trap": "Over-treating all DVTs alike",
-          "rule": "Asymptomatic/low-risk distal DVT → repeat duplex in 1–2 weeks",
-          "others": {
-            "B": "All DVTs do not need 6 months",
-            "C": "No indication for thrombolysis",
-            "D": "IVC filter not used for calf DVT"
-          }
+          "rule": "Asymptomatic/low-risk distal DVT → repeat duplex in 1–2 weeks"
         }
       },
       {
@@ -6725,12 +5145,7 @@ const SUBJECTS = [
           "concept": "Recurrent VTE on therapy: look for cause",
           "discriminator": "Recurrent VTE on therapeutic anticoagulation suggests an underlying prothrombotic state",
           "trap": "Accepting anticoagulant failure without investigation",
-          "rule": "Recurrent VTE on anticoagulation → investigate APS/occult cancer",
-          "others": {
-            "B": "Aspirin not adequate",
-            "C": "Stopping unsafe",
-            "D": "Recurrence is not normal under therapy"
-          }
+          "rule": "Recurrent VTE on anticoagulation → investigate APS/occult cancer"
         }
       },
       {
@@ -6746,12 +5161,7 @@ const SUBJECTS = [
           "concept": "Haemoptysis in PE does not preclude anticoagulation",
           "discriminator": "Haemoptysis is included in Wells and is usually compatible with anticoagulation",
           "trap": "Seeing blood in sputum as no-anticoagulation",
-          "rule": "Haemoptysis in PE is not absolute anticoagulation contraindication",
-          "others": {
-            "B": "No alternative diagnosis without evaluation",
-            "C": "Haemoptysis does not mandate thrombolysis",
-            "D": "Stable haemoptysis does not forbid anticoagulation"
-          }
+          "rule": "Haemoptysis in PE is not absolute anticoagulation contraindication"
         }
       },
       {
@@ -6767,12 +5177,7 @@ const SUBJECTS = [
           "concept": "HIT excludes all heparins",
           "discriminator": "Fondaparinux or direct thrombin inhibitors avoid heparin immune response",
           "trap": "Using LMWH because it is less antigenic",
-          "rule": "HIT → stop all heparin, use non-heparin anticoagulant",
-          "others": {
-            "B": "LMWH cross-reacts",
-            "C": "UFH causes HIT",
-            "D": "Aspirin is inadequate"
-          }
+          "rule": "HIT → stop all heparin, use non-heparin anticoagulant"
         }
       },
       {
@@ -6788,12 +5193,7 @@ const SUBJECTS = [
           "concept": "Clot on warfarin: adherence and intensity",
           "discriminator": "Subtherapeutic INR explains clot under warfarin",
           "trap": "Attributing all VTE to drug resistance",
-          "rule": "DVT on warfarin with INR 1.3 → restore therapeutic anticoagulation",
-          "others": {
-            "B": "Aspirin does not treat DVT",
-            "C": "Stopping unsafe",
-            "D": "No treatment is dangerous"
-          }
+          "rule": "DVT on warfarin with INR 1.3 → restore therapeutic anticoagulation"
         }
       },
       {
@@ -6809,12 +5209,7 @@ const SUBJECTS = [
           "concept": "Pregnancy: V/Q preferred with normal CXR",
           "discriminator": "V/Q reduces maternal breast irradiation when CXR normal",
           "trap": "Routine CTPA irrespective of CXR/duplex",
-          "rule": "Pregnancy + negative duplex + normal CXR → V/Q preferred",
-          "others": {
-            "B": "CTPA may be second choice with CXR abnormal",
-            "C": "MRI pelvis not appropriate",
-            "D": "Needs further exclusion"
-          }
+          "rule": "Pregnancy + negative duplex + normal CXR → V/Q preferred"
         }
       },
       {
@@ -6830,12 +5225,7 @@ const SUBJECTS = [
           "concept": "Saddle embolism is not itself massive PE",
           "discriminator": "Saddle describes clot location, not haemodynamic category",
           "trap": "Equating saddle embolism with massive PE",
-          "rule": "Saddle PE with stability → anticoagulation",
-          "others": {
-            "B": "Massive PE requires instability",
-            "C": "Embolectomy only selected cases",
-            "D": "Untreated PE dangerous"
-          }
+          "rule": "Saddle PE with stability → anticoagulation"
         }
       },
       {
@@ -6851,12 +5241,7 @@ const SUBJECTS = [
           "concept": "Contraindication to lysis in shock: mechanical rescue",
           "discriminator": "Contraindication to fibrinolysis does not preclude rescue embolectomy",
           "trap": "No thrombolysis means no active treatment",
-          "rule": "Shock + lysis contraindicated → catheter/surgical embolectomy",
-          "others": {
-            "B": "Anticoagulation alone cannot rescue shocked PE",
-            "C": "Aspirin inadequate",
-            "D": "No treatment fatal"
-          }
+          "rule": "Shock + lysis contraindicated → catheter/surgical embolectomy"
         }
       },
       {
@@ -6872,12 +5257,7 @@ const SUBJECTS = [
           "concept": "Pregnancy VTE duration",
           "discriminator": "Postpartum period remains high-risk",
           "trap": "Treating only while visibly symptomatic",
-          "rule": "Pregnancy VTE → LMWH throughout + ≥6 weeks postpartum",
-          "others": {
-            "B": "Delivery does not eliminate risk",
-            "C": "Too short",
-            "D": "Inadequate"
-          }
+          "rule": "Pregnancy VTE → LMWH throughout + ≥6 weeks postpartum"
         }
       },
       {
@@ -6893,19 +5273,14 @@ const SUBJECTS = [
           "concept": "Upper limb DVT: anticoagulate and individualise line decisions",
           "discriminator": "Upper limb DVT needs anticoagulation, and line removal depends on infection and need",
           "trap": "Upper limb DVT thought harmless",
-          "rule": "Upper limb DVT → anticoagulate; line decision individualised",
-          "others": {
-            "B": "Not every line must be removed if functioning and uninfected",
-            "C": "Aspirin inadequate",
-            "D": "Can cause complications"
-          }
+          "rule": "Upper limb DVT → anticoagulate; line decision individualised"
         }
       }
     ]
   },
   {
     "id": "psych",
-    "name": "Schizophrenia — Persecutory Delusions",
+    "name": "Psychiatry",
     "questions": [
       {
         "q": "A 15-year-old boy tells his teacher that 'the teacher is trying to kill me' and repeats that classmates are secretly plotting to attack him. He is convinced of this despite evidence to the contrary. He has no prominent depressed or manic mood. What is the most likely diagnosis?",
@@ -6920,12 +5295,7 @@ const SUBJECTS = [
           "concept": "Schizophrenia — persecutory (paranoid) delusions as a positive symptom",
           "discriminator": "Fixed persecutory delusion without a mood syndrome = schizophrenia spectrum psychosis",
           "trap": "Attributing a fixed delusion to a mood disorder, OCD, or anxiety",
-          "rule": "Persecutory delusions with intact reality-testing absence and no mood syndrome point to schizophrenia; obsessions (OCD) are experienced as intrusive and 'not true', unlike delusions.",
-          "others": {
-            "B": "psychotic depression requires a full depressive syndrome dominating the picture, not an isolated persecutory delusion in an otherwise non-mood context",
-            "C": "OCD obsessions are intrusive and the patient knows they are excessive/untrue — this patient is fully convinced of a real plot",
-            "D": "GAD is worry/anxiety, not a fixed persecutory delusion"
-          }
+          "rule": "Persecutory delusions with intact reality-testing absence and no mood syndrome point to schizophrenia; obsessions (OCD) are experienced as intrusive and 'not true', unlike delusions."
         }
       },
       {
@@ -6941,12 +5311,7 @@ const SUBJECTS = [
           "concept": "Schizophreniform disorder — 1 to 6 months of psychotic symptoms (prodrome allowed)",
           "discriminator": "Continuous psychosis of 1–6 months (with functional decline) = schizophreniform; six months+ = schizophrenia",
           "trap": "Calling a 3-month psychosis 'schizophrenia' too early, or 'brief' if still ongoing",
-          "rule": "Psychosis with decline of 1–6 months duration = schizophreniform; schizophrenia needs ≥6 months (medication + prodrome).",
-          "others": {
-            "B": "brief psychotic disorder lasts 1 day–1 month and typically resolves more abruptly, not 3 months with ongoing symptoms",
-            "C": "schizophrenia requires ≥6 months of continuous disturbance — 3 months is too early",
-            "D": "delusional disorder is non-bizarre delusions without prominent hallucinations or marked functional decline"
-          }
+          "rule": "Psychosis with decline of 1–6 months duration = schizophreniform; schizophrenia needs ≥6 months (medication + prodrome)."
         }
       },
       {
@@ -6962,12 +5327,7 @@ const SUBJECTS = [
           "concept": "Second-generation antipsychotics (olanzapine) — metabolic syndrome AE",
           "discriminator": "Weight gain, hyperglycaemia, dyslipidaemia = metabolic syndrome; typical with SGA olanzapine (vs EPS with FGA)",
           "trap": "Attributing weight gain/metabolic side effects to a first-generation antipsychotic",
-          "rule": "Weight gain+hyperglycaemia+dyslipidaemia (metabolic syndrome) is characteristic of SGA (olanzapine, clozapine); FGA causes EPS/tardive dyskinesia.",
-          "others": {
-            "A": "haloperidol (FGA) mainly causes extrapyramidal symptoms/akathisia, not marked metabolic syndrome",
-            "B": "fluphenazine (FGA) causes EPS; it is not the main cause of metabolic syndrome",
-            "D": "chlorpromazine is low-metabolic relative to olanzapine — olanzapine is the archetype for metabolic weight gain"
-          }
+          "rule": "Weight gain+hyperglycaemia+dyslipidaemia (metabolic syndrome) is characteristic of SGA (olanzapine, clozapine); FGA causes EPS/tardive dyskinesia."
         }
       },
       {
@@ -6983,12 +5343,7 @@ const SUBJECTS = [
           "concept": "Neuroleptic malignant syndrome — rigidity + hyperthermia + autonomic instability + raised CK",
           "discriminator": "Lead-pipe rigidity + hyperthermia + autonomic instability + high CK after antipsychotic = NMS",
           "trap": "Confusing NMS with serotonin syndrome or malignant hyperthermia",
-          "rule": "Rigidity + hyperthermia + autonomic instability + raised CK after an antipsychotic = NMS; stop the drug and give supportive care.",
-          "others": {
-            "A": "serotonin syndrome follows serotonergic drugs and features clonus, hyperreflexia and diarrhoea rather than lead-pipe rigidity/high CK",
-            "B": "malignant hyperthermia is triggered by inhaled anaesthetics/succinylcholine, not antipsychotics",
-            "C": "tardive dyskinesia is a chronic syndrome of involuntary movements, not acute rigidity with hyperthermia and raised CK"
-          }
+          "rule": "Rigidity + hyperthermia + autonomic instability + raised CK after an antipsychotic = NMS; stop the drug and give supportive care."
         }
       },
       {
@@ -7004,12 +5359,7 @@ const SUBJECTS = [
           "concept": "Tardive dyskinesia — reduce/switch antipsychotic; anticholinergics can worsen it",
           "discriminator": "Oro-facial stereotypic movements after long-term antipsychotic = tardive dyskinesia; stop/reduce drug, switch to atypical, consider VMAT-2 inhibitor",
           "trap": "Adding anticholinergics (which worsen TD) or increasing the offending antipsychotic",
-          "rule": "TD = orofacial stereotypic movements from chronic antipsychotics; reduce/switch the drug and consider a VMAT-2 inhibitor; avoid anticholinergics.",
-          "others": {
-            "A": "increasing the offending antipsychotic worsens TD — it must be reduced or switched",
-            "B": "anticholinergics (benztropine) can WORSEN tardive dyskinesia, unlike acute dystonia/drug-induced parkinsonism",
-            "C": "reassuring while continuing the same dose risks irreversible movement disorder; action is required"
-          }
+          "rule": "TD = orofacial stereotypic movements from chronic antipsychotics; reduce/switch the drug and consider a VMAT-2 inhibitor; avoid anticholinergics."
         }
       },
       {
@@ -7025,12 +5375,7 @@ const SUBJECTS = [
           "concept": "Acute dystonia — anticholinergic (benztropine/diphenhydramine)",
           "discriminator": "Acute dystonia within days of high-potency antipsychotic = treat with anticholinergic",
           "trap": "Confusing acute dystonia with tardive dyskinesia or withholding the correct antidote",
-          "rule": "Acute neuroleptic-induced dystonia responds immediately to anticholinergics (benztropine/diphenhydramine); then reduce the causative antipsychotic.",
-          "others": {
-            "A": "increasing the antipsychotic worsens the dystonia",
-            "C": "benzodiazepines are not first-line for acute dystonia (anticholinergic is)",
-            "D": "propranolol treats akathisia-related pacing more than acute dystonia; benztropine is the acute dystonia treatment"
-          }
+          "rule": "Acute neuroleptic-induced dystonia responds immediately to anticholinergics (benztropine/diphenhydramine); then reduce the causative antipsychotic."
         }
       },
       {
@@ -7046,12 +5391,7 @@ const SUBJECTS = [
           "concept": "Mania — decreased need for sleep (vs insomnia of depression/simple insomnia)",
           "discriminator": "Grandiosity + pressured speech + decreased NEED for sleep (not distressed) = mania",
           "trap": "Reading any sleep reduction as insomnia or depression",
-          "rule": "A few hours of sleep that leaves the patient rested and energetic (reduced need, not insomnia) is a hallmark of mania along with grandiosity and pressured speech.",
-          "others": {
-            "A": "difficulty falling asleep while tired is characteristic of depression/anxiety insomnia, not manic decreased-need sleep",
-            "C": "early-morning awakening with low mood is a hallmark of depression, not mania",
-            "D": "hypersomnia is typical of atypical depression, not mania"
-          }
+          "rule": "A few hours of sleep that leaves the patient rested and energetic (reduced need, not insomnia) is a hallmark of mania along with grandiosity and pressured speech."
         }
       },
       {
@@ -7067,12 +5407,7 @@ const SUBJECTS = [
           "concept": "Bipolar depression — avoid antidepressant MONOTHERAPY (mania switch risk)",
           "discriminator": "In bipolar depression, antidepressant monotherapy risks triggering mania/hypomania; use mood stabiliser ± atypical antipsychotic",
           "trap": "Treating a bipolar depression with a plain antidepressant the way you would unipolar MDD",
-          "rule": "For bipolar depression use a mood stabiliser/atypical antipsychotic; do NOT give antidepressant monotherapy due to risk of switching to mania.",
-          "others": {
-            "A": "adding a mood stabiliser or lamotrigine is appropriate for bipolar depression",
-            "B": "quetiapine (and lurasidone) are FDA-approved and effective for bipolar depression",
-            "D": "ECT is effective and appropriate for severe bipolar depression"
-          }
+          "rule": "For bipolar depression use a mood stabiliser/atypical antipsychotic; do NOT give antidepressant monotherapy due to risk of switching to mania."
         }
       },
       {
@@ -7088,12 +5423,7 @@ const SUBJECTS = [
           "concept": "Postpartum baby blues — transient, day 3–5, self-limiting (<2 weeks)",
           "discriminator": "Onset day 3, mild mood lability, retained functioning, self-limiting = baby blues",
           "trap": "Treating transient day-3 emotional lability as major depression",
-          "rule": "Mild tearfulness/lability around day 3–5 that resolves within 2 weeks with preserved function is baby blues; persistent or impairing symptoms indicate postpartum depression.",
-          "others": {
-            "B": "PPD requires symptoms persisting >2 weeks with functional impairment — day-3 self-limiting lability is not PPD",
-            "C": "postpartum psychosis features confusion, delusions and is a psychiatric emergency — not present here",
-            "D": "GAD is persistent excessive worry, not day-3 transient tearfulness"
-          }
+          "rule": "Mild tearfulness/lability around day 3–5 that resolves within 2 weeks with preserved function is baby blues; persistent or impairing symptoms indicate postpartum depression."
         }
       },
       {
@@ -7109,12 +5439,7 @@ const SUBJECTS = [
           "concept": "Postpartum psychosis — psychiatric emergency, urgent admission",
           "discriminator": "Delusions + confusion + insomnia postpartum = postpartum psychosis, emergency (infanticide risk)",
           "trap": "Underestimating postpartum psychosis or treating it as simple depression",
-          "rule": "Delusions/hallucinations + confusion + insomnia in the postpartum period = postpartum psychosis; urgent admission and safety planning (infanticide risk).",
-          "others": {
-            "A": "this is an emergency with risk to the infant — outpatient reassurance is dangerous",
-            "B": "an SSRI is not emergency treatment and home management is unsafe here",
-            "C": "sleep hygiene is wholly inadequate for psychotic symptoms"
-          }
+          "rule": "Delusions/hallucinations + confusion + insomnia in the postpartum period = postpartum psychosis; urgent admission and safety planning (infanticide risk)."
         }
       },
       {
@@ -7130,12 +5455,7 @@ const SUBJECTS = [
           "concept": "Melancholic depression — early-morning wakening, diurnal variation, psychomotor changes",
           "discriminator": "Early-morning waking + mood worse AM + appetite/weight loss + psychomotor changes = melancholic",
           "trap": "Reading melancholic night-waking as primary insomnia or atypical signs",
-          "rule": "Melancholic depression = early-morning wakening, diurnal mood variation (worse AM), anorexia/weight loss and psychomotor change; distinct from atypical (hypersomnia, hyperphagia, leaden paralysis).",
-          "others": {
-            "A": "hypersomnia with increased appetite are ATYPICAL (reverse) features, the opposite of melancholic",
-            "C": "melancholic depression does not sleep restfully — early-morning wakening is the marker",
-            "D": "emptiness/loss of reactivity (mood does not brighten) characterises melancholia, not reactive brightening"
-          }
+          "rule": "Melancholic depression = early-morning wakening, diurnal mood variation (worse AM), anorexia/weight loss and psychomotor change; distinct from atypical (hypersomnia, hyperphagia, leaden paralysis)."
         }
       },
       {
@@ -7151,12 +5471,7 @@ const SUBJECTS = [
           "concept": "Panic disorder — recurrent unexpected panic attacks peaking in minutes, with avoidance",
           "discriminator": "Paroxysmal fear + autonomic surge peaking in minutes + avoidance = panic disorder",
           "trap": "Calling paroxysmal panic 'generalised anxiety' or 'social anxiety'",
-          "rule": "Recurrent unexpected panic attacks (fear peaking in minutes with autonomic surge) plus anticipatory fear/avoidance = panic disorder; SSRIs are first-line treatment.",
-          "others": {
-            "B": "GAD is chronic, generalised worry present most days, not paroxysmal surges peaking in minutes",
-            "C": "social anxiety is fear of negative evaluation in social/performance situations, not spontaneous panic surges",
-            "D": "OCD is obsessions/compulsions, not paroxysmal autonomic fear attacks"
-          }
+          "rule": "Recurrent unexpected panic attacks (fear peaking in minutes with autonomic surge) plus anticipatory fear/avoidance = panic disorder; SSRIs are first-line treatment."
         }
       },
       {
@@ -7172,12 +5487,7 @@ const SUBJECTS = [
           "concept": "Panic disorder — SSRI first-line",
           "discriminator": "Panic disorder is treated long-term with an SSRI (start low, titrate); benzodiazepines are not sole/maintenance treatment",
           "trap": "Relying on as-needed benzodiazepines for a chronic panic disorder",
-          "rule": "First-line maintenance for panic disorder is an SSRI started low and titrated; avoid long-term benzodiazepine monotherapy.",
-          "others": {
-            "A": "lorazepam alone risks dependence/rebound and does not treat the underlying disorder long-term",
-            "C": "propranolol may blunt performance-anxiety symptoms but is not first-line for spontaneous panic disorder",
-            "D": "indefinite twice-daily benzodiazepine is not appropriate maintenance therapy"
-          }
+          "rule": "First-line maintenance for panic disorder is an SSRI started low and titrated; avoid long-term benzodiazepine monotherapy."
         }
       },
       {
@@ -7193,12 +5503,7 @@ const SUBJECTS = [
           "concept": "Delirium — acute onset, fluctuating, inattention, underlying medical cause",
           "discriminator": "Acute/subacute onset + fluctuating + inattention + hallucinations + medical infection = delirium",
           "trap": "Calling acute confused elderly patients 'demented' or dismissing as normal ageing",
-          "rule": "Acute onset, fluctuating inattention/consciousness with a medical trigger = delirium; treat the cause (e.g. infection), avoid sedatives.",
-          "others": {
-            "B": "dementia is chronic, progressive and not typically triggered acutely by infection; it lacks the acute fluctuating inattention of delirium",
-            "C": "depression (pseudodementia) has prominent low mood and 'don't know' answers, not acute fluctuating consciousness with hallucinations",
-            "D": "schizophrenia begins with psychosis, not acute confusion with inattention from a medical infection"
-          }
+          "rule": "Acute onset, fluctuating inattention/consciousness with a medical trigger = delirium; treat the cause (e.g. infection), avoid sedatives."
         }
       },
       {
@@ -7214,12 +5519,7 @@ const SUBJECTS = [
           "concept": "Delirium — treat the cause + non-pharmacological first; antipsychotic only for severe agitation",
           "discriminator": "Delirium is managed by treating the precipitant + non-pharmacological reorientation; antipsychotics for severe agitation only; avoid benzodiazepines (unless alcohol/benzo withdrawal)",
           "trap": "Sedating with benzodiazepines or relying on restraints as the primary treatment",
-          "rule": "Treat the underlying cause and use non-pharmacological measures first for delirium; reserve low-dose antipsychotics for severe agitation and avoid benzodiazepines/restraints.",
-          "others": {
-            "A": "benzodiazepines usually WORSEN delirium (except alcohol/benzodiazepine withdrawal) and are not routine first-line",
-            "B": "physical restraint is a last resort, not primary management, and increases agitation/injury",
-            "D": "prophylactic antipsychotics are not indicated for all patients; targeted, cause-directed care is the standard"
-          }
+          "rule": "Treat the underlying cause and use non-pharmacological measures first for delirium; reserve low-dose antipsychotics for severe agitation and avoid benzodiazepines/restraints."
         }
       },
       {
@@ -7235,12 +5535,7 @@ const SUBJECTS = [
           "concept": "Alzheimer disease — cholinesterase inhibitor (donepezil) for mild-moderate",
           "discriminator": "Gradual amnestic decline + naming/navigation difficulty = AD; mild-moderate treated with cholinesterase inhibitor",
           "trap": "Using memantine first-line in early AD, or anticholinergics/neuroleptics for behavioural symptoms",
-          "rule": "Mild-moderate Alzheimer disease is treated with a cholinesterase inhibitor (donepezil); memantine is reserved for moderate-severe, and anticholinergics are avoided.",
-          "others": {
-            "A": "memantine is for moderate-to-severe AD, not first-line for mild-moderate (cholinesterase inhibitor is used first)",
-            "B": "haloperidol is an antipsychotic and only for significant agitation/psychosis, not a cognitive treatment",
-            "C": "amitriptyline is an anticholinergic antidepressant that can worsen cognition in AD"
-          }
+          "rule": "Mild-moderate Alzheimer disease is treated with a cholinesterase inhibitor (donepezil); memantine is reserved for moderate-severe, and anticholinergics are avoided."
         }
       },
       {
@@ -7256,12 +5551,7 @@ const SUBJECTS = [
           "concept": "Vascular dementia — stepwise decline + focal signs + vascular risk factors + infarcts on imaging",
           "discriminator": "Stepwise decline + focal signs + vascular risk factors + lacunar infarcts = vascular dementia",
           "trap": "Attributing stepwise, focal, vascular-pattern dementia to Alzheimer disease",
-          "rule": "Stepwise cognitive decline with focal deficits, vascular risk factors and lacunar/white-matter changes = vascular dementia.",
-          "others": {
-            "A": "Alzheimer disease is gradual and amnestic without focal neurologic signs or a stepwise stroke-like course",
-            "B": "frontotemporal dementia presents with early behaviour/personality or language change, not stepwise focal vascular decline",
-            "C": "normal-pressure hydrocephalus has gait apraxia, urinary incontinence and ventriculomegaly (Hakim triad), not prominent lacunar infarcts"
-          }
+          "rule": "Stepwise cognitive decline with focal deficits, vascular risk factors and lacunar/white-matter changes = vascular dementia."
         }
       },
       {
@@ -7277,12 +5567,7 @@ const SUBJECTS = [
           "concept": "Dementia with Lewy bodies — fluctuate + visual hallucinations + parkinsonism; severe neuroleptic sensitivity",
           "discriminator": "Fluctuating cognition + visual hallucinations (formed) + parkinsonism + neuroleptic sensitivity = DLB",
           "trap": "Giving an antipsychotic to control hallucinations in DLB (risk of severe reaction)",
-          "rule": "In DLB (fluctuating cognition, visual hallucinations, parkinsonism), AVOID antipsychotics due to severe sensitivity; use cholinesterase inhibitors.",
-          "others": {
-            "A": "AD lacks the prominent parkinsonism, visual hallucinations and severe neuroleptic sensitivity that define DLB",
-            "C": "vascular dementia has stepwise vascular/focal signs, not this triad of fluctuation, visual hallucinations and parkinsonism",
-            "D": "giving an antipsychotic for DLB psychosis is dangerous (severe neuroleptic sensitivity); it must be avoided"
-          }
+          "rule": "In DLB (fluctuating cognition, visual hallucinations, parkinsonism), AVOID antipsychotics due to severe sensitivity; use cholinesterase inhibitors."
         }
       },
       {
@@ -7298,12 +5583,7 @@ const SUBJECTS = [
           "concept": "Frontotemporal dementia — early behavioural disinhibition/apathy + language, younger onset, spared memory",
           "discriminator": "Earlier onset + prominent behaviour/personality change + language with spared memory + frontotemporal atrophy = FTD",
           "trap": "Attributing prominent early personality change to Alzheimer disease",
-          "rule": "Early behavioural disinhibition/apathy and language change with spared memory, younger onset, and frontotemporal atrophy = frontotemporal dementia.",
-          "others": {
-            "B": "AD is typically amnestic early and older-onset, without prominent early disinhibition/apathy with spared memory",
-            "C": "DLB features visual hallucinations, fluctuation and parkinsonism rather than early personality change",
-            "D": "vascular dementia has stepwise decline with focal signs and vascular risk factors, not the behavioural syndrome of FTD"
-          }
+          "rule": "Early behavioural disinhibition/apathy and language change with spared memory, younger onset, and frontotemporal atrophy = frontotemporal dementia."
         }
       },
       {
@@ -7319,12 +5599,7 @@ const SUBJECTS = [
           "concept": "Delirium tremens — clouded sensorium + autonomic instability; benzodiazepine treatment",
           "discriminator": "Confusion + tremor + hallucinations + marked autonomic overactivity after stopping alcohol = delirium tremens; treat with benzodiazepines",
           "trap": "Confusing DTs (clouded sensorium + autonomic storm) with alcoholic hallucinosis (clear sensorium, no autonomic instability)",
-          "rule": "Delirium tremens = clouded consciousness + autonomic overactivity after abrupt alcohol cessation; treat with benzodiazepines + thiamine + supportive care.",
-          "others": {
-            "A": "alcoholic hallucinosis has a clear sensorium without the autonomic storm of DTs; the treatment for DTs is benzodiazepines, not primary antipsychotics",
-            "B": "thiamine treats/prevents Wernicke encephalopathy but does not control autonomic DTs; benzodiazepines are needed",
-            "D": "this is an acute withdrawal emergency, not chronic alcoholic dementia requiring only long-term care"
-          }
+          "rule": "Delirium tremens = clouded consciousness + autonomic overactivity after abrupt alcohol cessation; treat with benzodiazepines + thiamine + supportive care."
         }
       },
       {
@@ -7340,12 +5615,7 @@ const SUBJECTS = [
           "concept": "Naltrexone — opioid antagonist reduces alcohol craving/drinking",
           "discriminator": "Opioid-receptor antagonist (naltrexone) reduces alcohol reward/craving; disulfiram is aversive; acamprosate is a glutamate modulator",
           "trap": "Mixing up the mechanisms of naltrexone, disulfiram and acamprosate",
-          "rule": "Naltrexone (opioid antagonist) reduces craving/reward; disulfiram is an aversive agent; acamprosate alters glutamate signalling.",
-          "others": {
-            "A": "disulfiram is aversive (blocks aldehyde dehydrogenase causing a reaction with alcohol), not an opioid antagonist",
-            "B": "acamprosate modulates glutamate/NMDA signalling to reduce relapse, not opioid receptors",
-            "D": "haloperidol is an antipsychotic with no role in alcohol-craving reduction"
-          }
+          "rule": "Naltrexone (opioid antagonist) reduces craving/reward; disulfiram is an aversive agent; acamprosate alters glutamate signalling."
         }
       },
       {
@@ -7361,12 +5631,7 @@ const SUBJECTS = [
           "concept": "Opioid withdrawal — sympathomimetic-opposite features; treat with methadone/buprenorphine",
           "discriminator": "Rhinorrhoea + mydriasis (opposite of pinpoint) + lacrimation + GI cramps after stopping opioids = withdrawal",
           "trap": "Giving naloxone (which precipitates/worsens withdrawal) or confusing withdrawal with intoxication",
-          "rule": "Opioid withdrawal (mydriasis, rhinorrhoea, lacrimation, GI cramps) is treated with methadone/buprenorphine; naloxone is for opioid intoxication and would worsen withdrawal.",
-          "others": {
-            "A": "naloxone is for opioid INTOXICATION (pinpoint pupils, respiratory depression); giving it in withdrawal precipitates/worsens symptoms",
-            "B": "serotonin syndrome has clonus, hyperreflexia and follows serotonergic drugs, not this opioid-withdrawal picture",
-            "C": "this is opioid, not alcohol, withdrawal; the treatment of choice is opioid replacement, not benzodiazepines"
-          }
+          "rule": "Opioid withdrawal (mydriasis, rhinorrhoea, lacrimation, GI cramps) is treated with methadone/buprenorphine; naloxone is for opioid intoxication and would worsen withdrawal."
         }
       },
       {
@@ -7382,12 +5647,7 @@ const SUBJECTS = [
           "concept": "ADHD — stimulant (methylphenidate) first-line",
           "discriminator": "Persistent inattention/hyperactivity/impulsivity across settings since childhood = ADHD; stimulants first-line",
           "trap": "Using benzodiazepines or antipsychotics for ADHD core symptoms",
-          "rule": "ADHD core symptoms of inattention/hyperactivity/impulsivity are first-line treated with stimulants (methylphenidate); not benzodiazepines or antipsychotics.",
-          "others": {
-            "B": "benzodiazepines do not treat ADHD core symptoms and can impair attention",
-            "C": "antipsychotics are not first-line for core ADHD (only for severe aggression/comorbidity)",
-            "D": "caffeine/supplements are not evidence-based first-line treatment for ADHD"
-          }
+          "rule": "ADHD core symptoms of inattention/hyperactivity/impulsivity are first-line treated with stimulants (methylphenidate); not benzodiazepines or antipsychotics."
         }
       },
       {
@@ -7403,12 +5663,7 @@ const SUBJECTS = [
           "concept": "Refeeding syndrome in anorexia nervosa — refeeding-induced hypophosphataemia",
           "discriminator": "Severe malnutrition + refeeding + low phosphate + arrhythmia/seizures = refeeding syndrome",
           "trap": "Attributing the collapse to hypoglycaemia or another cause rather than recognising refeeding hypophosphataemia",
-          "rule": "In severe anorexia, refeeding can cause life-threatening hypophosphataemia (refeeding syndrome) — monitor electrolytes, replace phosphate, and refeed slowly with close supervision.",
-          "others": {
-            "A": "the key derangement is hypophosphataemia from refeeding, not isolated hypoglycaemia; both replacement and slow refeeding are required",
-            "C": "serotonin syndrome follows serotonergic drugs with clonus/hyperreflexia, not this electrolyte-driven picture",
-            "D": "no alcohol use here; the problem is refeeding hypophosphataemia, not alcohol withdrawal"
-          }
+          "rule": "In severe anorexia, refeeding can cause life-threatening hypophosphataemia (refeeding syndrome) — monitor electrolytes, replace phosphate, and refeed slowly with close supervision."
         }
       },
       {
@@ -7424,19 +5679,14 @@ const SUBJECTS = [
           "concept": "Bulimia nervosa — recurrent vomiting causing hypokalaemic metabolic alkalosis",
           "discriminator": "Binge-purge + dental erosion + parotid swelling + knuckle calluses = bulimia; vomiting causes hypokalaemic alkalosis",
           "trap": "Missing the life-threatening hypokalaemia (arrhythmia risk) in a normal-weight purger",
-          "rule": "Bulimia with self-induced vomiting causes hypokalaemic, hypochloraemic metabolic alkalosis; recognise dental erosion, parotid swelling and Russell's sign and correct potassium.",
-          "others": {
-            "A": "vomiting causes potassium LOSS, producing hypokalaemia, not hyperkalaemia",
-            "B": "vomiting causes volume/Potassium loss and alkalosis, not hypernatraemia",
-            "D": "hypercalcaemia is not the characteristic disturbance of bulimic purging"
-          }
+          "rule": "Bulimia with self-induced vomiting causes hypokalaemic, hypochloraemic metabolic alkalosis; recognise dental erosion, parotid swelling and Russell's sign and correct potassium."
         }
       }
     ]
   },
   {
     "id": "renal",
-    "name": "Acute Interstitial Nephritis",
+    "name": "Renal — AKI / CKD / Glomerular",
     "questions": [
       {
         "q": "A 60-year-old woman develops fever, a maculopapular rash, and rising creatinine 10 days after starting a new antibiotic. Urine shows WBC casts and peripheral blood shows eosinophilia. What is the most likely diagnosis?",
@@ -7451,12 +5701,7 @@ const SUBJECTS = [
           "concept": "Acute interstitial nephritis — drug exposure + eosinophilia + WBC casts",
           "discriminator": "Drug exposure + fever + rash + eosinophilia + WBC casts = AIN (hypersensitivity reaction)",
           "trap": "Clinical Mimic — AIN vs ATN (drug history + eosinophilia + WBC casts)",
-          "rule": "AIN = drug + fever/rash + eosinophilia + WBC casts; treat by stopping the drug",
-          "others": {
-            "A": "ATN shows muddy brown granular casts, not eosinophilia or rash.",
-            "B": "IgA nephropathy causes haematuria with URTI, not drug-related eosinophilia.",
-            "D": "PSGN follows streptococcal infection with low C3, not drug exposure."
-          }
+          "rule": "AIN = drug + fever/rash + eosinophilia + WBC casts; treat by stopping the drug"
         }
       },
       {
@@ -7472,12 +5717,7 @@ const SUBJECTS = [
           "concept": "Renal transplant — rising creatinine requires biopsy before empirical treatment",
           "discriminator": "Asymptomatic rising creatinine post-transplant = biopsy first (rejection vs nephrotoxicity vs recurrence)",
           "trap": "Treatment misdirection — empirical immunosuppression without tissue diagnosis",
-          "rule": "Rising creatinine post-transplant → biopsy first; never treat rejection empirically",
-          "others": {
-            "A": "Empirical immunosuppression is dangerous without knowing the cause.",
-            "B": "Antibiotics are only for infection, which is not the first concern here.",
-            "C": "Waiting 3 months delays potentially reversible rejection."
-          }
+          "rule": "Rising creatinine post-transplant → biopsy first; never treat rejection empirically"
         }
       },
       {
@@ -7493,12 +5733,7 @@ const SUBJECTS = [
           "concept": "Hepatorenal syndrome — prerenal AKI in cirrhosis with low urine sodium",
           "discriminator": "Cirrhosis + oliguria + low U Na + concentrated urine + bland sediment = hepatorenal syndrome",
           "trap": "Clinical Mimic — hepatorenal vs ATN (low U Na + bland sediment)",
-          "rule": "Hepatorenal = functional prerenal AKI in cirrhosis: low U Na, high U Osm, bland sediment",
-          "others": {
-            "A": "ATN shows high urine sodium (>40) with muddy brown casts.",
-            "B": "Obstruction causes hydronephrosis and anuria, not low urine sodium.",
-            "D": "IgA nephropathy causes haematuria, not bland prerenal-type urine."
-          }
+          "rule": "Hepatorenal = functional prerenal AKI in cirrhosis: low U Na, high U Osm, bland sediment"
         }
       },
       {
@@ -7514,12 +5749,7 @@ const SUBJECTS = [
           "concept": "Haemolytic uraemic syndrome — E. coli O157, supportive care, no antibiotics",
           "discriminator": "Child + bloody diarrhoea + MAHA + thrombocytopenia + AKI = HUS (typical, post-enteric)",
           "trap": "Treatment misdirection — antibiotics for O157 (they worsen toxin release)",
-          "rule": "Typical HUS = post-enteric (O157) → supportive care; antibiotics and platelet transfusion avoided",
-          "others": {
-            "A": "Antibiotics increase Shiga toxin release and worsen HUS.",
-            "B": "Plasma exchange is for TTP/atypical HUS, not typical post-enteric HUS.",
-            "C": "Platelet transfusion is avoided in TTP/HUS (fuels microthrombi)."
-          }
+          "rule": "Typical HUS = post-enteric (O157) → supportive care; antibiotics and platelet transfusion avoided"
         }
       },
       {
@@ -7535,12 +5765,7 @@ const SUBJECTS = [
           "concept": "Thrombotic thrombocytopenic purpura — ADAMTS13 deficiency, plasma exchange",
           "discriminator": "Fever + neurological symptoms + MAHA + thrombocytopenia with MINIMAL renal involvement = TTP → plasma exchange",
           "trap": "Opposite — TTP (neurology dominant) vs HUS (renal dominant)",
-          "rule": "TTP = ADAMTS13 deficiency → plasma exchange; platelet transfusion contraindicated",
-          "others": {
-            "A": "Platelet transfusion is contraindicated in TTP — it worsens microvascular thrombosis.",
-            "C": "Antibiotics do not treat ADAMTS13 deficiency.",
-            "D": "Steroids alone are insufficient; plasma exchange is the definitive treatment."
-          }
+          "rule": "TTP = ADAMTS13 deficiency → plasma exchange; platelet transfusion contraindicated"
         }
       },
       {
@@ -7556,12 +5781,7 @@ const SUBJECTS = [
           "concept": "Tumour lysis syndrome — post-chemotherapy AKI with hyperK + hyperPO4 + hyperuricemia + hypocalcemia",
           "discriminator": "Chemotherapy + oliguria + hyperK + hyperPO4 + hyperuricemia + hypocalcemia = tumour lysis syndrome",
           "trap": "Clinical Mimic — TLS vs rhabdomyolysis (chemotherapy context + uric acid)",
-          "rule": "TLS = post-chemo AKI with hyperK, hyperPO4, hyperuricemia, hypocalcemia → hydration + rasburicase",
-          "others": {
-            "A": "Rhabdomyolysis has muscle injury and myoglobinuria, not the chemotherapy context.",
-            "B": "Contrast nephropathy follows contrast exposure, not chemotherapy.",
-            "C": "AIN is drug-hypersensitivity with eosinophilia, not this metabolic pattern."
-          }
+          "rule": "TLS = post-chemo AKI with hyperK, hyperPO4, hyperuricemia, hypocalcemia → hydration + rasburicase"
         }
       },
       {
@@ -7577,12 +5797,7 @@ const SUBJECTS = [
           "concept": "AKI definition — KDIGO urine output criterion",
           "discriminator": "KDIGO AKI = Cr rise ≥0.3 mg/dL in 48h OR urine output <0.5 mL/kg/h for 6 hours",
           "trap": "Unit/Number — the 0.5 mL/kg/h × 6-hour threshold",
-          "rule": "KDIGO AKI: Cr ≥0.3 mg/dL in 48h OR urine output <0.5 mL/kg/h for 6h",
-          "others": {
-            "A": "1 mL/kg/h is the normal threshold, not the AKI criterion.",
-            "C": "0.3 mL/kg/h is too low; the criterion is 0.5.",
-            "D": "2 mL/kg/h is polyuria, not oliguria."
-          }
+          "rule": "KDIGO AKI: Cr ≥0.3 mg/dL in 48h OR urine output <0.5 mL/kg/h for 6h"
         }
       },
       {
@@ -7598,12 +5813,7 @@ const SUBJECTS = [
           "concept": "Acute tubular necrosis — muddy brown casts + high urine sodium",
           "discriminator": "Post-hypotension AKI + muddy brown casts + U Na >40 = ATN (tubular injury)",
           "trap": "One-word discriminator — muddy brown casts = tubular injury",
-          "rule": "ATN = muddy brown casts + U Na >40 (prerenal: hyaline casts + U Na <20)",
-          "others": {
-            "A": "Glomerular disease shows RBC casts and proteinuria, not muddy brown casts.",
-            "B": "Vascular disease (e.g. atheroemboli) has different clinical features.",
-            "D": "Post-renal causes show obstruction, not muddy brown casts."
-          }
+          "rule": "ATN = muddy brown casts + U Na >40 (prerenal: hyaline casts + U Na <20)"
         }
       },
       {
@@ -7619,12 +5829,7 @@ const SUBJECTS = [
           "concept": "CKD staging — eGFR thresholds",
           "discriminator": "eGFR 30-44 = stage 3b; 45-59 = 3a; 60-89 = 2; <15 = 5",
           "trap": "Unit/Number — the 30-44 vs 45-59 split (3a vs 3b)",
-          "rule": "CKD stages: 3a = 45-59, 3b = 30-44, 4 = 15-29, 5 = <15",
-          "others": {
-            "A": "Stage 1 requires eGFR ≥90 with kidney damage.",
-            "C": "Stage 2 is eGFR 60-89.",
-            "D": "Stage 5 is eGFR <15 (kidney failure)."
-          }
+          "rule": "CKD stages: 3a = 45-59, 3b = 30-44, 4 = 15-29, 5 = <15"
         }
       },
       {
@@ -7640,12 +5845,7 @@ const SUBJECTS = [
           "concept": "ADPKD — autosomal dominant, bilateral cysts, HTN, berry aneurysms",
           "discriminator": "Bilateral cysts + HTN + haematuria + family history of cerebral aneurysm = ADPKD",
           "trap": "Clinical Mimic — ADPKD vs simple cysts (family history + HTN + aneurysm)",
-          "rule": "ADPKD = bilateral cysts + HTN + haematuria + berry aneurysms (AD inheritance)",
-          "others": {
-            "A": "Simple cysts are asymptomatic, not associated with HTN or aneurysm family history.",
-            "C": "Reflux nephropathy causes scarring, not multiple bilateral cysts.",
-            "D": "Medullary sponge kidney has medullary cysts, not the systemic associations."
-          }
+          "rule": "ADPKD = bilateral cysts + HTN + haematuria + berry aneurysms (AD inheritance)"
         }
       },
       {
@@ -7661,12 +5861,7 @@ const SUBJECTS = [
           "concept": "Renal artery stenosis — flash pulmonary oedema + ACEi-induced Cr rise >30%",
           "discriminator": "Flash pulmonary oedema + >30% Cr rise after ACEi = bilateral renal artery stenosis",
           "trap": "Opposite — benign ACEi Cr rise (<30%) vs RAS (>30% rise)",
-          "rule": "ACEi Cr rise >30% or flash pulmonary oedema = bilateral RAS (stop ACEi)",
-          "others": {
-            "A": "A benign ACEi rise is <30% and stabilises; >30% suggests bilateral RAS.",
-            "B": "Contrast nephropathy requires contrast exposure, not ACEi.",
-            "D": "AIN has eosinophilia and drug allergy features, not this pattern."
-          }
+          "rule": "ACEi Cr rise >30% or flash pulmonary oedema = bilateral RAS (stop ACEi)"
         }
       },
       {
@@ -7682,12 +5877,7 @@ const SUBJECTS = [
           "concept": "Uraemic bleeding — platelet dysfunction corrected by desmopressin",
           "discriminator": "CKD + bleeding with NORMAL platelet count = uraemic platelet dysfunction → DDAVP",
           "trap": "Treatment misdirection — platelet transfusion for a functional (not numeric) defect",
-          "rule": "Uraemic bleeding (normal platelet count) → desmopressin; dialysis also helps",
-          "others": {
-            "B": "Warfarin worsens bleeding.",
-            "C": "Platelet transfusion is for thrombocytopenia, not functional platelet dysfunction.",
-            "D": "Vitamin K treats coagulopathy from liver disease/anticoagulants, not uraemic dysfunction."
-          }
+          "rule": "Uraemic bleeding (normal platelet count) → desmopressin; dialysis also helps"
         }
       },
       {
@@ -7703,12 +5893,7 @@ const SUBJECTS = [
           "concept": "Peritoneal dialysis — peritonitis diagnosis and empirical treatment",
           "discriminator": "Cloudy effluent + abdominal pain in PD patient = peritonitis → effluent analysis + empirical antibiotics",
           "trap": "One-word discriminator — cloudy effluent = peritonitis (not catheter removal first)",
-          "rule": "PD peritonitis = cloudy effluent → cell count/culture + empirical IP antibiotics",
-          "others": {
-            "A": "Catheter removal is reserved for refractory, fungal, or tunnel infections.",
-            "B": "Permanent switch to haemodialysis is not first-line.",
-            "D": "Observation delays treatment of a potentially serious infection."
-          }
+          "rule": "PD peritonitis = cloudy effluent → cell count/culture + empirical IP antibiotics"
         }
       },
       {
@@ -7724,12 +5909,7 @@ const SUBJECTS = [
           "concept": "Haemodialysis access — AV fistula is preferred",
           "discriminator": "AV fistula = lowest infection/thrombosis, best long-term patency → preferred access",
           "trap": "Treatment ladder — catheter (urgent) vs fistula (elective, preferred)",
-          "rule": "AV fistula preferred for long-term haemodialysis (lowest infection/thrombosis)",
-          "others": {
-            "B": "Catheters have the highest infection risk and are for urgent use only.",
-            "C": "Non-tunneled femoral catheters are short-term emergency access.",
-            "D": "AV grafts are second-line to fistulas (higher thrombosis)."
-          }
+          "rule": "AV fistula preferred for long-term haemodialysis (lowest infection/thrombosis)"
         }
       },
       {
@@ -7745,12 +5925,7 @@ const SUBJECTS = [
           "concept": "CKD diet — phosphate and potassium restriction",
           "discriminator": "CKD diet: restrict phosphate (CKD-MBD) and potassium (hyperkalaemia); moderate protein",
           "trap": "Opposite — increasing protein/potassium in CKD (both harmful)",
-          "rule": "CKD diet: restrict phosphate, potassium, sodium; moderate protein (not high)",
-          "others": {
-            "B": "High protein increases uraemic load and is harmful in CKD.",
-            "C": "Carbohydrate restriction is not the priority in CKD.",
-            "D": "Potassium must be restricted, not increased, in advanced CKD."
-          }
+          "rule": "CKD diet: restrict phosphate, potassium, sodium; moderate protein (not high)"
         }
       },
       {
@@ -7766,12 +5941,7 @@ const SUBJECTS = [
           "concept": "Hypertensive nephrosclerosis — long-standing HTN, slow decline, mild proteinuria",
           "discriminator": "Long-standing HTN + slow CKD + mild proteinuria + bland sediment = hypertensive nephrosclerosis",
           "trap": "Clinical Mimic — nephrosclerosis (mild proteinuria) vs diabetic nephropathy (heavy)",
-          "rule": "Hypertensive nephrosclerosis = long-standing HTN + slow CKD + mild proteinuria + bland sediment",
-          "others": {
-            "A": "Diabetic nephropathy has heavier proteinuria and diabetic retinopathy.",
-            "B": "Membranous nephropathy is nephrotic-range proteinuria.",
-            "D": "IgA nephropathy has haematuria with URTI episodes."
-          }
+          "rule": "Hypertensive nephrosclerosis = long-standing HTN + slow CKD + mild proteinuria + bland sediment"
         }
       },
       {
@@ -7787,12 +5957,7 @@ const SUBJECTS = [
           "concept": "Henoch-Schönlein purpura — palpable purpura + abdominal pain + arthralgia + renal",
           "discriminator": "Palpable purpura (buttocks/legs) + abdominal pain + arthralgia + haematuria = HSP",
           "trap": "Clinical Mimic — HSP vs ITP (palpable vs petechial purpura + systemic features)",
-          "rule": "HSP = palpable purpura + abdominal pain + arthralgia + renal involvement (IgA vasculitis)",
-          "others": {
-            "B": "ITP causes petechiae/bruising with thrombocytopenia, not palpable purpura or arthritis.",
-            "C": "Meningococcaemia causes a petechial rash with shock, not this tetrad.",
-            "D": "Acute leukaemia presents with cytopenias and blasts, not purpura + arthralgia."
-          }
+          "rule": "HSP = palpable purpura + abdominal pain + arthralgia + renal involvement (IgA vasculitis)"
         }
       },
       {
@@ -7808,12 +5973,7 @@ const SUBJECTS = [
           "concept": "Granulomatosis with polyangiitis — c-ANCA/PR3, ENT + pulmonary-renal",
           "discriminator": "Sinusitis + haemoptysis + RPGN + RBC casts = GPA → c-ANCA (PR3)",
           "trap": "One-word discriminator — c-ANCA/PR3 (GPA) vs p-ANCA/MPO (MPA)",
-          "rule": "GPA = ENT + lung + kidney + c-ANCA (PR3); treat with cyclophosphamide/rituximab + steroids",
-          "others": {
-            "B": "p-ANCA/MPO is associated with microscopic polyangiitis, not GPA.",
-            "C": "Anti-GBM is Goodpasture syndrome (linear IgG on biopsy).",
-            "D": "Anti-dsDNA is lupus nephritis, with systemic SLE features."
-          }
+          "rule": "GPA = ENT + lung + kidney + c-ANCA (PR3); treat with cyclophosphamide/rituximab + steroids"
         }
       },
       {
@@ -7829,12 +5989,7 @@ const SUBJECTS = [
           "concept": "Microscopic polyangiitis — p-ANCA/MPO, pauci-immune crescentic GN without ENT",
           "discriminator": "Pauci-immune crescentic GN WITHOUT ENT involvement = microscopic polyangiitis → p-ANCA (MPO)",
           "trap": "Opposite — MPA (p-ANCA/MPO, no ENT) vs GPA (c-ANCA/PR3, ENT)",
-          "rule": "MPA = pauci-immune RPGN without ENT + p-ANCA (MPO); GPA has ENT + c-ANCA (PR3)",
-          "others": {
-            "A": "c-ANCA/PR3 is GPA, which has upper respiratory involvement.",
-            "C": "Anti-GBM is Goodpasture (linear deposits), not pauci-immune.",
-            "D": "Anti-PLA2R is primary membranous nephropathy, not vasculitis."
-          }
+          "rule": "MPA = pauci-immune RPGN without ENT + p-ANCA (MPO); GPA has ENT + c-ANCA (PR3)"
         }
       },
       {
@@ -7850,12 +6005,7 @@ const SUBJECTS = [
           "concept": "RPGN — anti-GBM disease with linear IgG on immunofluorescence",
           "discriminator": "Crescentic GN + LINEAR IgG along GBM = anti-GBM disease (Goodpasture)",
           "trap": "Classification trap — linear (anti-GBM) vs granular (immune complex) vs pauci-immune (ANCA)",
-          "rule": "RPGN IF patterns: linear = anti-GBM, granular = immune complex, pauci-immune = ANCA",
-          "others": {
-            "B": "IgA nephropathy shows mesangial IgA deposits, not linear GBM IgG.",
-            "C": "Minimal change disease has negative immunofluorescence.",
-            "D": "Membranous nephropathy shows granular subepithelial deposits."
-          }
+          "rule": "RPGN IF patterns: linear = anti-GBM, granular = immune complex, pauci-immune = ANCA"
         }
       },
       {
@@ -7871,12 +6021,7 @@ const SUBJECTS = [
           "concept": "Nephrotic syndrome — hypercoagulability → renal vein thrombosis",
           "discriminator": "Nephrotic syndrome + sudden flank pain + gross haematuria = renal vein thrombosis",
           "trap": "Severity under-recognition — flank pain in nephrotic = thrombosis, not infection",
-          "rule": "Nephrotic syndrome → hypercoagulable → renal vein thrombosis (flank pain + haematuria)",
-          "others": {
-            "A": "Renal artery stenosis causes hypertension/flash oedema, not sudden flank pain.",
-            "B": "Papillary necrosis occurs with NSAIDs/analgesics or diabetes, not nephrotic syndrome.",
-            "C": "UTI causes dysuria/fever, not sudden flank pain with gross haematuria in nephrotic."
-          }
+          "rule": "Nephrotic syndrome → hypercoagulable → renal vein thrombosis (flank pain + haematuria)"
         }
       },
       {
@@ -7892,12 +6037,7 @@ const SUBJECTS = [
           "concept": "HIV-associated nephropathy — collapsing FSGS in HIV",
           "discriminator": "HIV + nephrotic-range proteinuria + collapsing FSGS = HIV-associated nephropathy",
           "trap": "Clinical Mimic — collapsing FSGS (HIVAN) vs classic FSGS vs MCD",
-          "rule": "HIVAN = collapsing FSGS in untreated HIV → antiretroviral therapy",
-          "others": {
-            "A": "MCD has normal light microscopy and is steroid-responsive, not collapsing FSGS.",
-            "C": "Amyloidosis shows Congo-red positive deposits, not collapsing FSGS.",
-            "D": "Lupus nephritis has immune-complex deposits and systemic SLE features."
-          }
+          "rule": "HIVAN = collapsing FSGS in untreated HIV → antiretroviral therapy"
         }
       },
       {
@@ -7913,12 +6053,7 @@ const SUBJECTS = [
           "concept": "Thin basement membrane disease — benign familial haematuria",
           "discriminator": "Isolated persistent haematuria + family history + normal BP/function = thin basement membrane disease",
           "trap": "Clinical Mimic — thin basement membrane (benign) vs Alport (progressive + deafness)",
-          "rule": "Thin basement membrane = benign familial haematuria; Alport = haematuria + deafness + renal failure",
-          "others": {
-            "B": "IgA nephropathy has episodic haematuria with URTI, not persistent isolated haematuria.",
-            "C": "Alport syndrome has sensorineural deafness and progressive renal failure.",
-            "D": "ADPKD has cysts and hypertension, not isolated haematuria."
-          }
+          "rule": "Thin basement membrane = benign familial haematuria; Alport = haematuria + deafness + renal failure"
         }
       },
       {
@@ -7934,12 +6069,7 @@ const SUBJECTS = [
           "concept": "Renal amyloidosis — Congo red apple-green birefringence in chronic inflammation",
           "discriminator": "Chronic inflammation + nephrotic syndrome + Congo red apple-green = AA amyloidosis",
           "trap": "One-word discriminator — Congo red apple-green birefringence",
-          "rule": "AA amyloidosis (chronic inflammation) → nephrotic + Congo red apple-green birefringence",
-          "others": {
-            "A": "Membranous nephropathy shows subepithelial spikes, not Congo red positivity.",
-            "B": "Diabetic nephropathy shows Kimmelstiel-Wilson nodules.",
-            "C": "FSGS shows segmental sclerosis, not amyloid deposition."
-          }
+          "rule": "AA amyloidosis (chronic inflammation) → nephrotic + Congo red apple-green birefringence"
         }
       },
       {
@@ -7955,19 +6085,14 @@ const SUBJECTS = [
           "concept": "Reflux nephropathy — VUR causes polar renal scarring",
           "discriminator": "Recurrent UTIs + HTN + polar scarring on DMSA = vesicoureteral reflux (reflux nephropathy)",
           "trap": "Clinical Mimic — reflux nephropathy (polar scarring) vs other CKD causes",
-          "rule": "VUR → reflux nephropathy: recurrent UTIs + polar renal scarring + HTN",
-          "others": {
-            "A": "Posterior urethral valves cause obstruction in male infants, not polar scarring.",
-            "B": "Renal artery stenosis causes hypertension without recurrent UTIs.",
-            "C": "ADPKD causes cysts, not polar scarring."
-          }
+          "rule": "VUR → reflux nephropathy: recurrent UTIs + polar renal scarring + HTN"
         }
       }
     ]
   },
   {
     "id": "urology",
-    "name": "Renal Stones — Calcium Oxalate Nephrolithiasis",
+    "name": "Urology",
     "questions": [
       {
         "q": "A 45-year-old man presents with his first renal colic. Non-contrast CT shows a radio-opaque stone in the left renal pelvis. Which is the most common composition of such stones?",
@@ -7982,12 +6107,7 @@ const SUBJECTS = [
           "concept": "Calcium oxalate — most common renal stone (~80%), radio-opaque",
           "discriminator": "Calcium oxalate = ~80% of stones, radio-opaque (only uric acid/cystine are radiolucent)",
           "trap": "Number/Stat — calcium oxalate most common (80%) vs uric acid radiolucent",
-          "rule": "Calcium oxalate = most common (80%) renal stone; radio-opaque; hydration + thiazide for prevention",
-          "others": {
-            "B": "Uric acid is radiolucent and only ~5-10% of stones.",
-            "C": "Cystine stones are rare (<1%) and hereditary.",
-            "D": "Struvite (triple phosphate) occurs in infected urine, not the most common."
-          }
+          "rule": "Calcium oxalate = most common (80%) renal stone; radio-opaque; hydration + thiazide for prevention"
         }
       },
       {
@@ -8003,12 +6123,7 @@ const SUBJECTS = [
           "concept": "Uric acid stone — radiolucent, gout association, alkalinize urine",
           "discriminator": "Gout + radiolucent stone = uric acid → alkalinize urine (and xanthine oxidase inhibitors)",
           "trap": "Clinical Mimic — radiolucent (uric acid) vs radio-opaque (calcium oxalate)",
-          "rule": "Uric acid stone = radiolucent + gout → urine alkalinization (K-citrate) + xanthine oxidase inhibitor",
-          "others": {
-            "B": "Calcium oxalate is radio-opaque; thiazide is for hypercalciuric stones, not uric acid.",
-            "C": "Struvite requires stone removal plus antibiotics, not antibiotics alone.",
-            "D": "Cystine needs more than hydration (penicillamine/captopril + alkalinization)."
-          }
+          "rule": "Uric acid stone = radiolucent + gout → urine alkalinization (K-citrate) + xanthine oxidase inhibitor"
         }
       },
       {
@@ -8024,12 +6139,7 @@ const SUBJECTS = [
           "concept": "Cystine stone — hereditary (cystinuria), hexagon crystals, penicillamine",
           "discriminator": "Hexagonal crystals = cystine; autosomal recessive cystinuria → hydration + penicillamine/captopril + alkalinization",
           "trap": "One-word discriminator — hexagon crystals = cystine",
-          "rule": "Cystinuria = AR, hexagon crystals; treat with hydration + penicillamine/captopril + alkalinization",
-          "others": {
-            "A": "Cystinuria is autosomal RECESSIVE, not X-linked; allopurinol is for uric acid stones.",
-            "B": "It is not autosomal dominant; thiazide is for calcium stones.",
-            "D": "It is not mitochondrial; hydration alone is insufficient."
-          }
+          "rule": "Cystinuria = AR, hexagon crystals; treat with hydration + penicillamine/captopril + alkalinization"
         }
       },
       {
@@ -8045,12 +6155,7 @@ const SUBJECTS = [
           "concept": "Enteric hyperoxaluria — fat malabsorption → increased oxalate absorption",
           "discriminator": "IBD/bariatric/ileal resection + fat malabsorption → enteric hyperoxaluria → calcium oxalate stones",
           "trap": "Clinical Mimic — IBD/bariatric → oxalate stones (enteric hyperoxaluria)",
-          "rule": "Enteric hyperoxaluria: fat malabsorption → free oxalate absorbed → Ca oxalate stones (Crohn, bariatric)",
-          "others": {
-            "B": "Primary HPT causes hypercalciuria but not specifically in the setting of ileal resection.",
-            "C": "Urate overproduction causes uric acid, not calcium oxalate, stones.",
-            "D": "RTA causes calcium phosphate stones, not this post-resection picture."
-          }
+          "rule": "Enteric hyperoxaluria: fat malabsorption → free oxalate absorbed → Ca oxalate stones (Crohn, bariatric)"
         }
       },
       {
@@ -8066,12 +6171,7 @@ const SUBJECTS = [
           "concept": "Primary hyperparathyroidism — hypercalciuria → calcium stones (bones, stones, groans)",
           "discriminator": "High Ca + low PO4 + high PTH + stones = primary HPT → calcium-containing stones",
           "trap": "Opposite — HPT (high Ca → calcium stones) vs uric acid (low Ca, radiolucent)",
-          "rule": "Primary HPT → hypercalciuria → calcium stones (high Ca, low PO4, high PTH)",
-          "others": {
-            "A": "Uric acid stones occur with hyperuricaemia, not hypercalcaemia/low phosphate.",
-            "B": "Cystine stones are hereditary, not HPT-related.",
-            "D": "Struvite stones occur in infected alkaline urine, not HPT."
-          }
+          "rule": "Primary HPT → hypercalciuria → calcium stones (high Ca, low PO4, high PTH)"
         }
       },
       {
@@ -8087,12 +6187,7 @@ const SUBJECTS = [
           "concept": "Renal cell carcinoma — painless haematuria + flank mass + paraneoplastic, smoking",
           "discriminator": "Adult + painless haematuria + flank mass + renal vein extension + smoking = RCC",
           "trap": "Severity under-recognition — painless haematuria in adult = malignancy until excluded",
-          "rule": "RCC = adult painless haematuria + flank mass + paraneoplastic (polycythaemia); smoking; nephrectomy",
-          "others": {
-            "A": "TCC of the renal pelvis causes haematuria but arises from urothelium, not a parenchymal mass with venous extension.",
-            "C": "Wilms tumour occurs in children <5 years, not adults.",
-            "D": "Angiomyolipoma is benign, often in tuberous sclerosis, and fat-containing."
-          }
+          "rule": "RCC = adult painless haematuria + flank mass + paraneoplastic (polycythaemia); smoking; nephrectomy"
         }
       },
       {
@@ -8108,12 +6203,7 @@ const SUBJECTS = [
           "concept": "Wilms tumour — pediatric abdominal mass <5 years, unilateral, smooth",
           "discriminator": "Child <5 + smooth unilateral abdominal mass (no cross midline) = Wilms tumour",
           "trap": "Clinical Mimic — Wilms (smooth, unilateral, <5y) vs neuroblastoma (midline, invasive)",
-          "rule": "Wilms = nephroblastoma, child <5, smooth unilateral abdominal mass, WT1; nephrectomy + chemo",
-          "others": {
-            "A": "Neuroblastoma is typically midline, invasive, and crosses the midline; often with opsoclonus.",
-            "B": "RCC is an adult tumour.",
-            "C": "Hydronephrosis is a cystic, fluctuant swelling, not a solid smooth mass."
-          }
+          "rule": "Wilms = nephroblastoma, child <5, smooth unilateral abdominal mass, WT1; nephrectomy + chemo"
         }
       },
       {
@@ -8129,12 +6219,7 @@ const SUBJECTS = [
           "concept": "Upper-tract transitional cell carcinoma — smoking, haematuria, filling defect",
           "discriminator": "Smoker + painless haematuria + renal pelvis filling defect (normal cystoscopy) = upper-tract TCC",
           "trap": "Clinical Mimic — TCC (smoking, urothelium) vs RCC (parenchymal mass)",
-          "rule": "Upper-tract TCC = smoker + haematuria + pelvic filling defect; nephroureterectomy",
-          "others": {
-            "B": "RCC would show a parenchymal mass, not a mucosal filling defect, and often has venous extension.",
-            "C": "A stone would show a radiopaque/computed filling defect but with colic, not a smooth mucosal lesion.",
-            "D": "Renal TB causes sterile pyuria and irregular calyces, not a discrete filling defect."
-          }
+          "rule": "Upper-tract TCC = smoker + haematuria + pelvic filling defect; nephroureterectomy"
         }
       },
       {
@@ -8150,12 +6235,7 @@ const SUBJECTS = [
           "concept": "Testicular germ cell tumour — AFP elevated implies non-seminomatous component",
           "discriminator": "Elevated AFP = NON-seminomatous GCT (seminoma has normal AFP; hCG may be raised)",
           "trap": "Classification trap — AFP normal in seminoma; AFP↑ = non-seminomatous",
-          "rule": "Testicular GCT: AFP↑ = non-seminoma (seminoma has NORMAL AFP, may raise hCG)",
-          "others": {
-            "A": "Pure seminoma has a NORMAL AFP; an elevated AFP excludes pure seminoma.",
-            "B": "Leydig cell tumours are sex-cord stromal, not germ cell, and don't raise AFP.",
-            "D": "Lymphoma occurs in older men and is bilateral; AFP is not elevated."
-          }
+          "rule": "Testicular GCT: AFP↑ = non-seminoma (seminoma has NORMAL AFP, may raise hCG)"
         }
       },
       {
@@ -8171,12 +6251,7 @@ const SUBJECTS = [
           "concept": "Cryptorchidism — infertility + cancer risk; orchiopexy (not orchiectomy)",
           "discriminator": "Undescended testis = infertility + germ-cell cancer risk; fix with orchiopexy (not orchiectomy)",
           "trap": "Treatment misdirection — observe/orchiectomy vs orchiopexy before puberty",
-          "rule": "Undescended testis = infertility + germ-cell cancer risk; orchiopexy before puberty",
-          "others": {
-            "A": "Observation alone misses the cancer/infertility risk; fixation is needed.",
-            "B": "Orchiectomy is not indicated in childhood cryptorchidism.",
-            "D": "Hormones do not remove the malignant potential."
-          }
+          "rule": "Undescended testis = infertility + germ-cell cancer risk; orchiopexy before puberty"
         }
       },
       {
@@ -8192,12 +6267,7 @@ const SUBJECTS = [
           "concept": "Varicocele — left-sided (venous drainage), infertility, adult right-side suggests RCC",
           "discriminator": "Left 'bag of worms' scrotal swelling = varicocele; NEW right-sided varicocele suggests RCC",
           "trap": "Clinical Mimic — left varicocele (common) vs new right varicocele (RCC until excluded)",
-          "rule": "Varicocele: left common (infertility); new RIGHT-sided in adult = suspect RCC (venous obstruction)",
-          "others": {
-            "A": "Varicoceles are overwhelmingly left-sided; right-sided in adults warrants RCC workup.",
-            "B": "Hydrocele transilluminates and is a fluid collection, not a 'bag of worms'.",
-            "C": "Epididymal cyst is a separate, smooth nodule above the testis."
-          }
+          "rule": "Varicocele: left common (infertility); new RIGHT-sided in adult = suspect RCC (venous obstruction)"
         }
       },
       {
@@ -8213,12 +6283,7 @@ const SUBJECTS = [
           "concept": "Male infertility — semen analysis first; varicocele correction improves fertility",
           "discriminator": "Infertility workup = semen analysis; varicocele (correctable) is a key reversible cause",
           "trap": "Treatment misdirection — testosterone (suppresses sperm) vs varicocele repair",
-          "rule": "Male infertility: semen analysis; varicocele repair is a reversible cause; testosterone worsens it",
-          "others": {
-            "A": "IVF without basic evaluation/treatment of reversible causes is premature.",
-            "C": "Exogenous testosterone suppresses the HPG axis and reduces sperm production.",
-            "D": "Prostate biopsy is for suspected prostate cancer, not infertility."
-          }
+          "rule": "Male infertility: semen analysis; varicocele repair is a reversible cause; testosterone worsens it"
         }
       },
       {
@@ -8234,12 +6299,7 @@ const SUBJECTS = [
           "concept": "Phimosis vs paraphimosis — cannot retract vs trapped retracted foreskin",
           "discriminator": "Phimosis = cannot retract foreskin; paraphimosis = retracted foreskin trapped (acute, needs reduction)",
           "trap": "Opposite — phimosis (cannot retract) vs paraphimosis (trapped retracted)",
-          "rule": "Phimosis = tight foreskin (can't retract); paraphimosis = retracted foreskin trapped (urgent)",
-          "others": {
-            "A": "The pairing is reversed — inability to retract is phimosis, not paraphimosis.",
-            "C": "They are distinct entities.",
-            "D": "They are distinct entities."
-          }
+          "rule": "Phimosis = tight foreskin (can't retract); paraphimosis = retracted foreskin trapped (urgent)"
         }
       },
       {
@@ -8255,12 +6315,7 @@ const SUBJECTS = [
           "concept": "Penile cancer — HPV + phimosis/poor hygiene; ulcer on glans",
           "discriminator": "Glans ulcer in uncircumcised man = penile squamous cell carcinoma (HPV, phimosis risk)",
           "trap": "Clinical Mimic — penile ulcer (cancer) vs chancre (syphilis) vs herpes",
-          "rule": "Penile SCC = glans ulcer, HPV + phimosis/poor hygiene risk; infant circumcision protective",
-          "others": {
-            "B": "Circumcision in infancy is PROTECTIVE, not a risk factor.",
-            "C": "Low-risk behaviour reduces, not increases, HPV-related risk.",
-            "D": "Diabetes is not a primary risk factor for penile carcinoma."
-          }
+          "rule": "Penile SCC = glans ulcer, HPV + phimosis/poor hygiene risk; infant circumcision protective"
         }
       },
       {
@@ -8276,12 +6331,7 @@ const SUBJECTS = [
           "concept": "Peyronie disease — fibrous plaque causing penile curvature",
           "discriminator": "Palpable fibrous plaque + curvature = Peyronie disease (tunica albuginea fibrosis)",
           "trap": "One-word discriminator — fibrous plaque = Peyronie",
-          "rule": "Peyronie = fibrous tunical plaque → curvature; distinct from fracture (trauma) and priapism",
-          "others": {
-            "A": "Penile fracture is acute trauma with sudden pain and a 'pop', not a chronic plaque.",
-            "B": "Priapism is a sustained painful erection, not curvature with a plaque.",
-            "C": "Balanitis is inflammation of the glans, not a tunical plaque."
-          }
+          "rule": "Peyronie = fibrous tunical plaque → curvature; distinct from fracture (trauma) and priapism"
         }
       },
       {
@@ -8297,12 +6347,7 @@ const SUBJECTS = [
           "concept": "Acute bacterial prostatitis — fluoroquinolone, systemic symptoms",
           "discriminator": "Acute prostatitis (fever + perineal pain + tender prostate) = fluoroquinolone (cover Gram-negatives)",
           "trap": "Treatment ladder — fluoroquinolone (prostate penetration) vs inadequate agents",
-          "rule": "Acute bacterial prostatitis: fluoroquinolone (good prostatic penetration); fever + tender prostate",
-          "others": {
-            "A": "Amoxicillin alone may not cover the typical Gram-negative organisms or penetrate prostate.",
-            "B": "This is bacterial, not fungal.",
-            "C": "Acyclovir is for viral (herpes), not bacterial prostatitis."
-          }
+          "rule": "Acute bacterial prostatitis: fluoroquinolone (good prostatic penetration); fever + tender prostate"
         }
       },
       {
@@ -8318,12 +6363,7 @@ const SUBJECTS = [
           "concept": "Asymptomatic bacteriuria in pregnancy — treat to prevent pyelonephritis",
           "discriminator": "Pregnancy + asymptomatic bacteriuria = TREAT (nitrofurantoin/cephalexin) to prevent pyelonephritis",
           "trap": "Population-specific — screen/treat bacteriuria in pregnancy (not in healthy non-pregnant women)",
-          "rule": "Asymptomatic bacteriuria in pregnancy = treat (nitrofurantoin/cephalexin); reduces pyelonephritis risk",
-          "others": {
-            "B": "Untreated bacteriuria risks pyelonephritis and preterm birth.",
-            "C": "IV antibiotics are not needed for asymptomatic bacteriuria; oral suffices.",
-            "D": "Waiting until term misses the window for prevention."
-          }
+          "rule": "Asymptomatic bacteriuria in pregnancy = treat (nitrofurantoin/cephalexin); reduces pyelonephritis risk"
         }
       },
       {
@@ -8339,12 +6379,7 @@ const SUBJECTS = [
           "concept": "Acute pyelonephritis — E. coli is the most common pathogen",
           "discriminator": "Uncomplicated pyelonephritis/UTI = E. coli (~80-90%) from ascending faecal flora",
           "trap": "One-word discriminator — E. coli most common (ascending faecal flora)",
-          "rule": "Acute pyelonephritis: E. coli is the most common pathogen (ascending faecal flora, nitrite+)",
-          "others": {
-            "A": "S. aureus implies haematogenous seeding, not typical ascending pyelonephritis.",
-            "C": "Pseudomonas suggests hospital/ catheter-associated infection.",
-            "D": "Candida suggests fungal/ catheter-associated infection, not routine pyelonephritis."
-          }
+          "rule": "Acute pyelonephritis: E. coli is the most common pathogen (ascending faecal flora, nitrite+)"
         }
       },
       {
@@ -8360,12 +6395,7 @@ const SUBJECTS = [
           "concept": "Urosepsis — source of septic shock; antibiotics + vasopressors",
           "discriminator": "Urosepsis with hypotension + lactate >2 = septic shock → antibiotics + vasopressors (fluids + source control)",
           "trap": "Severity under-recognition — urosepsis as septic shock source; need vasopressors not just fluids",
-          "rule": "Urosepsis causing septic shock: antibiotics + vasopressors (noradrenaline) + source control",
-          "others": {
-            "A": "Oral antibiotics and observation are unsafe in septic shock.",
-            "B": "Catheter removal alone does not treat shock.",
-            "D": "Fluids alone without antibiotics/vasopressors fail in septic shock."
-          }
+          "rule": "Urosepsis causing septic shock: antibiotics + vasopressors (noradrenaline) + source control"
         }
       },
       {
@@ -8381,12 +6411,7 @@ const SUBJECTS = [
           "concept": "Asymptomatic bacteriuria — treat in pregnancy and before urologic procedures",
           "discriminator": "Treat asymptomatic bacteriuria only in pregnancy and before invasive urologic procedures",
           "trap": "Treatment misdirection — treating ASB in elderly/healthy (harmful) vs pregnancy (indicated)",
-          "rule": "Asymptomatic bacteriuria: treat in PREGNANCY and before urologic procedures; not in elderly/healthy",
-          "others": {
-            "A": "Healthy postmenopausal women do not benefit from treating ASB.",
-            "C": "Elderly/nursing-home residents should not be treated for ASB routinely.",
-            "D": "A young non-pregnant woman with ASB does not require treatment."
-          }
+          "rule": "Asymptomatic bacteriuria: treat in PREGNANCY and before urologic procedures; not in elderly/healthy"
         }
       },
       {
@@ -8402,12 +6427,7 @@ const SUBJECTS = [
           "concept": "Neurogenic bladder — intermittent catheterization to protect upper tracts",
           "discriminator": "Spinal cord injury neurogenic bladder = clean intermittent catheterization (protects kidneys)",
           "trap": "Treatment ladder — intermittent catheterization (kidney protection) vs indwelling",
-          "rule": "Neurogenic bladder (SCI): clean intermittent catheterization protects upper tracts; avoid permanent indwelling",
-          "others": {
-            "A": "Permanent indwelling catheters raise infection and stone risk; CISC is preferred.",
-            "B": "Fluid restriction does not correct incomplete emptying.",
-            "C": "Anticholinergics without drainage worsen retention and pressures."
-          }
+          "rule": "Neurogenic bladder (SCI): clean intermittent catheterization protects upper tracts; avoid permanent indwelling"
         }
       },
       {
@@ -8423,12 +6443,7 @@ const SUBJECTS = [
           "concept": "Autonomic dysreflexia — bladder distension is the most common trigger",
           "discriminator": "SCI above T6 + sudden hypertension/headache/sweating = autonomic dysreflexia; bladder trigger",
           "trap": "One-word discriminator — bladder distension = most common dysreflexia trigger",
-          "rule": "Autonomic dysreflexia: SCI above T6 + HTN/headache/sweating; bladder distension is top trigger",
-          "others": {
-            "A": "Limb fracture is an unusual trigger; bladder/bowel are common.",
-            "B": "Hypoglycaemia does not cause this hypertensive pattern.",
-            "C": "PE causes hypoxia/hypotension, not this sympathetic surge."
-          }
+          "rule": "Autonomic dysreflexia: SCI above T6 + HTN/headache/sweating; bladder distension is top trigger"
         }
       },
       {
@@ -8444,12 +6459,7 @@ const SUBJECTS = [
           "concept": "Overflow incontinence — chronic retention → dribbling, palpable bladder",
           "discriminator": "Incomplete emptying + dribbling + palpable bladder = overflow incontinence",
           "trap": "Classification trap — overflow (palpable full bladder) vs stress/urge",
-          "rule": "Overflow incontinence = chronic retention → dribbling + palpable bladder (BPH, neurogenic)",
-          "others": {
-            "B": "Stress incontinence is leakage on coughing/exertion with an empty bladder.",
-            "C": "Urge incontinence is a sudden compelling desire with detrusor overactivity.",
-            "D": "Functional incontinence is environmental/cognitive inability to reach a toilet."
-          }
+          "rule": "Overflow incontinence = chronic retention → dribbling + palpable bladder (BPH, neurogenic)"
         }
       },
       {
@@ -8465,12 +6475,7 @@ const SUBJECTS = [
           "concept": "Urethral stricture — obstructive voiding from scarring (catheter/trauma/STD)",
           "discriminator": "Weak stream + terminal dribbling + palpable bladder after catheter/STD = urethral stricture",
           "trap": "Clinical Mimic — stricture (obstructive, palpable bladder) vs overactive bladder (urgency)",
-          "rule": "Urethral stricture: obstructive voiding from scarring (catheter/trauma/STD); dilation/urethroplasty",
-          "others": {
-            "A": "Overactive bladder presents with urgency/frequency, not weak stream/retention.",
-            "C": "UTI causes dysuria/frequency, not a weak mechanical stream with retention.",
-            "D": "Stones cause colic/haematuria, not a progressive weak stream."
-          }
+          "rule": "Urethral stricture: obstructive voiding from scarring (catheter/trauma/STD); dilation/urethroplasty"
         }
       },
       {
@@ -8486,12 +6491,7 @@ const SUBJECTS = [
           "concept": "Iatrogenic ureteric injury — at the uterine artery crossing during pelvic surgery",
           "discriminator": "Ureter injury in hysterectomy = at the uterine artery crossing (distal third, 'water under the bridge')",
           "trap": "One-word discriminator — 'water under the bridge' (ureter under uterine artery)",
-          "rule": "Ureter runs UNDER the uterine artery ('water under the bridge'); distal third = common iatrogenic injury site",
-          "others": {
-            "A": "The renal hilum is not the typical site in hysterectomy.",
-            "B": "The ureterovesical junction is a site but less common than the uterine artery crossing in pelvic surgery.",
-            "D": "The psoas/lateral abdominal wall course is retroperitoneal and less often injured in hysterectomy."
-          }
+          "rule": "Ureter runs UNDER the uterine artery ('water under the bridge'); distal third = common iatrogenic injury site"
         }
       }
     ]

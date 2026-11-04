@@ -23,9 +23,6 @@ def base_id(fname):
     b = b.strip()
     return re.sub(r"[^a-z0-9]+", "-", b.lower()).strip("-")
 
-# Entries renamed on the basis of TOPICS only (dominant clinical content per set),
-# not the broad subject/specialty. Each set spans multiple sub-topics, so these are
-# the representative topic names; adjust here if a different label is preferred.
 TOPIC_MAP = {
     "diabetes": "Diabetes Mellitus & Complications",
     "ent": "ENT",
@@ -44,3 +41,36 @@ TOPIC_MAP = {
     "renal": "Renal — AKI / CKD / Glomerular",
     "urology": "Urology",
 }
+
+def build(fname):
+    s = open(fname, encoding="utf-8").read()
+    d = json.loads(re.search(r"const DATA = (\{.*?\});", s, re.S).group(1))
+    sid = base_id(os.path.basename(fname))
+    name = TOPIC_MAP.get(sid) or (d.get("subject") or "Practice Set").split(" (")[0]
+    qs = []
+    for q in d.get("questions", []):
+        opts = sorted((q.get("options") or []), key=lambda o: o.get("letter", "A"))
+        texts = [decode(o.get("text")) for o in opts]
+        letters = [o.get("letter", "") for o in opts]
+        ans_idx = [i for i, L in enumerate(letters) if L == (q.get("correct") or "")]
+        ans_idx = ans_idx[0] if ans_idx else 0
+        layers = {}
+        def add(k, v):
+            v = decode(v or "").strip()
+            if v: layers[k] = v
+        add("concept", q.get("testedConcept") or q.get("whyCorrect"))
+        add("discriminator", q.get("discriminator"))
+        add("trap", q.get("trapType"))
+        add("rule", q.get("correctRule"))
+        qs.append({"q": decode(q.get("stem")), "options": texts, "answer": ans_idx, "layers": layers})
+    return {"id": sid, "name": name, "questions": qs}
+
+flat = [build(f) for f in sorted(glob.glob(os.path.join(SRC, "*.html"))) if os.path.basename(f) != "25MCQs — 400 Practice.html"]
+out = "/* MedCORE Fresh Mock Bank · data — generated from the NRE Prep 25MCQs fresh mock sets */\nconst SUBJECTS = " + json.dumps(flat, indent=2, ensure_ascii=False) + ";\n\nconst TIPS = " + json.dumps(TIPS, indent=2, ensure_ascii=False) + ";\n"
+os.makedirs(os.path.dirname(OUT), exist_ok=True)
+open(OUT, "w", encoding="utf-8").write(out)
+
+n = sum(len(s["questions"]) for s in flat)
+print("subjects:", len(flat), "questions:", n)
+for s in flat:
+    print(" ", s["id"], "|", s["name"], "| n=", len(s["questions"]))
