@@ -84,6 +84,8 @@ section:first-of-type .sect-head { margin-top:6px; }
   .step { border:0.5px solid #000; }
 }
 </style>
+<script>fetch('/api/me').then(r=>r.json()).then(j=>{if(!(j&&j.ok&&j.user))location.href='/login?next='+encodeURIComponent(location.pathname);});
+</script>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Geist+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 <style id="hub-theme-bridge">
 /* ═══════════ Nexus Duo bridge — family × mode, boxy, no gradients ═══════════ */
@@ -176,7 +178,7 @@ summary{cursor:pointer}
   <button class="nx-mode" id="nxMode" type="button" title="Toggle dark / light">☾</button>
 </div>
   <div class="kicker"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.4 1 2.3h6c0-.9.4-1.8 1-2.3A7 7 0 0 0 12 2z"/></svg> Verbatim Core Revision — Memory Armor</div>
-  <h1>exam Memory Master — Core</h1>
+  <h1>Memory Master — Core</h1>
   <div class="sub">Every item taken verbatim from the core files — fact lines from the core master, topic lines from the Medical Lectures backbone. The scaffolding (trick + trap) is the only thing layered on top. 785 items across 47 sections, drilled in 133 pods of 7.</div>
   <div class="facts">
     <div class="fact"><b>785</b><span>verbatim items</span></div>
@@ -228,7 +230,7 @@ summary{cursor:pointer}
 </div><div class="item">
   <div class="item-head"><span class="inum">16</span><span class="kw">Sudden tearing chest pain to back + BP difference between arms</span></div>
   <div class="ans-row"><span class="ans-label">ANSWER</span><span class="ans">AORTIC DISSECTION<span class="confirm"> → IV beta blocker (NOT thrombolytics)</span></span></div>
-  <div class="trick-row"><span class="chip">DANGER</span><span class="trick">Tearing pain to the back + BP difference = the aorta split — beta blocker, NEVER lyrics (thrombolytics).</span></div>
+  <div class="trick-row"><span class="chip">DANGER</span><span class="trick">Tearing pain to the back + BP difference = the aorta split — beta blocker, NEVER lytics (thrombolytics).</span></div>
   <div class="trap-row"><span class="trap-label">TRAP</span><span class="trap">Thrombolytics in dissection = bleeding catastrophe.</span></div>
 </div><div class="item">
   <div class="item-head"><span class="inum">17</span><span class="kw">Aortic dissection + BP 210/120</span></div>
@@ -248,7 +250,7 @@ summary{cursor:pointer}
 </div><div class="item">
   <div class="item-head"><span class="inum">20</span><span class="kw">Chest pain within 1 hour + STEMI</span></div>
   <div class="ans-row"><span class="ans-label">ANSWER</span><span class="ans">Urgent reperfusion (PCI or thrombolysis)</span></div>
-  <div class="trick-row"><span class="chip">NUMBER</span><span class="trick">Within 1 hour = golden hour: open the artery. PCI or lyrics, fast.</span></div>
+  <div class="trick-row"><span class="chip">NUMBER</span><span class="trick">Within 1 hour = golden hour: open the artery. PCI or lytics, fast.</span></div>
   <div class="trap-row"><span class="trap-label">TRAP</span><span class="trap">Waiting past the window loses myocardium per minute.</span></div>
 </div><div class="item">
   <div class="item-head"><span class="inum">21</span><span class="kw">Chest pain + ST elevation + V1-V4</span></div>
@@ -299,7 +301,7 @@ summary{cursor:pointer}
   <div class="item-head"><span class="inum">30</span><span class="kw">Pericardial effusion</span></div>
   <div class="ans-row"><span class="ans-label">ANSWER</span><span class="ans">Pericardiocentesis at LEFT 5TH intercostal space near sternum</span></div>
   <div class="trick-row"><span class="chip">NUMBER</span><span class="trick">Pericardial drain: left 5th intercostal space near the sternum — the safe window to the sac.</span></div>
-  <div class="trap-row"><span class="trap-label">TRAP</span><span class="trap">4th-5th midaxillary is the chest tube&#x27;s triangle, not the paracentesis point.</span></div>
+  <div class="trap-row"><span class="trap-label">TRAP</span><span class="trap">4th-5th midaxillary is the chest tube&#x27;s triangle, not the pericardiocentesis point.</span></div>
 </div></div>
 </section>
   <section>
@@ -334,13 +336,13 @@ summary{cursor:pointer}
   <div class="trap-row"><span class="trap-label">TRAP</span><span class="trap">HHNK has high glucose without heavy ketones or deep Kussmaul.</span></div>
 </div><div class="item">
   <div class="item-head"><span class="inum">41</span><span class="kw">Diabetic + missed insulin</span></div>
-  <div class="ans-row"><span class="ans-label">ANSWER</span><span class="ans">Palpitations, breathlessness, nausea<span class="confirm"> → HYPOKALEMIA (insulin drives K+ into cells)</span></span></div>
-  <div class="trick-row"><span class="chip">DANGER</span><span class="trick">Missed insulin + palpitations/breathlessness = K+ driven into cells — hypokalemia&#x27;s masquerade.</span></div>
-  <div class="trap-row"><span class="trap-label">TRAP</span><span class="trap">Hyperglycemia alone doesn&#x27;t give this triad; low K does.</span></div>
+  <div class="ans-row"><span class="ans-label">ANSWER</span><span class="ans">Palpitations, breathlessness, nausea<span class="confirm"> → HYPERKALEMIA (no insulin → K+ stays extracellular)</span></span></div>
+  <div class="trick-row"><span class="chip">DANGER</span><span class="trick">Missed insulin + palpitations/breathlessness = K+ stuck outside cells — hyperkalemia&#x27;s masquerade.</span></div>
+  <div class="trap-row"><span class="trap-label">TRAP</span><span class="trap">Hyperglycemia alone doesn&#x27;t give this triad; high K does.</span></div>
 </div><div class="item">
   <div class="item-head"><span class="inum">42</span><span class="kw">Diabetic + recent insulin therapy + missed doses + palpitations/breathlessness</span></div>
-  <div class="ans-row"><span class="ans-label">ANSWER</span><span class="ans">Hypokalemia</span></div>
-  <div class="trick-row"><span class="chip">CHAIN</span><span class="trick">Insulin therapy + missed doses + palpitations → hypokalemia — the shift, not the shortage.</span></div>
+  <div class="ans-row"><span class="ans-label">ANSWER</span><span class="ans">Hyperkalemia</span></div>
+  <div class="trick-row"><span class="chip">CHAIN</span><span class="trick">Insulin therapy + missed doses + palpitations → hyperkalemia — no insulin, no shift.</span></div>
   <div class="trap-row"><span class="trap-label">TRAP</span><span class="trap">Hypoglycemia would bring sweating and confusion, not breathlessness first.</span></div>
 </div><div class="item">
   <div class="item-head"><span class="inum">43</span><span class="kw">Hyperthyroid + tachycardia/SOB/chest pain</span></div>

@@ -257,6 +257,8 @@ footer.foot{background:var(--bg)}
 @media(prefers-reduced-motion:reduce){.forge-main .card{animation:none!important}}
 </style>
 <script src="/assets/studyverse.js"></script>
+<script>fetch('/api/me').then(r=>r.json()).then(j=>{if(!(j&&j.ok&&j.user))location.href='/login?next='+encodeURIComponent(location.pathname);});
+</script>
 </head>
 <body>
 <header class="nav">

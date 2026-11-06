@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="light dark">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FAQ — MedCoreX</title>
+<meta name="description" content="Frequently asked questions about MedCoreX, the private study library.">
+<meta name="robots" content="index, follow">
+<link rel="stylesheet" href="/assets/studyverse.css">
+<style>
+/* blobs */
+.blobs{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+/* shared components */
+.wrap{width:min(1180px,100% - 40px);margin-inline:auto}
+.btn.sm{padding:.45em .9em;font-size:.8rem;box-shadow:3px 3px 0 var(--ink)}
+/* reveal */
+.portal{display:none;padding-bottom:80px}
+.portal.active{display:block}
+.portal.active .rv{animation:rise .7s var(--ease) both;animation-delay:calc(var(--i,0) * 70ms)}
+/* nav */
+.nav{position:sticky;top:0;z-index:50;padding:12px 0;backdrop-filter:blur(10px);background:color-mix(in srgb,var(--bg) 75%,transparent);border-bottom:var(--bw) solid var(--ink);transition:background .8s}
+.nav .wrap{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.nav .logo{font-family:var(--font-display);font-weight:var(--dw);font-size:1.35rem;text-transform:none}
+.logo-mark{width:38px;height:38px;background:var(--c1);border:var(--bw) solid var(--ink);border-radius:42% 58% 63% 37%/45% 41% 59% 55%;animation:morph 6s ease-in-out infinite alternate;display:grid;place-items:center;font-size:1rem}
+.logo svg{width:1.15em;height:1.15em}
+.links{display:flex;gap:6px;flex-wrap:wrap}
+.links a{text-decoration:none;font-weight:700;padding:.45em 1em;border-radius:var(--pill);border:2px solid transparent;transition:background .2s var(--ease),border-color .2s,color .2s}
+.links a:hover{border-color:var(--ink);background:color-mix(in srgb,var(--c1) 16%,transparent)}
+.links a[aria-current=page]{background:var(--ink);color:var(--bg)}
+.engine{display:flex;align-items:center;gap:8px;border:2px solid var(--ink);border-radius:999px;padding:4px;background:var(--surface)}
+.icon-btn{position:relative;width:34px;height:34px;border-radius:50%;border:2px solid var(--ink);background:var(--c2);cursor:pointer;display:grid;place-items:center;font-size:1rem;transition:transform .4s var(--ease),background .25s}
+.icon-btn::after{content:"";position:absolute;inset:-4px;border-radius:11px}
+.icon-btn:hover{transform:rotate(180deg) scale(1.1)}
+.icon-btn:active{transform:scale(.86)}
+.icon-btn:focus-visible{outline:3px solid var(--c4);outline-offset:2px}
+.icon-btn[aria-pressed=true]{background:var(--c4)}
+/* FAQ */
+.faq-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:24px;margin-top:26px}
+.faq-item{border:var(--bw) solid var(--ink);border-radius:var(--radius);background:var(--surface);box-shadow:var(--shadow);overflow:hidden}
+.faq-item summary{padding:16px 20px;cursor:pointer;font-weight:700;list-style:none}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item .q{font-family:var(--font-display);font-size:1rem}
+.faq-item .a{padding:0 20px 18px;line-height:1.6;color:var(--ink)}
+.faq-item .a p{margin:0 0 10px}
+.faq-item .a p:last-child{margin-bottom:0}
+</style>
+<script src="/assets/studyverse.js"></script>
+</head>
+<body>
+<!--NAV-->
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="/"><span class="logo-mark"><svg viewBox="0 0 24 24" style="width:1.15em;height:1.15em" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M12 4.2v16.3"/><path d="M12 5.6c-3 0-3 2.3 0 2.3s3 2.3 0 2.3-3 2.3 0 2.3 3 2.3 0 2.3"/><circle cx="12" cy="3.3" r="1.35" fill="currentColor" stroke="none"/></svg></span>MedCoreX</a>
+    <nav class="links" aria-label="Main">
+      <a href="/">Home</a>
+      <a href="/library">Library</a>
+      <a href="/about">About</a>
+      <a href="/faq" aria-current="page">FAQ</a><a href="/stats">Stats</a><a href="/login" id="navAuth">Sign in</a>
+    </nav>
+    <div class="engine" title="Theme engine" data-sv-engine></div>
+  </div>
+</header>
+<!--/NAV-->
+
+<main class="wrap">
+  <div class="section-head rv">
+    <div>
+      <p class="eyebrow">MedCoreX · Frequently asked</p>
+      <h1>FAQ</h1>
+    </div>
+    <p class="muted">Questions about access, accounts, content, and how to use the library.</p>
+  </div>
+  <div class="faq-grid" id="faq-grid">
+    <!-- FAQ items injected by JS below -->
+  </div>
+</main>
+
+<!--FOOTER-->
+<footer class="foot"><div class="wrap foot-in">
+  <div>
+    <div class="logo" style="font-size:1.2rem"><span class="logo-mark" style="width:30px;height:30px;font-size:.8rem"><svg viewBox="0 0 24 24" style="width:1.15em;height:1.15em" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M12 4.2v16.3"/><path d="M12 5.6c-3 0-3 2.3 0 2.3s3 2.3 0 2.3-3 2.3 0 2.3 3 2.3 0 2.3"/><circle cx="12" cy="3.3" r="1.35" fill="currentColor" stroke="none"/></svg></span>MedCoreX</div>
+    <p class="foot-tag">A genuinely great study resource — curated with discipline, and kept current and exact.</p>
+  </div>
+  <nav class="foot-links" aria-label="Footer">
+    <a href="/">Home</a><a href="/library">Library</a><a href="/about">About</a> <a href="/faq">FAQ</a><a href="/stats">Stats</a><a href="/login" id="footAuth">Sign in</a>
+  </nav>
+  <div class="foot-legal">
+    <span>© 2026 MedCoreX. All rights reserved. · Developed by AHMDZAFR</span>
+    <span>read · learn · repeat</span>
+  </div>
+</div></footer>
+<!--/FOOTER-->
+
+<script src="/medcore-sync.js" defer></script>
+<script src="/auth-nav.js" defer></script>
+<script>
+const FAQS = [
+  {
+    q: "What is MedCoreX?",
+    a: ["MedCoreX is a private study library built for exam preparation. It organises question banks, mock sets, drill cards and reference material around the syllabus, with an emphasis on MCQ practice and error logging rather than passive reading."]
+  },
+  {
+    q: "Do I need an account?",
+    a: ["You can browse the catalogue without an account. Opening a file requires a free account — it takes a minute, costs nothing, and keeps your progress with you."]
+  },
+  {
+    q: "How is progress tracked?",
+    a: ["Every question you answer is saved to your account. Wrong answers go into your error log with the date, your answer, the correct one, and the discriminator you missed. Accuracy, streaks and time practised are tracked per subject."]
+  },
+  {
+    q: "What are the 'seven layers' in a breakdown?",
+    a: ["Each MCQ includes concept, discriminator, trap, rule, and why every other option dies — plus high-yield links and a memory hook. The idea is to learn from the question, not just memorise the answer."]
+  },
+  {
+    q: "Can I use this offline?",
+    a: ["The pages are static HTML and load without a backend for reading. You need an internet connection to load them the first time, and to sign in. Once loaded, navigation and answer reveal work client-side."]
+  },
+  {
+    q: "Is my data sold or tracked?",
+    a: ["No. Your account holds your email, username and progress — nothing more. No profiles, no analytics, no third-party scripts, no advertising."]
+  },
+  {
+    q: "Who is this for?",
+    a: ["Anyone preparing for a licensing or board-style MCQ exam. The material is organised around recall, traps and discriminators rather than passive reading."]
+  },
+  {
+    q: "Who runs MedCoreX?",
+    a: ["MedCoreX is developed by AHMDZAFR as a personal study resource opened to a small set of readers. It is not affiliated with any examining body."]
+  }
+];
+const grid = document.getElementById('faq-grid');
+FAQS.forEach((f, i) => {
+  const item = document.createElement('div');
+  item.className = 'faq-item';
+  item.innerHTML = '<details class="rv"><summary class="q">' + f.q + '</summary><div class="a">' + f.a.map(t => '<p>' + t + '</p>').join('') + '</div></details>';
+  grid.appendChild(item);
+});
+</script>
+</body>
+</html>
