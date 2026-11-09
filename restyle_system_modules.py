@@ -14,7 +14,7 @@ Modules restyled:
 import re
 from pathlib import Path
 
-REPO = Path("/Users/ahmdzafr/Documents/MedCoreX")
+REPO = Path("/Users/ahmdzafr/Library/Mobile Documents/com~apple~CloudDocs/MedCoreX")
 RESOURCES = REPO / "site" / "resources"
 
 MODULES = [

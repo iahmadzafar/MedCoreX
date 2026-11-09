@@ -27,7 +27,7 @@ from pathlib import Path
 from datetime import datetime
 
 # ── paths ──────────────────────────────────────────────────────────────────
-REPO = Path("/Users/ahmdzafr/Documents/MedCoreX")
+REPO = Path("/Users/ahmdzafr/Library/Mobile Documents/com~apple~CloudDocs/MedCoreX")
 SITE = REPO / "site"
 RESOURCES = SITE / "resources"
 HUB_DATA = SITE / "hub-data"

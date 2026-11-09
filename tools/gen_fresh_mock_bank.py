@@ -13,7 +13,7 @@ stable localStorage keys across regenerations.
 import json, sys, os
 
 SRC = "/Users/ahmdzafr/Library/Mobile Documents/com~apple~CloudDocs/NRE Prep/400 MCQs/400 MCQs.html"
-OUT = "/Users/ahmdzafr/Documents/MedCoreX/site/resources/medcore-fresh-mock-bank/data.js"
+OUT = "/Users/ahmdzafr/Library/Mobile Documents/com~apple~CloudDocs/MedCoreX/site/resources/medcore-fresh-mock-bank/data.js"
 
 TIPS = [
     "Syllabus is the spine", "MCQs are the bloodstream", "The error log is sacred",

@@ -1,6 +1,8 @@
 # AGENTS.md — MedCoreX (MCX)
 
-Single source of truth: `/Users/ahmdzafr/Documents/MedCoreX` (repo → `github.com/iahmadzafar/MedCoreX`, live → `medcorex.pages.dev`).
+Single source of truth: `/Users/ahmdzafr/Library/Mobile Documents/com~apple~CloudDocs/MedCoreX`
+(repo → `github.com/iahmadzafar/MedCoreX`, live → `medcorex.pages.dev` — moved out of
+`~/Documents` on 9 Nov 2026; iCloud holds a single live copy, not a synced duplicate).
 
 ## The sync contract (automatic — do not skip, do not need asking)
 
