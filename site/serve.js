@@ -21,6 +21,7 @@ http.createServer((req, res) => {
   if (p.endsWith('/')) p += 'index.html';
   let file = path.join(SITE, p);
   if (!path.extname(p) && fs.existsSync(file + '.html')) file += '.html';
+  if (!path.extname(p) && fs.existsSync(path.join(file, 'index.html'))) file = path.join(file, 'index.html'); // folder → its index
   if (fs.existsSync(file) && fs.statSync(file).isFile()) {
     res.writeHead(200, {
       'content-type': MIME[path.extname(file).toLowerCase()] || 'application/octet-stream',

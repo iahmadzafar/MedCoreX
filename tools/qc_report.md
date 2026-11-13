@@ -1,282 +1,303 @@
 # MCQ Quality Check Report — MedCoreX Question Bank
 
-Generated: 2026-11-03T03:25:06.718Z
+Generated: 2026-11-13T22:25:55.615Z
 
 ## Scope
-- Subjects: medicine (1745), surgery (805), eye-ent (335), obgyn (382), paeds (340), basic (526)
-- Total questions: 4133
-- Unique stems: 4133 (exact dup: 0)
-- Total issues: 2527
+- Subjects: MED (1424), PSY (89), HEM (373), MSK (262), REN (468), DRM (129), SRG (871), EYE (209), ENT (253), ONG (559), PED (466), ANT (271), PHY (146), PHM (638), PTH (266), BCH (90), CMM (114), FRM (61)
+- Total questions: 6689
+- Unique stems: 5580 (exact dup: 1109)
+- Total issues: 7357
 
 ## Layer completeness
-- Full (all 6 layers): 2787
-- Concept only: 1147
-- Partial: 199
+- Full (all 4 text layers + others): 3159
+- Concept only: 2078
+- Partial: 1452
 
 ## Severity counts
-- medium: 2527
+- medium: 6098
+- high: 1259
 
 ## Issue counts by check
-- NO_OTHERS: 1380
-- CONCEPT_ONLY: 1147
+- NO_OTHERS: 3983
+- CONCEPT_ONLY: 2078
+- DUP_STEM: 1109
+- BROKEN_MARKER: 72
+- BAD_OPTION_COUNT: 62
+- CONTROL_CHAR: 37
+- ANSWER_LEAK: 15
+- DUP_OPTIONS: 1
 
 ## Answer distribution (all subjects)
-- A: 952 (23.0%)
-- B: 1032 (25.0%)
-- C: 912 (22.1%)
-- D: 904 (21.9%)
-- E: 333 (8.1%)
+- A: 1796 (26.9%)
+- B: 2411 (36.0%)
+- C: 1336 (20.0%)
+- D: 811 (12.1%)
+- E: 335 (5.0%)
 
 ## Option count distribution
-- 4 options: 2449
-- 5 options: 1684
+- 2 options: 12
+- 3 options: 50
+- 4 options: 4483
+- 5 options: 2144
 
 ## Subject counts
-- medicine: 1745
-- surgery: 805
-- eye-ent: 335
-- obgyn: 382
-- paeds: 340
-- basic: 526
+- MED: 1424
+- PSY: 89
+- HEM: 373
+- MSK: 262
+- REN: 468
+- DRM: 129
+- SRG: 871
+- EYE: 209
+- ENT: 253
+- ONG: 559
+- PED: 466
+- ANT: 271
+- PHY: 146
+- PHM: 638
+- PTH: 266
+- BCH: 90
+- CMM: 114
+- FRM: 61
 
 ## Sample issues (first 60)
-### [medium] NO_OTHERS — medicine #1240
-> A 35-year-old HIV-positive man presents with multiple painless, dark purplish-violaceous plaques on his trunk and arms. Lesions appeared ove
+### [medium] NO_OTHERS — MED #0
+> A 62-year-old man with type 2 diabetes and a 30-pack-year smoking history presents with a painless nodule and a cord in his right palm. The 
 Detail: missing others
 
-### [medium] NO_OTHERS — medicine #1241
-> A 30-year-old man presents with well-demarcated erythematous plaques covered with silvery-white scales on the extensor surfaces of his elbow
-Detail: missing others
-
-### [medium] NO_OTHERS — medicine #1242
-> A 22-year-old female student has itchy, erythematous lesions in the flexural areas of her elbows and knees. She has a family history of asth
-Detail: missing others
-
-### [medium] NO_OTHERS — medicine #1243
-> A 10-year-old child presents with circular, scaly lesions with central clearing on the trunk. Lesions are mildly itchy and the margins are r
-Detail: missing others
-
-### [medium] NO_OTHERS — medicine #1244
-> A pregnant woman at 28 weeks gestation presents with severe itching of the hands that worsens at night, with burrow-like lesions in the fing
-Detail: missing others
-
-### [medium] NO_OTHERS — medicine #1245
-> A 55-year-old man presents with a painful vesicular rash in a dermatomal distribution over the right posterior thorax. The rash did not cros
-Detail: missing others
-
-### [medium] NO_OTHERS — medicine #1246
-> A 28-year-old man develops a generalised maculopapular rash with fever and eosinophilia 10 days after starting amoxicillin for a urinary tra
-Detail: missing others
-
-### [medium] NO_OTHERS — medicine #1248
-> A 26-year-old woman presents with a raised, firm, red-brown lesion at the site of a surgical incision made 5 months ago. The lesion has exte
-Detail: missing others
-
-### [medium] NO_OTHERS — medicine #1249
-> An 8-year-old child has flaccid bullae with erosions involving the mouth and skin, which rupture easily leaving raw areas. Nikolsky sign is 
-Detail: missing others
-
-### [medium] NO_OTHERS — medicine #1250
-> A 40-year-old man from rural Sindh presents with a shallow ulcer with a raised, rolled, undermined border on his exposed leg, acquired after
-Detail: missing others
-
-### [medium] NO_OTHERS — medicine #1251
-> A 35-year-old man has a well-defined, hypopigmented, scaly plaque on the trunk with a 'spider web' pattern on Wood's lamp examination. Most 
-Detail: missing others
-
-### [medium] NO_OTHERS — medicine #1252
-> An elderly diabetic man has a 2.5 cm tender, fluctuant, erythematous swelling on the nape with fever and poorly controlled blood sugar. The 
-Detail: missing others
-
-### [medium] NO_OTHERS — medicine #1253
-> A malnourished adult whose diet consists mainly of maize presents with diarrhoea, dermatitis around the neck and wrists, and cognitive chang
-Detail: missing others
-
-### [medium] NO_OTHERS — medicine #1254
-> A 30-year-old woman has well-defined depigmented macules on the fingers, around the mouth and over the knuckles, with no scaling and no prec
-Detail: missing others
-
-### [medium] NO_OTHERS — medicine #1255
-> A 6-year-old has honey-coloured crusted erosions around the nostrils and mouth, with small superficial flaccid blisters that rupture. Low-gr
-Detail: missing others
-
-### [medium] CONCEPT_ONLY — medicine #1256
-> A 65-year-old patient presents with progressive memory loss, visual deficit, and cerebral cortex atrophy on CT, along with behavioral change
+### [medium] CONCEPT_ONLY — MED #1
+> A 50-year-old woman presents with proximal leg weakness that improves after climbing a few flights of stairs. She also reports dry mouth. Ex
 Detail: only concept layer present
 
-### [medium] NO_OTHERS — medicine #1256
-> A 65-year-old patient presents with progressive memory loss, visual deficit, and cerebral cortex atrophy on CT, along with behavioral change
+### [medium] NO_OTHERS — MED #1
+> A 50-year-old woman presents with proximal leg weakness that improves after climbing a few flights of stairs. She also reports dry mouth. Ex
 Detail: missing others
 
-### [medium] CONCEPT_ONLY — medicine #1257
-> Most common site of osteogenic sarcoma?
+### [medium] CONCEPT_ONLY — MED #2
+> A girl of six years experiences moments of gazing and non-communication, with her EEG revealing 3/sec, synchronized spike-wave discharges. W
 Detail: only concept layer present
 
-### [medium] NO_OTHERS — medicine #1257
-> Most common site of osteogenic sarcoma?
+### [medium] NO_OTHERS — MED #2
+> A girl of six years experiences moments of gazing and non-communication, with her EEG revealing 3/sec, synchronized spike-wave discharges. W
 Detail: missing others
 
-### [medium] CONCEPT_ONLY — medicine #1258
-> Most common site of diverticular disease in older people?
-Detail: only concept layer present
-
-### [medium] NO_OTHERS — medicine #1258
-> Most common site of diverticular disease in older people?
+### [medium] NO_OTHERS — MED #7
+> A 65-year-old man presents with a history of resting tremor, shuffling gait, stooped posture, and a mask-like expressionless face. Physical 
 Detail: missing others
 
-### [medium] CONCEPT_ONLY — medicine #1259
-> An anemic old man with generalized weakness, pancytopenia, petechial rash, pallor, easy bruising, hypocellular bone marrow, and a history of
+### [medium] CONCEPT_ONLY — MED #8
+> A16 : A 24-year-old man from a rural area presents with his second generalized seizure in a month. He has had intermittent headaches. CT bra
 Detail: only concept layer present
 
-### [medium] NO_OTHERS — medicine #1259
-> An anemic old man with generalized weakness, pancytopenia, petechial rash, pallor, easy bruising, hypocellular bone marrow, and a history of
+### [medium] NO_OTHERS — MED #8
+> A16 : A 24-year-old man from a rural area presents with his second generalized seizure in a month. He has had intermittent headaches. CT bra
 Detail: missing others
 
-### [medium] CONCEPT_ONLY — medicine #1260
-> Growth hormone maximum secretion occurs during?
+### [medium] CONCEPT_ONLY — MED #9
+> A 25-year-old female presents with weakness starting in her feet and ascending to her thighs over 5 days. Two weeks ago she had a diarrhoeal
 Detail: only concept layer present
 
-### [medium] NO_OTHERS — medicine #1260
-> Growth hormone maximum secretion occurs during?
+### [medium] NO_OTHERS — MED #9
+> A 25-year-old female presents with weakness starting in her feet and ascending to her thighs over 5 days. Two weeks ago she had a diarrhoeal
 Detail: missing others
 
-### [medium] CONCEPT_ONLY — medicine #1261
-> A 26-year-old man with hepatitis, jaundice, and dark urine. Which enzyme rise indicates hepatocellular damage/necrosis?
-Detail: only concept layer present
-
-### [medium] NO_OTHERS — medicine #1261
-> A 26-year-old man with hepatitis, jaundice, and dark urine. Which enzyme rise indicates hepatocellular damage/necrosis?
+### [medium] NO_OTHERS — MED #10
+> A 62-year-old man suddenly develops right-sided weakness and slurred speech. Symptoms completely resolve within 2 hours. MRI brain shows no 
 Detail: missing others
 
-### [medium] CONCEPT_ONLY — medicine #1262
-> Cause of splitting of the 2nd heart sound during inspiration?
+### [medium] CONCEPT_ONLY — MED #11
+> A 45-year-old man presents with progressive enlargement of his hands, feet, and jaw over the past 3 years. Physical examination reveals coar
 Detail: only concept layer present
 
-### [medium] NO_OTHERS — medicine #1262
-> Cause of splitting of the 2nd heart sound during inspiration?
+### [medium] NO_OTHERS — MED #11
+> A 45-year-old man presents with progressive enlargement of his hands, feet, and jaw over the past 3 years. Physical examination reveals coar
 Detail: missing others
 
-### [medium] CONCEPT_ONLY — medicine #1263
-> A person ate a burger and fries; centrifuged lipid profile shows milky white color after absorption from enterocytes. In what form are lipid
-Detail: only concept layer present
-
-### [medium] NO_OTHERS — medicine #1263
-> A person ate a burger and fries; centrifuged lipid profile shows milky white color after absorption from enterocytes. In what form are lipid
+### [medium] NO_OTHERS — MED #12
+> A 30-year-old cyclist presents with numbness and tingling in the ring and little fingers after prolonged riding. On examination, there is we
 Detail: missing others
 
-### [medium] CONCEPT_ONLY — medicine #1264
-> A 7-year-old boy develops generalized edema, hypertension, and hematuria after a sore throat treated with antibiotics. Possible cause?
+### [medium] CONCEPT_ONLY — MED #13
+> A35 : A 9-year-old boy from a rural area presents during monsoon season with high fever, altered consciousness, and two seizures. Examinatio
 Detail: only concept layer present
 
-### [medium] NO_OTHERS — medicine #1264
-> A 7-year-old boy develops generalized edema, hypertension, and hematuria after a sore throat treated with antibiotics. Possible cause?
+### [medium] NO_OTHERS — MED #13
+> A35 : A 9-year-old boy from a rural area presents during monsoon season with high fever, altered consciousness, and two seizures. Examinatio
 Detail: missing others
 
-### [medium] CONCEPT_ONLY — medicine #1265
-> A patient arrives 8 hours after an RTA with blood at the external urethral meatus, inability to pass urine, and a palpable bladder. Probable
-Detail: only concept layer present
-
-### [medium] NO_OTHERS — medicine #1265
-> A patient arrives 8 hours after an RTA with blood at the external urethral meatus, inability to pass urine, and a palpable bladder. Probable
+### [medium] NO_OTHERS — MED #14
+> A 58-year-old patient speaks fluently but uses inappropriate words and cannot understand spoken language. He is unaware of his deficit. MRI 
 Detail: missing others
 
-### [medium] CONCEPT_ONLY — medicine #1266
-> Injury at the neck of the radius causes loss of thumb abduction and opposition, laterally rotated thumb, reduced grip, inability to hold a c
-Detail: only concept layer present
-
-### [medium] NO_OTHERS — medicine #1266
-> Injury at the neck of the radius causes loss of thumb abduction and opposition, laterally rotated thumb, reduced grip, inability to hold a c
+### [medium] NO_OTHERS — MED #16
+> A 30-year-old woman has intermittent severe unilateral throbbing headache with nausea, photophobia and phonophobia, lasting 6-12 hours, twic
 Detail: missing others
 
-### [medium] CONCEPT_ONLY — medicine #1267
-> What is the most likely diagnosis for a 38-year-old male who was in a road traffic accident, has multiple rib fractures on the right side, r
+### [medium] CONCEPT_ONLY — MED #17
+> A 25-year-old woman presents with ascending weakness and areflexia. Lumbar puncture is performed. Which CSF finding is most characteristic o
 Detail: only concept layer present
 
-### [medium] NO_OTHERS — medicine #1267
-> What is the most likely diagnosis for a 38-year-old male who was in a road traffic accident, has multiple rib fractures on the right side, r
+### [medium] NO_OTHERS — MED #17
+> A 25-year-old woman presents with ascending weakness and areflexia. Lumbar puncture is performed. Which CSF finding is most characteristic o
 Detail: missing others
 
-### [medium] CONCEPT_ONLY — medicine #1268
-> A 4-year-old boy is brought in an emergency; he has been bitten by a stray dog on his left arm. The dog ran away after biting. Examination s
-Detail: only concept layer present
-
-### [medium] NO_OTHERS — medicine #1268
-> A 4-year-old boy is brought in an emergency; he has been bitten by a stray dog on his left arm. The dog ran away after biting. Examination s
+### [medium] NO_OTHERS — MED #19
+> A 35-year-old female presented with paroxysmal headache, tremor, and tachycardia. Blood pressure is 165/115 mmHg. She is diagnosed with pheo
 Detail: missing others
 
-### [medium] CONCEPT_ONLY — medicine #1269
-> A 70-year-old man presented with epigastric pain, hematemesis and tarry black stools (melena) for one day. Past history of episodic epigastr
+### [medium] CONCEPT_ONLY — MED #20
+> A 72-year-old man underwent a left carotid endarterectomy 2 days ago. He now has a decreased level of consciousness (GCS 10). What is the mo
 Detail: only concept layer present
 
-### [medium] NO_OTHERS — medicine #1269
-> A 70-year-old man presented with epigastric pain, hematemesis and tarry black stools (melena) for one day. Past history of episodic epigastr
+### [medium] NO_OTHERS — MED #20
+> A 72-year-old man underwent a left carotid endarterectomy 2 days ago. He now has a decreased level of consciousness (GCS 10). What is the mo
 Detail: missing others
 
-### [medium] CONCEPT_ONLY — medicine #1270
-> What sign indicates gas gangrene, a disease caused by Clostridium perfringens that leads to widespread necrosis?
+### [medium] CONCEPT_ONLY — MED #21
+> A47 : A 55-year-old man has 9 months of progressive painless weakness of the right hand. Examination: wasting of the right thenar eminence w
 Detail: only concept layer present
 
-### [medium] NO_OTHERS — medicine #1270
-> What sign indicates gas gangrene, a disease caused by Clostridium perfringens that leads to widespread necrosis?
+### [medium] NO_OTHERS — MED #21
+> A47 : A 55-year-old man has 9 months of progressive painless weakness of the right hand. Examination: wasting of the right thenar eminence w
 Detail: missing others
 
-### [medium] CONCEPT_ONLY — medicine #1271
-> What is a fundamental characteristic of Conversion Disorder?
-Detail: only concept layer present
-
-### [medium] NO_OTHERS — medicine #1271
-> What is a fundamental characteristic of Conversion Disorder?
+### [medium] NO_OTHERS — MED #22
+> A 68-year-old man presents with resting tremor, rigidity, and bradykinesia. Clinical diagnosis of Parkinson disease is suspected. Which inve
 Detail: missing others
 
-### [medium] CONCEPT_ONLY — medicine #1272
-> A 6-month-old girl has been experiencing distress, crying, abdominal distension, and passing redcurrant jelly stool for 24 hours. The girl a
-Detail: only concept layer present
-
-### [medium] NO_OTHERS — medicine #1272
-> A 6-month-old girl has been experiencing distress, crying, abdominal distension, and passing redcurrant jelly stool for 24 hours. The girl a
+### [medium] NO_OTHERS — MED #24
+> A 65-year-old man, a known hypertensive, presents to the emergency OPD with loss of sensation over the left side of his body. Examination sh
 Detail: missing others
 
-### [medium] CONCEPT_ONLY — medicine #1273
-> A 22-year-old male presents following a motor vehicle accident. He localizes pain, opens his eyes only to pain, and uses inappropriate words
+### [medium] CONCEPT_ONLY — MED #25
+> A 40-year-old male experiences a tonic-clonic seizure lasting 8 minutes. Five minutes after it stops, he has another generalised seizure wit
 Detail: only concept layer present
 
-### [medium] NO_OTHERS — medicine #1273
-> A 22-year-old male presents following a motor vehicle accident. He localizes pain, opens his eyes only to pain, and uses inappropriate words
+### [medium] NO_OTHERS — MED #25
+> A 40-year-old male experiences a tonic-clonic seizure lasting 8 minutes. Five minutes after it stops, he has another generalised seizure wit
 Detail: missing others
 
-### [medium] CONCEPT_ONLY — medicine #1274
-> Upon arriving at the emergency department, a young male is presenting with a stab wound located in his left hypochondrium. He exhibits signi
+### [medium] CONCEPT_ONLY — MED #26
+> An 18-month-old child presents with a generalised tonic-clonic seizure lasting 8 minutes during a febrile illness. There is no focal onset, 
 Detail: only concept layer present
 
-### [medium] NO_OTHERS — medicine #1274
-> Upon arriving at the emergency department, a young male is presenting with a stab wound located in his left hypochondrium. He exhibits signi
+### [medium] NO_OTHERS — MED #26
+> An 18-month-old child presents with a generalised tonic-clonic seizure lasting 8 minutes during a febrile illness. There is no focal onset, 
 Detail: missing others
 
-### [medium] CONCEPT_ONLY — medicine #1275
-> A 1-year-old female baby with pallor and poor growth, who is not breastfeeding properly and is mainly on goat milk, presents with tachycardi
+### [medium] CONCEPT_ONLY — MED #27
+> The substantia gelatinosa in the dorsal horn of the spinal cord is primarily involved in mediating which sensory modality?
 Detail: only concept layer present
 
-### [medium] NO_OTHERS — medicine #1275
-> A 1-year-old female baby with pallor and poor growth, who is not breastfeeding properly and is mainly on goat milk, presents with tachycardi
+### [medium] NO_OTHERS — MED #27
+> The substantia gelatinosa in the dorsal horn of the spinal cord is primarily involved in mediating which sensory modality?
 Detail: missing others
 
-### [medium] CONCEPT_ONLY — medicine #1276
-> What is the likely diagnosis for a 10-year-old boy with fever, inability to open his mouth, seizures, and a history of a road traffic accide
-Detail: only concept layer present
-
-### [medium] NO_OTHERS — medicine #1276
-> What is the likely diagnosis for a 10-year-old boy with fever, inability to open his mouth, seizures, and a history of a road traffic accide
+### [medium] NO_OTHERS — MED #28
+> A 30-year-old epileptic female on sodium valproate wants to conceive. What is the most important counseling point regarding her medication?
 Detail: missing others
 
-### [medium] CONCEPT_ONLY — medicine #1277
-> Thrush?
-Detail: only concept layer present
-
-### [medium] NO_OTHERS — medicine #1277
-> Thrush?
+### [medium] NO_OTHERS — MED #29
+> A 35-year-old female presents with numbness, tingling, and burning pain in the thumb, index, and middle fingers, which worsens at night. On 
 Detail: missing others
 
-### [medium] CONCEPT_ONLY — medicine #1278
-> Abducent nerve innervates?
+### [medium] NO_OTHERS — MED #30
+> A 70-year-old alcoholic patient presents with gradual onset headache, confusion, and weakness 2 weeks after a minor fall. CT scan shows a cr
+Detail: missing others
+
+### [medium] CONCEPT_ONLY — MED #31
+> A20 : A 64-year-old woman has a tremor of both hands that worsens when she holds a cup of tea or writes, and a family history of tremor in h
 Detail: only concept layer present
+
+### [medium] NO_OTHERS — MED #31
+> A20 : A 64-year-old woman has a tremor of both hands that worsens when she holds a cup of tea or writes, and a family history of tremor in h
+Detail: missing others
+
+### [medium] CONCEPT_ONLY — MED #33
+> A 35-year-old HIV-positive man with CD4 count 80 cells/mm³ presents with 2 weeks of headache, confusion, and right-sided weakness. MRI brain
+Detail: only concept layer present
+
+### [medium] NO_OTHERS — MED #33
+> A 35-year-old HIV-positive man with CD4 count 80 cells/mm³ presents with 2 weeks of headache, confusion, and right-sided weakness. MRI brain
+Detail: missing others
+
+### [medium] CONCEPT_ONLY — MED #35
+> A 25-year-old man is brought to the emergency department following a head injury. On assessment, he opens his eyes to a painful stimulus on 
+Detail: only concept layer present
+
+### [medium] NO_OTHERS — MED #35
+> A 25-year-old man is brought to the emergency department following a head injury. On assessment, he opens his eyes to a painful stimulus on 
+Detail: missing others
+
+### [medium] NO_OTHERS — MED #36
+> A 28-year-old woman, fortnight after recovering from influenza, develops progressive weakness of her lower limbs. On examination: power 2/6,
+Detail: missing others
+
+### [medium] NO_OTHERS — MED #37
+> A 60-year-old patient is brought to a Neurophysician complaining of tremors in hands, shuffling gait and rigidity in muscles, slurred speech
+Detail: missing others
+
+### [medium] CONCEPT_ONLY — MED #39
+> A 45-year-old male with known myasthenia gravis on pyridostigmine presents with progressive dysphagia, dysarthria, and respiratory distress 
+Detail: only concept layer present
+
+### [medium] NO_OTHERS — MED #39
+> A 45-year-old male with known myasthenia gravis on pyridostigmine presents with progressive dysphagia, dysarthria, and respiratory distress 
+Detail: missing others
+
+### [medium] CONCEPT_ONLY — MED #40
+> A 73-year-old woman presents with a progressively worsening expressionless face, a resting pill-rolling tremor in her right hand, and cogwhe
+Detail: only concept layer present
+
+### [medium] NO_OTHERS — MED #40
+> A 73-year-old woman presents with a progressively worsening expressionless face, a resting pill-rolling tremor in her right hand, and cogwhe
+Detail: missing others
+
+### [medium] CONCEPT_ONLY — MED #43
+> A 50-year-old man presents with headache, fever, and a focal seizure involving the right arm. CT head shows a ring-enhancing lesion in the l
+Detail: only concept layer present
+
+### [medium] NO_OTHERS — MED #43
+> A 50-year-old man presents with headache, fever, and a focal seizure involving the right arm. CT head shows a ring-enhancing lesion in the l
+Detail: missing others
+
+### [medium] CONCEPT_ONLY — MED #44
+> A33 : A 46-year-old man presents with 4 days of fever, confusion, bizarre behavior, and two generalized seizures. He has no neck stiffness. 
+Detail: only concept layer present
+
+### [medium] NO_OTHERS — MED #44
+> A33 : A 46-year-old man presents with 4 days of fever, confusion, bizarre behavior, and two generalized seizures. He has no neck stiffness. 
+Detail: missing others
+
+### [high] DUP_STEM — MED #45
+> An 18-month-old child presents with a generalised tonic-clonic seizure lasting 8 minutes during a febrile illness. There is no focal onset, 
+Detail: duplicate of MED#26
+
+### [medium] NO_OTHERS — MED #46
+> A 26-year-old man has sudden severe headache described as the worst of his life, with neck stiffness and photophobia. CT brain is normal. Lu
+Detail: missing others
+
+### [medium] CONCEPT_ONLY — MED #48
+> A 20-year-old female presents with fever, headache, and behaviour change over 4 days. She has no neck stiffness. MRI brain shows T2 hyperint
+Detail: only concept layer present
+
+### [medium] NO_OTHERS — MED #48
+> A 20-year-old female presents with fever, headache, and behaviour change over 4 days. She has no neck stiffness. MRI brain shows T2 hyperint
+Detail: missing others
+
+### [high] DUP_STEM — MED #49
+> A 25-year-old female presents with weakness starting in her feet and ascending to her thighs over 5 days. Two weeks ago she had a diarrhoeal
+Detail: duplicate of MED#9
+
+### [medium] CONCEPT_ONLY — MED #51
+> A50 : A 58-year-old man with bulbar-onset ALS has nasal speech, tongue wasting with fasciculations, brisk jaw jerk, and episodes of inapprop
+Detail: only concept layer present
+
+### [medium] NO_OTHERS — MED #51
+> A50 : A 58-year-old man with bulbar-onset ALS has nasal speech, tongue wasting with fasciculations, brisk jaw jerk, and episodes of inapprop
+Detail: missing others
+
+### [medium] NO_OTHERS — MED #52
+> A 35-year-old man after a fall presents with confusion and vomiting. CT brain shows patchy hemorrhagic lesions in the frontal and temporal l
+Detail: missing others
 

@@ -204,6 +204,9 @@ body{
 .layout{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:26px;align-items:start;margin-top:24px}
 .qcard{display:flex;flex-direction:column;gap:20px;min-height:360px;font-size:calc(1rem * var(--qs))}
 .qhead{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
+.qpid{margin-left:14px;font-family:var(--font-mono);font-size:.72rem;letter-spacing:.08em;color:var(--muted);text-transform:none}
+.topic-tag{font-family:var(--font-mono);font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+.kcnote{margin:0 0 14px;padding:10px 14px;border:2px dashed var(--c4);font-size:.9rem;font-weight:600}
 .qno{font-family:var(--font-display);font-weight:var(--dw);text-transform:uppercase;letter-spacing:.05em;font-size:.95rem}
 .flag{cursor:pointer;border:2px solid var(--ink);border-radius:999px;background:var(--surface);padding:.42em 1em;font-weight:700;font-size:.85rem;transition:background .2s,transform .2s var(--ease),box-shadow .2s}
 .flag:hover{transform:translateY(-2px)}

@@ -12,12 +12,18 @@ const ok = m => console.log('  ✓ ' + m);
 const bad = (m, e) => { fails++; console.log('  ✗ ' + m + (e ? '  → ' + e : '')); };
 const is = (cond, m, e) => (cond ? ok(m) : bad(m, e));
 
+/* the catalogue now lives in /assets/catalog.js (external) — inline it so jsdom
+   (which never fetches http URLs) can build the hub */
+const CAT_SRC = fs.readFileSync(path.join(__dirname, 'assets', 'catalog.js'), 'utf8');
+const inlineCatalog = (html) => html.replace('<script src="/assets/catalog.js"></script>', '<script>' + CAT_SRC + '</script>');
+const catItems = () => { const out = []; const re = /\{t:"([^"]+)",d:"([^"]*)",c:"([^"]+)",f:"([^"]+)",k:([0-9.]+)\}/g; let m; while ((m = re.exec(CAT_SRC))) out.push({ c: m[3] }); return out; };
+
 /* plain load — inline script runs as written */
 function load(url) {
   const errors = [];
   const v = new VirtualConsole();
   v.on('jsdomError', e => { const m = String(e.message || e); if (!/Not implemented/i.test(m)) errors.push(m); });
-  const dom = new JSDOM(fs.readFileSync(LIB, 'utf8'), {
+  const dom = new JSDOM(inlineCatalog(fs.readFileSync(LIB, 'utf8')), {
     url, runScripts: 'dangerously', pretendToBeVisual: true, virtualConsole: v,
   });
   return { dom, errors };
@@ -28,12 +34,12 @@ function loadPatched(url) {
   const errors = [];
   const v = new VirtualConsole();
   v.on('jsdomError', e => { const m = String(e.message || e); if (!/Not implemented/i.test(m)) errors.push(m); });
-  let html = fs.readFileSync(LIB, 'utf8');
+  let html = inlineCatalog(fs.readFileSync(LIB, 'utf8'));
   let body = null;
   html = html.replace(/<script>([\s\S]*?)<\/script>/g, (m, b) => {
-    if (!/const CATS=/.test(b)) return m;
+    if (!/location\.replace\(/.test(b)) return m;
     body = b;
-    return '<script>/* catalogue script stripped for capture */</script>';
+    return '<script>/* app script stripped for capture */</script>';
   });
   const dom = new JSDOM(html, { url, runScripts: 'dangerously', pretendToBeVisual: true, virtualConsole: v });
   let nav = null;
@@ -49,39 +55,30 @@ console.log('\n[1] /library (no hash) — hub renders, single-file shelves are l
 
   is(errors.length === 0, 'no script errors on load', errors.join(' | '));
 
-  const anchors = [...d.querySelectorAll('#catbar a.chip')];
-  const hrefs = anchors.map(a => a.getAttribute('href')).sort();
-  is(anchors.length === 2, 'catbar has exactly 2 direct-link chips', 'got ' + anchors.length);
+  /* picker: single-file categories are link cards straight to the file; portal cats are buttons */
+  const links = [...d.querySelectorAll('#picker a.card')];
+  const hrefs = links.map(a => a.getAttribute('href')).sort();
+  is(links.length === 2, 'picker has exactly 2 direct-link cards (single-file shelves)', 'got ' + links.length);
   is(hrefs[0] === '/resources/medcore-question-bank' &&
      hrefs[1] === '/resources/standalone-htmls-case-ladder-interactive',
-     'chips point straight at Question Bank + Case Ladder', hrefs.join(', '));
-  is(anchors.every(a => /↗$/.test(a.textContent)), 'direct chips are marked ↗');
+     'link cards point straight at Question Bank + Case Ladder', hrefs.join(', '));
+  is(links.every(a => /↗$/.test(a.textContent)), 'link cards are marked ↗');
+  is(links.every(a => /opens directly/i.test(a.textContent)), 'link cards say the file opens directly');
 
-  const buttons = [...d.querySelectorAll('#catbar button.chip')];
-  is(buttons.length === 6, 'catbar keeps 6 portal buttons (home + 5 shelves)', 'got ' + buttons.length);
-  is(d.getElementById('catbar').getAttribute('role') === 'group', 'catbar role=group (links allowed)');
+  const buttons = [...d.querySelectorAll('#picker button.card')];
+  is(buttons.length === 5, 'picker keeps 5 portal button cards', 'got ' + buttons.length);
+  is(buttons.every(b => b.dataset.cat), 'portal button cards carry data-cat');
 
   is(!d.getElementById('mocks-drills'), 'no #mocks-drills portal section is built');
   is(!d.getElementById('frameworks-interactive'), 'no #frameworks-interactive portal section');
   const portals = [...d.querySelectorAll('#portalHost .portal')].map(p => p.id).sort();
   is(portals.length === 5, '5 portals built', portals.join(', '));
 
-  const pickerA = [...d.querySelectorAll('#picker a.card')];
-  const pickerB = [...d.querySelectorAll('#picker button.card')];
-  is(pickerA.length === 2 && pickerB.length === 5, 'picker: 2 link cards + 5 button cards',
-     `links=${pickerA.length} buttons=${pickerB.length}`);
-  is(pickerA.every(a => a.getAttribute('href').startsWith('/resources/')), 'picker link cards carry real hrefs');
-  is(pickerA.every(a => /opens directly/.test(a.textContent)), 'picker link cards say the file opens directly');
-
+  const portalItems = catItems().filter(it => !['mocks-drills', 'frameworks-interactive'].includes(
+    it.c.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')));
   const opens = [...d.querySelectorAll('#portalHost a.btn.sm')].map(a => a.getAttribute('href'));
-  is(opens.length === 35 && opens.every(h => h.startsWith('/resources/')),
-     'all 35 portal cards still carry Open links', 'count=' + opens.length);
-
-  /* the anchor chips must not be hijacked by the chip click handler */
-  anchors[0].addEventListener('click', e => e.preventDefault());
-  anchors[0].click();
-  is(dom.window.location.hash === '', 'clicking a direct chip does not set a stray hash',
-     'hash=' + dom.window.location.hash);
+  is(opens.length === portalItems.length && opens.every(h => h.startsWith('/resources/')),
+     'every portal card carries an Open link (' + portalItems.length + ' items)', 'count=' + opens.length);
 
   dom.window.close();
 }
@@ -109,10 +106,8 @@ console.log('\n[4] /library#core-books — real portals still route');
   const d = dom.window.document;
   const active = d.querySelector('.portal.active');
   is(active && active.id === 'core-books', '#core-books still opens its portal', active && active.id);
-  const pressed = [...d.querySelectorAll('#catbar button.chip[aria-pressed=true]')].map(c => c.textContent);
-  is(pressed.length === 1 && pressed[0] === 'Core Books', 'chip pressed state still works', pressed.join(','));
-  is([...d.querySelectorAll('#catbar a.chip')].every(a => !a.hasAttribute('aria-pressed')),
-     'no aria-pressed leaked onto the link chips');
+  const btn = [...d.querySelectorAll('#picker button.card')].find(b => b.dataset.cat === 'core-books');
+  is(!!btn, 'Core Books still reachable from the picker');
   dom.window.close();
 }
 

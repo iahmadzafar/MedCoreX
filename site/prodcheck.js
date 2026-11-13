@@ -27,23 +27,23 @@ const get = (url, redirects = 0) => new Promise(resolve => {
   console.log('\nlive check → ' + BASE + '\n');
 
   const hub = await get(BASE + '/');
-  if (hub.status === 200 && /MedCORE Hub/.test(hub.body)) ok('hub loads (200, branded)');
+  if (hub.status === 200 && /MedCoreX/.test(hub.body)) ok('hub loads (200, branded)');
   else bad('hub: HTTP ' + hub.status);
-  if (/id="rgrid"/.test(hub.body) && /medcore\.theme/.test(hub.body)) ok('hub carries the interactive library + shared theme key');
-  else bad('hub is missing the library grid or theme key');
+  if (/assets\/catalog\.js/.test(hub.body)) ok('hub carries the shared catalogue');
+  else bad('hub is missing the catalogue script');
 
   const bank = await get(BASE + '/resources/medcore-question-bank');
-  if (bank.status === 200 && /Medicine & Allied/.test(bank.body) && /shuffleInPlace/.test(bank.body) && bank.body.length > 4e6)
-    ok('bank loads extensionless (200, ' + (bank.body.length / 1048576).toFixed(1) + ' MB, shuffle present)');
-  else bad('bank: HTTP ' + bank.status + ', ' + bank.body.length + ' bytes');
+  if (bank.status === 302 && /\/login/.test(String(bank.headers.location || '')))
+    ok('bank reader is sign-in gated (302 → login with return path)');
+  else bad('bank reader: expected the auth gate (302 → login), got HTTP ' + bank.status);
+  const bankData = await get(BASE + '/resources/medcore-question-bank/data.js');
+  if (bankData.status === 302 && /\/login/.test(String(bankData.headers.location || '')))
+    ok('bank data.js is sign-in gated too (no anonymous content leak)');
+  else bad('bank data.js: expected the auth gate (302), got HTTP ' + bankData.status);
 
-  const miss = await get(BASE + '/resources/definitely-not-a-file');
+  const miss = await get(BASE + '/definitely-not-a-file');
   if (miss.status === 404) ok('unknown path → real 404 (no home-page decoy)');
   else bad('unknown path → HTTP ' + miss.status + ' (fallback setting still on?)');
-
-  const legacy = await get(BASE + '/resources/test-series-html-nre-test-series-2026-by-subject');
-  if (legacy.status === 200 && /Medicine & Allied/.test(legacy.body)) ok('legacy link redirects into the merged bank');
-  else bad('legacy redirect: HTTP ' + legacy.status);
 
   if (String(hub.headers['x-content-type-options'] || '') === 'nosniff') ok('security headers active (_headers served)');
   else bad('x-content-type-options missing — _headers not applied');

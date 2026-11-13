@@ -1,0 +1,43 @@
+{
+  "generated": "2026-11-13T22:24:43.259Z",
+  "source": "/Users/ahmdzafr/Library/Mobile Documents/com~apple~CloudDocs/MedCORE/MedCORE MCQs/MedCORE-6716-MCQs.txt",
+  "parsed": 6716,
+  "total": 6689,
+  "inFileDups": 27,
+  "rejected": 0,
+  "keyConflicts": 17,
+  "duplicateClusters": 27,
+  "topicsUnspecified": 43,
+  "breakdownMissing": 375,
+  "systems": 16,
+  "buckets": 112,
+  "subjects": {
+    "MED": 1424,
+    "PSY": 89,
+    "HEM": 373,
+    "MSK": 262,
+    "REN": 468,
+    "DRM": 129,
+    "SRG": 871,
+    "EYE": 209,
+    "ENT": 253,
+    "ONG": 559,
+    "PED": 466,
+    "ANT": 271,
+    "PHY": 146,
+    "PHM": 638,
+    "PTH": 266,
+    "BCH": 90,
+    "CMM": 114,
+    "FRM": 61
+  },
+  "groups": {
+    "medicine": 2745,
+    "surgery": 871,
+    "eye-ent": 462,
+    "obgyn": 559,
+    "paeds": 466,
+    "basic": 1586
+  },
+  "hooks": 3178
+}

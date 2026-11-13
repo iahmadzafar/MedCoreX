@@ -37,7 +37,6 @@ const EXEMPT = [
   'medcore-cheat-card.html',
   'medcore-memory-master-core.html',
   'medcore-pattern-analysis.html',
-  'medcore-prediction-intelligence-report.html',
   'medcore-recall-sheets-repeat-offenders.html',
   'nre-recall-sheets-repeat-offenders.html',
   'qbank-logic-first-high-yield-logic-first-high-yield-bank.html',

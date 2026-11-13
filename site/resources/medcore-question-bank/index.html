@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>MedCORE Question Bank</title>
-<meta name="description" content="MedCORE Question Bank: practice mode with instant right or wrong and the full seven-layer breakdown.">
+<meta name="description" content="MedCORE Question Bank: practice mode with instant right or wrong and the full five-layer breakdown.">
 <link rel="stylesheet" href="/assets/studyverse.css">
 <link rel="stylesheet" href="/resources/medcore-question-bank/style.css">
 <script src="/assets/studyverse.js"></script>
@@ -40,7 +40,7 @@
       <div class="rv">
         <p class="eyebrow">◆ MedCORE · Practice mode</p>
         <h1 class="mega"><span>MedCORE</span> <span class="w2">Question</span> <span class="w3">Bank.</span></h1>
-        <p class="lede">Instant right or wrong with the <span class="hl">full seven-layer breakdown</span>: concept, discriminator, trap, rule, and why every other option dies. Choose a subject to start.</p>
+        <p class="lede">Instant right or wrong with the <span class="hl">full five-layer breakdown</span>: concept, hook, trap, explanation, and why every other option dies. Choose a group to open its subjects.</p>
         <div class="row"><button class="btn" data-scroll="subjects">Choose a subject ↓</button><button class="btn ghost" data-open-keys>Shortcuts</button></div>
       </div>
       <div class="hero-art rv" aria-hidden="true">
@@ -55,14 +55,22 @@
       <div class="card hov stat rv" style="--accent:var(--c3)"><div class="num" id="stBest">0</div><div class="lbl">Best streak</div></div>
       <div class="card hov stat rv" style="--accent:var(--c4)"><div class="num" id="stTime">0</div><div class="lbl">Minutes practised</div></div>
     </div>
-    <h2 class="rv" id="subjects" style="margin-bottom:22px">Choose a subject</h2>
-    <div class="subjects" id="subjGrid"></div>
+    <h2 class="rv" id="subjects" style="margin-bottom:22px">Choose a group</h2>
+    <div class="subjects" id="grpGrid"></div>
+  </section>
+
+  <!-- ============ SUBJECTS (inside a group) ============ -->
+  <section id="groupPage" hidden>
+    <div class="ptop">
+      <div class="ptitle"><a class="back" href="#/" aria-label="Back to groups">‹</a><div><p class="crumbline"><a href="#/">Question Bank</a><span class="sep">→</span></p><h2 id="gName">Group</h2></div></div>
+    </div>
+    <div class="subjects" id="subjGrid" style="margin-top:18px"></div>
   </section>
 
   <!-- ============ PRACTICE ============ -->
   <section id="practice" hidden>
     <div class="ptop">
-      <div class="ptitle"><a class="back" href="#/" aria-label="Back to subjects">‹</a><div><p class="crumbline"><a href="#/">Question Bank</a><span class="sep">→</span></p><h2 id="pName">Subject</h2></div></div>
+      <div class="ptitle"><a class="back" id="pBack" href="#/" aria-label="Back to subjects">‹</a><div><p class="crumbline"><a id="pCrumb" href="#/">Question Bank</a><span class="sep">→</span></p><h2 id="pName">Subject</h2></div></div>
     </div>
 
     <div class="card toolbar">

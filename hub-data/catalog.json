@@ -38,11 +38,11 @@
       "k": 46.3
     },
     {
-      "t": "Past Paper Hub",
-      "d": "All recalled past papers",
-      "c": "Past Papers & Answer Keys",
-      "f": "medcore-past-paper-hub.html",
-      "k": 228.7
+      "t": "MedCORE Question Bank",
+      "d": "The one true bank · 18 subjects · five-layer breakdown",
+      "c": "Mocks & Drills",
+      "f": "medcore-question-bank.html",
+      "k": 6330.1
     },
     {
       "t": "June 2025",
@@ -59,39 +59,25 @@
       "k": 153.5
     },
     {
+      "t": "Dec 2025 Recalled",
+      "d": "187 MCQs, original recall set",
+      "c": "Past Papers & Answer Keys",
+      "f": "standalone-htmls-dec-2025-recalled-key.html",
+      "k": 87.8
+    },
+    {
       "t": "May 2026",
-      "d": "177 MCQs, topic breakdown",
+      "d": "Full paper · 200 MCQs · explained",
       "c": "Past Papers & Answer Keys",
       "f": "standalone-htmls-may-2026-mcq-breakdown.html",
-      "k": 95.4
-    },
-    {
-      "t": "Prediction Exam 2026",
-      "d": "200 MCQs, 14 subjects",
-      "c": "Past Papers & Answer Keys",
-      "f": "medcore-prediction-exam.html",
-      "k": 99.6
-    },
-    {
-      "t": "Prediction Exam · Key",
-      "d": "Same paper, full key",
-      "c": "Past Papers & Answer Keys",
-      "f": "medcore-prediction-exam-answer-key.html",
-      "k": 99.6
-    },
-    {
-      "t": "2026 Prediction Intel",
-      "d": "What the paper will test",
-      "c": "Exam Intelligence & Strategy",
-      "f": "medcore-prediction-intelligence-report.html",
-      "k": 48.2
+      "k": 207.9
     },
     {
       "t": "Pattern Analysis",
       "d": "Four papers decoded · recurring patterns",
       "c": "Exam Intelligence & Strategy",
       "f": "medcore-pattern-analysis.html",
-      "k": 15.8
+      "k": 19.6
     },
     {
       "t": "High-Yield Topic Pool",
@@ -105,7 +91,7 @@
       "d": "One-page recall sheet",
       "c": "Quick Reference",
       "f": "medcore-cheat-card.html",
-      "k": 22
+      "k": 24.9
     },
     {
       "t": "Magic Table",
@@ -120,6 +106,13 @@
       "c": "Quick Reference",
       "f": "standalone-htmls-disease-symptom-clusters.html",
       "k": 62.1
+    },
+    {
+      "t": "Repeat Offenders",
+      "d": "The NRE recall vault — questions that keep coming back",
+      "c": "Quick Reference",
+      "f": "nre-recall-sheets-repeat-offenders.html",
+      "k": 53.6
     },
     {
       "t": "Case Ladder",
@@ -197,27 +190,6 @@
       "c": "MedCORE Systems",
       "f": "medcore-systems-ophthalmology-ophthalmology-medcore.html",
       "k": 641.2
-    },
-    {
-      "t": "MedCORE Question Bank",
-      "d": "Test series + main bank merged · six subject groups",
-      "c": "Mocks & Drills",
-      "f": "medcore-question-bank.html",
-      "k": 5301.1
-    },
-    {
-      "t": "Fresh Mock Bank",
-      "d": "NRE Prep fresh mock sets · practice sets",
-      "c": "Mocks & Drills",
-      "f": "medcore-fresh-mock-bank.html",
-      "k": 531.2
-    },
-    {
-      "t": "Repeat Offenders",
-      "d": "The NRE recall vault — questions that keep coming back",
-      "c": "Quick Reference",
-      "f": "nre-recall-sheets-repeat-offenders.html",
-      "k": 53.6
     }
   ]
 }

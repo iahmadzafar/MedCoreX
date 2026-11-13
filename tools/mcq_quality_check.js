@@ -13,7 +13,7 @@ const add=(subject,idx,check,severity,detail,stem)=>issues.push({subject,idx,che
 
 const seenStems=new Map();
 const letters=['A','B','C','D','E'];
-const fields=['concept','discriminator','trap','hook','rule','highyield'];
+const fields=['concept','hook','trap','rule'];
 
 let totalQ=0;
 const subjCounts={}, answerDist={}, optCountDist={};
@@ -121,7 +121,7 @@ md+='- Total questions: '+totalQ+'\n';
 md+='- Unique stems: '+seenStems.size+' (exact dup: '+(totalQ-seenStems.size)+')\n';
 md+='- Total issues: '+issues.length+'\n\n';
 md+='## Layer completeness\n';
-md+='- Full (all 6 layers): '+layerCompleteness.full+'\n';
+md+='- Full (all 4 text layers + others): '+layerCompleteness.full+'\n';
 md+='- Concept only: '+layerCompleteness.conceptOnly+'\n';
 md+='- Partial: '+layerCompleteness.partial+'\n\n';
 md+='## Severity counts\n';

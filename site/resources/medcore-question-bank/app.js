@@ -23,43 +23,63 @@ document.documentElement.style.setProperty('--qs',P.fs);
 const tally=(S,st)=>{let g=0,r=0;Object.entries(st.ans).forEach(([i,a])=>{const q=S.questions[i];if(!q)return;a===q.answer?g++:r++});return {g,r,n:S.questions.length}};
 
 /* =========================================================
-   ROUTER  #/  = subjects,  #/s/<id> = practice
+   ROUTER  #/  = groups,  #/g/<group> = subjects,  #/s/<id> = practice
    ========================================================= */
 let S=null,st=null,streak=0,sel=null;
 function route(){
   const m=location.hash.match(/^#\/s\/([\w-]+)/),subj=m&&SUBJECTS.find(s=>s.id===m[1]);
+  const g=m?null:location.hash.match(/^#\/g\/([\w-]+)/),grp=g&&GROUPS.find(x=>x.id===g[1]);
   stopClock();
   if(subj){S=subj;st=stOf(S.id);st.conf=st.conf||{};showPractice()}
+  else if(grp){S=null;showGroup(grp)}
   else{S=null;showHome()}
   scrollTo({top:0});
 }
 addEventListener('hashchange',route);
 
 /* =========================================================
-   SUBJECTS
+   GROUPS → SUBJECTS
    ========================================================= */
 $('#tips').innerHTML=[...TIPS,...TIPS].map(t=>`<span>${t}</span>`).join('');
+const groupTally=grp=>{let g=0,r=0,n=0;grp.subjects.forEach(code=>{const s=SUBJECTS.find(x=>x.id===code);const t=tally(s,stOf(s.id));g+=t.g;r+=t.r;n+=t.n});return {g,r,n}};
+const subjCard=(s,i)=>{
+  const t=tally(s,stOf(s.id));const done=t.g+t.r;
+  return `<button class="card hov subj rv" data-go="${s.id}" style="--accent:var(--c${i%4+1})">
+    <div class="top"><span class="no">${String(i+1).padStart(2,'0')}</span></div>
+    <h3>${s.name}</h3>
+    <div class="prog" aria-label="${done} of ${t.n} answered"><i class="g" style="width:${t.g/t.n*100}%"></i><i class="r" style="width:${t.r/t.n*100}%"></i></div>
+    <div class="foot"><span>${done} / ${t.n} answered${done?` · ${Math.round(t.g/done*100)}%`:''}</span><span class="go">${done?'Resume':'Start'} →</span></div>
+  </button>`};
 function showHome(){
-  $('#practice').hidden=true;$('#home').hidden=false;
+  $('#practice').hidden=true;$('#groupPage').hidden=true;$('#home').hidden=false;
   let g=0,r=0,time=0;
   SUBJECTS.forEach(s=>{const t=tally(s,stOf(s.id));g+=t.g;r+=t.r;time+=stOf(s.id).time});
   SV.countUp($('#stAnswered'),g+r);SV.countUp($('#stAcc'),g+r?Math.round(g/(g+r)*100):0,'%');SV.countUp($('#stBest'),P.best);SV.countUp($('#stTime'),Math.round(time/60));
-  $('#subjGrid').innerHTML=SUBJECTS.map((s,i)=>{const t=tally(s,stOf(s.id));const done=t.g+t.r;
-    return `<button class="card hov subj rv" data-go="${s.id}" style="--accent:var(--c${i%4+1})">
+  $('#grpGrid').innerHTML=GROUPS.map((grp,i)=>{const t=groupTally(grp);const done=t.g+t.r;
+    return `<button class="card hov subj rv" data-gogrp="${grp.id}" style="--accent:var(--c${i%4+1})">
       <div class="top"><span class="no">${String(i+1).padStart(2,'0')}</span></div>
-      <h3>${s.name}</h3>
+      <h3>${grp.name}</h3>
       <div class="prog" aria-label="${done} of ${t.n} answered"><i class="g" style="width:${t.g/t.n*100}%"></i><i class="r" style="width:${t.r/t.n*100}%"></i></div>
-      <div class="foot"><span>${done} / ${t.n} answered${done?` · ${Math.round(t.g/done*100)}%`:''}</span><span class="go">${done?'Resume':'Start'} →</span></div>
+      <div class="foot"><span>${done} / ${t.n} answered${done?` · ${Math.round(t.g/done*100)}%`:''}</span><span class="go">${done?'Resume':'Open'} →</span></div>
     </button>`}).join('');
   SV.stagger($('#home'));
 }
+$('#grpGrid').onclick=e=>{
+  const sg=e.target.closest('[data-gogrp]');if(sg){location.hash='#/g/'+sg.dataset.gogrp;return}
+  const b=e.target.closest('[data-go]');if(b)location.hash='#/s/'+b.dataset.go;
+};
 $('#subjGrid').onclick=e=>{const b=e.target.closest('[data-go]');if(b)location.hash='#/s/'+b.dataset.go;};
-
-/* =========================================================
-   PRACTICE
-   ========================================================= */
+function showGroup(grp){
+  $('#home').hidden=true;$('#practice').hidden=true;$('#groupPage').hidden=false;
+  $('#gName').textContent=grp.name;
+  $('#subjGrid').innerHTML=grp.subjects.map((code,i)=>subjCard(SUBJECTS.find(s=>s.id===code),i)).join('');
+  SV.stagger($('#groupPage'));
+}
 function showPractice(){
-  $('#home').hidden=true;$('#practice').hidden=false;
+  $('#home').hidden=true;$('#groupPage').hidden=true;$('#practice').hidden=false;
+  const grp=GROUPS.find(g=>g.subjects.includes(S.id));
+  $('#pBack').href='#/g/'+grp.id;
+  $('#pCrumb').textContent=grp.name;
   $('#pName').textContent=S.name;
   streak=0;sel=null;
   st.cur=Math.min(st.cur,S.questions.length-1);
@@ -68,7 +88,7 @@ function showPractice(){
 }
 
 /* ---------- five-layer breakdown ---------- */
-const LAYERS=[['concept','Concept'],['discriminator','Discriminator'],['trap','Trap'],['rule','Rule'],['others','Why every other option dies']];
+const LAYERS=[['concept','Concept'],['hook','Hook'],['trap','Trap'],['rule','Explanation'],['others','Why every other option dies']];
 function breakdown(q){
   const Ly=q.layers||{};let n=0;
   return `<div class="bd">${LAYERS.filter(([k])=>Ly[k]).map(([k,label])=>{n++;
@@ -81,14 +101,14 @@ function renderQ(){
   const i=st.cur,q=S.questions[i],a=st.ans[i],done=a!==undefined,ok=done&&a===q.answer,flag=st.flags.includes(i);
   const ready=sel!==null;
   $('#qcard').innerHTML=`
-    <div class="qhead"><span class="qno">Question ${i+1} <span class="muted" style="font-size:.8em">of ${S.questions.length}</span></span>
+    <div class="qhead"><span class="qno">Question ${i+1} <span class="muted" style="font-size:.8em">of ${S.questions.length}</span><span class="qpid">${q.id}</span></span>
       <button class="flag" id="flagBtn" aria-pressed="${flag}">⚑ ${flag?'Flagged':'Flag'}</button></div>
     <p class="stem">${q.q}</p>
     <div class="opts" role="group" aria-label="Answer options">${q.options.map((o,j)=>{
       let cls='';if(done){if(j===q.answer)cls='correct';else if(j===a)cls='wrong';else cls='dim'}else if(j===sel)cls='sel';
       return `<button class="opt ${cls}" data-a="${j}" ${done?'disabled':''} aria-label="Option ${L[j]}: ${o}"><span class="let">${L[j]}</span><span>${o}</span>${done&&j===q.answer?'<span class="mark">✓</span>':done&&j===a?'<span class="mark">✗</span>':`<span class="key">${j+1}</span>`}</button>`}).join('')}</div>
     ${done?`<div class="verdict ${ok?'good':'bad'}"><span class="vtxt">${ok?'✓ Correct!':'✗ Not quite.'} The answer is ${L[q.answer]}.</span><button class="btn ghost sm" id="expandBtn">⤢ Expand <kbd>E</kbd></button></div>
-      <div class="bd-wrap"><div class="bd-head"><h3>Five-layer breakdown</h3></div>${breakdown(q)}</div>`
+      <div class="bd-wrap"><div class="bd-head"><h3>Five-layer breakdown</h3>${q.topic?`<span class="topic-tag">${q.topic}</span>`:''}</div>${q.kc?'<p class="kcnote">Key-conflict flag: the keyed answer letter does not match the source\u2019s keyed text — verify this one against your notes.</p>':''}${breakdown(q)}</div>`
     :`<div class="conf-row${ready?' ready':''}" id="confRow" role="group" aria-label="Confidence">
         <span class="conf-lbl">${ready?'How sure were you?':'Pick an option, then lock it in'}</span>
         <button class="confb sure" data-c="sure" ${ready?'':'disabled'}>● Sure</button>
