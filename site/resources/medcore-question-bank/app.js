@@ -37,16 +37,22 @@ document.documentElement.style.setProperty('--qs',P.fs);
 const tally=(S,st)=>{let g=0,r=0;Object.entries(st.ans).forEach(([i,a])=>{const q=S.questions[i];if(!q)return;a===q.answer?g++:r++});return {g,r,n:S.questions.length}};
 
 /* =========================================================
-   ROUTER  #/  = groups,  #/g/<group> = subjects,  #/s/<id> = practice
+   ROUTER  #/  = inline group filter + subjects,  #/s/<id> = practice
    ========================================================= */
-let S=null,st=null,streak=0,sel=null;
+let S=null,st=null,streak=0,sel=null,activeGroup=GROUPS[0].id;
 function route(){
   const m=location.hash.match(/^#\/s\/([\w-]+)/),subj=m&&SUBJECTS.find(s=>s.id===m[1]);
   const g=m?null:location.hash.match(/^#\/g\/([\w-]+)/),grp=g&&GROUPS.find(x=>x.id===g[1]);
   stopClock();
-  if(subj){S=subj;st=stOf(S.id);st.conf=st.conf||{};showPractice()}
-  else if(grp){S=null;showGroup(grp)}
-  else{S=null;showHome()}
+  if(subj){
+    const owner=GROUPS.find(x=>x.subjects.includes(subj.id));if(owner)activeGroup=owner.id;
+    S=subj;st=stOf(S.id);st.conf=st.conf||{};showPractice();
+  }
+  else{
+    /* Retire old group-page hashes: keep the selected filter, not a route/page. */
+    if(grp){activeGroup=grp.id;history.replaceState(null,'',location.pathname+location.search)}
+    S=null;showHome();
+  }
   scrollTo({top:0});
 }
 addEventListener('hashchange',route);
@@ -55,7 +61,6 @@ addEventListener('hashchange',route);
    GROUPS → SUBJECTS
    ========================================================= */
 $('#tips').innerHTML=[...TIPS,...TIPS].map(t=>`<span>${t}</span>`).join('');
-const groupTally=grp=>{let g=0,r=0,n=0;grp.subjects.forEach(code=>{const s=SUBJECTS.find(x=>x.id===code);const t=tally(s,stOf(s.id));g+=t.g;r+=t.r;n+=t.n});return {g,r,n}};
 const subjCard=(s,i)=>{
   const t=tally(s,stOf(s.id));const done=t.g+t.r;
   return `<button class="card hov subj rv" data-go="${s.id}" style="--accent:var(--c${i%4+1})">
@@ -65,35 +70,31 @@ const subjCard=(s,i)=>{
     <div class="foot"><span>${done} / ${t.n} answered${done?` · ${Math.round(t.g/done*100)}%`:''}</span><span class="go">${done?'Resume':'Start'} →</span></div>
   </button>`};
 function showHome(){
-  $('#practice').hidden=true;$('#groupPage').hidden=true;$('#home').hidden=false;
-  $('#legacyProgressNote').hidden=!P.legacyBankProgressArchived;
+  $('#practice').hidden=true;$('#home').hidden=false;
   let g=0,r=0,time=0;
   SUBJECTS.forEach(s=>{const t=tally(s,stOf(s.id));g+=t.g;r+=t.r;time+=stOf(s.id).time});
   SV.countUp($('#stAnswered'),g+r);SV.countUp($('#stAcc'),g+r?Math.round(g/(g+r)*100):0,'%');SV.countUp($('#stBest'),P.best);SV.countUp($('#stTime'),Math.round(time/60));
-  $('#grpGrid').innerHTML=GROUPS.map((grp,i)=>{const t=groupTally(grp);const done=t.g+t.r;
-    return `<button class="card hov subj rv" data-gogrp="${grp.id}" style="--accent:var(--c${i%4+1})">
-      <div class="top"><span class="no">${String(i+1).padStart(2,'0')}</span></div>
-      <h3>${grp.name}</h3>
-      <div class="prog" aria-label="${done} of ${t.n} answered"><i class="g" style="width:${t.g/t.n*100}%"></i><i class="r" style="width:${t.r/t.n*100}%"></i></div>
-      <div class="foot"><span>${done} / ${t.n} answered${done?` · ${Math.round(t.g/done*100)}%`:''}</span><span class="go">${done?'Resume':'Open'} →</span></div>
-    </button>`}).join('');
+  $('#grpTabs').innerHTML=GROUPS.map(grp=>`<button type="button" class="chip" data-group="${grp.id}" aria-pressed="${grp.id===activeGroup}">${grp.name}</button>`).join('');
+  renderSubjectGrid();
   SV.stagger($('#home'));
 }
-$('#grpGrid').onclick=e=>{
-  const sg=e.target.closest('[data-gogrp]');if(sg){location.hash='#/g/'+sg.dataset.gogrp;return}
-  const b=e.target.closest('[data-go]');if(b)location.hash='#/s/'+b.dataset.go;
+function renderSubjectGrid(){
+  const grp=GROUPS.find(g=>g.id===activeGroup)||GROUPS[0];
+  $('#subjGrid').innerHTML=grp.subjects.map((code,i)=>subjCard(SUBJECTS.find(s=>s.id===code),i)).join('');
+  SV.stagger($('#subjGrid'));
+}
+$('#grpTabs').onclick=e=>{
+  const b=e.target.closest('[data-group]');if(!b)return;
+  activeGroup=b.dataset.group;
+  $('#grpTabs').querySelectorAll('[data-group]').forEach(x=>x.setAttribute('aria-pressed',x===b?'true':'false'));
+  renderSubjectGrid();
 };
 $('#subjGrid').onclick=e=>{const b=e.target.closest('[data-go]');if(b)location.hash='#/s/'+b.dataset.go;};
-function showGroup(grp){
-  $('#home').hidden=true;$('#practice').hidden=true;$('#groupPage').hidden=false;
-  $('#gName').textContent=grp.name;
-  $('#subjGrid').innerHTML=grp.subjects.map((code,i)=>subjCard(SUBJECTS.find(s=>s.id===code),i)).join('');
-  SV.stagger($('#groupPage'));
-}
 function showPractice(){
-  $('#home').hidden=true;$('#groupPage').hidden=true;$('#practice').hidden=false;
+  $('#home').hidden=true;$('#practice').hidden=false;
   const grp=GROUPS.find(g=>g.subjects.includes(S.id));
-  $('#pBack').href='#/g/'+grp.id;
+  $('#pBack').href='#/';
+  $('#pCrumb').href='#/';
   $('#pCrumb').textContent=grp.name;
   $('#pName').textContent=S.name;
   streak=0;sel=null;

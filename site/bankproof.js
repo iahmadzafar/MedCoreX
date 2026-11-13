@@ -60,26 +60,32 @@ setTimeout(() => {
 }, 0);
 setTimeout(() => {
   const home = d.getElementById('home');
-  const grpCards = [...d.querySelectorAll('#grpGrid .subj')];
-  if (home && !home.hidden && grpCards.length === 6) ok('home opens with 6 group cards'); else bad('home cards: ' + grpCards.length);
+  const tabs = [...d.querySelectorAll('#grpTabs [data-group]')];
+  let subjCards = [...d.querySelectorAll('#subjGrid .subj')];
+  if (home && !home.hidden && tabs.length === 6 && subjCards.length === 6) ok('home opens with six inline group tabs and the medicine subject grid');
+  else bad('home: ' + tabs.length + ' tabs, ' + subjCards.length + ' subjects');
   const saved = JSON.parse(w.localStorage.getItem('medcore.qb') || '{}');
-  if (saved.legacyBankProgress && saved.legacyBankProgress.medicine && !saved.subj.medicine && !d.getElementById('legacyProgressNote').hidden)
-    ok('legacy progress archived without regrading; user sees the migration note');
-  else bad('legacy progress archive/note missing');
+  if (saved.legacyBankProgress && saved.legacyBankProgress.medicine && !saved.subj.medicine)
+    ok('legacy progress archived without regrading');
+  else bad('legacy progress archive missing');
+  if (!d.getElementById('legacyProgressNote')) ok('legacy notice removed'); else bad('legacy notice still present');
 
-  /* drill into group 1 */
-  grpCards[0].click();
-}, 100);
-setTimeout(() => {
-  const gp = d.getElementById('groupPage');
-  const subjCards = [...d.querySelectorAll('#subjGrid .subj')];
-  if (gp && !gp.hidden && subjCards.length === 6) ok('medicine group opens 6 subject cards (MED PSY HEM MSK REN DRM)'); else bad('group cards: ' + subjCards.length);
-
-  /* open first subject (jsdom may not fire hashchange — route() invoked manually) */
+  /* group selection filters inline; singleton then opens practice in one click */
+  tabs.find(b=>b.dataset.group==='surgery').click();
+  subjCards=[...d.querySelectorAll('#subjGrid .subj')];
+  if (!home.hidden && subjCards.length===1 && !w.location.hash) ok('Surgery tab filters inline to its single subject; no group-page navigation');
+  else bad('Surgery inline filter failed: '+subjCards.length+' subjects, hash='+w.location.hash);
   subjCards[0].click();
-  if (/^#\/s\/[A-Z]{3}$/.test(w.location.hash)) ok('subject card click routes: ' + w.location.hash); else bad('subject card click did not set #/s hash: ' + w.location.hash);
+  if (w.location.hash==='#/s/SRG') ok('Surgery subject opens practice directly: #/s/SRG'); else bad('Surgery subject route: '+w.location.hash);
   w.route();
-}, 200);
+  w.location.hash='#/';w.route();
+  d.querySelector('#grpTabs [data-group="medicine"]').click();
+  subjCards=[...d.querySelectorAll('#subjGrid .subj')];
+  if(subjCards.length===6)ok('Medicine tab filters inline to six subjects');else bad('Medicine subject count: '+subjCards.length);
+  subjCards[0].click();
+  if (/^#\/s\/[A-Z]{3}$/.test(w.location.hash)) ok('subject card opens its practice route: ' + w.location.hash); else bad('subject route: ' + w.location.hash);
+  w.route();
+}, 100);
 setTimeout(() => {
   const pr = d.getElementById('practice');
   if (pr && !pr.hidden) ok('practice opens'); else bad('practice hidden');
@@ -95,11 +101,11 @@ setTimeout(() => {
   /* answer via the DOM: pick option 0, lock in sure */
   const opt = d.querySelector('#qcard [data-a="0"]');
   if (opt) opt.click(); else bad('no option button');
-}, 300);
+}, 200);
 setTimeout(() => {
   const lock = d.querySelector('#qcard [data-c="sure"]');
   if (lock) lock.click();
-}, 350);
+}, 250);
 setTimeout(() => {
   const layers = [...d.querySelectorAll('#qcard .layer h4')].map(e => e.textContent.replace(/^\d+/, '').trim());
   if (layers.length >= 1) ok('breakdown renders ' + layers.length + ' layer(s): ' + layers.slice(0, 5).join(' · ')); else bad('no layers rendered');
@@ -107,16 +113,23 @@ setTimeout(() => {
   if (!disc) ok('discriminator label retired'); else bad('discriminator label still present');
   const topic = d.querySelector('#qcard .topic-tag');
   if (topic && topic.textContent.trim()) ok('topic revealed after answering: ' + topic.textContent.trim()); else bad('topic not shown after answering');
-}, 400);
+}, 300);
 setTimeout(() => {
   w.location.hash = '#/g/eye-ent';
   w.route();
-}, 500);
+}, 400);
 setTimeout(() => {
   const subjCards = [...d.querySelectorAll('#subjGrid .subj')];
-  if (subjCards.length === 2) ok('#/g/eye-ent opens 2 subjects (EYE, ENT)'); else bad('eye-ent cards: ' + subjCards.length);
+  if (subjCards.length === 2 && !d.getElementById('home').hidden && !w.location.hash) ok('legacy #/g/eye-ent becomes an inline filter (EYE, ENT), not a page'); else bad('eye-ent inline filter failed: '+subjCards.length+' subjects');
+  w.location.hash='#/g/surgery';
+  w.route();
+  if (!w.location.hash && !d.getElementById('home').hidden && d.querySelectorAll('#subjGrid .subj').length===1)
+    ok('legacy #/g/surgery becomes a one-card inline filter, not an intermediate page');
+  else bad('surgery inline filter failed: '+w.location.hash);
+  if (d.querySelector('.crumbline .sep')) bad('breadcrumb arrow still present');
+  else ok('breadcrumb arrows removed');
 
   if (!errors.length) ok('zero uncaught JS errors'); else errors.slice(0, 4).forEach(e => bad(e));
-  console.log('\n' + (fails ? '✗ ' + fails + ' failure(s)' : '✓ BANK PROVEN — one true bank, groups → subjects → practice, IDs, hidden topics, five layers, zero errors'));
+  console.log('\n' + (fails ? '✗ ' + fails + ' failure(s)' : '✓ BANK PROVEN — inline group filters, subject grid, direct practice, IDs, hidden topics, five layers, zero errors'));
   process.exit(fails ? 1 : 0);
 }, 600);
