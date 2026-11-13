@@ -15,8 +15,22 @@ try{
   }
   if(raw) P=Object.assign(P,JSON.parse(raw));
 }catch(e){}
+/* The old bank stored answer indexes under six group IDs. The rebuilt bank
+   stores them under 18 subject codes; index-wise reuse would grade the wrong
+   questions. Archive the old records, never reinterpret them as new answers. */
+const LEGACY_GROUP_IDS=['medicine','surgery','eye-ent','obgyn','paeds','basic'];
+P.subj=P.subj||{};
+const legacy={};
+LEGACY_GROUP_IDS.forEach(id=>{
+  if(P.subj[id]){legacy[id]=P.subj[id];delete P.subj[id]}
+});
+if(Object.keys(legacy).length){
+  P.legacyBankProgress=Object.assign({},P.legacyBankProgress||{},legacy);
+  P.legacyBankProgressArchived=true;
+}
 try{localStorage.removeItem('medcore_qb')}catch(e){}
 const save=()=>{try{localStorage.setItem('medcore.qb',JSON.stringify(P))}catch(e){}};
+if(P.legacyBankProgressArchived)save();
 const stOf=id=>P.subj[id]||(P.subj[id]={ans:{},flags:[],conf:{},cur:0,time:0});
 document.documentElement.style.setProperty('--qs',P.fs);
 
@@ -52,6 +66,7 @@ const subjCard=(s,i)=>{
   </button>`};
 function showHome(){
   $('#practice').hidden=true;$('#groupPage').hidden=true;$('#home').hidden=false;
+  $('#legacyProgressNote').hidden=!P.legacyBankProgressArchived;
   let g=0,r=0,time=0;
   SUBJECTS.forEach(s=>{const t=tally(s,stOf(s.id));g+=t.g;r+=t.r;time+=stOf(s.id).time});
   SV.countUp($('#stAnswered'),g+r);SV.countUp($('#stAcc'),g+r?Math.round(g/(g+r)*100):0,'%');SV.countUp($('#stBest'),P.best);SV.countUp($('#stTime'),Math.round(time/60));

@@ -46,6 +46,9 @@ const dom = new JSDOM(fs.readFileSync(path.join(QB, 'index.html'), 'utf8').repla
     w.Element.prototype.scrollIntoView = function () {};
     w.scrollTo = function () {};
     w.SV = { countUp(){}, stagger(){}, toast(){}, burst(){}, burstAt(){} };
+    w.localStorage.setItem('medcore.qb', JSON.stringify({
+      subj: { medicine: { ans: { 0: 1 }, flags: [], conf: {}, cur: 1, time: 50 } },
+    }));
   },
 });
 const w = dom.window, d = w.document;
@@ -59,6 +62,10 @@ setTimeout(() => {
   const home = d.getElementById('home');
   const grpCards = [...d.querySelectorAll('#grpGrid .subj')];
   if (home && !home.hidden && grpCards.length === 6) ok('home opens with 6 group cards'); else bad('home cards: ' + grpCards.length);
+  const saved = JSON.parse(w.localStorage.getItem('medcore.qb') || '{}');
+  if (saved.legacyBankProgress && saved.legacyBankProgress.medicine && !saved.subj.medicine && !d.getElementById('legacyProgressNote').hidden)
+    ok('legacy progress archived without regrading; user sees the migration note');
+  else bad('legacy progress archive/note missing');
 
   /* drill into group 1 */
   grpCards[0].click();

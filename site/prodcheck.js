@@ -11,9 +11,9 @@ let fails = 0;
 const ok = m => console.log('  ✓ ' + m);
 const bad = m => { fails++; console.log('  ✗ ' + m); };
 
-const get = (url, redirects = 0) => new Promise(resolve => {
+const get = (url, redirects = 0, followRedirects = true) => new Promise(resolve => {
   https.get(url, { headers: { 'accept-encoding': 'identity' } }, r => {
-    if ([301, 302, 307, 308].includes(r.statusCode) && r.headers.location && redirects < 5) {
+    if (followRedirects && [301, 302, 307, 308].includes(r.statusCode) && r.headers.location && redirects < 5) {
       r.resume();
       return resolve(get(new URL(r.headers.location, url).href, redirects + 1));
     }
@@ -32,11 +32,11 @@ const get = (url, redirects = 0) => new Promise(resolve => {
   if (/assets\/catalog\.js/.test(hub.body)) ok('hub carries the shared catalogue');
   else bad('hub is missing the catalogue script');
 
-  const bank = await get(BASE + '/resources/medcore-question-bank');
+  const bank = await get(BASE + '/resources/medcore-question-bank', 0, false);
   if (bank.status === 302 && /\/login/.test(String(bank.headers.location || '')))
     ok('bank reader is sign-in gated (302 → login with return path)');
   else bad('bank reader: expected the auth gate (302 → login), got HTTP ' + bank.status);
-  const bankData = await get(BASE + '/resources/medcore-question-bank/data.js');
+  const bankData = await get(BASE + '/resources/medcore-question-bank/data.js', 0, false);
   if (bankData.status === 302 && /\/login/.test(String(bankData.headers.location || '')))
     ok('bank data.js is sign-in gated too (no anonymous content leak)');
   else bad('bank data.js: expected the auth gate (302), got HTTP ' + bankData.status);
