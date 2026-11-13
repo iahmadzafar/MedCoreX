@@ -15,6 +15,9 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{font-family:var(--font-body);color:var(--ink);background-color:var(--bg);line-height:1.55;min-height:100vh;overflow-x:hidden;transition:background-color .8s ease,color .8s ease}
+body{background-image:none!important}
+html[data-theme=dark] body{background-color:var(--bg)!important}
+.blobs{display:none!important}
 html[data-pattern=dots] body{background-image:radial-gradient(color-mix(in srgb,var(--ink) 14%,transparent) 1.4px,transparent 1.6px);background-size:22px 22px}
 html[data-pattern=grid] body{background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:34px 34px}
 html[data-pattern=stripes] body{background-image:repeating-linear-gradient(-45deg,color-mix(in srgb,var(--c2) 20%,transparent) 0 14px,transparent 14px 30px)}

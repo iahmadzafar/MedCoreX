@@ -33,5 +33,5 @@ html[data-theme=dark]{--on-accent:#0d0d0d}
   --muted:color-mix(in srgb,var(--ink) 68%,transparent);
   --line:color-mix(in srgb,var(--ink) 14%,transparent);
   --pill:min(var(--radius),999px);
-  --ok:#2fbf71; --bad:#f2385a;
+  --ok:#276a8c; --bad:#f2385a;
 }

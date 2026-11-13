@@ -72,13 +72,16 @@ function hue(v){const m=String(v).match(/hsl\(\s*([\d.]+)/);return m?+m[1]:0}
 function paint(){
   const r=document.documentElement;
   Object.entries(current.vars).forEach(([k,v])=>r.style.setProperty(k,v));
-  r.dataset.pattern=current.pattern;
+  /* Page canvas stays neutral; theme remixes apply to accents, not backgrounds. */
+  r.dataset.pattern='plain';
   if(r.dataset.theme==='dark'){
-    r.style.setProperty('--bg', hsl(hue(current.vars['--bg']),26,8));
-    r.style.setProperty('--surface', hsl(hue(current.vars['--surface']),22,12));
+    r.style.setProperty('--bg','#000000');
+    r.style.setProperty('--surface','#000000');
     r.style.setProperty('--ink','#FFFFFF');
     r.style.setProperty('--muted','rgba(255,255,255,.74)');
   } else {
+    r.style.setProperty('--bg','#fff4e0');
+    r.style.setProperty('--surface','#fffdf8');
     /* engine has no --muted value: clear the dark inline so :root light value applies */
     r.style.removeProperty('--muted');
   }

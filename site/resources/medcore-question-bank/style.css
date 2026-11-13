@@ -31,6 +31,8 @@ body{
   line-height:1.55;min-height:100vh;overflow-x:hidden;
   transition:background-color .8s ease,color .8s ease;
 }
+body{background-image:none!important}
+html[data-theme=dark] body{background-color:var(--bg)!important}
 /* =========================================================
    BACKGROUND BLOBS (live, always moving)
    ========================================================= */
@@ -169,7 +171,7 @@ body{
 /* =========================================================
    MODULE · QUESTIONS BANK  — nav chip, subjects, practice
    ========================================================= */
-:root{--ok:#2fbf71;--bad:#f2385a;--qs:1}
+:root{--ok:#276a8c;--bad:#f2385a;--qs:1}
 /* =========================================================
    SUBJECTS GRID
    ========================================================= */

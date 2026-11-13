@@ -31,7 +31,7 @@
   --accent-soft:color-mix(in srgb,var(--c1) 30%,transparent)!important;
   --muted:color-mix(in srgb,var(--ink) 68%,transparent)!important;
   --line:color-mix(in srgb,var(--ink) 14%,transparent)!important;
-  --ok:#2fbf71!important; --bad:#f2385a!important;
+  --ok:#276a8c!important; --bad:#f2385a!important;
   --good:var(--ok)!important; --green:var(--ok)!important;
   --red:var(--bad)!important; --never:var(--bad)!important; --warn:var(--c2)!important;
   --radius:14px!important; --bw:2px!important; --pill:min(var(--radius),999px)!important;
