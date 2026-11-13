@@ -67,7 +67,7 @@ h3{font-size:1.25rem}
 .rv{animation:rise .7s var(--ease) both;animation-delay:calc(var(--i,0) * 70ms)}
 @keyframes rise{from{opacity:0;transform:translateY(28px) scale(.97)}}
 
-.nav{position:sticky;top:0;z-index:50;padding:12px 0;backdrop-filter:blur(10px);background:color-mix(in srgb,var(--bg) 75%,transparent);border-bottom:var(--bw) solid var(--ink);transition:background .8s}
+.nav{position:sticky;top:0;z-index:50;padding:12px 0;background:var(--surface);border-bottom:var(--bw) solid var(--ink);transition:background-color .25s}
 /* Symmetric topbar: logo left · links dead-centre · engine right — true thirds, not flex leftover */
 .nav .wrap{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:14px}
 .nav .logo{grid-column:1;grid-row:1;justify-self:start}

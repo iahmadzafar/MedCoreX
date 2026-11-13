@@ -15,7 +15,8 @@
 
   var CSS = [
     '.navme{position:relative;display:inline-flex}',
-    '.navme-btn{display:flex;align-items:center;gap:8px;cursor:pointer;border:2px solid var(--ink);border-radius:999px;background:var(--surface);padding:.45em .95em;font-weight:800;font-size:.9rem;color:var(--ink);transition:transform .18s ease,box-shadow .18s ease}',
+    '.navme-btn{display:flex;align-items:center;gap:8px;cursor:pointer;border:2px solid var(--ink);border-radius:999px;background:var(--surface);padding:.45em .95em;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-weight:600;font-size:.9rem;letter-spacing:normal;text-transform:none;color:var(--ink);transition:transform .18s ease,box-shadow .18s ease}',
+    '.navme-btn b{font:inherit;letter-spacing:normal;text-transform:none}',
     '.navme-btn:hover{transform:translateY(-2px);box-shadow:3px 3px 0 var(--ink)}',
     '.navme-dot{width:10px;height:10px;border-radius:50%;background:var(--ok);border:2px solid var(--ink);flex:0 0 auto}',
     '.navme-btn i{font-style:normal;font-size:.65em;opacity:.75}',

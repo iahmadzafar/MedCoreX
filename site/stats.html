@@ -19,7 +19,7 @@
 .portal.active{display:block}
 .portal.active .rv{animation:rise .7s var(--ease) both;animation-delay:calc(var(--i,0) * 70ms)}
 /* nav */
-.nav{position:sticky;top:0;z-index:50;padding:12px 0;backdrop-filter:blur(10px);background:color-mix(in srgb,var(--bg) 75%,transparent);border-bottom:var(--bw) solid var(--ink);transition:background .8s}
+.nav{position:sticky;top:0;z-index:50;padding:12px 0;background:var(--surface);border-bottom:var(--bw) solid var(--ink);transition:background-color .25s}
 /* category bar — the portal menu */
 .catbar{position:sticky;top:64px;z-index:40;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(8px);border-bottom:var(--bw) solid var(--ink);transition:background .8s}
 .catbar .wrap{display:flex;gap:8px;flex-wrap:wrap;padding:12px 0}
@@ -75,7 +75,19 @@
 .subjrow:last-child{border-bottom:0}
 .subjrow .r1{display:flex;justify-content:space-between;gap:12px;font-weight:700;font-size:.95rem;align-items:baseline}
 .subjrow .min{font-size:.78rem;color:var(--muted);white-space:nowrap}
-.subjrow .r2{display:flex;justify-content:space-between;gap:10px;font-size:.8rem;font-weight:700;color:var(--muted)}
+.subject-track{display:flex;height:10px;overflow:hidden;border-radius:999px;background:color-mix(in srgb,var(--ink) 22%,var(--surface))}
+.subject-track .correct{background:var(--ok);min-width:0}
+.subject-track .wrong{background:var(--bad);min-width:0}
+.subject-foot{display:flex;justify-content:space-between;gap:10px;font-size:.78rem;font-weight:650;color:var(--muted)}
+.subject-legend{display:flex;flex-wrap:wrap;gap:14px;margin:-4px 0 4px;color:var(--muted);font-size:.78rem;font-weight:650}
+.subject-legend span{display:inline-flex;align-items:center;gap:6px}
+.subject-legend i{width:9px;height:9px;border-radius:50%;background:var(--ok)}
+.subject-legend .wrong{background:var(--bad)}
+.subject-legend .remaining{background:color-mix(in srgb,var(--ink) 22%,var(--surface))}
+.hub-card{padding:30px 32px 32px}
+.hub-card h3{margin-bottom:18px}
+.hub-card .chips{padding:3px;gap:12px}
+.hub-card .chipx{line-height:1.45;max-width:100%;white-space:normal}
 .confrow{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:11px 14px;border:2px solid var(--line);border-radius:calc(var(--radius)*.6);background:var(--bg);font-weight:700;margin-bottom:9px;font-size:.92rem}
 .confrow b{font-family:var(--font-display);font-size:1.05rem}
 .confrow em{font-style:normal;font-weight:700;font-size:.8rem;color:var(--muted);margin-left:auto}
@@ -124,13 +136,13 @@
 
   <div class="statsrow" style="width:min(1080px,100%);margin:24px auto 0">
     <div class="statscol">
-      <div class="card"><h3>By subject</h3><div id="subjList"></div></div>
+      <div class="card subject-card"><h3>By subject</h3><div class="subject-legend" aria-label="Chart legend"><span><i></i>Correct</span><span><i class="wrong"></i>Incorrect</span><span><i class="remaining"></i>Not attempted</span></div><div id="subjList" class="subject-chart" role="list"></div></div>
       <div class="card"><h3>Confidence, graded</h3><div id="confBox"></div></div>
     </div>
     <div class="statscol">
       <div class="card"><h3>Readiness</h3><div class="readiness"><span class="rbig" id="rScore">—</span><div><div class="rband" id="rBand">—</div><div class="rnote" id="rNote"></div></div></div></div>
       <div class="card"><h3>Focus list</h3><div id="focusBox"></div></div>
-      <div class="card"><h3>Around the hub</h3><div class="chips" id="hubBox"></div></div>
+      <div class="card hub-card"><h3>Around the hub</h3><div class="chips" id="hubBox"></div></div>
       <div class="card acctcard"><h3>Your account</h3><div id="acctBox"></div></div>
     </div>
   </div>
@@ -216,10 +228,13 @@
       return '<div class="card" style="--accent:var(--c'+(i%4+1)+')"><div class="num">'+c[0]+'</div><div class="lbl">'+c[1]+'</div><div class="sub">'+esc(c[2])+'</div></div>';
     }).join('');
     document.getElementById('subjList').innerHTML=rows.map(function(r){
-      var pct=r.done?Math.round(r.g/r.done*100):0;
-      return '<div class="subjrow"><div class="r1"><span>'+r.emoji+' '+esc(r.name)+'</span><span class="min">'+r.min+' min</span></div>'+
-        '<div class="prog" aria-label="'+r.done+' of '+r.bank+'"><i class="g" style="width:'+Math.min(100,r.done/r.bank*100)+'%"></i></div>'+
-        '<div class="r2"><span>'+r.done+' / '+r.bank+' solved</span><span>'+(r.done?pct+'% right':'not started')+'</span></div></div>';
+      var rightWidth=r.bank?Math.min(100,r.g/r.bank*100):0;
+      var wrongWidth=r.bank?Math.min(100,r.r/r.bank*100):0;
+      var coverage=r.bank?Math.round(r.done/r.bank*100):0;
+      return '<div class="subjrow" role="listitem"><div class="r1"><span>'+esc(r.name)+'</span><span class="min">'+r.min+' min</span></div>'+
+        '<div class="subject-track" role="img" aria-label="'+esc(r.name)+': '+r.g+' correct, '+r.r+' incorrect, '+(r.bank-r.done)+' not attempted out of '+r.bank+'">'+
+          '<i class="correct" style="width:'+rightWidth+'%"></i><i class="wrong" style="width:'+wrongWidth+'%"></i></div>'+
+        '<div class="subject-foot"><span>'+r.g+' correct · '+r.r+' incorrect</span><span>'+coverage+'% covered</span></div></div>';
     }).join('');
     var any=confTot.sure[1]+confTot.guess[1]+confTot.blind[1];
     var NAMES={sure:'● Sure',guess:'◐ Guess',blind:'○ Blind'};
