@@ -75,10 +75,10 @@ function paint(){
   /* Page canvas stays neutral; theme remixes apply to accents, not backgrounds. */
   r.dataset.pattern='plain';
   if(r.dataset.theme==='dark'){
-    r.style.setProperty('--bg','#000000');
-    r.style.setProperty('--surface','#000000');
-    r.style.setProperty('--ink','#FFFFFF');
-    r.style.setProperty('--muted','rgba(255,255,255,.74)');
+    r.style.setProperty('--bg','#111214');
+    r.style.setProperty('--surface','#1b1c20');
+    r.style.setProperty('--ink','#e9e7e3');
+    r.style.setProperty('--muted','#b4b3b1');
   } else {
     r.style.setProperty('--bg','#fff4e0');
     r.style.setProperty('--surface','#fffdf8');
