@@ -49,8 +49,11 @@ const SHADOWS=[
  ['-3px 3px 0 var(--c3)','-6px 6px 0 var(--ink)']];
 const DARK_PALETTES=[
   {c1:[344,360],c2:[32,54],c3:[192,216],c4:[260,284]},
-  {c1:[320,340],c2:[38,58],c3:[202,228],c4:[276,300]},
-  {c1:[350,360],c2:[20,42],c3:[210,234],c4:[286,310]}
+  {c1:[200,220],c2:[255,278],c3:[320,342],c4:[35,56]},
+  {c1:[18,36],c2:[340,356],c3:[220,242],c4:[185,205]},
+  {c1:[270,292],c2:[205,226],c3:[0,16],c4:[32,52]},
+  {c1:[38,58],c2:[188,208],c3:[262,284],c4:[320,342]},
+  {c1:[0,18],c2:[195,218],c3:[310,335],c4:[25,47]}
 ];
 const CANVASES=[
   {lightBg:'#fff4e0',lightSurface:'#fffdf8',darkBg:'#111214',darkSurface:'#1b1c20'},
@@ -58,17 +61,31 @@ const CANVASES=[
   {lightBg:'#f1f3f4',lightSurface:'#fafbfc',darkBg:'#131516',darkSurface:'#1c2022'},
   {lightBg:'#f5f0ef',lightSurface:'#fcf9f8',darkBg:'#171615',darkSurface:'#242220'}
 ];
+function nextPaletteIndex(key,length){
+  let previous=null;
+  try{const stored=localStorage.getItem(key);if(stored!==null)previous=Number(stored)}catch(e){}
+  let index=Math.floor(rand(0,length));
+  if(Number.isInteger(previous)&&previous>=0&&previous<length&&index===previous&&length>1)
+    index=(index+1+Math.floor(rand(0,length-1)))%length;
+  try{localStorage.setItem(key,String(index))}catch(e){}
+  return index;
+}
 function makeDarkPalette(){
-  const ranges=pick(DARK_PALETTES);
+  const index=nextPaletteIndex('mx-dark-index',DARK_PALETTES.length);
+  const ranges=DARK_PALETTES[index];
   const color=(range,sat,light)=>hsl(rand(range[0],range[1]),sat,light);
   return {
+    variant:index,
     '--c1':color(ranges.c1,rand(68,82),rand(68,76)),
     '--c2':color(ranges.c2,rand(68,82),rand(68,76)),
     '--c3':color(ranges.c3,rand(56,72),rand(66,76)),
     '--c4':color(ranges.c4,rand(52,70),rand(68,78))
   };
 }
-const makeCanvasPalette=()=>pick(CANVASES);
+const makeCanvasPalette=()=>{
+  const index=nextPaletteIndex('mx-canvas-index',CANVASES.length);
+  return Object.assign({variant:index},CANVASES[index]);
+};
 const ADJ=['Electric','Bubblegum','Cosmic','Retro','Sour','Velvet','Jazzy','Turbo','Lemon','Neon','Groovy','Fizzy','Disco','Cherry','Tropical','Glitter','Mango','Pixel'];
 const NOUN=['Notebook','Riot','Library','Sundae','Lab','Arcade','Atlas','Mixtape','Garden','Comet','Parade','Studio','Lagoon','Cassette','Carnival','Orbit'];
 function makeTheme(){
@@ -101,7 +118,7 @@ function paint(){
     r.style.setProperty('--surface',current.canvasPalette.darkSurface);
     r.style.setProperty('--ink','#e9e7e3');
     r.style.setProperty('--muted','#b4b3b1');
-    Object.entries(current.darkPalette).forEach(([k,v])=>r.style.setProperty(k,v));
+    Object.entries(current.darkPalette).forEach(([k,v])=>{if(k.indexOf('--')===0)r.style.setProperty(k,v)});
     r.style.setProperty('--ok','#79b9d6');
     r.style.setProperty('--bad','#ef8a94');
   } else {
@@ -113,7 +130,7 @@ function paint(){
   const tn=document.getElementById('themeName'); if(tn) tn.textContent=current.name;
   try{document.dispatchEvent(new CustomEvent('sv:theme',{detail:{theme:current,mode:r.dataset.theme}}))}catch(e){}
 }
-function applyTheme(t){ current=t;if(!current.darkPalette)current.darkPalette=makeDarkPalette();if(!current.canvasPalette)current.canvasPalette=makeCanvasPalette();paint();if(LOCK&&current===LOCK)saveLock(); }
+function applyTheme(t){ current=t;if(!current.darkPalette||current.darkPalette.variant===undefined)current.darkPalette=makeDarkPalette();if(!current.canvasPalette||current.canvasPalette.variant===undefined)current.canvasPalette=makeCanvasPalette();paint();if(LOCK&&current===LOCK)saveLock(); }
 const MKEY='mx-mode';
 function initMode(){
   let m=null; try{m=localStorage.getItem(MKEY)}catch(e){}
