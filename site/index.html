@@ -39,9 +39,15 @@
 .quote p{font-family:var(--font-display);font-weight:var(--dw);text-transform:var(--case);font-size:clamp(1.2rem,3vw,1.9rem);line-height:1.25;margin:0}
 .quote .qs{font-size:.85rem;font-weight:700;color:var(--muted);margin-top:14px}
 .vitals{position:absolute;inset:6% 2% 8% 4%;background:var(--surface);border:var(--bw) solid var(--ink);border-radius:var(--radius);box-shadow:var(--shadow);transform:rotate(-1.6deg);display:flex;flex-direction:column;padding:14px 16px;gap:8px;transition:background .8s}
-.vitals .v-head{display:flex;justify-content:space-between;align-items:center;gap:8px;font-family:var(--font-mono);font-size:clamp(.58rem,1.7cqi,.72rem);font-weight:700;letter-spacing:.08em;color:var(--muted);white-space:nowrap;overflow:hidden}
-.vitals .v-head b{display:flex;align-items:center;gap:7px;color:var(--ink)}
-.vitals .beat{width:10px;height:10px;border-radius:50%;background:var(--c1);animation:beat 1s ease-in-out infinite}
+.vitals .v-head{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:12px;min-height:22px;font-family:var(--font-mono);font-size:.68rem;font-weight:600;letter-spacing:.06em;color:var(--muted);white-space:nowrap}
+.vitals .v-brand{display:flex;align-items:baseline;gap:6px;min-width:0;overflow:hidden}
+.vitals .v-brand-name{color:var(--ink);font-family:var(--font-mono);font-size:1.05em;font-weight:700;letter-spacing:0;text-transform:none}
+.vitals .v-brand-sep{opacity:.55}
+.vitals .v-brand-label{overflow:hidden;text-overflow:ellipsis}
+.vitals .v-status{display:flex;align-items:center;gap:7px;min-width:0;color:var(--ink);font-size:.9em;letter-spacing:.07em}
+.vitals .v-status .bed-id{font-variant-numeric:tabular-nums}
+.vitals .v-status .mode{color:var(--muted)}
+.vitals .beat{width:8px;height:8px;border-radius:50%;background:var(--ok);flex:0 0 auto;animation:beat 1.4s ease-in-out infinite}
 .vitals .v-body{flex:1;display:flex;gap:12px;min-height:0}
 .vitals .waves{flex:1;display:flex;flex-direction:column;gap:4px;min-width:0}
 .vitals .wave{width:100%;display:block;flex:1 1 0}
@@ -61,11 +67,14 @@
 .vitals .v-foot{display:flex;justify-content:space-between;gap:10px;font-family:var(--font-mono);font-size:clamp(.54rem,1.6cqi,.66rem);letter-spacing:.14em;color:var(--muted);white-space:nowrap}
 .hero-art{container-type:inline-size}
 @container (max-width:430px){
-  .vitals .v-head b{display:none}
+  .vitals .v-head{gap:6px;font-size:.62rem}
+  .vitals .v-status{gap:5px}
+  .vitals .v-status .bed-id{display:none}
   .vitals .v>b+span{font-size:.5rem;letter-spacing:.04em}
   .vitals .nums{min-width:78px;padding-left:8px}
 }
 @container (max-width:350px){
+  .vitals .v-status .mode{display:none}
   .vitals .wave.resp{display:none}
   .vitals .nums{min-width:70px}
 }
@@ -105,7 +114,10 @@
     </div>
     <div class="hero-art rv" aria-hidden="true">
       <div class="vitals">
-        <div class="v-head"><span>MedCoreX · MONITOR</span><b><i class="beat"></i>BED 01 · STUDY MODE</b></div>
+        <div class="v-head">
+          <span class="v-brand"><span class="v-brand-name">MedCoreX</span><span class="v-brand-sep" aria-hidden="true">·</span><span class="v-brand-label">MONITOR</span></span>
+          <span class="v-status"><i class="beat" aria-hidden="true"></i><span class="bed-id">BED 01</span><span class="mode">STUDY MODE</span></span>
+        </div>
         <div class="v-body">
           <div class="waves">
             <svg class="wave ecg" viewBox="0 0 300 60" preserveAspectRatio="none"><path pathLength="1" d="M0 40h58l8-24 8 42 8-30 6 12h44l8-24 8 42 8-30 6 12h138" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
