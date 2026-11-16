@@ -39,7 +39,7 @@
 .quote p{font-family:var(--font-display);font-weight:var(--dw);text-transform:var(--case);font-size:clamp(1.2rem,3vw,1.9rem);line-height:1.25;margin:0}
 .quote .qs{font-size:.85rem;font-weight:700;color:var(--muted);margin-top:14px}
 .vitals{position:absolute;inset:6% 2% 8% 4%;background:var(--surface);border:var(--bw) solid var(--ink);border-radius:var(--radius);box-shadow:var(--shadow);display:flex;flex-direction:column;padding:14px 16px;gap:8px;transition:background .8s}
-.vitals .v-head{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:12px;min-height:22px;font-family:var(--font-mono);font-size:.68rem;font-weight:600;letter-spacing:.06em;color:var(--muted);white-space:nowrap}
+.vitals .v-head{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:12px;min-height:22px;flex:0 0 auto;font-family:var(--font-mono);font-size:.68rem;font-weight:600;letter-spacing:.06em;color:var(--muted);white-space:nowrap}
 .vitals .v-brand{display:flex;align-items:baseline;gap:6px;min-width:0;overflow:hidden}
 .vitals .v-brand-name{color:var(--ink);font-family:var(--font-mono);font-size:1.05em;font-weight:700;letter-spacing:0;text-transform:none}
 .vitals .v-brand-sep{opacity:.55}
@@ -49,7 +49,7 @@
 .vitals .v-status .mode{color:var(--muted)}
 .vitals .v-status .mode-suffix{white-space:pre}
 .vitals .beat{width:8px;height:8px;border-radius:50%;background:var(--ok);flex:0 0 auto;animation:beat 1.4s ease-in-out infinite}
-.vitals .v-body{flex:1;display:flex;gap:12px;min-height:0}
+.vitals .v-body{flex:1 1 0;display:flex;gap:12px;min-height:0}
 .vitals .waves{flex:1;display:flex;flex-direction:column;gap:4px;min-width:0}
 .vitals .wave{width:100%;display:block;flex:1 1 0}
 .vitals .wave.ecg{flex-grow:56}
@@ -58,27 +58,34 @@
 .vitals .wave.pleth path{stroke:var(--c3);stroke-dasharray:.16 1;animation:sweep 2.4s linear infinite}
 .vitals .wave.resp{flex-grow:20}
 .vitals .wave.resp path{stroke:var(--c2);stroke-dasharray:.16 1;animation:sweep 4.2s linear infinite}
-.vitals .nums{flex:0 0 auto;min-width:88px;display:flex;flex-direction:column;justify-content:space-between;border-left:2px solid var(--line);padding-left:12px}
-.vitals .v b{display:block;font-family:var(--font-display);font-weight:var(--dw);font-size:clamp(.95rem,.55rem + 2.4cqi,1.45rem);line-height:1;font-variant-numeric:tabular-nums;white-space:nowrap}
+.vitals .nums{flex:0 0 auto;min-width:88px;display:grid;grid-template-rows:repeat(5,minmax(0,1fr));gap:2px;align-content:stretch;border-left:2px solid var(--line);padding-left:12px}
+.vitals .v{display:flex;min-height:0;flex-direction:column;justify-content:center;overflow:hidden}
+.vitals .v b{display:block;font-family:var(--font-display);font-weight:var(--dw);font-size:clamp(.82rem,.62rem + 1.45cqi,1.1rem);line-height:1;font-variant-numeric:tabular-nums;white-space:nowrap}
 .vitals .v>b+span{display:block;font-family:var(--font-mono);font-size:.58rem;letter-spacing:.1em;color:var(--muted);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .vitals .v.hr b{color:var(--c1)}
 .vitals .v.spo2 b{color:var(--c3)}
 .vitals .v.rr b{color:var(--c2)}
 .vitals .v b i{font-style:normal;font-size:.6em;color:var(--muted);margin-left:3px}
-.vitals .v-foot{display:flex;justify-content:space-between;gap:10px;font-family:var(--font-mono);font-size:clamp(.54rem,1.6cqi,.66rem);letter-spacing:.14em;color:var(--muted);white-space:nowrap}
+.vitals .v-foot{display:flex;flex:0 0 auto;justify-content:space-between;gap:10px;font-family:var(--font-mono);font-size:clamp(.54rem,1.6cqi,.66rem);letter-spacing:.14em;color:var(--muted);white-space:nowrap}
 .hero-art{container-type:inline-size}
 @container (max-width:430px){
   .vitals .v-head{gap:6px;font-size:.62rem}
   .vitals .v-status{gap:5px}
   .vitals .v-status .bed-id{display:none}
+  .vitals .nums{min-width:126px;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(3,minmax(0,1fr));column-gap:7px;row-gap:3px;padding-left:8px}
+  .vitals .v.nibp{grid-column:1/-1;display:grid;grid-template-columns:auto minmax(0,1fr);align-items:baseline;column-gap:7px}
+  .vitals .v.nibp>b+span{margin-top:0}
   .vitals .v>b+span{font-size:.5rem;letter-spacing:.04em}
-  .vitals .nums{min-width:78px;padding-left:8px}
 }
 @container (max-width:350px){
   .vitals .v-status .mode-suffix{display:none}
   .vitals .wave.resp{display:none}
-  .vitals .nums{min-width:70px}
+  .vitals .nums{min-width:116px}
+  .vitals .v.nibp b{font-size:.78rem}
+  .vitals .v.nibp>b+span{font-size:.44rem}
 }
+@media (max-width:1200px){.hero-art{aspect-ratio:4/3}}
+@media (max-width:350px){.hero-art{aspect-ratio:1/1}}
 @keyframes beat{0%,100%{transform:scale(1)}18%{transform:scale(1.35)}36%{transform:scale(1)}54%{transform:scale(1.22)}72%{transform:scale(1)}}
 @keyframes sweep{to{stroke-dashoffset:-1.16}}
 .resume,.rule .num,.faqitem .chev{color:var(--on-accent)}
