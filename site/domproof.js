@@ -19,7 +19,8 @@ const vc = new VirtualConsole();
 vc.on('jsdomError', e => { if (!/navigation|not implemented/i.test(e.message)) errors.push(e.message); });
 
 const CAT_SRC = fs.readFileSync(path.join(SITE, 'assets', 'catalog.js'), 'utf8');
-let html = fs.readFileSync(path.join(SITE, 'index.html'), 'utf8')
+const PAGE_SRC = fs.readFileSync(path.join(SITE, 'index.html'), 'utf8');
+let html = PAGE_SRC
   .replace('<script src="/assets/catalog.js"></script>', '<script>' + CAT_SRC + '</script>')
   .replace(/<script src="\/assets\/studyverse\.js"><\/script>/, '')
   .replace(/<script src="\/medcore-sync\.js" defer><\/script>/, '')
@@ -44,6 +45,42 @@ const CATS = [...new Set(catItems.map(i => i.c))];
 
 setTimeout(() => {
   console.log('[runtime] homepage hub — catalogue tabs, filter, resume\n');
+
+  // monitor: grid surface, demo label, reading ↔ waveform interactions
+  const monitor = d.querySelector('.vitals');
+  const readings = [...d.querySelectorAll('.vitals [data-vital]')];
+  const waves = [...d.querySelectorAll('.vitals .wave[data-trace]')];
+  if (monitor && readings.length === 5 && waves.length === 3 && !monitor.closest('[aria-hidden="true"]'))
+    ok('monitor exposes five readings and three accessible traces');
+  else bad('monitor controls missing or hidden from assistive technology');
+  if (/SIMULATED[^<]*NOT LIVE/.test(PAGE_SRC) && /background-size:50px 50px,50px 50px,10px 10px,10px 10px/.test(PAGE_SRC))
+    ok('monitor is labelled as simulated and has a fine/major grid');
+  else bad('monitor demo label or graph grid missing');
+
+  const hr = readings.find(b => b.dataset.vital === 'hr');
+  const ecg = waves.find(w => w.dataset.trace === 'ecg');
+  const pleth = waves.find(w => w.dataset.trace === 'pleth');
+  if (hr) click(hr);
+  if (hr && ecg && pleth && hr.getAttribute('aria-pressed') === 'true' &&
+      ecg.classList.contains('is-active') && pleth.classList.contains('is-muted') &&
+      d.getElementById('monitorFocus').textContent === 'HR · ECG')
+    ok('selecting heart rate focuses ECG and updates the readout');
+  else bad('heart-rate interaction failed');
+
+  const nibp = readings.find(b => b.dataset.vital === 'nibp');
+  if (nibp) click(nibp);
+  if (nibp && nibp.getAttribute('aria-pressed') === 'true' &&
+      waves.every(w => !w.classList.contains('is-muted')) &&
+      d.getElementById('monitorFocus').textContent === 'NIBP · 118/76')
+    ok('selecting a non-waveform vital keeps traces visible and updates focus');
+  else bad('NIBP interaction failed');
+
+  const resp = waves.find(w => w.dataset.trace === 'resp');
+  if (resp) resp.dispatchEvent(new w.KeyboardEvent('keydown', { key: 'Enter', bubbles: true, cancelable: true }));
+  if (readings.find(b => b.dataset.vital === 'rr')?.getAttribute('aria-pressed') === 'true' &&
+      resp?.classList.contains('is-active'))
+    ok('waveform traces are keyboard-selectable');
+  else bad('keyboard trace selection failed');
 
   // tabs + panels
   const tabs = [...d.querySelectorAll('#tablist .chip')];
