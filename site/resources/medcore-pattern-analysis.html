@@ -1,135 +1,61 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1"><title>Pattern Analysis — 4 Papers</title><style>
-/* ── MedCoreX house skin (Nexus Duo) ── */
-:root{
-  --bg:#0b0d12; --panel:#14171E; --panel2:#1a1e28; --ground-2:#14171E;
-  --line:#293140; --line2:#354052;
-  --fg:#f4f6fa; --tx:#f4f6fa; --tx2:#d9dfe8; --muted:#aeb8c7; --faint:#8792a4;
-  --amber:#FFC53D; --mint:#34D399; --coral:#FF6EA9;
-  --serif:'Bricolage Grotesque',system-ui,sans-serif; --body:'Plus Jakarta Sans',system-ui,sans-serif; --mono:'Geist Mono',ui-monospace,monospace;
-}
-html[data-mode="light"]{
-  --bg:#ffffff;
-  --panel:#f4f5f7;
-  --panel2:#f4f5f7;
-  --ground-2:#f4f5f7;
-  --line:#e3e6ea;
-  --line2:#d5dae1;
-  --fg:#101828;
-  --tx:#101828;
-  --tx2:#344054;
-  --muted:#475467;
-  --faint:#667085;
-  --amber:#c98a00;
-  --mint:#0e9f68;
-  --coral:#db2777;
-  --serif:'Bricolage Grotesque',system-ui,sans-serif;
-  --body:'Plus Jakarta Sans',system-ui,sans-serif;
-  --mono:'Geist Mono',ui-monospace,monospace;
-}
-
-
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  font-family:var(--body); max-width:1120px; margin:0 auto; line-height:1.65;
-  color:var(--fg); background:var(--bg);
-  padding:clamp(1.2rem,4vw,3rem);
-  -webkit-font-smoothing:antialiased;
-}
-/* light twin */
-
-h1{
-  text-align:left; color:var(--fg);
-  font-family:var(--serif); font-weight:400;
-  font-size:clamp(2.1rem,5vw,3rem); line-height:1.08; margin:0 0 .3em;
-}
-h2{
-  font-family:var(--serif); font-weight:400;
-  font-size:clamp(1.5rem,3.4vw,2rem); line-height:1.15;
-  margin:2.2em 0 .5em; color:var(--amber);
-  border-top:1px solid var(--line); padding-top:.7em;
-}
-h3{ color:var(--muted); font-size:.78rem; letter-spacing:.16em; text-transform:uppercase; font-family:var(--mono); font-weight:500; margin:1.8em 0 .5em }
-p,li{ color:var(--tx2) }
-a{ color:var(--amber) }
-strong{ color:var(--fg) }
-code,kbd{ font-family:var(--mono); font-size:.9em; background:var(--panel2); border:1px solid var(--line); padding:1px 6px; border-radius:10px; color:var(--tx2) }
-table{ border-collapse:collapse; width:100%; background:var(--panel); font-size:.9rem }
-th,td{ border:1px solid var(--line); padding:9px 12px; text-align:left; }
-th{ font-family:var(--mono); font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; color:var(--amber); background:var(--ground-2) }
-tr:hover td{ background:var(--panel2) }
-blockquote + h2, pre + h2, table + h2{ margin-top:2.2em }
-pre{ background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:14px 16px; overflow-x:auto }
-.meta{max-width:76ch;color:var(--muted);font-size:.96rem;margin:.7rem 0 2rem}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="light dark">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pattern Analysis — MedCoreX</title>
+<meta name="description" content="Subject distribution and answer-choice patterns across four recalled papers, with answer analysis only where verified keys exist.">
+<meta name="robots" content="index, follow">
+<link rel="stylesheet" href="/assets/studyverse.css">
+<style>
+.wrap{width:min(1180px,100% - 40px);margin-inline:auto}
+.pattern-report{padding:34px 0 88px}
+.report-head{max-width:900px;margin:0 0 36px}
+.report-head .eyebrow{margin-bottom:12px}
+.report-head h1{font-size:clamp(2rem,4.8vw,3.6rem);line-height:1.04;margin:0 0 14px}
+.report-head .lede{max-width:70ch;color:var(--muted);font-size:1.02rem}
 .paper-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;align-items:start}
-.paper-set{min-width:0;padding:18px 20px;background:var(--panel);border:1px solid var(--line);border-radius:14px}
-.paper-set h3{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin:0 0 14px;color:var(--fg);font:600 1rem/1.3 var(--body);letter-spacing:0;text-transform:none}
-.paper-count{flex:0 0 auto;color:var(--muted);font:500 .75rem/1 var(--mono);letter-spacing:.04em}
-.bar-row{display:grid;grid-template-columns:minmax(115px,.9fr) minmax(70px,1.6fr) 66px;align-items:center;gap:12px;padding:7px 0;border-bottom:1px solid var(--line)}
+.paper-set{min-width:0;padding:20px}
+.paper-set h3{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin:0 0 14px;font-size:1.08rem}
+.paper-count{flex:0 0 auto;font:600 .76rem/1 var(--font-mono);color:var(--muted);letter-spacing:.02em}
+.bar-row{display:grid;grid-template-columns:minmax(112px,.9fr) minmax(64px,1.6fr) 68px;align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid var(--line)}
 .bar-row:last-child{border-bottom:0}
-.bar-label{min-width:0;color:var(--tx2);font-size:.84rem;line-height:1.3}
-.bar-track{height:9px;min-width:0;overflow:hidden;border-radius:999px;background:var(--line2)}
-.bar-fill{height:100%;min-width:2px;border-radius:inherit;background:var(--amber)}
-.bar-val{text-align:right;color:var(--fg);font:500 .76rem/1.2 var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
-.table-wrap{width:100%;overflow-x:auto;margin:0 0 1.2rem;border:1px solid var(--line);border-radius:12px}
-.table-wrap table{min-width:650px;border:0}
-.table-wrap th,.table-wrap td{border-color:var(--line);padding:10px 12px}
-.note{margin-top:20px;padding:16px 18px;border-left:4px solid var(--amber);border-radius:0 10px 10px 0;background:var(--panel);color:var(--tx2);font-size:.88rem;line-height:1.6}
-.note-title{margin:0 0 .5em;color:var(--fg);font-weight:700}
-.note ul{margin:0;padding-left:1.2em}
-.note li{margin:.45em 0;color:var(--tx2)}
-.site-head{display:flex;justify-content:space-between;align-items:center;gap:16px;margin:0 0 36px;padding:14px 0;border-bottom:1px solid var(--line)}
-.site-brand{color:var(--fg);font:700 1rem/1 var(--serif);text-decoration:none}
-.site-nav{display:flex;gap:18px;flex-wrap:wrap;font:500 .75rem/1.2 var(--mono);letter-spacing:.05em;text-transform:uppercase}
-.site-nav a{color:var(--muted);text-decoration:none}
-.site-nav a:hover{color:var(--amber)}
-.site-foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:42px;padding:18px 0 24px;border-top:1px solid var(--line);color:var(--faint);font-size:.78rem}
-body{overflow-x:hidden}
-@media(max-width:760px){.paper-grid{grid-template-columns:minmax(0,1fr)}}
-@media(max-width:520px){body{padding:16px}.site-head{margin-bottom:26px}.bar-row{grid-template-columns:minmax(94px,1fr) minmax(48px,1.2fr) 58px;gap:8px}.paper-set{padding:14px}.bar-label{font-size:.78rem}.table-wrap table{font-size:.8rem}}
+.bar-label{min-width:0;font-size:.86rem;line-height:1.3;color:var(--ink)}
+.bar-track{height:10px;min-width:0;overflow:hidden;border-radius:999px;background:var(--bg)}
+.bar-fill{height:100%;min-width:2px;border-radius:inherit;background:var(--c3)}
+.bar-val{text-align:right;font:500 .78rem/1.2 var(--font-mono);font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--muted)}
+.table-wrap{width:100%;overflow-x:auto;margin:0 0 1.2rem;border-radius:var(--radius)}
+.report-table{border-collapse:collapse;width:100%;min-width:650px;background:var(--surface);font-size:.9rem}
+.report-table caption{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.report-table th,.report-table td{border-bottom:2px solid var(--line);padding:10px 12px;text-align:left}
+.report-table th{font:600 .72rem/1.3 var(--font-mono);letter-spacing:.06em;color:var(--muted);white-space:nowrap}
+.report-table td{color:var(--ink)}
+.report-table tbody tr:last-child td{border-bottom:0}
+.report-table tbody td:not(:first-child){font-variant-numeric:tabular-nums}
+.report-table tbody td:last-child{font-weight:800;color:var(--ink)}
+.method-note{margin-top:24px;padding:18px 20px;border-left:5px solid var(--c2);line-height:1.6}
+.method-note .note-title{margin:0 0 .6em;font-weight:800;color:var(--ink)}
+.method-note ul{margin:0;padding-left:1.25em}
+.method-note li{margin:.45em 0;color:var(--ink)}
+@media(max-width:820px){.paper-grid{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:560px){.pattern-report{padding-top:24px}.paper-set{padding:15px}.bar-row{grid-template-columns:minmax(88px,1fr) minmax(42px,1.1fr) 58px;gap:8px}.bar-label{font-size:.78rem}.bar-val{font-size:.7rem}.report-table{font-size:.8rem}}
+@media print{.nav,.foot,.engine{display:none!important}.pattern-report{padding:0}.paper-set{break-inside:avoid;box-shadow:none}}
 </style>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Geist+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet"><style id="polish">html{font-size:clamp(15px,12.9px + .52vw,17px);-webkit-text-size-adjust:100%}
-
-:focus-visible{outline:2px solid #0e7c7b;outline-offset:2px;border-radius:10px}
-button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,[tabindex]:focus-visible{outline:2px solid #0e7c7b;outline-offset:2px}
-@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
-
-body{font-family:'Plus Jakarta Sans',-apple-system,'Segoe UI',Plus Jakarta Sans,Arial,sans-serif!important}
-h1{font-size:clamp(1.5rem,1.2rem + 1.4vw,2.1rem)}
-@media (max-width:720px){
-  body{padding:0 clamp(12px,4vw,24px)!important;margin:1em auto!important}
-  .q-card{padding:14px 14px}
-  .opt{font-size:.8rem;padding:8px 10px}
-  table{display:block;overflow-x:auto;white-space:nowrap}
-}
-@media print{ body{max-width:100%;font-size:9pt} .q-card{break-inside:avoid} }
-</style>
-<style id="mlx-2026">
-button{transition:transform .15s cubic-bezier(.34,1.56,.64,1),box-shadow .15s,background .2s,border-color .2s,color .2s}
-button:hover{transform:translateY(-2px)}
-button:active{transform:translateY(0) scale(.96)}
-summary{cursor:pointer}
-.mlx-toggle{position:fixed;right:16px;bottom:16px;z-index:99;font:600 12px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:10px 13px;border-radius:999px;cursor:pointer;background:var(--panel);color:var(--fg);border:1px solid var(--line2);box-shadow:0 8px 22px -12px rgba(0,0,0,.55);transition:transform .15s,border-color .2s}
-.mlx-toggle:hover{border-color:var(--amber)}
-.mlx-toggle:active{transform:scale(.96)}
-@keyframes mlxFade{from{opacity:0}to{opacity:1}}
-body{animation:mlxFade .3s ease both}
-@media print{button{transition:none!important;transform:none!important}}
-@media print{.mlx-toggle{display:none!important}body{animation:none!important}}
-@media(prefers-reduced-motion:reduce){button,body,.mlx-toggle{animation:none!important;transition:none!important;transform:none!important}}
-</style>
-</head><body>
-<header class="site-head">
-  <a class="site-brand" href="/">MedCoreX</a>
-  <nav class="site-nav" aria-label="Main navigation"><a href="/library">Library</a><a href="/about">About</a><a href="/stats">Stats</a></nav>
-</header>
-<main>
-<h1>Pattern Analysis</h1>
-<p class="meta">718 MCQs across four papers. Subject totals show where each paper concentrated; answer-choice distributions are included only where a verified key exists.</p>
-<h2>Subject Distribution per Paper</h2>
+<script src="/assets/studyverse.js"></script>
+</head>
+<body>
+<header class="nav"><div class="wrap">
+  <a class="logo" href="/" aria-label="MedCoreX home"><span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 24 24" style="width:1.15em;height:1.15em" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M12 4.2v16.3"/><path d="M12 5.6c-3 0-3 2.3 0 2.3s3 2.3 0 2.3-3 2.3 0 2.3 3 2.3 0 2.3"/><circle cx="12" cy="3.3" r="1.35" fill="currentColor" stroke="none"/></svg></span>MedCoreX</a>
+  <nav class="links" aria-label="Main"><a href="/">Home</a><a href="/library">Library</a><a href="/about">About</a><a href="/stats">Stats</a><a href="/login" id="navAuth">Sign in</a></nav>
+  <div class="engine" title="Theme engine" data-sv-engine></div>
+</div></header>
+<nav class="crumbline" aria-label="Breadcrumb"><a href="/library">Library</a><span aria-current="page">Pattern Analysis</span></nav>
+<main class="wrap pattern-report">
+<header class="report-head"><p class="eyebrow">Exam intelligence · Four papers</p><h1>Pattern Analysis</h1><p class="lede">718 MCQs across four papers. Subject totals show where each paper concentrated; answer-choice patterns are included only where a verified key exists.</p></header>
+<section aria-labelledby="distribution-title"><div class="section-head"><div><p class="eyebrow">Subject mix</p><h2 id="distribution-title">Distribution per paper</h2></div><p class="muted">Each bar is scaled to its paper total.</p></div>
 <div class="paper-grid">
-<section class="paper-set"><h3><span>June 2024</span><span class="paper-count">147 MCQs</span></h3>
+<article class="card paper-set"><h3><span>June 2024</span><span class="paper-count">147 MCQs</span></h3>
 <div class="bar-row"><div class="bar-label">Medicine</div><div class="bar-track"><div class="bar-fill" style="width:53%"></div></div><div class="bar-val">78 (53%)</div></div>
 <div class="bar-row"><div class="bar-label">Surgery</div><div class="bar-track"><div class="bar-fill" style="width:11%"></div></div><div class="bar-val">16 (11%)</div></div>
 <div class="bar-row"><div class="bar-label">Paediatrics</div><div class="bar-track"><div class="bar-fill" style="width:8%"></div></div><div class="bar-val">12 (8%)</div></div>
@@ -142,7 +68,8 @@ body{animation:mlxFade .3s ease both}
 <div class="bar-row"><div class="bar-label">Anatomy</div><div class="bar-track"><div class="bar-fill" style="width:1%"></div></div><div class="bar-val">1 (1%)</div></div>
 <div class="bar-row"><div class="bar-label">Physiology</div><div class="bar-track"><div class="bar-fill" style="width:2%"></div></div><div class="bar-val">3 (2%)</div></div>
 <div class="bar-row"><div class="bar-label">Pathology</div><div class="bar-track"><div class="bar-fill" style="width:1%"></div></div><div class="bar-val">2 (1%)</div></div>
-</section><section class="paper-set"><h3><span>Dec 2024</span><span class="paper-count">171 MCQs</span></h3>
+</article>
+<article class="card paper-set"><h3><span>Dec 2024</span><span class="paper-count">171 MCQs</span></h3>
 <div class="bar-row"><div class="bar-label">Medicine</div><div class="bar-track"><div class="bar-fill" style="width:47%"></div></div><div class="bar-val">81 (47%)</div></div>
 <div class="bar-row"><div class="bar-label">Surgery</div><div class="bar-track"><div class="bar-fill" style="width:11%"></div></div><div class="bar-val">19 (11%)</div></div>
 <div class="bar-row"><div class="bar-label">Paediatrics</div><div class="bar-track"><div class="bar-fill" style="width:11%"></div></div><div class="bar-val">19 (11%)</div></div>
@@ -156,7 +83,8 @@ body{animation:mlxFade .3s ease both}
 <div class="bar-row"><div class="bar-label">Physiology</div><div class="bar-track"><div class="bar-fill" style="width:2%"></div></div><div class="bar-val">3 (2%)</div></div>
 <div class="bar-row"><div class="bar-label">Pathology</div><div class="bar-track"><div class="bar-fill" style="width:1%"></div></div><div class="bar-val">1 (1%)</div></div>
 <div class="bar-row"><div class="bar-label">Community Medicine</div><div class="bar-track"><div class="bar-fill" style="width:1%"></div></div><div class="bar-val">2 (1%)</div></div>
-</section><section class="paper-set"><h3><span>May 2026</span><span class="paper-count">200 MCQs</span></h3>
+</article>
+<article class="card paper-set"><h3><span>May 2026</span><span class="paper-count">200 MCQs</span></h3>
 <div class="bar-row"><div class="bar-label">Medicine</div><div class="bar-track"><div class="bar-fill" style="width:41%"></div></div><div class="bar-val">81 (41%)</div></div>
 <div class="bar-row"><div class="bar-label">Surgery</div><div class="bar-track"><div class="bar-fill" style="width:16%"></div></div><div class="bar-val">32 (16%)</div></div>
 <div class="bar-row"><div class="bar-label">Paediatrics</div><div class="bar-track"><div class="bar-fill" style="width:10%"></div></div><div class="bar-val">19 (10%)</div></div>
@@ -171,7 +99,8 @@ body{animation:mlxFade .3s ease both}
 <div class="bar-row"><div class="bar-label">Psychiatry</div><div class="bar-track"><div class="bar-fill" style="width:2%"></div></div><div class="bar-val">3 (2%)</div></div>
 <div class="bar-row"><div class="bar-label">Forensic Medicine</div><div class="bar-track"><div class="bar-fill" style="width:1%"></div></div><div class="bar-val">2 (1%)</div></div>
 <div class="bar-row"><div class="bar-label">Pathology</div><div class="bar-track"><div class="bar-fill" style="width:1%"></div></div><div class="bar-val">1 (1%)</div></div>
-</section><section class="paper-set"><h3><span>Dec 2025</span><span class="paper-count">200 MCQs</span></h3>
+</article>
+<article class="card paper-set"><h3><span>Dec 2025</span><span class="paper-count">200 MCQs</span></h3>
 <div class="bar-row"><div class="bar-label">Medicine</div><div class="bar-track"><div class="bar-fill" style="width:44%"></div></div><div class="bar-val">88 (44%)</div></div>
 <div class="bar-row"><div class="bar-label">Surgery</div><div class="bar-track"><div class="bar-fill" style="width:15%"></div></div><div class="bar-val">29 (15%)</div></div>
 <div class="bar-row"><div class="bar-label">Obstetrics & Gynaecology</div><div class="bar-track"><div class="bar-fill" style="width:10%"></div></div><div class="bar-val">19 (10%)</div></div>
@@ -185,10 +114,10 @@ body{animation:mlxFade .3s ease both}
 <div class="bar-row"><div class="bar-label">Forensic Medicine</div><div class="bar-track"><div class="bar-fill" style="width:2%"></div></div><div class="bar-val">4 (2%)</div></div>
 <div class="bar-row"><div class="bar-label">Biochemistry</div><div class="bar-track"><div class="bar-fill" style="width:2%"></div></div><div class="bar-val">3 (2%)</div></div>
 <div class="bar-row"><div class="bar-label">Psychiatry</div><div class="bar-track"><div class="bar-fill" style="width:1%"></div></div><div class="bar-val">2 (1%)</div></div>
-</section></div>
-<h2>Cross-Paper Comparison</h2>
-<p class="meta">Question counts by subject; dashes indicate no questions recorded for that paper.</p>
-<div class="table-wrap"><table><thead><tr><th>Subject</th><th>June 2024</th><th>Dec 2024</th><th>May 2026</th><th>Dec 2025</th><th>Total</th></tr></thead><tbody>
+</article>
+</div></section>
+<section aria-labelledby="comparison-title"><div class="section-head"><div><p class="eyebrow">All four papers</p><h2 id="comparison-title">Cross-paper comparison</h2></div><p class="muted">Question counts by subject; dashes indicate no questions recorded.</p></div>
+<div class="table-wrap"><table class="report-table"><caption>Question counts per subject for each paper and total</caption><thead><tr><th>Subject</th><th>June 2024</th><th>Dec 2024</th><th>May 2026</th><th>Dec 2025</th><th>Total</th></tr></thead><tbody>
 <tr><td>Medicine</td><td>78</td><td>81</td><td>81</td><td>88</td><td><b>328</b></td></tr>
 <tr><td>Surgery</td><td>16</td><td>19</td><td>32</td><td>29</td><td><b>96</b></td></tr>
 <tr><td>Paediatrics</td><td>12</td><td>19</td><td>19</td><td>17</td><td><b>67</b></td></tr>
@@ -204,13 +133,14 @@ body{animation:mlxFade .3s ease both}
 <tr><td>Pathology</td><td>2</td><td>1</td><td>1</td><td>—</td><td><b>4</b></td></tr>
 <tr><td>Community Medicine</td><td>—</td><td>2</td><td>3</td><td>4</td><td><b>9</b></td></tr>
 </tbody></table></div>
-<h2>Answer Distribution</h2>
-<p class="meta">June 2024 and Dec 2024 have no answer sources, so they are intentionally omitted.</p>
-<div class="table-wrap"><table><thead><tr><th>Paper</th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>Source</th></tr></thead><tbody>
+</section>
+<section aria-labelledby="answers-title"><div class="section-head"><div><p class="eyebrow">Verified keys only</p><h2 id="answers-title">Answer distribution</h2></div><p class="muted">June 2024 and Dec 2024 have no answer sources, so they are omitted.</p></div>
+<div class="table-wrap"><table class="report-table"><caption>Answer-choice counts for papers with complete keys</caption><thead><tr><th>Paper</th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>Source</th></tr></thead><tbody>
 <tr><td>May 2026</td><td>42</td><td>75</td><td>59</td><td>24</td><td>0</td><td>complete paper with key &amp; explanations (Self-Test Edition)</td></tr>
 <tr><td>Dec 2025</td><td>48</td><td>41</td><td>52</td><td>59</td><td>0</td><td>complete paper with key &amp; explanations (Self-Test Edition)</td></tr>
 </tbody></table></div>
-<div class="note">
+</section>
+<div class="card method-note">
   <p class="note-title">Method & integrity</p>
   <ul>
     <li><b>May 2026:</b> the full 200-question paper and 19 source blocks were used. Ten clinical blocks map to Medicine; Anatomy/Physiology blocks split into 6 Anatomy, 9 Physiology, 3 Biochemistry, and 1 Pathology; Forensic/Community blocks split 2/3.</li>
@@ -219,25 +149,14 @@ body{animation:mlxFade .3s ease both}
   </ul>
 </div>
 </main>
-<footer class="site-foot"><span>© 2026 MedCoreX. All rights reserved.</span><span>Developed by AHMDZAFR</span></footer>
-<script>
-(function(){
- try{
-  var s=localStorage.getItem('mlx-theme');
-  var m=s||(window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');
-  document.documentElement.setAttribute('data-mode',m);
- }catch(e){}
- var b=document.createElement('button');
- b.className='mlx-toggle';b.type='button';
- function lbl(){b.textContent=document.documentElement.getAttribute('data-mode')==='light'?'dark':'light';}
- b.addEventListener('click',function(){
-  var n=document.documentElement.getAttribute('data-mode')==='light'?'dark':'light';
-  document.documentElement.setAttribute('data-mode',n);
-  try{localStorage.setItem('mlx-theme',n);}catch(e){}
-  lbl();
- });
- document.body.appendChild(b);lbl();
-})();
-</script>
-
-</body></html>
+<footer class="foot"><div class="wrap foot-in">
+  <div>
+    <div class="logo" style="font-size:1.2rem"><span class="logo-mark" style="width:30px;height:30px;font-size:.8rem"><svg viewBox="0 0 24 24" style="width:1.15em;height:1.15em" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M12 4.2v16.3"/><path d="M12 5.6c-3 0-3 2.3 0 2.3s3 2.3 0 2.3-3 2.3 0 2.3 3 2.3 0 2.3"/><circle cx="12" cy="3.3" r="1.35" fill="currentColor" stroke="none"/></svg></span>MedCoreX</div>
+    <p class="foot-tag">A genuinely great study resource — curated with discipline, and kept current and exact.</p>
+  </div>
+  <nav class="foot-links" aria-label="Footer"><a href="/">Home</a><a href="/library">Library</a><a href="/about">About</a><a href="/faq">FAQ</a><a href="/stats">Stats</a><a href="/login" id="footAuth">Sign in</a></nav>
+  <div class="foot-legal"><span>© 2026 MedCoreX. All rights reserved. · Developed by AHMDZAFR</span><span>read · learn · repeat</span></div>
+</div></footer>
+<script src="/auth-nav.js" defer></script>
+</body>
+</html>

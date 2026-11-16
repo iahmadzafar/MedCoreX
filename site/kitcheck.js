@@ -27,16 +27,14 @@ function walk(dir, out = []) {
   return out;
 }
 
-/* Exempted Nov 3 by owner verdict — TWENTY pages, not the ten first thought:
+/* Exempted Nov 3 by owner verdict — originally twenty pre-resign pages:
    the palette-only bridge was "the same cheap trick" for the systems books
-   AND the standalone pages. All twenty sit off the bridge until real per-page
-   kit conversions land (pattern: forge-master, cbf48fa). Exemption is
-   explicit, dated and owned; everything else still fails the gate. */
+   AND the standalone pages. Converted pages are removed from this list as
+   real per-page kit conversions land (pattern: forge-master, cbf48fa). */
 const EXEMPT = [
-  /* ten standalone (were bridge consumers, reverted to pre-bridge bytes) */
+  /* remaining standalone pages (were bridge consumers, reverted to pre-bridge bytes) */
   'medcore-cheat-card.html',
   'medcore-memory-master-core.html',
-  'medcore-pattern-analysis.html',
   'medcore-recall-sheets-repeat-offenders.html',
   'nre-recall-sheets-repeat-offenders.html',
   'qbank-logic-first-high-yield-logic-first-high-yield-bank.html',
