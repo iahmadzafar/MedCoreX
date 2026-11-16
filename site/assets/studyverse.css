@@ -160,6 +160,7 @@ footer.foot{border-top:var(--bw) solid var(--ink);background:var(--surface);tran
 
 .toast{position:fixed;left:50%;bottom:70px;transform:translate(-50%,calc(100% + 90px));background:var(--ink);color:var(--bg);padding:12px 22px;border-radius:999px;font-weight:800;z-index:99;transition:transform .5s var(--ease);box-shadow:4px 4px 0 var(--c1)}
 .toast.show{transform:translate(-50%,0)}
+.toast.theme-toast{max-width:calc(100vw - 28px);padding:7px 12px;border:2px solid var(--ink);border-radius:9px;background:var(--c3);color:var(--on-accent);font-family:var(--font-mono);font-size:.8rem;line-height:1.2;letter-spacing:.01em;text-align:center;white-space:normal;box-shadow:3px 3px 0 var(--ink)}
 .confetti{position:fixed;width:10px;height:14px;z-index:98;pointer-events:none;border:1.5px solid var(--ink)}
 
 .opts{display:grid;gap:13px}

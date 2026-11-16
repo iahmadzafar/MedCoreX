@@ -154,7 +154,7 @@ let LOCK=null; try{LOCK=JSON.parse(localStorage.getItem('mx-lock')||'null')}catc
 function saveLock(){try{localStorage.setItem('mx-lock',JSON.stringify(LOCK))}catch(e){}}
 const syncLock=()=>{const b=document.getElementById('lockBtn');if(!b)return;b.setAttribute('aria-pressed',!!LOCK);b.innerHTML=LOCK?IC.lock:IC.unlock};
 syncLock();
-function remix(){applyTheme(makeTheme()); if(LOCK){LOCK=current;saveLock()} toast(`New theme: ${current.name} · ${current.scheme}`); burst(innerWidth-60,40)}
+function remix(){applyTheme(makeTheme()); if(LOCK){LOCK=current;saveLock()} toast(`New theme · ${current.name}`, 'theme'); burst(innerWidth-60,40)}
 document.addEventListener('click',e=>{
   if(e.target.id==='remixBtn') remix();
   if(e.target.id==='lockBtn'){ LOCK=LOCK?null:current; saveLock(); syncLock(); toast(LOCK?'Theme locked for next visit':'A new theme every visit'); }
@@ -169,7 +169,7 @@ applyTheme(LOCK||makeTheme());
 initMode();
 
 let tt;
-function toast(msg){const t=document.getElementById('toast');if(!t)return;t.textContent=msg;t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),2200)}
+function toast(msg,kind){const t=document.getElementById('toast');if(!t)return;t.textContent=msg;t.classList.toggle('theme-toast',kind==='theme');t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show','theme-toast'),2200)}
 const reducedMotion=()=>window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 function burst(x,y,n){
   if(reducedMotion())return;
