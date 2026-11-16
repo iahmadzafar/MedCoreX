@@ -79,6 +79,12 @@ function paint(){
     r.style.setProperty('--surface','#1b1c20');
     r.style.setProperty('--ink','#e9e7e3');
     r.style.setProperty('--muted','#b4b3b1');
+    r.style.setProperty('--c1','#f08a9b'); /* coral */
+    r.style.setProperty('--c2','#e2b968'); /* amber */
+    r.style.setProperty('--c3','#7dbbd4'); /* sky */
+    r.style.setProperty('--c4','#b49bd8'); /* lavender */
+    r.style.setProperty('--ok','#79b9d6');
+    r.style.setProperty('--bad','#ef8a94');
   } else {
     r.style.setProperty('--bg','#fff4e0');
     r.style.setProperty('--surface','#fffdf8');
