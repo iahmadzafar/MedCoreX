@@ -47,16 +47,38 @@ const SHADOWS=[
  ['2px 2px 0 var(--c2),5px 5px 0 var(--ink)','3px 3px 0 var(--c2),7px 5px 0 var(--ink)'],
  ['0 10px 24px -10px color-mix(in srgb,var(--c4) 70%,transparent)','0 16px 32px -10px color-mix(in srgb,var(--c1) 70%,transparent)'],
  ['-3px 3px 0 var(--c3)','-6px 6px 0 var(--ink)']];
+const DARK_PALETTES=[
+  {c1:[344,360],c2:[32,54],c3:[192,216],c4:[260,284]},
+  {c1:[320,340],c2:[38,58],c3:[202,228],c4:[276,300]},
+  {c1:[350,360],c2:[20,42],c3:[210,234],c4:[286,310]}
+];
+const CANVASES=[
+  {lightBg:'#fff4e0',lightSurface:'#fffdf8',darkBg:'#111214',darkSurface:'#1b1c20'},
+  {lightBg:'#f4f2ed',lightSurface:'#fbfaf7',darkBg:'#141415',darkSurface:'#202022'},
+  {lightBg:'#f1f3f4',lightSurface:'#fafbfc',darkBg:'#131516',darkSurface:'#1c2022'},
+  {lightBg:'#f5f0ef',lightSurface:'#fcf9f8',darkBg:'#171615',darkSurface:'#242220'}
+];
+function makeDarkPalette(){
+  const ranges=pick(DARK_PALETTES);
+  const color=(range,sat,light)=>hsl(rand(range[0],range[1]),sat,light);
+  return {
+    '--c1':color(ranges.c1,rand(68,82),rand(68,76)),
+    '--c2':color(ranges.c2,rand(68,82),rand(68,76)),
+    '--c3':color(ranges.c3,rand(56,72),rand(66,76)),
+    '--c4':color(ranges.c4,rand(52,70),rand(68,78))
+  };
+}
+const makeCanvasPalette=()=>pick(CANVASES);
 const ADJ=['Electric','Bubblegum','Cosmic','Retro','Sour','Velvet','Jazzy','Turbo','Lemon','Neon','Groovy','Fizzy','Disco','Cherry','Tropical','Glitter','Mango','Pixel'];
 const NOUN=['Notebook','Riot','Library','Sundae','Lab','Arcade','Atlas','Mixtape','Garden','Comet','Parade','Studio','Lagoon','Cassette','Carnival','Orbit'];
 function makeTheme(){
-  const h=rand(0,360), name=Object.keys(SCHEMES), scheme=pick(name), offs=SCHEMES[scheme], s=rand(74,96);
+  const h=rand(0,360), name=Object.keys(SCHEMES), scheme=pick(name), offs=SCHEMES[scheme], s=rand(74,96), canvasPalette=makeCanvasPalette();
   const d=pick(DISPLAY), sh=pick(SHADOWS);
-  return {name:`${pick(ADJ)} ${pick(NOUN)}`, scheme, vars:{
+  return {name:`${pick(ADJ)} ${pick(NOUN)}`, scheme, darkPalette:makeDarkPalette(), canvasPalette, vars:{
     '--c1':hsl(h+offs[0],s,rand(60,68)),'--c2':hsl(h+offs[1],s,rand(62,72)),
     '--c3':hsl(h+offs[2],s,rand(60,70)),'--c4':hsl(h+offs[3],s*.9,rand(64,74)),
-    '--bg':hsl(h+offs[1]*.25,rand(70,95),rand(93,96)),
-    '--surface':hsl(h,100,rand(98.5,99.5)),
+    '--bg':canvasPalette.lightBg,
+    '--surface':canvasPalette.lightSurface,
     '--ink':hsl(h+200,rand(35,60),rand(9,15)),
     '--font-display':d.f,'--dw':d.w,'--case':d.c,'--track':d.t,
     '--font-body':pick(BODY),
@@ -75,26 +97,23 @@ function paint(){
   /* Page canvas stays neutral; theme remixes apply to accents, not backgrounds. */
   r.dataset.pattern='plain';
   if(r.dataset.theme==='dark'){
-    r.style.setProperty('--bg','#111214');
-    r.style.setProperty('--surface','#1b1c20');
+    r.style.setProperty('--bg',current.canvasPalette.darkBg);
+    r.style.setProperty('--surface',current.canvasPalette.darkSurface);
     r.style.setProperty('--ink','#e9e7e3');
     r.style.setProperty('--muted','#b4b3b1');
-    r.style.setProperty('--c1','#f08a9b'); /* coral */
-    r.style.setProperty('--c2','#e2b968'); /* amber */
-    r.style.setProperty('--c3','#7dbbd4'); /* sky */
-    r.style.setProperty('--c4','#b49bd8'); /* lavender */
+    Object.entries(current.darkPalette).forEach(([k,v])=>r.style.setProperty(k,v));
     r.style.setProperty('--ok','#79b9d6');
     r.style.setProperty('--bad','#ef8a94');
   } else {
-    r.style.setProperty('--bg','#fff4e0');
-    r.style.setProperty('--surface','#fffdf8');
+    r.style.setProperty('--bg',current.canvasPalette.lightBg);
+    r.style.setProperty('--surface',current.canvasPalette.lightSurface);
     /* engine has no --muted value: clear the dark inline so :root light value applies */
     r.style.removeProperty('--muted');
   }
   const tn=document.getElementById('themeName'); if(tn) tn.textContent=current.name;
   try{document.dispatchEvent(new CustomEvent('sv:theme',{detail:{theme:current,mode:r.dataset.theme}}))}catch(e){}
 }
-function applyTheme(t){ current=t; paint(); }
+function applyTheme(t){ current=t;if(!current.darkPalette)current.darkPalette=makeDarkPalette();if(!current.canvasPalette)current.canvasPalette=makeCanvasPalette();paint();if(LOCK&&current===LOCK)saveLock(); }
 const MKEY='mx-mode';
 function initMode(){
   let m=null; try{m=localStorage.getItem(MKEY)}catch(e){}
