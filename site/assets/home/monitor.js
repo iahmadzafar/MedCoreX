@@ -6,7 +6,7 @@
    pauses when off-screen or the tab is hidden, and under
    prefers-reduced-motion draws one static frame instead.
    The readings themselves are real text in the page: this file
-   only draws the traces. SIMULATED · NOT LIVE. For study only.
+   only draws the traces. Simulated, not live. For study only.
    ============================================================ */
 
 var TAU = Math.PI * 2;
@@ -39,18 +39,18 @@ export function start(screen) {
   var ctx = canvas.getContext('2d');
 
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
-  var beat = document.getElementById('beat');
+  var beat = null; /* the device has no pulse LED; the trace carries the rhythm */
   var W = 0, H = 0, dpr = 1, raf = 0, visible = false, T0 = performance.now();
 
   var state = { hr: 72, rr: 16, rhythm: 'regular', pleth: 1, focus: '' };
   var col = {};
 
+  /* Direction 2: one bright trace colour for every wave; focus is shown by
+     dimming the others, not by colour, so the instrument stays monochrome */
   function readColours() {
     var cs = getComputedStyle(document.documentElement);
-    col.ecg = cs.getPropertyValue('--ecg').trim() || '#3dff9a';
-    col.pleth = cs.getPropertyValue('--pleth').trim() || '#5cc8ff';
-    col.resp = cs.getPropertyValue('--resp').trim() || '#ffb84d';
-    col.muted = cs.getPropertyValue('--muted').trim() || '#a3b5b0';
+    col.trace = cs.getPropertyValue('--trace').trim() || '#f2ede4';
+    col.dim = cs.getPropertyValue('--trace-dim').trim() || '#8f8a80';
   }
 
   function resize() {
@@ -67,9 +67,9 @@ export function start(screen) {
   /* bands: ECG top half, pleth middle, respiration bottom */
   function bands() {
     return [
-      { key: 'ecg',   y0: 0,          h: H * 0.52, colour: col.ecg,   label: 'ECG II' },
-      { key: 'pleth', y0: H * 0.54,   h: H * 0.26, colour: col.pleth, label: 'SpO₂ PLETH' },
-      { key: 'resp',  y0: H * 0.82,   h: H * 0.17, colour: col.resp,  label: 'RESP' }
+      { key: 'ecg',   y0: 0,          h: H * 0.52, colour: col.trace, label: 'ECG II' },
+      { key: 'pleth', y0: H * 0.54,   h: H * 0.26, colour: col.trace, label: 'SpO₂ PLETH' },
+      { key: 'resp',  y0: H * 0.82,   h: H * 0.17, colour: col.trace, label: 'RESP' }
     ];
   }
 
@@ -96,9 +96,9 @@ export function start(screen) {
               : b.h * 0.44;
 
       ctx.save();
-      ctx.globalAlpha = dim ? 0.2 : 1;
+      ctx.globalAlpha = dim ? 0.26 : 1;
       ctx.strokeStyle = b.colour;
-      ctx.lineWidth = focused ? 2.8 : 1.8;
+      ctx.lineWidth = focused ? 2.6 : 1.6;
       ctx.beginPath();
       for (var x = 0; x <= W; x += SAMPLE_PX) {
         var tx = t - (W - x) / PX_PER_SEC;
@@ -109,12 +109,6 @@ export function start(screen) {
       ctx.stroke();
       ctx.restore();
 
-      ctx.save();
-      ctx.globalAlpha = dim ? 0.2 : 0.85;
-      ctx.fillStyle = col.muted;
-      ctx.font = '600 10px "Geist Mono", ui-monospace, Menlo, monospace';
-      ctx.fillText(b.label, 10, b.y0 + 14);
-      ctx.restore();
     });
   }
 

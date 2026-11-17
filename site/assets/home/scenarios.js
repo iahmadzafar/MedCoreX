@@ -3,10 +3,9 @@
    Puts the monitor into a clinical scenario, asks which reading
    pattern it shows (4 options), then explains the answer and ties
    it to a library category. Loads content/scenarios.json.
+   Nothing is saved: scores live only for this visit.
    For study only, not clinical guidance.
    ============================================================ */
-import { recordAnswer } from './streak.js';
-
 function slugify(s) { return s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''); }
 
 function el(tag, attrs, text) {
@@ -75,10 +74,6 @@ export async function start(opts) {
           x.disabled = true;
           if (kk === s.answer) x.classList.add('right');
           else if (kk === k) x.classList.add('wrong');
-        });
-        recordAnswer({
-          kind: 'scenario', id: s.id, correct: right, stem: s.title,
-          picked: text, right: s.options[s.answer], why: s.why, cat: s.category
         });
         showVerdict(right, k);
       });

@@ -2,7 +2,7 @@
 
 The redesigned landing page at `/` (`site/index.html`). The rest of the site is unchanged and still runs on the Studyverse kit.
 
-**Direction:** A, "Phosphor Ward". A dark ICU-instrument look, dark by default, with a light twin. Readings are green (ECG), blue (SpO₂) and amber (respiration), and those colours mean the same thing in both modes.
+**Direction:** 2, "Graphite and Ember". A matte bedside instrument: graphite body, hard 2px edges, one ember accent used only for the action and out-of-range values. Dark by default. The light twin keeps the monitor dark, because it is an instrument, not a page.
 
 ## Setup
 
@@ -33,7 +33,6 @@ node site/kitcheck.js            # every page is themed (the landing page is exe
 | Canvas monitor (ECG, pleth, respiration), loaded when the monitor is in view | `site/assets/home/monitor.js` |
 | "Read the monitor" scenarios, loaded on click | `site/assets/home/scenarios.js` |
 | 60-second sprint, loaded on click | `site/assets/home/sprint.js` |
-| Study record: streak, error log, dismissible corner widget, loaded when idle | `site/assets/home/streak.js` |
 | Scenario data | `site/content/scenarios.json` |
 | Sprint questions | `site/content/questions.json` |
 | Resource list (the seven categories and their items) | `site/assets/catalog.js` (shared with `/library`) |
@@ -68,23 +67,7 @@ Each question has `id`, `stem`, `options` (four), `answer` (zero-based), `why` a
 
 ## Storage and privacy
 
-Saved progress uses localStorage keys under `medcore.*`, which is the kit's naming rule:
-
-- `medcore.streak`: daily streak
-- `medcore.scenarios`: scenarios answered and whether each was right
-- `medcore.sprintBest`: best sprint score
-- `medcore.misses`: error log, including your own notes
-- `medcore.widget`: whether the corner widget is open
-
-`medcore-sync.js` mirrors `medcore.*` keys to the account when someone is signed in. Nothing clinical is stored outside the browser.
-
-## Verification done
-
-- **Lighthouse (mobile emulation, local server):** Performance 98, Accessibility 100, Best Practices 96, SEO 100. LCP 1.9s, CLS 0, total blocking time 0ms.
-- **Bundle:** initial JS about 11 KB gzipped (budget 200 KB). The four lazy modules add about 10 KB. Home CSS about 6 KB.
-- **Behaviour (checked in a browser):** reading selection and explanations, tab switching (swap in about 2ms), arrow-key navigation, the filter, the scenario game, the 60-second sprint with score, best and misses, the note field, and one-at-a-time rule reveals.
-
-Not verified: reduced-motion waveforms and the 375, 768, 1280 and 1920 widths on the deployed host. The local checks ran at a single window width (734px) and at a wider desktop width.
+The landing page stores nothing. There is no account and no study record. Scores from the scenario and the sprint live only in the page's memory and are gone when the visit ends. On load, the page clears any `medcore.*` keys left by an earlier build of the study record.
 
 ## Deploy to Cloudflare Pages
 
@@ -108,3 +91,5 @@ Wrangler prints the preview URL. Check the page there before merging to `main`.
 - **No Next.js or Astro.** The brief said to keep the existing framework if it works. It does: static files, Pages Functions for sign-in, and the CI gates all assume it.
 - **Tips ticker removed.** The "Teach it to learn it" marquee was decoration the brief excludes, and it isn't in the required section order. It's a one-line revert if you want it back.
 - **Reveals hide content until their turn** rather than dimming it. A dimmed state failed text contrast, and hidden content is excluded from contrast testing.
+- **Study record removed.** Visitors have no account, so there was nothing durable to save. The sprint still shows your misses at the end.
+- **Theme toggle is an inline SVG sun and moon,** not emoji. The house rules ban emoji on anything a student reads.

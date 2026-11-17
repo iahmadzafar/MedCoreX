@@ -3,7 +3,7 @@
    Theme, scroll reveals, the one-at-a-time rules, catalogue tabs
    with keyboard support, reading explanations. Heavy parts load
    lazily: monitor.js when the monitor is in view, games on demand,
-   streak.js when the browser is idle.
+   no storage, no account.
    ============================================================ */
 (function () {
   'use strict';
@@ -12,14 +12,20 @@
   root.classList.add('js');
   var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)');
 
+  /* the study record is gone: clear anything it left in this browser */
+  try {
+    ['medcore.streak', 'medcore.scenarios', 'medcore.misses', 'medcore.sprintBest', 'medcore.widget']
+      .forEach(function (k) { localStorage.removeItem(k); });
+  } catch (e) {}
+
   /* ── theme: dark is the default; light is opt-in and remembered ── */
   var MODE_KEY = 'mx-mode';
   try { if (localStorage.getItem(MODE_KEY) === 'light') root.dataset.theme = 'light'; } catch (e) {}
   var themeBtn = doc.getElementById('themeBtn');
   function syncTheme() {
     var dark = root.dataset.theme !== 'light';
-    themeBtn.setAttribute('aria-pressed', String(dark));
-    themeBtn.textContent = dark ? 'Light mode' : 'Dark mode';
+    themeBtn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+    themeBtn.setAttribute('aria-pressed', String(!dark));
   }
   themeBtn.addEventListener('click', function () {
     var next = root.dataset.theme === 'light' ? 'dark' : 'light';
@@ -98,7 +104,7 @@
     var v = e.detail;
     if (!v) {
       monitor.classList.remove('in-scenario');
-      scnTag.textContent = '';
+      scnTag.hidden = true;
       readings.forEach(function (btn) {
         var main = btn.querySelector('[data-main]');
         var unit = btn.querySelector('[data-unit]');
@@ -108,7 +114,7 @@
       return;
     }
     monitor.classList.add('in-scenario');
-    scnTag.textContent = ' · SCENARIO';
+    scnTag.hidden = false;
     readings.forEach(function (btn) {
       var key = btn.getAttribute('data-vital');
       var main = btn.querySelector('[data-main]');
@@ -145,10 +151,6 @@
   sprintBtn.addEventListener('click', function () {
     import('./sprint.js').then(function (m) { m.start({ slot: sprintSlot }); });
   });
-
-  /* the corner record widget mounts when the browser is idle */
-  var idle = window.requestIdleCallback || function (fn) { return setTimeout(fn, 1200); };
-  idle(function () { import('./streak.js').then(function (m) { m.mount(); }).catch(function () {}); });
 
   /* ── catalogue: tabs, indicator, filter, list from catalog.js ── */
   var tablist = doc.getElementById('tablist');
