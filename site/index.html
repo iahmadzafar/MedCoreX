@@ -1,302 +1,318 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="utf-8">
-<meta name="color-scheme" content="light dark">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MedCoreX — a private study library</title>
 <meta name="description" content="Seven categories, one standard. A curated library of books, drills, recalled papers and exam intelligence.">
 <meta name="robots" content="index, follow">
-<link rel="stylesheet" href="/assets/studyverse.css">
-<style>
-/* ═══ PAGE: home — catalogue tabs, rules, quote (kit carries the rest) ═══ */
-.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
-.panels{margin-top:4px}
-.panel{display:none}
-.panel.active{display:block}
-.grp-note{font-family:var(--font-display);text-transform:uppercase;letter-spacing:.1em;font-size:.8rem;font-weight:700;color:var(--muted);margin-bottom:14px}
-.faqitem{border:var(--bw) solid var(--ink);border-radius:var(--radius);background:var(--surface);box-shadow:var(--shadow);margin-bottom:14px;transition:transform .3s var(--ease),box-shadow .3s var(--ease),background .8s}
-.faqitem:hover{transform:translate(-3px,-3px);box-shadow:var(--shadow-hover)}
-.faqitem summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;padding:16px 18px}
-.faqitem summary::-webkit-details-marker{display:none}
-.faqitem .rt{flex:1;min-width:0}
-.faqitem .t{font-family:var(--font-display);font-weight:var(--dw);text-transform:var(--case);font-size:1.05rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.faqitem .d{color:var(--muted);font-size:.9rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.faqitem .chev{width:26px;height:26px;border:2px solid var(--ink);border-radius:50%;display:grid;place-items:center;background:var(--c3);transition:transform .25s var(--ease)}
-.faqitem[open] .chev{transform:rotate(90deg)}
-.faqitem .body{display:flex;gap:12px;align-items:center;padding:0 18px 16px;flex-wrap:wrap}
-.nores{font-weight:700;color:var(--muted);padding:20px;display:none}
-.toolbar{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:18px}
-.toolbar .field{flex:1 1 260px}
-.resume{display:none;align-items:center;gap:8px;text-decoration:none;font-weight:800;border:2px solid var(--ink);border-radius:999px;padding:.55em 1em;background:var(--c4);transition:transform .2s var(--ease)}
-.resume.on{display:inline-flex}
-.resume:hover{transform:translateY(-2px) rotate(-2deg)}
-.rules{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
-.rule .num{font-family:var(--font-display);font-weight:var(--dw);font-size:.9rem;letter-spacing:.14em;background:var(--c2);border:2px solid var(--ink);border-radius:999px;display:inline-block;padding:.2em .8em;margin-bottom:12px}
-.rule h3{font-size:1.35rem;margin-bottom:8px}
-.rule p{color:var(--muted);font-size:.98rem}
-.quote{margin:44px auto 0;max-width:760px;text-align:center;border:var(--bw) solid var(--ink);border-radius:var(--radius);box-shadow:var(--shadow);padding:34px 24px;background:var(--surface)}
-.quote p{font-family:var(--font-display);font-weight:var(--dw);text-transform:var(--case);font-size:clamp(1.2rem,3vw,1.9rem);line-height:1.25;margin:0}
-.quote .qs{font-size:.85rem;font-weight:700;color:var(--muted);margin-top:14px}
-.vitals{position:absolute;inset:6% 2% 8% 4%;background:var(--surface);border:var(--bw) solid var(--ink);border-radius:var(--radius);box-shadow:var(--shadow);display:flex;flex-direction:column;padding:14px 16px;gap:8px;transition:background .8s}
-.vitals .v-head{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:12px;min-height:22px;flex:0 0 auto;font-family:var(--font-mono);font-size:.68rem;font-weight:600;letter-spacing:.06em;color:var(--muted);white-space:nowrap}
-.vitals .v-brand{display:flex;align-items:baseline;gap:6px;min-width:0;overflow:hidden}
-.vitals .v-brand-name{color:var(--ink);font-family:var(--font-mono);font-size:1.05em;font-weight:700;letter-spacing:0;text-transform:none}
-.vitals .v-brand-sep{opacity:.55}
-.vitals .v-brand-label{overflow:hidden;text-overflow:ellipsis}
-.vitals .v-status{display:flex;align-items:center;gap:7px;min-width:0;color:var(--ink);font-size:.9em;letter-spacing:.07em}
-.vitals .v-status .bed-id{font-variant-numeric:tabular-nums}
-.vitals .v-status .mode{color:var(--muted)}
-.vitals .v-status .mode-suffix{white-space:pre}
-.vitals .beat{width:8px;height:8px;border-radius:50%;background:var(--ok);flex:0 0 auto;animation:beat 1.4s ease-in-out infinite}
-.vitals .v-body{flex:1 1 0;display:flex;gap:12px;min-height:0}
-.vitals .waves{flex:1;display:flex;flex-direction:column;gap:4px;min-width:0;padding:4px;border-radius:4px;background-color:color-mix(in srgb,var(--surface) 94%,var(--ink));background-image:linear-gradient(to right,color-mix(in srgb,var(--ink) 12%,transparent) 1px,transparent 1px),linear-gradient(to bottom,color-mix(in srgb,var(--ink) 12%,transparent) 1px,transparent 1px),linear-gradient(to right,color-mix(in srgb,var(--ink) 6%,transparent) 1px,transparent 1px),linear-gradient(to bottom,color-mix(in srgb,var(--ink) 6%,transparent) 1px,transparent 1px);background-size:50px 50px,50px 50px,10px 10px,10px 10px}
-.vitals .wave{width:100%;display:block;flex:1 1 0}
-.vitals .wave[role=button]{cursor:pointer;transition:opacity .15s ease}
-.vitals .wave.is-muted{opacity:.2}
-.vitals .wave.is-active path{stroke-width:3.2}
-.vitals .wave:focus-visible{outline:2px solid var(--c3);outline-offset:2px}
-.vitals .wave.ecg{flex-grow:56}
-.vitals .wave.ecg path{stroke:var(--c1);stroke-dasharray:.16 1;animation:sweep 2.4s linear infinite}
-.vitals .wave.pleth{flex-grow:30}
-.vitals .wave.pleth path{stroke:var(--c3);stroke-dasharray:.16 1;animation:sweep 2.4s linear infinite}
-.vitals .wave.resp{flex-grow:20}
-.vitals .wave.resp path{stroke:var(--c2);stroke-dasharray:.16 1;animation:sweep 4.2s linear infinite}
-.vitals .nums{flex:0 0 auto;min-width:88px;display:grid;grid-template-rows:repeat(5,minmax(0,1fr));gap:2px;align-content:stretch;border-left:2px solid var(--line);padding-left:12px}
-.vitals .v{display:flex;width:100%;min-height:0;flex-direction:column;justify-content:center;overflow:hidden;padding:2px 3px;border:0;border-radius:3px;background:transparent;color:inherit;text-align:left;font:inherit;cursor:pointer;transition:background .15s ease,box-shadow .15s ease}
-.vitals .v:hover{background:color-mix(in srgb,var(--ink) 5%,var(--surface))}
-.vitals .v[aria-pressed=true]{background:color-mix(in srgb,var(--ink) 8%,var(--surface));box-shadow:inset 3px 0 0 var(--c3);padding-left:6px}
-.vitals .v:focus-visible{outline:2px solid var(--c3);outline-offset:1px}
-.vitals .v b{display:block;font-family:var(--font-display);font-weight:var(--dw);font-size:clamp(.82rem,.62rem + 1.45cqi,1.1rem);line-height:1;font-variant-numeric:tabular-nums;white-space:nowrap}
-.vitals .v>b+span{display:block;font-family:var(--font-mono);font-size:.58rem;letter-spacing:.1em;color:var(--muted);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.vitals .v.hr b{color:var(--c1)}
-.vitals .v.spo2 b{color:var(--c3)}
-.vitals .v.rr b{color:var(--c2)}
-.vitals .v b i{font-style:normal;font-size:.6em;color:var(--muted);margin-left:3px}
-.vitals .v-foot{display:flex;flex:0 0 auto;justify-content:space-between;gap:10px;font-family:var(--font-mono);font-size:clamp(.48rem,1.3cqi,.62rem);letter-spacing:.08em;color:var(--muted);white-space:nowrap}
-.hero-art{container-type:inline-size}
-@container (max-width:430px){
-  .vitals .v-head{gap:6px;font-size:.62rem}
-  .vitals .v-status{gap:5px}
-  .vitals .v-status .bed-id{display:none}
-  .vitals .nums{min-width:126px;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(3,minmax(0,1fr));column-gap:7px;row-gap:3px;padding-left:8px}
-  .vitals .v.nibp{grid-column:1/-1;display:grid;grid-template-columns:auto minmax(0,1fr);align-items:baseline;column-gap:7px}
-  .vitals .v.nibp>b+span{margin-top:0}
-  .vitals .v>b+span{font-size:.5rem;letter-spacing:.04em}
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#05090a">
+<link rel="canonical" href="https://medcorex.pages.dev/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MedCoreX">
+<meta property="og:title" content="MedCoreX — a private study library">
+<meta property="og:description" content="Seven categories, one standard. A curated library of books, drills, recalled papers and exam intelligence.">
+<meta property="og:url" content="https://medcorex.pages.dev/">
+<meta property="og:image" content="https://medcorex.pages.dev/assets/home/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="MedCoreX monitor: heart rate 72, SpO2 98, respiration 16, temperature 36.8, blood pressure 118/76. Simulated, not live.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MedCoreX — a private study library">
+<meta name="twitter:description" content="Seven categories, one standard. Everything the exam asks. Nothing it doesn't.">
+<meta name="twitter:image" content="https://medcorex.pages.dev/assets/home/og.png">
+
+<link rel="icon" href="/assets/home/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/home/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/home/apple-touch-icon.png">
+<link rel="manifest" href="/assets/home/site.webmanifest">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Geist+Mono:wght@400..600&display=swap">
+<link rel="stylesheet" href="/assets/home/home.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  "name": "MedCoreX",
+  "url": "https://medcorex.pages.dev/",
+  "logo": "https://medcorex.pages.dev/assets/home/favicon-512.png",
+  "description": "A private study library for medical licensing and postgraduate exam preparation: books, drills, recalled papers and exam intelligence, in seven categories.",
+  "areaServed": "Worldwide",
+  "knowsAbout": ["Medical licensing examinations", "Postgraduate medical examinations", "Clinical reasoning", "Past papers"],
+  "sameAs": []
 }
-@container (max-width:350px){
-  .vitals .v-status .mode-suffix{display:none}
-  .vitals .nums{min-width:116px}
-  .vitals .v.nibp b{font-size:.78rem}
-  .vitals .v.nibp>b+span{font-size:.44rem}
-}
-@media (max-width:1200px){.hero-art{aspect-ratio:4/3}}
-@media (max-width:350px){.hero-art{aspect-ratio:1/1}}
-@keyframes beat{0%,100%{transform:scale(1)}18%{transform:scale(1.35)}36%{transform:scale(1)}54%{transform:scale(1.22)}72%{transform:scale(1)}}
-@keyframes sweep{to{stroke-dashoffset:-1.16}}
-.resume,.rule .num,.faqitem .chev{color:var(--on-accent)}
-@media (max-width:900px){.rules{grid-template-columns:1fr}}
-@media print{.faqitem,.quote{box-shadow:none;break-inside:avoid}}
-</style>
-<script src="/assets/studyverse.js"></script>
-<script src="/assets/catalog.js"></script>
+</script>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
-<!--NAV-->
-<header class="nav">
+<header class="site-head">
   <div class="wrap">
-    <a class="logo" href="/"><span class="logo-mark"><svg viewBox="0 0 24 24" style="width:1.15em;height:1.15em" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M12 4.2v16.3"/><path d="M12 5.6c-3 0-3 2.3 0 2.3s3 2.3 0 2.3-3 2.3 0 2.3 3 2.3 0 2.3"/><circle cx="12" cy="3.3" r="1.35" fill="currentColor" stroke="none"/></svg></span>MedCoreX</a>
-    <nav class="links" aria-label="Main">
+    <a class="brand" href="/" aria-label="MedCoreX home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h4l2-5 3 10 3-14 2 9h3 5"/></svg>
+      </span>
+      MedCoreX
+    </a>
+    <nav class="nav-links" aria-label="Main">
       <a href="/" aria-current="page">Home</a>
       <a href="/library">Library</a>
       <a href="/about">About</a>
-      <a href="/stats">Stats</a> <a href="/login" id="navAuth">Sign in</a>
+      <a href="/stats" data-hide-sm>Stats</a>
+      <a href="/login" id="navAuth">Sign in</a>
+      <button class="theme-btn" id="themeBtn" type="button" aria-pressed="true">Light mode</button>
     </nav>
-    <div class="engine" title="Theme engine" data-sv-engine></div>
   </div>
 </header>
-<!--/NAV-->
 
-<main class="wrap">
-  <section class="hero">
-    <div class="rv">
-      <p class="eyebrow">Private study library · seven categories</p>
-      <h1 class="mega">Everything<br>the <span class="w2">exam</span> asks.<br>Nothing it <span class="w4">doesn't.</span></h1>
-      <p class="lede">Books, drills, recalled papers and exam intelligence — <span class="hl">cut to exactly what the exam demands</span>, kept current, kept exact. Nothing decorative. Pick a category, open a file, and get to work.</p>
-      <div class="row"><a class="btn" href="/library">Open the library →</a><a class="btn alt" href="#standard">The standard</a></div>
-    </div>
-    <div class="hero-art rv" role="group" aria-label="Simulated study monitor. Select a reading or waveform to inspect.">
-      <div class="vitals">
-        <div class="v-head">
-          <span class="v-brand"><span class="v-brand-name">MedCoreX</span><span class="v-brand-sep" aria-hidden="true">·</span><span class="v-brand-label">MONITOR</span></span>
-          <span class="v-status"><i class="beat" aria-hidden="true"></i><span class="bed-id">BED 01</span><span class="mode">DEMO<span class="mode-suffix"> MODE</span></span></span>
+<main id="main">
+
+  <!-- 1 · HERO -->
+  <section class="hero" aria-labelledby="h1">
+    <div class="wrap grid12">
+      <div class="hero-copy rv">
+        <p class="eyebrow label">Private study library · seven categories</p>
+        <h1 class="h1" id="h1">Everything<br>the exam asks.<br><span class="soft">Nothing it doesn't.</span></h1>
+        <p class="lede">Books, drills, recalled papers and exam intelligence — <strong>cut to exactly what the exam demands</strong>, kept current, kept exact. Nothing decorative. Pick a category, open a file, and get to work.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="/library">Open the library →</a>
+          <a class="btn btn-ghost" href="#standard">The standard</a>
         </div>
-        <div class="v-body" role="group" aria-label="Simulated waveforms">
-          <div class="waves">
-            <svg class="wave ecg" data-trace="ecg" viewBox="0 0 300 60" preserveAspectRatio="none" role="button" tabindex="0" aria-label="Select ECG trace" aria-pressed="false"><path pathLength="1" d="M0 40h58l8-24 8 42 8-30 6 12h44l8-24 8 42 8-30 6 12h138" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <svg class="wave pleth" data-trace="pleth" viewBox="0 0 300 60" preserveAspectRatio="none" role="button" tabindex="0" aria-label="Select pulse oximeter trace" aria-pressed="false"><path pathLength="1" d="M0 46h10c12 0 16-38 30-38s10 14 18 20c6 4 8 10 16 10s14-8 22-8s10 10 20 12s16 4 34 4c12 0 16-38 30-38s10 14 18 20c6 4 8 10 16 10s14-8 22-8s10 10 20 12s16 4 34 4" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <svg class="wave resp" data-trace="resp" viewBox="0 0 300 44" preserveAspectRatio="none" role="button" tabindex="0" aria-label="Select respiration trace" aria-pressed="false"><path pathLength="1" d="M0 26q19 0 37-14t37 14t37-14t37 14t37-14t37 14t37-14t37 14" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+
+      <div class="hero-monitor rv">
+        <section class="monitor" id="monitor" aria-labelledby="monTitle">
+          <header class="monitor-head">
+            <span id="monTitle"><span class="brandline">MedCoreX</span> · MONITOR</span>
+            <span class="bed"><i class="beat is-beating" id="beat" aria-hidden="true"></i>BED 01 · DEMO MODE<span class="scenario-tag" id="scnTag"></span></span>
+          </header>
+
+          <div class="monitor-screen" id="screen" role="img" aria-label="Simulated waveforms: ECG, pulse oximeter and respiration. Each reading is listed as text below."></div>
+
+          <div class="readings" role="group" aria-label="Readings. Select one to highlight its trace and see what it means.">
+            <button class="reading" type="button" data-vital="hr" data-trace="ecg" aria-pressed="false" data-default="72" data-why="Heart rate from the ECG, in beats per minute. Typical adult rest runs about 60 to 100.">
+              <span class="val"><span data-main>72</span></span><span class="name">HR · BPM</span>
+            </button>
+            <button class="reading" type="button" data-vital="spo2" data-trace="pleth" aria-pressed="false" data-default="98" data-why="Oxygen saturation from the pulse oximeter: the share of haemoglobin carrying oxygen. Below about 92 on room air is a signal to find the cause.">
+              <span class="val"><span data-main>98</span></span><span class="name">SpO₂ · %</span>
+            </button>
+            <button class="reading" type="button" data-vital="rr" data-trace="resp" aria-pressed="false" data-default="16" data-why="Respiratory rate in breaths per minute, read from the chest wave. Adults at rest typically run about 12 to 20.">
+              <span class="val"><span data-main>16</span></span><span class="name">RESP · /MIN</span>
+            </button>
+            <button class="reading" type="button" data-vital="temp" data-trace="" aria-pressed="false" data-default="36.8" data-why="Core temperature in degrees Celsius. About 36 to 37.5 is typical; 38 and above is fever. No trace for this reading.">
+              <span class="val"><span data-main>36.8</span></span><span class="name">TEMP · °C</span>
+            </button>
+            <button class="reading" type="button" data-vital="nibp" data-trace="" aria-pressed="false" data-default="118/76" data-why="Non-invasive blood pressure in mmHg, systolic over diastolic. The bracketed figure is mean arterial pressure, about 90 here. No trace for this reading.">
+              <span class="val"><span data-main>118/76</span><span class="unit" data-unit>(90)</span></span><span class="name">NIBP · MMHG</span>
+            </button>
           </div>
-          <div class="nums">
-            <button class="v hr" type="button" data-vital="hr" data-trace="ecg" data-focus="HR · ECG" aria-label="Select heart rate: 72 beats per minute" aria-pressed="false"><b id="bpm">72</b><span>HR · BPM</span></button>
-            <button class="v spo2" type="button" data-vital="spo2" data-trace="pleth" data-focus="SpO₂ · PLETH" aria-label="Select oxygen saturation: 98 percent" aria-pressed="false"><b id="spo2">98</b><span>SpO₂ · %</span></button>
-            <button class="v rr" type="button" data-vital="rr" data-trace="resp" data-focus="RESP · WAVE" aria-label="Select respiration rate: 16 per minute" aria-pressed="false"><b id="rr">16</b><span>RESP · /MIN</span></button>
-            <button class="v temp" type="button" data-vital="temp" data-focus="TEMP · 36.8 °C" aria-label="Select temperature: 36.8 degrees Celsius" aria-pressed="false"><b>36.8</b><span>TEMP · °C</span></button>
-            <button class="v nibp" type="button" data-vital="nibp" data-focus="NIBP · 118/76" aria-label="Select blood pressure: 118 over 76 millimeters of mercury" aria-pressed="false"><b>118/76<i>(90)</i></b><span>NIBP · MMHG</span></button>
+
+          <p class="explain" id="explain" aria-live="polite">Select a reading or trace to see what it means.</p>
+
+          <div class="monitor-foot">
+            <span class="sim">SIMULATED · NOT LIVE</span>
+            <span>For study only, not clinical guidance</span>
           </div>
+        </section>
+
+        <div class="try-scenario">
+          <button class="btn btn-ghost btn-small" id="openScenario" type="button" aria-controls="scenarioSlot">Read the monitor →</button>
         </div>
-        <div class="v-foot"><span id="monitorFocus" aria-live="polite">SELECT A READING OR TRACE</span><span>SIMULATED · NOT LIVE</span></div>
+        <div class="game-slot" id="scenarioSlot"></div>
       </div>
     </div>
   </section>
 
-  <div class="marquee rv"><div class="track" id="tips"></div></div>
+  <!-- 2 · CATALOGUE -->
+  <section class="section" id="catalogue" aria-labelledby="catH">
+    <div class="wrap">
+      <header class="sec-head rv">
+        <span class="idx">02 · THE CATALOGUE</span>
+        <h2 class="h2" id="catH">Seven categories, tabbed</h2>
+        <p class="sec-lead">Everything is one click away — or use the full portal view in the library.</p>
+      </header>
 
-  <section class="section-head rv">
-    <div><p class="eyebrow">The catalogue</p><h2>Seven categories, tabbed</h2></div>
-    <p class="muted">Everything is one click away — or use the full portal view in the library.</p>
+      <div class="toolbar rv" style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:12px">
+        <a class="btn btn-ghost btn-small" id="resume" href="/library" hidden>Continue</a>
+        <label class="sr-only" for="filter">Filter this category</label>
+        <input class="filter" id="filter" type="search" placeholder="Filter — title, topic…" autocomplete="off">
+      </div>
+
+      <div class="tabs-wrap rv">
+        <div class="tablist" id="tablist" role="tablist" aria-label="Categories">
+          <span class="tab-indicator" id="tabIndicator" aria-hidden="true"></span>
+          <button class="tab" type="button" role="tab" id="tab-0" aria-controls="panel-0" aria-selected="true" tabindex="0" data-cat="Core Books">Core Books<span class="count">4</span></button>
+          <button class="tab" type="button" role="tab" id="tab-1" aria-controls="panel-1" aria-selected="false" tabindex="-1" data-cat="Mocks &amp; Drills">Mocks &amp; Drills<span class="count">1</span></button>
+          <button class="tab" type="button" role="tab" id="tab-2" aria-controls="panel-2" aria-selected="false" tabindex="-1" data-cat="Past Papers &amp; Answer Keys">Past Papers &amp; Answer Keys<span class="count">4</span></button>
+          <button class="tab" type="button" role="tab" id="tab-3" aria-controls="panel-3" aria-selected="false" tabindex="-1" data-cat="Exam Intelligence &amp; Strategy">Exam Intelligence &amp; Strategy<span class="count">2</span></button>
+          <button class="tab" type="button" role="tab" id="tab-4" aria-controls="panel-4" aria-selected="false" tabindex="-1" data-cat="Quick Reference">Quick Reference<span class="count">4</span></button>
+          <button class="tab" type="button" role="tab" id="tab-5" aria-controls="panel-5" aria-selected="false" tabindex="-1" data-cat="Frameworks &amp; Interactive">Frameworks &amp; Interactive<span class="count">1</span></button>
+          <button class="tab" type="button" role="tab" id="tab-6" aria-controls="panel-6" aria-selected="false" tabindex="-1" data-cat="MedCORE Systems">MedCORE Systems<span class="count">10</span></button>
+        </div>
+
+        <div class="panel-wrap">
+          <section class="panel" role="tabpanel" id="panel-0" aria-labelledby="tab-0" data-slug="core-books">
+            <div class="panel-desc">
+              <p class="label">Core Books · <span data-count>4</span> resources</p>
+              <h3>The books the exam is built from.</h3>
+              <p>Read once to learn the shape, then answer from them until the answers come without the page.</p>
+              <div class="go"><a class="btn btn-ghost btn-small" href="/library#core-books">Open in the library →</a></div>
+            </div>
+            <ul class="panel-list" data-list></ul>
+          </section>
+          <section class="panel" role="tabpanel" id="panel-1" aria-labelledby="tab-1" data-slug="mocks-drills" hidden>
+            <div class="panel-desc">
+              <p class="label">Mocks &amp; Drills · <span data-count>1</span> resources</p>
+              <h3>Timed question sets. The unit of practice.</h3>
+              <p>Questions are the practice. Sit them under time, mark them, and write every miss.</p>
+              <div class="go"><a class="btn btn-ghost btn-small" href="/library#mocks-drills">Open in the library →</a></div>
+            </div>
+            <ul class="panel-list" data-list></ul>
+          </section>
+          <section class="panel" role="tabpanel" id="panel-2" aria-labelledby="tab-2" data-slug="past-papers-answer-keys" hidden>
+            <div class="panel-desc">
+              <p class="label">Past Papers &amp; Answer Keys · <span data-count>4</span> resources</p>
+              <h3>Recalled papers with keys you can check.</h3>
+              <p>Each paper comes with its answer key and the reasoning behind every answer, so a miss has a cause you can name.</p>
+              <div class="go"><a class="btn btn-ghost btn-small" href="/library#past-papers-answer-keys">Open in the library →</a></div>
+            </div>
+            <ul class="panel-list" data-list></ul>
+          </section>
+          <section class="panel" role="tabpanel" id="panel-3" aria-labelledby="tab-3" data-slug="exam-intelligence-strategy" hidden>
+            <div class="panel-desc">
+              <p class="label">Exam Intelligence &amp; Strategy · <span data-count>2</span> resources</p>
+              <h3>What repeats, where the marks sit, how to spend the time.</h3>
+              <p>Patterns across papers, decoded. Use it to decide where the hours go, not to replace the questions.</p>
+              <div class="go"><a class="btn btn-ghost btn-small" href="/library#exam-intelligence-strategy">Open in the library →</a></div>
+            </div>
+            <ul class="panel-list" data-list></ul>
+          </section>
+          <section class="panel" role="tabpanel" id="panel-4" aria-labelledby="tab-4" data-slug="quick-reference" hidden>
+            <div class="panel-desc">
+              <p class="label">Quick Reference · <span data-count>4</span> resources</p>
+              <h3>One-page recall. Memorise once, check often.</h3>
+              <p>Thresholds, clusters and tables you need to recall under pressure, on a single page each.</p>
+              <div class="go"><a class="btn btn-ghost btn-small" href="/library#quick-reference">Open in the library →</a></div>
+            </div>
+            <ul class="panel-list" data-list></ul>
+          </section>
+          <section class="panel" role="tabpanel" id="panel-5" aria-labelledby="tab-5" data-slug="frameworks-interactive" hidden>
+            <div class="panel-desc">
+              <p class="label">Frameworks &amp; Interactive · <span data-count>1</span> resources</p>
+              <h3>Working tools you run, not read.</h3>
+              <p>Case ladders and frameworks you work through step by step until the reasoning is automatic.</p>
+              <div class="go"><a class="btn btn-ghost btn-small" href="/library#frameworks-interactive">Open in the library →</a></div>
+            </div>
+            <ul class="panel-list" data-list></ul>
+          </section>
+          <section class="panel" role="tabpanel" id="panel-6" aria-labelledby="tab-6" data-slug="medcore-systems" hidden>
+            <div class="panel-desc">
+              <p class="label">MedCORE Systems · <span data-count>10</span> resources</p>
+              <h3>Ten systems books, one per specialty.</h3>
+              <p>Each specialty cut to the lines the exam asks for. Open the one you are on this week.</p>
+              <div class="go"><a class="btn btn-ghost btn-small" href="/library#medcore-systems">Open in the library →</a></div>
+            </div>
+            <ul class="panel-list" data-list></ul>
+          </section>
+          <p class="nores" id="nores" hidden>Nothing matches. Try a shorter word.</p>
+        </div>
+      </div>
+    </div>
   </section>
-  <div class="toolbar rv">
-    <button class="resume" id="resume" type="button" aria-label="Resume session"><span><svg viewBox="0 0 24 24" width="14" height="14" fill="#000" aria-hidden="true" style="vertical-align:-2px"><path d="M8 5v14l11-7z"/></svg></span><b id="resumeT"></b></button>
-    <input class="field" id="q" type="search" placeholder="Filter — title, topic…" aria-label="Filter this list" autocomplete="off">
-  </div>
-  <div class="tabs rv" id="tablist" role="tablist" aria-label="Categories"></div>
-  <div class="panels rv" id="panels"></div>
 
-  <section class="section-head rv" id="standard" style="margin-top:52px">
-    <div><p class="eyebrow">The standard</p><h2>Three rules, no exceptions</h2></div>
+  <!-- 3 · THE STANDARD -->
+  <section class="section" id="standard" aria-labelledby="stdH">
+    <div class="wrap standard">
+      <header class="standard-head rv">
+        <span class="idx label" style="color:var(--ecg)">03 · THE STANDARD</span>
+        <h2 class="h2" id="stdH" style="margin-top:12px">Three rules, no exceptions</h2>
+        <div class="progress" aria-hidden="true"><span id="ruleBar"></span></div>
+      </header>
+      <div class="rule-list">
+        <article class="rule" data-rule>
+          <span class="num">Rule 01</span>
+          <h3>No syllabus, no session</h3>
+          <p>Every study block maps to an official syllabus line. If you can't point to the line, you don't study it — no memory, no side quests, no probably-relevant.</p>
+        </article>
+        <article class="rule" data-rule>
+          <span class="num">Rule 02</span>
+          <h3>Questions before comfort</h3>
+          <p>Pages don't count. Only questions attempted count — end a day without MCQs done and the day didn't happen. Reading prepares; answering is the practice.</p>
+        </article>
+        <article class="rule" data-rule>
+          <span class="num">Rule 03</span>
+          <h3>Every miss gets written</h3>
+          <p>No wrong answer dies in the review. The discriminator you missed goes into the error log in your own words — or the question returns and takes the mark.</p>
+        </article>
+      </div>
+    </div>
   </section>
-  <div class="rules">
-    <div class="card hov rule rv" style="--i:0"><div class="num">Rule 01</div><h3>No syllabus, no session</h3><p>Every study block maps to an official syllabus line. If you can't point to the line, you don't study it — no memory, no side quests, no probably-relevant.</p></div>
-    <div class="card hov rule rv" style="--i:1"><div class="num">Rule 02</div><h3>Questions before comfort</h3><p>Pages don't count. Only questions attempted count — end a day without MCQs done and the day didn't happen. Reading prepares; answering is the practice.</p></div>
-    <div class="card hov rule rv" style="--i:2"><div class="num">Rule 03</div><h3>Every miss gets written</h3><p>No wrong answer dies in the review. The discriminator you missed goes into the error log in your own words — or the question returns and takes the mark.</p></div>
-  </div>
 
-  <figure class="quote rv">
-    <blockquote><p>You don't pass on what you read.<br>You pass on what you can answer<br>when the clock is running.</p></blockquote>
-    <figcaption class="qs">— the house standard</figcaption>
-  </figure>
+  <!-- 4 · THE CLOSING QUOTE -->
+  <section class="quote-section" aria-label="The house standard">
+    <figure class="wrap rv" style="margin:0">
+      <blockquote class="quote">You don't pass on what you read.<br><span class="soft">You pass on what you can answer<br>when the clock is running.</span></blockquote>
+      <figcaption class="quote-attr">— the house standard</figcaption>
+    </figure>
+  </section>
+
+  <!-- 5 · FINAL CTA + SPRINT -->
+  <section class="final" aria-labelledby="finalH">
+    <div class="wrap grid12">
+      <div class="final-copy rv">
+        <h2 class="h2" id="finalH">Pick a category, open a file, and get to work.</h2>
+        <p>Everything in the library is cut to what the exam asks for. Start with the category you are weakest in.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="/library">Open the library →</a>
+        </div>
+      </div>
+      <div class="sprint-card rv">
+        <section class="game" aria-labelledby="sprintTitle">
+          <header class="game-head"><span>60-second sprint</span><span>5 questions</span></header>
+          <h3 id="sprintTitle">The clock is the test.</h3>
+          <p class="lead">Five quick questions in sixty seconds. Your misses are written down so the question comes back.</p>
+          <div class="cta-row" style="margin-top:14px"><button class="btn btn-ghost btn-small" id="startSprint" type="button" aria-controls="sprintSlot">Start the sprint →</button></div>
+        </section>
+        <div class="game-slot" id="sprintSlot" style="margin-top:14px"></div>
+      </div>
+    </div>
+  </section>
+
 </main>
 
 <!--FOOTER-->
-<footer class="foot"><div class="wrap foot-in">
-  <div>
-    <div class="logo" style="font-size:1.2rem"><span class="logo-mark" style="width:30px;height:30px;font-size:.8rem"><svg viewBox="0 0 24 24" style="width:1.15em;height:1.15em" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M12 4.2v16.3"/><path d="M12 5.6c-3 0-3 2.3 0 2.3s3 2.3 0 2.3-3 2.3 0 2.3 3 2.3 0 2.3"/><circle cx="12" cy="3.3" r="1.35" fill="currentColor" stroke="none"/></svg></span>MedCoreX</div>
-    <p class="foot-tag">A genuinely great study resource — curated with discipline, and kept current and exact.</p>
+<footer class="site-foot">
+  <div class="wrap foot-grid">
+    <div>
+      <a class="brand" href="/" aria-label="MedCoreX home">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h4l2-5 3 10 3-14 2 9h3 5"/></svg></span>MedCoreX
+      </a>
+      <p class="foot-tag">A genuinely great study resource — curated with discipline, and kept current and exact.</p>
+    </div>
+    <nav class="foot-links" aria-label="Footer">
+      <a href="/">Home</a><a href="/library">Library</a><a href="/about">About</a><a href="/faq">FAQ</a><a href="/stats">Stats</a><a href="/login" id="footAuth">Sign in</a>
+    </nav>
+    <div class="foot-legal">
+      <span>© 2026 MedCoreX. All rights reserved. · Developed by AHMDZAFR</span>
+      <span aria-hidden="true">·</span>
+      <span>read · learn · repeat</span>
+      <span aria-hidden="true">·</span>
+      <span>For study only, not clinical guidance</span>
+    </div>
   </div>
-  <nav class="foot-links" aria-label="Footer">
-    <a href="/">Home</a><a href="/library">Library</a><a href="/about">About</a><a href="/faq">FAQ</a><a href="/stats">Stats</a><a href="/login" id="footAuth">Sign in</a>
-  </nav>
-  <div class="foot-legal">
-    <span>© 2026 MedCoreX. All rights reserved. · Developed by AHMDZAFR</span>
-    <span>·</span>
-    <span>read · learn · repeat</span>
-  </div>
-</div></footer>
-<!--/FOOTER-->
+</footer>
 
-<script>
+<!-- widget mounts here; rendered by streak.js when idle -->
+<aside class="streak" id="streak" aria-label="Study record" hidden></aside>
+<button class="streak-open" id="streakOpen" type="button" hidden>Study record</button>
 
-/* ═══ HOME: ticker + catalogue tabs ═══ */
-const TIPS=['Teach it to learn it','25 minutes on, 5 minutes off','Sleep is a study tool','Test yourself before you feel ready','Spaced repetition beats cramming','Mix up your topics','Hydrate, then concentrate','Explain why, not just what','Small daily wins add up'];
-document.getElementById('tips').innerHTML=[...TIPS,...TIPS].map(t=>`<span>${t}</span>`).join('');
-SV.countUp(document.getElementById('bpm'),72);
-SV.countUp(document.getElementById('spo2'),98);
-SV.countUp(document.getElementById('rr'),16);
-
-/* The monitor is an explicitly simulated interface: readings focus their
-   matching trace, and traces can also be selected directly or by keyboard. */
-const monitor=document.querySelector('.vitals');
-if(monitor){
-  const readings=[...monitor.querySelectorAll('[data-vital]')];
-  const traces=[...monitor.querySelectorAll('.wave[data-trace]')];
-  const focus=document.getElementById('monitorFocus');
-  function selectReading(reading){
-    const trace=reading.dataset.trace||'';
-    readings.forEach(item=>item.setAttribute('aria-pressed',item===reading?'true':'false'));
-    traces.forEach(wave=>{
-      const active=!!trace&&wave.dataset.trace===trace;
-      wave.classList.toggle('is-active',active);
-      wave.classList.toggle('is-muted',!!trace&&!active);
-      wave.setAttribute('aria-pressed',active?'true':'false');
-    });
-    if(focus)focus.textContent=reading.dataset.focus;
-  }
-  readings.forEach(reading=>reading.addEventListener('click',()=>selectReading(reading)));
-  traces.forEach(wave=>{
-    const activate=()=>{
-      const reading=readings.find(item=>item.dataset.trace===wave.dataset.trace);
-      if(reading)selectReading(reading);
-    };
-    wave.addEventListener('click',activate);
-    wave.addEventListener('keydown',event=>{
-      if(event.key==='Enter'||event.key===' '){event.preventDefault();activate()}
-    });
-  });
-}
-
-function esc(s){return String(s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];})}
-function slugify(c){return c.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'')}
-function href(it){return '/resources/'+encodeURIComponent(it.f.replace(/\.html$/i,''))}
-const tablist=document.getElementById('tablist'), panels=document.getElementById('panels');
-let tabs=[],panelsByCat={};
-CATS.forEach((cat,ci)=>{
-  const hue=HUES[cat];
-  const items=Items.filter(it=>it.c===cat);
-  const b=document.createElement('span');
-  b.className='chip';b.setAttribute('role','tab');b.tabIndex=0;
-  b.setAttribute('aria-selected',ci===0?'true':'false');
-  b.innerHTML=esc(cat)+'<a class="shelfgo" href="/library#'+slugify(cat)+'" aria-label="Open '+esc(cat)+' in the library">↗</a>';
-  b.addEventListener('click',e=>{if(e.target.closest('a'))return;select(ci)});
-  b.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();select(ci)}});
-  tablist.appendChild(b);tabs.push(b);
-  const p=document.createElement('section');
-  p.className='panel';p.setAttribute('role','tabpanel');
-  p.style.setProperty('--hue',hue);
-  if(ci!==0)p.hidden=true;
-  p.innerHTML='<p class="grp-note">'+esc(cat)+'</p>';
-  items.forEach((it,i)=>{
-    const d=document.createElement('details');
-    d.className='faqitem';d.style.setProperty('--hue',hue);
-    d.innerHTML='<summary><span class="rt"><span class="t">'+esc(it.t)+'</span><span class="d">'+esc(it.d||'')+'</span></span>'+
-      '<span class="chev"><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></span></summary>'+
-      '<div class="body"><span style="flex:1;color:var(--muted);font-size:.93rem">'+esc(it.d||'')+'</span><a class="btn alt" style="font-size:.8rem;padding:.5em 1em" href="'+href(it)+'">Open ↗</a></div>';
-    p.appendChild(d);
-  });
-  panels.appendChild(p);panelsByCat[cat]=p;
-});
-let cur=0,SK='mx-shelf';
-function select(ci,save){
-  cur=ci;
-  tabs.forEach((b,bi)=>b.setAttribute('aria-selected',bi===ci?'true':'false'));
-  CATS.forEach((cat,ci2)=>panelsByCat[cat].hidden=ci2!==ci);
-  if(save!==false){try{localStorage.setItem(SK,CATS[ci])}catch(e){}}
-}
-try{const s=localStorage.getItem(SK);const i=CATS.indexOf(s);if(i>=0)select(i,false)}catch(e){}
-tablist.addEventListener('keydown',e=>{
-  let d=0;
-  if(e.key==='ArrowRight')d=1;else if(e.key==='ArrowLeft')d=-1;else return;
-  e.preventDefault();
-  const n=(cur+d+tabs.length)%tabs.length;tabs[n].focus();select(n);
-});
-const q=document.getElementById('q');
-q.addEventListener('input',()=>{
-  const term=q.value.trim().toLowerCase();let shown=0;
-  panels.querySelectorAll('.faqitem').forEach(d=>{
-    const hit=!term||(d.textContent||'').toLowerCase().indexOf(term)>=0;
-    d.style.display=hit?'':'none';if(hit)shown++;
-  });
-  let emp=panels.querySelector('.nores');
-  if(!shown){if(!emp){emp=document.createElement('p');emp.className='nores';emp.textContent='Nothing matches. Try a shorter word.';emp.style.display='block';panels.appendChild(emp);}}
-  else if(emp)emp.remove();
-});
-const a=document.getElementById('resume'),t=document.getElementById('resumeT');
-try{
-  const L=JSON.parse(localStorage.getItem('mx-last')||'[]');
-  if(L.length&&t){a.href='/resources/'+encodeURIComponent(L[0].f);t.textContent='Continue — '+L[0].t;a.classList.add('on');}
-}catch(e){}
-</script>
+<script src="/assets/catalog.js" defer></script>
+<script src="/assets/home/home.js" defer></script>
 <script src="/medcore-sync.js" defer></script>
 <script src="/auth-nav.js" defer></script>
 </body>

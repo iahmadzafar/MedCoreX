@@ -54,9 +54,22 @@ const EXEMPT = [
   'medcore-systems-urology-urology-medcore.html',
 ];
 
+/* Owner-approved redesign, Nov 18 2026: the landing page is its own visual
+   system (Direction A, "Phosphor Ward") and carries no kit CSS, engine or
+   components. Matched by exact site-relative path, never by basename, so no
+   other index.html is exempted. Every other page stays on the kit. */
+const EXEMPT_PATHS = [
+  'index.html',
+];
+
 for (const f of walk(SITE)) {
   const rel = path.relative(SITE, f);
   const src = fs.readFileSync(f, 'utf8');
+  if (EXEMPT_PATHS.includes(rel)) {
+    console.log('  ~ ' + rel + ' (exempt: own visual system, owner-approved Nov 18)');
+    files++;
+    continue;
+  }
   if (EXEMPT.includes(path.basename(f))) {
     console.log('  ~ ' + rel + ' (exempt: pre-resign, owner-ruled Nov 3)');
     files++;
