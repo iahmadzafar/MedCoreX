@@ -114,6 +114,7 @@ html[data-theme="dark"] .theme-btn .i-sun { display: none; }
 
 /* ── buttons: square, flat, a short spring on hover ───────── */
 .btn { display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 20px; border-radius: 2px; text-decoration: none; font-weight: 600; font-size: .98rem; letter-spacing: -.005em; border: 1px solid transparent; cursor: pointer; transition: transform .35s var(--spring), background-color .2s var(--ease), border-color .2s var(--ease), color .2s var(--ease); }
+.btn { background: transparent; }
 .btn-primary { background: var(--accent); color: var(--on-accent); }
 .btn-primary:hover { transform: translateY(-2px); }
 .btn-primary:active { transform: translateY(0); }
