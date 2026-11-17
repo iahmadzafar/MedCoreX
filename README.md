@@ -30,7 +30,8 @@ node site/kitcheck.js            # every page is themed (the landing page is exe
 | Page markup and copy | `site/index.html` |
 | Landing page styles (tokens, type scale, grid, both themes) | `site/assets/home/home.css` |
 | Always-loaded behaviour: theme, reveals, rules, tabs, reading explanations | `site/assets/home/home.js` |
-| Canvas monitor (ECG, pleth, respiration), loaded when the monitor is in view | `site/assets/home/monitor.js` |
+| The bedside monitor: five cases, vitals model, alarms and every control | `site/assets/home/device.js` |
+| Sound effects, synthesised with the Web Audio API | `site/assets/home/sound.js` |
 | "Read the monitor" scenarios, loaded on click | `site/assets/home/scenarios.js` |
 | 60-second sprint, loaded on click | `site/assets/home/sprint.js` |
 | Scenario data | `site/content/scenarios.json` |
@@ -65,9 +66,56 @@ The file ships with 10 scenarios.
 
 Each question has `id`, `stem`, `options` (four), `answer` (zero-based), `why` and `category`. The sprint uses the first five. Keep the answer index varied so the correct option doesn't always land in the same place.
 
+## The bedside monitor
+
+`device.js` starts when the monitor scrolls into view. It is simulated, not live, and every reading is real text in the page so screen readers can reach it. Canvas draws the ECG, pulse oximeter and respiration traces. Simulated, not live. For study only, not clinical guidance.
+
+### Every control, and what it does
+
+- **A reading** (HR, SpO₂, Resp, Temp, NIBP) — focuses its trace and shows a one-line explanation. Tap again to clear.
+- **The trace on the screen** — focuses the matching reading.
+- **ECG II** — cycles the lead through II, V1, V5 and aVF.
+- **Bed 01** — moves to the next bed. There are five cases:
+  1. Bed 01 — normal sinus rhythm, the reference
+  2. Bed 02 — STEMI: ST elevation, hyperacute T waves
+  3. Bed 03 — NSTEMI: ST depression, T-wave inversion
+  4. Bed 04 — atrial flutter with 2:1 conduction, about 150 bpm
+  5. Bed 05 — atrial fibrillation, irregularly irregular
+- **Reveal the case** — shows the name of the rhythm, what it looks like and what it means. Open by default? No: hidden until tapped.
+- **Measure blood pressure** — runs a cuff measurement for about three seconds, then shows the reading.
+- **The trend strip** — cycles the 60-minute trend through heart rate, oxygen saturation and respiratory rate.
+- **Alarm LED** — lights when a limit is breached. Tap it to silence for 60 seconds.
+- **Power LED** — standby on or off. Standby freezes the traces and blank the readings.
+- **Sound off/on** — sound is off by default. Tap to turn it on.
+
+### How the vitals behave
+
+Each case has target vitals. The displayed values ease toward those targets over a few seconds, so you can watch a rate climb. They are coupled: low oxygen raises the breathing and heart rates; a fever raises the heart rate; low pressure weakens the pulse wave. Limit breaches light the alarm LED and the status line.
+
+### Sound effects
+
+All effects are synthesised with the Web Audio API, so they ship as code with no audio files and no licence to track. They start only after a visitor interacts, because browsers block autoplay, and sound is off until switched on.
+
+- Tap: a short click on every control
+- Pulse: a beep on each R-peak, so the tempo follows the displayed heart rate
+- Alarm: two alternating tones while a limit is breached
+- Blood pressure: a filtered noise sweep while the cuff inflates
+
+**CC0 alternative, researched Nov 18 2026:** [SFX Jar's hospital set](https://sfxjar.com/hospital/) publishes four MP3s under CC0 1.0 (no attribution required), including a 72 bpm monitor, a flatline, a blood pressure monitor and an ECG beep. Direct files: `audio.sfxjar.com/audio/synth-ekg-72.mp3`, `synth-ekg-flatline.mp3`, `2504.mp3`, `0456.mp3`. I did not ship them: the recorded beeps are fixed at 72 bpm, which would contradict the five cases where the rate changes, and the files add 97 to 360 KB. Say the word and I will swap the synthesised effects for these clips.
+
+## Fonts
+
+Inter Tight and JetBrains Mono are self-hosted under `site/assets/home/fonts/` and preloaded from the same origin. They were moved off Google Fonts because the web font swap caused a layout shift of about 0.09 on mobile. Self-hosting brought CLS to 0 and Performance to 99 locally. The two files total about 76 KB.
+
+## Copy
+
+On Nov 18 2026 I rewrote the headings, descriptions and captions across every public page into direct language: the landing page, About, FAQ, Stats, Library, sign-in, sign-up, account and the 404. The house voice, the hero headline, the three rule names, the closing quote and all links are unchanged. The FAQ answers live in a `FAQS` array near the bottom of `faq.html`, not in the visible markup, so edit them there.
+
+The catalogue once said "The NRE recall vault" in a visible description. That is a board exam name, which the house rules ban in any HTML or title. It is now "Questions that keep coming back in past papers". Two study files under `resources/` still carry that name in their own titles; those are content files, flagged for your call, and I did not edit them.
+
 ## Storage and privacy
 
-The landing page stores nothing. There is no account and no study record. Scores from the scenario and the sprint live only in the page's memory and are gone when the visit ends. On load, the page clears any `medcore.*` keys left by an earlier build of the study record.
+The landing page stores nothing. There is no account and no study record. Scores from the scenario and the sprint live only in the page's memory and are gone when the visit ends. The sound setting is also in memory only, so a reload returns to sound off. On load, the page clears any `medcore.*` keys left by an earlier build of the study record.
 
 ## Deploy to Cloudflare Pages
 

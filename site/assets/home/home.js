@@ -2,7 +2,7 @@
    MedCoreX · landing page · home.js (always loaded, ~always small)
    Theme, scroll reveals, the one-at-a-time rules, catalogue tabs
    with keyboard support, reading explanations. Heavy parts load
-   lazily: monitor.js when the monitor is in view, games on demand,
+   lazily: games on demand (the device is device.js),
    no storage, no account.
    ============================================================ */
 (function () {
@@ -68,77 +68,6 @@
     updateBar();
   }
 
-  /* ── the monitor: readings, explanations, and the lazy canvas ── */
-  var monitor = doc.getElementById('monitor');
-  var screen = doc.getElementById('screen');
-  var explain = doc.getElementById('explain');
-  var defaultExplain = explain.textContent;
-  var readings = [].slice.call(doc.querySelectorAll('.reading'));
-
-  function setPressed(btn) {
-    readings.forEach(function (b) { b.setAttribute('aria-pressed', String(b === btn)); });
-  }
-  function focusReading(btn) {
-    var pressed = btn.getAttribute('aria-pressed') === 'true';
-    if (pressed) {
-      setPressed(null);
-      explain.textContent = defaultExplain;
-      doc.dispatchEvent(new CustomEvent('mx:focus', { detail: { trace: '' } }));
-      return;
-    }
-    setPressed(btn);
-    explain.textContent = btn.getAttribute('data-why');
-    doc.dispatchEvent(new CustomEvent('mx:focus', { detail: { trace: btn.getAttribute('data-trace') || '' } }));
-  }
-  readings.forEach(function (btn) {
-    btn.addEventListener('click', function () { focusReading(btn); });
-  });
-  doc.addEventListener('mx:pick', function (e) {
-    var btn = doc.querySelector('.reading[data-trace="' + e.detail.trace + '"]');
-    if (btn) focusReading(btn);
-  });
-
-  /* scenarios push vitals into the readings as text, so the numbers stay real */
-  var scnTag = doc.getElementById('scnTag');
-  doc.addEventListener('mx:vitals', function (e) {
-    var v = e.detail;
-    if (!v) {
-      monitor.classList.remove('in-scenario');
-      scnTag.hidden = true;
-      readings.forEach(function (btn) {
-        var main = btn.querySelector('[data-main]');
-        var unit = btn.querySelector('[data-unit]');
-        main.textContent = btn.getAttribute('data-default');
-        if (unit) unit.textContent = '(90)';
-      });
-      return;
-    }
-    monitor.classList.add('in-scenario');
-    scnTag.hidden = false;
-    readings.forEach(function (btn) {
-      var key = btn.getAttribute('data-vital');
-      var main = btn.querySelector('[data-main]');
-      var unit = btn.querySelector('[data-unit]');
-      if (key === 'nibp') {
-        main.textContent = v.vitals.sys + '/' + v.vitals.dia;
-        if (unit) unit.textContent = '(' + Math.round((v.vitals.sys + 2 * v.vitals.dia) / 3) + ')';
-      } else {
-        main.textContent = String(v.vitals[key]);
-      }
-    });
-  });
-
-  /* ── lazy: start the canvas only once the monitor is in view ── */
-  if ('IntersectionObserver' in window && screen) {
-    var monIO = new IntersectionObserver(function (entries) {
-      if (entries[0].isIntersecting) {
-        monIO.disconnect();
-        import('./monitor.js').then(function (m) { m.start(screen); }).catch(function () {});
-      }
-    }, { rootMargin: '200px 0px' });
-    monIO.observe(screen);
-  }
-
   /* ── games: loaded on demand, never on the critical path ── */
   var openBtn = doc.getElementById('openScenario');
   var scnSlot = doc.getElementById('scenarioSlot');
@@ -172,6 +101,8 @@
     var list = panels[i].querySelector('[data-list]');
     var items = catItems.filter(function (it) { return it.c === cat; });
     panels[i].querySelectorAll('[data-count]').forEach(function (n) { n.textContent = items.length; });
+    var word = items.length === 1 ? 'resource' : 'resources';
+    panels[i].querySelectorAll('[data-count-word]').forEach(function (n) { n.textContent = word; });
     tab.querySelector('.count').textContent = items.length;
     list.innerHTML = items.map(function (it) {
       return '<li><a href="' + hrefFor(it.f) + '"><span><span class="t">' + esc(it.t) + '</span><span class="d">' + esc(it.d || '') + '</span></span><span class="arrow" aria-hidden="true">↗</span></a></li>';

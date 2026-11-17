@@ -29,9 +29,8 @@
 <link rel="apple-touch-icon" href="/assets/home/apple-touch-icon.png">
 <link rel="manifest" href="/assets/home/site.webmanifest">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400..700&family=JetBrains+Mono:wght@400..600&display=swap">
+<link rel="preload" href="/assets/home/fonts/inter-tight-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/home/fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/home/home.css">
 
 <script type="application/ld+json">
@@ -78,7 +77,7 @@
       <div class="hero-copy rv">
         <p class="eyebrow label">Private study library · seven categories</p>
         <h1 class="h1" id="h1">Everything<br>the exam asks.<br><span class="soft">Nothing it doesn't.</span></h1>
-        <p class="lede">Books, drills, recalled papers and exam intelligence — <strong>cut to exactly what the exam demands</strong>, kept current, kept exact. Nothing decorative. Pick a category, open a file, and get to work.</p>
+        <p class="lede">Books, practice questions, recalled past papers and exam analysis — <strong>trimmed to what the exam actually tests</strong>, and kept up to date. No filler. Pick a category, open a file, start working.</p>
         <div class="cta-row">
           <a class="btn btn-primary" href="/library">Open the library →</a>
           <a class="btn btn-ghost" href="#standard">The standard</a>
@@ -89,48 +88,55 @@
         <section class="device" id="monitor" aria-labelledby="monTitle">
           <header class="device-top">
             <span id="monTitle"><span class="model">MedCoreX</span> · Monitor</span>
-            <span class="leds" aria-hidden="true"><span class="led on">Power</span><span class="led">Alarm</span></span>
+            <span class="leds">
+              <button class="led on" id="ledPower" type="button" aria-pressed="true" title="Power: standby on or off"><span class="led-dot" aria-hidden="true"></span>Power</button>
+              <button class="led" id="ledAlarm" type="button" aria-pressed="false" title="Alarm: lit when a limit is breached. Tap to silence for 60 seconds."><span class="led-dot" aria-hidden="true"></span>Alarm</button>
+            </span>
           </header>
 
           <div class="screen">
             <div class="grid-lines" aria-hidden="true"></div>
             <div class="screen-top">
-              <span>ECG II · 25 mm/s</span>
+              <button class="chip-btn" id="leadBtn" type="button" title="Cycle the ECG lead">ECG II</button>
               <span class="scn-tag" id="scnTag" hidden>Scenario</span>
-              <span class="state">Bed 01 · Demo</span>
+              <button class="chip-btn" id="bedBtn" type="button" title="Move to the next bed">Bed 01</button>
             </div>
-            <div class="wave-stack" id="screen" role="img" aria-label="Simulated waveforms: ECG, pulse oximeter and respiration. Each reading is listed as text below."></div>
+            <div class="wave-stack" id="screen" role="img" aria-label="Simulated waveforms: ECG, pulse oximeter and respiration. Select a reading below to focus its trace."></div>
+            <p class="state-line"><span id="leadState">Lead II</span><span aria-hidden="true"> · </span><span id="bedState">Demo</span></p>
           </div>
 
           <div class="readings" role="group" aria-label="Readings. Select one to highlight its trace and see what it means.">
-            <button class="reading" type="button" data-vital="hr" data-trace="ecg" aria-pressed="false" data-default="72" data-why="Heart rate from the ECG, in beats per minute. Typical adult rest runs about 60 to 100.">
+            <button class="reading" type="button" data-vital="hr" data-trace="ecg" aria-pressed="false" data-why="Heart rate from the ECG, in beats per minute. Typical adult rest is about 60 to 100.">
               <span class="name">HR · bpm</span><span class="val"><span data-main>72</span></span>
-              <span class="limit" aria-hidden="true"><b style="left:20%;width:50%"></b><i style="left:20%"></i></span>
             </button>
-            <button class="reading" type="button" data-vital="spo2" data-trace="pleth" aria-pressed="false" data-default="98" data-why="Oxygen saturation from the pulse oximeter: the share of haemoglobin carrying oxygen. Below about 92 on room air is a signal to find the cause.">
+            <button class="reading" type="button" data-vital="spo2" data-trace="pleth" aria-pressed="false" data-why="Oxygen saturation from the pulse oximeter: how much of the blood's haemoglobin is carrying oxygen. Below about 92 on room air needs a look.">
               <span class="name">SpO₂ · %</span><span class="val"><span data-main>98</span></span>
-              <span class="limit" aria-hidden="true"><b style="left:60%;width:40%"></b><i style="left:60%"></i></span>
             </button>
-            <button class="reading" type="button" data-vital="rr" data-trace="resp" aria-pressed="false" data-default="16" data-why="Respiratory rate in breaths per minute, read from the chest wave. Adults at rest typically run about 12 to 20.">
+            <button class="reading" type="button" data-vital="rr" data-trace="resp" aria-pressed="false" data-why="Respiratory rate: breaths per minute, read from the chest wave. Adults at rest are typically 12 to 20.">
               <span class="name">Resp · /min</span><span class="val"><span data-main>16</span></span>
-              <span class="limit" aria-hidden="true"><b style="left:30%;width:40%"></b><i style="left:30%"></i></span>
             </button>
-            <button class="reading" type="button" data-vital="temp" data-trace="" aria-pressed="false" data-default="36.8" data-why="Core temperature in degrees Celsius. About 36 to 37.5 is typical; 38 and above is fever. No trace for this reading.">
+            <button class="reading" type="button" data-vital="temp" data-trace="" aria-pressed="false" data-why="Core temperature in degrees Celsius. About 36 to 37.5 is typical; 38 and above is a fever. This reading has no trace.">
               <span class="name">Temp · °C</span><span class="val"><span data-main>36.8</span></span>
-              <span class="limit" aria-hidden="true"><b style="left:35%;width:30%"></b><i style="left:65%"></i></span>
             </button>
-            <button class="reading" type="button" data-vital="nibp" data-trace="" aria-pressed="false" data-default="118/76" data-why="Non-invasive blood pressure in mmHg, systolic over diastolic. The bracketed figure is mean arterial pressure, about 90 here. No trace for this reading.">
+            <button class="reading" type="button" data-vital="nibp" data-trace="" aria-pressed="false" data-why="Blood pressure in mmHg, systolic over diastolic. The figure in brackets is the mean arterial pressure. This reading has no trace.">
               <span class="name">NIBP · mmHg</span><span class="val"><span data-main>118/76</span><span class="unit" data-unit>(90)</span></span>
-              <span class="limit" aria-hidden="true"><b style="left:25%;width:55%"></b><i style="left:82%"></i></span>
             </button>
           </div>
 
-          <div class="trend" aria-hidden="true">
-            <div class="trend-label"><span>Heart rate trend</span><span>Last 60 min · simulated</span></div>
-            <svg viewBox="0 0 300 40" preserveAspectRatio="none"><path d="M0 24 L18 22 L36 26 L54 21 L72 23 L90 18 L108 20 L126 15 L144 19 L162 17 L180 21 L198 19 L216 23 L234 20 L252 22 L270 18 L300 20" fill="none" stroke="var(--trace)" stroke-width="1.4" vector-effect="non-scaling-stroke" opacity=".75"/></svg>
-          </div>
+          <button class="trend" id="trend" type="button" title="Cycle the trend: heart rate, oxygen, breathing">
+            <span class="trend-label"><span id="trendLabel">Heart rate · 60 min</span><span>Tap to change</span></span>
+            <svg viewBox="0 0 300 40" preserveAspectRatio="none" aria-hidden="true"><path id="trendPath" d="" fill="none" stroke="var(--trace)" stroke-width="1.4" vector-effect="non-scaling-stroke" opacity=".8"/></svg>
+          </button>
 
-          <p class="explain" id="explain" aria-live="polite">Select a reading or trace to see what it means.</p>
+          <p class="alarm-line" id="alarmText" aria-live="polite">Alarm: none</p>
+          <p class="explain" id="explain" aria-live="polite">Tap a reading or a trace to see what it shows.</p>
+
+          <div class="controls">
+            <button class="ctl" id="btnMeasure" type="button">Measure blood pressure</button>
+            <button class="ctl" id="btnReveal" type="button" aria-expanded="false" aria-controls="revealBox">Reveal the case</button>
+            <button class="ctl" id="btnSound" type="button" aria-pressed="false"><span class="sound-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h4l5-4v14l-5-4H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg></span><span class="sound-label">Sound off</span></button>
+          </div>
+          <div class="reveal" id="revealBox" hidden></div>
 
           <div class="device-foot">
             <span class="sim">Simulated · not live</span>
@@ -139,7 +145,7 @@
         </section>
 
         <div class="try-row">
-          <button class="btn btn-ghost btn-small" id="openScenario" type="button" aria-controls="scenarioSlot">Read the monitor →</button>
+          <button class="btn btn-ghost btn-small" id="openScenario" type="button" aria-controls="scenarioSlot">Try a case on the monitor →</button>
         </div>
         <div class="game-slot" id="scenarioSlot"></div>
       </div>
@@ -150,9 +156,9 @@
   <section class="section" id="catalogue" aria-labelledby="catH">
     <div class="wrap">
       <header class="sec-head rv">
-        <span class="idx">02 · The catalogue</span>
-        <h2 class="h2" id="catH">Seven categories, tabbed</h2>
-        <p class="sec-lead">Everything is one click away — or use the full portal view in the library.</p>
+        <span class="idx">02 · Browse the library</span>
+        <h2 class="h2" id="catH">Seven categories</h2>
+        <p class="sec-lead">Choose a category to see what it holds. Open the full library for the complete view.</p>
       </header>
 
       <div class="toolbar rv">
@@ -176,63 +182,63 @@
         <div class="panel-wrap">
           <section class="panel" role="tabpanel" id="panel-0" aria-labelledby="tab-0" data-slug="core-books">
             <div class="panel-desc">
-              <p class="label">Core Books · <span data-count>4</span> resources</p>
-              <h3>The books the exam is built from.</h3>
-              <p>Read once to learn the shape, then answer from them until the answers come without the page.</p>
+              <p class="label">Core Books · <span data-count>4</span> <span data-count-word>resources</span></p>
+              <h3>The main books, one per topic.</h3>
+              <p>Read these to learn each subject. Then answer questions from them until the answers come without looking at the page.</p>
               <div class="go"><a class="btn btn-ghost btn-small" href="/library#core-books">Open in the library →</a></div>
             </div>
             <ul class="panel-list" data-list></ul>
           </section>
           <section class="panel" role="tabpanel" id="panel-1" aria-labelledby="tab-1" data-slug="mocks-drills" hidden>
             <div class="panel-desc">
-              <p class="label">Mocks &amp; Drills · <span data-count>1</span> resources</p>
-              <h3>Timed question sets. The unit of practice.</h3>
-              <p>Questions are the practice. Sit them under time, mark them, and write every miss.</p>
+              <p class="label">Mocks &amp; Drills · <span data-count>1</span> <span data-count-word>resources</span></p>
+              <h3>Timed practice question sets.</h3>
+              <p>Sit a set under exam timing, mark it, and write down every answer you got wrong.</p>
               <div class="go"><a class="btn btn-ghost btn-small" href="/library#mocks-drills">Open in the library →</a></div>
             </div>
             <ul class="panel-list" data-list></ul>
           </section>
           <section class="panel" role="tabpanel" id="panel-2" aria-labelledby="tab-2" data-slug="past-papers-answer-keys" hidden>
             <div class="panel-desc">
-              <p class="label">Past Papers &amp; Answer Keys · <span data-count>4</span> resources</p>
-              <h3>Recalled papers with keys you can check.</h3>
-              <p>Each paper comes with its answer key and the reasoning behind every answer, so a miss has a cause you can name.</p>
+              <p class="label">Past Papers &amp; Answer Keys · <span data-count>4</span> <span data-count-word>resources</span></p>
+              <h3>Recalled past papers, with answer keys.</h3>
+              <p>Each paper comes with its answer key and an explanation for every answer, so you can see exactly why you missed one.</p>
               <div class="go"><a class="btn btn-ghost btn-small" href="/library#past-papers-answer-keys">Open in the library →</a></div>
             </div>
             <ul class="panel-list" data-list></ul>
           </section>
           <section class="panel" role="tabpanel" id="panel-3" aria-labelledby="tab-3" data-slug="exam-intelligence-strategy" hidden>
             <div class="panel-desc">
-              <p class="label">Exam Intelligence &amp; Strategy · <span data-count>2</span> resources</p>
-              <h3>What repeats, where the marks sit, how to spend the time.</h3>
-              <p>Patterns across papers, decoded. Use it to decide where the hours go, not to replace the questions.</p>
+              <p class="label">Exam Intelligence &amp; Strategy · <span data-count>2</span> <span data-count-word>resources</span></p>
+              <h3>What the exam repeats, and where the marks are.</h3>
+              <p>Patterns across past papers. Use them to decide where to spend your study time. They don't replace the questions.</p>
               <div class="go"><a class="btn btn-ghost btn-small" href="/library#exam-intelligence-strategy">Open in the library →</a></div>
             </div>
             <ul class="panel-list" data-list></ul>
           </section>
           <section class="panel" role="tabpanel" id="panel-4" aria-labelledby="tab-4" data-slug="quick-reference" hidden>
             <div class="panel-desc">
-              <p class="label">Quick Reference · <span data-count>4</span> resources</p>
-              <h3>One-page recall. Memorise once, check often.</h3>
-              <p>Thresholds, clusters and tables you need to recall under pressure, on a single page each.</p>
+              <p class="label">Quick Reference · <span data-count>4</span> <span data-count-word>resources</span></p>
+              <h3>One-page summaries to memorise.</h3>
+              <p>Thresholds, lists and tables you need to recall quickly. One page each, meant for last-minute review.</p>
               <div class="go"><a class="btn btn-ghost btn-small" href="/library#quick-reference">Open in the library →</a></div>
             </div>
             <ul class="panel-list" data-list></ul>
           </section>
           <section class="panel" role="tabpanel" id="panel-5" aria-labelledby="tab-5" data-slug="frameworks-interactive" hidden>
             <div class="panel-desc">
-              <p class="label">Frameworks &amp; Interactive · <span data-count>1</span> resources</p>
-              <h3>Working tools you run, not read.</h3>
-              <p>Case ladders and frameworks you work through step by step until the reasoning is automatic.</p>
+              <p class="label">Frameworks &amp; Interactive · <span data-count>1</span> <span data-count-word>resources</span></p>
+              <h3>Interactive tools you work through, not just read.</h3>
+              <p>Step-by-step case exercises that build clinical reasoning until it becomes automatic.</p>
               <div class="go"><a class="btn btn-ghost btn-small" href="/library#frameworks-interactive">Open in the library →</a></div>
             </div>
             <ul class="panel-list" data-list></ul>
           </section>
           <section class="panel" role="tabpanel" id="panel-6" aria-labelledby="tab-6" data-slug="medcore-systems" hidden>
             <div class="panel-desc">
-              <p class="label">MedCORE Systems · <span data-count>10</span> resources</p>
-              <h3>Ten systems books, one per specialty.</h3>
-              <p>Each specialty cut to the lines the exam asks for. Open the one you are on this week.</p>
+              <p class="label">MedCORE Systems · <span data-count>10</span> <span data-count-word>resources</span></p>
+              <h3>Ten specialty books, one per system.</h3>
+              <p>Each specialty trimmed to what the exam asks. Open the one you are studying this week.</p>
               <div class="go"><a class="btn btn-ghost btn-small" href="/library#medcore-systems">Open in the library →</a></div>
             </div>
             <ul class="panel-list" data-list></ul>
@@ -247,7 +253,7 @@
   <section class="section" id="standard" aria-labelledby="stdH">
     <div class="wrap standard">
       <header class="standard-head rv">
-        <span class="idx">03 · The standard</span>
+        <span class="idx">03 · Three rules</span>
         <h2 class="h2" id="stdH" style="margin-top:14px">Three rules, no exceptions</h2>
         <div class="progress" aria-hidden="true"><span id="ruleBar"></span></div>
       </header>
@@ -255,17 +261,17 @@
         <article class="rule" data-rule>
           <span class="num">Rule 01</span>
           <h3>No syllabus, no session</h3>
-          <p>Every study block maps to an official syllabus line. If you can't point to the line, you don't study it — no memory, no side quests, no probably-relevant.</p>
+          <p>Every study block maps to an official syllabus line. If you can't point to the syllabus line a topic belongs to, skip it. No extra memorising, no side topics, no "it might come up".</p>
         </article>
         <article class="rule" data-rule>
           <span class="num">Rule 02</span>
           <h3>Questions before comfort</h3>
-          <p>Pages don't count. Only questions attempted count — end a day without MCQs done and the day didn't happen. Reading prepares; answering is the practice.</p>
+          <p>Reading helps you prepare, but answering questions is the practice. A day with no questions done doesn't count as a study day.</p>
         </article>
         <article class="rule" data-rule>
           <span class="num">Rule 03</span>
           <h3>Every miss gets written</h3>
-          <p>No wrong answer dies in the review. The discriminator you missed goes into the error log in your own words — or the question returns and takes the mark.</p>
+          <p>Don't let a wrong answer pass. Write down, in your own words, the detail that made the right answer right. Skip that step and the question comes back and takes the mark.</p>
         </article>
       </div>
     </div>
@@ -284,7 +290,7 @@
     <div class="wrap grid12">
       <div class="final-copy rv">
         <h2 class="h2" id="finalH">Pick a category, open a file, and get to work.</h2>
-        <p>Everything in the library is cut to what the exam asks for. Start with the category you are weakest in.</p>
+        <p>Start with the category where you are weakest. Each file is written for the exam, so your time goes on what gets marked.</p>
         <div class="cta-row">
           <a class="btn btn-primary" href="/library">Open the library →</a>
         </div>
@@ -292,9 +298,9 @@
       <div class="sprint-card rv">
         <section class="game" aria-labelledby="sprintTitle">
           <header class="game-head"><span>60-second sprint</span><span>5 questions</span></header>
-          <h3 id="sprintTitle">The clock is the test.</h3>
-          <p class="lead">Five quick questions in sixty seconds. Every miss is shown at the end so you can write it down before you move on.</p>
-          <div class="cta-row" style="margin-top:14px"><button class="btn btn-ghost btn-small" id="startSprint" type="button" aria-controls="sprintSlot">Start the sprint →</button></div>
+          <h3 id="sprintTitle">Sixty seconds. Five questions.</h3>
+          <p class="lead">Five questions, sixty seconds. Every answer you get wrong is listed at the end, so you can see it before you move on.</p>
+          <div class="cta-row" style="margin-top:14px"><button class="btn btn-ghost btn-small" id="startSprint" type="button" aria-controls="sprintSlot">Start a 60-second sprint →</button></div>
         </section>
         <div class="game-slot" id="sprintSlot" style="margin-top:14px"></div>
       </div>
@@ -310,7 +316,7 @@
       <a class="brand" href="/" aria-label="MedCoreX home">
         <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h4l2-5 3 10 3-14 2 9h3 5"/></svg></span>MedCoreX
       </a>
-      <p class="foot-tag">A genuinely great study resource — curated with discipline, and kept current and exact.</p>
+      <p class="foot-tag">A study library built around the exam, kept current and accurate.</p>
     </div>
     <nav class="foot-links" aria-label="Footer">
       <a href="/">Home</a><a href="/library">Library</a><a href="/about">About</a><a href="/faq">FAQ</a><a href="/stats">Stats</a><a href="/login" id="footAuth">Sign in</a>
@@ -327,6 +333,7 @@
 
 <script src="/assets/catalog.js" defer></script>
 <script src="/assets/home/home.js" defer></script>
+<script type="module" src="/assets/home/device.js"></script>
 <script src="/medcore-sync.js" defer></script>
 <script src="/auth-nav.js" defer></script>
 </body>

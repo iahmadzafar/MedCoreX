@@ -58,7 +58,7 @@ export async function start(opts) {
 
     var h = el('h3', { id: 'scnTitle', tabindex: '-1' }, s.title);
     card.appendChild(h);
-    card.appendChild(el('p', { class: 'lead' }, 'The monitor is showing this now. Which reading pattern is it?'));
+    card.appendChild(el('p', { class: 'lead' }, 'This is what the monitor shows. Which pattern fits?'));
 
     var opts = el('div', { class: 'options', role: 'group', 'aria-label': 'Answer options' });
     var done = false;
@@ -120,9 +120,9 @@ export async function start(opts) {
     head.appendChild(el('span', null, 'complete'));
     card.appendChild(head);
     card.appendChild(el('h3', { id: 'scnTitle', tabindex: '-1' }, 'You read ' + correct + ' of ' + answered + ' right.'));
-    card.appendChild(el('p', { class: 'lead' }, 'Every wrong read is in your error log. Open the study record to write the discriminator in your own words.'));
+    card.appendChild(el('p', { class: 'lead' }, 'Go back over the cases you missed and work out what you should have seen.'));
     var row = el('div', { class: 'game-foot' });
-    var again = el('button', { class: 'btn btn-ghost btn-small', type: 'button' }, 'Run the scenarios again');
+    var again = el('button', { class: 'btn btn-ghost btn-small', type: 'button' }, 'Run the cases again');
     again.addEventListener('click', function () { start(opts); });
     var closeBtn = el('button', { class: 'game-dismiss', type: 'button' }, 'Close ×');
     closeBtn.addEventListener('click', close);

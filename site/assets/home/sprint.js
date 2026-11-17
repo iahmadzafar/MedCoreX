@@ -48,7 +48,7 @@ export async function start(opts) {
     card.innerHTML = '';
     card.appendChild(header('5 questions'));
     card.appendChild(el('h3', { id: 'sprintH', tabindex: '-1' }, 'Sixty seconds. Five questions.'));
-    card.appendChild(el('p', { class: 'lead' }, 'The clock starts when you press start. Answer what you know. Every miss is shown at the end.'));
+    card.appendChild(el('p', { class: 'lead' }, 'The clock starts when you press start. Answer what you know. Every answer you get wrong is listed at the end.'));
     var b = el('button', { class: 'btn btn-primary btn-small', type: 'button', style: 'margin-top:14px' }, 'Start the clock');
     b.addEventListener('click', begin);
     card.appendChild(b);
@@ -143,8 +143,8 @@ export async function start(opts) {
 
     card.appendChild(el('p', { class: 'lead', style: 'margin-top:14px' },
       misses.length
-        ? 'Your misses. Write the discriminator in your own notes before you move on. The question returns when you come back, and it takes the mark if you skip it.'
-        : 'No misses. Keep the standard: every answer you give has a reason you can name.'));
+        ? 'Your misses. Write down, in your own words, the detail that separated the right answer from yours. Skipping this means the question comes back and takes the mark.'
+        : 'No misses. Keep the standard: every answer you give should have a reason you can name.'));
 
     if (misses.length) {
       var ul = el('ul', { class: 'misses' });

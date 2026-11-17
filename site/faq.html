@@ -69,7 +69,7 @@
       <p class="eyebrow">MedCoreX · Frequently asked</p>
       <h1>FAQ</h1>
     </div>
-    <p class="muted">Questions about access, accounts, content, and how to use the library.</p>
+    <p class="muted">Answers about signing in, what is in the library, and how to use it.</p>
   </div>
   <div class="faq-grid" id="faq-grid">
     <!-- FAQ items injected by JS below -->
@@ -80,7 +80,7 @@
 <footer class="foot"><div class="wrap foot-in">
   <div>
     <div class="logo" style="font-size:1.2rem"><span class="logo-mark" style="width:30px;height:30px;font-size:.8rem"><svg viewBox="0 0 24 24" style="width:1.15em;height:1.15em" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M12 4.2v16.3"/><path d="M12 5.6c-3 0-3 2.3 0 2.3s3 2.3 0 2.3-3 2.3 0 2.3 3 2.3 0 2.3"/><circle cx="12" cy="3.3" r="1.35" fill="currentColor" stroke="none"/></svg></span>MedCoreX</div>
-    <p class="foot-tag">A genuinely great study resource — curated with discipline, and kept current and exact.</p>
+    <p class="foot-tag">A study library built around the exam, kept current and accurate.</p>
   </div>
   <nav class="foot-links" aria-label="Footer">
     <a href="/">Home</a><a href="/library">Library</a><a href="/about">About</a> <a href="/faq">FAQ</a><a href="/stats">Stats</a><a href="/login" id="footAuth">Sign in</a>
@@ -98,35 +98,35 @@
 const FAQS = [
   {
     q: "What is MedCoreX?",
-    a: ["MedCoreX is a private study library built for exam preparation. It organises question banks, mock sets, drill cards and reference material around the syllabus, with an emphasis on MCQ practice and error logging rather than passive reading."]
+    a: ["MedCoreX is a private study library for exam preparation. It brings together question banks, timed mock sets, drill cards and reference sheets, all arranged around the syllabus. The focus is on answering questions and learning from your mistakes, not just reading pages."]
   },
   {
     q: "Do I need an account?",
-    a: ["You can browse the catalogue without an account. Opening a file requires a free account — it takes a minute, costs nothing, and keeps your progress with you."]
+    a: ["You can browse the catalogue without an account. To open a file, you need a free account. It takes about a minute to set up and keeps your progress with you."]
   },
   {
     q: "How is progress tracked?",
-    a: ["Every question you answer is saved to your account. Wrong answers go into your error log with the date, your answer, the correct one, and the discriminator you missed. Accuracy, streaks and time practised are tracked per subject."]
+    a: ["Every question you answer is saved to your account. When you get one wrong, we record the date, your answer, the correct answer and the detail that made the difference. Your accuracy, streaks and study time are tracked for each subject."]
   },
   {
-    q: "What are the 'seven layers' in a breakdown?",
-    a: ["Each MCQ includes concept, discriminator, trap, rule, and why every other option dies — plus high-yield links and a memory hook. The idea is to learn from the question, not just memorise the answer."]
+    q: "How is each question explained?",
+    a: ["Every question breaks down into the topic it tests, the detail that separates the right answer from the wrong ones, the trap the examiner is using, the rule behind it, and why each other option fails. You also get links to related high-yield material and a memory aid. The point is to understand the question, not just memorise the answer."]
   },
   {
     q: "Can I use this offline?",
-    a: ["The pages are static HTML and load without a backend for reading. You need an internet connection to load them the first time, and to sign in. Once loaded, navigation and answer reveal work client-side."]
+    a: ["The pages are simple HTML files, so reading them doesn't need a server. You need an internet connection to open them the first time and to sign in. After that, moving between pages and revealing answers works in your browser."]
   },
   {
     q: "Is my data sold or tracked?",
-    a: ["No. Your account holds your email, username and progress — nothing more. No profiles, no analytics, no third-party scripts, no advertising."]
+    a: ["No. Your account stores only your email, username and progress. We don't build profiles from what you read, and we don't run advertising. Fonts are served from this site. Hosting sees a normal web request. Your study data stays yours."]
   },
   {
     q: "Who is this for?",
-    a: ["Anyone preparing for a licensing or board-style MCQ exam. The material is organised around recall, traps and discriminators rather than passive reading."]
+    a: ["Anyone preparing for a licensing or postgraduate multiple-choice exam. The material is built around recalling facts, spotting traps and knowing why one answer beats the others, rather than passive reading."]
   },
   {
     q: "Who runs MedCoreX?",
-    a: ["MedCoreX is developed by AHMDZAFR as a personal study resource opened to a small set of readers. It is not affiliated with any examining body."]
+    a: ["MedCoreX is built by AHMDZAFR as a personal study resource, shared with a small group of readers. It is not connected to any exam authority."]
   }
 ];
 const grid = document.getElementById('faq-grid');
