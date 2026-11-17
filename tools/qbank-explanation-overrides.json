@@ -1,0 +1,44 @@
+{
+  "MEDCNS02": {
+    "identity": {
+      "stem": "A 50-year-old woman presents with proximal leg weakness that improves after climbing a few flights of stairs. She also reports dry mouth. Examination reveals decreased reflexes that improve after repeated muscle contraction. What is the most likely diagnosis?",
+      "options": ["Myasthenia gravis", "Lambert-Eaton myasthenic syndrome", "Guillain-Barre syndrome", "Polymyositis"],
+      "answer": 1
+    },
+    "sources": [
+      "MedCORE-6716-MCQs.txt rich duplicate [2164] for the identical stem; mapped its explanations to MEDCNS02's reordered options by option text.",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC6690495/"
+    ],
+    "layers": {
+      "hook": "Exercise improves the weakness + dry mouth + postexercise reflex facilitation → LEMS, not MG.",
+      "trap": "Both LEMS and myasthenia gravis can cause proximal weakness. Here, improvement after repeated contraction plus dry mouth and reflex facilitation are the discriminators for LEMS.",
+      "rule": "LEMS is a presynaptic neuromuscular-junction disorder, commonly associated with antibodies to P/Q-type voltage-gated calcium channels that reduce acetylcholine release. Its typical pattern is proximal weakness with autonomic symptoms and reduced reflexes; brief exercise may transiently facilitate strength and reflexes.",
+      "others": {
+        "A": "Myasthenia gravis typically causes fatigable weakness that worsens with repeated use and improves with rest; the exercise-related facilitation and dry mouth in this stem favor LEMS.",
+        "C": "Guillain–Barré syndrome usually causes progressive ascending weakness with reduced or absent reflexes, not the postexercise facilitation and autonomic pattern described here.",
+        "D": "Polymyositis can cause proximal weakness, but it does not explain the characteristic postexercise facilitation and autonomic symptoms in this stem."
+      }
+    }
+  },
+  "MEDCNS03": {
+    "identity": {
+      "stem": "A girl of six years experiences moments of gazing and non-communication, with her EEG revealing 3/sec, synchronized spike-wave discharges. Which anti-epileptic drug is most suitable for her?",
+      "options": ["Phenytoin", "Gabapentin", "Primidone", "Ethosuximide"],
+      "answer": 3
+    },
+    "sources": [
+      "Past Papers/Past Papers - Full/Aug 2023.rtf: explanation for the 3-Hz spike-and-wave/ethosuximide pairing.",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC6394437/"
+    ],
+    "layers": {
+      "hook": "Six-year-old + brief staring + 3-Hz spike-wave → childhood absence → ethosuximide.",
+      "trap": "Do not choose an antiseizure drug by name alone: the 3-Hz generalized spike-wave pattern identifies typical childhood absence, for which ethosuximide is the preferred initial treatment when absence is the only seizure type.",
+      "rule": "The age, brief staring episodes, and synchronous 3-Hz spike-and-wave EEG are characteristic of childhood absence epilepsy. Ethosuximide is the preferred initial monotherapy when seizures are absence-only; it blocks low-threshold T-type calcium currents in thalamic neurons involved in the synchronized spike-wave rhythm.",
+      "others": {
+        "A": "Phenytoin may aggravate typical absence seizures and should not be chosen for this presentation.",
+        "B": "Gabapentin is not effective for childhood absence seizures.",
+        "C": "Primidone is not a recommended initial monotherapy for childhood absence epilepsy; ethosuximide is the preferred first choice for absence-only disease."
+      }
+    }
+  }
+}

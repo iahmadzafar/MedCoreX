@@ -14,6 +14,8 @@
    ============================================================ */
 const fs = require('fs');
 const path = require('path');
+const vm = require('vm');
+const { applyExplanationOverrides } = require('./qbank-explanations');
 
 const ROOT = path.resolve(__dirname, '..');
 const PARSER_DIR = '/Users/ahmdzafr/Projects/MedCORE-Study/lib';
@@ -120,6 +122,49 @@ const ids = rows.map(r => r._pid);
 if (new Set(ids).size !== ids.length) die('public_ids not unique');
 const idOK = ids.every(id => /^[A-Z]{3}[A-Z]{3}[0-9A-Z]{2}$/.test(id));
 if (!idOK) die('some public_ids malformed');
+
+/* Do not overwrite a shipped bank if the external canonical source now mints
+   different IDs, changes ordering, or changes keyed question data. Progress is
+   keyed by subject/index, so all three must be reconciled deliberately first. */
+const currentDataPath = path.join(ROOT, 'site', 'resources', 'medcore-question-bank', 'data.js');
+const currentContext = {};
+vm.runInNewContext(
+  fs.readFileSync(currentDataPath, 'utf8') + '\nthis.__currentSubjects = SUBJECTS;',
+  currentContext,
+  { timeout: 10000 },
+);
+const currentSubjects = currentContext.__currentSubjects;
+const currentBySubject = new Map((currentSubjects || []).map(subject => [subject.id, subject]));
+const generatedBySubject = new Map();
+for (const row of rows) {
+  const code = row._q.subject;
+  if (!generatedBySubject.has(code)) generatedBySubject.set(code, []);
+  generatedBySubject.get(code).push(row);
+}
+for (const code of GROUPS.flatMap(group => group.subjects)) {
+  const current = currentBySubject.get(code);
+  const generated = generatedBySubject.get(code) || [];
+  if (!current || current.questions.length !== generated.length)
+    die(`refusing regeneration: question count differs for ${code}; preserve current IDs/progress and reconcile the source first`);
+  for (let i = 0; i < generated.length; i++) {
+    const existing = current.questions[i];
+    const next = generated[i];
+    if (existing.id !== next._pid || existing.q !== next._row.q
+      || JSON.stringify(existing.options) !== JSON.stringify(next._row.options)
+      || existing.answer !== next._row.answer)
+      die(`refusing regeneration: ID/order/stem/options/key would change for ${code} question ${i + 1}`);
+  }
+}
+
+/* ---------- 3b. curated, evidence-linked explanation overlays ----------
+   A few canonical questions have only a concept in their source variant even
+   though validated explanations exist for the same stem or syndrome. Apply
+   those additions by stable public ID after IDs are minted; never reorder or
+   re-key questions, and never silently replace source-provided explanation. */
+const explanationOverrides = JSON.parse(fs.readFileSync(
+  path.join(__dirname, 'qbank-explanation-overrides.json'), 'utf8'));
+const overriddenCount = applyExplanationOverrides(rows.map(r => r._row), explanationOverrides);
+console.log(`[explanations] ${overriddenCount} evidence-linked question overrides applied`);
 
 /* collapse record (27 pairs/clusters expected) */
 const dups = [];
