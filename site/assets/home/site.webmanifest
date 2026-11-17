@@ -1,0 +1,13 @@
+{
+  "name": "MedCoreX — a private study library",
+  "short_name": "MedCoreX",
+  "description": "Seven categories, one standard. Books, drills, recalled papers and exam intelligence.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#05090a",
+  "theme_color": "#05090a",
+  "icons": [
+    { "src": "/assets/home/favicon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/assets/home/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}

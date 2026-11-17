@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /resources/
+Disallow: /api/
+Disallow: /admin/
+
+Sitemap: https://medcorex.pages.dev/sitemap.xml

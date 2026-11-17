@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<defs>
+  <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
+    <path d="M24 0H0V24" fill="none" stroke="#3dff9a" stroke-opacity="0.09" stroke-width="1"/>
+  </pattern>
+</defs>
+<rect width="1200" height="630" fill="#05090a"/>
+<text x="72" y="104" font-family="Menlo, Consolas, monospace" font-size="22" letter-spacing="3" fill="#a3b5b0">PRIVATE STUDY LIBRARY · SEVEN CATEGORIES</text>
+<text x="72" y="208" font-family="Helvetica Neue, Arial, sans-serif" font-weight="800" font-size="78" letter-spacing="-2" fill="#f2f7f5">MedCoreX</text>
+<text x="72" y="300" font-family="Helvetica Neue, Arial, sans-serif" font-weight="800" font-size="50" letter-spacing="-1" fill="#f2f7f5">Everything the exam asks.</text>
+<text x="72" y="362" font-family="Helvetica Neue, Arial, sans-serif" font-weight="800" font-size="50" letter-spacing="-1" fill="#a3b5b0">Nothing it doesn't.</text>
+<text x="72" y="450" font-family="Menlo, Consolas, monospace" font-size="20" fill="#a3b5b0">Books, drills, recalled papers and exam intelligence.</text>
+
+<g transform="translate(640 110)">
+  <rect width="488" height="410" rx="22" fill="#0a1311" stroke="#1c2d29" stroke-width="2"/>
+  <text x="26" y="44" font-family="Menlo, Consolas, monospace" font-size="17" letter-spacing="2" fill="#f2f7f5">MedCoreX · MONITOR</text>
+  <text x="462" y="44" text-anchor="end" font-family="Menlo, Consolas, monospace" font-size="17" letter-spacing="2" fill="#a3b5b0">BED 01 · DEMO MODE</text>
+  <line x1="26" y1="62" x2="462" y2="62" stroke="#1c2d29" stroke-width="2"/>
+  <rect x="26" y="80" width="436" height="200" rx="10" fill="#05090a" stroke="#1c2d29"/>
+  <g transform="translate(40 150)">
+    <path d="M0 0 l12 0 l6 -10 l4 34 l4 -62 l4 38 l6 -14 l20 0 l18 -14 l22 0 l22 0 l12 0 l6 -10 l4 34 l4 -62 l4 38 l6 -14 l20 0 l18 -14 l22 0 l22 0 l12 0 l6 -10 l4 34 l4 -62 l4 38 l6 -14 l20 0 l18 -14 l22 0 l22 0 l12 0 l6 -10 l4 34 l4 -62 l4 38 l6 -14 l20 0 l18 -14 l22 0 l22 0 l12 0 l6 -10 l4 34 l4 -62 l4 38 l6 -14 l20 0 l22 0" fill="none" stroke="#3dff9a" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  </g>
+  <path d="M40 232 C60 232 70 196 92 196 S110 232 130 232 S160 196 182 196 S200 232 222 232 S252 196 274 196 S292 232 314 232 S344 196 366 196 S384 232 404 232 S434 196 448 196" fill="none" stroke="#5cc8ff" stroke-width="2.6" stroke-linecap="round" opacity="0.9"/>
+  <path d="M40 262 q30 -26 60 0 t60 0 t60 0 t60 0 t60 0 t60 0 t60 0" fill="none" stroke="#ffb84d" stroke-width="2.2" opacity="0.9"/>
+  <g font-family="Menlo, Consolas, monospace" font-size="16" fill="#a3b5b0">
+    <text x="26" y="318" font-size="15">HR · BPM</text>
+    <text x="134" y="318" font-size="15">SpO₂ · %</text>
+    <text x="242" y="318" font-size="15">RESP · /MIN</text>
+    <text x="350" y="318" font-size="15">TEMP · °C</text>
+  </g>
+  <g font-family="Menlo, Consolas, monospace" font-weight="700" font-size="40">
+    <text x="26" y="360" fill="#3dff9a">72</text>
+    <text x="134" y="360" fill="#5cc8ff">98</text>
+    <text x="242" y="360" fill="#ffb84d">16</text>
+    <text x="350" y="360" fill="#f2f7f5">36.8</text>
+  </g>
+  <text x="26" y="392" font-family="Menlo, Consolas, monospace" font-size="15" fill="#f2f7f5">NIBP 118/76 (90) mmHg</text>
+  <text x="462" y="392" text-anchor="end" font-family="Menlo, Consolas, monospace" font-size="14" letter-spacing="1.5" fill="#ffb84d">SIMULATED · NOT LIVE</text>
+</g>
+<rect width="1200" height="630" fill="url(#grid)"/>
+</svg>
