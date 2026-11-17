@@ -1,102 +1,118 @@
 /* ============================================================
    MedCoreX · device sound · sound.js
-   Every effect is synthesised with the Web Audio API, so there are
-   no audio files and no licence to track. Sound starts only after a
-   visitor interacts (browsers block autoplay), and it is off until
-   the visitor turns it on. Mute is always one tap away.
+
+   The sound effects are real recordings from SFX Jar's CC0 1.0
+   hospital set (https://sfxjar.com/hospital/). CC0 needs no
+   attribution, but the source is credited here anyway.
+
+   Recorded files, loaded only when sound is switched on:
+     synth-ekg-72.mp3    bed / case change
+     0456.mp3            alarm tone
+     2504.mp3            blood pressure cuff
+     synth-ekg-flatline  standby
+
+   Two tiny effects stay synthesised because no recording in the pack
+   fits them: the tap click and the per-beat pulse beep, which follows
+   the heart rate shown on the display.
+
+   Sound never starts by itself: browsers block autoplay, and the
+   visitor has to switch it on.
    ============================================================ */
 
-let ctx = null;
-let master = null;
-let on = false;
-let noiseBuf = null;
+var BASE = '/assets/home/audio/';
+var FILES = {
+  case: 'synth-ekg-72.mp3',
+  alarm: '0456.mp3',
+  cuff: '2504.mp3',
+  standby: 'synth-ekg-flatline.mp3'
+};
 
-function ensure() {
-  if (ctx) return ctx;
-  var AC = window.AudioContext || window.webkitAudioContext;
-  if (!AC) return null;
-  ctx = new AC();
-  master = ctx.createGain();
-  master.gain.value = 0.5;
-  master.connect(ctx.destination);
-  noiseBuf = ctx.createBuffer(1, ctx.sampleRate * 1.5, ctx.sampleRate);
-  var d = noiseBuf.getChannelData(0);
-  for (var i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1;
-  return ctx;
+var on = false;
+var players = {};
+var timers = {};
+var ctx = null;
+
+function ensurePlayers() {
+  if (Object.keys(players).length) return;
+  Object.keys(FILES).forEach(function (k) {
+    var a = new Audio(BASE + FILES[k]);
+    a.preload = 'auto';
+    a.volume = k === 'cuff' ? 0.5 : 0.65;
+    players[k] = a;
+  });
+}
+
+/* play a named sample for at most `dur` seconds */
+function play(name, dur, vol) {
+  if (!on) return;
+  ensurePlayers();
+  var a = players[name];
+  if (!a) return;
+  try {
+    a.pause();
+    a.currentTime = 0;
+    if (typeof vol === 'number') a.volume = vol;
+    var p = a.play();
+    if (p && p.catch) p.catch(function () {});
+    clearTimeout(timers[name]);
+    if (dur) timers[name] = setTimeout(function () { try { a.pause(); } catch (e) {} }, dur * 1000);
+  } catch (e) {}
 }
 
 export function isOn() { return on; }
 
 export function setOn(v) {
   on = !!v;
-  if (on) { ensure(); if (ctx && ctx.state === 'suspended') ctx.resume(); }
+  if (on) ensurePlayers();
+  else {
+    Object.keys(players).forEach(function (k) {
+      try { players[k].pause(); players[k].currentTime = 0; } catch (e) {}
+      clearTimeout(timers[k]);
+    });
+  }
   return on;
 }
 
-/* one shaped tone: frequency, duration, type, peak level, start delay */
+/* a short, soft key click: pressed on every control (too small for a file) */
 function tone(freq, dur, type, peak, delay) {
-  if (!on || !ensure()) return;
-  var t0 = ctx.currentTime + (delay || 0);
-  var o = ctx.createOscillator();
-  var g = ctx.createGain();
-  o.type = type || 'sine';
-  o.frequency.setValueAtTime(freq, t0);
-  g.gain.setValueAtTime(0.0001, t0);
-  g.gain.exponentialRampToValueAtTime(peak || 0.4, t0 + 0.005);
-  g.gain.exponentialRampToValueAtTime(0.0001, t0 + dur);
-  o.connect(g).connect(master);
-  o.start(t0);
-  o.stop(t0 + dur + 0.02);
+  if (!on) return;
+  try {
+    var AC = window.AudioContext || window.webkitAudioContext;
+    if (!AC) return;
+    if (!ctx) ctx = new AC();
+    var t0 = ctx.currentTime + (delay || 0);
+    var o = ctx.createOscillator();
+    var g = ctx.createGain();
+    o.type = type || 'sine';
+    o.frequency.setValueAtTime(freq, t0);
+    g.gain.setValueAtTime(0.0001, t0);
+    g.gain.exponentialRampToValueAtTime(peak || 0.4, t0 + 0.005);
+    g.gain.exponentialRampToValueAtTime(0.0001, t0 + dur);
+    o.connect(g).connect(ctx.destination);
+    o.start(t0);
+    o.stop(t0 + dur + 0.02);
+  } catch (e) {}
 }
 
-/* a short, soft key click: pressing any control */
-export function click() {
-  tone(1500, 0.022, 'square', 0.06);
+export function click() { tone(1500, 0.022, 'square', 0.05); }
+export function beat() { tone(1020, 0.055, 'sine', 0.28); }
+
+/* moving to another bed or case: a stretch of the recorded 72 bpm monitor */
+export function chirp() { play('case', 1.4, 0.5); }
+
+/* the blood pressure cuff, trimmed to the length of a measurement */
+export function cuff() { play('cuff', 3.2, 0.55); }
+
+/* an alarm is breached: two bursts of the recorded ECG beep */
+export function alarm() {
+  play('alarm', 1.2, 0.5);
+  setTimeout(function () { play('alarm', 1.2, 0.5); }, 1600);
 }
 
-/* the pulse tone: one short beep on each heartbeat */
-export function beat(strong) {
-  tone(strong ? 1040 : 980, 0.06, 'sine', strong ? 0.35 : 0.25);
-}
+/* monitor goes into standby */
+export function standby() { play('standby', 2.2, 0.45); }
 
-/* a double chirp: moving to another bed or case */
-export function chirp() {
-  tone(660, 0.06, 'sine', 0.22);
-  tone(990, 0.09, 'sine', 0.22, 0.09);
-}
-
-/* the blood pressure cuff: a filtered noise sweep while it inflates */
-export function cuff() {
-  if (!on || !ensure()) return;
-  var t0 = ctx.currentTime;
-  var src = ctx.createBufferSource();
-  src.buffer = noiseBuf;
-  var bp = ctx.createBiquadFilter();
-  bp.type = 'bandpass';
-  bp.Q.value = 3;
-  bp.frequency.setValueAtTime(260, t0);
-  bp.frequency.linearRampToValueAtTime(520, t0 + 2.6);
-  var g = ctx.createGain();
-  g.gain.setValueAtTime(0.0001, t0);
-  g.gain.exponentialRampToValueAtTime(0.16, t0 + 0.3);
-  g.gain.linearRampToValueAtTime(0.16, t0 + 2.4);
-  g.gain.exponentialRampToValueAtTime(0.0001, t0 + 3.0);
-  src.connect(bp).connect(g).connect(master);
-  src.start(t0);
-  src.stop(t0 + 3.05);
-}
-
-/* the alarm: two alternating tones, a few cycles, then it stops */
-export function alarm(cycles) {
-  var n = cycles || 3;
-  for (var i = 0; i < n; i++) {
-    tone(880, 0.22, 'square', 0.12, i * 0.5);
-    tone(660, 0.22, 'square', 0.12, i * 0.5 + 0.25);
-  }
-}
-
-/* the reading is recorded: a soft confirm tone */
 export function confirm() {
-  tone(784, 0.1, 'sine', 0.2);
-  tone(1175, 0.16, 'sine', 0.2, 0.1);
+  tone(784, 0.1, 'sine', 0.18);
+  tone(1175, 0.16, 'sine', 0.18, 0.1);
 }

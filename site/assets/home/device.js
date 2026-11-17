@@ -232,7 +232,7 @@ export function start(root) {
       ensureBeats(now);
       var idx = locate(now).i;
       if (lastBeatIdx < 0) lastBeatIdx = idx;
-      while (lastBeatIdx < idx) { lastBeatIdx++; sfx.beat(current().ecg === 'af' ? false : true); }
+      while (lastBeatIdx < idx) { lastBeatIdx++; sfx.beat(); }
     }
     /* repeating alarm tone while a limit is breached and not silenced */
     if (power && alarmReason().length && Date.now() > silencedUntil && Date.now() - lastAlarmSound > 6000) {
@@ -442,7 +442,7 @@ export function start(root) {
     ledPower.setAttribute('aria-pressed', String(power));
     bedState.textContent = power ? 'Demo' : 'Standby';
     if (power) { resetBeats((performance.now() - T0) / 1000); runLoop(); draw((performance.now() - T0) / 1000); }
-    else { stopLoop(); draw(0); }
+    else { stopLoop(); draw(0); sfx.standby(); }
     explain.textContent = power ? 'Monitor on.' : 'Standby. Traces and readings are paused.';
   });
 
@@ -451,7 +451,7 @@ export function start(root) {
     sfx.setOn(sound);
     btnSound.setAttribute('aria-pressed', String(sound));
     btnSound.querySelector('.sound-label').textContent = sound ? 'Sound on' : 'Sound off';
-    if (sound) { sfx.click(); explain.textContent = 'Sound on. You will hear taps, the pulse tone and alarms.'; }
+    if (sound) { sfx.click(); explain.textContent = 'Sound on. You will hear the recorded monitor, cuff and alarm sounds.'; }
     else explain.textContent = 'Sound off.';
   });
 

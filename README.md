@@ -94,14 +94,14 @@ Each case has target vitals. The displayed values ease toward those targets over
 
 ### Sound effects
 
-All effects are synthesised with the Web Audio API, so they ship as code with no audio files and no licence to track. They start only after a visitor interacts, because browsers block autoplay, and sound is off until switched on.
+The sound effects are real recordings from [SFX Jar's CC0 1.0 hospital set](https://sfxjar.com/hospital/), stored in `site/assets/home/audio/`. CC0 requires no attribution, but the source is credited in `sound.js` and here. The four recordings are loaded only when the visitor switches sound on, so they never touch the initial page weight.
 
-- Tap: a short click on every control
-- Pulse: a beep on each R-peak, so the tempo follows the displayed heart rate
-- Alarm: two alternating tones while a limit is breached
-- Blood pressure: a filtered noise sweep while the cuff inflates
+- Bed and case change: `synth-ekg-72.mp3`, a recorded 72 bpm monitor, played for 1.4 seconds
+- Alarm: `0456.mp3`, a recorded ECG beep, in two bursts
+- Blood pressure measurement: `2504.mp3`, a recorded cuff, trimmed to the 3.2-second measurement
+- Standby: `synth-ekg-flatline.mp3`, the flatline tone, played for 2.2 seconds
 
-**CC0 alternative, researched Nov 18 2026:** [SFX Jar's hospital set](https://sfxjar.com/hospital/) publishes four MP3s under CC0 1.0 (no attribution required), including a 72 bpm monitor, a flatline, a blood pressure monitor and an ECG beep. Direct files: `audio.sfxjar.com/audio/synth-ekg-72.mp3`, `synth-ekg-flatline.mp3`, `2504.mp3`, `0456.mp3`. I did not ship them: the recorded beeps are fixed at 72 bpm, which would contradict the five cases where the rate changes, and the files add 97 to 360 KB. Say the word and I will swap the synthesised effects for these clips.
+Two tiny effects stay synthesised with the Web Audio API because nothing in the pack fits them: the tap click, and the short beep on each R-peak, which follows the heart rate shown on the display. Sound is off by default and never starts without a tap.
 
 ## Fonts
 
