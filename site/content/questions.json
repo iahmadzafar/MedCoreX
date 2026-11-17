@@ -1,0 +1,70 @@
+{
+  "_note": "60-second sprint questions. For study only, not clinical guidance. 'answer' is the zero-based index of the correct option. 'category' must match a name in assets/catalog.js.",
+  "questions": [
+    {
+      "id": "q-hypoventilation",
+      "stem": "Which mechanism lowers the partial pressure of oxygen in arterial blood itself, not only the haemoglobin carrying it?",
+      "options": [
+        "Anaemia",
+        "Carbon monoxide poisoning",
+        "Hypoventilation",
+        "Low cardiac output"
+      ],
+      "answer": 2,
+      "why": "Hypoventilation lowers PaO₂ and raises PaCO₂ because less gas reaches the alveoli. Anaemia and low output reduce content with a normal PaO₂.",
+      "category": "Core Books"
+    },
+    {
+      "id": "q-co-oximetry",
+      "stem": "Standard pulse oximetry can read falsely normal in which situation?",
+      "options": [
+        "Hypothermia",
+        "Carbon monoxide poisoning",
+        "Tachycardia",
+        "Hyperventilation"
+      ],
+      "answer": 1,
+      "why": "Carboxyhaemoglobin is read as oxyhaemoglobin by a two-wavelength oximeter, so SpO₂ can look normal while oxygen delivery is poor.",
+      "category": "Quick Reference"
+    },
+    {
+      "id": "q-hypovolaemia",
+      "stem": "In a young, fit adult who is losing blood, which sign usually changes first?",
+      "options": [
+        "Systolic blood pressure",
+        "Heart rate",
+        "Temperature",
+        "Oxygen saturation"
+      ],
+      "answer": 1,
+      "why": "Compensated shock raises heart rate and tightens vessels, keeping pressure normal until late. Tachycardia is the early sign.",
+      "category": "Core Books"
+    },
+    {
+      "id": "q-fever-threshold",
+      "stem": "Which temperature is conventionally used to define fever in adults?",
+      "options": [
+        "37.0 °C",
+        "37.5 °C",
+        "38.0 °C",
+        "39.0 °C"
+      ],
+      "answer": 2,
+      "why": "38.0 °C is the usual threshold. 37.5 °C is low-grade, and 39.0 °C is a high fever rather than the definition.",
+      "category": "Quick Reference"
+    },
+    {
+      "id": "q-kussmaul",
+      "stem": "Kussmaul breathing is best described as which pattern?",
+      "options": [
+        "Slow, shallow breaths",
+        "Intermittent apnoea",
+        "Deep, rapid, laboured breaths",
+        "Breathing through pursed lips"
+      ],
+      "answer": 2,
+      "why": "Deep, rapid, laboured breathing is respiratory compensation for metabolic acidosis, as in diabetic ketoacidosis.",
+      "category": "Mocks & Drills"
+    }
+  ]
+}

@@ -1,0 +1,165 @@
+{
+  "_note": "Read-the-monitor scenarios. For study only, not clinical guidance. Each scenario maps to one library category (must match a name in assets/catalog.js). 'answer' is the zero-based index of the correct option.",
+  "scenarios": [
+    {
+      "id": "tachycardia-rest",
+      "title": "Tachycardia at rest",
+      "rhythm": "regular",
+      "pleth": 1.0,
+      "vitals": { "hr": 128, "spo2": 98, "rr": 18, "temp": 36.9, "sys": 120, "dia": 78 },
+      "options": [
+        "Rate problem with normal oxygenation: work up the cause, check the ECG rhythm",
+        "Hypoxic emergency: high-flow oxygen first, the rate is secondary",
+        "Hypothermia: rewarm before anything else",
+        "Normal variant: no action needed"
+      ],
+      "answer": 0,
+      "why": "Heart rate 128 with normal saturation, temperature and pressure is a rate problem to work up, not a hypoxic one. Confirm the rhythm on the ECG, then look for the usual drivers.",
+      "category": "Core Books"
+    },
+    {
+      "id": "hypoxaemia-tachypnoea",
+      "title": "Hypoxaemia with tachypnoea",
+      "rhythm": "regular",
+      "pleth": 0.8,
+      "vitals": { "hr": 104, "spo2": 86, "rr": 28, "temp": 37.4, "sys": 130, "dia": 84 },
+      "options": [
+        "Normal for a fit young adult",
+        "Respiratory problem with falling oxygen: give oxygen and find the cause",
+        "Fever-driven: treat with an antipyretic",
+        "Hypotension: give fluid first"
+      ],
+      "answer": 1,
+      "why": "Saturation 86 with a respiratory rate of 28 is a gas-exchange problem. Oxygen and a cause hunt come before anything else on this monitor.",
+      "category": "Core Books"
+    },
+    {
+      "id": "hypotension-compensated",
+      "title": "Low pressure with tachycardia",
+      "rhythm": "regular",
+      "pleth": 0.55,
+      "vitals": { "hr": 118, "spo2": 96, "rr": 22, "temp": 37.1, "sys": 84, "dia": 52 },
+      "options": [
+        "Isolated hypertension: observe",
+        "Low pressure with compensatory tachycardia: treat as possible shock until proven otherwise",
+        "Normal resting pressure, the reading is artefact",
+        "Reflex bradycardia: no action"
+      ],
+      "answer": 1,
+      "why": "A falling pressure with a rising heart rate is the compensated pattern. The pressure drops late, so the early sign is the rate. Treat the pattern as shock until the cause is clear.",
+      "category": "Quick Reference"
+    },
+    {
+      "id": "fever-tachycardia",
+      "title": "Fever with a rising rate",
+      "rhythm": "regular",
+      "pleth": 1.0,
+      "vitals": { "hr": 112, "spo2": 97, "rr": 18, "temp": 38.6, "sys": 118, "dia": 76 },
+      "options": [
+        "Hypothermia: insulate and observe",
+        "Fever with tachycardia: look for a source and document the trend",
+        "Hypoglycaemia: give sugar only",
+        "Normal post-exercise change"
+      ],
+      "answer": 1,
+      "why": "A temperature of 38.6 with a heart rate of 112 is a febrile response. The task is the source and the trend, not the number on its own.",
+      "category": "Quick Reference"
+    },
+    {
+      "id": "bradycardia-perfusion",
+      "title": "Bradycardia with a pressure drop",
+      "rhythm": "regular",
+      "pleth": 0.7,
+      "vitals": { "hr": 38, "spo2": 97, "rr": 14, "temp": 36.7, "sys": 96, "dia": 58 },
+      "options": [
+        "Hyperthermia: cool the patient",
+        "Hypoxic emergency: high-flow oxygen first, the pulse is secondary",
+        "Tachyarrhythmia: give a beta blocker",
+        "Symptomatic bradycardia: check perfusion and the ECG, treat if unstable"
+      ],
+      "answer": 3,
+      "why": "A rate of 38 with a falling pressure needs perfusion and rhythm checked now. Treatment follows instability, so the ECG decides what happens next.",
+      "category": "Core Books"
+    },
+    {
+      "id": "kussmaul-breathing",
+      "title": "Deep, rapid, laboured breathing",
+      "rhythm": "regular",
+      "pleth": 0.9,
+      "vitals": { "hr": 110, "spo2": 98, "rr": 30, "temp": 37.0, "sys": 108, "dia": 66 },
+      "options": [
+        "Slow, shallow breathing from sedation",
+        "Intermittent apnoea: observe",
+        "Deep, rapid, laboured breathing: compensation for a metabolic acidosis",
+        "Pursed-lip breathing from airway narrowing"
+      ],
+      "answer": 2,
+      "why": "Deep, rapid breathing is the respiratory compensation for a metabolic acidosis. It is the pattern to recognise, and the cause is the target.",
+      "category": "Core Books"
+    },
+    {
+      "id": "hypothermia-low-rate",
+      "title": "Cold, slow and drifting",
+      "rhythm": "regular",
+      "pleth": 0.75,
+      "vitals": { "hr": 52, "spo2": 95, "rr": 10, "temp": 34.8, "sys": 102, "dia": 64 },
+      "options": [
+        "Fever: give an antipyretic",
+        "Hypothermia with bradycardia: rewarm and recheck the rhythm",
+        "Hyperthyroid crisis: beta blocker",
+        "Normal for a resting adult"
+      ],
+      "answer": 1,
+      "why": "A core temperature of 34.8 with a slow rate and slow breathing points to hypothermia. Rewarming and a repeat rhythm check come first.",
+      "category": "Quick Reference"
+    },
+    {
+      "id": "sepsis-pattern",
+      "title": "Fever, rate, breathing and pressure together",
+      "rhythm": "regular",
+      "pleth": 0.6,
+      "vitals": { "hr": 124, "spo2": 94, "rr": 26, "temp": 38.9, "sys": 92, "dia": 56 },
+      "options": [
+        "Heat exhaustion: cool and rest",
+        "Normal after exercise: observe",
+        "Anxiety with a normal temperature: reassure",
+        "Possible sepsis: fever, tachycardia, tachypnoea and low pressure together, escalate"
+      ],
+      "answer": 3,
+      "why": "Four abnormal signs at once is the early-warning pattern for sepsis. The framework says escalate now and do not wait for the numbers to get worse.",
+      "category": "Exam Intelligence & Strategy"
+    },
+    {
+      "id": "opioid-pattern",
+      "title": "Slow, shallow breathing with falling saturation",
+      "rhythm": "regular",
+      "pleth": 0.8,
+      "vitals": { "hr": 58, "spo2": 91, "rr": 8, "temp": 36.6, "sys": 112, "dia": 70 },
+      "options": [
+        "Normal sleeping pattern: observe",
+        "Hyperventilation: sedate",
+        "Reduced respiratory drive: oxygen, airway support and find the cause",
+        "Asthma attack: nebuliser first"
+      ],
+      "answer": 2,
+      "why": "A respiratory rate of 8 with saturation falling to 91 is reduced drive, the sign of opioid or sedative effect. Oxygen and airway support come first, then the cause.",
+      "category": "Quick Reference"
+    },
+    {
+      "id": "irregular-rhythm",
+      "title": "Fast and irregularly irregular",
+      "rhythm": "irregular",
+      "pleth": 0.85,
+      "vitals": { "hr": 112, "spo2": 96, "rr": 18, "temp": 36.9, "sys": 124, "dia": 80 },
+      "options": [
+        "Sinus arrhythmia: normal in young adults",
+        "Irregularly irregular rhythm at a fast rate: confirm on ECG and check for atrial fibrillation",
+        "Heart block: pace immediately",
+        "Artefact from movement: ignore the trace"
+      ],
+      "answer": 1,
+      "why": "An irregularly irregular rhythm at a fast rate on the trace is the pattern to confirm on a 12-lead ECG. The pulse trace shows the same beat-to-beat variation.",
+      "category": "Core Books"
+    }
+  ]
+}
