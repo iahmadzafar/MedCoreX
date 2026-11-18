@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
 <rect width="1200" height="630" fill="#141416"/>
 <text x="72" y="100" font-family="JetBrains Mono, Menlo, monospace" font-size="20" letter-spacing="3" fill="#9c978e">PRIVATE STUDY LIBRARY · SEVEN CATEGORIES</text>
-<text x="72" y="236" font-family="Inter Tight, Helvetica Neue, Arial, sans-serif" font-weight="600" font-size="84" letter-spacing="-3" fill="#edeae4">Everything the exam asks.</text>
-<text x="72" y="326" font-family="Inter Tight, Helvetica Neue, Arial, sans-serif" font-weight="600" font-size="84" letter-spacing="-3" fill="#9c978e">Nothing it doesn't.</text>
+<text x="72" y="236" font-family="Inter Tight, Helvetica Neue, Arial, sans-serif" font-weight="600" font-size="84" letter-spacing="-3" fill="#edeae4">Study what the exam asks.</text>
+<text x="72" y="326" font-family="Inter Tight, Helvetica Neue, Arial, sans-serif" font-weight="600" font-size="84" letter-spacing="-3" fill="#9c978e">Nothing else.</text>
 <rect x="72" y="420" width="10" height="10" fill="#ff6a3d"/>
 <text x="96" y="432" font-family="Inter Tight, Helvetica Neue, Arial, sans-serif" font-size="26" fill="#9c978e">MedCoreX</text>
 <g transform="translate(660 110)">
