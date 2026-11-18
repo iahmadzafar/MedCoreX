@@ -295,7 +295,9 @@ nav.crumbline span[aria-current="page"] { color: var(--muted); }
 .confetti { position: fixed; width: 10px; height: 14px; z-index: 98; pointer-events: none; border: 1.5px solid var(--ink); }
 
 /* ── legacy hero leftovers: rest into the shared voice ────── */
-.hero { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 30px; align-items: center; padding: clamp(44px, 7vw, 100px) 0 clamp(26px, 4vw, 40px); }
+/* The landing hero owns a nested .grid12 (home.css) and must span the
+   full wrap; only the legacy two-up .hero keeps the grid. */
+.hero:not(:has(.grid12)) { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 30px; align-items: center; padding: clamp(44px, 7vw, 100px) 0 clamp(26px, 4vw, 40px); }
 .hero-art { position: relative; width: min(100%, 568px); aspect-ratio: 16 / 9; }
 .sticker, .shape, .marquee { animation: none; }
 .sticker { position: absolute; right: 6%; top: 4%; width: 34%; max-width: 160px; aspect-ratio: 1; background: var(--surface); border: 1px solid var(--line-strong); border-radius: 6px; display: grid; place-items: center; text-align: center; font-family: var(--f-mono); font-size: var(--fs-label); line-height: 1.3; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
