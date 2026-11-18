@@ -4281,7 +4281,7 @@ body{animation:mlxFade .4s ease both}
 <script>
 (function(){
  try{
-  var s=localStorage.getItem('mlx-theme');
+  var s=localStorage.getItem('medcore.theme')||localStorage.getItem('mx-mode')||localStorage.getItem('mlx-theme');
   var m=s||(window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');
   document.documentElement.setAttribute('data-mode',m);
  }catch(e){}

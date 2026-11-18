@@ -60,9 +60,12 @@ html[data-sv-map="zephyr"]{
   --panel:var(--surface)!important;
   --panel-2:color-mix(in srgb,var(--ink) 5%,var(--surface))!important;
   --chalk:var(--ink)!important; --chalk-2:var(--muted)!important;
-  --void:var(--ink)!important; --faint:var(--muted)!important;
+  --void:var(--bg)!important; --text:var(--ink)!important; --faint:var(--muted)!important;
   --line-2:var(--line)!important; --line-3:var(--line)!important;
   --body:var(--font-body)!important; --serif:var(--font-display)!important; --mono:var(--font-mono)!important;
+  --panel2:color-mix(in srgb,var(--ink) 6%,var(--surface))!important;
+  --line-strong:var(--line)!important;
+  --teal:var(--c3)!important;
   --amber:var(--c4)!important; --coral:var(--bad)!important; --cyan:var(--c3)!important;
   --mint:var(--ok)!important; --violet:var(--c1)!important;
   --theme-name:"Graphite and Ember"!important;

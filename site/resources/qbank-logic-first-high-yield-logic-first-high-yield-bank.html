@@ -6,10 +6,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Logic-First High-Yield Bank</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' fill='%23FFC53D'/%3E%3Cg fill='none' stroke='%2308090D' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3l9 5-9 5-9-5 9-5z'/%3E%3Cpath d='M3 13l9 5 9-5'/%3E%3Cpath d='M3 17.5l9 5 9-5' opacity='.55'/%3E%3C/g%3E%3C/svg%3E" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Geist+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 <style>
     :root{
     --void:#08090D; --bg:var(--nx-bg); --bg2:var(--nx-card); --bg3:var(--nx-card2); --bg4:var(--nx-rim2);
@@ -60,23 +56,25 @@ html[data-mode="light"]{
 }
 
   /* ═══════════ Nexus Duo — family × mode, boxy, no gradients ═══════════ */
-  html[data-banktheme="ink"][data-mode="dark"]{ --nx-bg:#0b0d12;--nx-card:#141619;--nx-card2:#191C20;--nx-txt:#FFFFFF;--nx-txt2:#FFFFFF;--nx-muted:#FFFFFF;--nx-faint:#FFFFFF;--nx-rim:#23262B;--nx-rim2:#2B2F35;--nx-a1:#B58AD6;--nx-a2:#5FA8C4;--nx-good:#4E9A6A;--nx-no:#C05A5A;--nx-violet:#8A7BD8; --nx-on:#0b0d12; --nx-shadow:0 10px 30px rgba(0,0,0,.45); }
+  html[data-banktheme="ink"][data-mode="dark"]{ --nx-bg:#141416;--nx-card:#1b1b1f;--nx-card2:#222228;--nx-txt:#edeae4;--nx-txt2:#b7b2aa;--nx-muted:#b7b2aa;--nx-faint:#8f8a80;--nx-rim:#2e2e34;--nx-rim2:#3a3a41;--nx-a1:#ff6a3d;--nx-a2:#8f8a80;--nx-good:#b8e0c8;--nx-no:#ff8a6a;--nx-violet:#ff8a6a; --nx-on:#05090a; --nx-shadow:none; }
   
-  html[data-banktheme="ice"][data-mode="dark"]{ --nx-bg:#0F1113;--nx-card:#171A1E;--nx-card2:#1C2025;--nx-txt:#FFFFFF;--nx-txt2:#FFFFFF;--nx-muted:#FFFFFF;--nx-faint:#FFFFFF;--nx-rim:#242830;--nx-rim2:#2C313A;--nx-a1:#7FB2D9;--nx-a2:#7FB2D9;--nx-good:#5FA37F;--nx-no:#C46868;--nx-violet:#8A7BD8; --nx-on:#0b0d12; --nx-shadow:0 10px 30px rgba(0,0,0,.45); }
+  html[data-banktheme="ice"][data-mode="dark"]{ --nx-bg:#141416;--nx-card:#1b1b1f;--nx-card2:#222228;--nx-txt:#edeae4;--nx-txt2:#b7b2aa;--nx-muted:#b7b2aa;--nx-faint:#8f8a80;--nx-rim:#2e2e34;--nx-rim2:#3a3a41;--nx-a1:#ff6a3d;--nx-a2:#8f8a80;--nx-good:#b8e0c8;--nx-no:#ff8a6a;--nx-violet:#ff8a6a; --nx-on:#05090a; --nx-shadow:none; }
   
-  html[data-banktheme="copper"][data-mode="dark"]{ --nx-bg:#12100F;--nx-card:#1A1816;--nx-card2:#201D1B;--nx-txt:#FFFFFF;--nx-txt2:#FFFFFF;--nx-muted:#FFFFFF;--nx-faint:#FFFFFF;--nx-rim:#282420;--nx-rim2:#322D28;--nx-a1:#C97A4A;--nx-a2:#4da3ff;--nx-good:#5E9A72;--nx-no:#C2604F;--nx-violet:#8b7cff; --nx-on:#0b0d12; --nx-shadow:0 10px 30px rgba(0,0,0,.45); }
+  html[data-banktheme="copper"][data-mode="dark"]{ --nx-bg:#141416;--nx-card:#1b1b1f;--nx-card2:#222228;--nx-txt:#edeae4;--nx-txt2:#b7b2aa;--nx-muted:#b7b2aa;--nx-faint:#8f8a80;--nx-rim:#2e2e34;--nx-rim2:#3a3a41;--nx-a1:#ff6a3d;--nx-a2:#8f8a80;--nx-good:#b8e0c8;--nx-no:#ff8a6a;--nx-violet:#ff8a6a; --nx-on:#05090a; --nx-shadow:none; }
   
-  html[data-banktheme="paper"][data-mode="dark"]{ --nx-bg:#151011;--nx-card:#1D1618;--nx-card2:#241C1E;--nx-txt:#FFFFFF;--nx-txt2:#FFFFFF;--nx-muted:#FFFFFF;--nx-faint:#FFFFFF;--nx-rim:#2C2325;--nx-rim2:#382C2F;--nx-a1:#C4666F;--nx-a2:#4da3ff;--nx-good:#5FA37F;--nx-no:#D96A6A;--nx-violet:#8b7cff; --nx-on:#0b0d12; --nx-shadow:0 10px 30px rgba(0,0,0,.45); }
+  html[data-banktheme="paper"][data-mode="dark"]{ --nx-bg:#141416;--nx-card:#1b1b1f;--nx-card2:#222228;--nx-txt:#edeae4;--nx-txt2:#b7b2aa;--nx-muted:#b7b2aa;--nx-faint:#8f8a80;--nx-rim:#2e2e34;--nx-rim2:#3a3a41;--nx-a1:#ff6a3d;--nx-a2:#8f8a80;--nx-good:#b8e0c8;--nx-no:#ff8a6a;--nx-violet:#ff8a6a; --nx-on:#05090a; --nx-shadow:none; }
+  html[data-mode="light"]{ --nx-bg:#ecebe5;--nx-card:#f7f6f2;--nx-card2:#e9e7e0;--nx-txt:#141416;--nx-txt2:#494641;--nx-muted:#494641;--nx-faint:#5c5852;--nx-rim:#d6d3cb;--nx-rim2:#c4c0b7;--nx-a1:#b33a14;--nx-a2:#5c5852;--nx-good:#1f6b45;--nx-no:#b33a14;--nx-violet:#c9552e; --nx-on:#fbf8f4; --nx-shadow:none; }
+
   
   body{ background:var(--nx-bg) !important; }
   body *{ border-radius:0 !important; }
   .brand-badge{ border-radius:14px !important; background:linear-gradient(135deg,#ffc53d,#d59a6a) !important; }
   .quiz-bar i{ background:var(--nx-a1) !important; }
-  h1,.tier-title,.quiz-done h2{ font-family:'Bricolage Grotesque','Plus Jakarta Sans',sans-serif !important; }
-  .stat .num,.quiz-progress b{ font-family:'Geist Mono',monospace !important; }
+  h1,.tier-title,.quiz-done h2{ font-family:var(--font-display) !important; }
+  .stat .num,.quiz-progress b{ font-family:var(--font-mono) !important; }
   .nx-fam{ display:flex; border:1px solid var(--nx-rim2); overflow:hidden; }
   .nx-fam button{ appearance:none; border:0; background:transparent; color:var(--nx-txt2); cursor:pointer;
-    font-family:'Geist Mono',monospace; font-size:10.5px; font-weight:600; padding:7px 10px; ;border-radius:14px}
+    font-family:var(--font-mono); font-size:10.5px; font-weight:600; padding:7px 10px; ;border-radius:14px}
   .nx-fam button + button{ border-left:1px solid var(--nx-rim2); }
   .nx-fam button.on{ background:var(--nx-a1); color:var(--nx-bg); }
   
@@ -841,7 +839,7 @@ body{animation:mlxFade .4s ease both}
 <script>
 (function(){
  try{
-  var s=localStorage.getItem('mlx-theme');
+  var s=localStorage.getItem('medcore.theme')||localStorage.getItem('mx-mode')||localStorage.getItem('mlx-theme');
   var m=s||(window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');
   document.documentElement.setAttribute('data-mode',m);
  }catch(e){}

@@ -81,7 +81,6 @@ html[data-mode="light"]{
     .system{border:none;border-top:2px solid var(--ink);border-radius:0;margin-bottom:8px;page-break-inside:avoid}
   }
 </style>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Geist+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 <style id="hub-theme-bridge">
 :root{
 --bg:#F6F3EC;--card:#FFFFFF;--ink:#101A28;--line:#1F2430;--line2:#EAE5D9;
@@ -561,7 +560,7 @@ body{animation:mlxFade .4s ease both}
 <script>
 (function(){
  try{
-  var s=localStorage.getItem('mlx-theme');
+  var s=localStorage.getItem('medcore.theme')||localStorage.getItem('mx-mode')||localStorage.getItem('mlx-theme');
   var m=s||(window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');
   document.documentElement.setAttribute('data-mode',m);
  }catch(e){}

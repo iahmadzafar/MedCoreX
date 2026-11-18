@@ -73,16 +73,20 @@ addEventListener('storage', function (e) {
   if ((e.key === MKEY || e.key === 'medcore.theme') && (e.newValue === 'dark' || e.newValue === 'light')) setMode(e.newValue);
 });
 try {
-  new MutationObserver(function () {
+  new MutationObserver(function (records) {
     const el = document.documentElement;
-    const v = el.getAttribute('data-mode');
-    if (v === 'dark' || v === 'light') {
-      if (el.dataset.theme !== v) setMode(v);
-      return;
+    /* trust whichever attribute the page actually changed, so a class
+       toggle is never shadowed by a stale-but-valid data-mode */
+    for (const rec of records) {
+      if (rec.attributeName === 'data-mode') {
+        const v = el.getAttribute('data-mode');
+        if (v === 'dark' || v === 'light') { if (el.dataset.theme !== v) setMode(v); return; }
+      }
+      if (rec.attributeName === 'class') {
+        const cls = el.classList.contains('light') ? 'light' : (el.classList.contains('dark') ? 'dark' : null);
+        if (cls && el.dataset.theme !== cls) { setMode(cls); return; }
+      }
     }
-    /* html.light / html.dark toggled by a legacy button */
-    const cls = el.classList.contains('light') ? 'light' : (el.classList.contains('dark') ? 'dark' : null);
-    if (cls && el.dataset.theme !== cls) setMode(cls);
   }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-mode', 'class'] });
 } catch (e) {}
 document.addEventListener('click', function (e) {
@@ -153,7 +157,7 @@ function fillChips() {
   let hosts = document.querySelectorAll('[data-sv-engine]');
   /* pages without a topbar (legacy documents) get a floating control,
      so every page in the fleet has the mode toggle */
-  const ownControl = document.querySelector('[aria-label*="theme" i],[aria-label*="mode" i],[title*="theme" i],[id*="Mode"],[id*="Fam"],[id*="modeBtn"]');
+  const ownControl = document.querySelector('[aria-label*="theme" i],[aria-label*="mode" i],[title*="theme" i],[id*="Mode"],[id*="Fam"],[id="modeBtn"],[id="themeBtn"]');
   if (!hosts.length && !ownControl) {
     document.body.insertAdjacentHTML('beforeend', '<div class="engine sv-float" data-sv-engine></div>');
     hosts = document.querySelectorAll('[data-sv-engine]');

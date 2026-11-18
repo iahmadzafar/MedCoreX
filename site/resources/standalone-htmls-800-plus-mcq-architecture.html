@@ -181,8 +181,7 @@ pre.tpl{font-size:0.7188rem}
 h2{font-size:1.4375rem}
 .fin{font-size:0.5rem;letter-spacing:.12em}
 }
-</style><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Geist+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-<style id="hub-theme-bridge">
+</style><style id="hub-theme-bridge">
 :root{
 --bg:#0E1A2B;--bg2:#0B1422;--panel:#14171E;--panel2:#1A2450;
 --ink:#F6F3EC;--ink2:#CBD6E4;--muted:#000000;
@@ -200,7 +199,7 @@ html.light{
 --acc:#0E1A2B;--navy:#1F6F9E;--ok:#1E7A47;--warn:#8A5A12;
 --tint:rgba(14,26,43,.06);--tint2:rgba(14,26,43,.10);--vign:rgba(120,100,60,.12);
 }
-h1,h2{font-family:'Bricolage Grotesque','Plus Jakarta Sans',sans-serif!important}
+h1,h2{font-family:var(--font-display)!important}
 .kick,.sm,.sg,.nt,.exs,.cn,.tag,.lb,.ansl,.reveal,.more{letter-spacing:.1em}
 </style>
 
@@ -1353,7 +1352,7 @@ body{animation:mlxFade .4s ease both}
 <script>
 (function(){
  try{
-  var s=localStorage.getItem('mlx-theme');
+  var s=localStorage.getItem('medcore.theme')||localStorage.getItem('mx-mode')||localStorage.getItem('mlx-theme');
   var m=s||(window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');
   document.documentElement.setAttribute('data-mode',m);
  }catch(e){}

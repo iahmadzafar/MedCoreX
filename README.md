@@ -75,6 +75,7 @@ The whole fleet runs on Direction 2, applied through the kit architecture rather
 - **`site/assets/home/home.css`** (landing page) imports the same tokens and owns only its fluid scale and the monitor's device chrome. Home and the fleet share one source.
 - **Legacy pages** were converted with `tools/kitify.py` (tags, bridge, engine). The bridge's family blocks map each page's own token names onto kit tokens; `kitcheck.js` no longer needs its exemption list — every page is checked.
 - **The ten A4 systems books** were themed through `tools/systems-kit.py` only (palette, fonts, cover); their content bodies still pass its fingerprint check.
+- **Legacy page conversions:** the eight bridged pages dropped their Google Fonts links (all families now map to kit tokens through the bridge family blocks); `memory-master`, `nre-recall`, `qbank` and the others had their hard-coded font stacks rewritten to `var(--font-*)`. Their `mlx-theme` readers now fall back to the site keys first, so one page can no longer flip the whole site's mode from an OS default. `studyverse-bridge.js` only migrates old keys and removes legacy toggles now; the engine owns every mode chip.
 - **Mode is one system now:** the engine reads and writes `mx-mode` *and* the legacy `medcore.theme` key, mirrors `data-mode` and `html.light/html.dark` classes, and watches them, so pages with their own toggles stay in sync with the site toggle. Pages with neither control get a small floating toggle; print-first systems books get none.
 
 ## The bedside monitor

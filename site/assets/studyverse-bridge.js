@@ -8,7 +8,7 @@
    1. mlx-theme → mx-mode one-time migration (kit mode carries).
    2. Legacy floating toggles (.mlx-toggle) removed — the chip
       below replaces them.
-   3. A floating engine chip for pages without a kit engine slot.
+   3. Nothing visual — containers and chips belong to studyverse.js.
 
    Loaded AFTER studyverse.js (kitify order). Test-only styles
    live in studyverse-bridge.css. */
@@ -29,13 +29,9 @@ function wire() {
   /* legacy floating toggles out (CSS already hides them) */
   document.querySelectorAll('.mlx-toggle').forEach(function (b) { b.remove(); });
 
-  /* floating engine chip when the page has no kit engine slot */
-  if (!document.querySelector('[data-sv-engine]')) {
-    var eng = document.createElement('div');
-    eng.setAttribute('data-sv-engine', '');
-    eng.className = 'svb-engine';
-    document.body.appendChild(eng);
-  }
+  /* Containers are owned by the engine (it adds a floating chip with
+     the data-sv-engine attribute when a page has no topbar slot), so
+     this file never creates one. */
 }
 if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', wire);
 else wire();

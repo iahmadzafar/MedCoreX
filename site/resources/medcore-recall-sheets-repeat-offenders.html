@@ -4,9 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Repeat Offenders — NRE recall vault</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 /* ============ Zephyr tokens ============ */
 :root{
@@ -21,14 +18,14 @@
 html{scroll-behavior:smooth; scroll-padding-top:76px}
 body{
   background:var(--void); color:var(--text);
-  font-family:"Newsreader",Georgia,serif; font-size:17px; line-height:1.65;
+  font-family:var(--font-body); font-size:17px; line-height:1.65;
   -webkit-font-smoothing:antialiased;
 }
 ::selection{background:var(--amber); color:var(--void)}
 :focus-visible{outline:2px solid var(--amber); outline-offset:2px; border-radius:4px}
 
-h1,h2{font-family:"Instrument Serif",Georgia,serif; font-weight:400; line-height:1.08}
-.mono{font-family:"IBM Plex Mono",ui-monospace,monospace}
+h1,h2{font-family:var(--font-display); font-weight:400; line-height:1.08}
+.mono{font-family:var(--font-mono)}
 .wrap{max-width:1060px; margin:0 auto; padding:0 26px}
 
 /* ============ nav ============ */
@@ -39,14 +36,14 @@ nav{
 }
 nav .wrap{display:flex; align-items:center; gap:22px; height:54px; overflow-x:auto; scrollbar-width:none}
 nav .wrap::-webkit-scrollbar{display:none}
-.brand{font-family:"Instrument Serif",serif; font-style:italic; font-size:19px; color:var(--amber); white-space:nowrap}
-nav a{font-family:"IBM Plex Mono",monospace; font-size:12.5px; color:var(--muted); text-decoration:none; white-space:nowrap; padding:4px 2px}
+.brand{font-family:var(--font-display); font-style:italic; font-size:19px; color:var(--amber); white-space:nowrap}
+nav a{font-family:var(--font-mono); font-size:12.5px; color:var(--muted); text-decoration:none; white-space:nowrap; padding:4px 2px}
 nav a:hover{color:var(--amber)}
 nav .spacer{flex:1}
 
 /* ============ hero ============ */
 header{padding:86px 0 0}
-.kicker{font-family:"IBM Plex Mono",monospace; font-size:13px; color:var(--teal); letter-spacing:.04em; margin-bottom:18px}
+.kicker{font-family:var(--font-mono); font-size:13px; color:var(--teal); letter-spacing:.04em; margin-bottom:18px}
 .hero{font-size:clamp(46px,7.5vw,84px); max-width:14ch; letter-spacing:-.01em}
 .hero em{font-style:italic; color:var(--amber)}
 .deck-note{margin-top:22px; max-width:62ch; color:var(--muted); font-size:18.5px}
@@ -57,18 +54,18 @@ header{padding:86px 0 0}
 .ticker-track{display:flex; gap:38px; width:max-content; animation:slide 58s linear infinite; will-change:transform}
 .ticker:hover .ticker-track{animation-play-state:paused}
 @keyframes slide{to{transform:translateX(-50%)}}
-.ticker span{font-family:"IBM Plex Mono",monospace; font-size:13.5px; color:var(--amber); white-space:nowrap}
+.ticker span{font-family:var(--font-mono); font-size:13.5px; color:var(--amber); white-space:nowrap}
 .ticker span::after{content:"·"; color:var(--faint); margin-left:38px}
 
 /* ============ sections ============ */
 section{padding:78px 0 10px}
 .sec-head{display:flex; align-items:baseline; gap:18px; border-top:1px solid var(--line-strong); padding-top:22px; margin-bottom:8px}
-.sec-head .idx{font-family:"IBM Plex Mono",monospace; font-size:13px; color:var(--muted); flex:0 0 auto}
+.sec-head .idx{font-family:var(--font-mono); font-size:13px; color:var(--muted); flex:0 0 auto}
 .sec-head h2{font-size:clamp(30px,4.4vw,46px)}
 .sec-sub{color:var(--muted); font-size:16.5px; max-width:64ch; margin-bottom:36px; padding-left:calc(13px + 1.55ch)}
 aside.hint{
   margin:0 0 30px; padding:13px 18px; background:var(--panel); border:1px solid var(--line);
-  border-radius:var(--r-chip); font-family:"IBM Plex Mono",monospace; font-size:12.5px; color:var(--muted)
+  border-radius:var(--r-chip); font-family:var(--font-mono); font-size:12.5px; color:var(--muted)
 }
 aside.hint b{color:var(--amber); font-weight:500}
 
@@ -76,11 +73,11 @@ aside.hint b{color:var(--amber); font-weight:500}
 .deck{margin-bottom:52px}
 .deck-bar{display:flex; align-items:center; gap:14px; margin-bottom:4px}
 .deck-bar .dot{width:11px; height:11px; border-radius:50%; flex:0 0 auto}
-.deck h3{font-family:"Instrument Serif",serif; font-size:26px; font-weight:400; letter-spacing:.005em}
-.deck-bar .count{margin-left:auto; font-family:"IBM Plex Mono",monospace; font-size:12.5px; color:var(--muted)}
+.deck h3{font-family:var(--font-display); font-size:26px; font-weight:400; letter-spacing:.005em}
+.deck-bar .count{margin-left:auto; font-family:var(--font-mono); font-size:12.5px; color:var(--muted)}
 .deck-bar .count.cleared{color:var(--amber)}
 .reveal-all{
-  font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--muted);
+  font-family:var(--font-mono); font-size:12px; color:var(--muted);
   background:none; border:1px solid var(--line-strong); border-radius:var(--r-chip);
   padding:5px 12px; cursor:pointer; transition:color .15s, border-color .15s
 }
@@ -91,10 +88,10 @@ aside.hint b{color:var(--amber); font-weight:500}
   border-bottom:1px dashed var(--line); cursor:pointer
 }
 .rf-item:hover .rf-q{color:var(--text)}
-.rf-item .n{font-family:"IBM Plex Mono",monospace; font-size:11.5px; color:var(--muted); flex:0 0 24px; padding-top:2px}
+.rf-item .n{font-family:var(--font-mono); font-size:11.5px; color:var(--muted); flex:0 0 24px; padding-top:2px}
 .rf-q{font-size:16.5px; color:var(--faint); transition:color .2s; line-height:1.45}
 .rf-answer{
-  margin-left:auto; font-family:"IBM Plex Mono",monospace; font-size:13px;
+  margin-left:auto; font-family:var(--font-mono); font-size:13px;
   color:var(--amber); text-align:right; white-space:nowrap;
   filter:blur(7px); user-select:none; padding-top:1px
 }
@@ -108,16 +105,16 @@ aside.hint b{color:var(--amber); font-weight:500}
   border:1px solid var(--line-strong); border-radius:var(--r-chip);
   background:var(--panel); padding:0 16px; height:46px; max-width:460px
 }
-.search label{font-family:"IBM Plex Mono",monospace; font-size:11.5px; color:var(--muted); flex:0 0 auto}
+.search label{font-family:var(--font-mono); font-size:11.5px; color:var(--muted); flex:0 0 auto}
 .search input{
-  background:none; border:none; color:var(--text); font-family:"IBM Plex Mono",monospace;
+  background:none; border:none; color:var(--text); font-family:var(--font-mono);
   font-size:14px; width:100%; outline:none
 }
 .search input::placeholder{color:var(--faint)}
-.sx-meta{font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--muted); margin-bottom:18px}
+.sx-meta{font-family:var(--font-mono); font-size:12px; color:var(--muted); margin-bottom:18px}
 table.sx{width:100%; border-collapse:collapse}
 .sx thead th{
-  font-family:"IBM Plex Mono",monospace; font-size:11.5px; font-weight:500; letter-spacing:.06em;
+  font-family:var(--font-mono); font-size:11.5px; font-weight:500; letter-spacing:.06em;
   text-transform:uppercase; text-align:left; color:var(--muted);
   border-bottom:1px solid var(--line-strong); padding:0 14px 10px
 }
@@ -125,28 +122,28 @@ table.sx{width:100%; border-collapse:collapse}
 .sx tbody tr:hover{background:var(--panel)}
 .sx td{padding:10px 14px; vertical-align:top; font-size:16px}
 .sx .topic{font-family:"Newsreader",serif; width:24%}
-.sx .initial{font-family:"IBM Plex Mono",monospace; font-size:13px; color:var(--teal); width:33%}
+.sx .initial{font-family:var(--font-mono); font-size:13px; color:var(--teal); width:33%}
 .sx .gold{font-size:15.5px; color:var(--amber)}
-.sx .gold .dashes{color:var(--faint); font-family:"IBM Plex Mono",monospace; font-size:13px}
-.sx .tagline{display:block; font-family:"IBM Plex Mono",monospace; font-size:10px; letter-spacing:.08em; color:var(--faint); margin-bottom:1px}
-.sx .none{color:var(--faint); font-family:"IBM Plex Mono",monospace; font-size:13px}
+.sx .gold .dashes{color:var(--faint); font-family:var(--font-mono); font-size:13px}
+.sx .tagline{display:block; font-family:var(--font-mono); font-size:10px; letter-spacing:.08em; color:var(--faint); margin-bottom:1px}
+.sx .none{color:var(--faint); font-family:var(--font-mono); font-size:13px}
 .sx tbody tr.hidden{display:none}
 
 /* ============ 03 CMV ============ */
 .stat-band{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin-bottom:40px}
 .stat{background:var(--ground); padding:20px 18px 17px}
-.stat .v{font-family:"Instrument Serif",serif; font-size:29px; color:var(--amber); line-height:1.15}
-.stat .l{font-family:"IBM Plex Mono",monospace; font-size:11px; color:var(--muted); margin-top:6px; letter-spacing:.04em}
+.stat .v{font-family:var(--font-display); font-size:29px; color:var(--amber); line-height:1.15}
+.stat .l{font-family:var(--font-mono); font-size:11px; color:var(--muted); margin-top:6px; letter-spacing:.04em}
 .dossier{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
 .organ{background:var(--panel); border:1px solid var(--line); border-radius:var(--r-card); padding:22px 20px 14px; border-top:3px solid var(--oc,var(--amber))}
 .organ.wide{grid-column:span 2}
-.organ h4{font-family:"Instrument Serif",serif; font-weight:400; font-size:22px; margin-bottom:12px}
+.organ h4{font-family:var(--font-display); font-weight:400; font-size:22px; margin-bottom:12px}
 .organ ul{list-style:none}
 .organ li{padding-left:17px; position:relative; font-size:15.5px; color:var(--muted); padding-bottom:6px; line-height:1.5}
 .organ li::before{content:"—"; position:absolute; left:0; color:var(--oc,var(--amber)); font-size:12px; top:2px}
 .organ li strong, .strip strong, .dossier li strong{color:var(--amber); font-weight:500}
 .strip{background:var(--panel); border:1px solid var(--line); border-radius:var(--r-card); padding:20px 22px; margin-top:14px}
-.strip h4{font-family:"Instrument Serif",serif; font-weight:400; font-size:22px; margin-bottom:8px}
+.strip h4{font-family:var(--font-display); font-weight:400; font-size:22px; margin-bottom:8px}
 .strip p{font-size:15.5px; color:var(--muted); padding-bottom:4px}
 .strip.duo{display:grid; grid-template-columns:1.1fr .9fr; gap:12px 34px}
 
@@ -162,27 +159,27 @@ table.sx{width:100%; border-collapse:collapse}
 }
 .face.front{background:var(--panel); border:1px solid var(--line); border-top:3px solid var(--fc)}
 .face.front .cue{font-size:16px; line-height:1.4}
-.face.front .tap{font-family:"IBM Plex Mono",monospace; font-size:10.5px; color:var(--faint); letter-spacing:.05em}
-.face.front .ix{position:absolute; top:12px; right:14px; font-family:"IBM Plex Mono",monospace; font-size:10.5px; color:var(--faint)}
+.face.front .tap{font-family:var(--font-mono); font-size:10.5px; color:var(--faint); letter-spacing:.05em}
+.face.front .ix{position:absolute; top:12px; right:14px; font-family:var(--font-mono); font-size:10.5px; color:var(--faint)}
 .face.back{
   position:absolute; inset:0; transform:rotateY(180deg);
   background:var(--amber-dim); border:1px solid rgba(245,165,36,.5); border-radius:var(--r-card)
 }
-.face.back .bug{font-family:"IBM Plex Mono",monospace; font-size:13.5px; color:var(--amber); line-height:1.5}
-.face.back .tap{font-family:"IBM Plex Mono",monospace; font-size:10px; color:var(--muted); letter-spacing:.05em}
+.face.back .bug{font-family:var(--font-mono); font-size:13.5px; color:var(--amber); line-height:1.5}
+.face.back .tap{font-family:var(--font-mono); font-size:10px; color:var(--muted); letter-spacing:.05em}
 
 /* ============ 05 gonorrhea ============ */
 .duo-dossier{display:grid; grid-template-columns:1.15fr .85fr; gap:16px; align-items:start}
 .ddx{display:flex; flex-wrap:wrap; gap:7px; padding-top:4px}
 .ddx span{
-  font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--text);
+  font-family:var(--font-mono); font-size:12px; color:var(--text);
   background:var(--panel2); border:1px solid var(--line-strong); border-radius:var(--r-chip); padding:4px 11px
 }
 
 /* ============ 06 uti tabs ============ */
 .tabs{display:flex; flex-wrap:wrap; gap:9px; margin-bottom:20px}
 .tabs button{
-  font-family:"IBM Plex Mono",monospace; font-size:12.5px; color:var(--muted);
+  font-family:var(--font-mono); font-size:12.5px; color:var(--muted);
   background:var(--panel); border:1px solid var(--line-strong); border-radius:var(--r-chip);
   padding:8px 15px; cursor:pointer; transition:all .15s
 }
@@ -193,19 +190,19 @@ table.sx{width:100%; border-collapse:collapse}
 @keyframes fadein{from{opacity:0; transform:translateY(5px)}to{opacity:1; transform:none}}
 .uti-cols{display:grid; grid-template-columns:1fr 1fr; gap:14px}
 .uti-cols .col{background:var(--panel); border:1px solid var(--line); border-radius:var(--r-card); padding:22px 20px 12px; border-top:3px solid var(--tc,var(--amber))}
-.uti-cols h4{font-family:"IBM Plex Mono",monospace; font-size:11.5px; font-weight:500; letter-spacing:.07em; color:var(--muted); margin-bottom:12px}
+.uti-cols h4{font-family:var(--font-mono); font-size:11.5px; font-weight:500; letter-spacing:.07em; color:var(--muted); margin-bottom:12px}
 .uti-cols ul{list-style:none}
 .uti-cols li{padding-left:17px; position:relative; font-size:15.5px; color:var(--muted); padding-bottom:7px; line-height:1.5}
 .uti-cols li::before{content:"—"; position:absolute; left:0; color:var(--tc,var(--amber)); font-size:12px; top:2px}
 .hallmark-strip{margin-top:26px; display:flex; flex-wrap:wrap; gap:9px}
 .hallmark-strip span{
-  font-family:"IBM Plex Mono",monospace; font-size:12.5px; border-radius:var(--r-chip); padding:6px 13px;
+  font-family:var(--font-mono); font-size:12.5px; border-radius:var(--r-chip); padding:6px 13px;
   background:var(--panel2); border:1px solid var(--line-strong); color:var(--text)
 }
 .hallmark-strip b{color:var(--amber); font-weight:500}
 
 footer{margin-top:80px; border-top:1px solid var(--line); padding:34px 0 46px}
-footer p{font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--muted); line-height:2}
+footer p{font-family:var(--font-mono); font-size:12px; color:var(--muted); line-height:2}
 footer b{color:var(--amber); font-weight:500}
 
 /* ============ responsive ============ */

@@ -131,7 +131,7 @@ body { font-family: var(--body); background: var(--ground); color: var(--chalk-2
 }
 
 </style>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Geist+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet"><style id="polish">
+<style id="polish">
 :focus-visible{outline:2px solid #f97316;outline-offset:2px;border-radius:10px}
 button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,[tabindex]:focus-visible{outline:2px solid #f97316;outline-offset:2px}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
@@ -247,7 +247,7 @@ body{animation:mlxFade .4s ease both}
 <script>
 (function(){
  try{
-  var s=localStorage.getItem('mlx-theme');
+  var s=localStorage.getItem('medcore.theme')||localStorage.getItem('mx-mode')||localStorage.getItem('mlx-theme');
   var m=s||(window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');
   document.documentElement.setAttribute('data-mode',m);
  }catch(e){}
