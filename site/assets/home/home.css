@@ -1,72 +1,17 @@
-/* self-hosted fonts: same origin, preloaded, so first paint does not reflow */
-@font-face {
-  font-family: "Inter Tight";
-  font-style: normal;
-  font-weight: 400 700;
-  font-display: swap;
-  src: url("/assets/home/fonts/inter-tight-latin.woff2") format("woff2");
-}
-@font-face {
-  font-family: "JetBrains Mono";
-  font-style: normal;
-  font-weight: 400 600;
-  font-display: swap;
-  src: url("/assets/home/fonts/jetbrains-mono-latin.woff2") format("woff2");
-}
+@import url('/assets/studyverse-tokens.css');
 
 /* ============================================================
    MedCoreX · landing page · Direction 2 "Graphite and Ember"
-   A matte bedside instrument. Hard edges (2px), one ember accent
-   that appears only for the action and the out-of-range value.
-   Self-contained: no Studyverse kit CSS, engine or components.
-   Dark is the default; the light twin keeps the instrument dark.
+   The landing consumes the SHARED kit tokens (palette, type,
+   radius, shadows, mode) and owns only what is page-specific:
+   the fluid type scale, the layout rhythm, and the monitor's
+   device chrome. Dark is the default; the light twin keeps the
+   instrument dark.
    ============================================================ */
 
 [hidden] { display: none !important; }
 
-/* ── tokens ───────────────────────────────────────────────── */
-:root,
-html[data-theme="dark"] {
-  color-scheme: dark;
-  --bg: #141416;
-  --surface: #1b1b1f;
-  --leaf: #222228;
-  --ink: #edeae4;
-  --muted: #9c978e;
-  --accent: #ff6a3d;
-  --on-accent: #120c09;
-  --line: #edeae433;
-  --line-strong: #edeae466;
-  --body-top: #2a2a2f;
-  --body-bottom: #1a1a1d;
-  --body-edge: #000;
-  --screen: #070707;
-  --trace: #f2ede4;
-  --trace-dim: #8f8a80;
-  --led-off: #3a3a3f;
-  --shadow: 0 1px 0 #000, 0 30px 60px -30px #000c;
-}
-html[data-theme="light"] {
-  color-scheme: light;
-  --bg: #ecebe5;
-  --surface: #f7f6f2;
-  --leaf: #e2dfd8;
-  --ink: #141416;
-  --muted: #5c5852;
-  --accent: #b33a14;
-  --on-accent: #fbf8f4;
-  --line: #14141633;
-  --line-strong: #14141666;
-  --body-top: #dcd8d0;
-  --body-bottom: #cbc7bf;
-  --body-edge: #8a857c;
-  --screen: #070707;
-  --trace: #f2ede4;
-  --trace-dim: #8f8a80;
-  --led-off: #aaa59b;
-  --shadow: 0 1px 0 #fff8, 0 24px 48px -30px #0006;
-}
-
+/* ── page-owned tokens (kit tokens supply the rest) ──────── */
 :root {
   /* type scale: eight fluid steps between 375px and 1920px */
   --fs-label: clamp(.7rem, .67rem + .15vw, .76rem);
@@ -78,14 +23,39 @@ html[data-theme="light"] {
   --fs-h1: clamp(2.5rem, 1.3rem + 3.8vw, 4.6rem);
   --fs-quote: clamp(1.7rem, 1.1rem + 2.6vw, 3.2rem);
 
-  --f-ui: "Inter Tight", "Helvetica Neue", Arial, sans-serif;
-  --f-mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  /* aliases: one font source, no duplicated family lists */
+  --f-ui: var(--font-display);
+  --f-mono: var(--font-mono);
 
   --max: 1280px;
   --gutter: clamp(18px, 4vw, 40px);
   --gap: clamp(16px, 2vw, 24px);
-  --ease: cubic-bezier(.2, .7, .2, 1);
   --spring: cubic-bezier(.34, 1.4, .64, 1);
+
+  /* instrument chrome: the screen is always dark glass */
+  --screen: #070707;
+  --trace: #f2ede4;
+  --trace-dim: #8f8a80;
+}
+
+/* ── device chrome per mode (page-owned, in :root as tokens) ── */
+html[data-theme="dark"] {
+  --leaf: #222228;
+  --line-strong: color-mix(in srgb, var(--ink) 40%, transparent);
+  --body-top: #2a2a2f;
+  --body-bottom: #1a1a1d;
+  --body-edge: #000;
+  --led-off: #3a3a3f;
+  --device-shadow: 0 1px 0 #000, 0 30px 60px -30px #000c;
+}
+html[data-theme="light"] {
+  --leaf: #e2dfd8;
+  --line-strong: color-mix(in srgb, var(--ink) 40%, transparent);
+  --body-top: #dcd8d0;
+  --body-bottom: #cbc7bf;
+  --body-edge: #8a857c;
+  --led-off: #aaa59b;
+  --device-shadow: 0 1px 0 #fff8, 0 24px 48px -30px #0006;
 }
 
 /* ── base ─────────────────────────────────────────────────── */
@@ -156,7 +126,7 @@ html[data-theme="dark"] .theme-btn .i-sun { display: none; }
   position: relative; padding: 18px 18px 14px; border-radius: 6px;
   background: linear-gradient(180deg, var(--body-top), var(--body-bottom));
   border: 1px solid var(--body-edge);
-  box-shadow: inset 0 1px 0 #ffffff1f, inset 0 -2px 0 #0000005c, var(--shadow);
+  box-shadow: inset 0 1px 0 #ffffff1f, inset 0 -2px 0 #0000005c, var(--device-shadow);
 }
 .device::before { /* bezel screws */
   content: ""; position: absolute; inset: 6px; border-radius: 4px; pointer-events: none;
@@ -303,7 +273,7 @@ html[data-theme="dark"] .theme-btn .i-sun { display: none; }
 .final-copy h2 { font-size: var(--fs-h2); font-weight: 600; letter-spacing: -.035em; line-height: 1.04; }
 .final-copy p { color: var(--muted); margin-top: 16px; max-width: 40ch; }
 .final-copy .cta-row { margin-top: 28px; }
-.game { background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: clamp(18px, 2.4vw, 26px); box-shadow: var(--shadow); }
+.game { background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: clamp(18px, 2.4vw, 26px); box-shadow: var(--device-shadow); }
 .game-head { display: flex; justify-content: space-between; gap: 12px; font-family: var(--f-mono); font-size: var(--fs-label); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); padding-bottom: 12px; border-bottom: 1px solid var(--line); }
 .game h3 { font-size: var(--fs-h3); font-weight: 600; letter-spacing: -.02em; margin: 14px 0 6px; }
 .game p.lead { color: var(--muted); font-size: var(--fs-small); }

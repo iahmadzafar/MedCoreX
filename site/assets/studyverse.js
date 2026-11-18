@@ -1,297 +1,248 @@
 /* ============================================================
    MedCoreX · Studyverse KIT — site/assets/studyverse.js
    The one shared theme engine. Load in <head> WITHOUT defer:
-   it paints the theme vars onto <html> before first paint
-   (no flash), then waits for DOMContentLoaded for anything
-   touching elements. Pages use window.SV.* only — they must
-   never reimplement theme/toast/confetti/count-up, nor bind T.
+   it sets data-theme on <html> before first paint (no flash),
+   then waits for DOMContentLoaded for anything touching elements.
+   Pages use window.SV.* only — they must never reimplement
+   theme/toast/confetti/count-up.
 
-   Source of truth: the engine cut from site/index.html
-   (Phase 1, PLAN — Design Kit.md) — behaviour preserved verbatim.
+   Direction 2 · Graphite and Ember is FIXED fleet-wide since
+   Nov 18 2026: this engine no longer invents palettes. All
+   colour, type and surface values come from
+   studyverse-tokens.css through the token cascade. What the
+   engine owns: dark/light mode, the topbar cluster (mode toggle
+   + hide-topbar chevron), the Library shelves dropdown, the
+   phone burger, the toast, and the shared helpers.
    ============================================================ */
 (function () {
 'use strict';
 
-/* proper line icons for the engine chip — no emoji, currentColor, theme-aware */
-const IC={
- sun:'<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"/></svg>',
- moon:'<svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" stroke="none" aria-hidden="true"><path d="M20.4 14.2A9 9 0 1 1 9.8 3.6a7.2 7.2 0 0 0 10.6 10.6z"/></svg>',
- lock:'<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10.5" width="16" height="10.5" rx="2.4"/><path d="M7.6 10.5V7a4.4 4.4 0 0 1 8.8 0v3.5"/></svg>',
- unlock:'<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10.5" width="16" height="10.5" rx="2.4"/><path d="M7.6 10.5V7a4.4 4.4 0 0 1 8.6-1.4"/></svg>',
- dice:'<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round" aria-hidden="true"><rect x="3.8" y="3.8" width="16.4" height="16.4" rx="3.8"/><circle cx="8.5" cy="8.5" r="1.35" fill="currentColor" stroke="none"/><circle cx="15.5" cy="8.5" r="1.35" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.35" fill="currentColor" stroke="none"/><circle cx="8.5" cy="15.5" r="1.35" fill="currentColor" stroke="none"/><circle cx="15.5" cy="15.5" r="1.35" fill="currentColor" stroke="none"/></svg>',
- up:'<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 14 6-6 6 6"/></svg>',
- down:'<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 10 6 6 6-6"/></svg>',
-  burger:'<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>',
+/* line icons for the engine chip — no emoji, currentColor, theme-aware */
+const IC = {
+  sun:'<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"/></svg>',
+  moon:'<svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" stroke="none" aria-hidden="true"><path d="M20.4 14.2A9 9 0 1 1 9.8 3.6a7.2 7.2 0 0 0 10.6 10.6z"/></svg>',
+  up:'<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 14 6-6 6 6"/></svg>',
+  burger:'<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>'
 };
 
-/* ── engine (verbatim from index.html) ── */
-const rand=(a,b)=>Math.random()*(b-a)+a;
-const pick=a=>a[Math.floor(Math.random()*a.length)];
-const hsl=(h,s,l)=>`hsl(${Math.round((h%360+360)%360)} ${Math.round(s)}% ${Math.round(l)}%)`;
-const SCHEMES={Triadic:[0,120,240,60],Complementary:[0,180,30,210],Split:[0,150,210,45],Analogous:[0,32,64,-32],Tetradic:[0,90,180,270],Candy:[0,300,60,200],Monochromatic:[0,18,36,54],SplitComplement:[0,150,210,330],Vibrant:[0,60,120,240],Sunset:[0,25,50,200],Ocean:[0,180,200,225],Forest:[0,120,240,150],Pastel:[0,30,60,90],Retro:[0,300,240,60],Electric:[0,60,120,180],Neon:[0,90,210,300]};
-const DISPLAY=[
- {f:'Futura,"Century Gothic","Trebuchet MS",sans-serif',w:800,c:'uppercase',t:'.01em'},
- {f:'Rockwell,"Roboto Slab",Georgia,serif',w:800,c:'none',t:'-.01em'},
- {f:'"American Typewriter","Courier New",monospace',w:700,c:'none',t:'-.02em'},
- {f:'"Marker Felt","Comic Sans MS",cursive',w:700,c:'none',t:'0'},
- {f:'"Chalkboard SE","Comic Sans MS",cursive',w:700,c:'none',t:'0'},
- {f:'Didot,"Bodoni 72","Times New Roman",serif',w:700,c:'none',t:'-.02em'},
- {f:'Copperplate,"Copperplate Gothic Light",serif',w:700,c:'uppercase',t:'.04em'},
- {f:'Impact,"Franklin Gothic Heavy",sans-serif',w:400,c:'uppercase',t:'.02em'},
- {f:'"Avenir Next Condensed","Arial Narrow",sans-serif',w:800,c:'uppercase',t:'.01em'},
- {f:'"Cooper Black","Bookman Old Style",Georgia,serif',w:900,c:'none',t:'-.01em'}];
-const BODY=['"Avenir Next","Segoe UI",sans-serif','"Gill Sans","Gill Sans MT",sans-serif','Optima,Candara,sans-serif','Georgia,"Times New Roman",serif','Menlo,Consolas,monospace','Baskerville,"Hoefler Text",Georgia,serif','"Trebuchet MS",Verdana,sans-serif'];
-const SHADOWS=[
- ['3px 3px 0 var(--ink)','6px 6px 0 var(--ink)'],
- ['3px 3px 0 var(--c4)','6px 6px 0 var(--c1)'],
- ['2px 2px 0 var(--c2),5px 5px 0 var(--ink)','3px 3px 0 var(--c2),7px 5px 0 var(--ink)'],
- ['0 10px 24px -10px color-mix(in srgb,var(--c4) 70%,transparent)','0 16px 32px -10px color-mix(in srgb,var(--c1) 70%,transparent)'],
- ['-3px 3px 0 var(--c3)','-6px 6px 0 var(--ink)']];
-const DARK_PALETTES=[
-  {c1:[344,360],c2:[32,54],c3:[192,216],c4:[260,284]},
-  {c1:[200,220],c2:[255,278],c3:[320,342],c4:[35,56]},
-  {c1:[18,36],c2:[340,356],c3:[220,242],c4:[185,205]},
-  {c1:[270,292],c2:[205,226],c3:[0,16],c4:[32,52]},
-  {c1:[38,58],c2:[188,208],c3:[262,284],c4:[320,342]},
-  {c1:[0,18],c2:[195,218],c3:[310,335],c4:[25,47]}
-];
-const CANVASES=[
-  {lightBg:'#fff4e0',lightSurface:'#fffdf8',darkBg:'#111214',darkSurface:'#1b1c20'},
-  {lightBg:'#f4f2ed',lightSurface:'#fbfaf7',darkBg:'#141415',darkSurface:'#202022'},
-  {lightBg:'#f1f3f4',lightSurface:'#fafbfc',darkBg:'#131516',darkSurface:'#1c2022'},
-  {lightBg:'#f5f0ef',lightSurface:'#fcf9f8',darkBg:'#171615',darkSurface:'#242220'}
-];
-function nextPaletteIndex(key,length){
-  let previous=null;
-  try{const stored=localStorage.getItem(key);if(stored!==null)previous=Number(stored)}catch(e){}
-  let index=Math.floor(rand(0,length));
-  if(Number.isInteger(previous)&&previous>=0&&previous<length&&index===previous&&length>1)
-    index=(index+1+Math.floor(rand(0,length-1)))%length;
-  try{localStorage.setItem(key,String(index))}catch(e){}
-  return index;
-}
-function makeDarkPalette(){
-  const index=nextPaletteIndex('mx-dark-index',DARK_PALETTES.length);
-  const ranges=DARK_PALETTES[index];
-  const color=(range,sat,light)=>hsl(rand(range[0],range[1]),sat,light);
-  return {
-    variant:index,
-    '--c1':color(ranges.c1,rand(68,82),rand(68,76)),
-    '--c2':color(ranges.c2,rand(68,82),rand(68,76)),
-    '--c3':color(ranges.c3,rand(56,72),rand(66,76)),
-    '--c4':color(ranges.c4,rand(52,70),rand(68,78))
-  };
-}
-const makeCanvasPalette=()=>{
-  const index=nextPaletteIndex('mx-canvas-index',CANVASES.length);
-  return Object.assign({variant:index},CANVASES[index]);
-};
-const ADJ=['Electric','Bubblegum','Cosmic','Retro','Sour','Velvet','Jazzy','Turbo','Lemon','Neon','Groovy','Fizzy','Disco','Cherry','Tropical','Glitter','Mango','Pixel'];
-const NOUN=['Notebook','Riot','Library','Sundae','Lab','Arcade','Atlas','Mixtape','Garden','Comet','Parade','Studio','Lagoon','Cassette','Carnival','Orbit'];
-function makeTheme(){
-  const h=rand(0,360), name=Object.keys(SCHEMES), scheme=pick(name), offs=SCHEMES[scheme], s=rand(74,96), canvasPalette=makeCanvasPalette();
-  const d=pick(DISPLAY), sh=pick(SHADOWS);
-  return {name:`${pick(ADJ)} ${pick(NOUN)}`, scheme, darkPalette:makeDarkPalette(), canvasPalette, vars:{
-    '--c1':hsl(h+offs[0],s,rand(60,68)),'--c2':hsl(h+offs[1],s,rand(62,72)),
-    '--c3':hsl(h+offs[2],s,rand(60,70)),'--c4':hsl(h+offs[3],s*.9,rand(64,74)),
-    '--bg':canvasPalette.lightBg,
-    '--surface':canvasPalette.lightSurface,
-    '--ink':hsl(h+200,rand(35,60),rand(9,15)),
-    '--font-display':d.f,'--dw':d.w,'--case':d.c,'--track':d.t,
-    '--font-body':pick(BODY),
-    '--radius':pick(['0px','6px','10px','16px','22px']),
-    '--bw':pick(['1px','2px','3px']),
-    '--shadow':sh[0],'--shadow-hover':sh[1],
-    '--title-shadow':pick(['2px 2px 0 var(--c2)','3px 3px 0 var(--c3)','none','-2px 2px 0 var(--c1)']),
-    '--tilt':pick(['0deg','-1deg','1.2deg','-2deg'])},
-    pattern:pick(['dots','grid','stripes','checks','waves','plain'])};
-}
-let current;
-function hue(v){const m=String(v).match(/hsl\(\s*([\d.]+)/);return m?+m[1]:0}
-function paint(){
-  const r=document.documentElement;
-  Object.entries(current.vars).forEach(([k,v])=>r.style.setProperty(k,v));
-  /* Page canvas stays neutral; theme remixes apply to accents, not backgrounds. */
-  r.dataset.pattern='plain';
-  if(r.dataset.theme==='dark'){
-    r.style.setProperty('--bg',current.canvasPalette.darkBg);
-    r.style.setProperty('--surface',current.canvasPalette.darkSurface);
-    r.style.setProperty('--ink','#e9e7e3');
-    r.style.setProperty('--muted','#b4b3b1');
-    Object.entries(current.darkPalette).forEach(([k,v])=>{if(k.indexOf('--')===0)r.style.setProperty(k,v)});
-    r.style.setProperty('--ok','#79b9d6');
-    r.style.setProperty('--bad','#ef8a94');
-  } else {
-    r.style.setProperty('--bg',current.canvasPalette.lightBg);
-    r.style.setProperty('--surface',current.canvasPalette.lightSurface);
-    /* engine has no --muted value: clear the dark inline so :root light value applies */
-    r.style.removeProperty('--muted');
-  }
-  const tn=document.getElementById('themeName'); if(tn) tn.textContent=current.name;
-  try{document.dispatchEvent(new CustomEvent('sv:theme',{detail:{theme:current,mode:r.dataset.theme}}))}catch(e){}
-}
-function applyTheme(t){ current=t;if(!current.darkPalette||current.darkPalette.variant===undefined)current.darkPalette=makeDarkPalette();if(!current.canvasPalette||current.canvasPalette.variant===undefined)current.canvasPalette=makeCanvasPalette();paint();if(LOCK&&current===LOCK)saveLock(); }
-const MKEY='mx-mode';
-function initMode(){
-  let m=null; try{m=localStorage.getItem(MKEY)}catch(e){}
-  if(m!=='dark'&&m!=='light') m=(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';
-  const rr=document.documentElement; rr.dataset.theme=m; paint(); syncMode();
-}
-function syncMode(){
-  const b=document.getElementById('modeBtn'); if(!b) return;
-  const d=document.documentElement.dataset.theme==='dark';
-  b.setAttribute('aria-pressed',d); b.innerHTML=d?IC.sun:IC.moon;
-}
-document.addEventListener('click',e=>{
-  if(e.target.id==='modeBtn'){
-    const n=document.documentElement.dataset.theme==='dark'?'light':'dark';
-    document.documentElement.dataset.theme=n;
-    try{localStorage.setItem(MKEY,n)}catch(err){}
-    syncMode(); paint(); toast(n==='dark'?'Dark mode on':'Light mode on');
-  }
-});
-let LOCK=null; try{LOCK=JSON.parse(localStorage.getItem('mx-lock')||'null')}catch(e){}
-function saveLock(){try{localStorage.setItem('mx-lock',JSON.stringify(LOCK))}catch(e){}}
-const syncLock=()=>{const b=document.getElementById('lockBtn');if(!b)return;b.setAttribute('aria-pressed',!!LOCK);b.innerHTML=LOCK?IC.lock:IC.unlock};
-syncLock();
-function remix(){applyTheme(makeTheme()); if(LOCK){LOCK=current;saveLock()} toast(`${current.name} · ${current.scheme}`, 'theme'); burst(innerWidth-60,40)}
-document.addEventListener('click',e=>{
-  if(e.target.id==='remixBtn') remix();
-  if(e.target.id==='lockBtn'){ LOCK=LOCK?null:current; saveLock(); syncLock(); toast(LOCK?'Theme locked for next visit':'A new theme every visit'); }
-});
-addEventListener('keydown',e=>{
-  if(e.metaKey||e.ctrlKey||e.altKey)return;
-  if(/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName))return;
-  if(document.querySelector('dialog[open]'))return;
-  if(e.key==='t'||e.key==='T') remix();
-});
-applyTheme(LOCK||makeTheme());
-initMode();
+const THEME_NAME = 'Graphite and Ember';
+const MKEY = 'mx-mode';
+const reducedMotion = () => window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+/* ── mode (dark default, light twin) ── */
+function paint() {
+  const r = document.documentElement;
+  r.dataset.pattern = 'plain';
+  const tn = document.getElementById('themeName');
+  if (tn) tn.textContent = THEME_NAME;
+  try { document.dispatchEvent(new CustomEvent('sv:theme', { detail: { theme: THEME_NAME, mode: r.dataset.theme } })); } catch (e) {}
+}
+function syncMode() {
+  const b = document.getElementById('modeBtn');
+  if (!b) return;
+  const dark = document.documentElement.dataset.theme === 'dark';
+  b.setAttribute('aria-pressed', String(dark));
+  b.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+  b.innerHTML = dark ? IC.sun : IC.moon;
+}
+function setMode(mode) {
+  document.documentElement.dataset.theme = mode;
+  /* the seven legacy "banktheme" pages key off data-mode and
+     medcore.theme — the engine writes all three so site-wide mode
+     is one thing, not two competing systems */
+  document.documentElement.setAttribute('data-mode', mode);
+  /* legacy pages keying on html.light / html.dark follow the site mode */
+  document.documentElement.classList.toggle('light', mode === 'light');
+  document.documentElement.classList.toggle('dark', mode === 'dark');
+  try { localStorage.setItem(MKEY, mode); localStorage.setItem('medcore.theme', mode); } catch (e) {}
+  syncMode(); paint();
+}
+function initMode() {
+  let m = null;
+  try { m = localStorage.getItem(MKEY) || localStorage.getItem('medcore.theme'); } catch (e) {}
+  if (m !== 'dark' && m !== 'light')
+    m = (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+  document.documentElement.dataset.theme = m;
+  document.documentElement.setAttribute('data-mode', m);
+  paint(); syncMode();
+}
+/* two-way sync with legacy pages that keep their own toggle:
+   they write medcore.theme (storage, cross-tab) or set data-mode
+   (same tab, watched) — the site mode follows either way */
+addEventListener('storage', function (e) {
+  if ((e.key === MKEY || e.key === 'medcore.theme') && (e.newValue === 'dark' || e.newValue === 'light')) setMode(e.newValue);
+});
+try {
+  new MutationObserver(function () {
+    const el = document.documentElement;
+    const v = el.getAttribute('data-mode');
+    if (v === 'dark' || v === 'light') {
+      if (el.dataset.theme !== v) setMode(v);
+      return;
+    }
+    /* html.light / html.dark toggled by a legacy button */
+    const cls = el.classList.contains('light') ? 'light' : (el.classList.contains('dark') ? 'dark' : null);
+    if (cls && el.dataset.theme !== cls) setMode(cls);
+  }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-mode', 'class'] });
+} catch (e) {}
+document.addEventListener('click', function (e) {
+  if (e.target && e.target.id === 'modeBtn') {
+    setMode(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark');
+  }
+});
+
+/* ── shared helpers (public API: pages use SV.* only) ── */
 let tt;
-function toast(msg,kind){const t=document.getElementById('toast');if(!t)return;t.textContent=msg;t.classList.toggle('theme-toast',kind==='theme');t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show','theme-toast'),2200)}
-const reducedMotion=()=>window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-function burst(x,y,n){
-  if(reducedMotion())return;
-  const total=n||34;
-  for(let i=0;i<total;i++){
-    const c=document.createElement('span');c.className='confetti';
-    c.style.cssText=`left:${x}px;top:${y}px;background:var(--c${1+i%4});border-radius:${i%3?'2px':'50%'}`;
+function toast(msg, kind) {
+  const t = document.getElementById('toast');
+  if (!t) return;
+  t.textContent = msg;
+  t.classList.toggle('theme-toast', !!kind);
+  t.classList.add('show');
+  clearTimeout(tt);
+  tt = setTimeout(function () { t.classList.remove('show', 'theme-toast'); }, 2200);
+}
+function burst(x, y, n) {
+  if (reducedMotion()) return;
+  const total = n || 34;
+  for (let i = 0; i < total; i++) {
+    const c = document.createElement('span');
+    c.className = 'confetti';
+    c.style.cssText = 'left:' + x + 'px;top:' + y + 'px;background:var(--c' + (1 + i % 4) +
+      ');border-radius:' + (i % 3 ? '2px' : '50%');
     document.body.appendChild(c);
-    const a=rand(0,Math.PI*2),dist=rand(80,220);
-    c.animate([{transform:'translate(0,0) rotate(0)',opacity:1},{transform:`translate(${Math.cos(a)*dist}px,${Math.sin(a)*dist+120}px) rotate(${rand(-540,540)}deg)`,opacity:0}],{duration:rand(800,1300),easing:'cubic-bezier(.2,.7,.3,1)'}).onfinish=()=>c.remove();
+    const a = Math.random() * Math.PI * 2, dist = 80 + Math.random() * 140;
+    c.animate([
+      { transform: 'translate(0,0) rotate(0)', opacity: 1 },
+      { transform: 'translate(' + Math.cos(a) * dist + 'px,' + (Math.sin(a) * dist + 120) + 'px) rotate(' + (-540 + Math.random() * 1080) + 'deg)', opacity: 0 }
+    ], { duration: 800 + Math.random() * 500, easing: 'cubic-bezier(.2,.7,.3,1)' }).onfinish = function () { c.remove(); };
   }
 }
-
-/* ── kit extras (API surface per plan 1b) ── */
-function burstAt(el){
-  if(!el)return;
-  const r=el.getBoundingClientRect();
-  burst(r.left+r.width/2, r.top+r.height/2);
+function burstAt(el) {
+  if (!el) return;
+  const r = el.getBoundingClientRect();
+  burst(r.left + r.width / 2, r.top + r.height / 2);
 }
-function countUp(el,to,suffix){
-  if(!el)return;
-  const s=suffix||'';
-  if(reducedMotion()){el.textContent=to+s;return}
-  const t0=performance.now();
-  const frame=t=>{const p=Math.min(1,(t-t0)/900);el.textContent=Math.round(to*(1-Math.pow(1-p,3)))+s;if(p<1)requestAnimationFrame(frame)};
+function countUp(el, to, suffix) {
+  if (!el) return;
+  const s = suffix || '';
+  if (reducedMotion()) { el.textContent = to + s; return; }
+  const t0 = performance.now();
+  const frame = function (t) {
+    const p = Math.min(1, (t - t0) / 900);
+    el.textContent = Math.round(to * (1 - Math.pow(1 - p, 3))) + s;
+    if (p < 1) requestAnimationFrame(frame);
+  };
   requestAnimationFrame(frame);
 }
-function stagger(root){
-  if(!root)return;
-  root.querySelectorAll('.rv').forEach((el,i)=>el.style.setProperty('--i',Math.min(i,10)));
+function stagger(root) {
+  if (!root) return;
+  root.querySelectorAll('.rv').forEach(function (el, i) { el.style.setProperty('--i', Math.min(i, 10)); });
 }
 
-/* ── the public API: pages use only this ── */
-window.SV={
-  get theme(){return current},
-  remix, toast, burst, burstAt, countUp, stagger
+/* the public API: pages use only this */
+window.SV = {
+  get theme() { return THEME_NAME; },
+  remix: paint,   /* kept for API compatibility; the palette is fixed */
+  toast, burst, burstAt, countUp, stagger
 };
 
-/* ── auto-inject: blobs, toast, engine chips (DOMContentLoaded only) ── */
-const CHIP_HTML=
-  '<button class="icon-btn" id="modeBtn" aria-label="Toggle dark mode">'+IC.moon+'</button>'+
-  '<button class="icon-btn" id="lockBtn" aria-pressed="false" aria-label="Lock this theme">'+IC.unlock+'</button>'+
-  '<button class="icon-btn" id="remixBtn" aria-label="Remix theme">'+IC.dice+'</button>';
-function fillChips(){
-  document.querySelectorAll('[data-sv-engine]').forEach(el=>{
-    if(el.dataset.svDone)return;
-    if(el.contains(document.getElementById('themeName'))) {el.dataset.svDone='1';return;}
-    if(document.getElementById('themeName')&&!el.contains(document.getElementById('themeName')))return;
-    el.innerHTML=CHIP_HTML;
-    el.dataset.svDone='1';
+/* ── topbar cluster: mode toggle only (remix/lock retired) ── */
+const CHIP_HTML = '<button class="icon-btn" id="modeBtn" type="button" aria-label="Toggle dark mode">' + IC.moon + '</button>';
+function fillChips() {
+  let hosts = document.querySelectorAll('[data-sv-engine]');
+  /* pages without a topbar (legacy documents) get a floating control,
+     so every page in the fleet has the mode toggle */
+  const ownControl = document.querySelector('[aria-label*="theme" i],[aria-label*="mode" i],[title*="theme" i],[id*="Mode"],[id*="Fam"],[id*="modeBtn"]');
+  if (!hosts.length && !ownControl) {
+    document.body.insertAdjacentHTML('beforeend', '<div class="engine sv-float" data-sv-engine></div>');
+    hosts = document.querySelectorAll('[data-sv-engine]');
+  }
+  hosts.forEach(function (el) {
+    if (el.dataset.svDone) return;
+    el.innerHTML = CHIP_HTML;
+    el.dataset.svDone = '1';
   });
+  syncMode();
 }
-/* Library hover menu in the nav — the shelves, one hover away (catbar's job, moved to the kit) */
-const SHELVES=[['Core Books','core-books'],['Mocks & Drills','mocks-drills'],['Past Papers','past-papers-answer-keys'],['Exam Intelligence & Strategy','exam-intelligence-strategy'],['Quick Reference','quick-reference'],['Frameworks & Interactive','frameworks-interactive'],['MedCORE Systems','medcore-systems']];
-function buildNavMenu(){
-  const a=document.querySelector('.links a[href="/library"]');
-  if(!a||a.parentNode.classList.contains('navdrop'))return;
-  const w=document.createElement('span');w.className='navdrop';
-  a.parentNode.insertBefore(w,a);w.appendChild(a);
-  w.insertAdjacentHTML('beforeend','<div class="navmenu"><a class="all" href="/library">All shelves</a>'+SHELVES.map(function(s){return '<a href="/library#'+s[1]+'">'+s[0]+'</a>'}).join('')+'</div>');
+
+/* ── Library shelves, one dropdown away from the nav link ── */
+const SHELVES = [
+  ['Core Books','core-books'], ['Mocks & Drills','mocks-drills'],
+  ['Past Papers','past-papers-answer-keys'], ['Exam Intelligence & Strategy','exam-intelligence-strategy'],
+  ['Quick Reference','quick-reference'], ['Frameworks & Interactive','frameworks-interactive'],
+  ['MedCORE Systems','medcore-systems']
+];
+function buildNavMenu() {
+  const a = document.querySelector('.links a[href="/library"]');
+  if (!a || a.parentNode.classList.contains('navdrop')) return;
+  const w = document.createElement('span');
+  w.className = 'navdrop';
+  a.parentNode.insertBefore(w, a);
+  w.appendChild(a);
+  w.insertAdjacentHTML('beforeend', '<div class="navmenu"><a class="all" href="/library">All shelves</a>' +
+    SHELVES.map(function (s) { return '<a href="/library#' + s[1] + '">' + s[0] + '</a>'; }).join('') + '</div>');
 }
-/* Topbar hide/show — one chevron in the engine cluster, a restore pill when hidden.
-   Preference is remembered across pages (medcore.nav). */
-function applyNav(on){
-  document.body.classList.toggle('nav-off',!on);
-  const t=document.querySelector('.nav-tog');
-  if(t)t.setAttribute('aria-expanded',String(on));
+
+/* ── topbar hide/show (preference: medcore.nav) ── */
+function applyNav(on) {
+  document.body.classList.toggle('nav-off', !on);
+  const t = document.querySelector('.nav-tog');
+  if (t) t.setAttribute('aria-expanded', String(on));
 }
-function buildNavToggle(){
-  if(!document.querySelector('.nav'))return;
-  const eng=document.querySelector('.nav .engine');
-  if(eng&&!eng.querySelector('.nav-tog')){
-    eng.insertAdjacentHTML('beforeend','<button class="nav-tog" type="button" aria-label="Hide topbar" aria-expanded="true" title="Hide topbar">'+IC.up+'</button>');
-    eng.querySelector('.nav-tog').onclick=function(){
+function buildNavToggle() {
+  if (!document.querySelector('.nav')) return;
+  const eng = document.querySelector('.nav .engine');
+  if (eng && !eng.querySelector('.nav-tog')) {
+    eng.insertAdjacentHTML('beforeend', '<button class="nav-tog" type="button" aria-label="Hide topbar" aria-expanded="true" title="Hide topbar">' + IC.up + '</button>');
+    eng.querySelector('.nav-tog').onclick = function () {
       applyNav(false);
-      try{localStorage.setItem('medcore.nav','off');}catch(e){}
+      try { localStorage.setItem('medcore.nav', 'off'); } catch (e) {}
     };
   }
-  if(!document.getElementById('navShow')){
-    document.body.insertAdjacentHTML('beforeend','<button class="nav-show" id="navShow" type="button" aria-label="Show topbar">'+IC.burger+'</button>');
-    document.getElementById('navShow').onclick=function(){
+  if (!document.getElementById('navShow')) {
+    document.body.insertAdjacentHTML('beforeend', '<button class="nav-show" id="navShow" type="button" aria-label="Show topbar">' + IC.burger + '</button>');
+    document.getElementById('navShow').onclick = function () {
       applyNav(true);
-      try{localStorage.setItem('medcore.nav','on');}catch(e){}
+      try { localStorage.setItem('medcore.nav', 'on'); } catch (e) {}
     };
   }
-  let on=true;
-  try{ on=localStorage.getItem('medcore.nav')!=='off'; }catch(e){}
+  let on = true;
+  try { on = localStorage.getItem('medcore.nav') !== 'off'; } catch (e) {}
   applyNav(on);
 }
-/* Burger — phones only (≤900px CSS hides it). The kit injects the button into
-   every topbar; desktop keeps the symmetric thirds grid untouched. */
-function buildBurger(){
-  const wrap=document.querySelector('.nav .wrap');
-  if(!wrap||wrap.querySelector('.burger'))return;
-  wrap.insertAdjacentHTML('beforeend','<button class="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">'+
+
+/* ── burger — phones only (≤900px CSS hides it) ── */
+function buildBurger() {
+  const wrap = document.querySelector('.nav .wrap');
+  if (!wrap || wrap.querySelector('.burger')) return;
+  wrap.insertAdjacentHTML('beforeend', '<button class="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">' +
     '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>');
-  const nav=wrap.closest('.nav'), btn=wrap.querySelector('.burger'), links=wrap.querySelector('.links');
-  if(links&&!links.id)links.id='navLinks';
-  function set(open){
-    nav.classList.toggle('burger-open',open);
-    btn.setAttribute('aria-expanded',String(open));
+  const nav = wrap.closest('.nav'), btn = wrap.querySelector('.burger'), links = wrap.querySelector('.links');
+  if (links && !links.id) links.id = 'navLinks';
+  function set(open) {
+    nav.classList.toggle('burger-open', open);
+    btn.setAttribute('aria-expanded', String(open));
   }
-  btn.addEventListener('click',function(e){e.stopPropagation();set(!nav.classList.contains('burger-open'));});
-  /* any link click closes — matters for QB hash routing where no navigation fires */
-  if(links)links.addEventListener('click',function(e){if(e.target.closest('a'))set(false);});
-  document.addEventListener('click',function(e){if(!nav.contains(e.target))set(false);});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false);});
+  btn.addEventListener('click', function (e) { e.stopPropagation(); set(!nav.classList.contains('burger-open')); });
+  if (links) links.addEventListener('click', function (e) { if (e.target.closest('a')) set(false); });
+  document.addEventListener('click', function (e) { if (!nav.contains(e.target)) set(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
 }
-function boot(){
-  if(!document.querySelector('.blobs')){
-    document.body.insertAdjacentHTML('afterbegin',
-      '<div class="blobs" aria-hidden="true"><div class="blob"></div><div class="blob"></div><div class="blob"></div></div>');
-  }
-  if(!document.getElementById('toast')){
-    document.body.insertAdjacentHTML('beforeend','<div class="toast" id="toast" role="status"></div>');
+
+function boot() {
+  if (!document.getElementById('toast')) {
+    document.body.insertAdjacentHTML('beforeend', '<div class="toast" id="toast" role="status"></div>');
   }
   fillChips();
   buildNavMenu();
   buildNavToggle();
   buildBurger();
-  paint(); syncLock(); syncMode();   /* name/lock/mode state onto the freshly filled chip */
+  paint(); syncMode();
 }
-if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);
+
+/* mode first: set before first paint so there is no theme flash */
+initMode();
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
 else boot();
 })();

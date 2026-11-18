@@ -25,20 +25,19 @@
    ============================================================ */
 @import url('/assets/studyverse-tokens.css');
 
-/* ── shared neutrals + states, identical to the tokens contract ── */
+/* ── shared aliases, Graphite and Ember ──
+   Kit-owned names (--bg,--surface,--ink,--muted,--line,--c1..4,
+   --radius,--shadow,--ok,--bad,fonts) flow from
+   studyverse-tokens.css and are NEVER redefined here: the bridge
+   only maps PAGE-owned names onto kit values with !important,
+   beating each legacy page's own :root declarations (verified
+   fleet-wide: no non-kit page uses !important on a token). */
 :root,html[data-mode],html[data-theme]{
   --accent:var(--c1)!important;
   --accent-soft:color-mix(in srgb,var(--c1) 30%,transparent)!important;
-  --muted:color-mix(in srgb,var(--ink) 68%,transparent)!important;
-  --line:color-mix(in srgb,var(--ink) 14%,transparent)!important;
-  --ok:#276a8c!important; --bad:#f2385a!important;
   --good:var(--ok)!important; --green:var(--ok)!important;
-  --red:var(--bad)!important; --never:var(--bad)!important; --warn:var(--c2)!important;
-  --radius:14px!important; --bw:2px!important; --pill:min(var(--radius),999px)!important;
-  --r:var(--radius)!important; --r-card:var(--radius)!important; --r-chip:999px!important;
-  --shadow:4px 4px 0 var(--ink)!important; --shadow-hover:7px 7px 0 var(--ink)!important;
-  --title-shadow:2px 2px 0 var(--c2)!important;
-  --tilt:-1deg!important; --ease:cubic-bezier(.34,1.56,.64,1)!important;
+  --red:var(--bad)!important; --never:var(--bad)!important; --warn:var(--c4)!important;
+  --r:var(--radius)!important; --r-card:var(--radius)!important; --r-chip:var(--radius)!important;
   --card:var(--surface)!important;
   --head:var(--ink)!important; --head-ink:var(--bg)!important;
   --head-sub:color-mix(in srgb,var(--bg) 75%,transparent)!important;
@@ -47,10 +46,63 @@
   --grid:color-mix(in srgb,var(--ink) 8%,transparent)!important;
 }
 
-/* ═══ FAMILY ALIASES · RETIRED Nov 3, owner verdict ═══
-   The palette-only bridge — kits' tokens pushed into pages that kept their
-   own layout — was judged "the same cheap trick" for BOTH the ten systems
-   books AND the ten standalone pages. All twenty are off the bridge again.
-   What remains here is base chrome only. The real pattern in this repo is a
-   full per-page kit conversion (forge-master, cbf48fa): tokens-only page CSS,
-   kit nav/footer, engine-owned modes. */
+/* ═══ FAMILY ALIASES · restored Nov 18 2026 ═══════════════
+   The palette-only bridge was retired Nov 3 because pages kept
+   their own look; the owner's direction changed — every page now
+   runs on Graphite and Ember. Each block maps the PAGE-owned
+   token names of one family onto kit tokens (!important, so it
+   beats each page's own :root). Adding a family = this block +
+   the kitify signature. Kit-owned names still flow from tokens. */
+
+html[data-sv-map="zephyr"]{
+  --ground:var(--bg)!important;
+  --ground-2:color-mix(in srgb,var(--ink) 6%,var(--bg))!important;
+  --panel:var(--surface)!important;
+  --panel-2:color-mix(in srgb,var(--ink) 5%,var(--surface))!important;
+  --chalk:var(--ink)!important; --chalk-2:var(--muted)!important;
+  --void:var(--ink)!important; --faint:var(--muted)!important;
+  --line-2:var(--line)!important; --line-3:var(--line)!important;
+  --body:var(--font-body)!important; --serif:var(--font-display)!important; --mono:var(--font-mono)!important;
+  --amber:var(--c4)!important; --coral:var(--bad)!important; --cyan:var(--c3)!important;
+  --mint:var(--ok)!important; --violet:var(--c1)!important;
+  --theme-name:"Graphite and Ember"!important;
+}
+
+html[data-sv-map="arch"]{
+  --acc:var(--c1)!important;
+  --bg2:color-mix(in srgb,var(--ink) 5%,var(--bg))!important;
+  --ink2:var(--muted)!important;
+  --line2:color-mix(in srgb,var(--ink) 8%,transparent)!important;
+  --panel:var(--surface)!important;
+  --panel2:color-mix(in srgb,var(--ink) 5%,var(--surface))!important;
+  --sans:var(--font-body)!important; --serif:var(--font-display)!important; --mono:var(--font-mono)!important;
+  --tint:color-mix(in srgb,var(--c1) 14%,transparent)!important;
+  --tint2:color-mix(in srgb,var(--c1) 8%,transparent)!important;
+  --vign:color-mix(in srgb,var(--ink) 8%,transparent)!important;
+  --navy:var(--ink)!important;
+}
+
+html[data-sv-map="table"]{
+  --card:var(--surface)!important;
+  --faint:var(--muted)!important;
+  --trap:var(--bad)!important;
+  --line2:color-mix(in srgb,var(--ink) 8%,transparent)!important;
+  --t1c:var(--ink)!important; --t2c:var(--ink)!important; --t3c:var(--ink)!important; --t4c:var(--ink)!important; --t5c:var(--ink)!important;
+  --t1bg:color-mix(in srgb,var(--ink) 5%,var(--surface))!important;
+  --t2bg:color-mix(in srgb,var(--ink) 4%,var(--surface))!important;
+  --t3bg:color-mix(in srgb,var(--ink) 3%,var(--surface))!important;
+  --t4bg:color-mix(in srgb,var(--ink) 2%,var(--surface))!important;
+  --t5bg:color-mix(in srgb,var(--ink) 1%,var(--surface))!important;
+  --t1ln:var(--line)!important; --t2ln:var(--line)!important; --t3ln:var(--line)!important; --t4ln:var(--line)!important; --t5ln:var(--line)!important;
+}
+
+/* systems books are A4 documents themed through tools/systems-kit.py:
+   their --accent is the print ember and must not follow the site c1 */
+html[data-sv-map="systems"]{ --accent:#b33a14!important; }
+
+/* floating mode toggle for pages without a topbar cluster or their
+   own control. Print-first A4 documents stay paper: no chip there. */
+html[data-sv-map] .sv-float{
+  position:fixed; top:12px; right:12px; z-index:80;
+}
+html[data-sv-map="systems"] .sv-float{display:none}

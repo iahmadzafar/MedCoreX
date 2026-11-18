@@ -27,32 +27,11 @@ function walk(dir, out = []) {
   return out;
 }
 
-/* Exempted Nov 3 by owner verdict — originally twenty pre-resign pages:
-   the palette-only bridge was "the same cheap trick" for the systems books
-   AND the standalone pages. Converted pages are removed from this list as
-   real per-page kit conversions land (pattern: forge-master, cbf48fa). */
-const EXEMPT = [
-  /* remaining standalone pages (were bridge consumers, reverted to pre-bridge bytes) */
-  'medcore-cheat-card.html',
-  'medcore-memory-master-core.html',
-  'medcore-recall-sheets-repeat-offenders.html',
-  'nre-recall-sheets-repeat-offenders.html',
-  'qbank-logic-first-high-yield-logic-first-high-yield-bank.html',
-  'standalone-htmls-800-plus-mcq-architecture.html',
-  'standalone-htmls-disease-symptom-clusters.html',
-  'standalone-htmls-prediction-sheet-1-high-yield-topic-pool.html',
-  /* ten systems books (struck first, same verdict) */
-  'medcore-systems-cardiology-cardiology-medcore.html',
-  'medcore-systems-dermatology-dermatology-medcore.html',
-  'medcore-systems-ent-ent-medcore.html',
-  'medcore-systems-gynecology-gynecology-medcore.html',
-  'medcore-systems-neurology-neurology-medcore.html',
-  'medcore-systems-obstetrics-obstetrics-medcore.html',
-  'medcore-systems-ophthalmology-ophthalmology-medcore.html',
-  'medcore-systems-pediatrics-pediatrics-medcore.html',
-  'medcore-systems-respiratory-respiratory-medcore.html',
-  'medcore-systems-urology-urology-medcore.html',
-];
+/* All eighteen entries cleared Nov 18 2026: every legacy page is now a
+   real conversion on the bridge (tools/kitify.py) and every systems book
+   is themed through tools/systems-kit.py. The landing page keeps its
+   path-exact exemption below. */
+const EXEMPT = [];
 
 /* Owner-approved redesign, Nov 18 2026: the landing page is its own visual
    system (Direction A, "Phosphor Ward") and carries no kit CSS, engine or

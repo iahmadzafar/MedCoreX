@@ -5,33 +5,62 @@
    studyverse.css (components) and studyverse-bridge.css (legacy
    pages), so one token edit propagates to every page linking
    either. Never paste this block into a page or a second file.
+
+   Direction 2 · Graphite and Ember, applied fleet-wide Nov 18 2026.
+   Dark is the default; light is the twin. Fonts are self-hosted
+   (OFL), same files the landing page preloads.
    ============================================================ */
 
-/* One font request for the whole site: the mono label voice of
-   House Rules 1.1 (Geist Mono). Display/body stay system faces —
-   the engine owns those and remixes them per theme. */
-@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600;700&display=swap');
+@font-face {
+  font-family: "Inter Tight";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("/assets/home/fonts/inter-tight-latin.woff2") format("woff2");
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("/assets/home/fonts/jetbrains-mono-latin.woff2") format("woff2");
+}
 
-/* accent-fill text token — black in light, black in dark (plan ground rule) */
-:root{--on-accent:#0d0d0d}
-html[data-theme=dark]{--on-accent:#0d0d0d}
+/* ═══ Graphite and Ember — dark (default) ═════════════════ */
+:root,
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --bg:#141416; --surface:#1b1b1f; --ink:#edeae4;
+  --muted:#b7b2aa;
+  --c1:#ff6a3d; --c2:#edeae4; --c3:#8f8a80; --c4:#ff8a6a;
+  --accent:var(--c1);
+  --on-accent:#120c09;
+  --radius:2px; --bw:2px;
+  --shadow:none;
+  --shadow-hover:none;
+  --title-shadow:none;
+  --font-display:"Inter Tight","Helvetica Neue",Arial,sans-serif;
+  --font-body:"Inter Tight","Helvetica Neue",Arial,sans-serif;
+  --font-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --dw:600; --case:none; --track:-.025em;
+  --tilt:0deg;
+  --ease:cubic-bezier(.2,.7,.2,1);
+  --line:#edeae433;
+  --pill:2px;
+  --ok:#b8e0c8; --bad:#ff8a6a;
+}
 
-/* ═══ Studyverse design system — ported to MedCoreX ═══ */
-:root{
-  --bg:#fff4e0; --surface:#fffdf8; --ink:#1d1433;
-  --c1:#ff6b9a; --c2:#ffd34d; --c3:#4cc9d8; --c4:#9b7bff;
-  --radius:14px; --bw:2px;
-  --shadow:4px 4px 0 var(--ink);
-  --shadow-hover:7px 7px 0 var(--ink);
-  --title-shadow:2px 2px 0 var(--c2);
-  --font-display:Futura,"Century Gothic","Trebuchet MS",sans-serif;
-  --font-body:"Avenir Next","Segoe UI",sans-serif;
-  --font-mono:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
-  --dw:800; --case:uppercase; --track:.01em;
-  --tilt:-1deg;
-  --ease:cubic-bezier(.34,1.56,.64,1);
-  --muted:color-mix(in srgb,var(--ink) 68%,transparent);
-  --line:color-mix(in srgb,var(--ink) 14%,transparent);
-  --pill:min(var(--radius),999px);
-  --ok:#276a8c; --bad:#f2385a;
+/* ═══ Graphite and Ember — light twin ════════════════════ */
+html[data-theme="light"] {
+  color-scheme: light;
+  --bg:#ecebe5; --surface:#f7f6f2; --ink:#141416;
+  --muted:#494641;
+  --c1:#b33a14; --c2:#141416; --c3:#5c5852; --c4:#c9552e;
+  --accent:var(--c1);
+  --on-accent:#fbf8f4;
+  --shadow:none;
+  --shadow-hover:none;
+  --title-shadow:none;
+  --ok:#1f6b45; --bad:#b33a14;
+  --line:#14141633;
 }

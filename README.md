@@ -65,6 +65,18 @@ The file ships with 10 scenarios.
 
 Each question has `id`, `stem`, `options` (four), `answer` (zero-based), `why` and `category`. The sprint uses the first five. Keep the answer index varied so the correct option doesn't always land in the same place.
 
+## Site-wide theme — Graphite and Ember (Nov 18, 2026)
+
+The whole fleet runs on Direction 2, applied through the kit architecture rather than per-page patches:
+
+- **`site/assets/studyverse-tokens.css`** carries the palette, both modes, the shared self-hosted fonts (Inter Tight, JetBrains Mono) and every shape token. One edit there changes every page.
+- **`site/assets/studyverse.css`** (component layer) was rewritten in place: square controls, hairline borders, no offset shadows, no tilt, no uppercase headings.
+- **`site/assets/studyverse.js`** (engine) no longer invents palettes. It owns dark/light mode only — plus the topbar mode chip, the Library shelves dropdown, the hide-topbar chevron and the phone burger, all unchanged. The old remix/lock chips are gone.
+- **`site/assets/home/home.css`** (landing page) imports the same tokens and owns only its fluid scale and the monitor's device chrome. Home and the fleet share one source.
+- **Legacy pages** were converted with `tools/kitify.py` (tags, bridge, engine). The bridge's family blocks map each page's own token names onto kit tokens; `kitcheck.js` no longer needs its exemption list — every page is checked.
+- **The ten A4 systems books** were themed through `tools/systems-kit.py` only (palette, fonts, cover); their content bodies still pass its fingerprint check.
+- **Mode is one system now:** the engine reads and writes `mx-mode` *and* the legacy `medcore.theme` key, mirrors `data-mode` and `html.light/html.dark` classes, and watches them, so pages with their own toggles stay in sync with the site toggle. Pages with neither control get a small floating toggle; print-first systems books get none.
+
 ## The bedside monitor
 
 `device.js` starts when the monitor scrolls into view. It is simulated, not live, and every reading is real text in the page so screen readers can reach it. Canvas draws the ECG, pulse oximeter and respiration traces. Simulated, not live. For study only, not clinical guidance.

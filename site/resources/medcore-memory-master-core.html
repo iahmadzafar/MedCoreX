@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-banktheme="ink" data-mode="dark">
+<html lang="en" data-banktheme="ink" data-mode="dark" data-sv-map="navy">
 <head>
 <script>try{var __f=localStorage.getItem("medcore.banktheme")||"ink",__t=localStorage.getItem("medcore.theme")||"dark";document.documentElement.setAttribute("data-banktheme",__f);document.documentElement.setAttribute("data-mode",__t);}catch(e){}</script>
 <meta charset="UTF-8">
@@ -7,39 +7,40 @@
 <title>Memory Master — Core</title>
 <style>
 :root{
-  --navy:#1B2A4A; --gold:#B7791F; --blue:#4E6E9E; --muted:#FFFFFF;
-  --zebra:#F3F6FA; --line:#1F2430; --red:#B3402A; --ink:#1A2230;
+  --navy:#141416; --gold:#b33a14; --blue:#5c5852; --muted:#494641;
+  --zebra:#f4f2ec; --line:#14141633; --red:#b33a14; --ink:#141416;
 }
 html[data-mode="light"]{
-  --navy:#1B2A4A;
-  --gold:#B7791F;
-  --blue:#4E6E9E;
-  --muted:#000000;
-  --zebra:#F3F6FA;
-  --line:#e3e6ea;
-  --red:#B3402A;
-  --ink:#1A2230;
+  --navy:#141416;
+  --gold:#b33a14;
+  --blue:#5c5852;
+  --muted:#494641;
+  --zebra:#f4f2ec;
+  --line:#ddd9d1;
+  --red:#b33a14;
+  --ink:#141416;
+  --nx-bg:#ecebe5;--nx-card:#f7f6f2;--nx-card2:#e9e7e0;--nx-txt:#141416;--nx-txt2:#494641;--nx-muted:#494641;--nx-rim:#d6d3cb;--nx-rim2:#c4c0b7;--nx-a1:#b33a14;--nx-a2:#5c5852;--nx-no:#b33a14;
 }
 
 * { box-sizing:border-box; margin:0; padding:0; }
-body { font-family:'Plus Jakarta Sans',-apple-system,'Segoe UI',Plus Jakarta Sans,sans-serif; color:var(--ink); background:#fff; line-height:1.5; }
-h1,h2,.sect-name,.proto-title { font-family:'Bricolage Grotesque','Plus Jakarta Sans',sans-serif; }
-.num { font-family:'Geist Mono','Plus Jakarta Sans',monospace; }
+body { font-family:var(--font-body); color:var(--ink); background:#fff; line-height:1.5; }
+h1,h2,.sect-name,.proto-title { font-family:var(--font-display); }
+.num { font-family:var(--font-mono); }
 
 .mast { background:var(--navy); color:#fff; padding:44px 48px 40px; }
-.mast .kicker { letter-spacing:.22em; font-size:0.75rem; text-transform:uppercase; color:#C9A25E; margin-bottom:12px; }
+.mast .kicker { letter-spacing:.22em; font-size:0.75rem; text-transform:uppercase; color:#ff6a3d; margin-bottom:12px; }
 .mast h1 { font-size:2.375rem; font-weight:700; letter-spacing:-.01em; }
-.mast .sub { color:#C7D0DE; max-width:100%; margin-top:10px; font-size:0.9063rem; }
+.mast .sub { color:#b7b2aa; max-width:100%; margin-top:10px; font-size:0.9063rem; }
 .mast .facts { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:26px; border-top:1px solid rgba(255,255,255,.14); padding-top:20px; }
-.mast .fact b { display:block; font-size:1.375rem; color:#F0C97A; font-family:'Geist Mono',monospace; }
-.mast .fact span { font-size:0.7188rem; color:#AEB9CC; text-transform:uppercase; letter-spacing:.08em; }
+.mast .fact b { display:block; font-size:1.375rem; color:#edeae4; font-family:var(--font-mono); }
+.mast .fact span { font-size:0.7188rem; color:#b7b2aa; text-transform:uppercase; letter-spacing:.08em; }
 
 .proto { background:var(--zebra); border-bottom:1px solid var(--line); padding:26px 48px; }
 .proto-title { font-weight:700; font-size:1rem; color:var(--navy); margin-bottom:16px; letter-spacing:.02em; }
 .proto-sub { color:var(--muted); font-weight:400; font-size:0.7813rem; }
 .proto-steps { display:grid; grid-template-columns:repeat(5,1fr); gap:12px; }
 .step { background:#fff; border:1px solid var(--line); border-radius:14px; padding:12px 14px; }
-.step-n { display:inline-flex; width:24px; height:24px; border-radius:50%; background:var(--navy); color:#fff; font-family:'Geist Mono',monospace; font-size:0.75rem; align-items:center; justify-content:center; margin-bottom:8px; }
+.step-n { display:inline-flex; width:24px; height:24px; border-radius:50%; background:var(--navy); color:#fff; font-family:var(--font-mono); font-size:0.75rem; align-items:center; justify-content:center; margin-bottom:8px; }
 .step-t b { display:block; color:var(--navy); font-size:0.8125rem; letter-spacing:.06em; }
 .step-t span { font-size:0.7188rem; color:#55607A; display:block; margin-top:2px; }
 
@@ -47,14 +48,14 @@ h1,h2,.sect-name,.proto-title { font-family:'Bricolage Grotesque','Plus Jakarta 
 .sect-head { display:flex; align-items:baseline; justify-content:space-between; border-bottom:2px solid var(--navy); padding-bottom:8px; margin:34px 0 14px; }
 section:first-of-type .sect-head { margin-top:6px; }
 .sect-name { font-size:1.3125rem; font-weight:700; color:var(--navy); letter-spacing:.01em; }
-.sect-meta { font-family:'Geist Mono',monospace; font-size:0.75rem; color:var(--gold); text-transform:uppercase; letter-spacing:.06em; }
+.sect-meta { font-family:var(--font-mono); font-size:0.75rem; color:var(--gold); text-transform:uppercase; letter-spacing:.06em; }
 .dot { color:var(--muted); margin:0 6px; }
 
 .items { display:grid; grid-template-columns:1fr; gap:10px; }
 .item { border:1px solid var(--line); border-left:3px solid var(--navy); border-radius:14px; padding:12px 16px; }
 .item:hover { background:var(--zebra); }
 .item-head { display:flex; gap:10px; align-items:baseline; }
-.inum { font-family:'Geist Mono',monospace; font-size:0.6875rem; color:var(--muted); min-width:30px; }
+.inum { font-family:var(--font-mono); font-size:0.6875rem; color:var(--muted); min-width:30px; }
 .kw { font-weight:700; color:var(--navy); font-size:0.9063rem; }
 .ans-row { display:flex; gap:10px; align-items:baseline; margin-top:5px; }
 .ans-label { font-size:0.5938rem; letter-spacing:.14em; color:var(--gold); font-weight:700; }
@@ -86,23 +87,22 @@ section:first-of-type .sect-head { margin-top:6px; }
 </style>
 <script>fetch('/api/me').then(r=>r.json()).then(j=>{if(!(j&&j.ok&&j.user))location.href='/login?next='+encodeURIComponent(location.pathname);});
 </script>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Geist+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 <style id="hub-theme-bridge">
 /* ═══════════ Nexus Duo bridge — family × mode, boxy, no gradients ═══════════ */
 :root{ --navy:var(--nx-a1); --gold:var(--nx-a1); --blue:var(--nx-a2); --muted:#FFFFFF;
   --zebra:var(--nx-card2); --line:#1F2430; --red:var(--nx-no); --ink:var(--nx-txt); }
-html[data-banktheme="ink"][data-mode="dark"]{ --nx-bg:#0b0d12;--nx-card:#141619;--nx-card2:#191C20;--nx-txt:#FFFFFF;--nx-txt2:#FFFFFF;--nx-muted:#FFFFFF;--nx-rim:#23262B;--nx-rim2:#2B2F35;--nx-a1:#B58AD6;--nx-a2:#5FA8C4;--nx-no:#C05A5A; }
-html[data-banktheme="ink"][data-mode="dark"]{ --nx-bg:#0b0d12;--nx-card:#141619;--nx-card2:#191C20;--nx-txt:#FFFFFF;--nx-txt2:#FFFFFF;--nx-muted:#FFFFFF;--nx-rim:#23262B;--nx-rim2:#2B2F35;--nx-a1:#B58AD6;--nx-a2:#5FA8C4;--nx-no:#C05A5A; }
+html[data-banktheme="ink"][data-mode="dark"]{ --nx-bg:#141416;--nx-card:#1b1b1f;--nx-card2:#222228;--nx-txt:#edeae4;--nx-txt2:#b7b2aa;--nx-muted:#b7b2aa;--nx-rim:#2e2e34;--nx-rim2:#3a3a41;--nx-a1:#ff6a3d;--nx-a2:#8f8a80;--nx-no:#ff8a6a; }
+html[data-banktheme="ink"][data-mode="dark"]{ --nx-bg:#141416;--nx-card:#1b1b1f;--nx-card2:#222228;--nx-txt:#edeae4;--nx-txt2:#b7b2aa;--nx-muted:#b7b2aa;--nx-rim:#2e2e34;--nx-rim2:#3a3a41;--nx-a1:#ff6a3d;--nx-a2:#8f8a80;--nx-no:#ff8a6a; }
 
-html[data-banktheme="ice"][data-mode="dark"]{ --nx-bg:#0F1113;--nx-card:#171A1E;--nx-card2:#1C2025;--nx-txt:#FFFFFF;--nx-txt2:#FFFFFF;--nx-muted:#FFFFFF;--nx-rim:#242830;--nx-rim2:#2C313A;--nx-a1:#7FB2D9;--nx-a2:#7FB2D9;--nx-no:#C46868; }
+html[data-banktheme="ice"][data-mode="dark"]{ --nx-bg:#141416;--nx-card:#1b1b1f;--nx-card2:#222228;--nx-txt:#edeae4;--nx-txt2:#b7b2aa;--nx-muted:#b7b2aa;--nx-rim:#2e2e34;--nx-rim2:#3a3a41;--nx-a1:#ff6a3d;--nx-a2:#8f8a80;--nx-no:#ff8a6a; }
 
-html[data-banktheme="copper"][data-mode="dark"]{ --nx-bg:#12100F;--nx-card:#1A1816;--nx-card2:#201D1B;--nx-txt:#FFFFFF;--nx-txt2:#FFFFFF;--nx-muted:#FFFFFF;--nx-rim:#282420;--nx-rim2:#322D28;--nx-a1:#C97A4A;--nx-a2:#4da3ff;--nx-no:#C2604F; }
+html[data-banktheme="copper"][data-mode="dark"]{ --nx-bg:#141416;--nx-card:#1b1b1f;--nx-card2:#222228;--nx-txt:#edeae4;--nx-txt2:#b7b2aa;--nx-muted:#b7b2aa;--nx-rim:#2e2e34;--nx-rim2:#3a3a41;--nx-a1:#ff6a3d;--nx-a2:#8f8a80;--nx-no:#ff8a6a; }
 
-html[data-banktheme="paper"][data-mode="dark"]{ --nx-bg:#151011;--nx-card:#1D1618;--nx-card2:#241C1E;--nx-txt:#FFFFFF;--nx-txt2:#FFFFFF;--nx-muted:#FFFFFF;--nx-rim:#2C2325;--nx-rim2:#382C2F;--nx-a1:#C4666F;--nx-a2:#4da3ff;--nx-no:#D96A6A; }
+html[data-banktheme="paper"][data-mode="dark"]{ --nx-bg:#141416;--nx-card:#1b1b1f;--nx-card2:#222228;--nx-txt:#edeae4;--nx-txt2:#b7b2aa;--nx-muted:#b7b2aa;--nx-rim:#2e2e34;--nx-rim2:#3a3a41;--nx-a1:#ff6a3d;--nx-a2:#8f8a80;--nx-no:#ff8a6a; }
 
-body{ background:var(--nx-bg)!important; color:var(--nx-txt)!important; font-family:'Plus Jakarta Sans',-apple-system,'Segoe UI',sans-serif!important; }
-h1,h2,.sect-name,.proto-title,.mast h1{ font-family:'Bricolage Grotesque','Plus Jakarta Sans',sans-serif!important; }
-.num,.inum,.sect-meta,.fact b,.step-n,.mast .fact b,.chip{ font-family:'Geist Mono',monospace!important; }
+body{ background:var(--nx-bg)!important; color:var(--nx-txt)!important; font-family:var(--font-body)!important; }
+h1,h2,.sect-name,.proto-title,.mast h1{ font-family:var(--font-display)!important; }
+.num,.inum,.sect-meta,.fact b,.step-n,.mast .fact b,.chip{ font-family:var(--font-mono)!important; }
 .mast{ background:var(--nx-card)!important; color:var(--nx-txt)!important; border-bottom:1px solid var(--nx-rim); }
 .mast .kicker{ color:var(--nx-a1); }
 .mast .sub{ color:var(--nx-txt2); }
@@ -141,7 +141,7 @@ body *{ border-radius:0 !important; }
 .nx-bar{ display:flex; justify-content:flex-end; gap:8px; margin-bottom:20px; }
 .nx-fam{ display:flex; border:1px solid var(--nx-rim2); overflow:hidden; }
 .nx-fam button{ appearance:none; border:0; background:transparent; color:var(--nx-txt2); cursor:pointer;
-  font-family:'Geist Mono',monospace; font-size:10.5px; font-weight:600; padding:6px 10px; ;border-radius:14px}
+  font-family:var(--font-mono); font-size:10.5px; font-weight:600; padding:6px 10px; ;border-radius:14px}
 .nx-fam button + button{ border-left:1px solid var(--nx-rim2); }
 .nx-fam button.on{ background:var(--nx-a1); color:var(--nx-bg); }
 
@@ -169,6 +169,9 @@ summary{cursor:pointer}
 @media print{button{transition:none!important;transform:none!important}}
 @media(prefers-reduced-motion:reduce){button{transition:none!important;transform:none!important}}
 </style>
+<link rel="stylesheet" href="/assets/studyverse-bridge.css">
+<script src="/assets/studyverse.js"></script>
+<script src="/assets/studyverse-bridge.js"></script>
 </head>
 <body>
 
@@ -4269,7 +4272,7 @@ summary{cursor:pointer}
 h1{font-weight:800}h2{font-weight:700}h3,h4{font-weight:700}
 @keyframes mlxFade{from{opacity:0}to{opacity:1}}
 body{animation:mlxFade .4s ease both}
-.mlx-toggle{position:fixed;right:16px;bottom:16px;z-index:99;font:600 12px/1 'Geist Mono',ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;padding:11px 15px;border-radius:999px;cursor:pointer;background:var(--panel,#14171E);color:var(--chalk,#FFFFFF);border:1px solid var(--line,#2A3140);box-shadow:0 10px 30px -12px rgba(0,0,0,.55);transition:transform .15s,border-color .2s}
+.mlx-toggle{position:fixed;right:16px;bottom:16px;z-index:99;font:600 12px/1 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;padding:11px 15px;border-radius:2px;cursor:pointer;background:var(--surface,#1b1b1f);color:var(--ink,#edeae4);border:1px solid var(--line,#2e2e34);box-shadow:none;transition:transform .15s,border-color .2s}
 .mlx-toggle:hover{border-color:var(--cyan,#4DA3FF)}
 .mlx-toggle:active{transform:scale(.94)}
 @media print{.mlx-toggle{display:none!important}body{animation:none!important}}
