@@ -13,14 +13,12 @@
      Alarm LED                             lit when a limit is breached;
                                            tap to silence for 60 s
      Power LED                             standby on or off
-     Sound button                          sound on or off (off by default)
 
    Physiology: each case has target vitals. Values ease toward their
    targets over a few seconds. Coupling: low SpO₂ raises the respiratory
    rate and the heart rate; fever raises the heart rate; low pressure
    weakens the pulse wave.
    ============================================================ */
-import * as sfx from './sound.js';
 
 var TAU = Math.PI * 2;
 var PX_PER_SEC = 110;
@@ -104,7 +102,7 @@ export function start(root) {
   var col = { trace: '#f2ede4', dim: '#8f8a80' };
 
   /* state */
-  var bedIndex = 0, leadIndex = 0, trendMetric = 0, focus = '', power = true, sound = false;
+  var bedIndex = 0, leadIndex = 0, trendMetric = 0, focus = '', power = true;
   var override = null;            /* a scenario from the game, or null */
   var silencedUntil = 0, measuring = false, revealed = false;
   var caseStart = 0, caseSeed = 1, beats = [], lastBeatIdx = -1;
@@ -118,7 +116,7 @@ export function start(root) {
   var leadBtn = $('#leadBtn'), bedBtn = $('#bedBtn'), bedState = $('#bedState'), leadState = $('#leadState');
   var ledPower = $('#ledPower'), ledAlarm = $('#ledAlarm'), alarmText = $('#alarmText');
   var btnMeasure = $('#btnMeasure'), btnReveal = $('#btnReveal'), revealBox = $('#revealBox');
-  var btnSound = $('#btnSound'), trend = $('#trend'), trendLabel = $('#trendLabel'), trendPath = $('#trendPath');
+  var trend = $('#trend'), trendLabel = $('#trendLabel'), trendPath = $('#trendPath');
   var scnTag = $('#scnTag');
 
   function active() {
@@ -219,25 +217,17 @@ export function start(root) {
     ['hr', 'spo2', 'rr'].forEach(function (k) { if (hist[k].length > TREND_LEN) hist[k].shift(); });
   }
 
-  var lastAlarmSound = 0;
   function tick() {
     setTargets();
     ease();
     if (!power) { paintReadings(); return; }
     paintReadings();
     paintAlarm();
-    /* heartbeats: one pulse tone per R-peak */
     if (power) {
       var now = (performance.now() - T0) / 1000;
       ensureBeats(now);
       var idx = locate(now).i;
       if (lastBeatIdx < 0) lastBeatIdx = idx;
-      while (lastBeatIdx < idx) { lastBeatIdx++; sfx.beat(); }
-    }
-    /* repeating alarm tone while a limit is breached and not silenced */
-    if (power && alarmReason().length && Date.now() > silencedUntil && Date.now() - lastAlarmSound > 6000) {
-      lastAlarmSound = Date.now();
-      sfx.alarm(3);
     }
   }
 
@@ -339,7 +329,6 @@ export function start(root) {
 
   readings.forEach(function (btn) {
     btn.addEventListener('click', function () {
-      sfx.click();
       var on = btn.getAttribute('aria-pressed') === 'true';
       if (on) { setFocus(''); explain.textContent = 'Tap a reading or a trace to see what it shows.'; return; }
       setFocus(btn.getAttribute('data-trace'));
@@ -352,7 +341,6 @@ export function start(root) {
     var y = e.clientY - r.top;
     var trace = y < H * 0.54 ? 'ecg' : y < H * 0.8 ? 'pleth' : 'resp';
     var btn = root.querySelector('.reading[data-trace="' + trace + '"]');
-    sfx.click();
     if (btn) btn.click();
   });
 
@@ -360,7 +348,6 @@ export function start(root) {
     leadIndex = (leadIndex + 1) % LEADS.length;
     leadBtn.textContent = 'ECG ' + LEADS[leadIndex].label;
     leadState.textContent = 'Lead ' + LEADS[leadIndex].label;
-    sfx.click();
     explain.textContent = 'Lead ' + LEADS[leadIndex].label + ' is on screen. Each lead views the heart from a different angle.';
     if (reduce.matches) draw((performance.now() - T0) / 1000);
   });
@@ -377,7 +364,6 @@ export function start(root) {
     btnReveal.setAttribute('aria-expanded', 'false');
     resetBeats((performance.now() - T0) / 1000);
     if (announce) {
-      sfx.chirp();
       explain.textContent = c.bed + ' is loaded. Read the waveform and the vitals, then reveal the case.';
     }
     measureNow(true);
@@ -387,9 +373,7 @@ export function start(root) {
   });
 
   btnReveal.addEventListener('click', function () {
-    if (override) { explain.textContent = 'Scenario in progress. Answer it first, then the case is shown.'; sfx.click(); return; }
     revealed = !revealed;
-    sfx.click();
     var c = CASES[bedIndex];
     revealBox.hidden = !revealed;
     btnReveal.setAttribute('aria-expanded', String(revealed));
@@ -406,7 +390,6 @@ export function start(root) {
   function measureNow(auto) {
     if (measuring || !power) return;
     measuring = true;
-    sfx.cuff();
     paintReadings();
     explain.textContent = auto ? 'Automatic blood pressure reading in progress.' : 'Measuring blood pressure. Keep still.';
     setTimeout(function () {
@@ -414,7 +397,6 @@ export function start(root) {
       nibp.sys = Math.round(V.sys + (Math.random() * 6 - 3));
       nibp.dia = Math.round(V.dia + (Math.random() * 4 - 2));
       measuring = false;
-      sfx.confirm();
       paintReadings();
       explain.textContent = 'Blood pressure ' + nibp.sys + '/' + nibp.dia + ' mmHg, mean about ' + Math.round((nibp.sys + 2 * nibp.dia) / 3) + '.';
     }, 3200);
@@ -423,12 +405,10 @@ export function start(root) {
 
   trend.addEventListener('click', function () {
     trendMetric = (trendMetric + 1) % TREND.length;
-    sfx.click();
     paintTrend();
   });
 
   ledAlarm.addEventListener('click', function () {
-    sfx.click();
     if (!alarmReason().length) { explain.textContent = 'No limit is breached right now.'; return; }
     silencedUntil = Date.now() + 60000;
     paintAlarm();
@@ -437,23 +417,13 @@ export function start(root) {
 
   ledPower.addEventListener('click', function () {
     power = !power;
-    sfx.click();
     root.classList.toggle('standby', !power);
     ledPower.setAttribute('aria-pressed', String(power));
     bedState.textContent = power ? 'Demo' : 'Standby';
     if (power) { resetBeats((performance.now() - T0) / 1000); runLoop(); draw((performance.now() - T0) / 1000); }
-    else { stopLoop(); draw(0); sfx.standby(); }
     explain.textContent = power ? 'Monitor on.' : 'Standby. Traces and readings are paused.';
   });
 
-  btnSound.addEventListener('click', function () {
-    sound = !sound;
-    sfx.setOn(sound);
-    btnSound.setAttribute('aria-pressed', String(sound));
-    btnSound.querySelector('.sound-label').textContent = sound ? 'Sound on' : 'Sound off';
-    if (sound) { sfx.click(); explain.textContent = 'Sound on. You will hear the recorded monitor, cuff and alarm sounds.'; }
-    else explain.textContent = 'Sound off.';
-  });
 
   /* a scenario from the game drives the same device */
   document.addEventListener('mx:vitals', function (e) {
@@ -517,7 +487,6 @@ export function start(root) {
   bedBtn.textContent = CASES[0].bed;
   leadBtn.textContent = 'ECG ' + LEADS[0].label;
   leadState.textContent = 'Lead ' + LEADS[0].label;
-  btnSound.setAttribute('aria-pressed', 'false');
   ledPower.setAttribute('aria-pressed', 'true');
   ledAlarm.setAttribute('aria-pressed', 'false');
   btnReveal.textContent = 'Reveal the case';

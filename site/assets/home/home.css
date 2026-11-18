@@ -220,8 +220,6 @@ html[data-theme="dark"] .theme-btn .i-sun { display: none; }
 .ctl:hover { border-color: var(--trace); }
 .ctl[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); }
 .ctl:disabled { opacity: .5; cursor: default; }
-.sound-icon { display: inline-grid; width: 16px; height: 16px; }
-.sound-icon svg { width: 16px; height: 16px; }
 .reveal { margin-top: 10px; padding: 12px 14px; border-left: 2px solid var(--accent); background: #00000040; }
 .reveal[hidden] { display: none; }
 .reveal-name { font-weight: 600; font-size: var(--fs-small); color: var(--trace); }

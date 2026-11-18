@@ -31,7 +31,6 @@ node site/kitcheck.js            # every page is themed (the landing page is exe
 | Landing page styles (tokens, type scale, grid, both themes) | `site/assets/home/home.css` |
 | Always-loaded behaviour: theme, reveals, rules, tabs, reading explanations | `site/assets/home/home.js` |
 | The bedside monitor: five cases, vitals model, alarms and every control | `site/assets/home/device.js` |
-| Sound effects, synthesised with the Web Audio API | `site/assets/home/sound.js` |
 | "Read the monitor" scenarios, loaded on click | `site/assets/home/scenarios.js` |
 | 60-second sprint, loaded on click | `site/assets/home/sprint.js` |
 | Scenario data | `site/content/scenarios.json` |
@@ -86,22 +85,10 @@ Each question has `id`, `stem`, `options` (four), `answer` (zero-based), `why` a
 - **The trend strip** — cycles the 60-minute trend through heart rate, oxygen saturation and respiratory rate.
 - **Alarm LED** — lights when a limit is breached. Tap it to silence for 60 seconds.
 - **Power LED** — standby on or off. Standby freezes the traces and blank the readings.
-- **Sound off/on** — sound is off by default. Tap to turn it on.
 
 ### How the vitals behave
 
 Each case has target vitals. The displayed values ease toward those targets over a few seconds, so you can watch a rate climb. They are coupled: low oxygen raises the breathing and heart rates; a fever raises the heart rate; low pressure weakens the pulse wave. Limit breaches light the alarm LED and the status line.
-
-### Sound effects
-
-The sound effects are real recordings from [SFX Jar's CC0 1.0 hospital set](https://sfxjar.com/hospital/), stored in `site/assets/home/audio/`. CC0 requires no attribution, but the source is credited in `sound.js` and here. The four recordings are loaded only when the visitor switches sound on, so they never touch the initial page weight.
-
-- Bed and case change: `synth-ekg-72.mp3`, a recorded 72 bpm monitor, played for 1.4 seconds
-- Alarm: `0456.mp3`, a recorded ECG beep, in two bursts
-- Blood pressure measurement: `2504.mp3`, a recorded cuff, trimmed to the 3.2-second measurement
-- Standby: `synth-ekg-flatline.mp3`, the flatline tone, played for 2.2 seconds
-
-Two tiny effects stay synthesised with the Web Audio API because nothing in the pack fits them: the tap click, and the short beep on each R-peak, which follows the heart rate shown on the display. Sound is off by default and never starts without a tap.
 
 ## Fonts
 
@@ -115,7 +102,7 @@ The catalogue once said "The NRE recall vault" in a visible description. That is
 
 ## Storage and privacy
 
-The landing page stores nothing. There is no account and no study record. Scores from the scenario and the sprint live only in the page's memory and are gone when the visit ends. The sound setting is also in memory only, so a reload returns to sound off. On load, the page clears any `medcore.*` keys left by an earlier build of the study record.
+The landing page stores nothing. There is no account and no study record. Scores from the scenario and the sprint live only in the page's memory and are gone when the visit ends. On load, the page clears any `medcore.*` keys left by an earlier build of the study record.
 
 ## Deploy to Cloudflare Pages
 
