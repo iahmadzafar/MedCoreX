@@ -48,6 +48,27 @@ html[data-theme="dark"] {
   --line:#edeae433;
   --pill:2px;
   --ok:#b8e0c8; --bad:#ff8a6a;
+
+  /* fluid type scale: eight steps between 375px and 1920px */
+  --fs-label: clamp(.7rem, .67rem + .15vw, .76rem);
+  --fs-small: clamp(.86rem, .83rem + .15vw, .94rem);
+  --fs-body: clamp(1rem, .95rem + .25vw, 1.0625rem);
+  --fs-lead: clamp(1.08rem, 1rem + .45vw, 1.28rem);
+  --fs-h3: clamp(1.2rem, 1.08rem + .55vw, 1.55rem);
+  --fs-h2: clamp(1.8rem, 1.2rem + 2.2vw, 3rem);
+  --fs-h1: clamp(2.5rem, 1.3rem + 3.8vw, 4.6rem);
+  --fs-quote: clamp(1.7rem, 1.1rem + 2.6vw, 3.2rem);
+
+  /* aliases: one font source, no duplicated family lists */
+  --f-ui: var(--font-display);
+  --f-mono: var(--font-mono);
+
+  /* layout rhythm */
+  --max: 1280px;
+  --gutter: clamp(18px, 4vw, 40px);
+  --gap: clamp(16px, 2vw, 24px);
+  --spring: cubic-bezier(.34, 1.4, .64, 1);
+  --line-strong: color-mix(in srgb, var(--ink) 40%, transparent);
 }
 
 /* ═══ Graphite and Ember — light twin ════════════════════ */

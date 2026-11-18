@@ -65,6 +65,12 @@ The file ships with 10 scenarios.
 
 Each question has `id`, `stem`, `options` (four), `answer` (zero-based), `why` and `category`. The sprint uses the first five. Keep the answer index varied so the correct option doesn't always land in the same place.
 
+## One design file (Nov 18, 2026)
+
+`site/assets/studyverse.css` is the single design file: base, header, buttons, the eight-step fluid type scale, sections, quote, footer, forms, practice furniture and responsive rules, in the landing page's Graphite and Ember language. Both vocabularies resolve to the same styles — the landing's `.site-head/.brand/.btn-primary` and the legacy kit's `.nav/.logo/.btn.alt` — so either markup renders one design. The landing loads it first and then `assets/home/home.css`, which now holds only landing modules (hero, monitor, catalogue, rules, sprint). The scale, palette and layout rhythm live in `studyverse-tokens.css`.
+
+Every page, the homepage included, wears the canonical shell from `tools/site_shell/` (synced by `tools/sync_site_shell.py`): same ECG brand mark, same nav with the shelves menu and mode chip, same footer. The engine default is now dark everywhere, the hide-topbar chevron and burger panel are gone (the landing never had them), and `kitcheck.js` has no exemptions left — all 39 pages are checked.
+
 ## Site-wide theme — Graphite and Ember (Nov 18, 2026)
 
 The whole fleet runs on Direction 2, applied through the kit architecture rather than per-page patches:

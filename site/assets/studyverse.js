@@ -60,8 +60,7 @@ function setMode(mode) {
 function initMode() {
   let m = null;
   try { m = localStorage.getItem(MKEY) || localStorage.getItem('medcore.theme'); } catch (e) {}
-  if (m !== 'dark' && m !== 'light')
-    m = (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+  if (m !== 'dark' && m !== 'light') m = 'dark';   /* dark is the default everywhere */
   document.documentElement.dataset.theme = m;
   document.documentElement.setAttribute('data-mode', m);
   paint(); syncMode();
@@ -188,34 +187,6 @@ function buildNavMenu() {
     SHELVES.map(function (s) { return '<a href="/library#' + s[1] + '">' + s[0] + '</a>'; }).join('') + '</div>');
 }
 
-/* ── topbar hide/show (preference: medcore.nav) ── */
-function applyNav(on) {
-  document.body.classList.toggle('nav-off', !on);
-  const t = document.querySelector('.nav-tog');
-  if (t) t.setAttribute('aria-expanded', String(on));
-}
-function buildNavToggle() {
-  if (!document.querySelector('.nav')) return;
-  const eng = document.querySelector('.nav .engine');
-  if (eng && !eng.querySelector('.nav-tog')) {
-    eng.insertAdjacentHTML('beforeend', '<button class="nav-tog" type="button" aria-label="Hide topbar" aria-expanded="true" title="Hide topbar">' + IC.up + '</button>');
-    eng.querySelector('.nav-tog').onclick = function () {
-      applyNav(false);
-      try { localStorage.setItem('medcore.nav', 'off'); } catch (e) {}
-    };
-  }
-  if (!document.getElementById('navShow')) {
-    document.body.insertAdjacentHTML('beforeend', '<button class="nav-show" id="navShow" type="button" aria-label="Show topbar">' + IC.burger + '</button>');
-    document.getElementById('navShow').onclick = function () {
-      applyNav(true);
-      try { localStorage.setItem('medcore.nav', 'on'); } catch (e) {}
-    };
-  }
-  let on = true;
-  try { on = localStorage.getItem('medcore.nav') !== 'off'; } catch (e) {}
-  applyNav(on);
-}
-
 /* ── burger — phones only (≤900px CSS hides it) ── */
 function buildBurger() {
   const wrap = document.querySelector('.nav .wrap');
@@ -240,7 +211,6 @@ function boot() {
   }
   fillChips();
   buildNavMenu();
-  buildNavToggle();
   buildBurger();
   paint(); syncMode();
 }

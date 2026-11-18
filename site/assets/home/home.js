@@ -18,24 +18,6 @@
       .forEach(function (k) { localStorage.removeItem(k); });
   } catch (e) {}
 
-  /* ── theme: dark is the default; light is opt-in and remembered ── */
-  var MODE_KEY = 'mx-mode';
-  try { if (localStorage.getItem(MODE_KEY) === 'light') root.dataset.theme = 'light'; } catch (e) {}
-  var themeBtn = doc.getElementById('themeBtn');
-  function syncTheme() {
-    var dark = root.dataset.theme !== 'light';
-    themeBtn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
-    themeBtn.setAttribute('aria-pressed', String(!dark));
-  }
-  themeBtn.addEventListener('click', function () {
-    var next = root.dataset.theme === 'light' ? 'dark' : 'light';
-    root.dataset.theme = next;
-    try { localStorage.setItem(MODE_KEY, next); } catch (e) {}
-    syncTheme();
-    doc.dispatchEvent(new CustomEvent('mx:theme'));
-  });
-  syncTheme();
-
   /* ── scroll reveals: 550ms opacity and rise, once per element ── */
   if ('IntersectionObserver' in window) {
     var revealIO = new IntersectionObserver(function (entries) {

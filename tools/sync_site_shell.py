@@ -122,6 +122,9 @@ def main() -> int:
     drift = []
     for rel, spec in PAGES.items():
         path = ROOT / rel
+        if not path.exists():          # some table entries never landed on disk
+            print(f"skip {rel}: not on disk", file=sys.stderr)
+            continue
         try:
             rendered = render(path, spec)
         except (ValueError, RuntimeError) as exc:

@@ -33,13 +33,9 @@ function walk(dir, out = []) {
    path-exact exemption below. */
 const EXEMPT = [];
 
-/* Owner-approved redesign, Nov 18 2026: the landing page is its own visual
-   system (Direction A, "Phosphor Ward") and carries no kit CSS, engine or
-   components. Matched by exact site-relative path, never by basename, so no
-   other index.html is exempted. Every other page stays on the kit. */
-const EXEMPT_PATHS = [
-  'index.html',
-];
+/* The landing page adopted the shared kit shell Nov 18 2026, so there
+   are no path exemptions at all: every HTML file is checked. */
+const EXEMPT_PATHS = [];
 
 for (const f of walk(SITE)) {
   const rel = path.relative(SITE, f);
