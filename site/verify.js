@@ -78,8 +78,8 @@ const perCount = Object.fromEntries(CATS.map(c=>[c, libItems.filter(i=>i.c===c).
 const single = CATS.filter(c=>perCount[c]===1);
 /* Router is data-driven: DIRECT is built at runtime for whichever shelves are
    single-file, so the check is consistency, not a hardcoded shelf list —
-   a shelf can vacate/register as the catalog grows (e.g. Mocks & Drills went
-   two-deep when Fresh Mock Bank landed). */
+   a shelf can vacate/register as the catalog grows (e.g. Mocks & Drills is
+   currently single-file with M06 Question Bank). */
 if(single.length === 0){
   ok('no single-file shelves (every shelf has a picker)');
 }else{
