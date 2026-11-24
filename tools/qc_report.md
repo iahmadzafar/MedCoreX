@@ -1,26 +1,26 @@
 # MCQ Quality Check Report — MedCoreX Question Bank
 
-Generated: 2026-11-13T22:25:55.615Z
+Generated: 2026-11-24T01:20:14.599Z
 
 ## Scope
 - Subjects: MED (1424), PSY (89), HEM (373), MSK (262), REN (468), DRM (129), SRG (871), EYE (209), ENT (253), ONG (559), PED (466), ANT (271), PHY (146), PHM (638), PTH (266), BCH (90), CMM (114), FRM (61)
 - Total questions: 6689
-- Unique stems: 5580 (exact dup: 1109)
-- Total issues: 7357
+- Unique stems: 5529 (exact dup: 1160)
+- Total issues: 7404
 
 ## Layer completeness
-- Full (all 4 text layers + others): 3159
-- Concept only: 2078
+- Full (all 4 text layers + others): 3161
+- Concept only: 2076
 - Partial: 1452
 
 ## Severity counts
-- medium: 6098
-- high: 1259
+- medium: 6094
+- high: 1310
 
 ## Issue counts by check
-- NO_OTHERS: 3983
-- CONCEPT_ONLY: 2078
-- DUP_STEM: 1109
+- NO_OTHERS: 3981
+- CONCEPT_ONLY: 2076
+- DUP_STEM: 1160
 - BROKEN_MARKER: 72
 - BAD_OPTION_COUNT: 62
 - CONTROL_CHAR: 37
@@ -65,32 +65,16 @@ Generated: 2026-11-13T22:25:55.615Z
 > A 62-year-old man with type 2 diabetes and a 30-pack-year smoking history presents with a painless nodule and a cord in his right palm. The 
 Detail: missing others
 
-### [medium] CONCEPT_ONLY — MED #1
-> A 50-year-old woman presents with proximal leg weakness that improves after climbing a few flights of stairs. She also reports dry mouth. Ex
-Detail: only concept layer present
-
-### [medium] NO_OTHERS — MED #1
-> A 50-year-old woman presents with proximal leg weakness that improves after climbing a few flights of stairs. She also reports dry mouth. Ex
-Detail: missing others
-
-### [medium] CONCEPT_ONLY — MED #2
-> A girl of six years experiences moments of gazing and non-communication, with her EEG revealing 3/sec, synchronized spike-wave discharges. W
-Detail: only concept layer present
-
-### [medium] NO_OTHERS — MED #2
-> A girl of six years experiences moments of gazing and non-communication, with her EEG revealing 3/sec, synchronized spike-wave discharges. W
-Detail: missing others
-
 ### [medium] NO_OTHERS — MED #7
 > A 65-year-old man presents with a history of resting tremor, shuffling gait, stooped posture, and a mask-like expressionless face. Physical 
 Detail: missing others
 
 ### [medium] CONCEPT_ONLY — MED #8
-> A16 : A 24-year-old man from a rural area presents with his second generalized seizure in a month. He has had intermittent headaches. CT bra
+> A 24-year-old man from a rural area presents with his second generalized seizure in a month. He has had intermittent headaches. CT brain sho
 Detail: only concept layer present
 
 ### [medium] NO_OTHERS — MED #8
-> A16 : A 24-year-old man from a rural area presents with his second generalized seizure in a month. He has had intermittent headaches. CT bra
+> A 24-year-old man from a rural area presents with his second generalized seizure in a month. He has had intermittent headaches. CT brain sho
 Detail: missing others
 
 ### [medium] CONCEPT_ONLY — MED #9
@@ -118,11 +102,11 @@ Detail: missing others
 Detail: missing others
 
 ### [medium] CONCEPT_ONLY — MED #13
-> A35 : A 9-year-old boy from a rural area presents during monsoon season with high fever, altered consciousness, and two seizures. Examinatio
+> A 9-year-old boy from a rural area presents during monsoon season with high fever, altered consciousness, and two seizures. Examination: mas
 Detail: only concept layer present
 
 ### [medium] NO_OTHERS — MED #13
-> A35 : A 9-year-old boy from a rural area presents during monsoon season with high fever, altered consciousness, and two seizures. Examinatio
+> A 9-year-old boy from a rural area presents during monsoon season with high fever, altered consciousness, and two seizures. Examination: mas
 Detail: missing others
 
 ### [medium] NO_OTHERS — MED #14
@@ -154,11 +138,11 @@ Detail: only concept layer present
 Detail: missing others
 
 ### [medium] CONCEPT_ONLY — MED #21
-> A47 : A 55-year-old man has 9 months of progressive painless weakness of the right hand. Examination: wasting of the right thenar eminence w
+> A 55-year-old man has 9 months of progressive painless weakness of the right hand. Examination: wasting of the right thenar eminence with vi
 Detail: only concept layer present
 
 ### [medium] NO_OTHERS — MED #21
-> A47 : A 55-year-old man has 9 months of progressive painless weakness of the right hand. Examination: wasting of the right thenar eminence w
+> A 55-year-old man has 9 months of progressive painless weakness of the right hand. Examination: wasting of the right thenar eminence with vi
 Detail: missing others
 
 ### [medium] NO_OTHERS — MED #22
@@ -206,11 +190,11 @@ Detail: missing others
 Detail: missing others
 
 ### [medium] CONCEPT_ONLY — MED #31
-> A20 : A 64-year-old woman has a tremor of both hands that worsens when she holds a cup of tea or writes, and a family history of tremor in h
+> A 64-year-old woman has a tremor of both hands that worsens when she holds a cup of tea or writes, and a family history of tremor in her fat
 Detail: only concept layer present
 
 ### [medium] NO_OTHERS — MED #31
-> A20 : A 64-year-old woman has a tremor of both hands that worsens when she holds a cup of tea or writes, and a family history of tremor in h
+> A 64-year-old woman has a tremor of both hands that worsens when she holds a cup of tea or writes, and a family history of tremor in her fat
 Detail: missing others
 
 ### [medium] CONCEPT_ONLY — MED #33
@@ -262,11 +246,11 @@ Detail: only concept layer present
 Detail: missing others
 
 ### [medium] CONCEPT_ONLY — MED #44
-> A33 : A 46-year-old man presents with 4 days of fever, confusion, bizarre behavior, and two generalized seizures. He has no neck stiffness. 
+> A 46-year-old man presents with 4 days of fever, confusion, bizarre behavior, and two generalized seizures. He has no neck stiffness. MRI sh
 Detail: only concept layer present
 
 ### [medium] NO_OTHERS — MED #44
-> A33 : A 46-year-old man presents with 4 days of fever, confusion, bizarre behavior, and two generalized seizures. He has no neck stiffness. 
+> A 46-year-old man presents with 4 days of fever, confusion, bizarre behavior, and two generalized seizures. He has no neck stiffness. MRI sh
 Detail: missing others
 
 ### [high] DUP_STEM — MED #45
@@ -290,14 +274,30 @@ Detail: missing others
 Detail: duplicate of MED#9
 
 ### [medium] CONCEPT_ONLY — MED #51
-> A50 : A 58-year-old man with bulbar-onset ALS has nasal speech, tongue wasting with fasciculations, brisk jaw jerk, and episodes of inapprop
+> A 58-year-old man with bulbar-onset ALS has nasal speech, tongue wasting with fasciculations, brisk jaw jerk, and episodes of inappropriate 
 Detail: only concept layer present
 
 ### [medium] NO_OTHERS — MED #51
-> A50 : A 58-year-old man with bulbar-onset ALS has nasal speech, tongue wasting with fasciculations, brisk jaw jerk, and episodes of inapprop
+> A 58-year-old man with bulbar-onset ALS has nasal speech, tongue wasting with fasciculations, brisk jaw jerk, and episodes of inappropriate 
 Detail: missing others
 
 ### [medium] NO_OTHERS — MED #52
 > A 35-year-old man after a fall presents with confusion and vomiting. CT brain shows patchy hemorrhagic lesions in the frontal and temporal l
 Detail: missing others
+
+### [medium] CONCEPT_ONLY — MED #53
+> A 35-year-old female presents with fluctuating double vision and drooping eyelids that worsen as the day progresses. She has difficulty chew
+Detail: only concept layer present
+
+### [medium] NO_OTHERS — MED #53
+> A 35-year-old female presents with fluctuating double vision and drooping eyelids that worsen as the day progresses. She has difficulty chew
+Detail: missing others
+
+### [high] DUP_STEM — MED #54
+> A 25-year-old woman presents with ascending weakness and areflexia. Lumbar puncture is performed. Which CSF finding is most characteristic o
+Detail: duplicate of MED#17
+
+### [medium] CONCEPT_ONLY — MED #59
+> A 60-year-old man with myasthenia gravis on pyridostigmine reports that after his dose was increased, he developed severe generalized weakne
+Detail: only concept layer present
 
