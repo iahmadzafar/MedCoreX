@@ -18,7 +18,7 @@ are deliberately omitted per house rule.
 | GitHub | `github.com/iahmadzafar/MedCoreX`, main = `d2d3cba` |
 | Duplicate checkout | `CloudDocs/MedCORE Live/repo` — same remote, older commit (7db1249, 18 Nov). Stale mirror; never edit there. |
 | Live site | `https://medcorex.pages.dev` — Cloudflare Pages project `medcorex`, branch `main` |
-| Deploy chain | push to main → GitHub Actions: `scriptproof` (every script parses) → `mcq_quality_check --strict` (bank has no critical defects) → `kitcheck` (every page wears the kit) → prune → wrangler deploy. **Auto-push has been disabled since 30 Oct — manual `git push` is the sync.** |
+| Deploy chain | push to main → GitHub Actions: `scriptproof` (every script parses) → `mcq_quality_check --strict` (bank has no critical defects) → `kitcheck` (every page wears the kit) → prune → wrangler deploy. **AGENTS.md claims auto-push was disabled on 30 Oct, but `.git/hooks/post-commit` is active in this checkout and pushes every commit — verified 24 Nov (see §10.7). The banner is stale; the hook is the real behavior.** |
 | Deploy parity | local `index.html` md5 matches live byte for byte. `/resources/*` answers 302 to sign-in for visitors (gate works). |
 
 **Uncommitted working-tree changes (today's reconciliation, 23 Nov):**
@@ -270,8 +270,9 @@ the brief's token file is its implementation.
 - **Systems books are content-frozen** in the old site; their bodies are the
   content to import.
 - **Old site frozen at cutover**, old domain stays live, new domain to be chosen.
-- **Auto-push disabled** — manual push is the sync for the old repo until it is
-  archived.
+- **Auto-push:** AGENTS.md's "disabled" banner is stale — `.git/hooks/post-commit`
+  is active and pushes every commit (verified 24 Nov). Owner decision: re-disable
+  the hook, or update AGENTS.md to match reality.
 - **Single catalog source** (old: `site/assets/catalog.js`) — the new build needs
   its own single source, not copies.
 - Existing localStorage prefixes in readers' browsers (`medcore.`,
@@ -344,8 +345,15 @@ Every item in the brief's content list exists on disk and was verified:
    leave the tree untouched for you?
    **Resolved 24 Nov: committed** — reconciliation (MODULES, catalog sync,
    chrome-fragment deletions, verify.js) plus the catalog board-name fix in one
-   commit; AUDIT.md and the refreshed QC reports in a second. Local only —
-   auto-push remains disabled; nothing reached GitHub or the live site.
+   commit (`96a1f86`); AUDIT.md and the refreshed QC reports in a second
+   (`186c377`). **Correction:** the plan stated these would stay local, but
+   `.git/hooks/post-commit` is active in this checkout (AGENTS.md's
+   "auto-push disabled" banner is stale) and pushed both commits. CI ran green
+   — scriptproof, mcq_quality_check, kitcheck — and deployed: student-facing
+   pages are byte-identical (live index md5 unchanged); the only live delta is
+   the internal `site/hub-data/catalog.json` description string, i.e. the
+   board-name removal. Owner decision pending: re-disable the hook, or update
+   AGENTS.md.
 8. **Syllabus lines** — no syllabus document exists in the repo. Do you have one
    to supply, or do we derive topic-to-syllabus mapping during import and flag
    every derived line for your review?
