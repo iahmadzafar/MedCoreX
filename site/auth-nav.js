@@ -4,7 +4,7 @@
    anchor (#navAuth) for the member chip (hover / tap menu:
    Progress · Account · Sign out) and the footer anchor
    (#footAuth) for "Account" — only when /api/me says a
-   session exists. Self-styled; the kit owns nothing here.
+   session exists. Its styles use the shared Graphite and Ember tokens.
    ============================================================ */
 (function () {
   var esc = function (s) {
@@ -15,18 +15,18 @@
 
   var CSS = [
     '.navme{position:relative;display:inline-flex}',
-    '.navme-btn{display:flex;align-items:center;gap:8px;cursor:pointer;border:2px solid var(--ink);border-radius:999px;background:var(--surface);padding:.45em .95em;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-weight:600;font-size:.9rem;letter-spacing:normal;text-transform:none;color:var(--ink);transition:transform .18s ease,box-shadow .18s ease}',
+    '.navme-btn{display:flex;align-items:center;gap:8px;cursor:pointer;border:1px solid var(--line-strong);border-radius:var(--radius);background:var(--surface);padding:8px 10px;font-family:var(--font-body);font-weight:600;font-size:var(--fs-small);letter-spacing:normal;text-transform:none;color:var(--ink);transition:border-color .2s var(--ease),background-color .2s var(--ease),color .2s var(--ease)}',
     '.navme-btn b{font:inherit;letter-spacing:normal;text-transform:none}',
-    '.navme-btn:hover{transform:translateY(-2px);box-shadow:3px 3px 0 var(--ink)}',
-    '.navme-dot{width:10px;height:10px;border-radius:50%;background:var(--ok);border:2px solid var(--ink);flex:0 0 auto}',
-    '.navme-btn i{font-style:normal;font-size:.65em;opacity:.75}',
-    '.navme-menu{position:absolute;right:0;top:calc(100% + 9px);min-width:190px;background:var(--surface);border:var(--bw,var(--bw,3px)) solid var(--ink);border-radius:var(--radius,18px);box-shadow:var(--shadow,6px 6px 0 var(--ink));overflow:hidden;z-index:70;display:none;flex-direction:column;text-transform:none;letter-spacing:normal}',
+    '.navme-btn:hover,.navme-btn[aria-expanded="true"]{border-color:var(--accent)}',
+    '.navme-dot{width:9px;height:9px;border-radius:50%;background:var(--ok);border:1px solid var(--line-strong);flex:0 0 auto}',
+    '.navme-btn i{font-style:normal;font-size:.7em;color:var(--muted)}',
+    '.navme-menu{position:absolute;right:0;top:calc(100% + 4px);min-width:190px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:none;overflow:hidden;z-index:70;display:none;flex-direction:column;text-transform:none;letter-spacing:normal}',
     '.navme:hover .navme-menu,.navme:focus-within .navme-menu,.navme.open .navme-menu{display:flex}',
-    '.navme-menu a,.navme-menu button{margin:0;padding:12px 16px;text-align:left;text-decoration:none;font-weight:700;font-size:.92rem;font-family:inherit;background:none;border:0;border-bottom:1px solid var(--line,rgba(0,0,0,.12));color:var(--ink);cursor:pointer;line-height:1.3}',
+    '.navme-menu a,.navme-menu button{margin:0;padding:11px 14px;text-align:left;text-decoration:none;font-weight:600;font-size:var(--fs-small);font-family:var(--font-body);text-transform:none;letter-spacing:normal;background:transparent;border:0;border-bottom:1px solid var(--line);color:var(--ink);cursor:pointer;line-height:1.35}',
     '.navme-menu a:last-child,.navme-menu button:last-child{border-bottom:0}',
-    '.navme-menu a:hover,.navme-menu button:hover{background:color-mix(in srgb,var(--c2) 45%,var(--surface))}',
-    '.navme-menu .out{color:var(--bad)}',
-    '.navme-menu .meta{padding:10px 16px 4px;font-size:.75rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;opacity:.7;border-bottom:1px solid var(--line,rgba(0,0,0,.12))}'
+    '.navme-menu a:hover,.navme-menu button:hover{background:color-mix(in srgb,var(--ink) 6%,var(--surface));box-shadow:none}',
+    '.navme-menu .out{color:var(--accent)}',
+    '.navme-menu .meta{padding:10px 14px 8px;font-family:var(--font-mono);font-size:var(--fs-label);font-weight:500;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);border-bottom:1px solid var(--line)}'
   ].join('');
 
   function style() {
