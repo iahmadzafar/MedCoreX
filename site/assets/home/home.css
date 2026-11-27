@@ -18,6 +18,14 @@ html[data-theme="dark"] {
   --led-off: #3a3a3f;
   --device-shadow: 0 1px 0 #000, 0 30px 60px -30px #000c;
 }
+html[data-theme="light"] {
+  --leaf: #e2dfd8;
+  --body-top: #dcd8d0;
+  --body-bottom: #cbc7bf;
+  --body-edge: #8a857c;
+  --led-off: #aaa59b;
+  --device-shadow: 0 1px 0 #fff8, 0 24px 48px -30px #0006;
+}
 :root {
   /* instrument chrome: the screen is always dark glass */
   --screen: #070707;
