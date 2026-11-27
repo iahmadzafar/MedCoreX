@@ -22,6 +22,9 @@ jobs:
       - name: Proof — every script parses
         run: node site/scriptproof.js
 
+      - name: Proof — theme respects system preference
+        run: node tools/themeproof.cjs
+
       # Gate: question-bank quality — no critical structural defects
       # (empty stem, answer out of range, <3 options, duplicate options).
       # Writes tools/qc_report.md + tools/qc_issues.json; fails on critical.

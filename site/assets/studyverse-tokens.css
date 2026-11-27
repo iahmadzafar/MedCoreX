@@ -26,7 +26,7 @@
   src: url("/assets/home/fonts/jetbrains-mono-latin.woff2") format("woff2");
 }
 
-/* ═══ Graphite and Ember — dark (default) ═════════════════ */
+/* ═══ Graphite and Ember — dark palette baseline ══════════ */
 :root,
 html[data-theme="dark"] {
   color-scheme: dark;

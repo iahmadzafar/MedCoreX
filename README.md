@@ -2,7 +2,7 @@
 
 The redesigned landing page at `/` (`site/index.html`). The rest of the site is unchanged and still runs on the Studyverse kit.
 
-**Direction:** 2, "Graphite and Ember". A matte bedside instrument: graphite body, hard 2px edges, one ember accent used only for the action and out-of-range values. Dark by default. The light twin keeps the monitor dark, because it is an instrument, not a page.
+**Direction:** 2, "Graphite and Ember". A matte bedside instrument: graphite body, hard 2px edges, one ember accent used only for the action and out-of-range values. A first visit follows the device's appearance; a saved choice persists. The light twin keeps the monitor dark, because it is an instrument, not a page.
 
 ## Setup
 
@@ -69,7 +69,7 @@ Each question has `id`, `stem`, `options` (four), `answer` (zero-based), `why` a
 
 `site/assets/studyverse.css` is the single design file: base, header, buttons, the eight-step fluid type scale, sections, quote, footer, forms, practice furniture and responsive rules, in the landing page's Graphite and Ember language. Both vocabularies resolve to the same styles — the landing's `.site-head/.brand/.btn-primary` and the legacy kit's `.nav/.logo/.btn.alt` — so either markup renders one design. The landing loads it first and then `assets/home/home.css`, which now holds only landing modules (hero, monitor, catalogue, rules, sprint). The scale, palette and layout rhythm live in `studyverse-tokens.css`.
 
-Every page, the homepage included, wears the canonical shell from `tools/site_shell/` (synced by `tools/sync_site_shell.py`): same ECG brand mark, same nav with the shelves menu and mode chip, same footer. The engine default is now dark everywhere, the hide-topbar chevron and burger panel are gone (the landing never had them), and `kitcheck.js` has no exemptions left — all 39 pages are checked.
+Every page, the homepage included, wears the canonical shell from `tools/site_shell/` (synced by `tools/sync_site_shell.py`): same ECG brand mark, same nav with the shelves menu and mode chip, same footer. On first load the engine follows the device's appearance unless a saved mode exists; the hide-topbar chevron and burger panel are gone (the landing never had them), and `kitcheck.js` has no exemptions left — all 39 pages are checked.
 
 ## Site-wide theme — Graphite and Ember (Nov 18, 2026)
 

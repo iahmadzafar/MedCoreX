@@ -29,7 +29,7 @@ const THEME_NAME = 'Graphite and Ember';
 const MKEY = 'mx-mode';
 const reducedMotion = () => window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-/* ── mode (dark default, light twin) ── */
+/* ── mode (system preference until the visitor chooses) ── */
 function paint() {
   const r = document.documentElement;
   r.dataset.pattern = 'plain';
@@ -59,8 +59,23 @@ function setMode(mode) {
 }
 function initMode() {
   let m = null;
-  try { m = localStorage.getItem(MKEY) || localStorage.getItem('medcore.theme'); } catch (e) {}
-  if (m !== 'dark' && m !== 'light') m = 'dark';   /* dark is the default everywhere */
+  try {
+    const saved = localStorage.getItem(MKEY);
+    if (saved === 'dark' || saved === 'light') m = saved;
+    else {
+      const legacy = localStorage.getItem('medcore.theme');
+      if (legacy === 'dark' || legacy === 'light') m = legacy;
+      else {
+        const migrating = localStorage.getItem('mlx-theme');
+        if (migrating === 'dark' || migrating === 'light') m = migrating;
+      }
+    }
+  } catch (e) {}
+  if (m !== 'dark' && m !== 'light') {
+    try {
+      m = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    } catch (e) { m = 'dark'; }
+  }
   document.documentElement.dataset.theme = m;
   document.documentElement.setAttribute('data-mode', m);
   paint(); syncMode();
