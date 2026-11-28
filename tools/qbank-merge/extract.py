@@ -8,7 +8,10 @@ Canonical records keep the `data.js` field names (`subject_id`, `system`,
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
+
+_LABEL = re.compile(r"^\s*[A-Za-z]\d{1,3}\s*[:：]\s*")
 
 
 def load_canonical(path: Path) -> list[dict]:
@@ -44,6 +47,17 @@ def _split_labels(raw_topic: str | None) -> tuple[str, str]:
     return text, ""
 
 
+def _strip_label(stem: str) -> str:
+    """Remove an embedded source-file label such as `A49 :` or `Q12:`.
+
+    Legacy stems sometimes carry the question number of the file they were
+    scraped from. It is a scraping artifact, not content — and because the
+    fallback topic is built from the stem's first clause, leaving it in would
+    put `A49 :` on the site as a topic chip.
+    """
+    return _LABEL.sub("", stem)
+
+
 def load_legacy(path: Path) -> list[dict]:
     """Read the legacy JSONL index and normalize it to the canonical names."""
     records: list[dict] = []
@@ -56,7 +70,7 @@ def load_legacy(path: Path) -> list[dict]:
             subject_label, topic_label = _split_labels(raw.get("topic"))
             records.append(
                 {
-                    "stem": raw.get("stem") or "",
+                    "stem": _strip_label(raw.get("stem") or ""),
                     "options": list(raw.get("opts") or []),
                     "answer": raw.get("c"),
                     "subject_label": subject_label,
