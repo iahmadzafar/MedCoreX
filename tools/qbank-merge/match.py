@@ -149,3 +149,44 @@ def link(canonical: list[dict], legacy: list[dict]) -> dict:
         "by_options": by_options,
         "by_fuzzy": by_fuzzy,
     }
+
+
+def dedupe_within(records: list[dict]) -> dict:
+    """Drop near-duplicates that exist only among the additions themselves.
+
+    `link()` compares legacy against canonical and never legacy against legacy,
+    so two copies of the same vignette from different legacy banks both survive
+    as new questions. Stem similarity alone is not enough to call them equal —
+    a shared option list is common and legitimate ("which is the next step").
+    A pair is a duplicate only when the stems are close *and* the answer lists
+    overlap.
+    """
+    kept: list[int] = []
+    duplicates: list[tuple[int, int]] = []
+    kept_tokens: list[set[str]] = []
+    kept_options: list[set[str]] = []
+
+    for index, rec in enumerate(records):
+        toks = _tokens(normalize_stem(rec.get("stem")))
+        opts = set(normalize_options(rec.get("options")))
+
+        match_at = -1
+        if len(toks) >= 3:
+            for position, other_tokens in enumerate(kept_tokens):
+                if jaccard(toks, other_tokens) < C.JACCARD_THRESHOLD:
+                    continue
+                if opts and kept_options[position]:
+                    if jaccard(opts, kept_options[position]) < C.OPTION_OVERLAP_THRESHOLD:
+                        continue
+                match_at = position
+                break
+
+        if match_at >= 0:
+            duplicates.append((kept[match_at], index))
+            continue
+
+        kept.append(index)
+        kept_tokens.append(toks)
+        kept_options.append(opts)
+
+    return {"kept": kept, "duplicates": duplicates}

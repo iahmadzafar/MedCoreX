@@ -1,4 +1,4 @@
-from match import normalize_stem, normalize_options, jaccard, link
+from match import normalize_stem, normalize_options, jaccard, link, dedupe_within
 
 
 def test_normalize_stem_strips_id_prefix():
@@ -114,3 +114,39 @@ def test_link_rejects_unrelated_question():
     ]
     r = link(c, l)
     assert r["unmatched"] == [0] and r["linked"] == []
+
+
+def test_dedupe_within_drops_a_near_duplicate_addition():
+    adds = [
+        {"stem": "A 45-year-old alcoholic male presents to the emergency department with severe abdominal pain radiating to the back for 12 hours",
+         "options": ["ERCP", "CT", "US", "Amylase"], "answer": 0},
+        {"stem": "A 45-year-old alcoholic male presents with severe abdominal pain radiating to the back for 12 hours",
+         "options": ["ERCP", "CT", "US", "Amylase"], "answer": 0},
+    ]
+    r = dedupe_within(adds)
+    assert r["kept"] == [0] and r["duplicates"] == [(0, 1)]
+
+
+def test_dedupe_within_keeps_distinct_questions_that_share_an_option_list():
+    add_a = {
+        "stem": "A 41-year-old man presents 12 hours after a road traffic accident with a compound fracture of the tibia",
+        "options": ["Debridement and fixation", "Cast", "Traction", "Amputation"],
+        "answer": 0,
+    }
+    add_b = {
+        "stem": "A 20-year-old man presents with a fracture of the acromion of the scapula after a fall",
+        "options": ["Debridement and fixation", "Cast", "Traction", "Amputation"],
+        "answer": 1,
+    }
+    r = dedupe_within([add_a, add_b])
+    assert r["kept"] == [0, 1] and r["duplicates"] == []
+
+
+def test_dedupe_within_keeps_two_three_way_shared_option_questions():
+    opts = ["A", "B", "C", "D"]
+    adds = [
+        {"stem": "Child with fever and a first generalised seizure lasting two minutes", "options": opts, "answer": 0},
+        {"stem": "Woman with sudden painless loss of vision in one eye and a cherry red spot", "options": opts, "answer": 1},
+    ]
+    r = dedupe_within(adds)
+    assert r["kept"] == [0, 1] and r["duplicates"] == []
