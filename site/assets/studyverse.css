@@ -314,7 +314,7 @@ nav.crumbline span[aria-current="page"] { color: var(--muted); }
 
 /* ── text on accent fills ─────────────────────────────────── */
 .btn-primary, .tag, .opt.sel { color: var(--on-accent); }
-.btn, .btn-ghost, .btn.ghost, .btn.alt { color: var(--ink); }
+.btn:not(.btn-primary), .btn-ghost, .btn.ghost, .btn.alt { color: var(--ink); }
 .navmenu a.all { color: var(--bg); }
 .opt .let { color: var(--ink); }
 

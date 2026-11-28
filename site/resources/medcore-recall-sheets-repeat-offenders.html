@@ -207,12 +207,17 @@ footer b{color:var(--amber); font-weight:500}
 
 /* ============ responsive ============ */
 @media (max-width:860px){
-  .rf-grid{grid-template-columns:1fr}
-  .stat-band{grid-template-columns:1fr 1fr}
+  .rf-grid{grid-template-columns:minmax(0,1fr)}
+  .rf-item{min-width:0}
+  .rf-answer{white-space:normal; max-width:45%}
+  .stat-band{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stat{overflow-wrap:anywhere}
   .dossier{grid-template-columns:1fr}
   .organ.wide{grid-column:auto}
   .duo-dossier,.uti-cols,.strip.duo{grid-template-columns:1fr}
   .sx thead th.tagcol,.sx td.tagcell{display:none}
+  table.sx{table-layout:fixed}
+  .sx td,.sx th{overflow-wrap:anywhere}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}

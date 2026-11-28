@@ -1314,7 +1314,8 @@ summary{cursor:pointer}
 <script>
 (function(){
 var r=document.documentElement,b=document.body,K='mqa-theme',old=localStorage.getItem('mqa4');
-var saved=localStorage.getItem(K)||(old==='dark'||old==='light'?old:null);
+/* the site mode is the single source of truth — never start from system preference */
+var saved=localStorage.getItem('medcore.theme')||localStorage.getItem('mx-mode')||localStorage.getItem(K)||(old==='dark'||old==='light'?old:null);
 var dark=saved?saved==='dark':matchMedia('(prefers-color-scheme: dark)').matches;
 function paint(d){r.classList.toggle('dark',d);r.classList.toggle('light',!d);var t=document.querySelector('meta[name=theme-color]');if(t)t.content=d?'#16150f':'#f7f4ed';}
 paint(dark);

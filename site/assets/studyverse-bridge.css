@@ -106,6 +106,10 @@ html[data-sv-map="table"] .mark p{font-family:var(--font-body)!important}
 html[data-sv-map="table"] .mark h1,html[data-sv-map="table"] .sys-head,
 html[data-sv-map="table"] h1,html[data-sv-map="table"] h2{font-family:var(--font-display)!important}
 html[data-sv-map="table"] .ov .v,html[data-sv-map="table"] .foot-inner{font-family:var(--font-mono)!important}
+/* their font shorthands also hard-code system fonts on controls and table labels */
+html[data-sv-map="table"] :is(button,.tbtn,nav a,.fbtn,.tier,.count,.hits,.legend,
+  thead th,td.rank,.srch span,.pc b,.pb .pc2,.ov .l,.klabel){font-family:var(--font-mono)!important}
+html[data-sv-map="table"] :is(td,input,.pb .pn){font-family:var(--font-body)!important}
 
 /* systems books are A4 documents themed through tools/systems-kit.py:
    their --accent is the print ember and must not follow the site c1 */

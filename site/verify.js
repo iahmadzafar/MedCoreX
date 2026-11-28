@@ -166,5 +166,43 @@ if(/\.sx \.topic\{font-family:var\(--font-display\)/.test(recallHtml))
   ok('recall-sheet topic uses the shared display font');
 else fail('recall-sheet topic still uses a page-specific font');
 
+console.log('\n[8] fleet-wide uniformity contracts');
+const kitCss = fs.readFileSync(path.join(SITE,'assets','studyverse.css'),'utf8');
+const qbankCss = fs.readFileSync(path.join(RES,'medcore-question-bank','style.css'),'utf8');
+const forgeHtml = fs.readFileSync(path.join(RES,'standalone-htmls-forge-master.html'),'utf8');
+const archHtml = fs.readFileSync(path.join(RES,'standalone-htmls-800-plus-mcq-architecture.html'),'utf8');
+const memoryHtml = fs.readFileSync(path.join(RES,'medcore-memory-master-core.html'),'utf8');
+const nreRecallHtml = fs.readFileSync(path.join(RES,'nre-recall-sheets-repeat-offenders.html'),'utf8');
+const lightC2 = lightBlock && lightBlock[1].match(/--c2:\s*(#[0-9a-f]+)/i);
+if(lightC2 && luminance(lightC2[1]) >= .5) ok('light c2 is a bright fill for the shared near-black text');
+else fail('light c2 is still a dark fill under near-black text');
+if(!/--(?:gold|med-gold|anat-orange)\s*:\s*var\(--c2\)/.test(forgeHtml)) ok('forge text aliases no longer depend on highlight fill c2');
+else fail('forge text aliases still resolve to dark c2 in light mode');
+if(/\.btn:not\(\.btn-primary\)[^{]*\{[^}]*color:\s*var\(--ink\)/.test(kitCss)) ok('primary buttons keep on-accent text in both themes');
+else fail('generic .btn rule still overrides .btn-primary text colour');
+if(!/--font-(?:display|body)\s*:\s*(?:Futura|"Avenir Next")/.test(qbankCss)) ok('question bank uses the shared kit font roles');
+else fail('question bank redefines kit-owned font tokens');
+if(/html\[data-sv-map="table"\][^{]*\b(?:button|td)\b[^{]*\{[^}]*font-family:\s*var\(--font-(?:body|mono)\)!important/.test(bridgeCss))
+  ok('table-family controls resolve off -apple-system to shared fonts');
+else fail('table-family controls still use hard-coded system fonts');
+if(/K='mqa-theme'[\s\S]{0,220}?localStorage\.getItem\(['"]medcore\.theme['"]\)\s*\|\|\s*localStorage\.getItem\(['"]mx-mode['"]\)/.test(archHtml))
+  ok('MCQ Architecture honours the saved site theme before its own preference');
+else fail('MCQ Architecture still starts from its own theme preference');
+if(/\.proto-steps\s*\{[^}]*grid-template-columns:\s*repeat\(auto-fit,minmax\(180px,1fr\)\)/.test(memoryHtml))
+  ok('memory-master steps reflow at narrow widths');
+else fail('memory-master step grid still forces five fixed columns');
+if([recallHtml,nreRecallHtml].every(h=>/table-layout:\s*fixed/.test(h)&&/overflow-wrap:\s*anywhere/.test(h)&&/\.rf-grid\{grid-template-columns:minmax\(0,1fr\)\}/.test(h)&&/\.stat-band\{grid-template-columns:repeat\(2,minmax\(0,1fr\)\)\}/.test(h)))
+  ok('both recall-sheet tables and grids fit a phone viewport');
+else fail('recall-sheet tables still overflow at 390px');
+
+const answerKeys = ['standalone-htmls-dec-2024-answer-key.html','standalone-htmls-dec-2025-answer-key.html','standalone-htmls-dec-2025-recalled-key.html','standalone-htmls-june-2024-answer-key.html','standalone-htmls-june-2025-answer-key.html','standalone-htmls-may-2026-mcq-breakdown.html'];
+const caseLadder = fs.readFileSync(path.join(RES,'standalone-htmls-case-ladder-interactive.html'),'utf8');
+if(answerKeys.every(f=>!/background:var\(--c2\);color:var\(--ink\)/.test(fs.readFileSync(path.join(RES,f),'utf8'))))
+  ok('answer-key chips use on-accent text on c2 fills');
+else fail('answer-key chips still put ink text on a c2 fill');
+if(!/background:var\(--lift\);color:var\(--ink\)/.test(caseLadder)&&/background:var\(--lift\);color:var\(--on-accent\)/.test(caseLadder))
+  ok('case-ladder lift tags use on-accent text');
+else fail('case-ladder lift tags still put ink text on a c2 fill');
+
 console.log(failures ? '\n' + failures + ' FAILURE(S)\n' : '\nALL GREEN\n');
 process.exit(failures ? 1 : 0);
