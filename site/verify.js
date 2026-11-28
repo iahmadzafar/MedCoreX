@@ -130,5 +130,41 @@ else fail('magic table still has theme leftover references');
 if(kit.includes('--font-mono')) ok('kit defines --font-mono label voice');
 else fail('kit missing --font-mono');
 
+console.log('\n[7] resource visual contracts');
+const libraryCss = fs.readFileSync(path.join(SITE,'library.html'),'utf8');
+const bridgeCss = fs.readFileSync(path.join(SITE,'assets','studyverse-bridge.css'),'utf8');
+const tokensCss = fs.readFileSync(path.join(SITE,'assets','studyverse-tokens.css'),'utf8');
+const recallHtml = fs.readFileSync(path.join(RES,'medcore-recall-sheets-repeat-offenders.html'),'utf8');
+if(/main\.wrap\s*\{[^}]*\bwidth\s*:\s*100%/s.test(libraryCss)) ok('Library main wrapper stretches across its capped canvas');
+else fail('Library main wrapper has no definite width inside the flex shell');
+if(/\.lib-grid\{[^}]*grid-template-columns:\s*repeat\(auto-fill,minmax\(260px,1fr\)\)/.test(libraryCss)) ok('resource grid remains auto-fill and has no row cap');
+else fail('resource grid lost its responsive auto-fill columns');
+const hueBlock = catJs.match(/const HUES\s*=\s*\{([^}]+)\}/);
+const hueTokens = hueBlock ? [...hueBlock[1].matchAll(/var\(--(c\d+)\)/g)].map(m=>m[1]) : [];
+if(hueTokens.length && hueTokens.every(t=>t==='c1'||t==='c4')) ok('filled category accents use contrast-safe c1/c4 tokens');
+else fail('filled category accents include a dark/unsafe token: ' + hueTokens.join(','));
+const parseVars = block => Object.fromEntries([...block.matchAll(/--([a-z0-9-]+)\s*:\s*(#[0-9a-f]{3,8})/gi)].map(m=>[m[1],m[2]]));
+const darkBlock = tokensCss.match(/:root,\s*html\[data-theme="dark"\]\s*\{([^}]+)\}/s);
+const lightBlock = tokensCss.match(/html\[data-theme="light"\]\s*\{([^}]+)\}/s);
+const luminance = hex => {
+  let h=hex.slice(1);
+  if(h.length===3) h=h.split('').map(c=>c+c).join('');
+  const rgb=[0,2,4].map(i=>parseInt(h.slice(i,i+2),16)/255).map(v=>v<=.04045?v/12.92:((v+.055)/1.055)**2.4);
+  return .2126*rgb[0]+.7152*rgb[1]+.0722*rgb[2];
+};
+if(darkBlock&&lightBlock&&hueTokens.length){
+  const dark=parseVars(darkBlock[1]), light=parseVars(lightBlock[1]);
+  const fg=dark['on-accent'];
+  const ratios=[...new Set(hueTokens)].flatMap(t=>[dark[t],light[t]]).filter(Boolean).map(bg=>{const a=luminance(fg),b=luminance(bg);return (Math.max(a,b)+.05)/(Math.min(a,b)+.05)});
+  if(ratios.length===new Set(hueTokens).size*2&&ratios.every(r=>r>=4.5)) ok('category badge contrast is at least 4.5:1 in both themes');
+  else fail('category badge contrast falls below 4.5:1 in one theme');
+}else fail('could not read the shared theme tokens for contrast checks');
+if(/html\[data-sv-map="table"\][\s\S]*?font-family:\s*var\(--font-body\)!important[\s\S]*?font-family:\s*var\(--font-display\)!important[\s\S]*?font-family:\s*var\(--font-mono\)!important/.test(bridgeCss))
+  ok('table-family interfaces map to shared body/display/mono fonts');
+else fail('table-family bridge has no complete shared font-role map');
+if(/\.sx \.topic\{font-family:var\(--font-display\)/.test(recallHtml))
+  ok('recall-sheet topic uses the shared display font');
+else fail('recall-sheet topic still uses a page-specific font');
+
 console.log(failures ? '\n' + failures + ' FAILURE(S)\n' : '\nALL GREEN\n');
 process.exit(failures ? 1 : 0);

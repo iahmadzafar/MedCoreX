@@ -19,9 +19,13 @@ const vc = new VirtualConsole();
 vc.on('jsdomError', e => { if (!/navigation|not implemented/i.test(e.message)) errors.push(e.message); });
 
 const CAT_SRC = fs.readFileSync(path.join(SITE, 'assets', 'catalog.js'), 'utf8');
+const HOME_SRC = fs.readFileSync(path.join(SITE, 'assets', 'home', 'home.js'), 'utf8');
 const PAGE_SRC = fs.readFileSync(path.join(SITE, 'index.html'), 'utf8');
 let html = PAGE_SRC
   .replace('<script src="/assets/catalog.js"></script>', '<script>' + CAT_SRC + '</script>')
+  .replace('<script src="/assets/catalog.js" defer></script>', '<script>' + CAT_SRC + '</script>')
+  .replace('<script src="/assets/home/home.js" defer></script>', '<script>' + HOME_SRC + '</script>')
+  .replace('<script type="module" src="/assets/home/device.js"></script>', '')
   .replace(/<script src="\/assets\/studyverse\.js"><\/script>/, '')
   .replace(/<script src="\/medcore-sync\.js" defer><\/script>/, '')
   .replace(/<script src="\/auth-nav\.js" defer><\/script>/, '');
@@ -44,94 +48,81 @@ const catItems = [];
 const CATS = [...new Set(catItems.map(i => i.c))];
 
 setTimeout(() => {
-  console.log('[runtime] homepage hub — catalogue tabs, filter, resume\n');
+  console.log('[runtime] homepage monitor and catalogue\n');
 
-  // monitor: grid surface, demo label, reading ↔ waveform interactions
-  const monitor = d.querySelector('.vitals');
-  const readings = [...d.querySelectorAll('.vitals [data-vital]')];
-  const waves = [...d.querySelectorAll('.vitals .wave[data-trace]')];
-  if (monitor && readings.length === 5 && waves.length === 3 && !monitor.closest('[aria-hidden="true"]'))
-    ok('monitor exposes five readings and three accessible traces');
-  else bad('monitor controls missing or hidden from assistive technology');
-  if (/SIMULATED[^<]*NOT LIVE/.test(PAGE_SRC) && /background-size:50px 50px,50px 50px,10px 10px,10px 10px/.test(PAGE_SRC))
-    ok('monitor is labelled as simulated and has a fine/major grid');
-  else bad('monitor demo label or graph grid missing');
+  // monitor's static structure remains readable even when the canvas module is not loaded by jsdom
+  const monitor = d.getElementById('monitor');
+  const readings = monitor ? [...monitor.querySelectorAll('.reading')] : [];
+  const screen = d.querySelector('#screen[role="img"]');
+  if (monitor && readings.length === 5 && screen && /Simulated waveforms/.test(screen.getAttribute('aria-label')))
+    ok('monitor exposes five readable measurements and an accessible simulated screen');
+  else bad('monitor measurements or accessible simulated screen missing');
+  if (monitor && /Simulated · not live/.test(monitor.textContent) && d.getElementById('ledPower') && d.getElementById('ledAlarm'))
+    ok('monitor is labelled simulated and exposes power/alarm controls');
+  else bad('monitor status or power/alarm controls missing');
 
-  const hr = readings.find(b => b.dataset.vital === 'hr');
-  const ecg = waves.find(w => w.dataset.trace === 'ecg');
-  const pleth = waves.find(w => w.dataset.trace === 'pleth');
-  if (hr) click(hr);
-  if (hr && ecg && pleth && hr.getAttribute('aria-pressed') === 'true' &&
-      ecg.classList.contains('is-active') && pleth.classList.contains('is-muted') &&
-      d.getElementById('monitorFocus').textContent === 'HR · ECG')
-    ok('selecting heart rate focuses ECG and updates the readout');
-  else bad('heart-rate interaction failed');
+  // tabs + panels from the current homepage markup
+  const tabs = [...d.querySelectorAll('#tablist [role="tab"]')];
+  if (tabs.length === CATS.length) ok('one catalogue tab per shelf (' + CATS.length + ')'); else bad('tabs: ' + tabs.length);
+  const panels = tabs.map(t => d.getElementById(t.getAttribute('aria-controls')));
+  if (panels.length === CATS.length && panels.every(Boolean) && !panels[0].hidden && panels.slice(1).every(p => p.hidden))
+    ok('first shelf visible, remaining panels hidden');
+  else bad('panel visibility or tab controls wrong');
 
-  const nibp = readings.find(b => b.dataset.vital === 'nibp');
-  if (nibp) click(nibp);
-  if (nibp && nibp.getAttribute('aria-pressed') === 'true' &&
-      waves.every(w => !w.classList.contains('is-muted')) &&
-      d.getElementById('monitorFocus').textContent === 'NIBP · 118/76')
-    ok('selecting a non-waveform vital keeps traces visible and updates focus');
-  else bad('NIBP interaction failed');
-
-  const resp = waves.find(w => w.dataset.trace === 'resp');
-  if (resp) resp.dispatchEvent(new w.KeyboardEvent('keydown', { key: 'Enter', bubbles: true, cancelable: true }));
-  if (readings.find(b => b.dataset.vital === 'rr')?.getAttribute('aria-pressed') === 'true' &&
-      resp?.classList.contains('is-active'))
-    ok('waveform traces are keyboard-selectable');
-  else bad('keyboard trace selection failed');
-
-  // tabs + panels
-  const tabs = [...d.querySelectorAll('#tablist .chip')];
-  if (tabs.length === CATS.length) ok('filter chips: one per shelf (' + CATS.length + ')'); else bad('chips: ' + tabs.length);
-  const panels = [...d.querySelectorAll('#panels .panel')];
-  if (panels.length === CATS.length && !panels[0].hidden && panels.slice(1).every(p => p.hidden)) ok('first shelf visible, rest hidden');
-  else bad('panel visibility wrong');
-
-  // items render, every Open link resolves on disk
-  const items = [...d.querySelectorAll('#panels .faqitem')];
-  if (items.length === catItems.length) ok('all ' + catItems.length + ' catalogue items render'); else bad('items: ' + items.length);
-  const dead = items.filter(a => {
-    const f = a.querySelector('a.btn').getAttribute('href').replace('/resources/', '');
-    return !fs.existsSync(path.join(RES, f + '.html')) && !fs.existsSync(path.join(RES, f));
+  // every catalog item renders once and its resource route resolves on disk
+  const rows = [...d.querySelectorAll('.panel-list li')];
+  if (rows.length === catItems.length) ok('all ' + catItems.length + ' catalogue items render'); else bad('items: ' + rows.length);
+  const dead = rows.filter(li => {
+    const link = li.querySelector('a[href]');
+    if (!link) return true;
+    const route = decodeURIComponent(new URL(link.href).pathname.replace(/^\/resources\//, ''));
+    const base = path.join(RES, route);
+    return !fs.existsSync(base) && !fs.existsSync(base + '.html') && !fs.existsSync(path.join(base, 'index.html'));
   });
-  if (!dead.length) ok('every Open link resolves to a real file on disk'); else bad(dead.length + ' dead links');
+  if (!dead.length) ok('every catalogue link resolves to a real file on disk'); else bad(dead.length + ' dead links');
 
   // tab switch by click
-  const mockTab = tabs[CATS.indexOf('Mocks & Drills')];
-  click(mockTab);
-  const mockPanel = panels[CATS.indexOf('Mocks & Drills')];
-  if (!mockPanel.hidden && panels[0].hidden && mockTab.getAttribute('aria-selected') === 'true')
-    ok('clicking the Mocks & Drills chip shows its panel (the one true bank shelf)');
+  const mockIndex = CATS.indexOf('Mocks & Drills');
+  const mockTab = tabs[mockIndex], mockPanel = panels[mockIndex];
+  if (mockTab) click(mockTab);
+  if (mockPanel && !mockPanel.hidden && panels[0].hidden && mockTab.getAttribute('aria-selected') === 'true')
+    ok('clicking Mocks & Drills selects its panel');
   else bad('tab switch failed');
 
-  // tab switch by keyboard (reset to shelf 0 first — the click above moved the cursor)
-  click(tabs[0]);
-  tabs[0].focus();
-  tabs[0].dispatchEvent(new w.KeyboardEvent('keydown', { key: 'ArrowRight', bubbles: true, cancelable: true }));
-  if (!panels[1].hidden && panels[0].hidden) ok('ArrowRight moves the shelf'); else bad('keyboard nav failed');
-  tabs[0].dispatchEvent(new w.KeyboardEvent('keydown', { key: 'ArrowLeft', bubbles: true, cancelable: true }));
-  if (!panels[0].hidden) ok('ArrowLeft moves back'); else bad('keyboard nav back failed');
+  // tab switch by keyboard
+  if (tabs[0]) click(tabs[0]);
+  tabs[0]?.focus();
+  tabs[0]?.dispatchEvent(new w.KeyboardEvent('keydown', { key: 'ArrowRight', bubbles: true, cancelable: true }));
+  if (panels[1] && !panels[1].hidden && panels[0].hidden) ok('ArrowRight advances the shelf'); else bad('keyboard forward navigation failed');
+  tabs[1]?.dispatchEvent(new w.KeyboardEvent('keydown', { key: 'ArrowLeft', bubbles: true, cancelable: true }));
+  if (panels[0] && !panels[0].hidden) ok('ArrowLeft returns to the previous shelf'); else bad('keyboard backward navigation failed');
 
-  // live text filter
-  const q = d.getElementById('q');
-  q.value = 'memory';
-  q.dispatchEvent(new w.Event('input', { bubbles: true }));
-  const visible = [...d.querySelectorAll('#panels .faqitem')].filter(x => x.style.display !== 'none');
-  if (visible.length === 1 && /Memory Master/.test(visible[0].textContent)) ok('live filter "memory" → Memory Master only'); else bad('text filter: ' + visible.length);
-  q.value = '';
-  q.dispatchEvent(new w.Event('input', { bubbles: true }));
-  const visible2 = [...d.querySelectorAll('#panels .faqitem')].filter(x => x.style.display !== 'none');
-  if (visible2.length === catItems.length) ok('clearing the filter restores every item'); else bad('filter reset: ' + visible2.length);
-  q.value = 'zzzunfindable';
-  q.dispatchEvent(new w.Event('input', { bubbles: true }));
-  if (d.querySelector('#panels .nores')) ok('no-match state renders'); else bad('no nores message');
-  q.value = '';
-  q.dispatchEvent(new w.Event('input', { bubbles: true }));
+  // live text filter applies to the selected panel and restores its full list
+  const q = d.getElementById('filter');
+  if (q) {
+    q.value = 'memory';
+    q.dispatchEvent(new w.Event('input', { bubbles: true }));
+  }
+  const coreRows = panels[0] ? [...panels[0].querySelectorAll('.panel-list li')] : [];
+  const visible = coreRows.filter(li => !li.hidden);
+  if (visible.length === 1 && /Memory Master/.test(visible[0].textContent)) ok('live filter "memory" shows Memory Master only');
+  else bad('text filter: ' + visible.length);
+  if (q) {
+    q.value = '';
+    q.dispatchEvent(new w.Event('input', { bubbles: true }));
+  }
+  if (coreRows.filter(li => !li.hidden).length === catItems.filter(it => it.c === CATS[0]).length)
+    ok('clearing the filter restores the active shelf');
+  else bad('filter reset did not restore the shelf');
+  if (q) {
+    q.value = 'zzzunfindable';
+    q.dispatchEvent(new w.Event('input', { bubbles: true }));
+  }
+  if (d.getElementById('nores') && !d.getElementById('nores').hidden) ok('no-match state renders');
+  else bad('no nores message');
 
-  // resume card stays dormant without history
-  if (!d.getElementById('resume').classList.contains('on')) ok('resume card dormant with no reading history'); else bad('resume card lit without history');
+  // resume card remains dormant without reading history
+  if (d.getElementById('resume')?.hidden) ok('resume card dormant with no reading history'); else bad('resume card lit without history');
 
   if (!errors.length) ok('zero uncaught JS errors'); else errors.slice(0, 4).forEach(e => bad(e));
   console.log('\n' + (fails ? '✗ ' + fails + ' failure(s)' : '✓ DOM PROVEN — tabs, panels, filter, keyboard, resume, zero errors'));

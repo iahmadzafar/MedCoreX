@@ -25,6 +25,11 @@ jobs:
       - name: Proof — theme respects system preference
         run: node tools/themeproof.cjs
 
+      # Gate: resource library layout (stretch wrapper + auto-fill grid),
+      # light/dark badge contrast, and shared font-role invariants.
+      - name: Proof — resource visual contracts
+        run: node site/verify.js
+
       # Gate: question-bank quality — no critical structural defects
       # (empty stem, answer out of range, <3 options, duplicate options).
       # Writes tools/qc_report.md + tools/qc_issues.json; fails on critical.

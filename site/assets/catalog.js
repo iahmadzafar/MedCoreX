@@ -6,7 +6,7 @@
    t = title · d = description · c = category · f = file · k = size (KB, never shown)
    ============================================================ */
 const CATS=["Core Books","Mocks & Drills","Past Papers & Answer Keys","Exam Intelligence & Strategy","Quick Reference","Frameworks & Interactive","MedCORE Systems"]
-const HUES={'Core Books':'var(--c1)','Mocks & Drills':'var(--c3)','Past Papers & Answer Keys':'var(--c2)','Exam Intelligence & Strategy':'var(--c4)','Quick Reference':'var(--c1)','Frameworks & Interactive':'var(--c3)','MedCORE Systems':'var(--c2)'}
+const HUES={'Core Books':'var(--c1)','Mocks & Drills':'var(--c4)','Past Papers & Answer Keys':'var(--c1)','Exam Intelligence & Strategy':'var(--c4)','Quick Reference':'var(--c1)','Frameworks & Interactive':'var(--c4)','MedCORE Systems':'var(--c1)'}
 const Items=[
 
 {t:"MCQ Architecture",d:"How the exam is built, and how its questions are written",c:"Core Books",f:"standalone-htmls-800-plus-mcq-architecture.html",k:525.9},

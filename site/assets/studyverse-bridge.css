@@ -99,6 +99,14 @@ html[data-sv-map="table"]{
   --t1ln:var(--line)!important; --t2ln:var(--line)!important; --t3ln:var(--line)!important; --t4ln:var(--line)!important; --t5ln:var(--line)!important;
 }
 
+/* table-family interface fonts still declare hard-coded system stacks —
+   resolve them to the shared Graphite & Ember type roles */
+html[data-sv-map="table"] body{font-family:var(--font-body)!important}
+html[data-sv-map="table"] .mark p{font-family:var(--font-body)!important}
+html[data-sv-map="table"] .mark h1,html[data-sv-map="table"] .sys-head,
+html[data-sv-map="table"] h1,html[data-sv-map="table"] h2{font-family:var(--font-display)!important}
+html[data-sv-map="table"] .ov .v,html[data-sv-map="table"] .foot-inner{font-family:var(--font-mono)!important}
+
 /* systems books are A4 documents themed through tools/systems-kit.py:
    their --accent is the print ember and must not follow the site c1 */
 html[data-sv-map="systems"]{ --accent:#b33a14!important; }
