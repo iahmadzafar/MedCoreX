@@ -29,6 +29,7 @@ def load_canonical(path: Path) -> list[dict]:
                     "options": list(q["options"]),
                     "answer": q["answer"],
                     "layers": dict(q.get("layers") or {}),
+                    "kc": q.get("kc"),
                 }
             )
     return records
