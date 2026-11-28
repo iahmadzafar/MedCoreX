@@ -111,6 +111,22 @@ html[data-sv-map="table"] :is(button,.tbtn,nav a,.fbtn,.tier,.count,.hits,.legen
   thead th,td.rank,.srch span,.pc b,.pb .pc2,.ov .l,.klabel){font-family:var(--font-mono)!important}
 html[data-sv-map="table"] :is(td,input,.pb .pn){font-family:var(--font-body)!important}
 
+/* compact shared shell for single-purpose tool pages — kit tokens only */
+html[data-sv-map] .sv-nav{
+  display:flex; align-items:center; flex-wrap:wrap;
+  gap:8px clamp(14px,2vw,26px); padding:10px clamp(14px,4vw,32px);
+  background:var(--surface); border-bottom:1px solid var(--line);
+  font-family:var(--font-mono); font-size:var(--fs-label); position:relative; z-index:60;
+}
+html[data-sv-map] .sv-nav a,html[data-sv-map] .sv-foot-links a{color:var(--muted); text-decoration:none; white-space:nowrap}
+html[data-sv-map] .sv-nav a:hover,html[data-sv-map] .sv-foot-links a:hover{color:var(--accent)}
+html[data-sv-map] .sv-nav .sv-brand{color:var(--ink); font-weight:600; letter-spacing:.02em}
+html[data-sv-map] .sv-nav .sv-current{color:var(--accent); border-bottom:2px solid var(--accent)}
+html[data-sv-map] .sv-foot-links{
+  display:flex; flex-wrap:wrap; gap:8px 18px; padding-top:12px;
+  font-family:var(--font-mono); font-size:var(--fs-label);
+}
+
 /* systems books are A4 documents themed through tools/systems-kit.py:
    their --accent is the print ember and must not follow the site c1 */
 html[data-sv-map="systems"]{ --accent:#b33a14!important; }

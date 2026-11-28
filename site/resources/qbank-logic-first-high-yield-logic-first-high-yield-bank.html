@@ -5,7 +5,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Logic-First High-Yield Bank</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' fill='%23FFC53D'/%3E%3Cg fill='none' stroke='%2308090D' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3l9 5-9 5-9-5 9-5z'/%3E%3Cpath d='M3 13l9 5 9-5'/%3E%3Cpath d='M3 17.5l9 5 9-5' opacity='.55'/%3E%3C/g%3E%3C/svg%3E" type="image/svg+xml">
+<link rel="icon" href="/assets/home/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/home/favicon-32.png" sizes="32x32" type="image/png">
+<meta name="description" content="Bank the easy exam points first with tiered high-yield facts, subject filters and mastery tracking.">
 <style>
     :root{
     --void:#08090D; --bg:var(--nx-bg); --bg2:var(--nx-card); --bg3:var(--nx-card2); --bg4:var(--nx-rim2);
@@ -15,7 +17,7 @@
     --chalk:#FFFFFF; --chalk-2:#FFFFFF; --amber:#FFC53D; --mint:#34D399;
     --cyan:#4DA3FF; --coral:#FF6EA9; --violet:#8B7CFF;
     --ground:#0B0D12; --ground-2:#14171E;
-    --on-accent:var(--nx-on); --shadow:var(--nx-shadow); --radius:16px;
+    --shadow:var(--nx-shadow); --radius:16px;
     --serif:'Bricolage Grotesque',system-ui,sans-serif;
     --body:'Plus Jakarta Sans',system-ui,sans-serif;
     --mono:'Geist Mono',ui-monospace,monospace;
@@ -35,7 +37,7 @@ html[data-mode="light"]{
   --t3:var(--nx-a1);
   --t4:var(--nx-muted);
   --good:var(--nx-good);
-  --warn:var(--nx-a1);
+  --warn:#b33a14;
   --bad:var(--nx-no);
   --accent:var(--nx-a1);
   --chalk:#000000;
@@ -47,7 +49,6 @@ html[data-mode="light"]{
   --violet:#6d5ae6;
   --ground:#ffffff;
   --ground-2:#f4f5f7;
-  --on-accent:var(--nx-on);
   --shadow:var(--nx-shadow);
   --radius:16px;
   --serif:'Bricolage Grotesque',system-ui,sans-serif;
@@ -56,14 +57,14 @@ html[data-mode="light"]{
 }
 
   /* ═══════════ Nexus Duo — family × mode, boxy, no gradients ═══════════ */
-  html[data-banktheme="ink"][data-mode="dark"]{ --nx-bg:#141416;--nx-card:#1b1b1f;--nx-card2:#222228;--nx-txt:#edeae4;--nx-txt2:#b7b2aa;--nx-muted:#b7b2aa;--nx-faint:#8f8a80;--nx-rim:#2e2e34;--nx-rim2:#3a3a41;--nx-a1:#ff6a3d;--nx-a2:#8f8a80;--nx-good:#b8e0c8;--nx-no:#ff8a6a;--nx-violet:#ff8a6a; --nx-on:#05090a; --nx-shadow:none; }
+  html[data-banktheme="ink"][data-mode="dark"]{ --nx-bg:#141416;--nx-card:#1b1b1f;--nx-card2:#222228;--nx-txt:#edeae4;--nx-txt2:#b7b2aa;--nx-muted:#b7b2aa;--nx-faint:#8f8a80;--nx-rim:#2e2e34;--nx-rim2:#3a3a41;--nx-a1:#ff6a3d;--nx-a2:#8f8a80;--nx-good:#b8e0c8;--nx-no:#ff8a6a;--nx-violet:#ff8a6a; --nx-on:var(--on-accent); --nx-shadow:none; }
   
-  html[data-banktheme="ice"][data-mode="dark"]{ --nx-bg:#141416;--nx-card:#1b1b1f;--nx-card2:#222228;--nx-txt:#edeae4;--nx-txt2:#b7b2aa;--nx-muted:#b7b2aa;--nx-faint:#8f8a80;--nx-rim:#2e2e34;--nx-rim2:#3a3a41;--nx-a1:#ff6a3d;--nx-a2:#8f8a80;--nx-good:#b8e0c8;--nx-no:#ff8a6a;--nx-violet:#ff8a6a; --nx-on:#05090a; --nx-shadow:none; }
+  html[data-banktheme="ice"][data-mode="dark"]{ --nx-bg:#141416;--nx-card:#1b1b1f;--nx-card2:#222228;--nx-txt:#edeae4;--nx-txt2:#b7b2aa;--nx-muted:#b7b2aa;--nx-faint:#8f8a80;--nx-rim:#2e2e34;--nx-rim2:#3a3a41;--nx-a1:#ff6a3d;--nx-a2:#8f8a80;--nx-good:#b8e0c8;--nx-no:#ff8a6a;--nx-violet:#ff8a6a; --nx-on:var(--on-accent); --nx-shadow:none; }
   
-  html[data-banktheme="copper"][data-mode="dark"]{ --nx-bg:#141416;--nx-card:#1b1b1f;--nx-card2:#222228;--nx-txt:#edeae4;--nx-txt2:#b7b2aa;--nx-muted:#b7b2aa;--nx-faint:#8f8a80;--nx-rim:#2e2e34;--nx-rim2:#3a3a41;--nx-a1:#ff6a3d;--nx-a2:#8f8a80;--nx-good:#b8e0c8;--nx-no:#ff8a6a;--nx-violet:#ff8a6a; --nx-on:#05090a; --nx-shadow:none; }
+  html[data-banktheme="copper"][data-mode="dark"]{ --nx-bg:#141416;--nx-card:#1b1b1f;--nx-card2:#222228;--nx-txt:#edeae4;--nx-txt2:#b7b2aa;--nx-muted:#b7b2aa;--nx-faint:#8f8a80;--nx-rim:#2e2e34;--nx-rim2:#3a3a41;--nx-a1:#ff6a3d;--nx-a2:#8f8a80;--nx-good:#b8e0c8;--nx-no:#ff8a6a;--nx-violet:#ff8a6a; --nx-on:var(--on-accent); --nx-shadow:none; }
   
-  html[data-banktheme="paper"][data-mode="dark"]{ --nx-bg:#141416;--nx-card:#1b1b1f;--nx-card2:#222228;--nx-txt:#edeae4;--nx-txt2:#b7b2aa;--nx-muted:#b7b2aa;--nx-faint:#8f8a80;--nx-rim:#2e2e34;--nx-rim2:#3a3a41;--nx-a1:#ff6a3d;--nx-a2:#8f8a80;--nx-good:#b8e0c8;--nx-no:#ff8a6a;--nx-violet:#ff8a6a; --nx-on:#05090a; --nx-shadow:none; }
-  html[data-mode="light"]{ --nx-bg:#ecebe5;--nx-card:#f7f6f2;--nx-card2:#e9e7e0;--nx-txt:#141416;--nx-txt2:#494641;--nx-muted:#494641;--nx-faint:#5c5852;--nx-rim:#d6d3cb;--nx-rim2:#c4c0b7;--nx-a1:#b33a14;--nx-a2:#5c5852;--nx-good:#1f6b45;--nx-no:#b33a14;--nx-violet:#c9552e; --nx-on:#fbf8f4; --nx-shadow:none; }
+  html[data-banktheme="paper"][data-mode="dark"]{ --nx-bg:#141416;--nx-card:#1b1b1f;--nx-card2:#222228;--nx-txt:#edeae4;--nx-txt2:#b7b2aa;--nx-muted:#b7b2aa;--nx-faint:#8f8a80;--nx-rim:#2e2e34;--nx-rim2:#3a3a41;--nx-a1:#ff6a3d;--nx-a2:#8f8a80;--nx-good:#b8e0c8;--nx-no:#ff8a6a;--nx-violet:#ff8a6a; --nx-on:var(--on-accent); --nx-shadow:none; }
+  html[data-mode="light"]{ --nx-bg:#ecebe5;--nx-card:#f7f6f2;--nx-card2:#e9e7e0;--nx-txt:#141416;--nx-txt2:#494641;--nx-muted:#494641;--nx-faint:#5c5852;--nx-rim:#d6d3cb;--nx-rim2:#c4c0b7;--nx-a1:var(--c1);--nx-a2:#5c5852;--nx-good:#1f6b45;--nx-no:#b33a14;--nx-violet:#c9552e; --nx-on:var(--on-accent); --nx-shadow:none; }
 
   
   body{ background:var(--nx-bg) !important; }
@@ -76,7 +77,7 @@ html[data-mode="light"]{
   .nx-fam button{ appearance:none; border:0; background:transparent; color:var(--nx-txt2); cursor:pointer;
     font-family:var(--font-mono); font-size:10.5px; font-weight:600; padding:7px 10px; ;border-radius:14px}
   .nx-fam button + button{ border-left:1px solid var(--nx-rim2); }
-  .nx-fam button.on{ background:var(--nx-a1); color:var(--nx-bg); }
+  .nx-fam button.on{ background:var(--nx-a1); color:var(--on-accent); }
   
   
   *{box-sizing:border-box; margin:0; padding:0;}
@@ -112,9 +113,10 @@ html[data-mode="light"]{
   }
   .btn:hover{border-color:var(--faint); background:var(--bg3);}
   .btn svg{width:15px; height:15px; flex:none;}
-  .btn.active{color:var(--bg); border-color:transparent;}
+  .btn.active{color:var(--ink); border-color:transparent;}
   .btn.t1.active{background:var(--t1);} .btn.t2.active{background:var(--t2);}
   .btn.t3.active{background:var(--t3);} .btn.t4.active{background:var(--t4);}
+  .btn.t1.active,.btn.t2.active,.btn.t3.active,.btn.t4.active{color:var(--on-accent)}
   .btn.icon-only{padding:8px 10px;}
 
   /* stats */
@@ -265,6 +267,13 @@ summary{cursor:pointer}
 <script src="/assets/studyverse-bridge.js"></script>
 </head>
 <body>
+<nav class="sv-nav" aria-label="Primary">
+  <a class="sv-brand" href="/">MedCoreX</a>
+  <a class="sv-current" href="/library">Library</a>
+  <a href="/about">About</a>
+  <a href="/stats">Stats</a>
+  <a href="/login">Sign in</a>
+</nav>
 <div class="shell">
 
   <header>
@@ -304,7 +313,9 @@ summary{cursor:pointer}
   <main id="browseView"></main>
   <main id="quizView"></main>
 
-  <footer>Bank the easy points first — the hard questions shouldn't have to carry the paper.</footer>
+  <footer>Bank the easy points first — the hard questions shouldn't have to carry the paper.
+    <div class="sv-foot-links"><a href="/">Home</a><a href="/library">Library</a><a href="/about">About</a><a href="/stats">Stats</a><a href="/login">Sign in</a></div>
+  </footer>
 </div>
 
 <script>

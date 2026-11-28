@@ -204,5 +204,47 @@ if(!/background:var\(--lift\);color:var\(--ink\)/.test(caseLadder)&&/background:
   ok('case-ladder lift tags use on-accent text');
 else fail('case-ladder lift tags still put ink text on a c2 fill');
 
+console.log('\n[9] metadata and favicon');
+const htmlFiles=[];
+(function walk(dir){for(const e of fs.readdirSync(dir,{withFileTypes:true})){const p=path.join(dir,e.name);if(e.isDirectory())walk(p);else if(e.name.endsWith('.html'))htmlFiles.push(p);}})(SITE);
+const noDesc=[], noFav=[];
+for(const f of htmlFiles){
+  const s=fs.readFileSync(f,'utf8'), rel=path.relative(SITE,f);
+  if(!/<meta\s+name="description"\s+content="[^"\s][^"]*"/i.test(s)) noDesc.push(rel);
+  if(!s.includes('<link rel="icon" href="/assets/home/favicon.svg" type="image/svg+xml">') ||
+     !s.includes('<link rel="icon" href="/assets/home/favicon-32.png" sizes="32x32" type="image/png">')) noFav.push(rel);
+}
+if(!noDesc.length) ok('all ' + htmlFiles.length + ' pages carry a real meta description');
+else noDesc.forEach(f=>fail(f + ': missing meta description'));
+if(!noFav.length) ok('all ' + htmlFiles.length + ' pages link the shared favicon');
+else noFav.forEach(f=>fail(f + ': missing shared favicon links'));
+const logicFav = fs.readFileSync(path.join(RES,'qbank-logic-first-high-yield-logic-first-high-yield-bank.html'),'utf8');
+if(!/<link[^>]+rel="icon"[^>]+data:image\/svg\+xml/.test(logicFav)) ok('Logic First no longer uses the old data-URI favicon');
+else fail('Logic First still carries the old data-URI favicon');
+
+console.log('\n[10] shared tool-page shell');
+const toolPages = ['medcore-cheat-card.html','medcore-memory-master-core.html','qbank-logic-first-high-yield-logic-first-high-yield-bank.html'];
+if(/html\[data-sv-map\] \.sv-nav\{/.test(bridgeCss)&&/html\[data-sv-map\] \.sv-foot-links\{/.test(bridgeCss))
+  ok('shared tool shell styles live in the bridge');
+else fail('bridge has no shared .sv-nav / .sv-foot-links rules');
+for(const f of toolPages){
+  const s=fs.readFileSync(path.join(RES,f),'utf8');
+  if(/<nav class="sv-nav" aria-label="Primary">/.test(s)&&/<footer[^>]*>[\s\S]*?sv-foot-links/.test(s)) ok(f + ': shared nav and footer present');
+  else fail(f + ': shared nav or footer missing');
+}
+
+console.log('\n[11] Logic First on-accent alignment');
+const nxOn = [...logicFav.matchAll(/--nx-on\s*:\s*([^;}]+)/g)].map(m=>m[1].trim());
+if(nxOn.length>=5 && nxOn.every(v=>v==='var(--on-accent)')) ok('Logic First on-accent resolves to the kit token in every theme');
+else fail('Logic First still defines its own on-accent: ' + nxOn.join(', '));
+if(!/--on-accent\s*:\s*var\(--nx-on\)/.test(logicFav)) ok('Logic First no longer aliases the kit on-accent token back to itself');
+else fail('Logic First still creates a circular on-accent alias');
+if(!/background:var\(--nx-a1\);\s*color:var\(--nx-bg\)/.test(logicFav)) ok('accent-filled bank controls use on-accent text');
+else fail('accent-filled bank controls still use page-background text');
+
+if(/\.btn\.active\{color:var\(--ink\)/.test(logicFav)&&/\.btn\.t[1-4]\.active[^{]*\{[^}]*color:var\(--on-accent\)/.test(logicFav))
+  ok('Logic First active buttons keep legible text on plain and tier fills');
+else fail('Logic First active buttons still use page-background text');
+
 console.log(failures ? '\n' + failures + ' FAILURE(S)\n' : '\nALL GREEN\n');
 process.exit(failures ? 1 : 0);
