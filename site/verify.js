@@ -246,5 +246,10 @@ if(/\.btn\.active\{color:var\(--ink\)/.test(logicFav)&&/\.btn\.t[1-4]\.active[^{
   ok('Logic First active buttons keep legible text on plain and tier fills');
 else fail('Logic First active buttons still use page-background text');
 
+if([1,2,3,4].every(n=>new RegExp('\\.pill\\.t'+n+'\\{[^}]*color:var\\(--t'+n+'\\)').test(logicFav)) &&
+   /html\[data-mode="light"\]\{[^}]*--t3:#[0-9a-f]{6}/.test(logicFav))
+  ok('Logic First tier pills keep tier labels with a contrast-safe light t3');
+else fail('Logic First tier pills lost tier colours or light t3 is still a bright accent');
+
 console.log(failures ? '\n' + failures + ' FAILURE(S)\n' : '\nALL GREEN\n');
 process.exit(failures ? 1 : 0);
